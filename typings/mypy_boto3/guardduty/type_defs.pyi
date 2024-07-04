@@ -38,6 +38,8 @@ from .literals import (
     FreeTrialFeatureResultType,
     IpSetFormatType,
     IpSetStatusType,
+    MalwareProtectionPlanStatusType,
+    MalwareProtectionPlanTaggingActionStatusType,
     ManagementTypeType,
     OrderByType,
     OrgFeatureAdditionalConfigurationType,
@@ -107,10 +109,14 @@ __all__ = (
     "CreateFilterResponseTypeDef",
     "CreateIPSetRequestRequestTypeDef",
     "CreateIPSetResponseTypeDef",
+    "CreateMalwareProtectionPlanRequestRequestTypeDef",
+    "CreateMalwareProtectionPlanResponseTypeDef",
     "CreateMembersRequestRequestTypeDef",
     "CreateMembersResponseTypeDef",
+    "CreateProtectedResourceTypeDef",
     "CreatePublishingDestinationRequestRequestTypeDef",
     "CreatePublishingDestinationResponseTypeDef",
+    "CreateS3BucketResourceTypeDef",
     "CreateSampleFindingsRequestRequestTypeDef",
     "CreateThreatIntelSetRequestRequestTypeDef",
     "CreateThreatIntelSetResponseTypeDef",
@@ -127,6 +133,7 @@ __all__ = (
     "DeleteIPSetRequestRequestTypeDef",
     "DeleteInvitationsRequestRequestTypeDef",
     "DeleteInvitationsResponseTypeDef",
+    "DeleteMalwareProtectionPlanRequestRequestTypeDef",
     "DeleteMembersRequestRequestTypeDef",
     "DeleteMembersResponseTypeDef",
     "DeletePublishingDestinationRequestRequestTypeDef",
@@ -184,6 +191,8 @@ __all__ = (
     "GetIPSetRequestRequestTypeDef",
     "GetIPSetResponseTypeDef",
     "GetInvitationsCountResponseTypeDef",
+    "GetMalwareProtectionPlanRequestRequestTypeDef",
+    "GetMalwareProtectionPlanResponseTypeDef",
     "GetMalwareScanSettingsRequestRequestTypeDef",
     "GetMalwareScanSettingsResponseTypeDef",
     "GetMasterAccountRequestRequestTypeDef",
@@ -207,6 +216,7 @@ __all__ = (
     "InvitationTypeDef",
     "InviteMembersRequestRequestTypeDef",
     "InviteMembersResponseTypeDef",
+    "ItemPathTypeDef",
     "KubernetesApiCallActionTypeDef",
     "KubernetesAuditLogsConfigurationResultTypeDef",
     "KubernetesAuditLogsConfigurationTypeDef",
@@ -233,6 +243,8 @@ __all__ = (
     "ListIPSetsResponseTypeDef",
     "ListInvitationsRequestRequestTypeDef",
     "ListInvitationsResponseTypeDef",
+    "ListMalwareProtectionPlansRequestRequestTypeDef",
+    "ListMalwareProtectionPlansResponseTypeDef",
     "ListMembersRequestRequestTypeDef",
     "ListMembersResponseTypeDef",
     "ListOrganizationAdminAccountsRequestRequestTypeDef",
@@ -249,6 +261,11 @@ __all__ = (
     "MalwareProtectionConfigurationResultTypeDef",
     "MalwareProtectionConfigurationTypeDef",
     "MalwareProtectionDataSourceFreeTrialTypeDef",
+    "MalwareProtectionPlanActionsTypeDef",
+    "MalwareProtectionPlanStatusReasonTypeDef",
+    "MalwareProtectionPlanSummaryTypeDef",
+    "MalwareProtectionPlanTaggingActionTypeDef",
+    "MalwareScanDetailsTypeDef",
     "MasterTypeDef",
     "MemberAdditionalConfigurationResultTypeDef",
     "MemberAdditionalConfigurationTypeDef",
@@ -305,6 +322,7 @@ __all__ = (
     "S3BucketDetailTypeDef",
     "S3LogsConfigurationResultTypeDef",
     "S3LogsConfigurationTypeDef",
+    "S3ObjectDetailTypeDef",
     "ScanConditionPairTypeDef",
     "ScanConditionTypeDef",
     "ScanDetectionsTypeDef",
@@ -331,6 +349,7 @@ __all__ = (
     "TagTypeDef",
     "ThreatDetectedByNameTypeDef",
     "ThreatIntelligenceDetailTypeDef",
+    "ThreatTypeDef",
     "ThreatsDetectedItemCountTypeDef",
     "TotalTypeDef",
     "TriggerDetailsTypeDef",
@@ -343,11 +362,14 @@ __all__ = (
     "UpdateFilterResponseTypeDef",
     "UpdateFindingsFeedbackRequestRequestTypeDef",
     "UpdateIPSetRequestRequestTypeDef",
+    "UpdateMalwareProtectionPlanRequestRequestTypeDef",
     "UpdateMalwareScanSettingsRequestRequestTypeDef",
     "UpdateMemberDetectorsRequestRequestTypeDef",
     "UpdateMemberDetectorsResponseTypeDef",
     "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateProtectedResourceTypeDef",
     "UpdatePublishingDestinationRequestRequestTypeDef",
+    "UpdateS3BucketResourceTypeDef",
     "UpdateThreatIntelSetRequestRequestTypeDef",
     "UsageAccountResultTypeDef",
     "UsageCriteriaTypeDef",
@@ -828,6 +850,37 @@ CreateIPSetResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "Role": str,
+        "ProtectedResource": "CreateProtectedResourceTypeDef",
+    },
+)
+_OptionalCreateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Actions": "MalwareProtectionPlanActionsTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateMalwareProtectionPlanRequestRequestTypeDef(
+    _RequiredCreateMalwareProtectionPlanRequestRequestTypeDef,
+    _OptionalCreateMalwareProtectionPlanRequestRequestTypeDef,
+):
+    pass
+
+CreateMalwareProtectionPlanResponseTypeDef = TypedDict(
+    "CreateMalwareProtectionPlanResponseTypeDef",
+    {
+        "MalwareProtectionPlanId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateMembersRequestRequestTypeDef = TypedDict(
     "CreateMembersRequestRequestTypeDef",
     {
@@ -842,6 +895,14 @@ CreateMembersResponseTypeDef = TypedDict(
         "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CreateProtectedResourceTypeDef = TypedDict(
+    "CreateProtectedResourceTypeDef",
+    {
+        "S3Bucket": "CreateS3BucketResourceTypeDef",
+    },
+    total=False,
 )
 
 _RequiredCreatePublishingDestinationRequestRequestTypeDef = TypedDict(
@@ -872,6 +933,15 @@ CreatePublishingDestinationResponseTypeDef = TypedDict(
         "DestinationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CreateS3BucketResourceTypeDef = TypedDict(
+    "CreateS3BucketResourceTypeDef",
+    {
+        "BucketName": str,
+        "ObjectPrefixes": List[str],
+    },
+    total=False,
 )
 
 _RequiredCreateSampleFindingsRequestRequestTypeDef = TypedDict(
@@ -1047,6 +1117,13 @@ DeleteInvitationsResponseTypeDef = TypedDict(
     {
         "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "DeleteMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "MalwareProtectionPlanId": str,
     },
 )
 
@@ -1661,6 +1738,28 @@ GetInvitationsCountResponseTypeDef = TypedDict(
     },
 )
 
+GetMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "GetMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "MalwareProtectionPlanId": str,
+    },
+)
+
+GetMalwareProtectionPlanResponseTypeDef = TypedDict(
+    "GetMalwareProtectionPlanResponseTypeDef",
+    {
+        "Arn": str,
+        "Role": str,
+        "ProtectedResource": "CreateProtectedResourceTypeDef",
+        "Actions": "MalwareProtectionPlanActionsTypeDef",
+        "CreatedAt": datetime,
+        "Status": MalwareProtectionPlanStatusType,
+        "StatusReasons": List["MalwareProtectionPlanStatusReasonTypeDef"],
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetMalwareScanSettingsRequestRequestTypeDef = TypedDict(
     "GetMalwareScanSettingsRequestRequestTypeDef",
     {
@@ -1910,6 +2009,15 @@ InviteMembersResponseTypeDef = TypedDict(
         "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ItemPathTypeDef = TypedDict(
+    "ItemPathTypeDef",
+    {
+        "NestedItemPath": str,
+        "Hash": str,
+    },
+    total=False,
 )
 
 KubernetesApiCallActionTypeDef = TypedDict(
@@ -2225,6 +2333,23 @@ ListInvitationsResponseTypeDef = TypedDict(
     },
 )
 
+ListMalwareProtectionPlansRequestRequestTypeDef = TypedDict(
+    "ListMalwareProtectionPlansRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListMalwareProtectionPlansResponseTypeDef = TypedDict(
+    "ListMalwareProtectionPlansResponseTypeDef",
+    {
+        "MalwareProtectionPlans": List["MalwareProtectionPlanSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListMembersRequestRequestTypeDef = TypedDict(
     "_RequiredListMembersRequestRequestTypeDef",
     {
@@ -2398,6 +2523,47 @@ MalwareProtectionDataSourceFreeTrialTypeDef = TypedDict(
     "MalwareProtectionDataSourceFreeTrialTypeDef",
     {
         "ScanEc2InstanceWithFindings": "DataSourceFreeTrialTypeDef",
+    },
+    total=False,
+)
+
+MalwareProtectionPlanActionsTypeDef = TypedDict(
+    "MalwareProtectionPlanActionsTypeDef",
+    {
+        "Tagging": "MalwareProtectionPlanTaggingActionTypeDef",
+    },
+    total=False,
+)
+
+MalwareProtectionPlanStatusReasonTypeDef = TypedDict(
+    "MalwareProtectionPlanStatusReasonTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+MalwareProtectionPlanSummaryTypeDef = TypedDict(
+    "MalwareProtectionPlanSummaryTypeDef",
+    {
+        "MalwareProtectionPlanId": str,
+    },
+    total=False,
+)
+
+MalwareProtectionPlanTaggingActionTypeDef = TypedDict(
+    "MalwareProtectionPlanTaggingActionTypeDef",
+    {
+        "Status": MalwareProtectionPlanTaggingActionStatusType,
+    },
+    total=False,
+)
+
+MalwareScanDetailsTypeDef = TypedDict(
+    "MalwareScanDetailsTypeDef",
+    {
+        "Threats": List["ThreatTypeDef"],
     },
     total=False,
 )
@@ -2995,6 +3161,7 @@ S3BucketDetailTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "DefaultServerSideEncryption": "DefaultServerSideEncryptionTypeDef",
         "PublicAccess": "PublicAccessTypeDef",
+        "S3ObjectDetails": List["S3ObjectDetailTypeDef"],
     },
     total=False,
 )
@@ -3011,6 +3178,18 @@ S3LogsConfigurationTypeDef = TypedDict(
     {
         "Enable": bool,
     },
+)
+
+S3ObjectDetailTypeDef = TypedDict(
+    "S3ObjectDetailTypeDef",
+    {
+        "ObjectArn": str,
+        "Key": str,
+        "ETag": str,
+        "Hash": str,
+        "VersionId": str,
+    },
+    total=False,
 )
 
 _RequiredScanConditionPairTypeDef = TypedDict(
@@ -3182,6 +3361,7 @@ ServiceTypeDef = TypedDict(
         "EbsVolumeScanDetails": "EbsVolumeScanDetailsTypeDef",
         "RuntimeDetails": "RuntimeDetailsTypeDef",
         "Detection": "DetectionTypeDef",
+        "MalwareScanDetails": "MalwareScanDetailsTypeDef",
     },
     total=False,
 )
@@ -3276,6 +3456,16 @@ ThreatIntelligenceDetailTypeDef = TypedDict(
         "ThreatListName": str,
         "ThreatNames": List[str],
         "ThreatFileSha256": str,
+    },
+    total=False,
+)
+
+ThreatTypeDef = TypedDict(
+    "ThreatTypeDef",
+    {
+        "Name": str,
+        "Source": str,
+        "ItemPaths": List["ItemPathTypeDef"],
     },
     total=False,
 )
@@ -3435,6 +3625,28 @@ class UpdateIPSetRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "MalwareProtectionPlanId": str,
+    },
+)
+_OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef",
+    {
+        "Role": str,
+        "Actions": "MalwareProtectionPlanActionsTypeDef",
+        "ProtectedResource": "UpdateProtectedResourceTypeDef",
+    },
+    total=False,
+)
+
+class UpdateMalwareProtectionPlanRequestRequestTypeDef(
+    _RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef,
+    _OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef,
+):
+    pass
+
 _RequiredUpdateMalwareScanSettingsRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateMalwareScanSettingsRequestRequestTypeDef",
     {
@@ -3509,6 +3721,14 @@ class UpdateOrganizationConfigurationRequestRequestTypeDef(
 ):
     pass
 
+UpdateProtectedResourceTypeDef = TypedDict(
+    "UpdateProtectedResourceTypeDef",
+    {
+        "S3Bucket": "UpdateS3BucketResourceTypeDef",
+    },
+    total=False,
+)
+
 _RequiredUpdatePublishingDestinationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdatePublishingDestinationRequestRequestTypeDef",
     {
@@ -3529,6 +3749,14 @@ class UpdatePublishingDestinationRequestRequestTypeDef(
     _OptionalUpdatePublishingDestinationRequestRequestTypeDef,
 ):
     pass
+
+UpdateS3BucketResourceTypeDef = TypedDict(
+    "UpdateS3BucketResourceTypeDef",
+    {
+        "ObjectPrefixes": List[str],
+    },
+    total=False,
+)
 
 _RequiredUpdateThreatIntelSetRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateThreatIntelSetRequestRequestTypeDef",

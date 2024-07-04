@@ -23,6 +23,7 @@ __all__ = (
     "ChangeProgressStageStatusesType",
     "ChangeProgressStatusesType",
     "PipelineStatusType",
+    "VpcEndpointManagementType",
     "VpcEndpointServiceNameType",
 )
 
@@ -40,4 +41,5 @@ PipelineStatusType = Literal[
     "UPDATE_FAILED",
     "UPDATING",
 ]
+VpcEndpointManagementType = Literal["CUSTOMER", "SERVICE"]
 VpcEndpointServiceNameType = Literal["OPENSEARCH_SERVERLESS"]

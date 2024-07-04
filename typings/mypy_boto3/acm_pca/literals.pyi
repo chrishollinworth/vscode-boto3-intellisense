@@ -69,9 +69,9 @@ ExtendedKeyUsageTypeType = Literal[
     "TIME_STAMPING",
 ]
 FailureReasonType = Literal["OTHER", "REQUEST_TIMED_OUT", "UNSUPPORTED_ALGORITHM"]
-KeyAlgorithmType = Literal["EC_prime256v1", "EC_secp384r1", "RSA_2048", "RSA_4096"]
+KeyAlgorithmType = Literal["EC_prime256v1", "EC_secp384r1", "RSA_2048", "RSA_4096", "SM2"]
 KeyStorageSecurityStandardType = Literal[
-    "FIPS_140_2_LEVEL_2_OR_HIGHER", "FIPS_140_2_LEVEL_3_OR_HIGHER"
+    "CCPC_LEVEL_1_OR_HIGHER", "FIPS_140_2_LEVEL_2_OR_HIGHER", "FIPS_140_2_LEVEL_3_OR_HIGHER"
 ]
 ListCertificateAuthoritiesPaginatorName = Literal["list_certificate_authorities"]
 ListPermissionsPaginatorName = Literal["list_permissions"]
@@ -96,5 +96,6 @@ SigningAlgorithmType = Literal[
     "SHA384WITHRSA",
     "SHA512WITHECDSA",
     "SHA512WITHRSA",
+    "SM3WITHSM2",
 ]
 ValidityPeriodTypeType = Literal["ABSOLUTE", "DAYS", "END_DATE", "MONTHS", "YEARS"]

@@ -85,7 +85,7 @@ class Exceptions:
 
 class VoiceIDClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html)
     """
 
@@ -103,7 +103,7 @@ class VoiceIDClient(BaseClient):
         """
         Associates the fraudsters with the watchlist specified in the same domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.associate_fraudster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.associate_fraudster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#associate_fraudster)
         """
 
@@ -111,7 +111,7 @@ class VoiceIDClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#can_paginate)
         """
 
@@ -119,7 +119,7 @@ class VoiceIDClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#close)
         """
 
@@ -136,7 +136,7 @@ class VoiceIDClient(BaseClient):
         Creates a domain that contains all Amazon Connect Voice ID data, such as
         speakers, fraudsters, customer audio, and voiceprints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#create_domain)
         """
 
@@ -146,7 +146,7 @@ class VoiceIDClient(BaseClient):
         """
         Creates a watchlist that fraudsters can be a part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.create_watchlist)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.create_watchlist)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#create_watchlist)
         """
 
@@ -154,7 +154,7 @@ class VoiceIDClient(BaseClient):
         """
         Deletes the specified domain from Voice ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#delete_domain)
         """
 
@@ -162,7 +162,7 @@ class VoiceIDClient(BaseClient):
         """
         Deletes the specified fraudster from Voice ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.delete_fraudster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.delete_fraudster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#delete_fraudster)
         """
 
@@ -170,7 +170,7 @@ class VoiceIDClient(BaseClient):
         """
         Deletes the specified speaker from Voice ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.delete_speaker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.delete_speaker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#delete_speaker)
         """
 
@@ -178,7 +178,7 @@ class VoiceIDClient(BaseClient):
         """
         Deletes the specified watchlist from Voice ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.delete_watchlist)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.delete_watchlist)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#delete_watchlist)
         """
 
@@ -186,7 +186,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_domain)
         """
 
@@ -196,7 +196,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified fraudster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_fraudster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_fraudster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_fraudster)
         """
 
@@ -206,7 +206,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified fraudster registration job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_fraudster_registration_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_fraudster_registration_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_fraudster_registration_job)
         """
 
@@ -214,7 +214,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified speaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_speaker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_speaker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_speaker)
         """
 
@@ -224,7 +224,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified speaker enrollment job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_speaker_enrollment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_speaker_enrollment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_speaker_enrollment_job)
         """
 
@@ -234,7 +234,7 @@ class VoiceIDClient(BaseClient):
         """
         Describes the specified watchlist.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.describe_watchlist)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.describe_watchlist)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#describe_watchlist)
         """
 
@@ -244,7 +244,7 @@ class VoiceIDClient(BaseClient):
         """
         Disassociates the fraudsters from the watchlist specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.disassociate_fraudster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.disassociate_fraudster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#disassociate_fraudster)
         """
 
@@ -255,7 +255,7 @@ class VoiceIDClient(BaseClient):
         Evaluates a specified session based on audio data accumulated during a streaming
         Amazon Connect Voice ID call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.evaluate_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.evaluate_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#evaluate_session)
         """
 
@@ -269,7 +269,7 @@ class VoiceIDClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#generate_presigned_url)
         """
 
@@ -279,7 +279,7 @@ class VoiceIDClient(BaseClient):
         """
         Lists all the domains in the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_domains)
         """
 
@@ -295,7 +295,7 @@ class VoiceIDClient(BaseClient):
         Lists all the fraudster registration jobs in the domain with the given
         `JobStatus`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_fraudster_registration_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_fraudster_registration_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_fraudster_registration_jobs)
         """
 
@@ -310,7 +310,7 @@ class VoiceIDClient(BaseClient):
         """
         Lists all fraudsters in a specified watchlist or domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_fraudsters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_fraudsters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_fraudsters)
         """
 
@@ -326,7 +326,7 @@ class VoiceIDClient(BaseClient):
         Lists all the speaker enrollment jobs in the domain with the specified
         `JobStatus`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_speaker_enrollment_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_speaker_enrollment_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_speaker_enrollment_jobs)
         """
 
@@ -336,7 +336,7 @@ class VoiceIDClient(BaseClient):
         """
         Lists all speakers in a specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_speakers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_speakers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_speakers)
         """
 
@@ -344,7 +344,7 @@ class VoiceIDClient(BaseClient):
         """
         Lists all tags associated with a specified Voice ID resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_tags_for_resource)
         """
 
@@ -354,7 +354,7 @@ class VoiceIDClient(BaseClient):
         """
         Lists all watchlists in a specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.list_watchlists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.list_watchlists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#list_watchlists)
         """
 
@@ -362,7 +362,7 @@ class VoiceIDClient(BaseClient):
         """
         Opts out a speaker from Voice ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.opt_out_speaker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.opt_out_speaker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#opt_out_speaker)
         """
 
@@ -380,7 +380,7 @@ class VoiceIDClient(BaseClient):
         """
         Starts a new batch fraudster registration job using provided details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.start_fraudster_registration_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.start_fraudster_registration_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#start_fraudster_registration_job)
         """
 
@@ -398,7 +398,7 @@ class VoiceIDClient(BaseClient):
         """
         Starts a new batch speaker enrollment job using specified details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.start_speaker_enrollment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.start_speaker_enrollment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#start_speaker_enrollment_job)
         """
 
@@ -406,7 +406,7 @@ class VoiceIDClient(BaseClient):
         """
         Tags a Voice ID resource with the provided list of tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#tag_resource)
         """
 
@@ -414,7 +414,7 @@ class VoiceIDClient(BaseClient):
         """
         Removes specified tags from a specified Amazon Connect Voice ID resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#untag_resource)
         """
 
@@ -429,7 +429,7 @@ class VoiceIDClient(BaseClient):
         """
         Updates the specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.update_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.update_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#update_domain)
         """
 
@@ -439,14 +439,14 @@ class VoiceIDClient(BaseClient):
         """
         Updates the specified watchlist.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Client.update_watchlist)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Client.update_watchlist)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/client.html#update_watchlist)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listdomainspaginator)
         """
 
@@ -455,14 +455,14 @@ class VoiceIDClient(BaseClient):
         self, operation_name: Literal["list_fraudster_registration_jobs"]
     ) -> ListFraudsterRegistrationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsterRegistrationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsterRegistrationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterregistrationjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_fraudsters"]) -> ListFraudstersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterspaginator)
         """
 
@@ -471,20 +471,20 @@ class VoiceIDClient(BaseClient):
         self, operation_name: Literal["list_speaker_enrollment_jobs"]
     ) -> ListSpeakerEnrollmentJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerenrollmentjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_speakers"]) -> ListSpeakersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_watchlists"]) -> ListWatchlistsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/voice-id.html#VoiceID.Paginator.ListWatchlists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListWatchlists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listwatchlistspaginator)
         """

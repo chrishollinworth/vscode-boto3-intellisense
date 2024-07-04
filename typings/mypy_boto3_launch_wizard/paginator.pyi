@@ -47,7 +47,7 @@ __all__ = (
 
 class ListDeploymentEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymenteventspaginator)
     """
 
@@ -55,13 +55,13 @@ class ListDeploymentEventsPaginator(Boto3Paginator):
         self, *, deploymentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentEventsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeploymentEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymenteventspaginator)
         """
 
 class ListDeploymentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymentspaginator)
     """
 
@@ -72,13 +72,13 @@ class ListDeploymentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListDeployments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listdeploymentspaginator)
         """
 
 class ListWorkloadDeploymentPatternsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloaddeploymentpatternspaginator)
     """
 
@@ -86,13 +86,13 @@ class ListWorkloadDeploymentPatternsPaginator(Boto3Paginator):
         self, *, workloadName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkloadDeploymentPatternsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloadDeploymentPatterns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloaddeploymentpatternspaginator)
         """
 
 class ListWorkloadsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloadspaginator)
     """
 
@@ -100,6 +100,6 @@ class ListWorkloadsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkloadsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/launch-wizard.html#LaunchWizard.Paginator.ListWorkloads.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/paginators.html#listworkloadspaginator)
         """

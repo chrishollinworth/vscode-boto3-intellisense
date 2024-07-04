@@ -38,6 +38,7 @@ __all__ = (
     "ComputeConfigurationTypeDef",
     "ComputeSavingsPlansConfigurationTypeDef",
     "ComputeSavingsPlansTypeDef",
+    "DbInstanceConfigurationTypeDef",
     "EbsVolumeConfigurationTypeDef",
     "EbsVolumeTypeDef",
     "Ec2AutoScalingGroupConfigurationTypeDef",
@@ -70,6 +71,10 @@ __all__ = (
     "OpenSearchReservedInstancesTypeDef",
     "OrderByTypeDef",
     "PaginatorConfigTypeDef",
+    "RdsDbInstanceConfigurationTypeDef",
+    "RdsDbInstanceStorageConfigurationTypeDef",
+    "RdsDbInstanceStorageTypeDef",
+    "RdsDbInstanceTypeDef",
     "RdsReservedInstancesConfigurationTypeDef",
     "RdsReservedInstancesTypeDef",
     "RecommendationSummaryTypeDef",
@@ -99,9 +104,9 @@ AccountEnrollmentStatusTypeDef = TypedDict(
     "AccountEnrollmentStatusTypeDef",
     {
         "accountId": str,
-        "createdTimestamp": datetime,
-        "lastUpdatedTimestamp": datetime,
         "status": EnrollmentStatusType,
+        "lastUpdatedTimestamp": datetime,
+        "createdTimestamp": datetime,
     },
     total=False,
 )
@@ -118,10 +123,10 @@ BlockStoragePerformanceConfigurationTypeDef = TypedDict(
 ComputeConfigurationTypeDef = TypedDict(
     "ComputeConfigurationTypeDef",
     {
-        "architecture": str,
-        "memorySizeInMB": int,
-        "platform": str,
         "vCpu": float,
+        "memorySizeInMB": int,
+        "architecture": str,
+        "platform": str,
     },
     total=False,
 )
@@ -130,9 +135,9 @@ ComputeSavingsPlansConfigurationTypeDef = TypedDict(
     "ComputeSavingsPlansConfigurationTypeDef",
     {
         "accountScope": str,
-        "hourlyCommitment": str,
-        "paymentOption": str,
         "term": str,
+        "paymentOption": str,
+        "hourlyCommitment": str,
     },
     total=False,
 )
@@ -146,12 +151,20 @@ ComputeSavingsPlansTypeDef = TypedDict(
     total=False,
 )
 
+DbInstanceConfigurationTypeDef = TypedDict(
+    "DbInstanceConfigurationTypeDef",
+    {
+        "dbInstanceClass": str,
+    },
+    total=False,
+)
+
 EbsVolumeConfigurationTypeDef = TypedDict(
     "EbsVolumeConfigurationTypeDef",
     {
-        "attachmentState": str,
-        "performance": "BlockStoragePerformanceConfigurationTypeDef",
         "storage": "StorageConfigurationTypeDef",
+        "performance": "BlockStoragePerformanceConfigurationTypeDef",
+        "attachmentState": str,
     },
     total=False,
 )
@@ -194,11 +207,11 @@ Ec2InstanceSavingsPlansConfigurationTypeDef = TypedDict(
     "Ec2InstanceSavingsPlansConfigurationTypeDef",
     {
         "accountScope": str,
+        "term": str,
+        "paymentOption": str,
         "hourlyCommitment": str,
         "instanceFamily": str,
-        "paymentOption": str,
         "savingsPlansRegion": str,
-        "term": str,
     },
     total=False,
 )
@@ -225,21 +238,21 @@ Ec2ReservedInstancesConfigurationTypeDef = TypedDict(
     "Ec2ReservedInstancesConfigurationTypeDef",
     {
         "accountScope": str,
-        "currentGeneration": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "monthlyRecurringCost": str,
+        "service": str,
         "normalizedUnitsToPurchase": str,
+        "term": str,
+        "paymentOption": str,
         "numberOfInstancesToPurchase": str,
         "offeringClass": str,
-        "paymentOption": str,
-        "platform": str,
+        "instanceFamily": str,
+        "instanceType": str,
         "reservedInstancesRegion": str,
-        "service": str,
-        "sizeFlexEligible": bool,
+        "currentGeneration": str,
+        "platform": str,
         "tenancy": str,
-        "term": str,
+        "sizeFlexEligible": bool,
         "upfrontCost": str,
+        "monthlyRecurringCost": str,
     },
     total=False,
 )
@@ -274,18 +287,18 @@ ElastiCacheReservedInstancesConfigurationTypeDef = TypedDict(
     "ElastiCacheReservedInstancesConfigurationTypeDef",
     {
         "accountScope": str,
-        "currentGeneration": str,
+        "service": str,
+        "normalizedUnitsToPurchase": str,
+        "term": str,
+        "paymentOption": str,
+        "numberOfInstancesToPurchase": str,
         "instanceFamily": str,
         "instanceType": str,
-        "monthlyRecurringCost": str,
-        "normalizedUnitsToPurchase": str,
-        "numberOfInstancesToPurchase": str,
-        "paymentOption": str,
         "reservedInstancesRegion": str,
-        "service": str,
+        "currentGeneration": str,
         "sizeFlexEligible": bool,
-        "term": str,
         "upfrontCost": str,
+        "monthlyRecurringCost": str,
     },
     total=False,
 )
@@ -302,9 +315,9 @@ ElastiCacheReservedInstancesTypeDef = TypedDict(
 EstimatedDiscountsTypeDef = TypedDict(
     "EstimatedDiscountsTypeDef",
     {
-        "otherDiscount": float,
-        "reservedInstancesDiscount": float,
         "savingsPlansDiscount": float,
+        "reservedInstancesDiscount": float,
+        "otherDiscount": float,
     },
     total=False,
 )
@@ -312,17 +325,17 @@ EstimatedDiscountsTypeDef = TypedDict(
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
-        "accountIds": List[str],
-        "actionTypes": List[ActionTypeType],
-        "implementationEfforts": List[ImplementationEffortType],
-        "recommendationIds": List[str],
-        "regions": List[str],
-        "resourceArns": List[str],
-        "resourceIds": List[str],
-        "resourceTypes": List[ResourceTypeType],
         "restartNeeded": bool,
         "rollbackPossible": bool,
+        "implementationEfforts": List[ImplementationEffortType],
+        "accountIds": List[str],
+        "regions": List[str],
+        "resourceTypes": List[ResourceTypeType],
+        "actionTypes": List[ActionTypeType],
         "tags": List["TagTypeDef"],
+        "resourceIds": List[str],
+        "resourceArns": List[str],
+        "recommendationIds": List[str],
     },
     total=False,
 )
@@ -330,8 +343,8 @@ FilterTypeDef = TypedDict(
 GetPreferencesResponseTypeDef = TypedDict(
     "GetPreferencesResponseTypeDef",
     {
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
         "savingsEstimationMode": SavingsEstimationModeType,
+        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -346,28 +359,28 @@ GetRecommendationRequestRequestTypeDef = TypedDict(
 GetRecommendationResponseTypeDef = TypedDict(
     "GetRecommendationResponseTypeDef",
     {
-        "accountId": str,
-        "actionType": ActionTypeType,
-        "costCalculationLookbackPeriodInDays": int,
-        "currencyCode": str,
-        "currentResourceDetails": "ResourceDetailsTypeDef",
-        "currentResourceType": ResourceTypeType,
-        "estimatedMonthlyCost": float,
-        "estimatedMonthlySavings": float,
-        "estimatedSavingsOverCostCalculationLookbackPeriod": float,
-        "estimatedSavingsPercentage": float,
-        "implementationEffort": ImplementationEffortType,
-        "lastRefreshTimestamp": datetime,
         "recommendationId": str,
+        "resourceId": str,
+        "resourceArn": str,
+        "accountId": str,
+        "currencyCode": str,
         "recommendationLookbackPeriodInDays": int,
-        "recommendedResourceDetails": "ResourceDetailsTypeDef",
+        "costCalculationLookbackPeriodInDays": int,
+        "estimatedSavingsPercentage": float,
+        "estimatedSavingsOverCostCalculationLookbackPeriod": float,
+        "currentResourceType": ResourceTypeType,
         "recommendedResourceType": ResourceTypeType,
         "region": str,
-        "resourceArn": str,
-        "resourceId": str,
-        "restartNeeded": bool,
-        "rollbackPossible": bool,
         "source": SourceType,
+        "lastRefreshTimestamp": datetime,
+        "estimatedMonthlySavings": float,
+        "estimatedMonthlyCost": float,
+        "implementationEffort": ImplementationEffortType,
+        "restartNeeded": bool,
+        "actionType": ActionTypeType,
+        "rollbackPossible": bool,
+        "currentResourceDetails": "ResourceDetailsTypeDef",
+        "recommendedResourceDetails": "ResourceDetailsTypeDef",
         "tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -401,10 +414,10 @@ LambdaFunctionTypeDef = TypedDict(
 ListEnrollmentStatusesRequestRequestTypeDef = TypedDict(
     "ListEnrollmentStatusesRequestRequestTypeDef",
     {
-        "accountId": str,
         "includeOrganizationInfo": bool,
-        "maxResults": int,
+        "accountId": str,
         "nextToken": str,
+        "maxResults": int,
     },
     total=False,
 )
@@ -412,8 +425,8 @@ ListEnrollmentStatusesRequestRequestTypeDef = TypedDict(
 ListEnrollmentStatusesResponseTypeDef = TypedDict(
     "ListEnrollmentStatusesResponseTypeDef",
     {
-        "includeMemberAccounts": bool,
         "items": List["AccountEnrollmentStatusTypeDef"],
+        "includeMemberAccounts": bool,
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -444,10 +457,10 @@ class ListRecommendationSummariesRequestRequestTypeDef(
 ListRecommendationSummariesResponseTypeDef = TypedDict(
     "ListRecommendationSummariesResponseTypeDef",
     {
-        "currencyCode": str,
         "estimatedTotalDedupedSavings": float,
-        "groupBy": str,
         "items": List["RecommendationSummaryTypeDef"],
+        "groupBy": str,
+        "currencyCode": str,
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -457,10 +470,10 @@ ListRecommendationsRequestRequestTypeDef = TypedDict(
     "ListRecommendationsRequestRequestTypeDef",
     {
         "filter": "FilterTypeDef",
+        "orderBy": "OrderByTypeDef",
         "includeAllRecommendations": bool,
         "maxResults": int,
         "nextToken": str,
-        "orderBy": "OrderByTypeDef",
     },
     total=False,
 )
@@ -478,17 +491,17 @@ OpenSearchReservedInstancesConfigurationTypeDef = TypedDict(
     "OpenSearchReservedInstancesConfigurationTypeDef",
     {
         "accountScope": str,
-        "currentGeneration": str,
-        "instanceType": str,
-        "monthlyRecurringCost": str,
-        "normalizedUnitsToPurchase": str,
-        "numberOfInstancesToPurchase": str,
-        "paymentOption": str,
-        "reservedInstancesRegion": str,
         "service": str,
-        "sizeFlexEligible": bool,
+        "normalizedUnitsToPurchase": str,
         "term": str,
+        "paymentOption": str,
+        "numberOfInstancesToPurchase": str,
+        "instanceType": str,
+        "reservedInstancesRegion": str,
+        "currentGeneration": str,
+        "sizeFlexEligible": bool,
         "upfrontCost": str,
+        "monthlyRecurringCost": str,
     },
     total=False,
 )
@@ -521,26 +534,63 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+RdsDbInstanceConfigurationTypeDef = TypedDict(
+    "RdsDbInstanceConfigurationTypeDef",
+    {
+        "instance": "DbInstanceConfigurationTypeDef",
+    },
+    total=False,
+)
+
+RdsDbInstanceStorageConfigurationTypeDef = TypedDict(
+    "RdsDbInstanceStorageConfigurationTypeDef",
+    {
+        "storageType": str,
+        "allocatedStorageInGb": float,
+        "iops": float,
+        "storageThroughput": float,
+    },
+    total=False,
+)
+
+RdsDbInstanceStorageTypeDef = TypedDict(
+    "RdsDbInstanceStorageTypeDef",
+    {
+        "configuration": "RdsDbInstanceStorageConfigurationTypeDef",
+        "costCalculation": "ResourceCostCalculationTypeDef",
+    },
+    total=False,
+)
+
+RdsDbInstanceTypeDef = TypedDict(
+    "RdsDbInstanceTypeDef",
+    {
+        "configuration": "RdsDbInstanceConfigurationTypeDef",
+        "costCalculation": "ResourceCostCalculationTypeDef",
+    },
+    total=False,
+)
+
 RdsReservedInstancesConfigurationTypeDef = TypedDict(
     "RdsReservedInstancesConfigurationTypeDef",
     {
         "accountScope": str,
+        "service": str,
+        "normalizedUnitsToPurchase": str,
+        "term": str,
+        "paymentOption": str,
+        "numberOfInstancesToPurchase": str,
+        "instanceFamily": str,
+        "instanceType": str,
+        "reservedInstancesRegion": str,
+        "sizeFlexEligible": bool,
         "currentGeneration": str,
+        "upfrontCost": str,
+        "monthlyRecurringCost": str,
+        "licenseModel": str,
         "databaseEdition": str,
         "databaseEngine": str,
         "deploymentOption": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "licenseModel": str,
-        "monthlyRecurringCost": str,
-        "normalizedUnitsToPurchase": str,
-        "numberOfInstancesToPurchase": str,
-        "paymentOption": str,
-        "reservedInstancesRegion": str,
-        "service": str,
-        "sizeFlexEligible": bool,
-        "term": str,
-        "upfrontCost": str,
     },
     total=False,
 )
@@ -557,8 +607,8 @@ RdsReservedInstancesTypeDef = TypedDict(
 RecommendationSummaryTypeDef = TypedDict(
     "RecommendationSummaryTypeDef",
     {
-        "estimatedMonthlySavings": float,
         "group": str,
+        "estimatedMonthlySavings": float,
         "recommendationCount": int,
     },
     total=False,
@@ -567,25 +617,25 @@ RecommendationSummaryTypeDef = TypedDict(
 RecommendationTypeDef = TypedDict(
     "RecommendationTypeDef",
     {
+        "recommendationId": str,
         "accountId": str,
-        "actionType": str,
-        "currencyCode": str,
-        "currentResourceSummary": str,
+        "region": str,
+        "resourceId": str,
+        "resourceArn": str,
         "currentResourceType": str,
-        "estimatedMonthlyCost": float,
+        "recommendedResourceType": str,
         "estimatedMonthlySavings": float,
         "estimatedSavingsPercentage": float,
+        "estimatedMonthlyCost": float,
+        "currencyCode": str,
         "implementationEffort": str,
-        "lastRefreshTimestamp": datetime,
-        "recommendationId": str,
-        "recommendationLookbackPeriodInDays": int,
-        "recommendedResourceSummary": str,
-        "recommendedResourceType": str,
-        "region": str,
-        "resourceArn": str,
-        "resourceId": str,
         "restartNeeded": bool,
+        "actionType": str,
         "rollbackPossible": bool,
+        "currentResourceSummary": str,
+        "recommendedResourceSummary": str,
+        "lastRefreshTimestamp": datetime,
+        "recommendationLookbackPeriodInDays": int,
         "source": SourceType,
         "tags": List["TagTypeDef"],
     },
@@ -596,18 +646,18 @@ RedshiftReservedInstancesConfigurationTypeDef = TypedDict(
     "RedshiftReservedInstancesConfigurationTypeDef",
     {
         "accountScope": str,
-        "currentGeneration": str,
+        "service": str,
+        "normalizedUnitsToPurchase": str,
+        "term": str,
+        "paymentOption": str,
+        "numberOfInstancesToPurchase": str,
         "instanceFamily": str,
         "instanceType": str,
-        "monthlyRecurringCost": str,
-        "normalizedUnitsToPurchase": str,
-        "numberOfInstancesToPurchase": str,
-        "paymentOption": str,
         "reservedInstancesRegion": str,
-        "service": str,
         "sizeFlexEligible": bool,
-        "term": str,
+        "currentGeneration": str,
         "upfrontCost": str,
+        "monthlyRecurringCost": str,
     },
     total=False,
 )
@@ -632,10 +682,10 @@ ReservedInstancesCostCalculationTypeDef = TypedDict(
 ReservedInstancesPricingTypeDef = TypedDict(
     "ReservedInstancesPricingTypeDef",
     {
-        "estimatedMonthlyAmortizedReservationCost": float,
         "estimatedOnDemandCost": float,
         "monthlyReservationEligibleCost": float,
         "savingsPercentage": float,
+        "estimatedMonthlyAmortizedReservationCost": float,
     },
     total=False,
 )
@@ -643,8 +693,8 @@ ReservedInstancesPricingTypeDef = TypedDict(
 ResourceCostCalculationTypeDef = TypedDict(
     "ResourceCostCalculationTypeDef",
     {
-        "pricing": "ResourcePricingTypeDef",
         "usages": List["UsageTypeDef"],
+        "pricing": "ResourcePricingTypeDef",
     },
     total=False,
 )
@@ -652,19 +702,21 @@ ResourceCostCalculationTypeDef = TypedDict(
 ResourceDetailsTypeDef = TypedDict(
     "ResourceDetailsTypeDef",
     {
-        "computeSavingsPlans": "ComputeSavingsPlansTypeDef",
+        "lambdaFunction": "LambdaFunctionTypeDef",
+        "ecsService": "EcsServiceTypeDef",
+        "ec2Instance": "Ec2InstanceTypeDef",
         "ebsVolume": "EbsVolumeTypeDef",
         "ec2AutoScalingGroup": "Ec2AutoScalingGroupTypeDef",
-        "ec2Instance": "Ec2InstanceTypeDef",
-        "ec2InstanceSavingsPlans": "Ec2InstanceSavingsPlansTypeDef",
         "ec2ReservedInstances": "Ec2ReservedInstancesTypeDef",
-        "ecsService": "EcsServiceTypeDef",
-        "elastiCacheReservedInstances": "ElastiCacheReservedInstancesTypeDef",
-        "lambdaFunction": "LambdaFunctionTypeDef",
-        "openSearchReservedInstances": "OpenSearchReservedInstancesTypeDef",
         "rdsReservedInstances": "RdsReservedInstancesTypeDef",
+        "elastiCacheReservedInstances": "ElastiCacheReservedInstancesTypeDef",
+        "openSearchReservedInstances": "OpenSearchReservedInstancesTypeDef",
         "redshiftReservedInstances": "RedshiftReservedInstancesTypeDef",
+        "ec2InstanceSavingsPlans": "Ec2InstanceSavingsPlansTypeDef",
+        "computeSavingsPlans": "ComputeSavingsPlansTypeDef",
         "sageMakerSavingsPlans": "SageMakerSavingsPlansTypeDef",
+        "rdsDbInstance": "RdsDbInstanceTypeDef",
+        "rdsDbInstanceStorage": "RdsDbInstanceStorageTypeDef",
     },
     total=False,
 )
@@ -672,10 +724,10 @@ ResourceDetailsTypeDef = TypedDict(
 ResourcePricingTypeDef = TypedDict(
     "ResourcePricingTypeDef",
     {
-        "estimatedCostAfterDiscounts": float,
         "estimatedCostBeforeDiscounts": float,
-        "estimatedDiscounts": "EstimatedDiscountsTypeDef",
         "estimatedNetUnusedAmortizedCommitments": float,
+        "estimatedDiscounts": "EstimatedDiscountsTypeDef",
+        "estimatedCostAfterDiscounts": float,
     },
     total=False,
 )
@@ -695,9 +747,9 @@ SageMakerSavingsPlansConfigurationTypeDef = TypedDict(
     "SageMakerSavingsPlansConfigurationTypeDef",
     {
         "accountScope": str,
-        "hourlyCommitment": str,
-        "paymentOption": str,
         "term": str,
+        "paymentOption": str,
+        "hourlyCommitment": str,
     },
     total=False,
 )
@@ -722,10 +774,10 @@ SavingsPlansCostCalculationTypeDef = TypedDict(
 SavingsPlansPricingTypeDef = TypedDict(
     "SavingsPlansPricingTypeDef",
     {
-        "estimatedMonthlyCommitment": float,
-        "estimatedOnDemandCost": float,
         "monthlySavingsPlansEligibleCost": float,
+        "estimatedMonthlyCommitment": float,
         "savingsPercentage": float,
+        "estimatedOnDemandCost": float,
     },
     total=False,
 )
@@ -733,8 +785,8 @@ SavingsPlansPricingTypeDef = TypedDict(
 StorageConfigurationTypeDef = TypedDict(
     "StorageConfigurationTypeDef",
     {
-        "sizeInGb": float,
         "type": str,
+        "sizeInGb": float,
     },
     total=False,
 )
@@ -779,8 +831,8 @@ UpdateEnrollmentStatusResponseTypeDef = TypedDict(
 UpdatePreferencesRequestRequestTypeDef = TypedDict(
     "UpdatePreferencesRequestRequestTypeDef",
     {
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
         "savingsEstimationMode": SavingsEstimationModeType,
+        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
     },
     total=False,
 )
@@ -788,8 +840,8 @@ UpdatePreferencesRequestRequestTypeDef = TypedDict(
 UpdatePreferencesResponseTypeDef = TypedDict(
     "UpdatePreferencesResponseTypeDef",
     {
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
         "savingsEstimationMode": SavingsEstimationModeType,
+        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -797,11 +849,11 @@ UpdatePreferencesResponseTypeDef = TypedDict(
 UsageTypeDef = TypedDict(
     "UsageTypeDef",
     {
+        "usageType": str,
+        "usageAmount": float,
         "operation": str,
         "productCode": str,
         "unit": str,
-        "usageAmount": float,
-        "usageType": str,
     },
     total=False,
 )

@@ -7,6 +7,7 @@ Usage::
     import boto3
     from mypy_boto3_location import (
         Client,
+        ForecastGeofenceEventsPaginator,
         GetDevicePositionHistoryPaginator,
         ListDevicePositionsPaginator,
         ListGeofenceCollectionsPaginator,
@@ -25,6 +26,7 @@ Usage::
     client: LocationServiceClient = boto3.client("location")
     session_client: LocationServiceClient = session.client("location")
 
+    forecast_geofence_events_paginator: ForecastGeofenceEventsPaginator = client.get_paginator("forecast_geofence_events")
     get_device_position_history_paginator: GetDevicePositionHistoryPaginator = client.get_paginator("get_device_position_history")
     list_device_positions_paginator: ListDevicePositionsPaginator = client.get_paginator("list_device_positions")
     list_geofence_collections_paginator: ListGeofenceCollectionsPaginator = client.get_paginator("list_geofence_collections")
@@ -40,6 +42,7 @@ Usage::
 
 from .client import LocationServiceClient
 from .paginator import (
+    ForecastGeofenceEventsPaginator,
     GetDevicePositionHistoryPaginator,
     ListDevicePositionsPaginator,
     ListGeofenceCollectionsPaginator,
@@ -56,6 +59,7 @@ Client = LocationServiceClient
 
 __all__ = (
     "Client",
+    "ForecastGeofenceEventsPaginator",
     "GetDevicePositionHistoryPaginator",
     "ListDevicePositionsPaginator",
     "ListGeofenceCollectionsPaginator",

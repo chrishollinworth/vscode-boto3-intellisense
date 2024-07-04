@@ -102,7 +102,7 @@ class Exceptions:
 
 class DAXClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html)
     """
 
@@ -118,7 +118,7 @@ class DAXClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#can_paginate)
         """
 
@@ -126,7 +126,7 @@ class DAXClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#close)
         """
 
@@ -151,7 +151,7 @@ class DAXClient(BaseClient):
         """
         Creates a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_cluster)
         """
 
@@ -161,7 +161,7 @@ class DAXClient(BaseClient):
         """
         Creates a new parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.create_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_parameter_group)
         """
 
@@ -171,7 +171,7 @@ class DAXClient(BaseClient):
         """
         Creates a new subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.create_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_subnet_group)
         """
 
@@ -186,7 +186,7 @@ class DAXClient(BaseClient):
         """
         Removes one or more nodes from a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.decrease_replication_factor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.decrease_replication_factor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#decrease_replication_factor)
         """
 
@@ -194,7 +194,7 @@ class DAXClient(BaseClient):
         """
         Deletes a previously provisioned DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_cluster)
         """
 
@@ -204,7 +204,7 @@ class DAXClient(BaseClient):
         """
         Deletes the specified parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.delete_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_parameter_group)
         """
 
@@ -212,7 +212,7 @@ class DAXClient(BaseClient):
         """
         Deletes a subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.delete_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_subnet_group)
         """
 
@@ -224,7 +224,7 @@ class DAXClient(BaseClient):
         is specified, or about a specific DAX cluster if a cluster identifier is
         supplied.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_clusters)
         """
 
@@ -234,7 +234,7 @@ class DAXClient(BaseClient):
         """
         Returns the default system parameter information for the DAX caching software.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_default_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_default_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_default_parameters)
         """
 
@@ -252,7 +252,7 @@ class DAXClient(BaseClient):
         """
         Returns events related to DAX clusters and parameter groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_events)
         """
 
@@ -266,7 +266,7 @@ class DAXClient(BaseClient):
         """
         Returns a list of parameter group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_parameter_groups)
         """
 
@@ -281,7 +281,7 @@ class DAXClient(BaseClient):
         """
         Returns the detailed parameter list for a particular parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_parameters)
         """
 
@@ -291,7 +291,7 @@ class DAXClient(BaseClient):
         """
         Returns a list of subnet group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.describe_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_subnet_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_subnet_groups)
         """
 
@@ -305,7 +305,7 @@ class DAXClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#generate_presigned_url)
         """
 
@@ -315,7 +315,7 @@ class DAXClient(BaseClient):
         """
         Adds one or more nodes to a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.increase_replication_factor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.increase_replication_factor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#increase_replication_factor)
         """
 
@@ -323,7 +323,7 @@ class DAXClient(BaseClient):
         """
         List all of the tags for a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#list_tags)
         """
 
@@ -331,7 +331,7 @@ class DAXClient(BaseClient):
         """
         Reboots a single node of a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.reboot_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.reboot_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#reboot_node)
         """
 
@@ -341,7 +341,7 @@ class DAXClient(BaseClient):
         """
         Associates a set of tags with a DAX resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#tag_resource)
         """
 
@@ -351,7 +351,7 @@ class DAXClient(BaseClient):
         """
         Removes the association of tags from a DAX resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#untag_resource)
         """
 
@@ -369,7 +369,7 @@ class DAXClient(BaseClient):
         """
         Modifies the settings for a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_cluster)
         """
 
@@ -379,7 +379,7 @@ class DAXClient(BaseClient):
         """
         Modifies the parameters of a parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.update_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_parameter_group)
         """
 
@@ -389,7 +389,7 @@ class DAXClient(BaseClient):
         """
         Modifies an existing subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Client.update_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_subnet_group)
         """
 
@@ -398,7 +398,7 @@ class DAXClient(BaseClient):
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeclusterspaginator)
         """
 
@@ -407,14 +407,14 @@ class DAXClient(BaseClient):
         self, operation_name: Literal["describe_default_parameters"]
     ) -> DescribeDefaultParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describedefaultparameterspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeeventspaginator)
         """
 
@@ -423,7 +423,7 @@ class DAXClient(BaseClient):
         self, operation_name: Literal["describe_parameter_groups"]
     ) -> DescribeParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeparametergroupspaginator)
         """
 
@@ -432,7 +432,7 @@ class DAXClient(BaseClient):
         self, operation_name: Literal["describe_parameters"]
     ) -> DescribeParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeparameterspaginator)
         """
 
@@ -441,13 +441,13 @@ class DAXClient(BaseClient):
         self, operation_name: Literal["describe_subnet_groups"]
     ) -> DescribeSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describesubnetgroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dax.html#DAX.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.ListTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#listtagspaginator)
         """

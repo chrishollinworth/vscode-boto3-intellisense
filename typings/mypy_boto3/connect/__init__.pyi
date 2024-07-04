@@ -11,6 +11,7 @@ Usage::
         GetMetricDataPaginator,
         ListAgentStatusesPaginator,
         ListApprovedOriginsPaginator,
+        ListAuthenticationProfilesPaginator,
         ListBotsPaginator,
         ListContactEvaluationsPaginator,
         ListContactFlowModulesPaginator,
@@ -74,6 +75,7 @@ Usage::
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
     list_agent_statuses_paginator: ListAgentStatusesPaginator = client.get_paginator("list_agent_statuses")
     list_approved_origins_paginator: ListApprovedOriginsPaginator = client.get_paginator("list_approved_origins")
+    list_authentication_profiles_paginator: ListAuthenticationProfilesPaginator = client.get_paginator("list_authentication_profiles")
     list_bots_paginator: ListBotsPaginator = client.get_paginator("list_bots")
     list_contact_evaluations_paginator: ListContactEvaluationsPaginator = client.get_paginator("list_contact_evaluations")
     list_contact_flow_modules_paginator: ListContactFlowModulesPaginator = client.get_paginator("list_contact_flow_modules")
@@ -135,6 +137,7 @@ from .paginator import (
     GetMetricDataPaginator,
     ListAgentStatusesPaginator,
     ListApprovedOriginsPaginator,
+    ListAuthenticationProfilesPaginator,
     ListBotsPaginator,
     ListContactEvaluationsPaginator,
     ListContactFlowModulesPaginator,
@@ -198,6 +201,7 @@ __all__ = (
     "GetMetricDataPaginator",
     "ListAgentStatusesPaginator",
     "ListApprovedOriginsPaginator",
+    "ListAuthenticationProfilesPaginator",
     "ListBotsPaginator",
     "ListContactEvaluationsPaginator",
     "ListContactFlowModulesPaginator",

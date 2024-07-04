@@ -250,11 +250,9 @@ ConfigurationsTypeDef = TypedDict(
 _RequiredCreateBrokerRequestRequestTypeDef = TypedDict(
     "_RequiredCreateBrokerRequestRequestTypeDef",
     {
-        "AutoMinorVersionUpgrade": bool,
         "BrokerName": str,
         "DeploymentMode": DeploymentModeType,
         "EngineType": EngineTypeType,
-        "EngineVersion": str,
         "HostInstanceType": str,
         "PubliclyAccessible": bool,
         "Users": List["UserTypeDef"],
@@ -264,9 +262,11 @@ _OptionalCreateBrokerRequestRequestTypeDef = TypedDict(
     "_OptionalCreateBrokerRequestRequestTypeDef",
     {
         "AuthenticationStrategy": AuthenticationStrategyType,
+        "AutoMinorVersionUpgrade": bool,
         "Configuration": "ConfigurationIdTypeDef",
         "CreatorRequestId": str,
         "EncryptionOptions": "EncryptionOptionsTypeDef",
+        "EngineVersion": str,
         "LdapServerMetadata": "LdapServerMetadataInputTypeDef",
         "Logs": "LogsTypeDef",
         "MaintenanceWindowStartTime": "WeeklyStartTimeTypeDef",
@@ -298,7 +298,6 @@ _RequiredCreateConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateConfigurationRequestRequestTypeDef",
     {
         "EngineType": EngineTypeType,
-        "EngineVersion": str,
         "Name": str,
     },
 )
@@ -306,6 +305,7 @@ _OptionalCreateConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateConfigurationRequestRequestTypeDef",
     {
         "AuthenticationStrategy": AuthenticationStrategyType,
+        "EngineVersion": str,
         "Tags": Dict[str, str],
     },
     total=False,

@@ -55,7 +55,7 @@ class Exceptions:
 
 class CloudFrontKeyValueStoreClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html)
     """
 
@@ -71,7 +71,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#can_paginate)
         """
 
@@ -79,7 +79,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#close)
         """
 
@@ -87,7 +87,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Deletes the key value pair specified by the key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.delete_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.delete_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#delete_key)
         """
 
@@ -95,7 +95,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Returns metadata information about Key Value Store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.describe_key_value_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.describe_key_value_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#describe_key_value_store)
         """
 
@@ -109,7 +109,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#generate_presigned_url)
         """
 
@@ -117,7 +117,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Returns a key value pair.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.get_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.get_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#get_key)
         """
 
@@ -127,7 +127,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Returns a list of key value pairs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.list_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.list_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#list_keys)
         """
 
@@ -135,7 +135,7 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Creates a new key value pair or replaces the value of an existing key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.put_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.put_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#put_key)
         """
 
@@ -150,12 +150,12 @@ class CloudFrontKeyValueStoreClient(BaseClient):
         """
         Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.update_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Client.update_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/client.html#update_keys)
         """
 
     def get_paginator(self, operation_name: Literal["list_keys"]) -> ListKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Paginator.ListKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront-keyvaluestore.html#CloudFrontKeyValueStore.Paginator.ListKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/paginators.html#listkeyspaginator)
         """

@@ -51,7 +51,7 @@ class Exceptions:
 
 class MediaStoreDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html)
     """
 
@@ -67,7 +67,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#can_paginate)
         """
 
@@ -75,7 +75,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#close)
         """
 
@@ -83,7 +83,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Deletes an object at the specified path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.delete_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.delete_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#delete_object)
         """
 
@@ -91,7 +91,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Gets the headers for an object at the specified path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.describe_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.describe_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#describe_object)
         """
 
@@ -105,7 +105,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#generate_presigned_url)
         """
 
@@ -113,7 +113,7 @@ class MediaStoreDataClient(BaseClient):
         """
         Downloads the object at the specified path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.get_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.get_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#get_object)
         """
 
@@ -124,7 +124,7 @@ class MediaStoreDataClient(BaseClient):
         Provides a list of metadata entries about folders and objects in the specified
         folder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.list_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.list_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#list_items)
         """
 
@@ -141,12 +141,12 @@ class MediaStoreDataClient(BaseClient):
         """
         Uploads an object to the specified path.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Client.put_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Client.put_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/client.html#put_object)
         """
 
     def get_paginator(self, operation_name: Literal["list_items"]) -> ListItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators.html#listitemspaginator)
         """

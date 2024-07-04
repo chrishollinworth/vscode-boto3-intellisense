@@ -17,6 +17,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AttachmentErrorCodeType,
     AttachmentStateType,
     AttachmentTypeType,
     ChangeActionType,
@@ -27,6 +28,7 @@ from .literals import (
     ConnectionStatusType,
     ConnectionTypeType,
     ConnectPeerAssociationStateType,
+    ConnectPeerErrorCodeType,
     ConnectPeerStateType,
     CoreNetworkPolicyAliasType,
     CoreNetworkStateType,
@@ -35,6 +37,7 @@ from .literals import (
     GlobalNetworkStateType,
     LinkAssociationStateType,
     LinkStateType,
+    PeeringErrorCodeType,
     PeeringStateType,
     RouteAnalysisCompletionReasonCodeType,
     RouteAnalysisCompletionResultCodeType,
@@ -42,6 +45,8 @@ from .literals import (
     RouteStateType,
     RouteTableTypeType,
     RouteTypeType,
+    SegmentActionServiceInsertionType,
+    SendViaModeType,
     SiteStateType,
     TransitGatewayConnectPeerAssociationStateType,
     TransitGatewayRegistrationStateType,
@@ -70,6 +75,7 @@ __all__ = (
     "AssociateLinkResponseTypeDef",
     "AssociateTransitGatewayConnectPeerRequestRequestTypeDef",
     "AssociateTransitGatewayConnectPeerResponseTypeDef",
+    "AttachmentErrorTypeDef",
     "AttachmentTypeDef",
     "BandwidthTypeDef",
     "BgpOptionsTypeDef",
@@ -78,6 +84,7 @@ __all__ = (
     "ConnectPeerAssociationTypeDef",
     "ConnectPeerBgpConfigurationTypeDef",
     "ConnectPeerConfigurationTypeDef",
+    "ConnectPeerErrorTypeDef",
     "ConnectPeerSummaryTypeDef",
     "ConnectPeerTypeDef",
     "ConnectionHealthTypeDef",
@@ -87,6 +94,8 @@ __all__ = (
     "CoreNetworkChangeTypeDef",
     "CoreNetworkChangeValuesTypeDef",
     "CoreNetworkEdgeTypeDef",
+    "CoreNetworkNetworkFunctionGroupIdentifierTypeDef",
+    "CoreNetworkNetworkFunctionGroupTypeDef",
     "CoreNetworkPolicyErrorTypeDef",
     "CoreNetworkPolicyTypeDef",
     "CoreNetworkPolicyVersionTypeDef",
@@ -153,6 +162,7 @@ __all__ = (
     "DisassociateLinkResponseTypeDef",
     "DisassociateTransitGatewayConnectPeerRequestRequestTypeDef",
     "DisassociateTransitGatewayConnectPeerResponseTypeDef",
+    "EdgeOverrideTypeDef",
     "ExecuteCoreNetworkChangeSetRequestRequestTypeDef",
     "GetConnectAttachmentRequestRequestTypeDef",
     "GetConnectAttachmentResponseTypeDef",
@@ -224,6 +234,7 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
+    "NetworkFunctionGroupTypeDef",
     "NetworkResourceCountTypeDef",
     "NetworkResourceSummaryTypeDef",
     "NetworkResourceTypeDef",
@@ -233,7 +244,10 @@ __all__ = (
     "OrganizationStatusTypeDef",
     "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
+    "PeeringErrorTypeDef",
     "PeeringTypeDef",
+    "PermissionsErrorContextTypeDef",
+    "ProposedNetworkFunctionGroupChangeTypeDef",
     "ProposedSegmentChangeTypeDef",
     "PutCoreNetworkPolicyRequestRequestTypeDef",
     "PutCoreNetworkPolicyResponseTypeDef",
@@ -252,6 +266,8 @@ __all__ = (
     "RouteAnalysisPathTypeDef",
     "RouteAnalysisTypeDef",
     "RouteTableIdentifierTypeDef",
+    "ServiceInsertionActionTypeDef",
+    "ServiceInsertionSegmentsTypeDef",
     "SiteToSiteVpnAttachmentTypeDef",
     "SiteTypeDef",
     "StartOrganizationServiceAccessUpdateRequestRequestTypeDef",
@@ -282,8 +298,10 @@ __all__ = (
     "UpdateSiteResponseTypeDef",
     "UpdateVpcAttachmentRequestRequestTypeDef",
     "UpdateVpcAttachmentResponseTypeDef",
+    "ViaTypeDef",
     "VpcAttachmentTypeDef",
     "VpcOptionsTypeDef",
+    "WhenSentToTypeDef",
 )
 
 AWSLocationTypeDef = TypedDict(
@@ -426,6 +444,17 @@ AssociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
     },
 )
 
+AttachmentErrorTypeDef = TypedDict(
+    "AttachmentErrorTypeDef",
+    {
+        "Code": AttachmentErrorCodeType,
+        "Message": str,
+        "ResourceArn": str,
+        "RequestId": str,
+    },
+    total=False,
+)
+
 AttachmentTypeDef = TypedDict(
     "AttachmentTypeDef",
     {
@@ -439,10 +468,13 @@ AttachmentTypeDef = TypedDict(
         "ResourceArn": str,
         "AttachmentPolicyRuleNumber": int,
         "SegmentName": str,
+        "NetworkFunctionGroupName": str,
         "Tags": List["TagTypeDef"],
         "ProposedSegmentChange": "ProposedSegmentChangeTypeDef",
+        "ProposedNetworkFunctionGroupChange": "ProposedNetworkFunctionGroupChangeTypeDef",
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
+        "LastModificationErrors": List["AttachmentErrorTypeDef"],
     },
     total=False,
 )
@@ -517,6 +549,17 @@ ConnectPeerConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ConnectPeerErrorTypeDef = TypedDict(
+    "ConnectPeerErrorTypeDef",
+    {
+        "Code": ConnectPeerErrorCodeType,
+        "Message": str,
+        "ResourceArn": str,
+        "RequestId": str,
+    },
+    total=False,
+)
+
 ConnectPeerSummaryTypeDef = TypedDict(
     "ConnectPeerSummaryTypeDef",
     {
@@ -544,6 +587,7 @@ ConnectPeerTypeDef = TypedDict(
         "Configuration": "ConnectPeerConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
         "SubnetArn": str,
+        "LastModificationErrors": List["ConnectPeerErrorTypeDef"],
     },
     total=False,
 )
@@ -594,6 +638,7 @@ CoreNetworkChangeEventValuesTypeDef = TypedDict(
     {
         "EdgeLocation": str,
         "SegmentName": str,
+        "NetworkFunctionGroupName": str,
         "AttachmentId": str,
         "Cidr": str,
     },
@@ -617,12 +662,14 @@ CoreNetworkChangeValuesTypeDef = TypedDict(
     "CoreNetworkChangeValuesTypeDef",
     {
         "SegmentName": str,
+        "NetworkFunctionGroupName": str,
         "EdgeLocations": List[str],
         "Asn": int,
         "Cidr": str,
         "DestinationIdentifier": str,
         "InsideCidrBlocks": List[str],
         "SharedSegments": List[str],
+        "ServiceInsertionActions": List["ServiceInsertionActionTypeDef"],
     },
     total=False,
 )
@@ -633,6 +680,26 @@ CoreNetworkEdgeTypeDef = TypedDict(
         "EdgeLocation": str,
         "Asn": int,
         "InsideCidrBlocks": List[str],
+    },
+    total=False,
+)
+
+CoreNetworkNetworkFunctionGroupIdentifierTypeDef = TypedDict(
+    "CoreNetworkNetworkFunctionGroupIdentifierTypeDef",
+    {
+        "CoreNetworkId": str,
+        "NetworkFunctionGroupName": str,
+        "EdgeLocation": str,
+    },
+    total=False,
+)
+
+CoreNetworkNetworkFunctionGroupTypeDef = TypedDict(
+    "CoreNetworkNetworkFunctionGroupTypeDef",
+    {
+        "Name": str,
+        "EdgeLocations": List[str],
+        "Segments": "ServiceInsertionSegmentsTypeDef",
     },
     total=False,
 )
@@ -729,6 +796,7 @@ CoreNetworkTypeDef = TypedDict(
         "CreatedAt": datetime,
         "State": CoreNetworkStateType,
         "Segments": List["CoreNetworkSegmentTypeDef"],
+        "NetworkFunctionGroups": List["CoreNetworkNetworkFunctionGroupTypeDef"],
         "Edges": List["CoreNetworkEdgeTypeDef"],
         "Tags": List["TagTypeDef"],
     },
@@ -1390,6 +1458,15 @@ DisassociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
         "TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+EdgeOverrideTypeDef = TypedDict(
+    "EdgeOverrideTypeDef",
+    {
+        "EdgeSets": List[List[str]],
+        "UseEdge": str,
+    },
+    total=False,
 )
 
 ExecuteCoreNetworkChangeSetRequestRequestTypeDef = TypedDict(
@@ -2285,6 +2362,14 @@ LocationTypeDef = TypedDict(
     total=False,
 )
 
+NetworkFunctionGroupTypeDef = TypedDict(
+    "NetworkFunctionGroupTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
 NetworkResourceCountTypeDef = TypedDict(
     "NetworkResourceCountTypeDef",
     {
@@ -2331,6 +2416,7 @@ NetworkRouteDestinationTypeDef = TypedDict(
         "CoreNetworkAttachmentId": str,
         "TransitGatewayAttachmentId": str,
         "SegmentName": str,
+        "NetworkFunctionGroupName": str,
         "EdgeLocation": str,
         "ResourceType": str,
         "ResourceId": str,
@@ -2397,6 +2483,18 @@ PathComponentTypeDef = TypedDict(
     total=False,
 )
 
+PeeringErrorTypeDef = TypedDict(
+    "PeeringErrorTypeDef",
+    {
+        "Code": PeeringErrorCodeType,
+        "Message": str,
+        "ResourceArn": str,
+        "RequestId": str,
+        "MissingPermissionsContext": "PermissionsErrorContextTypeDef",
+    },
+    total=False,
+)
+
 PeeringTypeDef = TypedDict(
     "PeeringTypeDef",
     {
@@ -2410,6 +2508,25 @@ PeeringTypeDef = TypedDict(
         "ResourceArn": str,
         "Tags": List["TagTypeDef"],
         "CreatedAt": datetime,
+        "LastModificationErrors": List["PeeringErrorTypeDef"],
+    },
+    total=False,
+)
+
+PermissionsErrorContextTypeDef = TypedDict(
+    "PermissionsErrorContextTypeDef",
+    {
+        "MissingPermission": str,
+    },
+    total=False,
+)
+
+ProposedNetworkFunctionGroupChangeTypeDef = TypedDict(
+    "ProposedNetworkFunctionGroupChangeTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "AttachmentPolicyRuleNumber": int,
+        "NetworkFunctionGroupName": str,
     },
     total=False,
 )
@@ -2591,6 +2708,27 @@ RouteTableIdentifierTypeDef = TypedDict(
     {
         "TransitGatewayRouteTableArn": str,
         "CoreNetworkSegmentEdge": "CoreNetworkSegmentEdgeIdentifierTypeDef",
+        "CoreNetworkNetworkFunctionGroup": "CoreNetworkNetworkFunctionGroupIdentifierTypeDef",
+    },
+    total=False,
+)
+
+ServiceInsertionActionTypeDef = TypedDict(
+    "ServiceInsertionActionTypeDef",
+    {
+        "Action": SegmentActionServiceInsertionType,
+        "Mode": SendViaModeType,
+        "WhenSentTo": "WhenSentToTypeDef",
+        "Via": "ViaTypeDef",
+    },
+    total=False,
+)
+
+ServiceInsertionSegmentsTypeDef = TypedDict(
+    "ServiceInsertionSegmentsTypeDef",
+    {
+        "SendVia": List[str],
+        "SendTo": List[str],
     },
     total=False,
 )
@@ -2969,6 +3107,15 @@ UpdateVpcAttachmentResponseTypeDef = TypedDict(
     },
 )
 
+ViaTypeDef = TypedDict(
+    "ViaTypeDef",
+    {
+        "NetworkFunctionGroups": List["NetworkFunctionGroupTypeDef"],
+        "WithEdgeOverrides": List["EdgeOverrideTypeDef"],
+    },
+    total=False,
+)
+
 VpcAttachmentTypeDef = TypedDict(
     "VpcAttachmentTypeDef",
     {
@@ -2984,6 +3131,14 @@ VpcOptionsTypeDef = TypedDict(
     {
         "Ipv6Support": bool,
         "ApplianceModeSupport": bool,
+    },
+    total=False,
+)
+
+WhenSentToTypeDef = TypedDict(
+    "WhenSentToTypeDef",
+    {
+        "WhenSentToSegmentsList": List[str],
     },
     total=False,
 )

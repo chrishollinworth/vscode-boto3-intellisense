@@ -33,7 +33,7 @@ class Exceptions:
 
 class SageMakerMetricsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/client.html)
     """
 
@@ -51,7 +51,7 @@ class SageMakerMetricsClient(BaseClient):
         """
         Used to ingest training metrics into SageMaker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.batch_put_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.batch_put_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/client.html#batch_put_metrics)
         """
 
@@ -59,7 +59,7 @@ class SageMakerMetricsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/client.html#can_paginate)
         """
 
@@ -67,7 +67,7 @@ class SageMakerMetricsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/client.html#close)
         """
 
@@ -81,6 +81,6 @@ class SageMakerMetricsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-metrics.html#SageMakerMetrics.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/client.html#generate_presigned_url)
         """

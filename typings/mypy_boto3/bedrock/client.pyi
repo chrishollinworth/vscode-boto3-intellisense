@@ -100,7 +100,7 @@ class Exceptions:
 
 class BedrockClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html)
     """
 
@@ -116,7 +116,7 @@ class BedrockClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#can_paginate)
         """
 
@@ -124,7 +124,7 @@ class BedrockClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#close)
         """
 
@@ -145,7 +145,7 @@ class BedrockClient(BaseClient):
         API operation for creating and managing Amazon Bedrock automatic model
         evaluation jobs and model evaluation jobs that use human workers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.create_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_evaluation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_evaluation_job)
         """
 
@@ -167,7 +167,7 @@ class BedrockClient(BaseClient):
         """
         Creates a guardrail to block topics and to filter out harmful content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.create_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_guardrail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_guardrail)
         """
 
@@ -177,7 +177,7 @@ class BedrockClient(BaseClient):
         """
         Creates a version of the guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.create_guardrail_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_guardrail_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_guardrail_version)
         """
 
@@ -202,7 +202,7 @@ class BedrockClient(BaseClient):
         """
         Creates a fine-tuning job to customize a base model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.create_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_model_customization_job)
         """
 
@@ -220,7 +220,7 @@ class BedrockClient(BaseClient):
         Creates dedicated throughput for a base or custom model with the model units and
         for the duration that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.create_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_provisioned_model_throughput)
         """
 
@@ -228,7 +228,7 @@ class BedrockClient(BaseClient):
         """
         Deletes a custom model that you created earlier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.delete_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_custom_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_custom_model)
         """
 
@@ -238,7 +238,7 @@ class BedrockClient(BaseClient):
         """
         Deletes a guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.delete_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_guardrail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_guardrail)
         """
 
@@ -246,7 +246,7 @@ class BedrockClient(BaseClient):
         """
         Delete the invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.delete_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_model_invocation_logging_configuration)
         """
 
@@ -254,7 +254,7 @@ class BedrockClient(BaseClient):
         """
         Deletes a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.delete_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_provisioned_model_throughput)
         """
 
@@ -268,7 +268,7 @@ class BedrockClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#generate_presigned_url)
         """
 
@@ -279,7 +279,7 @@ class BedrockClient(BaseClient):
         <https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html>`__ in
         the Amazon Bedrock User Guide.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_custom_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_custom_model)
         """
 
@@ -288,7 +288,7 @@ class BedrockClient(BaseClient):
         Retrieves the properties associated with a model evaluation job, including the
         status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_evaluation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_evaluation_job)
         """
 
@@ -296,7 +296,7 @@ class BedrockClient(BaseClient):
         """
         Get details about a Amazon Bedrock foundation model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_foundation_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_foundation_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_foundation_model)
         """
 
@@ -306,7 +306,7 @@ class BedrockClient(BaseClient):
         """
         Gets details about a guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_guardrail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_guardrail)
         """
 
@@ -317,7 +317,7 @@ class BedrockClient(BaseClient):
         Retrieves the properties associated with a model-customization job, including
         the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_customization_job)
         """
 
@@ -327,7 +327,7 @@ class BedrockClient(BaseClient):
         """
         Get the current configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_invocation_logging_configuration)
         """
 
@@ -337,7 +337,7 @@ class BedrockClient(BaseClient):
         """
         Returns details for a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.get_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_provisioned_model_throughput)
         """
 
@@ -358,7 +358,7 @@ class BedrockClient(BaseClient):
         Returns a list of the custom models that you have created with the
         `CreateModelCustomizationJob` operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_custom_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_custom_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_custom_models)
         """
 
@@ -377,7 +377,7 @@ class BedrockClient(BaseClient):
         """
         Lists model evaluation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_evaluation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_evaluation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_evaluation_jobs)
         """
 
@@ -392,7 +392,7 @@ class BedrockClient(BaseClient):
         """
         Lists Amazon Bedrock foundation models that you can use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_foundation_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_foundation_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_foundation_models)
         """
 
@@ -402,7 +402,7 @@ class BedrockClient(BaseClient):
         """
         Lists details about all the guardrails in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_guardrails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_guardrails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_guardrails)
         """
 
@@ -421,7 +421,7 @@ class BedrockClient(BaseClient):
         """
         Returns a list of model customization jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_model_customization_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_model_customization_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_model_customization_jobs)
         """
 
@@ -441,7 +441,7 @@ class BedrockClient(BaseClient):
         """
         Lists the Provisioned Throughputs in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_provisioned_model_throughputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_provisioned_model_throughputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_provisioned_model_throughputs)
         """
 
@@ -449,7 +449,7 @@ class BedrockClient(BaseClient):
         """
         List the tags associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_tags_for_resource)
         """
 
@@ -459,7 +459,7 @@ class BedrockClient(BaseClient):
         """
         Set the configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.put_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.put_model_invocation_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#put_model_invocation_logging_configuration)
         """
 
@@ -467,7 +467,7 @@ class BedrockClient(BaseClient):
         """
         Stops an in progress model evaluation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.stop_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.stop_evaluation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#stop_evaluation_job)
         """
 
@@ -475,7 +475,7 @@ class BedrockClient(BaseClient):
         """
         Stops an active model customization job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.stop_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.stop_model_customization_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#stop_model_customization_job)
         """
 
@@ -483,7 +483,7 @@ class BedrockClient(BaseClient):
         """
         Associate tags with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#tag_resource)
         """
 
@@ -491,7 +491,7 @@ class BedrockClient(BaseClient):
         """
         Remove one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#untag_resource)
         """
 
@@ -512,7 +512,7 @@ class BedrockClient(BaseClient):
         """
         Updates a guardrail with the values you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.update_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.update_guardrail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#update_guardrail)
         """
 
@@ -526,7 +526,7 @@ class BedrockClient(BaseClient):
         """
         Updates the name or associated model for a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Client.update_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.update_provisioned_model_throughput)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#update_provisioned_model_throughput)
         """
 
@@ -535,7 +535,7 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_custom_models"]
     ) -> ListCustomModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Paginator.ListCustomModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListCustomModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listcustommodelspaginator)
         """
 
@@ -544,14 +544,14 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_evaluation_jobs"]
     ) -> ListEvaluationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Paginator.ListEvaluationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListEvaluationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listevaluationjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_guardrails"]) -> ListGuardrailsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Paginator.ListGuardrails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListGuardrails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listguardrailspaginator)
         """
 
@@ -560,7 +560,7 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_model_customization_jobs"]
     ) -> ListModelCustomizationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Paginator.ListModelCustomizationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListModelCustomizationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listmodelcustomizationjobspaginator)
         """
 
@@ -569,6 +569,6 @@ class BedrockClient(BaseClient):
         self, operation_name: Literal["list_provisioned_model_throughputs"]
     ) -> ListProvisionedModelThroughputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock.html#Bedrock.Paginator.ListProvisionedModelThroughputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListProvisionedModelThroughputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listprovisionedmodelthroughputspaginator)
         """

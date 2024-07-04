@@ -59,7 +59,7 @@ class Exceptions:
 
 class AgentsforBedrockRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html)
     """
 
@@ -75,7 +75,7 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#can_paginate)
         """
 
@@ -83,7 +83,7 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#close)
         """
 
@@ -97,7 +97,7 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#generate_presigned_url)
         """
 
@@ -115,7 +115,7 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.invoke_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.invoke_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#invoke_agent)
         """
 
@@ -130,7 +130,7 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         Queries a knowledge base and retrieves information from it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.retrieve)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.retrieve)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#retrieve)
         """
 
@@ -145,12 +145,12 @@ class AgentsforBedrockRuntimeClient(BaseClient):
         """
         Queries a knowledge base and generates responses based on the retrieved results.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.retrieve_and_generate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Client.retrieve_and_generate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/client.html#retrieve_and_generate)
         """
 
     def get_paginator(self, operation_name: Literal["retrieve"]) -> RetrievePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Paginator.Retrieve)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent-runtime.html#AgentsforBedrockRuntime.Paginator.Retrieve)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent_runtime/paginators.html#retrievepaginator)
         """

@@ -109,7 +109,7 @@ class Exceptions:
 
 class CloudWatchClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html)
     """
 
@@ -125,7 +125,7 @@ class CloudWatchClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#can_paginate)
         """
 
@@ -133,7 +133,7 @@ class CloudWatchClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#close)
         """
 
@@ -141,7 +141,7 @@ class CloudWatchClient(BaseClient):
         """
         Deletes the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_alarms)
         """
 
@@ -158,7 +158,7 @@ class CloudWatchClient(BaseClient):
         """
         Deletes the specified anomaly detection model from your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_anomaly_detector)
         """
 
@@ -166,7 +166,7 @@ class CloudWatchClient(BaseClient):
         """
         Deletes all dashboards that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_dashboards)
         """
 
@@ -174,7 +174,7 @@ class CloudWatchClient(BaseClient):
         """
         Permanently deletes the specified Contributor Insights rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_insight_rules)
         """
 
@@ -182,7 +182,7 @@ class CloudWatchClient(BaseClient):
         """
         Permanently deletes the metric stream that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.delete_metric_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.delete_metric_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_metric_stream)
         """
 
@@ -201,7 +201,7 @@ class CloudWatchClient(BaseClient):
         """
         Retrieves the history for the specified alarm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarm_history)
         """
 
@@ -221,7 +221,7 @@ class CloudWatchClient(BaseClient):
         """
         Retrieves the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarms)
         """
 
@@ -239,7 +239,7 @@ class CloudWatchClient(BaseClient):
         """
         Retrieves the alarms for the specified metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarms_for_metric)
         """
 
@@ -256,7 +256,7 @@ class CloudWatchClient(BaseClient):
         """
         Lists the anomaly detection models that you have created in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_anomaly_detectors)
         """
 
@@ -266,7 +266,7 @@ class CloudWatchClient(BaseClient):
         """
         Returns a list of all the Contributor Insights rules in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_insight_rules)
         """
 
@@ -274,7 +274,7 @@ class CloudWatchClient(BaseClient):
         """
         Disables the actions for the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#disable_alarm_actions)
         """
 
@@ -282,7 +282,7 @@ class CloudWatchClient(BaseClient):
         """
         Disables the specified Contributor Insights rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#disable_insight_rules)
         """
 
@@ -290,7 +290,7 @@ class CloudWatchClient(BaseClient):
         """
         Enables the actions for the specified alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#enable_alarm_actions)
         """
 
@@ -298,7 +298,7 @@ class CloudWatchClient(BaseClient):
         """
         Enables the specified Contributor Insights rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#enable_insight_rules)
         """
 
@@ -312,7 +312,7 @@ class CloudWatchClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#generate_presigned_url)
         """
 
@@ -320,7 +320,7 @@ class CloudWatchClient(BaseClient):
         """
         Displays the details of the dashboard that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_dashboard)
         """
 
@@ -339,7 +339,7 @@ class CloudWatchClient(BaseClient):
         This operation returns the time series data collected by a Contributor Insights
         rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_insight_rule_report)
         """
 
@@ -357,7 +357,7 @@ class CloudWatchClient(BaseClient):
         """
         You can use the `GetMetricData` API to retrieve CloudWatch metric values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_data)
         """
 
@@ -377,7 +377,7 @@ class CloudWatchClient(BaseClient):
         """
         Gets statistics for the specified metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_statistics)
         """
 
@@ -385,7 +385,7 @@ class CloudWatchClient(BaseClient):
         """
         Returns information about the metric stream that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_stream)
         """
 
@@ -396,7 +396,7 @@ class CloudWatchClient(BaseClient):
         You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph of one
         or more Amazon CloudWatch metrics as a bitmap image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_widget_image)
         """
 
@@ -406,7 +406,7 @@ class CloudWatchClient(BaseClient):
         """
         Returns a list of the dashboards for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_dashboards)
         """
 
@@ -417,7 +417,7 @@ class CloudWatchClient(BaseClient):
         Returns a list that contains the number of managed Contributor Insights rules in
         your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.list_managed_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.list_managed_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_managed_insight_rules)
         """
 
@@ -427,7 +427,7 @@ class CloudWatchClient(BaseClient):
         """
         Returns a list of metric streams in this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.list_metric_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.list_metric_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_metric_streams)
         """
 
@@ -445,7 +445,7 @@ class CloudWatchClient(BaseClient):
         """
         List the specified metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_metrics)
         """
 
@@ -453,7 +453,7 @@ class CloudWatchClient(BaseClient):
         """
         Displays the tags associated with a CloudWatch resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_tags_for_resource)
         """
 
@@ -472,7 +472,7 @@ class CloudWatchClient(BaseClient):
         """
         Creates an anomaly detection model for a CloudWatch metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_anomaly_detector)
         """
 
@@ -494,7 +494,7 @@ class CloudWatchClient(BaseClient):
         """
         Creates or updates a *composite alarm*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_composite_alarm)
         """
 
@@ -503,7 +503,7 @@ class CloudWatchClient(BaseClient):
         Creates a dashboard if it does not already exist, or updates an existing
         dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_dashboard)
         """
 
@@ -518,7 +518,7 @@ class CloudWatchClient(BaseClient):
         """
         Creates a Contributor Insights rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_insight_rule)
         """
 
@@ -529,7 +529,7 @@ class CloudWatchClient(BaseClient):
         Creates a managed Contributor Insights rule for a specified Amazon Web Services
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_managed_insight_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_managed_insight_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_managed_insight_rules)
         """
 
@@ -563,7 +563,7 @@ class CloudWatchClient(BaseClient):
         Creates or updates an alarm and associates it with the specified metric, metric
         math expression, anomaly detection model, or Metrics Insights query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_alarm)
         """
 
@@ -571,7 +571,7 @@ class CloudWatchClient(BaseClient):
         """
         Publishes metric data points to Amazon CloudWatch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_data)
         """
 
@@ -591,7 +591,7 @@ class CloudWatchClient(BaseClient):
         """
         Creates or updates a metric stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_stream)
         """
 
@@ -606,7 +606,7 @@ class CloudWatchClient(BaseClient):
         """
         Temporarily sets the state of an alarm for testing purposes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#set_alarm_state)
         """
 
@@ -614,7 +614,7 @@ class CloudWatchClient(BaseClient):
         """
         Starts the streaming of metrics for one or more of your metric streams.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.start_metric_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.start_metric_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#start_metric_streams)
         """
 
@@ -622,7 +622,7 @@ class CloudWatchClient(BaseClient):
         """
         Stops the streaming of metrics for one or more of your metric streams.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.stop_metric_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.stop_metric_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#stop_metric_streams)
         """
 
@@ -630,7 +630,7 @@ class CloudWatchClient(BaseClient):
         """
         Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#tag_resource)
         """
 
@@ -638,7 +638,7 @@ class CloudWatchClient(BaseClient):
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#untag_resource)
         """
 
@@ -647,14 +647,14 @@ class CloudWatchClient(BaseClient):
         self, operation_name: Literal["describe_alarm_history"]
     ) -> DescribeAlarmHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmhistorypaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_alarms"]) -> DescribeAlarmsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmspaginator)
         """
 
@@ -663,35 +663,35 @@ class CloudWatchClient(BaseClient):
         self, operation_name: Literal["describe_anomaly_detectors"]
     ) -> DescribeAnomalyDetectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAnomalyDetectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAnomalyDetectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describeanomalydetectorspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#getmetricdatapaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listdashboardspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_metrics"]) -> ListMetricsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listmetricspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["alarm_exists"]) -> AlarmExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#alarmexistswaiter)
         """
 
@@ -700,6 +700,6 @@ class CloudWatchClient(BaseClient):
         self, waiter_name: Literal["composite_alarm_exists"]
     ) -> CompositeAlarmExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#compositealarmexistswaiter)
         """

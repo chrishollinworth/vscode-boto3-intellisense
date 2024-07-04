@@ -64,7 +64,7 @@ class Exceptions:
 
 class CostOptimizationHubClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html)
     """
 
@@ -80,7 +80,7 @@ class CostOptimizationHubClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#can_paginate)
         """
 
@@ -88,7 +88,7 @@ class CostOptimizationHubClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#close)
         """
 
@@ -102,7 +102,7 @@ class CostOptimizationHubClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#generate_presigned_url)
         """
 
@@ -111,7 +111,7 @@ class CostOptimizationHubClient(BaseClient):
         Returns a set of preferences for an account in order to add account-specific
         preferences into the service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.get_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.get_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#get_preferences)
         """
 
@@ -120,22 +120,22 @@ class CostOptimizationHubClient(BaseClient):
         Returns both the current and recommended resource configuration and the
         estimated cost impact for a recommendation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.get_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.get_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#get_recommendation)
         """
 
     def list_enrollment_statuses(
         self,
         *,
-        accountId: str = None,
         includeOrganizationInfo: bool = None,
-        maxResults: int = None,
-        nextToken: str = None
+        accountId: str = None,
+        nextToken: str = None,
+        maxResults: int = None
     ) -> ListEnrollmentStatusesResponseTypeDef:
         """
         Retrieves the enrollment status for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_enrollment_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_enrollment_statuses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#list_enrollment_statuses)
         """
 
@@ -150,7 +150,7 @@ class CostOptimizationHubClient(BaseClient):
         """
         Returns a concise representation of savings estimates for resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_recommendation_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_recommendation_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#list_recommendation_summaries)
         """
 
@@ -158,15 +158,15 @@ class CostOptimizationHubClient(BaseClient):
         self,
         *,
         filter: "FilterTypeDef" = None,
+        orderBy: "OrderByTypeDef" = None,
         includeAllRecommendations: bool = None,
         maxResults: int = None,
-        nextToken: str = None,
-        orderBy: "OrderByTypeDef" = None
+        nextToken: str = None
     ) -> ListRecommendationsResponseTypeDef:
         """
         Returns a list of recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.list_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#list_recommendations)
         """
 
@@ -177,21 +177,21 @@ class CostOptimizationHubClient(BaseClient):
         Updates the enrollment (opt in and opt out) status of an account to the Cost
         Optimization Hub service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.update_enrollment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.update_enrollment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#update_enrollment_status)
         """
 
     def update_preferences(
         self,
         *,
-        memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType = None,
-        savingsEstimationMode: SavingsEstimationModeType = None
+        savingsEstimationMode: SavingsEstimationModeType = None,
+        memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType = None
     ) -> UpdatePreferencesResponseTypeDef:
         """
         Updates a set of preferences for an account in order to add account-specific
         preferences into the service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.update_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Client.update_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/client.html#update_preferences)
         """
 
@@ -200,7 +200,7 @@ class CostOptimizationHubClient(BaseClient):
         self, operation_name: Literal["list_enrollment_statuses"]
     ) -> ListEnrollmentStatusesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listenrollmentstatusespaginator)
         """
 
@@ -209,7 +209,7 @@ class CostOptimizationHubClient(BaseClient):
         self, operation_name: Literal["list_recommendation_summaries"]
     ) -> ListRecommendationSummariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendationSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendationSummaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationsummariespaginator)
         """
 
@@ -218,6 +218,6 @@ class CostOptimizationHubClient(BaseClient):
         self, operation_name: Literal["list_recommendations"]
     ) -> ListRecommendationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationspaginator)
         """

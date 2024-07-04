@@ -14,7 +14,9 @@ Usage::
 
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AcceptRuleBehaviorType,
@@ -29,6 +31,7 @@ from .literals import (
     DeploymentStatusType,
     DeploymentTypeType,
     DomainStatusType,
+    EdgeDirectionType,
     EnableSettingType,
     EnvironmentStatusType,
     FilterExpressionTypeType,
@@ -45,6 +48,7 @@ from .literals import (
     ProjectStatusType,
     RejectRuleBehaviorType,
     SearchOutputAdditionalAttributeType,
+    SelfGrantStatusType,
     SortKeyType,
     SortOrderType,
     SubscriptionGrantOverallStatusType,
@@ -79,6 +83,7 @@ __all__ = (
     "AcceptRuleTypeDef",
     "AcceptSubscriptionRequestInputRequestTypeDef",
     "AcceptSubscriptionRequestOutputTypeDef",
+    "ActionParametersTypeDef",
     "AssetItemAdditionalAttributesTypeDef",
     "AssetItemTypeDef",
     "AssetListingDetailsTypeDef",
@@ -88,6 +93,8 @@ __all__ = (
     "AssetRevisionTypeDef",
     "AssetTargetNameMapTypeDef",
     "AssetTypeItemTypeDef",
+    "AssociateEnvironmentRoleInputRequestTypeDef",
+    "AwsConsoleLinkParametersTypeDef",
     "BusinessNameGenerationConfigurationTypeDef",
     "CancelMetadataGenerationRunInputRequestTypeDef",
     "CancelSubscriptionInputRequestTypeDef",
@@ -105,6 +112,8 @@ __all__ = (
     "CreateDataSourceOutputTypeDef",
     "CreateDomainInputRequestTypeDef",
     "CreateDomainOutputTypeDef",
+    "CreateEnvironmentActionInputRequestTypeDef",
+    "CreateEnvironmentActionOutputTypeDef",
     "CreateEnvironmentInputRequestTypeDef",
     "CreateEnvironmentOutputTypeDef",
     "CreateEnvironmentProfileInputRequestTypeDef",
@@ -145,6 +154,7 @@ __all__ = (
     "DeleteDataSourceOutputTypeDef",
     "DeleteDomainInputRequestTypeDef",
     "DeleteDomainOutputTypeDef",
+    "DeleteEnvironmentActionInputRequestTypeDef",
     "DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef",
     "DeleteEnvironmentInputRequestTypeDef",
     "DeleteEnvironmentProfileInputRequestTypeDef",
@@ -162,7 +172,9 @@ __all__ = (
     "DeploymentPropertiesTypeDef",
     "DeploymentTypeDef",
     "DetailedGlossaryTermTypeDef",
+    "DisassociateEnvironmentRoleInputRequestTypeDef",
     "DomainSummaryTypeDef",
+    "EnvironmentActionSummaryTypeDef",
     "EnvironmentBlueprintConfigurationItemTypeDef",
     "EnvironmentBlueprintSummaryTypeDef",
     "EnvironmentErrorTypeDef",
@@ -188,6 +200,8 @@ __all__ = (
     "GetDataSourceRunOutputTypeDef",
     "GetDomainInputRequestTypeDef",
     "GetDomainOutputTypeDef",
+    "GetEnvironmentActionInputRequestTypeDef",
+    "GetEnvironmentActionOutputTypeDef",
     "GetEnvironmentBlueprintConfigurationInputRequestTypeDef",
     "GetEnvironmentBlueprintConfigurationOutputTypeDef",
     "GetEnvironmentBlueprintInputRequestTypeDef",
@@ -206,6 +220,8 @@ __all__ = (
     "GetGroupProfileOutputTypeDef",
     "GetIamPortalLoginUrlInputRequestTypeDef",
     "GetIamPortalLoginUrlOutputTypeDef",
+    "GetLineageNodeInputRequestTypeDef",
+    "GetLineageNodeOutputTypeDef",
     "GetListingInputRequestTypeDef",
     "GetListingOutputTypeDef",
     "GetMetadataGenerationRunInputRequestTypeDef",
@@ -228,12 +244,16 @@ __all__ = (
     "GlossaryTermItemTypeDef",
     "GlueRunConfigurationInputTypeDef",
     "GlueRunConfigurationOutputTypeDef",
+    "GlueSelfGrantStatusOutputTypeDef",
     "GrantedEntityInputTypeDef",
     "GrantedEntityTypeDef",
     "GroupDetailsTypeDef",
     "GroupProfileSummaryTypeDef",
     "IamUserProfileDetailsTypeDef",
     "ImportTypeDef",
+    "LineageNodeReferenceTypeDef",
+    "LineageNodeSummaryTypeDef",
+    "LineageNodeTypeItemTypeDef",
     "ListAssetRevisionsInputRequestTypeDef",
     "ListAssetRevisionsOutputTypeDef",
     "ListDataSourceRunActivitiesInputRequestTypeDef",
@@ -244,6 +264,8 @@ __all__ = (
     "ListDataSourcesOutputTypeDef",
     "ListDomainsInputRequestTypeDef",
     "ListDomainsOutputTypeDef",
+    "ListEnvironmentActionsInputRequestTypeDef",
+    "ListEnvironmentActionsOutputTypeDef",
     "ListEnvironmentBlueprintConfigurationsInputRequestTypeDef",
     "ListEnvironmentBlueprintConfigurationsOutputTypeDef",
     "ListEnvironmentBlueprintsInputRequestTypeDef",
@@ -252,6 +274,8 @@ __all__ = (
     "ListEnvironmentProfilesOutputTypeDef",
     "ListEnvironmentsInputRequestTypeDef",
     "ListEnvironmentsOutputTypeDef",
+    "ListLineageNodeHistoryInputRequestTypeDef",
+    "ListLineageNodeHistoryOutputTypeDef",
     "ListMetadataGenerationRunsInputRequestTypeDef",
     "ListMetadataGenerationRunsOutputTypeDef",
     "ListNotificationsInputRequestTypeDef",
@@ -283,6 +307,7 @@ __all__ = (
     "NotificationOutputTypeDef",
     "NotificationResourceTypeDef",
     "PaginatorConfigTypeDef",
+    "PostLineageEventInputRequestTypeDef",
     "PostTimeSeriesDataPointsInputRequestTypeDef",
     "PostTimeSeriesDataPointsOutputTypeDef",
     "PredictionConfigurationTypeDef",
@@ -297,6 +322,7 @@ __all__ = (
     "RedshiftCredentialConfigurationTypeDef",
     "RedshiftRunConfigurationInputTypeDef",
     "RedshiftRunConfigurationOutputTypeDef",
+    "RedshiftSelfGrantStatusOutputTypeDef",
     "RedshiftServerlessStorageTypeDef",
     "RedshiftStorageTypeDef",
     "RejectChoiceTypeDef",
@@ -327,6 +353,8 @@ __all__ = (
     "SearchTypesResultItemTypeDef",
     "SearchUserProfilesInputRequestTypeDef",
     "SearchUserProfilesOutputTypeDef",
+    "SelfGrantStatusDetailTypeDef",
+    "SelfGrantStatusOutputTypeDef",
     "SingleSignOnTypeDef",
     "SsoUserProfileDetailsTypeDef",
     "StartDataSourceRunInputRequestTypeDef",
@@ -358,6 +386,8 @@ __all__ = (
     "UpdateDataSourceOutputTypeDef",
     "UpdateDomainInputRequestTypeDef",
     "UpdateDomainOutputTypeDef",
+    "UpdateEnvironmentActionInputRequestTypeDef",
+    "UpdateEnvironmentActionOutputTypeDef",
     "UpdateEnvironmentInputRequestTypeDef",
     "UpdateEnvironmentOutputTypeDef",
     "UpdateEnvironmentProfileInputRequestTypeDef",
@@ -481,6 +511,14 @@ AcceptSubscriptionRequestOutputTypeDef = TypedDict(
         "updatedBy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ActionParametersTypeDef = TypedDict(
+    "ActionParametersTypeDef",
+    {
+        "awsConsoleLink": "AwsConsoleLinkParametersTypeDef",
+    },
+    total=False,
 )
 
 AssetItemAdditionalAttributesTypeDef = TypedDict(
@@ -620,6 +658,23 @@ _OptionalAssetTypeItemTypeDef = TypedDict(
 
 class AssetTypeItemTypeDef(_RequiredAssetTypeItemTypeDef, _OptionalAssetTypeItemTypeDef):
     pass
+
+AssociateEnvironmentRoleInputRequestTypeDef = TypedDict(
+    "AssociateEnvironmentRoleInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "environmentRoleArn": str,
+    },
+)
+
+AwsConsoleLinkParametersTypeDef = TypedDict(
+    "AwsConsoleLinkParametersTypeDef",
+    {
+        "uri": str,
+    },
+    total=False,
+)
 
 BusinessNameGenerationConfigurationTypeDef = TypedDict(
     "BusinessNameGenerationConfigurationTypeDef",
@@ -944,6 +999,42 @@ CreateDomainOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateEnvironmentActionInputRequestTypeDef = TypedDict(
+    "_RequiredCreateEnvironmentActionInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
+    },
+)
+_OptionalCreateEnvironmentActionInputRequestTypeDef = TypedDict(
+    "_OptionalCreateEnvironmentActionInputRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class CreateEnvironmentActionInputRequestTypeDef(
+    _RequiredCreateEnvironmentActionInputRequestTypeDef,
+    _OptionalCreateEnvironmentActionInputRequestTypeDef,
+):
+    pass
+
+CreateEnvironmentActionOutputTypeDef = TypedDict(
+    "CreateEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_RequiredCreateEnvironmentInputRequestTypeDef",
     {
@@ -957,6 +1048,9 @@ _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentInputRequestTypeDef",
     {
         "description": str,
+        "environmentAccountIdentifier": str,
+        "environmentAccountRegion": str,
+        "environmentBlueprintIdentifier": str,
         "glossaryTerms": List[str],
         "userParameters": List["EnvironmentParameterTypeDef"],
     },
@@ -1642,6 +1736,7 @@ _OptionalDeleteDataSourceInputRequestTypeDef = TypedDict(
     "_OptionalDeleteDataSourceInputRequestTypeDef",
     {
         "clientToken": str,
+        "retainPermissionsOnRevokeFailure": bool,
     },
     total=False,
 )
@@ -1669,7 +1764,9 @@ DeleteDataSourceOutputTypeDef = TypedDict(
         "name": str,
         "projectId": str,
         "publishOnImport": bool,
+        "retainPermissionsOnRevokeFailure": bool,
         "schedule": "ScheduleConfigurationTypeDef",
+        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
         "status": DataSourceStatusType,
         "type": str,
         "updatedAt": datetime,
@@ -1702,6 +1799,15 @@ DeleteDomainOutputTypeDef = TypedDict(
     {
         "status": DomainStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteEnvironmentActionInputRequestTypeDef = TypedDict(
+    "DeleteEnvironmentActionInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "identifier": str,
     },
 )
 
@@ -1887,6 +1993,15 @@ DetailedGlossaryTermTypeDef = TypedDict(
     total=False,
 )
 
+DisassociateEnvironmentRoleInputRequestTypeDef = TypedDict(
+    "DisassociateEnvironmentRoleInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "environmentRoleArn": str,
+    },
+)
+
 _RequiredDomainSummaryTypeDef = TypedDict(
     "_RequiredDomainSummaryTypeDef",
     {
@@ -1909,6 +2024,29 @@ _OptionalDomainSummaryTypeDef = TypedDict(
 )
 
 class DomainSummaryTypeDef(_RequiredDomainSummaryTypeDef, _OptionalDomainSummaryTypeDef):
+    pass
+
+_RequiredEnvironmentActionSummaryTypeDef = TypedDict(
+    "_RequiredEnvironmentActionSummaryTypeDef",
+    {
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
+    },
+)
+_OptionalEnvironmentActionSummaryTypeDef = TypedDict(
+    "_OptionalEnvironmentActionSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class EnvironmentActionSummaryTypeDef(
+    _RequiredEnvironmentActionSummaryTypeDef, _OptionalEnvironmentActionSummaryTypeDef
+):
     pass
 
 _RequiredEnvironmentBlueprintConfigurationItemTypeDef = TypedDict(
@@ -2020,7 +2158,6 @@ _RequiredEnvironmentSummaryTypeDef = TypedDict(
     {
         "createdBy": str,
         "domainId": str,
-        "environmentProfileId": str,
         "name": str,
         "projectId": str,
         "provider": str,
@@ -2033,6 +2170,7 @@ _OptionalEnvironmentSummaryTypeDef = TypedDict(
         "awsAccountRegion": str,
         "createdAt": datetime,
         "description": str,
+        "environmentProfileId": str,
         "id": str,
         "status": EnvironmentStatusType,
         "updatedAt": datetime,
@@ -2293,6 +2431,7 @@ GetDataSourceOutputTypeDef = TypedDict(
         "publishOnImport": bool,
         "recommendation": "RecommendationConfigurationTypeDef",
         "schedule": "ScheduleConfigurationTypeDef",
+        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
         "status": DataSourceStatusType,
         "type": str,
         "updatedAt": datetime,
@@ -2350,6 +2489,28 @@ GetDomainOutputTypeDef = TypedDict(
         "singleSignOn": "SingleSignOnTypeDef",
         "status": DomainStatusType,
         "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEnvironmentActionInputRequestTypeDef = TypedDict(
+    "GetEnvironmentActionInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "identifier": str,
+    },
+)
+
+GetEnvironmentActionOutputTypeDef = TypedDict(
+    "GetEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2587,6 +2748,48 @@ GetIamPortalLoginUrlOutputTypeDef = TypedDict(
     {
         "authCodeUrl": str,
         "userProfileId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetLineageNodeInputRequestTypeDef = TypedDict(
+    "_RequiredGetLineageNodeInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "identifier": str,
+    },
+)
+_OptionalGetLineageNodeInputRequestTypeDef = TypedDict(
+    "_OptionalGetLineageNodeInputRequestTypeDef",
+    {
+        "eventTimestamp": Union[datetime, str],
+    },
+    total=False,
+)
+
+class GetLineageNodeInputRequestTypeDef(
+    _RequiredGetLineageNodeInputRequestTypeDef, _OptionalGetLineageNodeInputRequestTypeDef
+):
+    pass
+
+GetLineageNodeOutputTypeDef = TypedDict(
+    "GetLineageNodeOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "downstreamNodes": List["LineageNodeReferenceTypeDef"],
+        "eventTimestamp": datetime,
+        "formsOutput": List["FormOutputTypeDef"],
+        "id": str,
+        "name": str,
+        "sourceIdentifier": str,
+        "typeName": str,
+        "typeRevision": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "upstreamNodes": List["LineageNodeReferenceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2936,6 +3139,13 @@ class GlueRunConfigurationOutputTypeDef(
 ):
     pass
 
+GlueSelfGrantStatusOutputTypeDef = TypedDict(
+    "GlueSelfGrantStatusOutputTypeDef",
+    {
+        "selfGrantStatusDetails": List["SelfGrantStatusDetailTypeDef"],
+    },
+)
+
 GrantedEntityInputTypeDef = TypedDict(
     "GrantedEntityInputTypeDef",
     {
@@ -2985,6 +3195,70 @@ ImportTypeDef = TypedDict(
         "revision": str,
     },
 )
+
+LineageNodeReferenceTypeDef = TypedDict(
+    "LineageNodeReferenceTypeDef",
+    {
+        "eventTimestamp": datetime,
+        "id": str,
+    },
+    total=False,
+)
+
+_RequiredLineageNodeSummaryTypeDef = TypedDict(
+    "_RequiredLineageNodeSummaryTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "typeName": str,
+    },
+)
+_OptionalLineageNodeSummaryTypeDef = TypedDict(
+    "_OptionalLineageNodeSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "eventTimestamp": datetime,
+        "name": str,
+        "sourceIdentifier": str,
+        "typeRevision": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+    },
+    total=False,
+)
+
+class LineageNodeSummaryTypeDef(
+    _RequiredLineageNodeSummaryTypeDef, _OptionalLineageNodeSummaryTypeDef
+):
+    pass
+
+_RequiredLineageNodeTypeItemTypeDef = TypedDict(
+    "_RequiredLineageNodeTypeItemTypeDef",
+    {
+        "domainId": str,
+        "formsOutput": Dict[str, "FormEntryOutputTypeDef"],
+        "revision": str,
+    },
+)
+_OptionalLineageNodeTypeItemTypeDef = TypedDict(
+    "_OptionalLineageNodeTypeItemTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "name": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+    },
+    total=False,
+)
+
+class LineageNodeTypeItemTypeDef(
+    _RequiredLineageNodeTypeItemTypeDef, _OptionalLineageNodeTypeItemTypeDef
+):
+    pass
 
 _RequiredListAssetRevisionsInputRequestTypeDef = TypedDict(
     "_RequiredListAssetRevisionsInputRequestTypeDef",
@@ -3132,6 +3406,37 @@ ListDomainsOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListEnvironmentActionsInputRequestTypeDef = TypedDict(
+    "_RequiredListEnvironmentActionsInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+    },
+)
+_OptionalListEnvironmentActionsInputRequestTypeDef = TypedDict(
+    "_OptionalListEnvironmentActionsInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListEnvironmentActionsInputRequestTypeDef(
+    _RequiredListEnvironmentActionsInputRequestTypeDef,
+    _OptionalListEnvironmentActionsInputRequestTypeDef,
+):
+    pass
+
+ListEnvironmentActionsOutputTypeDef = TypedDict(
+    "ListEnvironmentActionsOutputTypeDef",
+    {
+        "items": List["EnvironmentActionSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListEnvironmentBlueprintConfigurationsInputRequestTypeDef = TypedDict(
     "_RequiredListEnvironmentBlueprintConfigurationsInputRequestTypeDef",
     {
@@ -3262,6 +3567,41 @@ ListEnvironmentsOutputTypeDef = TypedDict(
     {
         "items": List["EnvironmentSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListLineageNodeHistoryInputRequestTypeDef = TypedDict(
+    "_RequiredListLineageNodeHistoryInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "identifier": str,
+    },
+)
+_OptionalListLineageNodeHistoryInputRequestTypeDef = TypedDict(
+    "_OptionalListLineageNodeHistoryInputRequestTypeDef",
+    {
+        "direction": EdgeDirectionType,
+        "eventTimestampGTE": Union[datetime, str],
+        "eventTimestampLTE": Union[datetime, str],
+        "maxResults": int,
+        "nextToken": str,
+        "sortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+class ListLineageNodeHistoryInputRequestTypeDef(
+    _RequiredListLineageNodeHistoryInputRequestTypeDef,
+    _OptionalListLineageNodeHistoryInputRequestTypeDef,
+):
+    pass
+
+ListLineageNodeHistoryOutputTypeDef = TypedDict(
+    "ListLineageNodeHistoryOutputTypeDef",
+    {
+        "nextToken": str,
+        "nodes": List["LineageNodeSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3741,6 +4081,26 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPostLineageEventInputRequestTypeDef = TypedDict(
+    "_RequiredPostLineageEventInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "event": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalPostLineageEventInputRequestTypeDef = TypedDict(
+    "_OptionalPostLineageEventInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class PostLineageEventInputRequestTypeDef(
+    _RequiredPostLineageEventInputRequestTypeDef, _OptionalPostLineageEventInputRequestTypeDef
+):
+    pass
+
 _RequiredPostTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
     "_RequiredPostTimeSeriesDataPointsInputRequestTypeDef",
     {
@@ -3936,6 +4296,13 @@ class RedshiftRunConfigurationOutputTypeDef(
     _RequiredRedshiftRunConfigurationOutputTypeDef, _OptionalRedshiftRunConfigurationOutputTypeDef
 ):
     pass
+
+RedshiftSelfGrantStatusOutputTypeDef = TypedDict(
+    "RedshiftSelfGrantStatusOutputTypeDef",
+    {
+        "selfGrantStatusDetails": List["SelfGrantStatusDetailTypeDef"],
+    },
+)
 
 RedshiftServerlessStorageTypeDef = TypedDict(
     "RedshiftServerlessStorageTypeDef",
@@ -4348,6 +4715,7 @@ SearchTypesResultItemTypeDef = TypedDict(
     {
         "assetTypeItem": "AssetTypeItemTypeDef",
         "formTypeItem": "FormTypeDataTypeDef",
+        "lineageNodeTypeItem": "LineageNodeTypeItemTypeDef",
     },
     total=False,
 )
@@ -4381,6 +4749,36 @@ SearchUserProfilesOutputTypeDef = TypedDict(
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredSelfGrantStatusDetailTypeDef = TypedDict(
+    "_RequiredSelfGrantStatusDetailTypeDef",
+    {
+        "databaseName": str,
+        "status": SelfGrantStatusType,
+    },
+)
+_OptionalSelfGrantStatusDetailTypeDef = TypedDict(
+    "_OptionalSelfGrantStatusDetailTypeDef",
+    {
+        "failureCause": str,
+        "schemaName": str,
+    },
+    total=False,
+)
+
+class SelfGrantStatusDetailTypeDef(
+    _RequiredSelfGrantStatusDetailTypeDef, _OptionalSelfGrantStatusDetailTypeDef
+):
+    pass
+
+SelfGrantStatusOutputTypeDef = TypedDict(
+    "SelfGrantStatusOutputTypeDef",
+    {
+        "glueSelfGrantStatus": "GlueSelfGrantStatusOutputTypeDef",
+        "redshiftSelfGrantStatus": "RedshiftSelfGrantStatusOutputTypeDef",
+    },
+    total=False,
 )
 
 SingleSignOnTypeDef = TypedDict(
@@ -4830,6 +5228,7 @@ _OptionalUpdateDataSourceInputRequestTypeDef = TypedDict(
         "name": str,
         "publishOnImport": bool,
         "recommendation": "RecommendationConfigurationTypeDef",
+        "retainPermissionsOnRevokeFailure": bool,
         "schedule": "ScheduleConfigurationTypeDef",
     },
     total=False,
@@ -4859,7 +5258,9 @@ UpdateDataSourceOutputTypeDef = TypedDict(
         "projectId": str,
         "publishOnImport": bool,
         "recommendation": "RecommendationConfigurationTypeDef",
+        "retainPermissionsOnRevokeFailure": bool,
         "schedule": "ScheduleConfigurationTypeDef",
+        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
         "status": DataSourceStatusType,
         "type": str,
         "updatedAt": datetime,
@@ -4899,6 +5300,43 @@ UpdateDomainOutputTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "name": str,
         "singleSignOn": "SingleSignOnTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEnvironmentActionInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateEnvironmentActionInputRequestTypeDef",
+    {
+        "domainIdentifier": str,
+        "environmentIdentifier": str,
+        "identifier": str,
+    },
+)
+_OptionalUpdateEnvironmentActionInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateEnvironmentActionInputRequestTypeDef",
+    {
+        "description": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
+    },
+    total=False,
+)
+
+class UpdateEnvironmentActionInputRequestTypeDef(
+    _RequiredUpdateEnvironmentActionInputRequestTypeDef,
+    _OptionalUpdateEnvironmentActionInputRequestTypeDef,
+):
+    pass
+
+UpdateEnvironmentActionOutputTypeDef = TypedDict(
+    "UpdateEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": "ActionParametersTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

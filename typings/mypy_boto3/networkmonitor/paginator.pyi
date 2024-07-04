@@ -29,7 +29,7 @@ __all__ = ("ListMonitorsPaginator",)
 
 class ListMonitorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html#listmonitorspaginator)
     """
 
@@ -37,6 +37,6 @@ class ListMonitorsPaginator(Boto3Paginator):
         self, *, state: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitorsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html#listmonitorspaginator)
         """

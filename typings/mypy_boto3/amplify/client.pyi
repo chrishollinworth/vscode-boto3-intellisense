@@ -95,7 +95,7 @@ class Exceptions:
 
 class AmplifyClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html)
     """
 
@@ -111,7 +111,7 @@ class AmplifyClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#can_paginate)
         """
 
@@ -119,7 +119,7 @@ class AmplifyClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#close)
         """
 
@@ -149,7 +149,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_app)
         """
 
@@ -164,7 +164,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new backend environment for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_backend_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_backend_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_backend_environment)
         """
 
@@ -194,7 +194,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new branch for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_branch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_branch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_branch)
         """
 
@@ -204,7 +204,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a deployment for a manually deployed Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_deployment)
         """
 
@@ -222,7 +222,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new domain association for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_domain_association)
         """
 
@@ -232,7 +232,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new webhook on an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.create_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.create_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_webhook)
         """
 
@@ -240,7 +240,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes an existing Amplify app specified by an app ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_app)
         """
 
@@ -250,7 +250,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes a backend environment for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_backend_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_backend_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_backend_environment)
         """
 
@@ -258,7 +258,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes a branch for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_branch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_branch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_branch)
         """
 
@@ -268,7 +268,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes a domain association for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_domain_association)
         """
 
@@ -276,7 +276,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes a job for a branch of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_job)
         """
 
@@ -284,7 +284,7 @@ class AmplifyClient(BaseClient):
         """
         Deletes a webhook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.delete_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.delete_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_webhook)
         """
 
@@ -299,7 +299,7 @@ class AmplifyClient(BaseClient):
         """
         Returns the website access logs for a specific time range using a presigned URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.generate_access_logs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.generate_access_logs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#generate_access_logs)
         """
 
@@ -313,7 +313,7 @@ class AmplifyClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#generate_presigned_url)
         """
 
@@ -321,7 +321,7 @@ class AmplifyClient(BaseClient):
         """
         Returns an existing Amplify app specified by an app ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_app)
         """
 
@@ -329,7 +329,7 @@ class AmplifyClient(BaseClient):
         """
         Returns the artifact info that corresponds to an artifact id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_artifact_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_artifact_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_artifact_url)
         """
 
@@ -339,7 +339,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a backend environment for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_backend_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_backend_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_backend_environment)
         """
 
@@ -347,7 +347,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a branch for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_branch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_branch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_branch)
         """
 
@@ -357,7 +357,7 @@ class AmplifyClient(BaseClient):
         """
         Returns the domain information for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_domain_association)
         """
 
@@ -365,7 +365,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a job for a branch of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_job)
         """
 
@@ -373,7 +373,7 @@ class AmplifyClient(BaseClient):
         """
         Returns the webhook information that corresponds to a specified webhook ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.get_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.get_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_webhook)
         """
 
@@ -381,7 +381,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a list of the existing Amplify apps.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_apps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_apps)
         """
 
@@ -397,7 +397,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a list of artifacts for a specified app, branch, and job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_artifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_artifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_artifacts)
         """
 
@@ -412,7 +412,7 @@ class AmplifyClient(BaseClient):
         """
         Lists the backend environments for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_backend_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_backend_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_backend_environments)
         """
 
@@ -422,7 +422,7 @@ class AmplifyClient(BaseClient):
         """
         Lists the branches of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_branches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_branches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_branches)
         """
 
@@ -432,7 +432,7 @@ class AmplifyClient(BaseClient):
         """
         Returns the domain associations for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_domain_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_domain_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_domain_associations)
         """
 
@@ -442,7 +442,7 @@ class AmplifyClient(BaseClient):
         """
         Lists the jobs for a branch of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_jobs)
         """
 
@@ -450,7 +450,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a list of tags for a specified Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_tags_for_resource)
         """
 
@@ -460,7 +460,7 @@ class AmplifyClient(BaseClient):
         """
         Returns a list of webhooks for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.list_webhooks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.list_webhooks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_webhooks)
         """
 
@@ -470,7 +470,7 @@ class AmplifyClient(BaseClient):
         """
         Starts a deployment for a manually deployed app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.start_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.start_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#start_deployment)
         """
 
@@ -489,7 +489,7 @@ class AmplifyClient(BaseClient):
         """
         Starts a new job for a branch of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.start_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.start_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#start_job)
         """
 
@@ -497,7 +497,7 @@ class AmplifyClient(BaseClient):
         """
         Stops a job that is in progress for a branch of an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.stop_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.stop_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#stop_job)
         """
 
@@ -505,7 +505,7 @@ class AmplifyClient(BaseClient):
         """
         Tags the resource with a tag key and value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#tag_resource)
         """
 
@@ -513,7 +513,7 @@ class AmplifyClient(BaseClient):
         """
         Untags a resource with a specified Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#untag_resource)
         """
 
@@ -543,7 +543,7 @@ class AmplifyClient(BaseClient):
         """
         Updates an existing Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.update_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.update_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_app)
         """
 
@@ -572,7 +572,7 @@ class AmplifyClient(BaseClient):
         """
         Updates a branch for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.update_branch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.update_branch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_branch)
         """
 
@@ -590,7 +590,7 @@ class AmplifyClient(BaseClient):
         """
         Creates a new domain association for an Amplify app.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.update_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.update_domain_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_domain_association)
         """
 
@@ -600,21 +600,21 @@ class AmplifyClient(BaseClient):
         """
         Updates a webhook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Client.update_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Client.update_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_webhook)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Paginator.ListApps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Paginator.ListApps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listappspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_branches"]) -> ListBranchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Paginator.ListBranches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listbranchespaginator)
         """
 
@@ -623,13 +623,13 @@ class AmplifyClient(BaseClient):
         self, operation_name: Literal["list_domain_associations"]
     ) -> ListDomainAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listdomainassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amplify.html#Amplify.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amplify.html#Amplify.Paginator.ListJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listjobspaginator)
         """

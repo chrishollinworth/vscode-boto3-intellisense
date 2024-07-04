@@ -30,7 +30,7 @@ __all__ = ("ListRegionsPaginator",)
 
 class ListRegionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Paginator.ListRegions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Paginator.ListRegions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html#listregionspaginator)
     """
 
@@ -42,6 +42,6 @@ class ListRegionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRegionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Paginator.ListRegions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Paginator.ListRegions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html#listregionspaginator)
         """

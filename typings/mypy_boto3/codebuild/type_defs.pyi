@@ -57,6 +57,7 @@ from .literals import (
     StatusTypeType,
     WebhookBuildTypeType,
     WebhookFilterTypeType,
+    WebhookScopeTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -193,6 +194,7 @@ __all__ = (
     "S3ReportExportConfigTypeDef",
     "ScalingConfigurationInputTypeDef",
     "ScalingConfigurationOutputTypeDef",
+    "ScopeConfigurationTypeDef",
     "SourceAuthTypeDef",
     "SourceCredentialsInfoTypeDef",
     "StartBuildBatchInputRequestTypeDef",
@@ -682,6 +684,7 @@ _OptionalCreateWebhookInputRequestTypeDef = TypedDict(
         "filterGroups": List[List["WebhookFilterTypeDef"]],
         "buildType": WebhookBuildTypeType,
         "manualCreation": bool,
+        "scopeConfiguration": "ScopeConfigurationTypeDef",
     },
     total=False,
 )
@@ -1724,6 +1727,26 @@ ScalingConfigurationOutputTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredScopeConfigurationTypeDef = TypedDict(
+    "_RequiredScopeConfigurationTypeDef",
+    {
+        "name": str,
+        "scope": WebhookScopeTypeType,
+    },
+)
+_OptionalScopeConfigurationTypeDef = TypedDict(
+    "_OptionalScopeConfigurationTypeDef",
+    {
+        "domain": str,
+    },
+    total=False,
+)
+
+class ScopeConfigurationTypeDef(
+    _RequiredScopeConfigurationTypeDef, _OptionalScopeConfigurationTypeDef
+):
+    pass
+
 _RequiredSourceAuthTypeDef = TypedDict(
     "_RequiredSourceAuthTypeDef",
     {
@@ -2154,6 +2177,7 @@ WebhookTypeDef = TypedDict(
         "buildType": WebhookBuildTypeType,
         "manualCreation": bool,
         "lastModifiedSecret": datetime,
+        "scopeConfiguration": "ScopeConfigurationTypeDef",
     },
     total=False,
 )

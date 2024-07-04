@@ -66,6 +66,7 @@ MetricTypeType = Literal[
     "SageMakerInferenceComponentInvocationsPerCopy",
     "SageMakerVariantInvocationsPerInstance",
     "SageMakerVariantProvisionedConcurrencyUtilization",
+    "WorkSpacesAverageUserSessionsCapacityUtilization",
 ]
 PolicyTypeType = Literal["StepScaling", "TargetTrackingScaling"]
 ScalableDimensionType = Literal[
@@ -91,6 +92,7 @@ ScalableDimensionType = Literal[
     "sagemaker:inference-component:DesiredCopyCount",
     "sagemaker:variant:DesiredInstanceCount",
     "sagemaker:variant:DesiredProvisionedConcurrency",
+    "workspaces:workspacespool:DesiredUserSessions",
 ]
 ScalingActivityStatusCodeType = Literal[
     "Failed", "InProgress", "Overridden", "Pending", "Successful", "Unfulfilled"
@@ -110,4 +112,5 @@ ServiceNamespaceType = Literal[
     "neptune",
     "rds",
     "sagemaker",
+    "workspaces",
 ]

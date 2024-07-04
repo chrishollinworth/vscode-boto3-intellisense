@@ -68,7 +68,7 @@ class Exceptions:
 
 class ImportExportClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html)
     """
 
@@ -84,7 +84,7 @@ class ImportExportClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#can_paginate)
         """
 
@@ -92,7 +92,7 @@ class ImportExportClient(BaseClient):
         """
         This operation cancels a specified job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.cancel_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.cancel_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#cancel_job)
         """
 
@@ -100,7 +100,7 @@ class ImportExportClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#close)
         """
 
@@ -117,7 +117,7 @@ class ImportExportClient(BaseClient):
         This operation initiates the process of scheduling an upload or download of your
         data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.create_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.create_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#create_job)
         """
 
@@ -131,7 +131,7 @@ class ImportExportClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#generate_presigned_url)
         """
 
@@ -155,7 +155,7 @@ class ImportExportClient(BaseClient):
         This operation generates a pre-paid UPS shipping label that you will use to ship
         your device to AWS for processing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.get_shipping_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.get_shipping_label)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#get_shipping_label)
         """
 
@@ -165,7 +165,7 @@ class ImportExportClient(BaseClient):
         the processing pipeline, the status of the results, and the signature value
         associated with the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.get_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.get_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#get_status)
         """
 
@@ -175,7 +175,7 @@ class ImportExportClient(BaseClient):
         """
         This operation returns the jobs associated with the requester.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#list_jobs)
         """
 
@@ -192,12 +192,12 @@ class ImportExportClient(BaseClient):
         You use this operation to change the parameters specified in the original
         manifest file by supplying a new manifest file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Client.update_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Client.update_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/client.html#update_job)
         """
 
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_importexport/paginators.html#listjobspaginator)
         """

@@ -31,6 +31,7 @@ __all__ = (
     "EncryptionAlgorithmSpecType",
     "ExpirationModelTypeType",
     "GrantOperationType",
+    "KeyAgreementAlgorithmSpecType",
     "KeyEncryptionMechanismType",
     "KeyManagerTypeType",
     "KeySpecType",
@@ -119,6 +120,7 @@ ExpirationModelTypeType = Literal["KEY_MATERIAL_DOES_NOT_EXPIRE", "KEY_MATERIAL_
 GrantOperationType = Literal[
     "CreateGrant",
     "Decrypt",
+    "DeriveSharedSecret",
     "DescribeKey",
     "Encrypt",
     "GenerateDataKey",
@@ -134,6 +136,7 @@ GrantOperationType = Literal[
     "Verify",
     "VerifyMac",
 ]
+KeyAgreementAlgorithmSpecType = Literal["ECDH"]
 KeyEncryptionMechanismType = Literal["RSAES_OAEP_SHA_256"]
 KeyManagerTypeType = Literal["AWS", "CUSTOMER"]
 KeySpecType = Literal[
@@ -161,7 +164,7 @@ KeyStateType = Literal[
     "Unavailable",
     "Updating",
 ]
-KeyUsageTypeType = Literal["ENCRYPT_DECRYPT", "GENERATE_VERIFY_MAC", "SIGN_VERIFY"]
+KeyUsageTypeType = Literal["ENCRYPT_DECRYPT", "GENERATE_VERIFY_MAC", "KEY_AGREEMENT", "SIGN_VERIFY"]
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListGrantsPaginatorName = Literal["list_grants"]
 ListKeyPoliciesPaginatorName = Literal["list_key_policies"]

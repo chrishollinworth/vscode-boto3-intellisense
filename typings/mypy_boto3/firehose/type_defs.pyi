@@ -138,6 +138,7 @@ __all__ = (
     "S3DestinationDescriptionTypeDef",
     "S3DestinationUpdateTypeDef",
     "SchemaConfigurationTypeDef",
+    "SecretsManagerConfigurationTypeDef",
     "SerializerTypeDef",
     "SnowflakeDestinationConfigurationTypeDef",
     "SnowflakeDestinationDescriptionTypeDef",
@@ -850,6 +851,7 @@ _OptionalHttpEndpointDestinationConfigurationTypeDef = TypedDict(
         "RoleARN": str,
         "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
         "S3BackupMode": HttpEndpointS3BackupModeType,
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -872,6 +874,7 @@ HttpEndpointDestinationDescriptionTypeDef = TypedDict(
         "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
         "S3BackupMode": HttpEndpointS3BackupModeType,
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -888,6 +891,7 @@ HttpEndpointDestinationUpdateTypeDef = TypedDict(
         "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
         "S3BackupMode": HttpEndpointS3BackupModeType,
         "S3Update": "S3DestinationUpdateTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1151,19 +1155,20 @@ _RequiredRedshiftDestinationConfigurationTypeDef = TypedDict(
         "RoleARN": str,
         "ClusterJDBCURL": str,
         "CopyCommand": "CopyCommandTypeDef",
-        "Username": str,
-        "Password": str,
         "S3Configuration": "S3DestinationConfigurationTypeDef",
     },
 )
 _OptionalRedshiftDestinationConfigurationTypeDef = TypedDict(
     "_OptionalRedshiftDestinationConfigurationTypeDef",
     {
+        "Username": str,
+        "Password": str,
         "RetryOptions": "RedshiftRetryOptionsTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "S3BackupMode": RedshiftS3BackupModeType,
         "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1180,18 +1185,19 @@ _RequiredRedshiftDestinationDescriptionTypeDef = TypedDict(
         "RoleARN": str,
         "ClusterJDBCURL": str,
         "CopyCommand": "CopyCommandTypeDef",
-        "Username": str,
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
     },
 )
 _OptionalRedshiftDestinationDescriptionTypeDef = TypedDict(
     "_OptionalRedshiftDestinationDescriptionTypeDef",
     {
+        "Username": str,
         "RetryOptions": "RedshiftRetryOptionsTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "S3BackupMode": RedshiftS3BackupModeType,
         "S3BackupDescription": "S3DestinationDescriptionTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1215,6 +1221,7 @@ RedshiftDestinationUpdateTypeDef = TypedDict(
         "S3BackupMode": RedshiftS3BackupModeType,
         "S3BackupUpdate": "S3DestinationUpdateTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1324,6 +1331,26 @@ SchemaConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSecretsManagerConfigurationTypeDef = TypedDict(
+    "_RequiredSecretsManagerConfigurationTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalSecretsManagerConfigurationTypeDef = TypedDict(
+    "_OptionalSecretsManagerConfigurationTypeDef",
+    {
+        "SecretARN": str,
+        "RoleARN": str,
+    },
+    total=False,
+)
+
+class SecretsManagerConfigurationTypeDef(
+    _RequiredSecretsManagerConfigurationTypeDef, _OptionalSecretsManagerConfigurationTypeDef
+):
+    pass
+
 SerializerTypeDef = TypedDict(
     "SerializerTypeDef",
     {
@@ -1337,8 +1364,6 @@ _RequiredSnowflakeDestinationConfigurationTypeDef = TypedDict(
     "_RequiredSnowflakeDestinationConfigurationTypeDef",
     {
         "AccountUrl": str,
-        "PrivateKey": str,
-        "User": str,
         "Database": str,
         "Schema": str,
         "Table": str,
@@ -1349,7 +1374,9 @@ _RequiredSnowflakeDestinationConfigurationTypeDef = TypedDict(
 _OptionalSnowflakeDestinationConfigurationTypeDef = TypedDict(
     "_OptionalSnowflakeDestinationConfigurationTypeDef",
     {
+        "PrivateKey": str,
         "KeyPassphrase": str,
+        "User": str,
         "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
         "DataLoadingOption": SnowflakeDataLoadingOptionType,
         "MetaDataColumnName": str,
@@ -1359,6 +1386,7 @@ _OptionalSnowflakeDestinationConfigurationTypeDef = TypedDict(
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "RetryOptions": "SnowflakeRetryOptionsTypeDef",
         "S3BackupMode": SnowflakeS3BackupModeType,
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1388,6 +1416,7 @@ SnowflakeDestinationDescriptionTypeDef = TypedDict(
         "RetryOptions": "SnowflakeRetryOptionsTypeDef",
         "S3BackupMode": SnowflakeS3BackupModeType,
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1412,6 +1441,7 @@ SnowflakeDestinationUpdateTypeDef = TypedDict(
         "RetryOptions": "SnowflakeRetryOptionsTypeDef",
         "S3BackupMode": SnowflakeS3BackupModeType,
         "S3Update": "S3DestinationUpdateTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1463,19 +1493,20 @@ _RequiredSplunkDestinationConfigurationTypeDef = TypedDict(
     {
         "HECEndpoint": str,
         "HECEndpointType": HECEndpointTypeType,
-        "HECToken": str,
         "S3Configuration": "S3DestinationConfigurationTypeDef",
     },
 )
 _OptionalSplunkDestinationConfigurationTypeDef = TypedDict(
     "_OptionalSplunkDestinationConfigurationTypeDef",
     {
+        "HECToken": str,
         "HECAcknowledgmentTimeoutInSeconds": int,
         "RetryOptions": "SplunkRetryOptionsTypeDef",
         "S3BackupMode": SplunkS3BackupModeType,
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
         "BufferingHints": "SplunkBufferingHintsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1498,6 +1529,7 @@ SplunkDestinationDescriptionTypeDef = TypedDict(
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
         "BufferingHints": "SplunkBufferingHintsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )
@@ -1515,6 +1547,7 @@ SplunkDestinationUpdateTypeDef = TypedDict(
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
         "BufferingHints": "SplunkBufferingHintsTypeDef",
+        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
     },
     total=False,
 )

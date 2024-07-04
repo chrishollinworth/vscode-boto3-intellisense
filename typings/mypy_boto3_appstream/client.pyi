@@ -146,7 +146,7 @@ class Exceptions:
 
 class AppStreamClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html)
     """
 
@@ -164,7 +164,7 @@ class AppStreamClient(BaseClient):
         """
         Associates the specified app block builder with the specified app block.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.associate_app_block_builder_app_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.associate_app_block_builder_app_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#associate_app_block_builder_app_block)
         """
 
@@ -174,7 +174,7 @@ class AppStreamClient(BaseClient):
         """
         Associates the specified application with the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.associate_application_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.associate_application_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#associate_application_fleet)
         """
 
@@ -184,7 +184,7 @@ class AppStreamClient(BaseClient):
         """
         Associates an application to entitle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.associate_application_to_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.associate_application_to_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#associate_application_to_entitlement)
         """
 
@@ -192,7 +192,7 @@ class AppStreamClient(BaseClient):
         """
         Associates the specified fleet with the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.associate_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.associate_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#associate_fleet)
         """
 
@@ -202,7 +202,7 @@ class AppStreamClient(BaseClient):
         """
         Associates the specified users with the specified stacks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.batch_associate_user_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.batch_associate_user_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#batch_associate_user_stack)
         """
 
@@ -212,7 +212,7 @@ class AppStreamClient(BaseClient):
         """
         Disassociates the specified users from the specified stacks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.batch_disassociate_user_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.batch_disassociate_user_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#batch_disassociate_user_stack)
         """
 
@@ -220,7 +220,7 @@ class AppStreamClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#can_paginate)
         """
 
@@ -228,7 +228,7 @@ class AppStreamClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#close)
         """
 
@@ -244,7 +244,7 @@ class AppStreamClient(BaseClient):
         Copies the image within the same region or to a new region within the same AWS
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.copy_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.copy_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#copy_image)
         """
 
@@ -263,7 +263,7 @@ class AppStreamClient(BaseClient):
         """
         Creates an app block.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_app_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_app_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_app_block)
         """
 
@@ -284,7 +284,7 @@ class AppStreamClient(BaseClient):
         """
         Creates an app block builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_app_block_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_app_block_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_app_block_builder)
         """
 
@@ -294,7 +294,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a URL to start a create app block builder streaming session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_app_block_builder_streaming_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_app_block_builder_streaming_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_app_block_builder_streaming_url)
         """
 
@@ -316,7 +316,7 @@ class AppStreamClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_application)
         """
 
@@ -331,7 +331,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a Directory Config object in AppStream 2.0.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_directory_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_directory_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_directory_config)
         """
 
@@ -347,7 +347,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a new entitlement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_entitlement)
         """
 
@@ -380,7 +380,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_fleet)
         """
 
@@ -404,7 +404,7 @@ class AppStreamClient(BaseClient):
         """
         Creates an image builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_image_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_image_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_image_builder)
         """
 
@@ -414,7 +414,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a URL to start an image builder streaming session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_image_builder_streaming_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_image_builder_streaming_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_image_builder_streaming_url)
         """
 
@@ -437,7 +437,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a stack to start streaming applications to users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_stack)
         """
 
@@ -455,7 +455,7 @@ class AppStreamClient(BaseClient):
         Creates a temporary URL to start an AppStream 2.0 streaming session for the
         specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_streaming_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_streaming_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_streaming_url)
         """
 
@@ -473,7 +473,7 @@ class AppStreamClient(BaseClient):
         Creates a new image with the latest Windows operating system updates, driver
         updates, and AppStream 2.0 agent software.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_updated_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_updated_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_updated_image)
         """
 
@@ -481,7 +481,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a usage report subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_usage_report_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_usage_report_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_usage_report_subscription)
         """
 
@@ -497,7 +497,7 @@ class AppStreamClient(BaseClient):
         """
         Creates a new user in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#create_user)
         """
 
@@ -505,7 +505,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes an app block.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_app_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_app_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_app_block)
         """
 
@@ -513,7 +513,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes an app block builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_app_block_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_app_block_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_app_block_builder)
         """
 
@@ -521,7 +521,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_application)
         """
 
@@ -529,7 +529,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified Directory Config object from AppStream 2.0.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_directory_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_directory_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_directory_config)
         """
 
@@ -537,7 +537,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified entitlement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_entitlement)
         """
 
@@ -545,7 +545,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_fleet)
         """
 
@@ -553,7 +553,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_image)
         """
 
@@ -561,7 +561,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified image builder and releases the capacity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_image_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_image_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_image_builder)
         """
 
@@ -569,7 +569,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes permissions for the specified private image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_image_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_image_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_image_permissions)
         """
 
@@ -577,7 +577,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_stack)
         """
 
@@ -585,7 +585,7 @@ class AppStreamClient(BaseClient):
         """
         Disables usage report generation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_usage_report_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_usage_report_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_usage_report_subscription)
         """
 
@@ -595,7 +595,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes a user from the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#delete_user)
         """
 
@@ -610,7 +610,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more app block builder associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_app_block_builder_app_block_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_app_block_builder_app_block_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_app_block_builder_app_block_associations)
         """
 
@@ -620,7 +620,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more app block builders.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_app_block_builders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_app_block_builders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_app_block_builders)
         """
 
@@ -630,7 +630,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more app blocks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_app_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_app_blocks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_app_blocks)
         """
 
@@ -645,7 +645,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more application fleet associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_application_fleet_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_application_fleet_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_application_fleet_associations)
         """
 
@@ -655,7 +655,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_applications)
         """
 
@@ -666,7 +666,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes one or more specified Directory Config objects
         for AppStream 2.0, if the names for these objects are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_directory_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_directory_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_directory_configs)
         """
 
@@ -676,7 +676,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one of more entitlements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_entitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_entitlements)
         """
 
@@ -687,7 +687,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes one or more specified fleets, if the fleet names
         are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_fleets)
         """
 
@@ -698,7 +698,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes one or more specified image builders, if the
         image builder names are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_image_builders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_image_builders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_image_builders)
         """
 
@@ -714,7 +714,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes the permissions for shared AWS account IDs on a
         private image that you own.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_image_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_image_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_image_permissions)
         """
 
@@ -731,7 +731,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes one or more specified images, if the image names
         or image ARNs are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_images)
         """
 
@@ -750,7 +750,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes the streaming sessions for a specified stack and
         fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_sessions)
         """
 
@@ -761,7 +761,7 @@ class AppStreamClient(BaseClient):
         Retrieves a list that describes one or more specified stacks, if the stack names
         are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_stacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_stacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_stacks)
         """
 
@@ -771,7 +771,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more usage report subscriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_usage_report_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_usage_report_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_usage_report_subscriptions)
         """
 
@@ -787,7 +787,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes the UserStackAssociation objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_user_stack_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_user_stack_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_user_stack_associations)
         """
 
@@ -801,7 +801,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list that describes one or more specified users in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.describe_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.describe_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#describe_users)
         """
 
@@ -811,7 +811,7 @@ class AppStreamClient(BaseClient):
         """
         Disables the specified user in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.disable_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.disable_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#disable_user)
         """
 
@@ -821,7 +821,7 @@ class AppStreamClient(BaseClient):
         """
         Disassociates a specified app block builder from a specified app block.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.disassociate_app_block_builder_app_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.disassociate_app_block_builder_app_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#disassociate_app_block_builder_app_block)
         """
 
@@ -831,7 +831,7 @@ class AppStreamClient(BaseClient):
         """
         Disassociates the specified application from the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.disassociate_application_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.disassociate_application_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#disassociate_application_fleet)
         """
 
@@ -841,7 +841,7 @@ class AppStreamClient(BaseClient):
         """
         Deletes the specified application from the specified entitlement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.disassociate_application_from_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.disassociate_application_from_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#disassociate_application_from_entitlement)
         """
 
@@ -849,7 +849,7 @@ class AppStreamClient(BaseClient):
         """
         Disassociates the specified fleet from the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.disassociate_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.disassociate_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#disassociate_fleet)
         """
 
@@ -859,7 +859,7 @@ class AppStreamClient(BaseClient):
         """
         Enables a user in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.enable_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.enable_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#enable_user)
         """
 
@@ -867,7 +867,7 @@ class AppStreamClient(BaseClient):
         """
         Immediately stops the specified streaming session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.expire_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.expire_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#expire_session)
         """
 
@@ -881,7 +881,7 @@ class AppStreamClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#generate_presigned_url)
         """
 
@@ -891,7 +891,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves the name of the fleet that is associated with the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.list_associated_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.list_associated_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#list_associated_fleets)
         """
 
@@ -901,7 +901,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves the name of the stack with which the specified fleet is associated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.list_associated_stacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.list_associated_stacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#list_associated_stacks)
         """
 
@@ -911,7 +911,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list of entitled applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.list_entitled_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.list_entitled_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#list_entitled_applications)
         """
 
@@ -919,7 +919,7 @@ class AppStreamClient(BaseClient):
         """
         Retrieves a list of all tags for the specified AppStream 2.0 resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#list_tags_for_resource)
         """
 
@@ -927,7 +927,7 @@ class AppStreamClient(BaseClient):
         """
         Starts an app block builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.start_app_block_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.start_app_block_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#start_app_block_builder)
         """
 
@@ -935,7 +935,7 @@ class AppStreamClient(BaseClient):
         """
         Starts the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.start_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.start_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#start_fleet)
         """
 
@@ -945,7 +945,7 @@ class AppStreamClient(BaseClient):
         """
         Starts the specified image builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.start_image_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.start_image_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#start_image_builder)
         """
 
@@ -953,7 +953,7 @@ class AppStreamClient(BaseClient):
         """
         Stops an app block builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.stop_app_block_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.stop_app_block_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#stop_app_block_builder)
         """
 
@@ -961,7 +961,7 @@ class AppStreamClient(BaseClient):
         """
         Stops the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.stop_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.stop_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#stop_fleet)
         """
 
@@ -969,7 +969,7 @@ class AppStreamClient(BaseClient):
         """
         Stops the specified image builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.stop_image_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.stop_image_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#stop_image_builder)
         """
 
@@ -977,7 +977,7 @@ class AppStreamClient(BaseClient):
         """
         Adds or overwrites one or more tags for the specified AppStream 2.0 resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#tag_resource)
         """
 
@@ -986,7 +986,7 @@ class AppStreamClient(BaseClient):
         Disassociates one or more specified tags from the specified AppStream 2.0
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#untag_resource)
         """
 
@@ -1007,7 +1007,7 @@ class AppStreamClient(BaseClient):
         """
         Updates an app block builder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_app_block_builder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_app_block_builder)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_app_block_builder)
         """
 
@@ -1027,7 +1027,7 @@ class AppStreamClient(BaseClient):
         """
         Updates the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_application)
         """
 
@@ -1042,7 +1042,7 @@ class AppStreamClient(BaseClient):
         """
         Updates the specified Directory Config object in AppStream 2.0.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_directory_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_directory_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_directory_config)
         """
 
@@ -1058,7 +1058,7 @@ class AppStreamClient(BaseClient):
         """
         Updates the specified entitlement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_entitlement)
         """
 
@@ -1091,7 +1091,7 @@ class AppStreamClient(BaseClient):
         """
         Updates the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_fleet)
         """
 
@@ -1101,7 +1101,7 @@ class AppStreamClient(BaseClient):
         """
         Adds or updates permissions for the specified private image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_image_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_image_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_image_permissions)
         """
 
@@ -1125,7 +1125,7 @@ class AppStreamClient(BaseClient):
         """
         Updates the specified fields for the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Client.update_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Client.update_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/client.html#update_stack)
         """
 
@@ -1134,14 +1134,14 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["describe_directory_configs"]
     ) -> DescribeDirectoryConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describedirectoryconfigspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_fleets"]) -> DescribeFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describefleetspaginator)
         """
 
@@ -1150,14 +1150,14 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["describe_image_builders"]
     ) -> DescribeImageBuildersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagebuilderspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_images"]) -> DescribeImagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagespaginator)
         """
 
@@ -1166,14 +1166,14 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["describe_sessions"]
     ) -> DescribeSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describesessionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_stacks"]) -> DescribeStacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describestackspaginator)
         """
 
@@ -1182,14 +1182,14 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["describe_user_stack_associations"]
     ) -> DescribeUserStackAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserstackassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserspaginator)
         """
 
@@ -1198,7 +1198,7 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["list_associated_fleets"]
     ) -> ListAssociatedFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedfleetspaginator)
         """
 
@@ -1207,20 +1207,20 @@ class AppStreamClient(BaseClient):
         self, operation_name: Literal["list_associated_stacks"]
     ) -> ListAssociatedStacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedstackspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["fleet_started"]) -> FleetStartedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/waiters.html#fleetstartedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["fleet_stopped"]) -> FleetStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/waiters.html#fleetstoppedwaiter)
         """

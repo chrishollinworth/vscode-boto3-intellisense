@@ -58,7 +58,7 @@ class Exceptions:
 
 class BillingandCostManagementDataExportsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html)
     """
 
@@ -74,7 +74,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#can_paginate)
         """
 
@@ -82,7 +82,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#close)
         """
 
@@ -93,7 +93,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         Creates a data export and specifies the data query, the delivery preference, and
         any optional resource tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.create_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.create_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#create_export)
         """
 
@@ -101,7 +101,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Deletes an existing data export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.delete_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.delete_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#delete_export)
         """
 
@@ -115,7 +115,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#generate_presigned_url)
         """
 
@@ -123,7 +123,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Exports data based on the source data update.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_execution)
         """
 
@@ -131,7 +131,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Views the definition of an existing data export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_export)
         """
 
@@ -141,7 +141,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Returns the metadata for the specified table and table properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_table)
         """
 
@@ -151,7 +151,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Lists the historical executions for the export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_executions)
         """
 
@@ -161,7 +161,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Lists all data export definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_exports)
         """
 
@@ -171,7 +171,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Lists all available tables in data exports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_tables)
         """
 
@@ -181,7 +181,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         List tags associated with an existing data export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_tags_for_resource)
         """
 
@@ -191,7 +191,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Adds tags for an existing data export definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#tag_resource)
         """
 
@@ -199,7 +199,7 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Deletes tags associated with an existing data export definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#untag_resource)
         """
 
@@ -209,27 +209,27 @@ class BillingandCostManagementDataExportsClient(BaseClient):
         """
         Updates an existing data export by overwriting all export parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.update_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.update_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#update_export)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_executions"]) -> ListExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexecutionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_exports"]) -> ListExportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexportspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listtablespaginator)
         """

@@ -30,8 +30,10 @@ from .literals import (
     OperatingSystemNameType,
     TargetWorkspaceStateType,
     TenancyType,
+    UserIdentityTypeType,
     WorkSpaceApplicationLicenseTypeType,
     WorkspaceImageIngestionProcessType,
+    WorkspaceTypeType,
 )
 from .paginator import (
     DescribeAccountModificationsPaginator,
@@ -46,8 +48,11 @@ from .paginator import (
 )
 from .type_defs import (
     AcceptAccountLinkInvitationResultTypeDef,
+    ActiveDirectoryConfigTypeDef,
+    ApplicationSettingsRequestTypeDef,
     AssociateConnectionAliasResultTypeDef,
     AssociateWorkspaceApplicationResultTypeDef,
+    CapacityTypeDef,
     CertificateBasedAuthPropertiesTypeDef,
     ClientPropertiesTypeDef,
     ComputeTypeTypeDef,
@@ -61,6 +66,7 @@ from .type_defs import (
     CreateUpdatedWorkspaceImageResultTypeDef,
     CreateWorkspaceBundleResultTypeDef,
     CreateWorkspaceImageResultTypeDef,
+    CreateWorkspacesPoolResultTypeDef,
     CreateWorkspacesResultTypeDef,
     DefaultImportClientBrandingAttributesTypeDef,
     DeleteAccountLinkInvitationResultTypeDef,
@@ -85,6 +91,9 @@ from .type_defs import (
     DescribeWorkspaceImagesResultTypeDef,
     DescribeWorkspacesConnectionStatusResultTypeDef,
     DescribeWorkspaceSnapshotsResultTypeDef,
+    DescribeWorkspacesPoolSessionsResultTypeDef,
+    DescribeWorkspacesPoolsFilterTypeDef,
+    DescribeWorkspacesPoolsResultTypeDef,
     DescribeWorkspacesResultTypeDef,
     DisassociateWorkspaceApplicationResultTypeDef,
     GetAccountLinkResultTypeDef,
@@ -99,6 +108,7 @@ from .type_defs import (
     RebootWorkspacesResultTypeDef,
     RebuildRequestTypeDef,
     RebuildWorkspacesResultTypeDef,
+    RegisterWorkspaceDirectoryResultTypeDef,
     RejectAccountLinkInvitationResultTypeDef,
     RootStorageTypeDef,
     SamlPropertiesTypeDef,
@@ -108,9 +118,12 @@ from .type_defs import (
     StartWorkspacesResultTypeDef,
     StopRequestTypeDef,
     StopWorkspacesResultTypeDef,
+    StreamingPropertiesTypeDef,
     TagTypeDef,
     TerminateRequestTypeDef,
     TerminateWorkspacesResultTypeDef,
+    TimeoutSettingsTypeDef,
+    UpdateWorkspacesPoolResultTypeDef,
     UserStorageTypeDef,
     WorkspaceAccessPropertiesTypeDef,
     WorkspaceCreationPropertiesTypeDef,
@@ -159,7 +172,7 @@ class Exceptions:
 
 class WorkSpacesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html)
     """
 
@@ -177,7 +190,7 @@ class WorkSpacesClient(BaseClient):
         """
         Accepts the account link invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.accept_account_link_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.accept_account_link_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#accept_account_link_invitation)
         """
 
@@ -188,7 +201,7 @@ class WorkSpacesClient(BaseClient):
         Associates the specified connection alias with the specified directory to enable
         cross-Region redirection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.associate_connection_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.associate_connection_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#associate_connection_alias)
         """
 
@@ -196,7 +209,7 @@ class WorkSpacesClient(BaseClient):
         """
         Associates the specified IP access control group with the specified directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.associate_ip_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.associate_ip_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#associate_ip_groups)
         """
 
@@ -206,7 +219,7 @@ class WorkSpacesClient(BaseClient):
         """
         Associates the specified application to the specified WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.associate_workspace_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.associate_workspace_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#associate_workspace_application)
         """
 
@@ -216,7 +229,7 @@ class WorkSpacesClient(BaseClient):
         """
         Adds one or more rules to the specified IP access control group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.authorize_ip_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.authorize_ip_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#authorize_ip_rules)
         """
 
@@ -224,7 +237,7 @@ class WorkSpacesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#can_paginate)
         """
 
@@ -232,7 +245,7 @@ class WorkSpacesClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#close)
         """
 
@@ -248,7 +261,7 @@ class WorkSpacesClient(BaseClient):
         """
         Copies the specified image from the specified Region to the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.copy_workspace_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.copy_workspace_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#copy_workspace_image)
         """
 
@@ -258,7 +271,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates the account link invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_account_link_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_account_link_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_account_link_invitation)
         """
 
@@ -268,7 +281,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates a client-add-in for Amazon Connect within a directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_connect_client_add_in)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_connect_client_add_in)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_connect_client_add_in)
         """
 
@@ -278,7 +291,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates the specified connection alias for use with cross-Region redirection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_connection_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_connection_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_connection_alias)
         """
 
@@ -293,7 +306,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates an IP access control group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_ip_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_ip_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_ip_group)
         """
 
@@ -303,7 +316,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates a standby WorkSpace in a secondary Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_standby_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_standby_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_standby_workspaces)
         """
 
@@ -311,7 +324,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates the specified tags for the specified WorkSpaces resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_tags)
         """
 
@@ -321,7 +334,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates a new updated WorkSpace image based on the specified source image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_updated_workspace_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_updated_workspace_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_updated_workspace_image)
         """
 
@@ -339,7 +352,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates the specified WorkSpace bundle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_workspace_bundle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_workspace_bundle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_workspace_bundle)
         """
 
@@ -349,7 +362,7 @@ class WorkSpacesClient(BaseClient):
         """
         Creates a new WorkSpace image from an existing WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_workspace_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_workspace_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_workspace_image)
         """
 
@@ -359,8 +372,27 @@ class WorkSpacesClient(BaseClient):
         """
         Creates one or more WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.create_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_workspaces)
+        """
+
+    def create_workspaces_pool(
+        self,
+        *,
+        PoolName: str,
+        Description: str,
+        BundleId: str,
+        DirectoryId: str,
+        Capacity: "CapacityTypeDef",
+        Tags: List["TagTypeDef"] = None,
+        ApplicationSettings: "ApplicationSettingsRequestTypeDef" = None,
+        TimeoutSettings: "TimeoutSettingsTypeDef" = None
+    ) -> CreateWorkspacesPoolResultTypeDef:
+        """
+        Creates a pool of WorkSpaces.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.create_workspaces_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#create_workspaces_pool)
         """
 
     def delete_account_link_invitation(
@@ -369,7 +401,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the account link invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_account_link_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_account_link_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_account_link_invitation)
         """
 
@@ -379,7 +411,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes customized client branding.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_client_branding)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_client_branding)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_client_branding)
         """
 
@@ -388,7 +420,7 @@ class WorkSpacesClient(BaseClient):
         Deletes a client-add-in for Amazon Connect that is configured within a
         directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_connect_client_add_in)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_connect_client_add_in)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_connect_client_add_in)
         """
 
@@ -396,7 +428,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the specified connection alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_connection_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_connection_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_connection_alias)
         """
 
@@ -404,7 +436,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the specified IP access control group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_ip_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_ip_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_ip_group)
         """
 
@@ -412,7 +444,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the specified tags from the specified WorkSpaces resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_tags)
         """
 
@@ -420,7 +452,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the specified WorkSpace bundle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_workspace_bundle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_workspace_bundle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_workspace_bundle)
         """
 
@@ -428,7 +460,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deletes the specified image from your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.delete_workspace_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.delete_workspace_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#delete_workspace_image)
         """
 
@@ -441,7 +473,7 @@ class WorkSpacesClient(BaseClient):
         08/DeployWorkspaceApplications>`_ **Request Syntax** response =
         client.deploy_workspace_applications( WorkspaceId='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.deploy_workspace_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.deploy_workspace_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#deploy_workspace_applications)
         """
 
@@ -449,7 +481,7 @@ class WorkSpacesClient(BaseClient):
         """
         Deregisters the specified directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.deregister_workspace_directory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.deregister_workspace_directory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#deregister_workspace_directory)
         """
 
@@ -458,7 +490,7 @@ class WorkSpacesClient(BaseClient):
         Retrieves a list that describes the configuration of Bring Your Own License
         (BYOL) for the specified account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_account)
         """
 
@@ -469,7 +501,7 @@ class WorkSpacesClient(BaseClient):
         Retrieves a list that describes modifications to the configuration of Bring Your
         Own License (BYOL) for the specified account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_account_modifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_account_modifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_account_modifications)
         """
 
@@ -485,7 +517,7 @@ class WorkSpacesClient(BaseClient):
         Describes the associations between the application and the specified associated
         resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_application_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_application_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_application_associations)
         """
 
@@ -504,7 +536,7 @@ class WorkSpacesClient(BaseClient):
         Describes the specified applications by filtering based on their compute types,
         license availability, operating systems, and owners.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_applications)
         """
 
@@ -514,7 +546,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the associations between the applications and the specified bundle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_bundle_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_bundle_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_bundle_associations)
         """
 
@@ -522,7 +554,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the specified client branding.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_client_branding)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_client_branding)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_client_branding)
         """
 
@@ -532,7 +564,7 @@ class WorkSpacesClient(BaseClient):
         """
         Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_client_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_client_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_client_properties)
         """
 
@@ -542,7 +574,7 @@ class WorkSpacesClient(BaseClient):
         """
         Retrieves a list of Amazon Connect client add-ins that have been created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_connect_client_add_ins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_connect_client_add_ins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_connect_client_add_ins)
         """
 
@@ -553,7 +585,7 @@ class WorkSpacesClient(BaseClient):
         Describes the permissions that the owner of a connection alias has granted to
         another Amazon Web Services account for the specified connection alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_connection_alias_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_connection_alias_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_connection_alias_permissions)
         """
 
@@ -569,7 +601,7 @@ class WorkSpacesClient(BaseClient):
         Retrieves a list that describes the connection aliases used for cross-Region
         redirection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_connection_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_connection_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_connection_aliases)
         """
 
@@ -579,7 +611,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the associations between the applications and the specified image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_image_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_image_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_image_associations)
         """
 
@@ -589,7 +621,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes one or more of your IP access control groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_ip_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_ip_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_ip_groups)
         """
 
@@ -597,7 +629,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the specified tags for the specified WorkSpaces resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_tags)
         """
 
@@ -607,7 +639,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the associations betweens applications and the specified WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_associations)
         """
 
@@ -617,17 +649,22 @@ class WorkSpacesClient(BaseClient):
         """
         Retrieves a list that describes the available WorkSpace bundles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_bundles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_bundles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_bundles)
         """
 
     def describe_workspace_directories(
-        self, *, DirectoryIds: List[str] = None, Limit: int = None, NextToken: str = None
+        self,
+        *,
+        DirectoryIds: List[str] = None,
+        WorkspaceDirectoryNames: List[str] = None,
+        Limit: int = None,
+        NextToken: str = None
     ) -> DescribeWorkspaceDirectoriesResultTypeDef:
         """
         Describes the available directories that are registered with Amazon WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_directories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_directories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_directories)
         """
 
@@ -638,7 +675,7 @@ class WorkSpacesClient(BaseClient):
         Describes the permissions that the owner of an image has granted to other Amazon
         Web Services accounts for an image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_image_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_image_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_image_permissions)
         """
 
@@ -654,7 +691,7 @@ class WorkSpacesClient(BaseClient):
         Retrieves a list that describes one or more specified images, if the image
         identifiers are provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_images)
         """
 
@@ -664,7 +701,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the snapshots for the specified WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspace_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspace_snapshots)
         """
 
@@ -682,7 +719,7 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspaces)
         """
 
@@ -692,15 +729,40 @@ class WorkSpacesClient(BaseClient):
         """
         Describes the connection status of the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces_connection_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces_connection_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspaces_connection_status)
+        """
+
+    def describe_workspaces_pool_sessions(
+        self, *, PoolId: str, UserId: str = None, Limit: int = None, NextToken: str = None
+    ) -> DescribeWorkspacesPoolSessionsResultTypeDef:
+        """
+        Retrieves a list that describes the streaming sessions for a specified pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces_pool_sessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspaces_pool_sessions)
+        """
+
+    def describe_workspaces_pools(
+        self,
+        *,
+        PoolIds: List[str] = None,
+        Filters: List["DescribeWorkspacesPoolsFilterTypeDef"] = None,
+        Limit: int = None,
+        NextToken: str = None
+    ) -> DescribeWorkspacesPoolsResultTypeDef:
+        """
+        Describes the specified WorkSpaces Pools.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.describe_workspaces_pools)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#describe_workspaces_pools)
         """
 
     def disassociate_connection_alias(self, *, AliasId: str) -> Dict[str, Any]:
         """
         Disassociates a connection alias from a directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.disassociate_connection_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.disassociate_connection_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#disassociate_connection_alias)
         """
 
@@ -709,7 +771,7 @@ class WorkSpacesClient(BaseClient):
         Disassociates the specified IP access control group from the specified
         directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.disassociate_ip_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.disassociate_ip_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#disassociate_ip_groups)
         """
 
@@ -719,7 +781,7 @@ class WorkSpacesClient(BaseClient):
         """
         Disassociates the specified application from a WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.disassociate_workspace_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.disassociate_workspace_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#disassociate_workspace_application)
         """
 
@@ -733,7 +795,7 @@ class WorkSpacesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#generate_presigned_url)
         """
 
@@ -743,7 +805,7 @@ class WorkSpacesClient(BaseClient):
         """
         Retrieves account link information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.get_account_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.get_account_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#get_account_link)
         """
 
@@ -761,7 +823,7 @@ class WorkSpacesClient(BaseClient):
         """
         Imports client branding.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.import_client_branding)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.import_client_branding)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#import_client_branding)
         """
 
@@ -779,7 +841,7 @@ class WorkSpacesClient(BaseClient):
         Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into
         Amazon WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.import_workspace_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.import_workspace_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#import_workspace_image)
         """
 
@@ -793,7 +855,7 @@ class WorkSpacesClient(BaseClient):
         """
         Lists all account links.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.list_account_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.list_account_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#list_account_links)
         """
 
@@ -805,7 +867,7 @@ class WorkSpacesClient(BaseClient):
         can use for the network management interface when you enable Bring Your Own
         License (BYOL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.list_available_management_cidr_ranges)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.list_available_management_cidr_ranges)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#list_available_management_cidr_ranges)
         """
 
@@ -816,7 +878,7 @@ class WorkSpacesClient(BaseClient):
         Migrates a WorkSpace from one operating system or bundle type to another, while
         retaining the data on the user volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.migrate_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.migrate_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#migrate_workspace)
         """
 
@@ -830,7 +892,7 @@ class WorkSpacesClient(BaseClient):
         Modifies the configuration of Bring Your Own License (BYOL) for the specified
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_account)
         """
 
@@ -847,7 +909,7 @@ class WorkSpacesClient(BaseClient):
         Modifies the properties of the certificate-based authentication you want to use
         with your WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_certificate_based_auth_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_certificate_based_auth_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_certificate_based_auth_properties)
         """
 
@@ -857,7 +919,7 @@ class WorkSpacesClient(BaseClient):
         """
         Modifies the properties of the specified Amazon WorkSpaces clients.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_client_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_client_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_client_properties)
         """
 
@@ -873,7 +935,7 @@ class WorkSpacesClient(BaseClient):
         enablement status, user access URL, and relay state parameter name that are used
         for configuring federation with an SAML 2.0 identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_saml_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_saml_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_saml_properties)
         """
 
@@ -883,8 +945,18 @@ class WorkSpacesClient(BaseClient):
         """
         Modifies the self-service WorkSpace management capabilities for your users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_selfservice_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_selfservice_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_selfservice_permissions)
+        """
+
+    def modify_streaming_properties(
+        self, *, ResourceId: str, StreamingProperties: "StreamingPropertiesTypeDef" = None
+    ) -> Dict[str, Any]:
+        """
+        Modifies the specified streaming properties.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_streaming_properties)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_streaming_properties)
         """
 
     def modify_workspace_access_properties(
@@ -894,7 +966,7 @@ class WorkSpacesClient(BaseClient):
         Specifies which devices and operating systems users can use to access their
         WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_access_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_access_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_workspace_access_properties)
         """
 
@@ -904,7 +976,7 @@ class WorkSpacesClient(BaseClient):
         """
         Modify the default properties used to create WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_creation_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_creation_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_workspace_creation_properties)
         """
 
@@ -918,7 +990,7 @@ class WorkSpacesClient(BaseClient):
         """
         Modifies the specified WorkSpace properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_workspace_properties)
         """
 
@@ -928,7 +1000,7 @@ class WorkSpacesClient(BaseClient):
         """
         Sets the state of the specified WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.modify_workspace_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#modify_workspace_state)
         """
 
@@ -938,7 +1010,7 @@ class WorkSpacesClient(BaseClient):
         """
         Reboots the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.reboot_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.reboot_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#reboot_workspaces)
         """
 
@@ -948,24 +1020,29 @@ class WorkSpacesClient(BaseClient):
         """
         Rebuilds the specified WorkSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.rebuild_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.rebuild_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#rebuild_workspaces)
         """
 
     def register_workspace_directory(
         self,
         *,
-        DirectoryId: str,
-        EnableWorkDocs: bool,
+        DirectoryId: str = None,
         SubnetIds: List[str] = None,
+        EnableWorkDocs: bool = None,
         EnableSelfService: bool = None,
         Tenancy: TenancyType = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
+        Tags: List["TagTypeDef"] = None,
+        WorkspaceDirectoryName: str = None,
+        WorkspaceDirectoryDescription: str = None,
+        UserIdentityType: UserIdentityTypeType = None,
+        WorkspaceType: WorkspaceTypeType = None,
+        ActiveDirectoryConfig: "ActiveDirectoryConfigTypeDef" = None
+    ) -> RegisterWorkspaceDirectoryResultTypeDef:
         """
         Registers the specified directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.register_workspace_directory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.register_workspace_directory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#register_workspace_directory)
         """
 
@@ -975,7 +1052,7 @@ class WorkSpacesClient(BaseClient):
         """
         Rejects the account link invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.reject_account_link_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.reject_account_link_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#reject_account_link_invitation)
         """
 
@@ -983,7 +1060,7 @@ class WorkSpacesClient(BaseClient):
         """
         Restores the specified WorkSpace to its last known healthy state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.restore_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.restore_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#restore_workspace)
         """
 
@@ -991,7 +1068,7 @@ class WorkSpacesClient(BaseClient):
         """
         Removes one or more rules from the specified IP access control group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.revoke_ip_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.revoke_ip_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#revoke_ip_rules)
         """
 
@@ -1001,8 +1078,16 @@ class WorkSpacesClient(BaseClient):
         """
         Starts the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.start_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.start_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#start_workspaces)
+        """
+
+    def start_workspaces_pool(self, *, PoolId: str) -> Dict[str, Any]:
+        """
+        Starts the specified pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.start_workspaces_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#start_workspaces_pool)
         """
 
     def stop_workspaces(
@@ -1011,8 +1096,16 @@ class WorkSpacesClient(BaseClient):
         """
         Stops the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.stop_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.stop_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#stop_workspaces)
+        """
+
+    def stop_workspaces_pool(self, *, PoolId: str) -> Dict[str, Any]:
+        """
+        Stops the specified pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.stop_workspaces_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#stop_workspaces_pool)
         """
 
     def terminate_workspaces(
@@ -1021,8 +1114,24 @@ class WorkSpacesClient(BaseClient):
         """
         Terminates the specified WorkSpaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.terminate_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.terminate_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#terminate_workspaces)
+        """
+
+    def terminate_workspaces_pool(self, *, PoolId: str) -> Dict[str, Any]:
+        """
+        Terminates the specified pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.terminate_workspaces_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#terminate_workspaces_pool)
+        """
+
+    def terminate_workspaces_pool_session(self, *, SessionId: str) -> Dict[str, Any]:
+        """
+        Terminates the pool session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.terminate_workspaces_pool_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#terminate_workspaces_pool_session)
         """
 
     def update_connect_client_add_in(
@@ -1031,7 +1140,7 @@ class WorkSpacesClient(BaseClient):
         """
         Updates a Amazon Connect client add-in.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.update_connect_client_add_in)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_connect_client_add_in)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_connect_client_add_in)
         """
 
@@ -1042,7 +1151,7 @@ class WorkSpacesClient(BaseClient):
         Shares or unshares a connection alias with one account by specifying whether
         that account has permission to associate the connection alias with a directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.update_connection_alias_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_connection_alias_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_connection_alias_permission)
         """
 
@@ -1053,7 +1162,7 @@ class WorkSpacesClient(BaseClient):
         Replaces the current rules of the specified IP access control group with the
         specified rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.update_rules_of_ip_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_rules_of_ip_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_rules_of_ip_group)
         """
 
@@ -1063,7 +1172,7 @@ class WorkSpacesClient(BaseClient):
         """
         Updates a WorkSpace bundle with a new image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.update_workspace_bundle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_workspace_bundle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_workspace_bundle)
         """
 
@@ -1074,8 +1183,26 @@ class WorkSpacesClient(BaseClient):
         Shares or unshares an image with one account in the same Amazon Web Services
         Region by specifying whether that account has permission to copy the image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Client.update_workspace_image_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_workspace_image_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_workspace_image_permission)
+        """
+
+    def update_workspaces_pool(
+        self,
+        *,
+        PoolId: str,
+        Description: str = None,
+        BundleId: str = None,
+        DirectoryId: str = None,
+        Capacity: "CapacityTypeDef" = None,
+        ApplicationSettings: "ApplicationSettingsRequestTypeDef" = None,
+        TimeoutSettings: "TimeoutSettingsTypeDef" = None
+    ) -> UpdateWorkspacesPoolResultTypeDef:
+        """
+        Updates the specified pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Client.update_workspaces_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/client.html#update_workspaces_pool)
         """
 
     @overload
@@ -1083,7 +1210,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_account_modifications"]
     ) -> DescribeAccountModificationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeaccountmodificationspaginator)
         """
 
@@ -1092,7 +1219,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_ip_groups"]
     ) -> DescribeIpGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeipgroupspaginator)
         """
 
@@ -1101,7 +1228,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_workspace_bundles"]
     ) -> DescribeWorkspaceBundlesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacebundlespaginator)
         """
 
@@ -1110,7 +1237,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_workspace_directories"]
     ) -> DescribeWorkspaceDirectoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacedirectoriespaginator)
         """
 
@@ -1119,7 +1246,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_workspace_images"]
     ) -> DescribeWorkspaceImagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspaceimagespaginator)
         """
 
@@ -1128,7 +1255,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_workspaces"]
     ) -> DescribeWorkspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacespaginator)
         """
 
@@ -1137,7 +1264,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["describe_workspaces_connection_status"]
     ) -> DescribeWorkspacesConnectionStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#describeworkspacesconnectionstatuspaginator)
         """
 
@@ -1146,7 +1273,7 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["list_account_links"]
     ) -> ListAccountLinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAccountLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.ListAccountLinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listaccountlinkspaginator)
         """
 
@@ -1155,6 +1282,6 @@ class WorkSpacesClient(BaseClient):
         self, operation_name: Literal["list_available_management_cidr_ranges"]
     ) -> ListAvailableManagementCidrRangesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/paginators.html#listavailablemanagementcidrrangespaginator)
         """

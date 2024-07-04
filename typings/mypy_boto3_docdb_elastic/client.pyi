@@ -63,7 +63,7 @@ class Exceptions:
 
 class DocDBElasticClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html)
     """
 
@@ -79,7 +79,7 @@ class DocDBElasticClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#can_paginate)
         """
 
@@ -87,7 +87,7 @@ class DocDBElasticClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#close)
         """
 
@@ -103,7 +103,7 @@ class DocDBElasticClient(BaseClient):
         """
         Copies a snapshot of an elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.copy_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.copy_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#copy_cluster_snapshot)
         """
 
@@ -130,7 +130,7 @@ class DocDBElasticClient(BaseClient):
         Creates a new Amazon DocumentDB elastic cluster and returns its cluster
         structure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.create_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#create_cluster)
         """
 
@@ -140,7 +140,7 @@ class DocDBElasticClient(BaseClient):
         """
         Creates a snapshot of an elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.create_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.create_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#create_cluster_snapshot)
         """
 
@@ -148,7 +148,7 @@ class DocDBElasticClient(BaseClient):
         """
         Delete an elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.delete_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#delete_cluster)
         """
 
@@ -156,7 +156,7 @@ class DocDBElasticClient(BaseClient):
         """
         Delete an elastic cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.delete_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.delete_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#delete_cluster_snapshot)
         """
 
@@ -170,7 +170,7 @@ class DocDBElasticClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#generate_presigned_url)
         """
 
@@ -178,7 +178,7 @@ class DocDBElasticClient(BaseClient):
         """
         Returns information about a specific elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.get_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.get_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#get_cluster)
         """
 
@@ -189,7 +189,7 @@ class DocDBElasticClient(BaseClient):
         elastic-2022-11-28/GetClusterSnapshot>`_ **Request Syntax** response =
         client.get_cluster_snapshot( snapshotArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.get_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.get_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#get_cluster_snapshot)
         """
 
@@ -204,7 +204,7 @@ class DocDBElasticClient(BaseClient):
         """
         Returns information about snapshots for a specified elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.list_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.list_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#list_cluster_snapshots)
         """
 
@@ -214,7 +214,7 @@ class DocDBElasticClient(BaseClient):
         """
         Returns information about provisioned Amazon DocumentDB elastic clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.list_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#list_clusters)
         """
 
@@ -225,7 +225,7 @@ class DocDBElasticClient(BaseClient):
         elastic-2022-11-28/ListTagsForResource>`_ **Request Syntax** response =
         client.list_tags_for_resource( resourceArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#list_tags_for_resource)
         """
 
@@ -244,7 +244,7 @@ class DocDBElasticClient(BaseClient):
         """
         Restores an elastic cluster from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.restore_cluster_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.restore_cluster_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#restore_cluster_from_snapshot)
         """
 
@@ -252,7 +252,7 @@ class DocDBElasticClient(BaseClient):
         """
         Restarts the stopped elastic cluster that is specified by `clusterARN`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.start_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.start_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#start_cluster)
         """
 
@@ -260,7 +260,7 @@ class DocDBElasticClient(BaseClient):
         """
         Stops the running elastic cluster that is specified by `clusterArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.stop_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.stop_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#stop_cluster)
         """
 
@@ -271,7 +271,7 @@ class DocDBElasticClient(BaseClient):
         elastic-2022-11-28/TagResource>`_ **Request Syntax** response =
         client.tag_resource( resourceArn='string', tags={ 'string': 'string' ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#tag_resource)
         """
 
@@ -282,7 +282,7 @@ class DocDBElasticClient(BaseClient):
         elastic-2022-11-28/UntagResource>`_ **Request Syntax** response =
         client.untag_resource( resourceArn='string', tagKeys=[ 'string'...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#untag_resource)
         """
 
@@ -305,7 +305,7 @@ class DocDBElasticClient(BaseClient):
         """
         Modifies an elastic cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Client.update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Client.update_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/client.html#update_cluster)
         """
 
@@ -314,13 +314,13 @@ class DocDBElasticClient(BaseClient):
         self, operation_name: Literal["list_cluster_snapshots"]
     ) -> ListClusterSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusterSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclustersnapshotspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/docdb-elastic.html#DocDBElastic.Paginator.ListClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/paginators.html#listclusterspaginator)
         """

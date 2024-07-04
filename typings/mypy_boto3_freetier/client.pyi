@@ -43,7 +43,7 @@ class Exceptions:
 
 class FreeTierClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/client.html)
     """
 
@@ -59,7 +59,7 @@ class FreeTierClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/client.html#can_paginate)
         """
 
@@ -67,7 +67,7 @@ class FreeTierClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/client.html#close)
         """
 
@@ -81,7 +81,7 @@ class FreeTierClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/client.html#generate_presigned_url)
         """
 
@@ -91,7 +91,7 @@ class FreeTierClient(BaseClient):
         """
         Returns a list of all Free Tier usage objects that match your filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Client.get_free_tier_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Client.get_free_tier_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/client.html#get_free_tier_usage)
         """
 
@@ -99,6 +99,6 @@ class FreeTierClient(BaseClient):
         self, operation_name: Literal["get_free_tier_usage"]
     ) -> GetFreeTierUsagePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/freetier.html#FreeTier.Paginator.GetFreeTierUsage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/freetier.html#FreeTier.Paginator.GetFreeTierUsage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_freetier/paginators.html#getfreetierusagepaginator)
         """

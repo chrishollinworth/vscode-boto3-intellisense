@@ -1168,6 +1168,8 @@ __all__ = (
     "DescribeSubnetsResultTypeDef",
     "DescribeTagsRequestRequestTypeDef",
     "DescribeTagsResultTypeDef",
+    "DescribeTrafficMirrorFilterRulesRequestRequestTypeDef",
+    "DescribeTrafficMirrorFilterRulesResultTypeDef",
     "DescribeTrafficMirrorFiltersRequestRequestTypeDef",
     "DescribeTrafficMirrorFiltersResultTypeDef",
     "DescribeTrafficMirrorSessionsRequestRequestTypeDef",
@@ -7800,6 +7802,7 @@ _OptionalCreateTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
         "Description": str,
         "DryRun": bool,
         "ClientToken": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
@@ -13828,6 +13831,28 @@ DescribeTagsResultTypeDef = TypedDict(
     {
         "NextToken": str,
         "Tags": List["TagDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrafficMirrorFilterRulesRequestRequestTypeDef = TypedDict(
+    "DescribeTrafficMirrorFilterRulesRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterRuleIds": List[str],
+        "TrafficMirrorFilterId": str,
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeTrafficMirrorFilterRulesResultTypeDef = TypedDict(
+    "DescribeTrafficMirrorFilterRulesResultTypeDef",
+    {
+        "TrafficMirrorFilterRules": List["TrafficMirrorFilterRuleTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -28747,6 +28772,7 @@ TrafficMirrorFilterRuleTypeDef = TypedDict(
         "DestinationCidrBlock": str,
         "SourceCidrBlock": str,
         "Description": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )

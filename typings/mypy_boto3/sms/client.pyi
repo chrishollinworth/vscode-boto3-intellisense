@@ -85,7 +85,7 @@ class Exceptions:
 
 class SMSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html)
     """
 
@@ -101,7 +101,7 @@ class SMSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#can_paginate)
         """
 
@@ -109,7 +109,7 @@ class SMSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#close)
         """
 
@@ -126,7 +126,7 @@ class SMSClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.create_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#create_app)
         """
 
@@ -147,7 +147,7 @@ class SMSClient(BaseClient):
         """
         Creates a replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.create_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.create_replication_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#create_replication_job)
         """
 
@@ -161,7 +161,7 @@ class SMSClient(BaseClient):
         """
         Deletes the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app)
         """
 
@@ -169,7 +169,7 @@ class SMSClient(BaseClient):
         """
         Deletes the launch configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_launch_configuration)
         """
 
@@ -177,7 +177,7 @@ class SMSClient(BaseClient):
         """
         Deletes the replication configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_replication_configuration)
         """
 
@@ -185,7 +185,7 @@ class SMSClient(BaseClient):
         """
         Deletes the validation configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_validation_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_validation_configuration)
         """
 
@@ -193,7 +193,7 @@ class SMSClient(BaseClient):
         """
         Deletes the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_replication_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_replication_job)
         """
 
@@ -201,7 +201,7 @@ class SMSClient(BaseClient):
         """
         Deletes all servers from your server catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.delete_server_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_server_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_server_catalog)
         """
 
@@ -209,7 +209,7 @@ class SMSClient(BaseClient):
         """
         Disassociates the specified connector from Server Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.disassociate_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.disassociate_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#disassociate_connector)
         """
 
@@ -220,7 +220,7 @@ class SMSClient(BaseClient):
         Generates a target change set for a currently launched stack and writes it to an
         Amazon S3 object in the customer’s Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.generate_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_change_set)
         """
 
@@ -234,7 +234,7 @@ class SMSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_presigned_url)
         """
 
@@ -245,7 +245,7 @@ class SMSClient(BaseClient):
         Generates an CloudFormation template based on the current launch configuration
         and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.generate_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_template)
         """
 
@@ -253,7 +253,7 @@ class SMSClient(BaseClient):
         """
         Retrieve information about the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app)
         """
 
@@ -264,7 +264,7 @@ class SMSClient(BaseClient):
         Retrieves the application launch configuration associated with the specified
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_launch_configuration)
         """
 
@@ -275,7 +275,7 @@ class SMSClient(BaseClient):
         Retrieves the application replication configuration associated with the
         specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_replication_configuration)
         """
 
@@ -285,7 +285,7 @@ class SMSClient(BaseClient):
         """
         Retrieves information about a configuration for validating an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_validation_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_validation_configuration)
         """
 
@@ -293,7 +293,7 @@ class SMSClient(BaseClient):
         """
         Retrieves output from validating an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_app_validation_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_validation_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_validation_output)
         """
 
@@ -303,7 +303,7 @@ class SMSClient(BaseClient):
         """
         Describes the connectors registered with the Server Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_connectors)
         """
 
@@ -313,7 +313,7 @@ class SMSClient(BaseClient):
         """
         Describes the specified replication job or all of your replication jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_replication_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_replication_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_replication_jobs)
         """
 
@@ -323,7 +323,7 @@ class SMSClient(BaseClient):
         """
         Describes the replication runs for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_replication_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_replication_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_replication_runs)
         """
 
@@ -337,7 +337,7 @@ class SMSClient(BaseClient):
         """
         Describes the servers in your server catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.get_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_servers)
         """
 
@@ -345,7 +345,7 @@ class SMSClient(BaseClient):
         """
         Allows application import from Migration Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.import_app_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.import_app_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#import_app_catalog)
         """
 
@@ -353,7 +353,7 @@ class SMSClient(BaseClient):
         """
         Gathers a complete list of on-premises servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.import_server_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.import_server_catalog)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#import_server_catalog)
         """
 
@@ -361,7 +361,7 @@ class SMSClient(BaseClient):
         """
         Launches the specified application as a stack in CloudFormation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.launch_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.launch_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#launch_app)
         """
 
@@ -371,7 +371,7 @@ class SMSClient(BaseClient):
         """
         Retrieves summaries for all applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.list_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.list_apps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#list_apps)
         """
 
@@ -382,7 +382,7 @@ class SMSClient(BaseClient):
         Provides information to Server Migration Service about whether application
         validation is successful.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.notify_app_validation_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.notify_app_validation_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#notify_app_validation_output)
         """
 
@@ -397,7 +397,7 @@ class SMSClient(BaseClient):
         """
         Creates or updates the launch configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.put_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_launch_configuration)
         """
 
@@ -412,7 +412,7 @@ class SMSClient(BaseClient):
         """
         Creates or updates the replication configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.put_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_replication_configuration)
         """
 
@@ -428,7 +428,7 @@ class SMSClient(BaseClient):
         """
         Creates or updates a validation configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.put_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_validation_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_validation_configuration)
         """
 
@@ -437,7 +437,7 @@ class SMSClient(BaseClient):
         Starts replicating the specified application by creating replication jobs for
         each server in the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.start_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_app_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_app_replication)
         """
 
@@ -447,7 +447,7 @@ class SMSClient(BaseClient):
         """
         Starts an on-demand replication run for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.start_on_demand_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_on_demand_app_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_on_demand_app_replication)
         """
 
@@ -457,7 +457,7 @@ class SMSClient(BaseClient):
         """
         Starts an on-demand replication run for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.start_on_demand_replication_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_on_demand_replication_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_on_demand_replication_run)
         """
 
@@ -466,7 +466,7 @@ class SMSClient(BaseClient):
         Stops replicating the specified application by deleting the replication job for
         each server in the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.stop_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.stop_app_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#stop_app_replication)
         """
 
@@ -474,7 +474,7 @@ class SMSClient(BaseClient):
         """
         Terminates the stack for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.terminate_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.terminate_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#terminate_app)
         """
 
@@ -491,7 +491,7 @@ class SMSClient(BaseClient):
         """
         Updates the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.update_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.update_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#update_app)
         """
 
@@ -511,14 +511,14 @@ class SMSClient(BaseClient):
         """
         Updates the specified settings for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Client.update_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.update_replication_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#update_replication_job)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_connectors"]) -> GetConnectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Paginator.GetConnectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetConnectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getconnectorspaginator)
         """
 
@@ -527,7 +527,7 @@ class SMSClient(BaseClient):
         self, operation_name: Literal["get_replication_jobs"]
     ) -> GetReplicationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationjobspaginator)
         """
 
@@ -536,20 +536,20 @@ class SMSClient(BaseClient):
         self, operation_name: Literal["get_replication_runs"]
     ) -> GetReplicationRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationrunspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_servers"]) -> GetServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Paginator.GetServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getserverspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sms.html#SMS.Paginator.ListApps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.ListApps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#listappspaginator)
         """

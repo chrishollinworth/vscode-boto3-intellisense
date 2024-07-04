@@ -23,8 +23,10 @@ from .literals import (
     AssessmentStatusType,
     ControlResponseType,
     ControlSetStatusType,
+    ControlStateType,
     ControlStatusType,
     ControlTypeType,
+    DataSourceTypeType,
     DelegationStatusType,
     DeleteResourcesType,
     EvidenceFinderBackfillStatusType,
@@ -675,6 +677,7 @@ ControlTypeDef = TypedDict(
         "createdBy": str,
         "lastUpdatedBy": str,
         "tags": Dict[str, str],
+        "state": ControlStateType,
     },
     total=False,
 )
@@ -1604,6 +1607,7 @@ _OptionalListControlsRequestRequestTypeDef = TypedDict(
     {
         "nextToken": str,
         "maxResults": int,
+        "controlCatalogId": str,
     },
     total=False,
 )
@@ -1625,7 +1629,7 @@ ListControlsResponseTypeDef = TypedDict(
 _RequiredListKeywordsForDataSourceRequestRequestTypeDef = TypedDict(
     "_RequiredListKeywordsForDataSourceRequestRequestTypeDef",
     {
-        "source": SourceTypeType,
+        "source": DataSourceTypeType,
     },
 )
 _OptionalListKeywordsForDataSourceRequestRequestTypeDef = TypedDict(

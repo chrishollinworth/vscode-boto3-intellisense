@@ -12,6 +12,7 @@ Usage::
         ListControlOperationsPaginator,
         ListEnabledBaselinesPaginator,
         ListEnabledControlsPaginator,
+        ListLandingZoneOperationsPaginator,
         ListLandingZonesPaginator,
     )
 
@@ -24,6 +25,7 @@ Usage::
     list_control_operations_paginator: ListControlOperationsPaginator = client.get_paginator("list_control_operations")
     list_enabled_baselines_paginator: ListEnabledBaselinesPaginator = client.get_paginator("list_enabled_baselines")
     list_enabled_controls_paginator: ListEnabledControlsPaginator = client.get_paginator("list_enabled_controls")
+    list_landing_zone_operations_paginator: ListLandingZoneOperationsPaginator = client.get_paginator("list_landing_zone_operations")
     list_landing_zones_paginator: ListLandingZonesPaginator = client.get_paginator("list_landing_zones")
     ```
 """
@@ -34,6 +36,7 @@ from .paginator import (
     ListControlOperationsPaginator,
     ListEnabledBaselinesPaginator,
     ListEnabledControlsPaginator,
+    ListLandingZoneOperationsPaginator,
     ListLandingZonesPaginator,
 )
 
@@ -46,5 +49,6 @@ __all__ = (
     "ListControlOperationsPaginator",
     "ListEnabledBaselinesPaginator",
     "ListEnabledControlsPaginator",
+    "ListLandingZoneOperationsPaginator",
     "ListLandingZonesPaginator",
 )

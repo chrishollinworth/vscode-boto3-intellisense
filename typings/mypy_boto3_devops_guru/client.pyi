@@ -108,7 +108,7 @@ class Exceptions:
 
 class DevOpsGuruClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html)
     """
 
@@ -126,7 +126,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Adds a notification channel to DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.add_notification_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.add_notification_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#add_notification_channel)
         """
 
@@ -134,7 +134,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#can_paginate)
         """
 
@@ -142,7 +142,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#close)
         """
 
@@ -151,7 +151,7 @@ class DevOpsGuruClient(BaseClient):
         Deletes the insight along with the associated anomalies, events and
         recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.delete_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.delete_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#delete_insight)
         """
 
@@ -161,7 +161,7 @@ class DevOpsGuruClient(BaseClient):
         insights, and the number of metrics analyzed in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_account_health)
         """
 
@@ -173,7 +173,7 @@ class DevOpsGuruClient(BaseClient):
         were created, the number of open proactive insights that were created, and the
         Mean Time to Recover (MTTR) for all closed reactive insights.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_overview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_overview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_account_overview)
         """
 
@@ -181,7 +181,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns details about an anomaly that you specify using its ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_anomaly)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_anomaly)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_anomaly)
         """
 
@@ -190,7 +190,7 @@ class DevOpsGuruClient(BaseClient):
         Returns the integration status of services that are integrated with DevOps Guru
         as Consumer via EventBridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_event_sources_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_event_sources_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_event_sources_config)
         """
 
@@ -199,7 +199,7 @@ class DevOpsGuruClient(BaseClient):
         Returns the most recent feedback submitted in the current Amazon Web Services
         account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_feedback)
         """
 
@@ -207,7 +207,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns details about an insight that you specify using its ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_insight)
         """
 
@@ -218,7 +218,7 @@ class DevOpsGuruClient(BaseClient):
         Returns active insights, predictive insights, and resource hours analyzed in
         last hour.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_organization_health)
         """
 
@@ -234,7 +234,7 @@ class DevOpsGuruClient(BaseClient):
         Returns an overview of your organization's history based on the specified time
         range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_overview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_overview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_organization_overview)
         """
 
@@ -250,7 +250,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Provides an overview of your system's health.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_resource_collection_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_organization_resource_collection_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_organization_resource_collection_health)
         """
 
@@ -262,7 +262,7 @@ class DevOpsGuruClient(BaseClient):
         Mean Time to Recover (MTTR) for all closed insights in resource collections in
         your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_resource_collection_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_resource_collection_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_resource_collection_health)
         """
 
@@ -270,7 +270,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns the integration status of services that are integrated with DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.describe_service_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.describe_service_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_service_integration)
         """
 
@@ -284,7 +284,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#generate_presigned_url)
         """
 
@@ -293,7 +293,7 @@ class DevOpsGuruClient(BaseClient):
         Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon
         Web Services resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.get_cost_estimation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.get_cost_estimation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#get_cost_estimation)
         """
 
@@ -304,7 +304,7 @@ class DevOpsGuruClient(BaseClient):
         Returns lists Amazon Web Services resources that are of the specified resource
         collection type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.get_resource_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.get_resource_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#get_resource_collection)
         """
 
@@ -322,7 +322,7 @@ class DevOpsGuruClient(BaseClient):
         Returns a list of the anomalies that belong to an insight that you specify using
         its ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalies_for_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalies_for_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_anomalies_for_insight)
         """
 
@@ -332,7 +332,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns the list of log groups that contain log anomalies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalous_log_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalous_log_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_anomalous_log_groups)
         """
 
@@ -348,7 +348,7 @@ class DevOpsGuruClient(BaseClient):
         Returns a list of the events emitted by the resources that are evaluated by
         DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_events)
         """
 
@@ -362,7 +362,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of insights in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_insights)
         """
 
@@ -377,7 +377,7 @@ class DevOpsGuruClient(BaseClient):
         Returns the list of all log groups that are being monitored and tagged by DevOps
         Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_monitored_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_monitored_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_monitored_resources)
         """
 
@@ -387,7 +387,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of notification channels configured for DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_notification_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_notification_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_notification_channels)
         """
 
@@ -403,7 +403,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of insights associated with the account or OU Id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_organization_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_organization_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_organization_insights)
         """
 
@@ -418,7 +418,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of a specified insight's recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.list_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.list_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_recommendations)
         """
 
@@ -426,7 +426,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Collects customer feedback about the specified insight.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.put_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.put_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#put_feedback)
         """
 
@@ -434,7 +434,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Removes a notification channel from DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.remove_notification_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.remove_notification_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#remove_notification_channel)
         """
 
@@ -450,7 +450,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of insights in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.search_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.search_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#search_insights)
         """
 
@@ -467,7 +467,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Returns a list of insights in your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.search_organization_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.search_organization_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#search_organization_insights)
         """
 
@@ -481,7 +481,7 @@ class DevOpsGuruClient(BaseClient):
         Starts the creation of an estimate of the monthly cost to analyze your Amazon
         Web Services resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.start_cost_estimation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.start_cost_estimation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#start_cost_estimation)
         """
 
@@ -492,7 +492,7 @@ class DevOpsGuruClient(BaseClient):
         Enables or disables integration with a service that can be integrated with
         DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.update_event_sources_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.update_event_sources_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#update_event_sources_config)
         """
 
@@ -505,7 +505,7 @@ class DevOpsGuruClient(BaseClient):
         """
         Updates the collection of resources that DevOps Guru analyzes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.update_resource_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.update_resource_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#update_resource_collection)
         """
 
@@ -516,7 +516,7 @@ class DevOpsGuruClient(BaseClient):
         Enables or disables integration with a service that can be integrated with
         DevOps Guru.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Client.update_service_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Client.update_service_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#update_service_integration)
         """
 
@@ -525,7 +525,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["describe_organization_resource_collection_health"]
     ) -> DescribeOrganizationResourceCollectionHealthPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeorganizationresourcecollectionhealthpaginator)
         """
 
@@ -534,7 +534,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["describe_resource_collection_health"]
     ) -> DescribeResourceCollectionHealthPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeresourcecollectionhealthpaginator)
         """
 
@@ -543,7 +543,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["get_cost_estimation"]
     ) -> GetCostEstimationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetCostEstimation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetCostEstimation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getcostestimationpaginator)
         """
 
@@ -552,7 +552,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["get_resource_collection"]
     ) -> GetResourceCollectionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getresourcecollectionpaginator)
         """
 
@@ -561,7 +561,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_anomalies_for_insight"]
     ) -> ListAnomaliesForInsightPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomaliesforinsightpaginator)
         """
 
@@ -570,21 +570,21 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_anomalous_log_groups"]
     ) -> ListAnomalousLogGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomalousLogGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomalousLogGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomalousloggroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_events"]) -> ListEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listeventspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_insights"]) -> ListInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listinsightspaginator)
         """
 
@@ -593,7 +593,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_monitored_resources"]
     ) -> ListMonitoredResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListMonitoredResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListMonitoredResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listmonitoredresourcespaginator)
         """
 
@@ -602,7 +602,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_notification_channels"]
     ) -> ListNotificationChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listnotificationchannelspaginator)
         """
 
@@ -611,7 +611,7 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_organization_insights"]
     ) -> ListOrganizationInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListOrganizationInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListOrganizationInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listorganizationinsightspaginator)
         """
 
@@ -620,14 +620,14 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["list_recommendations"]
     ) -> ListRecommendationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listrecommendationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_insights"]) -> SearchInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchinsightspaginator)
         """
 
@@ -636,6 +636,6 @@ class DevOpsGuruClient(BaseClient):
         self, operation_name: Literal["search_organization_insights"]
     ) -> SearchOrganizationInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchOrganizationInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchOrganizationInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchorganizationinsightspaginator)
         """

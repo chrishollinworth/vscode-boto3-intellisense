@@ -50,7 +50,7 @@ __all__ = (
 
 class ListAudienceExportJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudienceexportjobspaginator)
     """
 
@@ -61,13 +61,13 @@ class ListAudienceExportJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAudienceExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudienceexportjobspaginator)
         """
 
 class ListAudienceGenerationJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencegenerationjobspaginator)
     """
 
@@ -79,13 +79,13 @@ class ListAudienceGenerationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAudienceGenerationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencegenerationjobspaginator)
         """
 
 class ListAudienceModelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencemodelspaginator)
     """
 
@@ -93,13 +93,13 @@ class ListAudienceModelsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAudienceModelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencemodelspaginator)
         """
 
 class ListConfiguredAudienceModelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listconfiguredaudiencemodelspaginator)
     """
 
@@ -107,13 +107,13 @@ class ListConfiguredAudienceModelsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfiguredAudienceModelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listconfiguredaudiencemodelspaginator)
         """
 
 class ListTrainingDatasetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listtrainingdatasetspaginator)
     """
 
@@ -121,6 +121,6 @@ class ListTrainingDatasetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrainingDatasetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listtrainingdatasetspaginator)
         """

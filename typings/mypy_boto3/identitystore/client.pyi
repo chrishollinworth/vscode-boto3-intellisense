@@ -75,7 +75,7 @@ class Exceptions:
 
 class IdentityStoreClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html)
     """
 
@@ -91,7 +91,7 @@ class IdentityStoreClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#can_paginate)
         """
 
@@ -99,7 +99,7 @@ class IdentityStoreClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#close)
         """
 
@@ -109,7 +109,7 @@ class IdentityStoreClient(BaseClient):
         """
         Creates a group within the specified identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#create_group)
         """
 
@@ -119,7 +119,7 @@ class IdentityStoreClient(BaseClient):
         """
         Creates a relationship between a member and a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.create_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.create_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#create_group_membership)
         """
 
@@ -144,7 +144,7 @@ class IdentityStoreClient(BaseClient):
         """
         Creates a user within the specified identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#create_user)
         """
 
@@ -152,7 +152,7 @@ class IdentityStoreClient(BaseClient):
         """
         Delete a group within an identity store given `GroupId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#delete_group)
         """
 
@@ -160,7 +160,7 @@ class IdentityStoreClient(BaseClient):
         """
         Delete a membership within a group given `MembershipId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.delete_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.delete_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#delete_group_membership)
         """
 
@@ -168,7 +168,7 @@ class IdentityStoreClient(BaseClient):
         """
         Deletes a user within an identity store given `UserId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#delete_user)
         """
 
@@ -176,7 +176,7 @@ class IdentityStoreClient(BaseClient):
         """
         Retrieves the group metadata and attributes from `GroupId` in an identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.describe_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.describe_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#describe_group)
         """
 
@@ -187,7 +187,7 @@ class IdentityStoreClient(BaseClient):
         Retrieves membership metadata and attributes from `MembershipId` in an identity
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.describe_group_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.describe_group_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#describe_group_membership)
         """
 
@@ -196,7 +196,7 @@ class IdentityStoreClient(BaseClient):
         Retrieves the user metadata and attributes from the `UserId` in an identity
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.describe_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.describe_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#describe_user)
         """
 
@@ -210,7 +210,7 @@ class IdentityStoreClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#generate_presigned_url)
         """
 
@@ -220,7 +220,7 @@ class IdentityStoreClient(BaseClient):
         """
         Retrieves `GroupId` in an identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.get_group_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.get_group_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#get_group_id)
         """
 
@@ -230,7 +230,7 @@ class IdentityStoreClient(BaseClient):
         """
         Retrieves the `MembershipId` in an identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.get_group_membership_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.get_group_membership_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#get_group_membership_id)
         """
 
@@ -240,7 +240,7 @@ class IdentityStoreClient(BaseClient):
         """
         Retrieves the `UserId` in an identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.get_user_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.get_user_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#get_user_id)
         """
 
@@ -251,7 +251,7 @@ class IdentityStoreClient(BaseClient):
         Checks the user's membership in all requested groups and returns if the member
         exists in all queried groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.is_member_in_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.is_member_in_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#is_member_in_groups)
         """
 
@@ -262,7 +262,7 @@ class IdentityStoreClient(BaseClient):
         For the specified group in the specified identity store, returns the list of all
         `GroupMembership` objects and returns results in paginated form.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.list_group_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.list_group_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_group_memberships)
         """
 
@@ -278,7 +278,7 @@ class IdentityStoreClient(BaseClient):
         For the specified member in the specified identity store, returns the list of
         all `GroupMembership` objects and returns results in paginated form.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.list_group_memberships_for_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.list_group_memberships_for_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_group_memberships_for_member)
         """
 
@@ -293,7 +293,7 @@ class IdentityStoreClient(BaseClient):
         """
         Lists all groups in the identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_groups)
         """
 
@@ -308,7 +308,7 @@ class IdentityStoreClient(BaseClient):
         """
         Lists all users in the identity store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_users)
         """
 
@@ -319,7 +319,7 @@ class IdentityStoreClient(BaseClient):
         For the specified group in the specified identity store, updates the group
         metadata and attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.update_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.update_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#update_group)
         """
 
@@ -330,7 +330,7 @@ class IdentityStoreClient(BaseClient):
         For the specified user in the specified identity store, updates the user
         metadata and attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#update_user)
         """
 
@@ -339,7 +339,7 @@ class IdentityStoreClient(BaseClient):
         self, operation_name: Literal["list_group_memberships"]
     ) -> ListGroupMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMemberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMemberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipspaginator)
         """
 
@@ -348,20 +348,20 @@ class IdentityStoreClient(BaseClient):
         self, operation_name: Literal["list_group_memberships_for_member"]
     ) -> ListGroupMembershipsForMemberPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMembershipsForMember)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMembershipsForMember)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipsformemberpaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Paginator.ListGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/identitystore.html#IdentityStore.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listuserspaginator)
         """

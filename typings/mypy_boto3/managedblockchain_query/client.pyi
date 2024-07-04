@@ -77,7 +77,7 @@ class Exceptions:
 
 class ManagedBlockchainQueryClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html)
     """
 
@@ -96,7 +96,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
         action for every token in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.batch_get_token_balance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.batch_get_token_balance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#batch_get_token_balance)
         """
 
@@ -104,7 +104,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#can_paginate)
         """
 
@@ -112,7 +112,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#close)
         """
 
@@ -126,7 +126,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#generate_presigned_url)
         """
 
@@ -136,7 +136,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Gets the information about a specific contract deployed on the blockchain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_asset_contract)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_asset_contract)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#get_asset_contract)
         """
 
@@ -151,7 +151,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         Gets the balance of a specific token, including native tokens, for a given
         address (wallet or contract) on the blockchain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_token_balance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_token_balance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#get_token_balance)
         """
 
@@ -161,7 +161,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Gets the details of a transaction.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_transaction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.get_transaction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#get_transaction)
         """
 
@@ -176,7 +176,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         Lists all the contracts for a given contract type deployed by an address (either
         a contract address or a wallet address).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_asset_contracts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_asset_contracts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#list_asset_contracts)
         """
 
@@ -195,7 +195,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Lists all the transaction events for an address on the blockchain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_filtered_transaction_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_filtered_transaction_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#list_filtered_transaction_events)
         """
 
@@ -212,7 +212,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         token balances owned by an address (either a contract address or a wallet
         address).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_token_balances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_token_balances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#list_token_balances)
         """
 
@@ -228,7 +228,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Lists all the transaction events for a transaction .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_transaction_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_transaction_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#list_transaction_events)
         """
 
@@ -247,7 +247,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         """
         Lists all the transaction events for a transaction.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_transactions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Client.list_transactions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/client.html#list_transactions)
         """
 
@@ -256,7 +256,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         self, operation_name: Literal["list_asset_contracts"]
     ) -> ListAssetContractsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListAssetContracts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListAssetContracts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listassetcontractspaginator)
         """
 
@@ -265,7 +265,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         self, operation_name: Literal["list_filtered_transaction_events"]
     ) -> ListFilteredTransactionEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listfilteredtransactioneventspaginator)
         """
 
@@ -274,7 +274,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         self, operation_name: Literal["list_token_balances"]
     ) -> ListTokenBalancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTokenBalances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTokenBalances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtokenbalancespaginator)
         """
 
@@ -283,7 +283,7 @@ class ManagedBlockchainQueryClient(BaseClient):
         self, operation_name: Literal["list_transaction_events"]
     ) -> ListTransactionEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactioneventspaginator)
         """
 
@@ -292,6 +292,6 @@ class ManagedBlockchainQueryClient(BaseClient):
         self, operation_name: Literal["list_transactions"]
     ) -> ListTransactionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactionspaginator)
         """

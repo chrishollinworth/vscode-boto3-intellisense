@@ -37,7 +37,7 @@ class Exceptions:
 
 class WorkMailMessageFlowClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html)
     """
 
@@ -53,7 +53,7 @@ class WorkMailMessageFlowClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html#can_paginate)
         """
 
@@ -61,7 +61,7 @@ class WorkMailMessageFlowClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html#close)
         """
 
@@ -75,7 +75,7 @@ class WorkMailMessageFlowClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html#generate_presigned_url)
         """
 
@@ -83,7 +83,7 @@ class WorkMailMessageFlowClient(BaseClient):
         """
         Retrieves the raw content of an in-transit email message, in MIME format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.get_raw_message_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.get_raw_message_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html#get_raw_message_content)
         """
 
@@ -93,6 +93,6 @@ class WorkMailMessageFlowClient(BaseClient):
         """
         Updates the raw content of an in-transit email message, in MIME format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.put_raw_message_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.put_raw_message_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/client.html#put_raw_message_content)
         """

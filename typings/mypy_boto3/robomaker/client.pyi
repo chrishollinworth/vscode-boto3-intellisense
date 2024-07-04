@@ -126,7 +126,7 @@ class Exceptions:
 
 class RoboMakerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html)
     """
 
@@ -142,7 +142,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes one or more worlds in a batch operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.batch_delete_worlds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.batch_delete_worlds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#batch_delete_worlds)
         """
 
@@ -152,7 +152,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes one or more simulation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.batch_describe_simulation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.batch_describe_simulation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#batch_describe_simulation_job)
         """
 
@@ -160,7 +160,7 @@ class RoboMakerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#can_paginate)
         """
 
@@ -168,7 +168,7 @@ class RoboMakerClient(BaseClient):
         """
         Cancels the specified deployment job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.cancel_deployment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.cancel_deployment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#cancel_deployment_job)
         """
 
@@ -176,7 +176,7 @@ class RoboMakerClient(BaseClient):
         """
         Cancels the specified simulation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.cancel_simulation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.cancel_simulation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#cancel_simulation_job)
         """
 
@@ -184,7 +184,7 @@ class RoboMakerClient(BaseClient):
         """
         Cancels a simulation job batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.cancel_simulation_job_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.cancel_simulation_job_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#cancel_simulation_job_batch)
         """
 
@@ -192,7 +192,7 @@ class RoboMakerClient(BaseClient):
         """
         Cancels the specified export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.cancel_world_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.cancel_world_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#cancel_world_export_job)
         """
 
@@ -200,7 +200,7 @@ class RoboMakerClient(BaseClient):
         """
         Cancels the specified world generator job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.cancel_world_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.cancel_world_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#cancel_world_generation_job)
         """
 
@@ -208,7 +208,7 @@ class RoboMakerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#close)
         """
 
@@ -224,7 +224,7 @@ class RoboMakerClient(BaseClient):
         """
         Deploys a specific version of a robot application to robots in a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_deployment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_deployment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_deployment_job)
         """
 
@@ -232,7 +232,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a fleet, a logical group of robots running the same robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_fleet)
         """
 
@@ -247,7 +247,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a robot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_robot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_robot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_robot)
         """
 
@@ -263,7 +263,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_robot_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_robot_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_robot_application)
         """
 
@@ -278,7 +278,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a version of a robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_robot_application_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_robot_application_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_robot_application_version)
         """
 
@@ -296,7 +296,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a simulation application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_simulation_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_simulation_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_simulation_application)
         """
 
@@ -311,7 +311,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a simulation application with a specific revision id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_simulation_application_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_simulation_application_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_simulation_application_version)
         """
 
@@ -334,7 +334,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a simulation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_simulation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_simulation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_simulation_job)
         """
 
@@ -350,7 +350,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a world export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_world_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_world_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_world_export_job)
         """
 
@@ -366,7 +366,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates worlds using the specified template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_world_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_world_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_world_generation_job)
         """
 
@@ -382,7 +382,7 @@ class RoboMakerClient(BaseClient):
         """
         Creates a world template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.create_world_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.create_world_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#create_world_template)
         """
 
@@ -390,7 +390,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#delete_fleet)
         """
 
@@ -398,7 +398,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes a robot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.delete_robot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.delete_robot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#delete_robot)
         """
 
@@ -408,7 +408,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes a robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.delete_robot_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.delete_robot_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#delete_robot_application)
         """
 
@@ -418,7 +418,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes a simulation application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.delete_simulation_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.delete_simulation_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#delete_simulation_application)
         """
 
@@ -426,7 +426,7 @@ class RoboMakerClient(BaseClient):
         """
         Deletes a world template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.delete_world_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.delete_world_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#delete_world_template)
         """
 
@@ -434,7 +434,7 @@ class RoboMakerClient(BaseClient):
         """
         Deregisters a robot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.deregister_robot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.deregister_robot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#deregister_robot)
         """
 
@@ -442,7 +442,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a deployment job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_deployment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_deployment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_deployment_job)
         """
 
@@ -450,7 +450,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_fleet)
         """
 
@@ -458,7 +458,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a robot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_robot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_robot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_robot)
         """
 
@@ -468,7 +468,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_robot_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_robot_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_robot_application)
         """
 
@@ -478,7 +478,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a simulation application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_simulation_application)
         """
 
@@ -486,7 +486,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a simulation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_simulation_job)
         """
 
@@ -496,7 +496,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a simulation job batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_job_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_simulation_job_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_simulation_job_batch)
         """
 
@@ -504,7 +504,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a world.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_world)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_world)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_world)
         """
 
@@ -512,7 +512,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a world export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_world_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_world_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_world_export_job)
         """
 
@@ -522,7 +522,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a world generation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_world_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_world_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_world_generation_job)
         """
 
@@ -530,7 +530,7 @@ class RoboMakerClient(BaseClient):
         """
         Describes a world template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.describe_world_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.describe_world_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#describe_world_template)
         """
 
@@ -544,7 +544,7 @@ class RoboMakerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#generate_presigned_url)
         """
 
@@ -554,7 +554,7 @@ class RoboMakerClient(BaseClient):
         """
         Gets the world template body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.get_world_template_body)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.get_world_template_body)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#get_world_template_body)
         """
 
@@ -568,7 +568,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of deployment jobs for a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_deployment_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_deployment_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_deployment_jobs)
         """
 
@@ -582,7 +582,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of fleets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_fleets)
         """
 
@@ -597,7 +597,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_robot_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_robot_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_robot_applications)
         """
 
@@ -611,7 +611,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of robots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_robots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_robots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_robots)
         """
 
@@ -626,7 +626,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of simulation applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_simulation_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_simulation_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_simulation_applications)
         """
 
@@ -640,7 +640,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list simulation job batches.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_simulation_job_batches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_simulation_job_batches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_simulation_job_batches)
         """
 
@@ -654,7 +654,7 @@ class RoboMakerClient(BaseClient):
         """
         Returns a list of simulation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_simulation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_simulation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_simulation_jobs)
         """
 
@@ -662,7 +662,7 @@ class RoboMakerClient(BaseClient):
         """
         Lists all tags on a AWS RoboMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_tags_for_resource)
         """
 
@@ -676,7 +676,7 @@ class RoboMakerClient(BaseClient):
         """
         Lists world export jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_world_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_world_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_world_export_jobs)
         """
 
@@ -690,7 +690,7 @@ class RoboMakerClient(BaseClient):
         """
         Lists world generator jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_world_generation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_world_generation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_world_generation_jobs)
         """
 
@@ -700,7 +700,7 @@ class RoboMakerClient(BaseClient):
         """
         Lists world templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_world_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_world_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_world_templates)
         """
 
@@ -714,7 +714,7 @@ class RoboMakerClient(BaseClient):
         """
         Lists worlds.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.list_worlds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.list_worlds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#list_worlds)
         """
 
@@ -722,7 +722,7 @@ class RoboMakerClient(BaseClient):
         """
         Registers a robot with a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.register_robot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.register_robot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#register_robot)
         """
 
@@ -730,7 +730,7 @@ class RoboMakerClient(BaseClient):
         """
         Restarts a running simulation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.restart_simulation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.restart_simulation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#restart_simulation_job)
         """
 
@@ -745,7 +745,7 @@ class RoboMakerClient(BaseClient):
         """
         Starts a new simulation job batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.start_simulation_job_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.start_simulation_job_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#start_simulation_job_batch)
         """
 
@@ -755,7 +755,7 @@ class RoboMakerClient(BaseClient):
         """
         Syncrhonizes robots in a fleet to the latest deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.sync_deployment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.sync_deployment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#sync_deployment_job)
         """
 
@@ -763,7 +763,7 @@ class RoboMakerClient(BaseClient):
         """
         Adds or edits tags for a AWS RoboMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#tag_resource)
         """
 
@@ -771,7 +771,7 @@ class RoboMakerClient(BaseClient):
         """
         Removes the specified tags from the specified AWS RoboMaker resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#untag_resource)
         """
 
@@ -787,7 +787,7 @@ class RoboMakerClient(BaseClient):
         """
         Updates a robot application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.update_robot_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.update_robot_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#update_robot_application)
         """
 
@@ -805,7 +805,7 @@ class RoboMakerClient(BaseClient):
         """
         Updates a simulation application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.update_simulation_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.update_simulation_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#update_simulation_application)
         """
 
@@ -820,7 +820,7 @@ class RoboMakerClient(BaseClient):
         """
         Updates a world template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Client.update_world_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Client.update_world_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/client.html#update_world_template)
         """
 
@@ -829,14 +829,14 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_deployment_jobs"]
     ) -> ListDeploymentJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listdeploymentjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_fleets"]) -> ListFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listfleetspaginator)
         """
 
@@ -845,14 +845,14 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_robot_applications"]
     ) -> ListRobotApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotapplicationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_robots"]) -> ListRobotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listrobotspaginator)
         """
 
@@ -861,7 +861,7 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_simulation_applications"]
     ) -> ListSimulationApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationapplicationspaginator)
         """
 
@@ -870,7 +870,7 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_simulation_job_batches"]
     ) -> ListSimulationJobBatchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobbatchespaginator)
         """
 
@@ -879,7 +879,7 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_simulation_jobs"]
     ) -> ListSimulationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listsimulationjobspaginator)
         """
 
@@ -888,7 +888,7 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_world_export_jobs"]
     ) -> ListWorldExportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldexportjobspaginator)
         """
 
@@ -897,7 +897,7 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_world_generation_jobs"]
     ) -> ListWorldGenerationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldgenerationjobspaginator)
         """
 
@@ -906,13 +906,13 @@ class RoboMakerClient(BaseClient):
         self, operation_name: Literal["list_world_templates"]
     ) -> ListWorldTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldtemplatespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_worlds"]) -> ListWorldsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/paginators.html#listworldspaginator)
         """

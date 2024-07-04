@@ -9,6 +9,7 @@ Usage::
         Client,
         ListAssistantAssociationsPaginator,
         ListAssistantsPaginator,
+        ListContentAssociationsPaginator,
         ListContentsPaginator,
         ListImportJobsPaginator,
         ListKnowledgeBasesPaginator,
@@ -27,6 +28,7 @@ Usage::
 
     list_assistant_associations_paginator: ListAssistantAssociationsPaginator = client.get_paginator("list_assistant_associations")
     list_assistants_paginator: ListAssistantsPaginator = client.get_paginator("list_assistants")
+    list_content_associations_paginator: ListContentAssociationsPaginator = client.get_paginator("list_content_associations")
     list_contents_paginator: ListContentsPaginator = client.get_paginator("list_contents")
     list_import_jobs_paginator: ListImportJobsPaginator = client.get_paginator("list_import_jobs")
     list_knowledge_bases_paginator: ListKnowledgeBasesPaginator = client.get_paginator("list_knowledge_bases")
@@ -42,6 +44,7 @@ from .client import QConnectClient
 from .paginator import (
     ListAssistantAssociationsPaginator,
     ListAssistantsPaginator,
+    ListContentAssociationsPaginator,
     ListContentsPaginator,
     ListImportJobsPaginator,
     ListKnowledgeBasesPaginator,
@@ -58,6 +61,7 @@ __all__ = (
     "Client",
     "ListAssistantAssociationsPaginator",
     "ListAssistantsPaginator",
+    "ListContentAssociationsPaginator",
     "ListContentsPaginator",
     "ListImportJobsPaginator",
     "ListKnowledgeBasesPaginator",

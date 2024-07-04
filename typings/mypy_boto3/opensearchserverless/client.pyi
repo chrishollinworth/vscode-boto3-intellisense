@@ -85,7 +85,7 @@ class Exceptions:
 
 class OpenSearchServiceServerlessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html)
     """
 
@@ -104,7 +104,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns attributes for one or more collections, including the collection
         endpoint and the OpenSearch Dashboards endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#batch_get_collection)
         """
 
@@ -115,7 +115,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns a list of successful and failed retrievals for the OpenSearch Serverless
         indexes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_effective_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_effective_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#batch_get_effective_lifecycle_policy)
         """
 
@@ -125,7 +125,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns one or more configured OpenSearch Serverless lifecycle policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#batch_get_lifecycle_policy)
         """
 
@@ -134,7 +134,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns attributes for one or more VPC endpoints associated with the current
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_vpc_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.batch_get_vpc_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#batch_get_vpc_endpoint)
         """
 
@@ -142,7 +142,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#can_paginate)
         """
 
@@ -150,7 +150,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#close)
         """
 
@@ -166,7 +166,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Creates a data access policy for OpenSearch Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_access_policy)
         """
 
@@ -183,7 +183,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Creates a new OpenSearch Serverless collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_collection)
         """
 
@@ -199,7 +199,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Creates a lifecyle policy to be applied to OpenSearch Serverless indexes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_lifecycle_policy)
         """
 
@@ -215,7 +215,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Specifies a security configuration for OpenSearch Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_security_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_security_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_security_config)
         """
 
@@ -232,7 +232,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Creates a security policy to be used by one or more OpenSearch Serverless
         collections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_security_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_security_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_security_policy)
         """
 
@@ -248,7 +248,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Creates an OpenSearch Serverless-managed interface VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_vpc_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.create_vpc_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#create_vpc_endpoint)
         """
 
@@ -258,7 +258,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes an OpenSearch Serverless access policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_access_policy)
         """
 
@@ -268,7 +268,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes an OpenSearch Serverless collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_collection)
         """
 
@@ -278,7 +278,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes an OpenSearch Serverless lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_lifecycle_policy)
         """
 
@@ -286,7 +286,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes a security configuration for OpenSearch Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_security_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_security_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_security_config)
         """
 
@@ -296,7 +296,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes an OpenSearch Serverless security policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_security_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_security_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_security_policy)
         """
 
@@ -306,7 +306,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Deletes an OpenSearch Serverless-managed interface endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_vpc_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.delete_vpc_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#delete_vpc_endpoint)
         """
 
@@ -320,7 +320,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#generate_presigned_url)
         """
 
@@ -330,7 +330,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns an OpenSearch Serverless access policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#get_access_policy)
         """
 
@@ -338,7 +338,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns account-level settings related to OpenSearch Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#get_account_settings)
         """
 
@@ -347,7 +347,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns statistical information about your OpenSearch Serverless access
         policies, security configurations, and security policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_policies_stats)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_policies_stats)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#get_policies_stats)
         """
 
@@ -355,7 +355,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns information about an OpenSearch Serverless security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_security_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_security_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#get_security_config)
         """
 
@@ -365,7 +365,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns information about a configured OpenSearch Serverless security policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_security_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.get_security_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#get_security_policy)
         """
 
@@ -380,7 +380,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns information about a list of OpenSearch Serverless access policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_access_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_access_policies)
         """
 
@@ -394,7 +394,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Lists all OpenSearch Serverless collections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_collections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_collections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_collections)
         """
 
@@ -409,7 +409,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns a list of OpenSearch Serverless lifecycle policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_lifecycle_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_lifecycle_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_lifecycle_policies)
         """
 
@@ -420,7 +420,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns information about configured OpenSearch Serverless security
         configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_security_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_security_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_security_configs)
         """
 
@@ -435,7 +435,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns information about configured OpenSearch Serverless security policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_security_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_security_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_security_policies)
         """
 
@@ -443,7 +443,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Returns the tags for an OpenSearch Serverless resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_tags_for_resource)
         """
 
@@ -458,7 +458,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Returns the OpenSearch Serverless-managed interface VPC endpoints associated
         with the current account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_vpc_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.list_vpc_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#list_vpc_endpoints)
         """
 
@@ -466,7 +466,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Associates tags with an OpenSearch Serverless resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#tag_resource)
         """
 
@@ -474,7 +474,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Removes a tag or set of tags from an OpenSearch Serverless resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#untag_resource)
         """
 
@@ -491,7 +491,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates an OpenSearch Serverless access policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_access_policy)
         """
 
@@ -502,7 +502,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         Update the OpenSearch Serverless settings for the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_account_settings)
         """
 
@@ -512,7 +512,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates an OpenSearch Serverless collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_collection)
         """
 
@@ -529,7 +529,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates an OpenSearch Serverless access policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_lifecycle_policy)
         """
 
@@ -545,7 +545,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates a security configuration for OpenSearch Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_security_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_security_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_security_config)
         """
 
@@ -562,7 +562,7 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates an OpenSearch Serverless security policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_security_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_security_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_security_policy)
         """
 
@@ -579,6 +579,6 @@ class OpenSearchServiceServerlessClient(BaseClient):
         """
         Updates an OpenSearch Serverless-managed interface endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_vpc_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opensearchserverless.html#OpenSearchServiceServerless.Client.update_vpc_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/client.html#update_vpc_endpoint)
         """

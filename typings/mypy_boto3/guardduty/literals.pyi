@@ -53,6 +53,8 @@ __all__ = (
     "ListMembersPaginatorName",
     "ListOrganizationAdminAccountsPaginatorName",
     "ListThreatIntelSetsPaginatorName",
+    "MalwareProtectionPlanStatusType",
+    "MalwareProtectionPlanTaggingActionStatusType",
     "ManagementTypeType",
     "OrderByType",
     "OrgFeatureAdditionalConfigurationType",
@@ -172,6 +174,8 @@ ListInvitationsPaginatorName = Literal["list_invitations"]
 ListMembersPaginatorName = Literal["list_members"]
 ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
 ListThreatIntelSetsPaginatorName = Literal["list_threat_intel_sets"]
+MalwareProtectionPlanStatusType = Literal["ACTIVE", "ERROR", "WARNING"]
+MalwareProtectionPlanTaggingActionStatusType = Literal["DISABLED", "ENABLED"]
 ManagementTypeType = Literal["AUTO_MANAGED", "DISABLED", "MANUAL"]
 OrderByType = Literal["ASC", "DESC"]
 OrgFeatureAdditionalConfigurationType = Literal[

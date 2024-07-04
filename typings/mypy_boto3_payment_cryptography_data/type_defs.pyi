@@ -22,6 +22,7 @@ from .literals import (
     EmvEncryptionModeType,
     EmvMajorKeyDerivationModeType,
     EncryptionModeType,
+    KeyCheckValueAlgorithmType,
     MacAlgorithmType,
     MajorKeyDerivationModeType,
     PaddingTypeType,
@@ -102,6 +103,8 @@ __all__ = (
     "VisaPinTypeDef",
     "VisaPinVerificationTypeDef",
     "VisaPinVerificationValueTypeDef",
+    "WrappedKeyMaterialTypeDef",
+    "WrappedKeyTypeDef",
 )
 
 AmexCardSecurityCodeVersion1TypeDef = TypedDict(
@@ -132,9 +135,9 @@ CardGenerationAttributesTypeDef = TypedDict(
     {
         "AmexCardSecurityCodeVersion1": "AmexCardSecurityCodeVersion1TypeDef",
         "AmexCardSecurityCodeVersion2": "AmexCardSecurityCodeVersion2TypeDef",
-        "CardHolderVerificationValue": "CardHolderVerificationValueTypeDef",
         "CardVerificationValue1": "CardVerificationValue1TypeDef",
         "CardVerificationValue2": "CardVerificationValue2TypeDef",
+        "CardHolderVerificationValue": "CardHolderVerificationValueTypeDef",
         "DynamicCardVerificationCode": "DynamicCardVerificationCodeTypeDef",
         "DynamicCardVerificationValue": "DynamicCardVerificationValueTypeDef",
     },
@@ -144,9 +147,9 @@ CardGenerationAttributesTypeDef = TypedDict(
 CardHolderVerificationValueTypeDef = TypedDict(
     "CardHolderVerificationValueTypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "PanSequenceNumber": str,
         "UnpredictableNumber": str,
+        "PanSequenceNumber": str,
+        "ApplicationTransactionCounter": str,
     },
 )
 
@@ -155,12 +158,12 @@ CardVerificationAttributesTypeDef = TypedDict(
     {
         "AmexCardSecurityCodeVersion1": "AmexCardSecurityCodeVersion1TypeDef",
         "AmexCardSecurityCodeVersion2": "AmexCardSecurityCodeVersion2TypeDef",
-        "CardHolderVerificationValue": "CardHolderVerificationValueTypeDef",
         "CardVerificationValue1": "CardVerificationValue1TypeDef",
         "CardVerificationValue2": "CardVerificationValue2TypeDef",
-        "DiscoverDynamicCardVerificationCode": "DiscoverDynamicCardVerificationCodeTypeDef",
+        "CardHolderVerificationValue": "CardHolderVerificationValueTypeDef",
         "DynamicCardVerificationCode": "DynamicCardVerificationCodeTypeDef",
         "DynamicCardVerificationValue": "DynamicCardVerificationValueTypeDef",
+        "DiscoverDynamicCardVerificationCode": "DiscoverDynamicCardVerificationCodeTypeDef",
     },
     total=False,
 )
@@ -216,14 +219,26 @@ class CryptogramVerificationArpcMethod2TypeDef(
 ):
     pass
 
-DecryptDataInputRequestTypeDef = TypedDict(
-    "DecryptDataInputRequestTypeDef",
+_RequiredDecryptDataInputRequestTypeDef = TypedDict(
+    "_RequiredDecryptDataInputRequestTypeDef",
     {
+        "KeyIdentifier": str,
         "CipherText": str,
         "DecryptionAttributes": "EncryptionDecryptionAttributesTypeDef",
-        "KeyIdentifier": str,
     },
 )
+_OptionalDecryptDataInputRequestTypeDef = TypedDict(
+    "_OptionalDecryptDataInputRequestTypeDef",
+    {
+        "WrappedKey": "WrappedKeyTypeDef",
+    },
+    total=False,
+)
+
+class DecryptDataInputRequestTypeDef(
+    _RequiredDecryptDataInputRequestTypeDef, _OptionalDecryptDataInputRequestTypeDef
+):
+    pass
 
 DecryptDataOutputTypeDef = TypedDict(
     "DecryptDataOutputTypeDef",
@@ -238,17 +253,17 @@ DecryptDataOutputTypeDef = TypedDict(
 DiscoverDynamicCardVerificationCodeTypeDef = TypedDict(
     "DiscoverDynamicCardVerificationCodeTypeDef",
     {
-        "ApplicationTransactionCounter": str,
         "CardExpiryDate": str,
         "UnpredictableNumber": str,
+        "ApplicationTransactionCounter": str,
     },
 )
 
 DukptAttributesTypeDef = TypedDict(
     "DukptAttributesTypeDef",
     {
-        "DukptDerivationType": DukptDerivationTypeType,
         "KeySerialNumber": str,
+        "DukptDerivationType": DukptDerivationTypeType,
     },
 )
 
@@ -281,10 +296,10 @@ _RequiredDukptEncryptionAttributesTypeDef = TypedDict(
 _OptionalDukptEncryptionAttributesTypeDef = TypedDict(
     "_OptionalDukptEncryptionAttributesTypeDef",
     {
+        "Mode": DukptEncryptionModeType,
         "DukptKeyDerivationType": DukptDerivationTypeType,
         "DukptKeyVariant": DukptKeyVariantType,
         "InitializationVector": str,
-        "Mode": DukptEncryptionModeType,
     },
     total=False,
 )
@@ -297,20 +312,20 @@ class DukptEncryptionAttributesTypeDef(
 DynamicCardVerificationCodeTypeDef = TypedDict(
     "DynamicCardVerificationCodeTypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "PanSequenceNumber": str,
-        "TrackData": str,
         "UnpredictableNumber": str,
+        "PanSequenceNumber": str,
+        "ApplicationTransactionCounter": str,
+        "TrackData": str,
     },
 )
 
 DynamicCardVerificationValueTypeDef = TypedDict(
     "DynamicCardVerificationValueTypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "CardExpiryDate": str,
         "PanSequenceNumber": str,
+        "CardExpiryDate": str,
         "ServiceCode": str,
+        "ApplicationTransactionCounter": str,
     },
 )
 
@@ -318,16 +333,16 @@ _RequiredEmvEncryptionAttributesTypeDef = TypedDict(
     "_RequiredEmvEncryptionAttributesTypeDef",
     {
         "MajorKeyDerivationMode": EmvMajorKeyDerivationModeType,
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
         "SessionDerivationData": str,
     },
 )
 _OptionalEmvEncryptionAttributesTypeDef = TypedDict(
     "_OptionalEmvEncryptionAttributesTypeDef",
     {
-        "InitializationVector": str,
         "Mode": EmvEncryptionModeType,
+        "InitializationVector": str,
     },
     total=False,
 )
@@ -337,21 +352,33 @@ class EmvEncryptionAttributesTypeDef(
 ):
     pass
 
-EncryptDataInputRequestTypeDef = TypedDict(
-    "EncryptDataInputRequestTypeDef",
+_RequiredEncryptDataInputRequestTypeDef = TypedDict(
+    "_RequiredEncryptDataInputRequestTypeDef",
     {
-        "EncryptionAttributes": "EncryptionDecryptionAttributesTypeDef",
         "KeyIdentifier": str,
         "PlainText": str,
+        "EncryptionAttributes": "EncryptionDecryptionAttributesTypeDef",
     },
 )
+_OptionalEncryptDataInputRequestTypeDef = TypedDict(
+    "_OptionalEncryptDataInputRequestTypeDef",
+    {
+        "WrappedKey": "WrappedKeyTypeDef",
+    },
+    total=False,
+)
+
+class EncryptDataInputRequestTypeDef(
+    _RequiredEncryptDataInputRequestTypeDef, _OptionalEncryptDataInputRequestTypeDef
+):
+    pass
 
 EncryptDataOutputTypeDef = TypedDict(
     "EncryptDataOutputTypeDef",
     {
-        "CipherText": str,
         "KeyArn": str,
         "KeyCheckValue": str,
+        "CipherText": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -359,10 +386,10 @@ EncryptDataOutputTypeDef = TypedDict(
 EncryptionDecryptionAttributesTypeDef = TypedDict(
     "EncryptionDecryptionAttributesTypeDef",
     {
+        "Symmetric": "SymmetricEncryptionAttributesTypeDef",
         "Asymmetric": "AsymmetricEncryptionAttributesTypeDef",
         "Dukpt": "DukptEncryptionAttributesTypeDef",
         "Emv": "EmvEncryptionAttributesTypeDef",
-        "Symmetric": "SymmetricEncryptionAttributesTypeDef",
     },
     total=False,
 )
@@ -370,9 +397,9 @@ EncryptionDecryptionAttributesTypeDef = TypedDict(
 _RequiredGenerateCardValidationDataInputRequestTypeDef = TypedDict(
     "_RequiredGenerateCardValidationDataInputRequestTypeDef",
     {
-        "GenerationAttributes": "CardGenerationAttributesTypeDef",
         "KeyIdentifier": str,
         "PrimaryAccountNumber": str,
+        "GenerationAttributes": "CardGenerationAttributesTypeDef",
     },
 )
 _OptionalGenerateCardValidationDataInputRequestTypeDef = TypedDict(
@@ -402,9 +429,9 @@ GenerateCardValidationDataOutputTypeDef = TypedDict(
 _RequiredGenerateMacInputRequestTypeDef = TypedDict(
     "_RequiredGenerateMacInputRequestTypeDef",
     {
-        "GenerationAttributes": "MacAttributesTypeDef",
         "KeyIdentifier": str,
         "MessageData": str,
+        "GenerationAttributes": "MacAttributesTypeDef",
     },
 )
 _OptionalGenerateMacInputRequestTypeDef = TypedDict(
@@ -433,11 +460,11 @@ GenerateMacOutputTypeDef = TypedDict(
 _RequiredGeneratePinDataInputRequestTypeDef = TypedDict(
     "_RequiredGeneratePinDataInputRequestTypeDef",
     {
+        "GenerationKeyIdentifier": str,
         "EncryptionKeyIdentifier": str,
         "GenerationAttributes": "PinGenerationAttributesTypeDef",
-        "GenerationKeyIdentifier": str,
-        "PinBlockFormat": PinBlockFormatForPinDataType,
         "PrimaryAccountNumber": str,
+        "PinBlockFormat": PinBlockFormatForPinDataType,
     },
 )
 _OptionalGeneratePinDataInputRequestTypeDef = TypedDict(
@@ -456,11 +483,11 @@ class GeneratePinDataInputRequestTypeDef(
 GeneratePinDataOutputTypeDef = TypedDict(
     "GeneratePinDataOutputTypeDef",
     {
-        "EncryptedPinBlock": str,
-        "EncryptionKeyArn": str,
-        "EncryptionKeyCheckValue": str,
         "GenerationKeyArn": str,
         "GenerationKeyCheckValue": str,
+        "EncryptionKeyArn": str,
+        "EncryptionKeyCheckValue": str,
+        "EncryptedPinBlock": str,
         "PinData": "PinDataTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -470,8 +497,8 @@ Ibm3624NaturalPinTypeDef = TypedDict(
     "Ibm3624NaturalPinTypeDef",
     {
         "DecimalizationTable": str,
-        "PinValidationData": str,
         "PinValidationDataPadCharacter": str,
+        "PinValidationData": str,
     },
 )
 
@@ -479,19 +506,19 @@ Ibm3624PinFromOffsetTypeDef = TypedDict(
     "Ibm3624PinFromOffsetTypeDef",
     {
         "DecimalizationTable": str,
-        "PinOffset": str,
-        "PinValidationData": str,
         "PinValidationDataPadCharacter": str,
+        "PinValidationData": str,
+        "PinOffset": str,
     },
 )
 
 Ibm3624PinOffsetTypeDef = TypedDict(
     "Ibm3624PinOffsetTypeDef",
     {
-        "DecimalizationTable": str,
         "EncryptedPinBlock": str,
-        "PinValidationData": str,
+        "DecimalizationTable": str,
         "PinValidationDataPadCharacter": str,
+        "PinValidationData": str,
     },
 )
 
@@ -499,9 +526,9 @@ Ibm3624PinVerificationTypeDef = TypedDict(
     "Ibm3624PinVerificationTypeDef",
     {
         "DecimalizationTable": str,
-        "PinOffset": str,
-        "PinValidationData": str,
         "PinValidationDataPadCharacter": str,
+        "PinValidationData": str,
+        "PinOffset": str,
     },
 )
 
@@ -509,16 +536,16 @@ Ibm3624RandomPinTypeDef = TypedDict(
     "Ibm3624RandomPinTypeDef",
     {
         "DecimalizationTable": str,
-        "PinValidationData": str,
         "PinValidationDataPadCharacter": str,
+        "PinValidationData": str,
     },
 )
 
 _RequiredMacAlgorithmDukptTypeDef = TypedDict(
     "_RequiredMacAlgorithmDukptTypeDef",
     {
-        "DukptKeyVariant": DukptKeyVariantType,
         "KeySerialNumber": str,
+        "DukptKeyVariant": DukptKeyVariantType,
     },
 )
 _OptionalMacAlgorithmDukptTypeDef = TypedDict(
@@ -538,8 +565,8 @@ MacAlgorithmEmvTypeDef = TypedDict(
     "MacAlgorithmEmvTypeDef",
     {
         "MajorKeyDerivationMode": MajorKeyDerivationModeType,
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
         "SessionKeyDerivationMode": SessionKeyDerivationModeType,
         "SessionKeyDerivationValue": "SessionKeyDerivationValueTypeDef",
     },
@@ -549,10 +576,10 @@ MacAttributesTypeDef = TypedDict(
     "MacAttributesTypeDef",
     {
         "Algorithm": MacAlgorithmType,
-        "DukptCmac": "MacAlgorithmDukptTypeDef",
+        "EmvMac": "MacAlgorithmEmvTypeDef",
         "DukptIso9797Algorithm1": "MacAlgorithmDukptTypeDef",
         "DukptIso9797Algorithm3": "MacAlgorithmDukptTypeDef",
-        "EmvMac": "MacAlgorithmEmvTypeDef",
+        "DukptCmac": "MacAlgorithmDukptTypeDef",
     },
     total=False,
 )
@@ -569,12 +596,12 @@ PinDataTypeDef = TypedDict(
 PinGenerationAttributesTypeDef = TypedDict(
     "PinGenerationAttributesTypeDef",
     {
-        "Ibm3624NaturalPin": "Ibm3624NaturalPinTypeDef",
-        "Ibm3624PinFromOffset": "Ibm3624PinFromOffsetTypeDef",
-        "Ibm3624PinOffset": "Ibm3624PinOffsetTypeDef",
-        "Ibm3624RandomPin": "Ibm3624RandomPinTypeDef",
         "VisaPin": "VisaPinTypeDef",
         "VisaPinVerificationValue": "VisaPinVerificationValueTypeDef",
+        "Ibm3624PinOffset": "Ibm3624PinOffsetTypeDef",
+        "Ibm3624NaturalPin": "Ibm3624NaturalPinTypeDef",
+        "Ibm3624RandomPin": "Ibm3624RandomPinTypeDef",
+        "Ibm3624PinFromOffset": "Ibm3624PinFromOffsetTypeDef",
     },
     total=False,
 )
@@ -582,29 +609,42 @@ PinGenerationAttributesTypeDef = TypedDict(
 PinVerificationAttributesTypeDef = TypedDict(
     "PinVerificationAttributesTypeDef",
     {
-        "Ibm3624Pin": "Ibm3624PinVerificationTypeDef",
         "VisaPin": "VisaPinVerificationTypeDef",
+        "Ibm3624Pin": "Ibm3624PinVerificationTypeDef",
     },
     total=False,
 )
 
-ReEncryptDataInputRequestTypeDef = TypedDict(
-    "ReEncryptDataInputRequestTypeDef",
+_RequiredReEncryptDataInputRequestTypeDef = TypedDict(
+    "_RequiredReEncryptDataInputRequestTypeDef",
     {
+        "IncomingKeyIdentifier": str,
+        "OutgoingKeyIdentifier": str,
         "CipherText": str,
         "IncomingEncryptionAttributes": "ReEncryptionAttributesTypeDef",
-        "IncomingKeyIdentifier": str,
         "OutgoingEncryptionAttributes": "ReEncryptionAttributesTypeDef",
-        "OutgoingKeyIdentifier": str,
     },
 )
+_OptionalReEncryptDataInputRequestTypeDef = TypedDict(
+    "_OptionalReEncryptDataInputRequestTypeDef",
+    {
+        "IncomingWrappedKey": "WrappedKeyTypeDef",
+        "OutgoingWrappedKey": "WrappedKeyTypeDef",
+    },
+    total=False,
+)
+
+class ReEncryptDataInputRequestTypeDef(
+    _RequiredReEncryptDataInputRequestTypeDef, _OptionalReEncryptDataInputRequestTypeDef
+):
+    pass
 
 ReEncryptDataOutputTypeDef = TypedDict(
     "ReEncryptDataOutputTypeDef",
     {
-        "CipherText": str,
         "KeyArn": str,
         "KeyCheckValue": str,
+        "CipherText": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -612,8 +652,8 @@ ReEncryptDataOutputTypeDef = TypedDict(
 ReEncryptionAttributesTypeDef = TypedDict(
     "ReEncryptionAttributesTypeDef",
     {
-        "Dukpt": "DukptEncryptionAttributesTypeDef",
         "Symmetric": "SymmetricEncryptionAttributesTypeDef",
+        "Dukpt": "DukptEncryptionAttributesTypeDef",
     },
     total=False,
 )
@@ -632,18 +672,18 @@ ResponseMetadataTypeDef = TypedDict(
 SessionKeyAmexTypeDef = TypedDict(
     "SessionKeyAmexTypeDef",
     {
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
     },
 )
 
 SessionKeyDerivationTypeDef = TypedDict(
     "SessionKeyDerivationTypeDef",
     {
-        "Amex": "SessionKeyAmexTypeDef",
-        "Emv2000": "SessionKeyEmv2000TypeDef",
         "EmvCommon": "SessionKeyEmvCommonTypeDef",
         "Mastercard": "SessionKeyMastercardTypeDef",
+        "Emv2000": "SessionKeyEmv2000TypeDef",
+        "Amex": "SessionKeyAmexTypeDef",
         "Visa": "SessionKeyVisaTypeDef",
     },
     total=False,
@@ -661,27 +701,27 @@ SessionKeyDerivationValueTypeDef = TypedDict(
 SessionKeyEmv2000TypeDef = TypedDict(
     "SessionKeyEmv2000TypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
+        "ApplicationTransactionCounter": str,
     },
 )
 
 SessionKeyEmvCommonTypeDef = TypedDict(
     "SessionKeyEmvCommonTypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
+        "ApplicationTransactionCounter": str,
     },
 )
 
 SessionKeyMastercardTypeDef = TypedDict(
     "SessionKeyMastercardTypeDef",
     {
-        "ApplicationTransactionCounter": str,
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
+        "ApplicationTransactionCounter": str,
         "UnpredictableNumber": str,
     },
 )
@@ -689,8 +729,8 @@ SessionKeyMastercardTypeDef = TypedDict(
 SessionKeyVisaTypeDef = TypedDict(
     "SessionKeyVisaTypeDef",
     {
-        "PanSequenceNumber": str,
         "PrimaryAccountNumber": str,
+        "PanSequenceNumber": str,
     },
 )
 
@@ -717,11 +757,11 @@ class SymmetricEncryptionAttributesTypeDef(
 _RequiredTranslatePinDataInputRequestTypeDef = TypedDict(
     "_RequiredTranslatePinDataInputRequestTypeDef",
     {
-        "EncryptedPinBlock": str,
         "IncomingKeyIdentifier": str,
-        "IncomingTranslationAttributes": "TranslationIsoFormatsTypeDef",
         "OutgoingKeyIdentifier": str,
+        "IncomingTranslationAttributes": "TranslationIsoFormatsTypeDef",
         "OutgoingTranslationAttributes": "TranslationIsoFormatsTypeDef",
+        "EncryptedPinBlock": str,
     },
 )
 _OptionalTranslatePinDataInputRequestTypeDef = TypedDict(
@@ -729,6 +769,8 @@ _OptionalTranslatePinDataInputRequestTypeDef = TypedDict(
     {
         "IncomingDukptAttributes": "DukptDerivationAttributesTypeDef",
         "OutgoingDukptAttributes": "DukptDerivationAttributesTypeDef",
+        "IncomingWrappedKey": "WrappedKeyTypeDef",
+        "OutgoingWrappedKey": "WrappedKeyTypeDef",
     },
     total=False,
 )
@@ -741,9 +783,9 @@ class TranslatePinDataInputRequestTypeDef(
 TranslatePinDataOutputTypeDef = TypedDict(
     "TranslatePinDataOutputTypeDef",
     {
+        "PinBlock": str,
         "KeyArn": str,
         "KeyCheckValue": str,
-        "PinBlock": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -769,11 +811,11 @@ TranslationPinDataIsoFormat034TypeDef = TypedDict(
 _RequiredVerifyAuthRequestCryptogramInputRequestTypeDef = TypedDict(
     "_RequiredVerifyAuthRequestCryptogramInputRequestTypeDef",
     {
-        "AuthRequestCryptogram": str,
         "KeyIdentifier": str,
+        "TransactionData": str,
+        "AuthRequestCryptogram": str,
         "MajorKeyDerivationMode": MajorKeyDerivationModeType,
         "SessionKeyDerivationAttributes": "SessionKeyDerivationTypeDef",
-        "TransactionData": str,
     },
 )
 _OptionalVerifyAuthRequestCryptogramInputRequestTypeDef = TypedDict(
@@ -793,9 +835,9 @@ class VerifyAuthRequestCryptogramInputRequestTypeDef(
 VerifyAuthRequestCryptogramOutputTypeDef = TypedDict(
     "VerifyAuthRequestCryptogramOutputTypeDef",
     {
-        "AuthResponseValue": str,
         "KeyArn": str,
         "KeyCheckValue": str,
+        "AuthResponseValue": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -805,8 +847,8 @@ VerifyCardValidationDataInputRequestTypeDef = TypedDict(
     {
         "KeyIdentifier": str,
         "PrimaryAccountNumber": str,
-        "ValidationData": str,
         "VerificationAttributes": "CardVerificationAttributesTypeDef",
+        "ValidationData": str,
     },
 )
 
@@ -823,8 +865,8 @@ _RequiredVerifyMacInputRequestTypeDef = TypedDict(
     "_RequiredVerifyMacInputRequestTypeDef",
     {
         "KeyIdentifier": str,
-        "Mac": str,
         "MessageData": str,
+        "Mac": str,
         "VerificationAttributes": "MacAttributesTypeDef",
     },
 )
@@ -853,19 +895,19 @@ VerifyMacOutputTypeDef = TypedDict(
 _RequiredVerifyPinDataInputRequestTypeDef = TypedDict(
     "_RequiredVerifyPinDataInputRequestTypeDef",
     {
-        "EncryptedPinBlock": str,
-        "EncryptionKeyIdentifier": str,
-        "PinBlockFormat": PinBlockFormatForPinDataType,
-        "PrimaryAccountNumber": str,
-        "VerificationAttributes": "PinVerificationAttributesTypeDef",
         "VerificationKeyIdentifier": str,
+        "EncryptionKeyIdentifier": str,
+        "VerificationAttributes": "PinVerificationAttributesTypeDef",
+        "EncryptedPinBlock": str,
+        "PrimaryAccountNumber": str,
+        "PinBlockFormat": PinBlockFormatForPinDataType,
     },
 )
 _OptionalVerifyPinDataInputRequestTypeDef = TypedDict(
     "_OptionalVerifyPinDataInputRequestTypeDef",
     {
-        "DukptAttributes": "DukptAttributesTypeDef",
         "PinDataLength": int,
+        "DukptAttributes": "DukptAttributesTypeDef",
     },
     total=False,
 )
@@ -878,10 +920,10 @@ class VerifyPinDataInputRequestTypeDef(
 VerifyPinDataOutputTypeDef = TypedDict(
     "VerifyPinDataOutputTypeDef",
     {
-        "EncryptionKeyArn": str,
-        "EncryptionKeyCheckValue": str,
         "VerificationKeyArn": str,
         "VerificationKeyCheckValue": str,
+        "EncryptionKeyArn": str,
+        "EncryptionKeyCheckValue": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -908,3 +950,28 @@ VisaPinVerificationValueTypeDef = TypedDict(
         "PinVerificationKeyIndex": int,
     },
 )
+
+WrappedKeyMaterialTypeDef = TypedDict(
+    "WrappedKeyMaterialTypeDef",
+    {
+        "Tr31KeyBlock": str,
+    },
+    total=False,
+)
+
+_RequiredWrappedKeyTypeDef = TypedDict(
+    "_RequiredWrappedKeyTypeDef",
+    {
+        "WrappedKeyMaterial": "WrappedKeyMaterialTypeDef",
+    },
+)
+_OptionalWrappedKeyTypeDef = TypedDict(
+    "_OptionalWrappedKeyTypeDef",
+    {
+        "KeyCheckValueAlgorithm": KeyCheckValueAlgorithmType,
+    },
+    total=False,
+)
+
+class WrappedKeyTypeDef(_RequiredWrappedKeyTypeDef, _OptionalWrappedKeyTypeDef):
+    pass

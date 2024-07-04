@@ -21,17 +21,20 @@ else:
 
 __all__ = (
     "AccessCheckPolicyTypeType",
+    "AccessCheckResourceTypeType",
     "AccessPreviewStatusReasonCodeType",
     "AccessPreviewStatusType",
     "AclPermissionType",
     "AnalyzerStatusType",
     "CheckAccessNotGrantedResultType",
     "CheckNoNewAccessResultType",
+    "CheckNoPublicAccessResultType",
     "FindingChangeTypeType",
     "FindingSourceTypeType",
     "FindingStatusType",
     "FindingStatusUpdateType",
     "FindingTypeType",
+    "GetFindingRecommendationPaginatorName",
     "GetFindingV2PaginatorName",
     "JobErrorCodeType",
     "JobStatusType",
@@ -48,7 +51,10 @@ __all__ = (
     "OrderByType",
     "PolicyTypeType",
     "ReasonCodeType",
+    "RecommendationTypeType",
+    "RecommendedRemediationActionType",
     "ResourceTypeType",
+    "StatusType",
     "TypeType",
     "ValidatePolicyFindingTypeType",
     "ValidatePolicyPaginatorName",
@@ -56,12 +62,33 @@ __all__ = (
 )
 
 AccessCheckPolicyTypeType = Literal["IDENTITY_POLICY", "RESOURCE_POLICY"]
+AccessCheckResourceTypeType = Literal[
+    "AWS::DynamoDB::Stream",
+    "AWS::DynamoDB::Table",
+    "AWS::EFS::FileSystem",
+    "AWS::IAM::AssumeRolePolicyDocument",
+    "AWS::KMS::Key",
+    "AWS::Kinesis::Stream",
+    "AWS::Kinesis::StreamConsumer",
+    "AWS::Lambda::Function",
+    "AWS::OpenSearchService::Domain",
+    "AWS::S3::AccessPoint",
+    "AWS::S3::Bucket",
+    "AWS::S3::Glacier",
+    "AWS::S3Express::DirectoryBucket",
+    "AWS::S3Outposts::AccessPoint",
+    "AWS::S3Outposts::Bucket",
+    "AWS::SNS::Topic",
+    "AWS::SQS::Queue",
+    "AWS::SecretsManager::Secret",
+]
 AccessPreviewStatusReasonCodeType = Literal["INTERNAL_ERROR", "INVALID_CONFIGURATION"]
 AccessPreviewStatusType = Literal["COMPLETED", "CREATING", "FAILED"]
 AclPermissionType = Literal["FULL_CONTROL", "READ", "READ_ACP", "WRITE", "WRITE_ACP"]
 AnalyzerStatusType = Literal["ACTIVE", "CREATING", "DISABLED", "FAILED"]
 CheckAccessNotGrantedResultType = Literal["FAIL", "PASS"]
 CheckNoNewAccessResultType = Literal["FAIL", "PASS"]
+CheckNoPublicAccessResultType = Literal["FAIL", "PASS"]
 FindingChangeTypeType = Literal["CHANGED", "NEW", "UNCHANGED"]
 FindingSourceTypeType = Literal[
     "BUCKET_ACL", "POLICY", "S3_ACCESS_POINT", "S3_ACCESS_POINT_ACCOUNT"
@@ -75,6 +102,7 @@ FindingTypeType = Literal[
     "UnusedIAMUserPassword",
     "UnusedPermission",
 ]
+GetFindingRecommendationPaginatorName = Literal["get_finding_recommendation"]
 GetFindingV2PaginatorName = Literal["get_finding_v2"]
 JobErrorCodeType = Literal[
     "AUTHORIZATION_ERROR",
@@ -116,6 +144,8 @@ ReasonCodeType = Literal[
     "ORGANIZATION_DELETED",
     "SERVICE_LINKED_ROLE_CREATION_FAILED",
 ]
+RecommendationTypeType = Literal["UnusedPermissionRecommendation"]
+RecommendedRemediationActionType = Literal["CREATE_POLICY", "DETACH_POLICY"]
 ResourceTypeType = Literal[
     "AWS::DynamoDB::Stream",
     "AWS::DynamoDB::Table",
@@ -134,6 +164,7 @@ ResourceTypeType = Literal[
     "AWS::SQS::Queue",
     "AWS::SecretsManager::Secret",
 ]
+StatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 TypeType = Literal["ACCOUNT", "ACCOUNT_UNUSED_ACCESS", "ORGANIZATION", "ORGANIZATION_UNUSED_ACCESS"]
 ValidatePolicyFindingTypeType = Literal["ERROR", "SECURITY_WARNING", "SUGGESTION", "WARNING"]
 ValidatePolicyPaginatorName = Literal["validate_policy"]

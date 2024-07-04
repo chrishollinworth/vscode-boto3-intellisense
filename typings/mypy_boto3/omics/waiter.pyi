@@ -86,43 +86,43 @@ __all__ = (
 
 class AnnotationImportJobCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationimportjobcreatedwaiter)
     """
 
     def wait(self, *, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationimportjobcreatedwaiter)
         """
 
 class AnnotationStoreCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstorecreatedwaiter)
     """
 
     def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstorecreatedwaiter)
         """
 
 class AnnotationStoreDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoredeletedwaiter)
     """
 
     def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoredeletedwaiter)
         """
 
 class AnnotationStoreVersionCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversioncreatedwaiter)
     """
 
@@ -130,13 +130,13 @@ class AnnotationStoreVersionCreatedWaiter(Boto3Waiter):
         self, *, name: str, versionName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversioncreatedwaiter)
         """
 
 class AnnotationStoreVersionDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversiondeletedwaiter)
     """
 
@@ -144,13 +144,13 @@ class AnnotationStoreVersionDeletedWaiter(Boto3Waiter):
         self, *, name: str, versionName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversiondeletedwaiter)
         """
 
 class ReadSetActivationJobCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetactivationjobcompletedwaiter)
     """
 
@@ -158,13 +158,13 @@ class ReadSetActivationJobCompletedWaiter(Boto3Waiter):
         self, *, id: str, sequenceStoreId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetactivationjobcompletedwaiter)
         """
 
 class ReadSetExportJobCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetexportjobcompletedwaiter)
     """
 
@@ -172,13 +172,13 @@ class ReadSetExportJobCompletedWaiter(Boto3Waiter):
         self, *, sequenceStoreId: str, id: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetexportjobcompletedwaiter)
         """
 
 class ReadSetImportJobCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetimportjobcompletedwaiter)
     """
 
@@ -186,13 +186,13 @@ class ReadSetImportJobCompletedWaiter(Boto3Waiter):
         self, *, id: str, sequenceStoreId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetimportjobcompletedwaiter)
         """
 
 class ReferenceImportJobCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#referenceimportjobcompletedwaiter)
     """
 
@@ -200,13 +200,13 @@ class ReferenceImportJobCompletedWaiter(Boto3Waiter):
         self, *, id: str, referenceStoreId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#referenceimportjobcompletedwaiter)
         """
 
 class RunCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runcompletedwaiter)
     """
 
@@ -218,13 +218,13 @@ class RunCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runcompletedwaiter)
         """
 
 class RunRunningWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunRunning)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runrunningwaiter)
     """
 
@@ -236,73 +236,73 @@ class RunRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunRunning.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runrunningwaiter)
         """
 
 class TaskCompletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskCompleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskcompletedwaiter)
     """
 
     def wait(self, *, id: str, taskId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskCompleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskcompletedwaiter)
         """
 
 class TaskRunningWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskRunning)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskrunningwaiter)
     """
 
     def wait(self, *, id: str, taskId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskRunning.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskrunningwaiter)
         """
 
 class VariantImportJobCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantimportjobcreatedwaiter)
     """
 
     def wait(self, *, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantimportjobcreatedwaiter)
         """
 
 class VariantStoreCreatedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreCreated)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstorecreatedwaiter)
     """
 
     def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreCreated.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstorecreatedwaiter)
         """
 
 class VariantStoreDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstoredeletedwaiter)
     """
 
     def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstoredeletedwaiter)
         """
 
 class WorkflowActiveWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.WorkflowActive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.WorkflowActive)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#workflowactivewaiter)
     """
 
@@ -316,6 +316,6 @@ class WorkflowActiveWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.WorkflowActive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.WorkflowActive.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#workflowactivewaiter)
         """

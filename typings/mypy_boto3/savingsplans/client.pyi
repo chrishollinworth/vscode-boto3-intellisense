@@ -58,7 +58,7 @@ class Exceptions:
 
 class SavingsPlansClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html)
     """
 
@@ -74,7 +74,7 @@ class SavingsPlansClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#can_paginate)
         """
 
@@ -82,7 +82,7 @@ class SavingsPlansClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#close)
         """
 
@@ -99,7 +99,7 @@ class SavingsPlansClient(BaseClient):
         """
         Creates a Savings Plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.create_savings_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.create_savings_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#create_savings_plan)
         """
 
@@ -107,7 +107,7 @@ class SavingsPlansClient(BaseClient):
         """
         Deletes the queued purchase for the specified Savings Plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.delete_queued_savings_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.delete_queued_savings_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#delete_queued_savings_plan)
         """
 
@@ -122,7 +122,7 @@ class SavingsPlansClient(BaseClient):
         """
         Describes the rates for the specified Savings Plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plan_rates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plan_rates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#describe_savings_plan_rates)
         """
 
@@ -139,7 +139,7 @@ class SavingsPlansClient(BaseClient):
         """
         Describes the specified Savings Plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#describe_savings_plans)
         """
 
@@ -160,7 +160,7 @@ class SavingsPlansClient(BaseClient):
         """
         Describes the offering rates for the specified Savings Plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offering_rates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offering_rates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#describe_savings_plans_offering_rates)
         """
 
@@ -184,7 +184,7 @@ class SavingsPlansClient(BaseClient):
         """
         Describes the offerings for the specified Savings Plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#describe_savings_plans_offerings)
         """
 
@@ -198,7 +198,7 @@ class SavingsPlansClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#generate_presigned_url)
         """
 
@@ -206,7 +206,7 @@ class SavingsPlansClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#list_tags_for_resource)
         """
 
@@ -216,7 +216,7 @@ class SavingsPlansClient(BaseClient):
         """
         Returns the specified Savings Plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.return_savings_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.return_savings_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#return_savings_plan)
         """
 
@@ -224,7 +224,7 @@ class SavingsPlansClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#tag_resource)
         """
 
@@ -232,6 +232,6 @@ class SavingsPlansClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/savingsplans.html#SavingsPlans.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/savingsplans.html#SavingsPlans.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/client.html#untag_resource)
         """

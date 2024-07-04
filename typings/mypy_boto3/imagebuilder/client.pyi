@@ -158,7 +158,7 @@ class Exceptions:
 
 class imagebuilderClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html)
     """
 
@@ -174,7 +174,7 @@ class imagebuilderClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#can_paginate)
         """
 
@@ -184,7 +184,7 @@ class imagebuilderClient(BaseClient):
         """
         CancelImageCreation cancels the creation of Image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.cancel_image_creation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.cancel_image_creation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#cancel_image_creation)
         """
 
@@ -194,7 +194,7 @@ class imagebuilderClient(BaseClient):
         """
         Cancel a specific image lifecycle policy runtime instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.cancel_lifecycle_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.cancel_lifecycle_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#cancel_lifecycle_execution)
         """
 
@@ -202,7 +202,7 @@ class imagebuilderClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#close)
         """
 
@@ -225,7 +225,7 @@ class imagebuilderClient(BaseClient):
         Creates a new component that can be used to build, validate, test, and assess
         your image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_component)
         """
 
@@ -252,7 +252,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new container recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_container_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_container_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_container_recipe)
         """
 
@@ -268,7 +268,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new distribution configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_distribution_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_distribution_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_distribution_configuration)
         """
 
@@ -290,7 +290,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image)
         """
 
@@ -316,7 +316,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new image pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_image_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_image_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image_pipeline)
         """
 
@@ -337,7 +337,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new image recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_image_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_image_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image_recipe)
         """
 
@@ -362,7 +362,7 @@ class imagebuilderClient(BaseClient):
         """
         Creates a new infrastructure configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_infrastructure_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_infrastructure_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_infrastructure_configuration)
         """
 
@@ -382,7 +382,7 @@ class imagebuilderClient(BaseClient):
         """
         Create a lifecycle policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_lifecycle_policy)
         """
 
@@ -403,7 +403,7 @@ class imagebuilderClient(BaseClient):
         """
         Create a new workflow or a new version of an existing workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.create_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.create_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_workflow)
         """
 
@@ -411,7 +411,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes a component build version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_component)
         """
 
@@ -421,7 +421,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes a container recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_container_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_container_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_container_recipe)
         """
 
@@ -431,7 +431,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes a distribution configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_distribution_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_distribution_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_distribution_configuration)
         """
 
@@ -439,7 +439,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes an Image Builder image resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image)
         """
 
@@ -447,7 +447,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes an image pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image_pipeline)
         """
 
@@ -455,7 +455,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes an image recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image_recipe)
         """
 
@@ -465,7 +465,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes an infrastructure configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_infrastructure_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_infrastructure_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_infrastructure_configuration)
         """
 
@@ -475,7 +475,7 @@ class imagebuilderClient(BaseClient):
         """
         Delete the specified lifecycle policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_lifecycle_policy)
         """
 
@@ -483,7 +483,7 @@ class imagebuilderClient(BaseClient):
         """
         Deletes a specific workflow resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.delete_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.delete_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_workflow)
         """
 
@@ -497,7 +497,7 @@ class imagebuilderClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#generate_presigned_url)
         """
 
@@ -505,7 +505,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets a component object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_component)
         """
 
@@ -513,7 +513,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets a component policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_component_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_component_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_component_policy)
         """
 
@@ -521,7 +521,7 @@ class imagebuilderClient(BaseClient):
         """
         Retrieves a container recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_container_recipe)
         """
 
@@ -531,7 +531,7 @@ class imagebuilderClient(BaseClient):
         """
         Retrieves the policy for a container recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_container_recipe_policy)
         """
 
@@ -541,7 +541,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets a distribution configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_distribution_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_distribution_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_distribution_configuration)
         """
 
@@ -549,7 +549,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image)
         """
 
@@ -557,7 +557,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an image pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_image_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_image_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_pipeline)
         """
 
@@ -565,7 +565,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an image policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_image_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_image_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_policy)
         """
 
@@ -573,7 +573,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an image recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_recipe)
         """
 
@@ -583,7 +583,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an image recipe policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_recipe_policy)
         """
 
@@ -593,7 +593,7 @@ class imagebuilderClient(BaseClient):
         """
         Gets an infrastructure configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_infrastructure_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_infrastructure_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_infrastructure_configuration)
         """
 
@@ -604,7 +604,7 @@ class imagebuilderClient(BaseClient):
         Get the runtime information that was logged for a specific runtime instance of
         the lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_lifecycle_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_lifecycle_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_lifecycle_execution)
         """
 
@@ -612,7 +612,7 @@ class imagebuilderClient(BaseClient):
         """
         Get details for the specified image lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_lifecycle_policy)
         """
 
@@ -620,7 +620,7 @@ class imagebuilderClient(BaseClient):
         """
         Get a workflow resource object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_workflow)
         """
 
@@ -631,7 +631,7 @@ class imagebuilderClient(BaseClient):
         Get the runtime information that was logged for a specific runtime instance of
         the workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_workflow_execution)
         """
 
@@ -642,7 +642,7 @@ class imagebuilderClient(BaseClient):
         Get the runtime information that was logged for a specific runtime instance of
         the workflow step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow_step_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.get_workflow_step_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_workflow_step_execution)
         """
 
@@ -665,7 +665,7 @@ class imagebuilderClient(BaseClient):
         """
         Imports a component and transforms its data into a component document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.import_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.import_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#import_component)
         """
 
@@ -686,7 +686,7 @@ class imagebuilderClient(BaseClient):
         that process creates a set of one or more disk container files that act as
         snapshots of your VM’s environment, settings, and data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.import_vm_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.import_vm_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#import_vm_image)
         """
 
@@ -696,7 +696,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns the list of component build versions for the specified semantic version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_component_build_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_component_build_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_component_build_versions)
         """
 
@@ -713,7 +713,7 @@ class imagebuilderClient(BaseClient):
         Returns the list of components that can be filtered by name, or by using the
         listed `filters` to streamline results.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_components)
         """
 
@@ -728,7 +728,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of container recipes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_container_recipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_container_recipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_container_recipes)
         """
 
@@ -742,7 +742,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of distribution configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_distribution_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_distribution_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_distribution_configurations)
         """
 
@@ -757,7 +757,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of image build versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_build_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_build_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_build_versions)
         """
 
@@ -768,7 +768,7 @@ class imagebuilderClient(BaseClient):
         List the Packages that are associated with an Image Build Version, as determined
         by Amazon Web Services Systems Manager Inventory at build time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_packages)
         """
 
@@ -783,7 +783,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of images created by the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipeline_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipeline_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_pipeline_images)
         """
 
@@ -797,7 +797,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of image pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_pipelines)
         """
 
@@ -812,7 +812,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of image recipes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_recipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_recipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_recipes)
         """
 
@@ -822,7 +822,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of image scan aggregations for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_scan_finding_aggregations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_scan_finding_aggregations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_scan_finding_aggregations)
         """
 
@@ -836,7 +836,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of image scan findings for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_image_scan_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_image_scan_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_scan_findings)
         """
 
@@ -853,7 +853,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns the list of images that you have access to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_images)
         """
 
@@ -867,7 +867,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of infrastructure configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_infrastructure_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_infrastructure_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_infrastructure_configurations)
         """
 
@@ -883,7 +883,7 @@ class imagebuilderClient(BaseClient):
         List resources that the runtime instance of the image lifecycle identified for
         lifecycle actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_execution_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_execution_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_lifecycle_execution_resources)
         """
 
@@ -893,7 +893,7 @@ class imagebuilderClient(BaseClient):
         """
         Get the lifecycle runtime history for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_lifecycle_executions)
         """
 
@@ -907,7 +907,7 @@ class imagebuilderClient(BaseClient):
         """
         Get a list of lifecycle policies in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_lifecycle_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_lifecycle_policies)
         """
 
@@ -915,7 +915,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns the list of tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_tags_for_resource)
         """
 
@@ -926,7 +926,7 @@ class imagebuilderClient(BaseClient):
         Get a list of workflow steps that are waiting for action for workflows in your
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_waiting_workflow_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_waiting_workflow_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_waiting_workflow_steps)
         """
 
@@ -936,7 +936,7 @@ class imagebuilderClient(BaseClient):
         """
         Returns a list of build versions for a specific workflow resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_build_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_build_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_workflow_build_versions)
         """
 
@@ -947,7 +947,7 @@ class imagebuilderClient(BaseClient):
         Returns a list of workflow runtime instance metadata objects for a specific
         image build version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_workflow_executions)
         """
 
@@ -958,7 +958,7 @@ class imagebuilderClient(BaseClient):
         Returns runtime data for each step in a runtime instance of the workflow that
         you specify in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_step_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_workflow_step_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_workflow_step_executions)
         """
 
@@ -974,7 +974,7 @@ class imagebuilderClient(BaseClient):
         """
         Lists workflow build versions based on filtering parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.list_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.list_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_workflows)
         """
 
@@ -984,7 +984,7 @@ class imagebuilderClient(BaseClient):
         """
         Applies a policy to a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.put_component_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.put_component_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_component_policy)
         """
 
@@ -994,7 +994,7 @@ class imagebuilderClient(BaseClient):
         """
         Applies a policy to a container image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.put_container_recipe_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.put_container_recipe_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_container_recipe_policy)
         """
 
@@ -1002,7 +1002,7 @@ class imagebuilderClient(BaseClient):
         """
         Applies a policy to an image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.put_image_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.put_image_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_image_policy)
         """
 
@@ -1012,7 +1012,7 @@ class imagebuilderClient(BaseClient):
         """
         Applies a policy to an image recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.put_image_recipe_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.put_image_recipe_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_image_recipe_policy)
         """
 
@@ -1029,7 +1029,7 @@ class imagebuilderClient(BaseClient):
         Pauses or resumes image creation when the associated workflow runs a
         `WaitForAction` step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.send_workflow_step_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.send_workflow_step_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#send_workflow_step_action)
         """
 
@@ -1039,7 +1039,7 @@ class imagebuilderClient(BaseClient):
         """
         Manually triggers a pipeline to create an image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.start_image_pipeline_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.start_image_pipeline_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#start_image_pipeline_execution)
         """
 
@@ -1058,7 +1058,7 @@ class imagebuilderClient(BaseClient):
         Begin asynchronous resource state update for lifecycle changes to the specified
         image resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.start_resource_state_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.start_resource_state_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#start_resource_state_update)
         """
 
@@ -1066,7 +1066,7 @@ class imagebuilderClient(BaseClient):
         """
         Adds a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#tag_resource)
         """
 
@@ -1074,7 +1074,7 @@ class imagebuilderClient(BaseClient):
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#untag_resource)
         """
 
@@ -1089,7 +1089,7 @@ class imagebuilderClient(BaseClient):
         """
         Updates a new distribution configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.update_distribution_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.update_distribution_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_distribution_configuration)
         """
 
@@ -1114,7 +1114,7 @@ class imagebuilderClient(BaseClient):
         """
         Updates an image pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.update_image_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.update_image_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_image_pipeline)
         """
 
@@ -1138,7 +1138,7 @@ class imagebuilderClient(BaseClient):
         """
         Updates a new infrastructure configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.update_infrastructure_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.update_infrastructure_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_infrastructure_configuration)
         """
 
@@ -1157,6 +1157,6 @@ class imagebuilderClient(BaseClient):
         """
         Update the specified lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/imagebuilder.html#imagebuilder.Client.update_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/imagebuilder.html#imagebuilder.Client.update_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_lifecycle_policy)
         """

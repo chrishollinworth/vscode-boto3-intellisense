@@ -93,6 +93,7 @@ _OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
         "kmsKeyArn": str,
         "clientToken": str,
         "tags": Dict[str, str],
+        "deviceCreationTags": Dict[str, str],
     },
     total=False,
 )
@@ -261,6 +262,7 @@ EnvironmentTypeDef = TypedDict(
         "arn": str,
         "kmsKeyArn": str,
         "tags": Dict[str, str],
+        "deviceCreationTags": Dict[str, str],
     },
     total=False,
 )
@@ -512,6 +514,7 @@ _OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
         "maintenanceWindow": "MaintenanceWindowTypeDef",
         "softwareSetUpdateMode": SoftwareSetUpdateModeType,
         "desiredSoftwareSetId": str,
+        "deviceCreationTags": Dict[str, str],
     },
     total=False,
 )

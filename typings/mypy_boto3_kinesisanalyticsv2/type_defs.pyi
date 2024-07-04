@@ -28,6 +28,7 @@ from .literals import (
     InputStartingPositionType,
     LogLevelType,
     MetricsLevelType,
+    OperationStatusType,
     RecordFormatTypeType,
     RuntimeEnvironmentType,
     SnapshotStatusType,
@@ -61,11 +62,17 @@ __all__ = (
     "ApplicationDetailTypeDef",
     "ApplicationMaintenanceConfigurationDescriptionTypeDef",
     "ApplicationMaintenanceConfigurationUpdateTypeDef",
+    "ApplicationOperationInfoDetailsTypeDef",
+    "ApplicationOperationInfoTypeDef",
     "ApplicationRestoreConfigurationTypeDef",
     "ApplicationSnapshotConfigurationDescriptionTypeDef",
     "ApplicationSnapshotConfigurationTypeDef",
     "ApplicationSnapshotConfigurationUpdateTypeDef",
     "ApplicationSummaryTypeDef",
+    "ApplicationSystemRollbackConfigurationDescriptionTypeDef",
+    "ApplicationSystemRollbackConfigurationTypeDef",
+    "ApplicationSystemRollbackConfigurationUpdateTypeDef",
+    "ApplicationVersionChangeDetailsTypeDef",
     "ApplicationVersionSummaryTypeDef",
     "CSVMappingParametersTypeDef",
     "CatalogConfigurationDescriptionTypeDef",
@@ -102,6 +109,8 @@ __all__ = (
     "DeployAsApplicationConfigurationDescriptionTypeDef",
     "DeployAsApplicationConfigurationTypeDef",
     "DeployAsApplicationConfigurationUpdateTypeDef",
+    "DescribeApplicationOperationRequestRequestTypeDef",
+    "DescribeApplicationOperationResponseTypeDef",
     "DescribeApplicationRequestRequestTypeDef",
     "DescribeApplicationResponseTypeDef",
     "DescribeApplicationSnapshotRequestRequestTypeDef",
@@ -114,6 +123,7 @@ __all__ = (
     "EnvironmentPropertiesTypeDef",
     "EnvironmentPropertyDescriptionsTypeDef",
     "EnvironmentPropertyUpdatesTypeDef",
+    "ErrorInfoTypeDef",
     "FlinkApplicationConfigurationDescriptionTypeDef",
     "FlinkApplicationConfigurationTypeDef",
     "FlinkApplicationConfigurationUpdateTypeDef",
@@ -150,6 +160,8 @@ __all__ = (
     "LambdaOutputDescriptionTypeDef",
     "LambdaOutputTypeDef",
     "LambdaOutputUpdateTypeDef",
+    "ListApplicationOperationsRequestRequestTypeDef",
+    "ListApplicationOperationsResponseTypeDef",
     "ListApplicationSnapshotsRequestRequestTypeDef",
     "ListApplicationSnapshotsResponseTypeDef",
     "ListApplicationVersionsRequestRequestTypeDef",
@@ -163,6 +175,7 @@ __all__ = (
     "MonitoringConfigurationDescriptionTypeDef",
     "MonitoringConfigurationTypeDef",
     "MonitoringConfigurationUpdateTypeDef",
+    "OperationFailureDetailsTypeDef",
     "OutputDescriptionTypeDef",
     "OutputTypeDef",
     "OutputUpdateTypeDef",
@@ -199,7 +212,9 @@ __all__ = (
     "SqlApplicationConfigurationUpdateTypeDef",
     "SqlRunConfigurationTypeDef",
     "StartApplicationRequestRequestTypeDef",
+    "StartApplicationResponseTypeDef",
     "StopApplicationRequestRequestTypeDef",
+    "StopApplicationResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -246,6 +261,7 @@ AddApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
         "ApplicationARN": str,
         "ApplicationVersionId": int,
         "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -356,6 +372,7 @@ AddApplicationVpcConfigurationResponseTypeDef = TypedDict(
         "ApplicationARN": str,
         "ApplicationVersionId": int,
         "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -417,6 +434,7 @@ ApplicationConfigurationDescriptionTypeDef = TypedDict(
         "FlinkApplicationConfigurationDescription": "FlinkApplicationConfigurationDescriptionTypeDef",
         "EnvironmentPropertyDescriptions": "EnvironmentPropertyDescriptionsTypeDef",
         "ApplicationSnapshotConfigurationDescription": "ApplicationSnapshotConfigurationDescriptionTypeDef",
+        "ApplicationSystemRollbackConfigurationDescription": "ApplicationSystemRollbackConfigurationDescriptionTypeDef",
         "VpcConfigurationDescriptions": List["VpcConfigurationDescriptionTypeDef"],
         "ZeppelinApplicationConfigurationDescription": "ZeppelinApplicationConfigurationDescriptionTypeDef",
     },
@@ -431,6 +449,7 @@ ApplicationConfigurationTypeDef = TypedDict(
         "EnvironmentProperties": "EnvironmentPropertiesTypeDef",
         "ApplicationCodeConfiguration": "ApplicationCodeConfigurationTypeDef",
         "ApplicationSnapshotConfiguration": "ApplicationSnapshotConfigurationTypeDef",
+        "ApplicationSystemRollbackConfiguration": "ApplicationSystemRollbackConfigurationTypeDef",
         "VpcConfigurations": List["VpcConfigurationTypeDef"],
         "ZeppelinApplicationConfiguration": "ZeppelinApplicationConfigurationTypeDef",
     },
@@ -445,6 +464,7 @@ ApplicationConfigurationUpdateTypeDef = TypedDict(
         "FlinkApplicationConfigurationUpdate": "FlinkApplicationConfigurationUpdateTypeDef",
         "EnvironmentPropertyUpdates": "EnvironmentPropertyUpdatesTypeDef",
         "ApplicationSnapshotConfigurationUpdate": "ApplicationSnapshotConfigurationUpdateTypeDef",
+        "ApplicationSystemRollbackConfigurationUpdate": "ApplicationSystemRollbackConfigurationUpdateTypeDef",
         "VpcConfigurationUpdates": List["VpcConfigurationUpdateTypeDef"],
         "ZeppelinApplicationConfigurationUpdate": "ZeppelinApplicationConfigurationUpdateTypeDef",
     },
@@ -473,6 +493,7 @@ _OptionalApplicationDetailTypeDef = TypedDict(
         "ApplicationMaintenanceConfigurationDescription": "ApplicationMaintenanceConfigurationDescriptionTypeDef",
         "ApplicationVersionUpdatedFrom": int,
         "ApplicationVersionRolledBackFrom": int,
+        "ApplicationVersionCreateTimestamp": datetime,
         "ConditionalToken": str,
         "ApplicationVersionRolledBackTo": int,
         "ApplicationMode": ApplicationModeType,
@@ -498,6 +519,41 @@ ApplicationMaintenanceConfigurationUpdateTypeDef = TypedDict(
     {
         "ApplicationMaintenanceWindowStartTimeUpdate": str,
     },
+)
+
+_RequiredApplicationOperationInfoDetailsTypeDef = TypedDict(
+    "_RequiredApplicationOperationInfoDetailsTypeDef",
+    {
+        "Operation": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "OperationStatus": OperationStatusType,
+    },
+)
+_OptionalApplicationOperationInfoDetailsTypeDef = TypedDict(
+    "_OptionalApplicationOperationInfoDetailsTypeDef",
+    {
+        "ApplicationVersionChangeDetails": "ApplicationVersionChangeDetailsTypeDef",
+        "OperationFailureDetails": "OperationFailureDetailsTypeDef",
+    },
+    total=False,
+)
+
+class ApplicationOperationInfoDetailsTypeDef(
+    _RequiredApplicationOperationInfoDetailsTypeDef, _OptionalApplicationOperationInfoDetailsTypeDef
+):
+    pass
+
+ApplicationOperationInfoTypeDef = TypedDict(
+    "ApplicationOperationInfoTypeDef",
+    {
+        "Operation": str,
+        "OperationId": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "OperationStatus": OperationStatusType,
+    },
+    total=False,
 )
 
 _RequiredApplicationRestoreConfigurationTypeDef = TypedDict(
@@ -562,6 +618,35 @@ class ApplicationSummaryTypeDef(
     _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
 ):
     pass
+
+ApplicationSystemRollbackConfigurationDescriptionTypeDef = TypedDict(
+    "ApplicationSystemRollbackConfigurationDescriptionTypeDef",
+    {
+        "RollbackEnabled": bool,
+    },
+)
+
+ApplicationSystemRollbackConfigurationTypeDef = TypedDict(
+    "ApplicationSystemRollbackConfigurationTypeDef",
+    {
+        "RollbackEnabled": bool,
+    },
+)
+
+ApplicationSystemRollbackConfigurationUpdateTypeDef = TypedDict(
+    "ApplicationSystemRollbackConfigurationUpdateTypeDef",
+    {
+        "RollbackEnabledUpdate": bool,
+    },
+)
+
+ApplicationVersionChangeDetailsTypeDef = TypedDict(
+    "ApplicationVersionChangeDetailsTypeDef",
+    {
+        "ApplicationVersionUpdatedFrom": int,
+        "ApplicationVersionUpdatedTo": int,
+    },
+)
 
 ApplicationVersionSummaryTypeDef = TypedDict(
     "ApplicationVersionSummaryTypeDef",
@@ -849,6 +934,7 @@ DeleteApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
         "ApplicationARN": str,
         "ApplicationVersionId": int,
         "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -951,6 +1037,7 @@ DeleteApplicationVpcConfigurationResponseTypeDef = TypedDict(
     {
         "ApplicationARN": str,
         "ApplicationVersionId": int,
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -975,6 +1062,22 @@ DeployAsApplicationConfigurationUpdateTypeDef = TypedDict(
         "S3ContentLocationUpdate": "S3ContentBaseLocationUpdateTypeDef",
     },
     total=False,
+)
+
+DescribeApplicationOperationRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationOperationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "OperationId": str,
+    },
+)
+
+DescribeApplicationOperationResponseTypeDef = TypedDict(
+    "DescribeApplicationOperationResponseTypeDef",
+    {
+        "ApplicationOperationInfoDetails": "ApplicationOperationInfoDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredDescribeApplicationRequestRequestTypeDef = TypedDict(
@@ -1098,6 +1201,14 @@ EnvironmentPropertyUpdatesTypeDef = TypedDict(
     {
         "PropertyGroups": List["PropertyGroupTypeDef"],
     },
+)
+
+ErrorInfoTypeDef = TypedDict(
+    "ErrorInfoTypeDef",
+    {
+        "ErrorString": str,
+    },
+    total=False,
 )
 
 FlinkApplicationConfigurationDescriptionTypeDef = TypedDict(
@@ -1480,6 +1591,38 @@ LambdaOutputUpdateTypeDef = TypedDict(
     },
 )
 
+_RequiredListApplicationOperationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationOperationsRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalListApplicationOperationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationOperationsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+        "Operation": str,
+        "OperationStatus": OperationStatusType,
+    },
+    total=False,
+)
+
+class ListApplicationOperationsRequestRequestTypeDef(
+    _RequiredListApplicationOperationsRequestRequestTypeDef,
+    _OptionalListApplicationOperationsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationOperationsResponseTypeDef = TypedDict(
+    "ListApplicationOperationsResponseTypeDef",
+    {
+        "ApplicationOperationInfoList": List["ApplicationOperationInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListApplicationSnapshotsRequestRequestTypeDef = TypedDict(
     "_RequiredListApplicationSnapshotsRequestRequestTypeDef",
     {
@@ -1627,6 +1770,15 @@ MonitoringConfigurationUpdateTypeDef = TypedDict(
         "ConfigurationTypeUpdate": ConfigurationTypeType,
         "MetricsLevelUpdate": MetricsLevelType,
         "LogLevelUpdate": LogLevelType,
+    },
+    total=False,
+)
+
+OperationFailureDetailsTypeDef = TypedDict(
+    "OperationFailureDetailsTypeDef",
+    {
+        "RollbackOperationId": str,
+        "ErrorInfo": "ErrorInfoTypeDef",
     },
     total=False,
 )
@@ -1867,6 +2019,7 @@ RollbackApplicationResponseTypeDef = TypedDict(
     "RollbackApplicationResponseTypeDef",
     {
         "ApplicationDetail": "ApplicationDetailTypeDef",
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2140,6 +2293,14 @@ class StartApplicationRequestRequestTypeDef(
 ):
     pass
 
+StartApplicationResponseTypeDef = TypedDict(
+    "StartApplicationResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStopApplicationRequestRequestTypeDef = TypedDict(
     "_RequiredStopApplicationRequestRequestTypeDef",
     {
@@ -2158,6 +2319,14 @@ class StopApplicationRequestRequestTypeDef(
     _RequiredStopApplicationRequestRequestTypeDef, _OptionalStopApplicationRequestRequestTypeDef
 ):
     pass
+
+StopApplicationResponseTypeDef = TypedDict(
+    "StopApplicationResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
@@ -2238,6 +2407,7 @@ UpdateApplicationResponseTypeDef = TypedDict(
     "UpdateApplicationResponseTypeDef",
     {
         "ApplicationDetail": "ApplicationDetailTypeDef",
+        "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

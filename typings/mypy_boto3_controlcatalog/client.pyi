@@ -50,7 +50,7 @@ class Exceptions:
 
 class ControlCatalogClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html)
     """
 
@@ -66,7 +66,7 @@ class ControlCatalogClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#can_paginate)
         """
 
@@ -74,7 +74,7 @@ class ControlCatalogClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#close)
         """
 
@@ -88,7 +88,7 @@ class ControlCatalogClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#generate_presigned_url)
         """
 
@@ -103,7 +103,7 @@ class ControlCatalogClient(BaseClient):
         Returns a paginated list of common controls from the Amazon Web Services Control
         Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.list_common_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_common_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_common_controls)
         """
 
@@ -114,7 +114,7 @@ class ControlCatalogClient(BaseClient):
         Returns a paginated list of domains from the Amazon Web Services Control
         Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_domains)
         """
 
@@ -129,7 +129,7 @@ class ControlCatalogClient(BaseClient):
         Returns a paginated list of objectives from the Amazon Web Services Control
         Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Client.list_objectives)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_objectives)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_objectives)
         """
 
@@ -138,20 +138,20 @@ class ControlCatalogClient(BaseClient):
         self, operation_name: Literal["list_common_controls"]
     ) -> ListCommonControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listcommoncontrolspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listdomainspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_objectives"]) -> ListObjectivesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listobjectivespaginator)
         """

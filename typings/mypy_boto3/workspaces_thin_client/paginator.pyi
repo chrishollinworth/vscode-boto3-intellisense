@@ -38,7 +38,7 @@ __all__ = ("ListDevicesPaginator", "ListEnvironmentsPaginator", "ListSoftwareSet
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listdevicespaginator)
     """
 
@@ -46,13 +46,13 @@ class ListDevicesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listdevicespaginator)
         """
 
 class ListEnvironmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listenvironmentspaginator)
     """
 
@@ -60,13 +60,13 @@ class ListEnvironmentsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listenvironmentspaginator)
         """
 
 class ListSoftwareSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listsoftwaresetspaginator)
     """
 
@@ -74,6 +74,6 @@ class ListSoftwareSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSoftwareSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listsoftwaresetspaginator)
         """

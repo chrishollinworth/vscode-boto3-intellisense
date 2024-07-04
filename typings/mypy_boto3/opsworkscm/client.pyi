@@ -70,7 +70,7 @@ class Exceptions:
 
 class OpsWorksCMClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html)
     """
 
@@ -88,7 +88,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Associates a new node with the server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.associate_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.associate_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#associate_node)
         """
 
@@ -96,7 +96,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#can_paginate)
         """
 
@@ -104,7 +104,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#close)
         """
 
@@ -114,7 +114,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Creates an application-level backup of a server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.create_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.create_backup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#create_backup)
         """
 
@@ -146,7 +146,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Creates and immedately starts a new server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.create_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.create_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#create_server)
         """
 
@@ -154,7 +154,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Deletes a backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_backup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#delete_backup)
         """
 
@@ -163,7 +163,7 @@ class OpsWorksCMClient(BaseClient):
         Deletes the server and the underlying AWS CloudFormation stacks (including the
         server's EC2 instance).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#delete_server)
         """
 
@@ -171,7 +171,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Describes your OpsWorks-CM account attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_account_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_account_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_account_attributes)
         """
 
@@ -186,7 +186,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Describes backups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_backups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_backups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_backups)
         """
 
@@ -196,7 +196,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Describes events for a specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_events)
         """
 
@@ -206,7 +206,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Returns the current status of an existing association or disassociation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_node_association_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_node_association_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_node_association_status)
         """
 
@@ -217,7 +217,7 @@ class OpsWorksCMClient(BaseClient):
         Lists all configuration management servers that are identified with your
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_servers)
         """
 
@@ -232,7 +232,7 @@ class OpsWorksCMClient(BaseClient):
         Disassociates a node from an AWS OpsWorks CM server, and removes the node from
         the server's managed nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.disassociate_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.disassociate_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#disassociate_node)
         """
 
@@ -246,7 +246,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Exports a specified server engine attribute as a base64-encoded string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.export_server_engine_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.export_server_engine_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#export_server_engine_attribute)
         """
 
@@ -260,7 +260,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#generate_presigned_url)
         """
 
@@ -271,7 +271,7 @@ class OpsWorksCMClient(BaseClient):
         Returns a list of tags that are applied to the specified AWS OpsWorks for Chef
         Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#list_tags_for_resource)
         """
 
@@ -282,7 +282,7 @@ class OpsWorksCMClient(BaseClient):
         Restores a backup to a server that is in a `CONNECTION_LOST`, `HEALTHY`,
         `RUNNING`, `UNHEALTHY`, or `TERMINATED` state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.restore_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.restore_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#restore_server)
         """
 
@@ -292,7 +292,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Manually starts server maintenance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.start_maintenance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.start_maintenance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#start_maintenance)
         """
 
@@ -301,7 +301,7 @@ class OpsWorksCMClient(BaseClient):
         Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
         Enterprise server, or to server backups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#tag_resource)
         """
 
@@ -309,7 +309,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Removes specified tags from an AWS OpsWorks-CM server or backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#untag_resource)
         """
 
@@ -325,7 +325,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Updates settings for a server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#update_server)
         """
 
@@ -335,7 +335,7 @@ class OpsWorksCMClient(BaseClient):
         """
         Updates engine-specific attributes on a specified server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server_engine_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server_engine_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#update_server_engine_attributes)
         """
 
@@ -344,14 +344,14 @@ class OpsWorksCMClient(BaseClient):
         self, operation_name: Literal["describe_backups"]
     ) -> DescribeBackupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describebackupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeeventspaginator)
         """
 
@@ -360,7 +360,7 @@ class OpsWorksCMClient(BaseClient):
         self, operation_name: Literal["describe_servers"]
     ) -> DescribeServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeserverspaginator)
         """
 
@@ -369,12 +369,12 @@ class OpsWorksCMClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#listtagsforresourcepaginator)
         """
 
     def get_waiter(self, waiter_name: Literal["node_associated"]) -> NodeAssociatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/waiters.html#nodeassociatedwaiter)
         """

@@ -88,7 +88,7 @@ class Exceptions:
 
 class KinesisVideoClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html)
     """
 
@@ -104,7 +104,7 @@ class KinesisVideoClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#can_paginate)
         """
 
@@ -112,7 +112,7 @@ class KinesisVideoClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#close)
         """
 
@@ -127,7 +127,7 @@ class KinesisVideoClient(BaseClient):
         """
         Creates a signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.create_signaling_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.create_signaling_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#create_signaling_channel)
         """
 
@@ -144,7 +144,7 @@ class KinesisVideoClient(BaseClient):
         """
         Creates a new Kinesis video stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.create_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.create_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#create_stream)
         """
 
@@ -155,7 +155,7 @@ class KinesisVideoClient(BaseClient):
         An asynchronous API that deletes a stream’s existing edge configuration, as well
         as the corresponding media from the Edge Agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_edge_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_edge_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#delete_edge_configuration)
         """
 
@@ -165,7 +165,7 @@ class KinesisVideoClient(BaseClient):
         """
         Deletes a specified signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_signaling_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_signaling_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#delete_signaling_channel)
         """
 
@@ -173,7 +173,7 @@ class KinesisVideoClient(BaseClient):
         """
         Deletes a Kinesis video stream and the data contained in the stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#delete_stream)
         """
 
@@ -185,7 +185,7 @@ class KinesisVideoClient(BaseClient):
         `StartEdgeConfigurationUpdate` API and the latest status of the edge agent's
         recorder and uploader jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_edge_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_edge_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_edge_configuration)
         """
 
@@ -195,7 +195,7 @@ class KinesisVideoClient(BaseClient):
         """
         Gets the `ImageGenerationConfiguration` for a given Kinesis video stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_image_generation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_image_generation_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_image_generation_configuration)
         """
 
@@ -210,7 +210,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns the most current information about the stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_mapped_resource_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_mapped_resource_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_mapped_resource_configuration)
         """
 
@@ -220,7 +220,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns the most current information about the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_media_storage_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_media_storage_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_media_storage_configuration)
         """
 
@@ -230,7 +230,7 @@ class KinesisVideoClient(BaseClient):
         """
         Gets the `NotificationConfiguration` for a given Kinesis video stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_notification_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_notification_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_notification_configuration)
         """
 
@@ -240,7 +240,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns the most current information about the signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_signaling_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_signaling_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_signaling_channel)
         """
 
@@ -250,7 +250,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns the most current information about the specified stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#describe_stream)
         """
 
@@ -264,7 +264,7 @@ class KinesisVideoClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#generate_presigned_url)
         """
 
@@ -274,7 +274,7 @@ class KinesisVideoClient(BaseClient):
         """
         Gets an endpoint for a specified stream for either reading or writing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.get_data_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.get_data_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#get_data_endpoint)
         """
 
@@ -288,7 +288,7 @@ class KinesisVideoClient(BaseClient):
         Provides an endpoint for the specified signaling channel to send and receive
         messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.get_signaling_channel_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.get_signaling_channel_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#get_signaling_channel_endpoint)
         """
 
@@ -299,7 +299,7 @@ class KinesisVideoClient(BaseClient):
         Returns an array of edge configurations associated with the specified Edge
         Agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.list_edge_agent_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.list_edge_agent_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#list_edge_agent_configurations)
         """
 
@@ -313,7 +313,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns an array of `ChannelInfo` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.list_signaling_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.list_signaling_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#list_signaling_channels)
         """
 
@@ -327,7 +327,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns an array of `StreamInfo` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.list_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.list_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#list_streams)
         """
 
@@ -337,7 +337,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns a list of tags associated with the specified signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#list_tags_for_resource)
         """
 
@@ -347,7 +347,7 @@ class KinesisVideoClient(BaseClient):
         """
         Returns a list of tags associated with the specified stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#list_tags_for_stream)
         """
 
@@ -357,7 +357,7 @@ class KinesisVideoClient(BaseClient):
         """
         An asynchronous API that updates a stream’s existing edge configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.start_edge_configuration_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.start_edge_configuration_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#start_edge_configuration_update)
         """
 
@@ -365,7 +365,7 @@ class KinesisVideoClient(BaseClient):
         """
         Adds one or more tags to a signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#tag_resource)
         """
 
@@ -375,7 +375,7 @@ class KinesisVideoClient(BaseClient):
         """
         Adds one or more tags to a stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#tag_stream)
         """
 
@@ -383,7 +383,7 @@ class KinesisVideoClient(BaseClient):
         """
         Removes one or more tags from a signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#untag_resource)
         """
 
@@ -393,7 +393,7 @@ class KinesisVideoClient(BaseClient):
         """
         Removes one or more tags from a stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#untag_stream)
         """
 
@@ -410,7 +410,7 @@ class KinesisVideoClient(BaseClient):
         Increases or decreases the stream's data retention period by the value that you
         specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_data_retention)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_data_retention)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_data_retention)
         """
 
@@ -424,7 +424,7 @@ class KinesisVideoClient(BaseClient):
         """
         Updates the `StreamInfo` and `ImageProcessingConfiguration` fields.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_image_generation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_image_generation_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_image_generation_configuration)
         """
 
@@ -434,7 +434,7 @@ class KinesisVideoClient(BaseClient):
         """
         Associates a `SignalingChannel` to a stream to store the media.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_media_storage_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_media_storage_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_media_storage_configuration)
         """
 
@@ -448,7 +448,7 @@ class KinesisVideoClient(BaseClient):
         """
         Updates the notification information for a stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_notification_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_notification_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_notification_configuration)
         """
 
@@ -462,7 +462,7 @@ class KinesisVideoClient(BaseClient):
         """
         Updates the existing signaling channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_signaling_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_signaling_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_signaling_channel)
         """
 
@@ -478,7 +478,7 @@ class KinesisVideoClient(BaseClient):
         """
         Updates stream metadata, such as the device name and media type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Client.update_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Client.update_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/client.html#update_stream)
         """
 
@@ -487,7 +487,7 @@ class KinesisVideoClient(BaseClient):
         self, operation_name: Literal["describe_mapped_resource_configuration"]
     ) -> DescribeMappedResourceConfigurationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#describemappedresourceconfigurationpaginator)
         """
 
@@ -496,7 +496,7 @@ class KinesisVideoClient(BaseClient):
         self, operation_name: Literal["list_edge_agent_configurations"]
     ) -> ListEdgeAgentConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listedgeagentconfigurationspaginator)
         """
 
@@ -505,13 +505,13 @@ class KinesisVideoClient(BaseClient):
         self, operation_name: Literal["list_signaling_channels"]
     ) -> ListSignalingChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listsignalingchannelspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#liststreamspaginator)
         """

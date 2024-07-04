@@ -90,7 +90,7 @@ class Exceptions:
 
 class TextractClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html)
     """
 
@@ -114,7 +114,7 @@ class TextractClient(BaseClient):
         """
         Analyzes an input document for relationships between detected items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.analyze_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.analyze_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#analyze_document)
         """
 
@@ -123,7 +123,7 @@ class TextractClient(BaseClient):
         `AnalyzeExpense` synchronously analyzes an input document for financially
         related relationships between text.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.analyze_expense)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.analyze_expense)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#analyze_expense)
         """
 
@@ -131,7 +131,7 @@ class TextractClient(BaseClient):
         """
         Analyzes identity documents for relevant information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.analyze_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.analyze_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#analyze_id)
         """
 
@@ -139,7 +139,7 @@ class TextractClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#can_paginate)
         """
 
@@ -147,7 +147,7 @@ class TextractClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#close)
         """
 
@@ -165,7 +165,7 @@ class TextractClient(BaseClient):
         Creates an adapter, which can be fine-tuned for enhanced performance on user
         provided documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.create_adapter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.create_adapter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#create_adapter)
         """
 
@@ -182,7 +182,7 @@ class TextractClient(BaseClient):
         """
         Creates a new version of an adapter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.create_adapter_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.create_adapter_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#create_adapter_version)
         """
 
@@ -190,7 +190,7 @@ class TextractClient(BaseClient):
         """
         Deletes an Amazon Textract adapter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.delete_adapter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.delete_adapter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#delete_adapter)
         """
 
@@ -198,7 +198,7 @@ class TextractClient(BaseClient):
         """
         Deletes an Amazon Textract adapter version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.delete_adapter_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.delete_adapter_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#delete_adapter_version)
         """
 
@@ -208,7 +208,7 @@ class TextractClient(BaseClient):
         """
         Detects text in the input document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.detect_document_text)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.detect_document_text)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#detect_document_text)
         """
 
@@ -222,7 +222,7 @@ class TextractClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#generate_presigned_url)
         """
 
@@ -232,7 +232,7 @@ class TextractClient(BaseClient):
         returning information on AdapterName, Description, CreationTime, AutoUpdate
         status, and FeatureTypes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_adapter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_adapter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_adapter)
         """
 
@@ -244,7 +244,7 @@ class TextractClient(BaseClient):
         AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
         KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_adapter_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_adapter_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_adapter_version)
         """
 
@@ -255,7 +255,7 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that analyzes
         text in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_document_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_document_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_document_analysis)
         """
 
@@ -266,7 +266,7 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that detects text
         in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_document_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_document_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_document_text_detection)
         """
 
@@ -277,7 +277,7 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that analyzes
         invoices and receipts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_expense_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_expense_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_expense_analysis)
         """
 
@@ -288,7 +288,7 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that analyzes
         text in a lending document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_lending_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_lending_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_lending_analysis)
         """
 
@@ -299,7 +299,7 @@ class TextractClient(BaseClient):
         Gets summarized results for the `StartLendingAnalysis` operation, which analyzes
         text in a lending document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.get_lending_analysis_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.get_lending_analysis_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_lending_analysis_summary)
         """
 
@@ -315,7 +315,7 @@ class TextractClient(BaseClient):
         """
         List all version of an adapter that meet the specified filtration criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.list_adapter_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.list_adapter_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#list_adapter_versions)
         """
 
@@ -330,7 +330,7 @@ class TextractClient(BaseClient):
         """
         Lists all adapters that match the specified filtration criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.list_adapters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.list_adapters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#list_adapters)
         """
 
@@ -338,7 +338,7 @@ class TextractClient(BaseClient):
         """
         Lists all tags for an Amazon Textract resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#list_tags_for_resource)
         """
 
@@ -359,7 +359,7 @@ class TextractClient(BaseClient):
         Starts the asynchronous analysis of an input document for relationships between
         detected items such as key-value pairs, tables, and selection elements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.start_document_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.start_document_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_document_analysis)
         """
 
@@ -376,7 +376,7 @@ class TextractClient(BaseClient):
         """
         Starts the asynchronous detection of text in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.start_document_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.start_document_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_document_text_detection)
         """
 
@@ -394,7 +394,7 @@ class TextractClient(BaseClient):
         Starts the asynchronous analysis of invoices or receipts for data like contact
         information, items purchased, and vendor names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.start_expense_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.start_expense_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_expense_analysis)
         """
 
@@ -411,7 +411,7 @@ class TextractClient(BaseClient):
         """
         Starts the classification and analysis of an input document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.start_lending_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.start_lending_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_lending_analysis)
         """
 
@@ -419,7 +419,7 @@ class TextractClient(BaseClient):
         """
         Adds one or more tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#tag_resource)
         """
 
@@ -427,7 +427,7 @@ class TextractClient(BaseClient):
         """
         Removes any tags with the specified keys from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#untag_resource)
         """
 
@@ -442,7 +442,7 @@ class TextractClient(BaseClient):
         """
         Update the configuration for an adapter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Client.update_adapter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Client.update_adapter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#update_adapter)
         """
 
@@ -451,13 +451,13 @@ class TextractClient(BaseClient):
         self, operation_name: Literal["list_adapter_versions"]
     ) -> ListAdapterVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapterVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapterVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_adapters"]) -> ListAdaptersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/textract.html#Textract.Paginator.ListAdapters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterspaginator)
         """

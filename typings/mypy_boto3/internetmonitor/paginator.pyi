@@ -40,7 +40,7 @@ __all__ = ("ListHealthEventsPaginator", "ListInternetEventsPaginator", "ListMoni
 
 class ListHealthEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listhealtheventspaginator)
     """
 
@@ -55,13 +55,13 @@ class ListHealthEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHealthEventsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListHealthEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listhealtheventspaginator)
         """
 
 class ListInternetEventsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListInternetEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListInternetEvents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listinterneteventspaginator)
     """
 
@@ -75,13 +75,13 @@ class ListInternetEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInternetEventsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListInternetEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListInternetEvents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listinterneteventspaginator)
         """
 
 class ListMonitorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listmonitorspaginator)
     """
 
@@ -93,6 +93,6 @@ class ListMonitorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitorsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/internetmonitor.html#CloudWatchInternetMonitor.Paginator.ListMonitors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/paginators.html#listmonitorspaginator)
         """

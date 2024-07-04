@@ -154,7 +154,7 @@ class Exceptions:
 
 class SecurityHubClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html)
     """
 
@@ -173,7 +173,7 @@ class SecurityHubClient(BaseClient):
         Accepts the invitation to be a member account and be monitored by the Security
         Hub administrator account that the invitation was sent from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.accept_administrator_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.accept_administrator_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#accept_administrator_invitation)
         """
 
@@ -181,7 +181,7 @@ class SecurityHubClient(BaseClient):
         """
         This method is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.accept_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.accept_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#accept_invitation)
         """
 
@@ -191,7 +191,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes one or more automation rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_delete_automation_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_delete_automation_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_delete_automation_rules)
         """
 
@@ -201,7 +201,7 @@ class SecurityHubClient(BaseClient):
         """
         Disables the standards specified by the provided `StandardsSubscriptionArns`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_disable_standards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_disable_standards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_disable_standards)
         """
 
@@ -211,7 +211,7 @@ class SecurityHubClient(BaseClient):
         """
         Enables the standards specified by the provided `StandardsArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_enable_standards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_enable_standards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_enable_standards)
         """
 
@@ -222,7 +222,7 @@ class SecurityHubClient(BaseClient):
         Retrieves a list of details for automation rules based on rule Amazon Resource
         Names (ARNs).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_get_automation_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_get_automation_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_get_automation_rules)
         """
 
@@ -235,7 +235,7 @@ class SecurityHubClient(BaseClient):
         Returns associations between an Security Hub configuration and a batch of target
         accounts, organizational units, or the root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_get_configuration_policy_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_get_configuration_policy_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_get_configuration_policy_associations)
         """
 
@@ -246,7 +246,7 @@ class SecurityHubClient(BaseClient):
         Provides details about a batch of security controls for the current Amazon Web
         Services account and Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_get_security_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_get_security_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_get_security_controls)
         """
 
@@ -257,7 +257,7 @@ class SecurityHubClient(BaseClient):
         For a batch of security controls and standards, identifies whether each control
         is currently enabled or disabled in a standard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_get_standards_control_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_get_standards_control_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_get_standards_control_associations)
         """
 
@@ -267,7 +267,7 @@ class SecurityHubClient(BaseClient):
         """
         Imports security findings generated by a finding provider into Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_import_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_import_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_import_findings)
         """
 
@@ -278,7 +278,7 @@ class SecurityHubClient(BaseClient):
         Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
         and input parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_update_automation_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_update_automation_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_update_automation_rules)
         """
 
@@ -300,7 +300,7 @@ class SecurityHubClient(BaseClient):
         Used by Security Hub customers to update information about their investigation
         into a finding.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_update_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_update_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_update_findings)
         """
 
@@ -313,7 +313,7 @@ class SecurityHubClient(BaseClient):
         For a batch of security controls and standards, this operation updates the
         enablement status of a control in a standard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.batch_update_standards_control_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.batch_update_standards_control_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#batch_update_standards_control_associations)
         """
 
@@ -321,7 +321,7 @@ class SecurityHubClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#can_paginate)
         """
 
@@ -329,7 +329,7 @@ class SecurityHubClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#close)
         """
 
@@ -339,7 +339,7 @@ class SecurityHubClient(BaseClient):
         """
         Creates a custom action target in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_action_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_action_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_action_target)
         """
 
@@ -358,7 +358,7 @@ class SecurityHubClient(BaseClient):
         """
         Creates an automation rule based on input parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_automation_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_automation_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_automation_rule)
         """
 
@@ -373,7 +373,7 @@ class SecurityHubClient(BaseClient):
         """
         Creates a configuration policy with the defined configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_configuration_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_configuration_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_configuration_policy)
         """
 
@@ -383,7 +383,7 @@ class SecurityHubClient(BaseClient):
         """
         Used to enable finding aggregation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_finding_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_finding_aggregator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_finding_aggregator)
         """
 
@@ -393,7 +393,7 @@ class SecurityHubClient(BaseClient):
         """
         Creates a custom insight in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_insight)
         """
 
@@ -404,7 +404,7 @@ class SecurityHubClient(BaseClient):
         Creates a member association in Security Hub between the specified accounts and
         the account used to make the request, which is the administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.create_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.create_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#create_members)
         """
 
@@ -412,7 +412,7 @@ class SecurityHubClient(BaseClient):
         """
         Declines invitations to become a member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.decline_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.decline_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#decline_invitations)
         """
 
@@ -420,7 +420,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes a custom action target from Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_action_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_action_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_action_target)
         """
 
@@ -428,7 +428,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes a configuration policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_configuration_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_configuration_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_configuration_policy)
         """
 
@@ -436,7 +436,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes a finding aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_finding_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_finding_aggregator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_finding_aggregator)
         """
 
@@ -444,7 +444,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes the insight specified by the `InsightArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_insight)
         """
 
@@ -453,7 +453,7 @@ class SecurityHubClient(BaseClient):
         Deletes invitations received by the Amazon Web Services account to become a
         member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_invitations)
         """
 
@@ -461,7 +461,7 @@ class SecurityHubClient(BaseClient):
         """
         Deletes the specified member accounts from Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.delete_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.delete_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#delete_members)
         """
 
@@ -471,7 +471,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of the custom action targets in Security Hub in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_action_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_action_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_action_targets)
         """
 
@@ -480,7 +480,7 @@ class SecurityHubClient(BaseClient):
         Returns details about the Hub resource in your account, including the `HubArn`
         and the time when you enabled Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_hub)
         """
 
@@ -491,7 +491,7 @@ class SecurityHubClient(BaseClient):
         Returns information about the way your organization is configured in Security
         Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_organization_configuration)
         """
 
@@ -501,7 +501,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns information about product integrations in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_products)
         """
 
@@ -511,7 +511,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of the available standards in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_standards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_standards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_standards)
         """
 
@@ -521,7 +521,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of security standards controls.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.describe_standards_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.describe_standards_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#describe_standards_controls)
         """
 
@@ -529,7 +529,7 @@ class SecurityHubClient(BaseClient):
         """
         Disables the integration of the specified product with Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disable_import_findings_for_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disable_import_findings_for_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disable_import_findings_for_product)
         """
 
@@ -537,7 +537,7 @@ class SecurityHubClient(BaseClient):
         """
         Disables a Security Hub administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disable_organization_admin_account)
         """
 
@@ -546,7 +546,7 @@ class SecurityHubClient(BaseClient):
         Disables Security Hub in your account only in the current Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disable_security_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disable_security_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disable_security_hub)
         """
 
@@ -555,7 +555,7 @@ class SecurityHubClient(BaseClient):
         Disassociates the current Security Hub member account from the associated
         administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disassociate_from_administrator_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disassociate_from_administrator_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disassociate_from_administrator_account)
         """
 
@@ -563,7 +563,7 @@ class SecurityHubClient(BaseClient):
         """
         This method is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disassociate_from_master_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disassociate_from_master_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disassociate_from_master_account)
         """
 
@@ -572,7 +572,7 @@ class SecurityHubClient(BaseClient):
         Disassociates the specified member accounts from the associated administrator
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.disassociate_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.disassociate_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#disassociate_members)
         """
 
@@ -582,7 +582,7 @@ class SecurityHubClient(BaseClient):
         """
         Enables the integration of a partner product with Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.enable_import_findings_for_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.enable_import_findings_for_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#enable_import_findings_for_product)
         """
 
@@ -590,7 +590,7 @@ class SecurityHubClient(BaseClient):
         """
         Designates the Security Hub administrator account for an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.enable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.enable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#enable_organization_admin_account)
         """
 
@@ -605,7 +605,7 @@ class SecurityHubClient(BaseClient):
         Enables Security Hub for your account in the current Region or the Region you
         specify in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.enable_security_hub)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.enable_security_hub)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#enable_security_hub)
         """
 
@@ -619,7 +619,7 @@ class SecurityHubClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#generate_presigned_url)
         """
 
@@ -628,7 +628,7 @@ class SecurityHubClient(BaseClient):
         Provides the details for the Security Hub administrator account for the current
         member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_administrator_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_administrator_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_administrator_account)
         """
 
@@ -636,7 +636,7 @@ class SecurityHubClient(BaseClient):
         """
         Provides information about a configuration policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_configuration_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_configuration_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_configuration_policy)
         """
 
@@ -647,7 +647,7 @@ class SecurityHubClient(BaseClient):
         Returns the association between a configuration and a target account,
         organizational unit, or the root.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_configuration_policy_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_configuration_policy_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_configuration_policy_association)
         """
 
@@ -661,7 +661,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of the standards that are currently enabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_enabled_standards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_enabled_standards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_enabled_standards)
         """
 
@@ -671,7 +671,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns the current finding aggregation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_finding_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_finding_aggregator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_finding_aggregator)
         """
 
@@ -687,7 +687,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns history for a Security Hub finding in the last 90 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_finding_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_finding_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_finding_history)
         """
 
@@ -702,7 +702,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of findings that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_findings)
         """
 
@@ -710,7 +710,7 @@ class SecurityHubClient(BaseClient):
         """
         Lists the results of the Security Hub insight specified by the insight ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_insight_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_insight_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_insight_results)
         """
 
@@ -720,7 +720,7 @@ class SecurityHubClient(BaseClient):
         """
         Lists and describes insights for the specified insight ARNs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_insights)
         """
 
@@ -729,7 +729,7 @@ class SecurityHubClient(BaseClient):
         Returns the count of all Security Hub membership invitations that were sent to
         the current member account, not including the currently accepted invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_invitations_count)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_invitations_count)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_invitations_count)
         """
 
@@ -737,7 +737,7 @@ class SecurityHubClient(BaseClient):
         """
         This method is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_master_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_master_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_master_account)
         """
 
@@ -746,7 +746,7 @@ class SecurityHubClient(BaseClient):
         Returns the details for the Security Hub member accounts for the specified
         account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_members)
         """
 
@@ -756,7 +756,7 @@ class SecurityHubClient(BaseClient):
         """
         Retrieves the definition of a security control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.get_security_control_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.get_security_control_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#get_security_control_definition)
         """
 
@@ -765,7 +765,7 @@ class SecurityHubClient(BaseClient):
         Invites other Amazon Web Services accounts to become member accounts for the
         Security Hub administrator account that the invitation is sent from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.invite_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.invite_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#invite_members)
         """
 
@@ -775,7 +775,7 @@ class SecurityHubClient(BaseClient):
         """
         A list of automation rules and their metadata for the calling account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_automation_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_automation_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_automation_rules)
         """
 
@@ -786,7 +786,7 @@ class SecurityHubClient(BaseClient):
         Lists the configuration policies that the Security Hub delegated administrator
         has created for your organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_configuration_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_configuration_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_configuration_policies)
         """
 
@@ -801,7 +801,7 @@ class SecurityHubClient(BaseClient):
         Provides information about the associations for your configuration policies and
         self-managed behavior.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_configuration_policy_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_configuration_policy_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_configuration_policy_associations)
         """
 
@@ -812,7 +812,7 @@ class SecurityHubClient(BaseClient):
         Lists all findings-generating solutions (products) that you are subscribed to
         receive findings from in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_enabled_products_for_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_enabled_products_for_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_enabled_products_for_import)
         """
 
@@ -823,7 +823,7 @@ class SecurityHubClient(BaseClient):
         If finding aggregation is enabled, then `ListFindingAggregators` returns the ARN
         of the finding aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_finding_aggregators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_finding_aggregators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_finding_aggregators)
         """
 
@@ -834,7 +834,7 @@ class SecurityHubClient(BaseClient):
         Lists all Security Hub membership invitations that were sent to the current
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_invitations)
         """
 
@@ -845,7 +845,7 @@ class SecurityHubClient(BaseClient):
         Lists details about all member accounts for the current Security Hub
         administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_members)
         """
 
@@ -855,7 +855,7 @@ class SecurityHubClient(BaseClient):
         """
         Lists the Security Hub administrator accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_organization_admin_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_organization_admin_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_organization_admin_accounts)
         """
 
@@ -865,7 +865,7 @@ class SecurityHubClient(BaseClient):
         """
         Lists all of the security controls that apply to a specified standard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_security_control_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_security_control_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_security_control_definitions)
         """
 
@@ -876,7 +876,7 @@ class SecurityHubClient(BaseClient):
         Specifies whether a control is currently enabled or disabled in each enabled
         standard in the calling account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_standards_control_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_standards_control_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_standards_control_associations)
         """
 
@@ -884,7 +884,7 @@ class SecurityHubClient(BaseClient):
         """
         Returns a list of tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#list_tags_for_resource)
         """
 
@@ -895,7 +895,7 @@ class SecurityHubClient(BaseClient):
         Associates a target account, organizational unit, or the root with a specified
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.start_configuration_policy_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.start_configuration_policy_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#start_configuration_policy_association)
         """
 
@@ -906,7 +906,7 @@ class SecurityHubClient(BaseClient):
         Disassociates a target account, organizational unit, or the root from a
         specified configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.start_configuration_policy_disassociation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.start_configuration_policy_disassociation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#start_configuration_policy_disassociation)
         """
 
@@ -914,7 +914,7 @@ class SecurityHubClient(BaseClient):
         """
         Adds one or more tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#tag_resource)
         """
 
@@ -922,7 +922,7 @@ class SecurityHubClient(BaseClient):
         """
         Removes one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#untag_resource)
         """
 
@@ -932,7 +932,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates the name and description of a custom action target in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_action_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_action_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_action_target)
         """
 
@@ -948,7 +948,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates a configuration policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_configuration_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_configuration_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_configuration_policy)
         """
 
@@ -958,7 +958,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates the finding aggregation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_finding_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_finding_aggregator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_finding_aggregator)
         """
 
@@ -972,7 +972,7 @@ class SecurityHubClient(BaseClient):
         """
         `UpdateFindings` is a deprecated operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_findings)
         """
 
@@ -987,7 +987,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates the Security Hub insight identified by the specified insight ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_insight)
         """
 
@@ -1001,7 +1001,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates the configuration of your organization in Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_organization_configuration)
         """
 
@@ -1015,7 +1015,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates the properties of a security control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_security_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_security_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_security_control)
         """
 
@@ -1028,7 +1028,7 @@ class SecurityHubClient(BaseClient):
         """
         Updates configuration options for Security Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_security_hub_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_security_hub_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_security_hub_configuration)
         """
 
@@ -1043,7 +1043,7 @@ class SecurityHubClient(BaseClient):
         Used to control whether an individual security standard control is enabled or
         disabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Client.update_standards_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Client.update_standards_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/client.html#update_standards_control)
         """
 
@@ -1052,7 +1052,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["describe_action_targets"]
     ) -> DescribeActionTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.DescribeActionTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeactiontargetspaginator)
         """
 
@@ -1061,7 +1061,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["describe_products"]
     ) -> DescribeProductsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.DescribeProducts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describeproductspaginator)
         """
 
@@ -1070,7 +1070,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["describe_standards"]
     ) -> DescribeStandardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardspaginator)
         """
 
@@ -1079,7 +1079,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["describe_standards_controls"]
     ) -> DescribeStandardsControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.DescribeStandardsControls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#describestandardscontrolspaginator)
         """
 
@@ -1088,7 +1088,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["get_enabled_standards"]
     ) -> GetEnabledStandardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getenabledstandardspaginator)
         """
 
@@ -1097,21 +1097,21 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["get_finding_history"]
     ) -> GetFindingHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.GetFindingHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindinghistorypaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_findings"]) -> GetFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getfindingspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_insights"]) -> GetInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#getinsightspaginator)
         """
 
@@ -1120,7 +1120,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_configuration_policies"]
     ) -> ListConfigurationPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpoliciespaginator)
         """
 
@@ -1129,7 +1129,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_configuration_policy_associations"]
     ) -> ListConfigurationPolicyAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicyAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListConfigurationPolicyAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listconfigurationpolicyassociationspaginator)
         """
 
@@ -1138,7 +1138,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_enabled_products_for_import"]
     ) -> ListEnabledProductsForImportPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listenabledproductsforimportpaginator)
         """
 
@@ -1147,7 +1147,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_finding_aggregators"]
     ) -> ListFindingAggregatorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListFindingAggregators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listfindingaggregatorspaginator)
         """
 
@@ -1156,14 +1156,14 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_invitations"]
     ) -> ListInvitationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listinvitationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listmemberspaginator)
         """
 
@@ -1172,7 +1172,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_organization_admin_accounts"]
     ) -> ListOrganizationAdminAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListOrganizationAdminAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listorganizationadminaccountspaginator)
         """
 
@@ -1181,7 +1181,7 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_security_control_definitions"]
     ) -> ListSecurityControlDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListSecurityControlDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#listsecuritycontroldefinitionspaginator)
         """
 
@@ -1190,6 +1190,6 @@ class SecurityHubClient(BaseClient):
         self, operation_name: Literal["list_standards_control_associations"]
     ) -> ListStandardsControlAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/securityhub.html#SecurityHub.Paginator.ListStandardsControlAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/paginators.html#liststandardscontrolassociationspaginator)
         """

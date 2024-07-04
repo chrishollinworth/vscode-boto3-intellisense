@@ -21,6 +21,7 @@ else:
 
 __all__ = (
     "ActiveDirectoryStatusType",
+    "AutomaticUpdatePolicyType",
     "AvailabilityMonitorTestStatusType",
     "CaseSensitivityType",
     "DescribeTapeArchivesPaginatorName",
@@ -47,6 +48,7 @@ __all__ = (
 ActiveDirectoryStatusType = Literal[
     "ACCESS_DENIED", "DETACHED", "JOINED", "JOINING", "NETWORK_ERROR", "TIMEOUT", "UNKNOWN_ERROR"
 ]
+AutomaticUpdatePolicyType = Literal["ALL_VERSIONS", "EMERGENCY_VERSIONS_ONLY"]
 AvailabilityMonitorTestStatusType = Literal["COMPLETE", "FAILED", "PENDING"]
 CaseSensitivityType = Literal["CaseSensitive", "ClientSpecified"]
 DescribeTapeArchivesPaginatorName = Literal["describe_tape_archives"]

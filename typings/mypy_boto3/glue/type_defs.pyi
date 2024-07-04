@@ -19,6 +19,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AdditionalOptionKeysType,
     AggFunctionType,
+    AuthenticationTypeType,
     BackfillErrorCodeType,
     BlueprintRunStateType,
     BlueprintStatusType,
@@ -30,6 +31,7 @@ from .literals import (
     CompatibilityType,
     CompressionTypeType,
     ConnectionPropertyKeyType,
+    ConnectionStatusType,
     ConnectionTypeType,
     CrawlerHistoryStateType,
     CrawlerLineageSettingsType,
@@ -41,6 +43,7 @@ from .literals import (
     DataQualityRuleResultStatusType,
     DeleteBehaviorType,
     DeltaTargetCompressionTypeType,
+    DQCompositeRuleEvaluationMethodType,
     DQStopJobOnFailureTimingType,
     DQTransformOutputType,
     EnableHybridValuesType,
@@ -65,6 +68,7 @@ from .literals import (
     LogicalType,
     MLUserDataEncryptionModeStringType,
     NodeTypeType,
+    OAuth2GrantTypeType,
     ParamTypeType,
     ParquetCompressionTypeType,
     PartitionIndexStatusType,
@@ -102,6 +106,7 @@ from .literals import (
     UpdateBehaviorType,
     UpdateCatalogBehaviorType,
     ViewDialectType,
+    ViewUpdateActionType,
     WorkerTypeType,
     WorkflowRunStatusType,
 )
@@ -126,6 +131,9 @@ __all__ = (
     "ApplyMappingTypeDef",
     "AthenaConnectorSourceTypeDef",
     "AuditContextTypeDef",
+    "AuthenticationConfigurationInputTypeDef",
+    "AuthenticationConfigurationTypeDef",
+    "AuthorizationCodePropertiesTypeDef",
     "BackfillErrorTypeDef",
     "BasicCatalogTargetTypeDef",
     "BatchCreatePartitionRequestRequestTypeDef",
@@ -205,6 +213,7 @@ __all__ = (
     "ColumnStatisticsTypeDef",
     "ColumnTypeDef",
     "ConditionTypeDef",
+    "ConfigurationObjectTypeDef",
     "ConfusionMatrixTypeDef",
     "ConnectionInputTypeDef",
     "ConnectionPasswordEncryptionTypeDef",
@@ -223,6 +232,7 @@ __all__ = (
     "CreateBlueprintResponseTypeDef",
     "CreateClassifierRequestRequestTypeDef",
     "CreateConnectionRequestRequestTypeDef",
+    "CreateConnectionResponseTypeDef",
     "CreateCrawlerRequestRequestTypeDef",
     "CreateCsvClassifierRequestTypeDef",
     "CreateCustomEntityTypeRequestRequestTypeDef",
@@ -254,6 +264,8 @@ __all__ = (
     "CreateTableRequestRequestTypeDef",
     "CreateTriggerRequestRequestTypeDef",
     "CreateTriggerResponseTypeDef",
+    "CreateUsageProfileRequestRequestTypeDef",
+    "CreateUsageProfileResponseTypeDef",
     "CreateUserDefinedFunctionRequestRequestTypeDef",
     "CreateWorkflowRequestRequestTypeDef",
     "CreateWorkflowResponseTypeDef",
@@ -321,6 +333,7 @@ __all__ = (
     "DeleteTableVersionRequestRequestTypeDef",
     "DeleteTriggerRequestRequestTypeDef",
     "DeleteTriggerResponseTypeDef",
+    "DeleteUsageProfileRequestRequestTypeDef",
     "DeleteUserDefinedFunctionRequestRequestTypeDef",
     "DeleteWorkflowRequestRequestTypeDef",
     "DeleteWorkflowResponseTypeDef",
@@ -483,6 +496,8 @@ __all__ = (
     "GetUnfilteredPartitionsMetadataResponseTypeDef",
     "GetUnfilteredTableMetadataRequestRequestTypeDef",
     "GetUnfilteredTableMetadataResponseTypeDef",
+    "GetUsageProfileRequestRequestTypeDef",
+    "GetUsageProfileResponseTypeDef",
     "GetUserDefinedFunctionRequestRequestTypeDef",
     "GetUserDefinedFunctionResponseTypeDef",
     "GetUserDefinedFunctionsRequestRequestTypeDef",
@@ -567,6 +582,8 @@ __all__ = (
     "ListTableOptimizerRunsResponseTypeDef",
     "ListTriggersRequestRequestTypeDef",
     "ListTriggersResponseTypeDef",
+    "ListUsageProfilesRequestRequestTypeDef",
+    "ListUsageProfilesResponseTypeDef",
     "ListWorkflowsRequestRequestTypeDef",
     "ListWorkflowsResponseTypeDef",
     "LocationTypeDef",
@@ -588,6 +605,9 @@ __all__ = (
     "NotificationPropertyTypeDef",
     "NullCheckBoxListTypeDef",
     "NullValueFieldTypeDef",
+    "OAuth2ClientApplicationTypeDef",
+    "OAuth2PropertiesInputTypeDef",
+    "OAuth2PropertiesTypeDef",
     "OpenTableFormatInputTypeDef",
     "OptionTypeDef",
     "OracleSQLCatalogSourceTypeDef",
@@ -608,6 +628,7 @@ __all__ = (
     "PredecessorTypeDef",
     "PredicateTypeDef",
     "PrincipalPermissionsTypeDef",
+    "ProfileConfigurationTypeDef",
     "PropertyPredicateTypeDef",
     "PutDataCatalogEncryptionSettingsRequestRequestTypeDef",
     "PutResourcePolicyRequestRequestTypeDef",
@@ -788,14 +809,19 @@ __all__ = (
     "UpdateTableRequestRequestTypeDef",
     "UpdateTriggerRequestRequestTypeDef",
     "UpdateTriggerResponseTypeDef",
+    "UpdateUsageProfileRequestRequestTypeDef",
+    "UpdateUsageProfileResponseTypeDef",
     "UpdateUserDefinedFunctionRequestRequestTypeDef",
     "UpdateWorkflowRequestRequestTypeDef",
     "UpdateWorkflowResponseTypeDef",
     "UpdateXMLClassifierRequestTypeDef",
     "UpsertRedshiftTargetOptionsTypeDef",
+    "UsageProfileDefinitionTypeDef",
     "UserDefinedFunctionInputTypeDef",
     "UserDefinedFunctionTypeDef",
+    "ViewDefinitionInputTypeDef",
     "ViewDefinitionTypeDef",
+    "ViewRepresentationInputTypeDef",
     "ViewRepresentationTypeDef",
     "WorkflowGraphTypeDef",
     "WorkflowRunStatisticsTypeDef",
@@ -935,6 +961,35 @@ AuditContextTypeDef = TypedDict(
         "AdditionalAuditContext": str,
         "RequestedColumns": List[str],
         "AllColumnsRequested": bool,
+    },
+    total=False,
+)
+
+AuthenticationConfigurationInputTypeDef = TypedDict(
+    "AuthenticationConfigurationInputTypeDef",
+    {
+        "AuthenticationType": AuthenticationTypeType,
+        "SecretArn": str,
+        "OAuth2Properties": "OAuth2PropertiesInputTypeDef",
+    },
+    total=False,
+)
+
+AuthenticationConfigurationTypeDef = TypedDict(
+    "AuthenticationConfigurationTypeDef",
+    {
+        "AuthenticationType": AuthenticationTypeType,
+        "SecretArn": str,
+        "OAuth2Properties": "OAuth2PropertiesTypeDef",
+    },
+    total=False,
+)
+
+AuthorizationCodePropertiesTypeDef = TypedDict(
+    "AuthorizationCodePropertiesTypeDef",
+    {
+        "AuthorizationCode": str,
+        "RedirectUri": str,
     },
     total=False,
 )
@@ -1981,6 +2036,17 @@ ConditionTypeDef = TypedDict(
     total=False,
 )
 
+ConfigurationObjectTypeDef = TypedDict(
+    "ConfigurationObjectTypeDef",
+    {
+        "DefaultValue": str,
+        "AllowedValues": List[str],
+        "MinValue": str,
+        "MaxValue": str,
+    },
+    total=False,
+)
+
 ConfusionMatrixTypeDef = TypedDict(
     "ConfusionMatrixTypeDef",
     {
@@ -2006,6 +2072,8 @@ _OptionalConnectionInputTypeDef = TypedDict(
         "Description": str,
         "MatchCriteria": List[str],
         "PhysicalConnectionRequirements": "PhysicalConnectionRequirementsTypeDef",
+        "AuthenticationConfiguration": "AuthenticationConfigurationInputTypeDef",
+        "ValidateCredentials": bool,
     },
     total=False,
 )
@@ -2044,6 +2112,10 @@ ConnectionTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastUpdatedTime": datetime,
         "LastUpdatedBy": str,
+        "Status": ConnectionStatusType,
+        "StatusReason": str,
+        "LastConnectionValidationTime": datetime,
+        "AuthenticationConfiguration": "AuthenticationConfigurationTypeDef",
     },
     total=False,
 )
@@ -2262,6 +2334,14 @@ class CreateConnectionRequestRequestTypeDef(
     _RequiredCreateConnectionRequestRequestTypeDef, _OptionalCreateConnectionRequestRequestTypeDef
 ):
     pass
+
+CreateConnectionResponseTypeDef = TypedDict(
+    "CreateConnectionResponseTypeDef",
+    {
+        "CreateConnectionStatus": ConnectionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredCreateCrawlerRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCrawlerRequestRequestTypeDef",
@@ -2842,6 +2922,36 @@ CreateTriggerResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateUsageProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateUsageProfileRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Configuration": "ProfileConfigurationTypeDef",
+    },
+)
+_OptionalCreateUsageProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateUsageProfileRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateUsageProfileRequestRequestTypeDef(
+    _RequiredCreateUsageProfileRequestRequestTypeDef,
+    _OptionalCreateUsageProfileRequestRequestTypeDef,
+):
+    pass
+
+CreateUsageProfileResponseTypeDef = TypedDict(
+    "CreateUsageProfileResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateUserDefinedFunctionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateUserDefinedFunctionRequestRequestTypeDef",
     {
@@ -3031,6 +3141,7 @@ DataQualityEvaluationRunAdditionalRunOptionsTypeDef = TypedDict(
     {
         "CloudWatchMetricsEnabled": bool,
         "ResultsS3Prefix": str,
+        "CompositeRuleEvaluationMethod": DQCompositeRuleEvaluationMethodType,
     },
     total=False,
 )
@@ -3716,6 +3827,13 @@ DeleteTriggerResponseTypeDef = TypedDict(
     {
         "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteUsageProfileRequestRequestTypeDef = TypedDict(
+    "DeleteUsageProfileRequestRequestTypeDef",
+    {
+        "Name": str,
     },
 )
 
@@ -4770,6 +4888,7 @@ GetDatabasesRequestRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "ResourceShareType": ResourceShareTypeType,
+        "AttributesToGet": List[Literal["NAME"]],
     },
     total=False,
 )
@@ -5762,6 +5881,25 @@ GetUnfilteredTableMetadataResponseTypeDef = TypedDict(
     },
 )
 
+GetUsageProfileRequestRequestTypeDef = TypedDict(
+    "GetUsageProfileRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetUsageProfileResponseTypeDef = TypedDict(
+    "GetUsageProfileResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Configuration": "ProfileConfigurationTypeDef",
+        "CreatedOn": datetime,
+        "LastModifiedOn": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetUserDefinedFunctionRequestRequestTypeDef = TypedDict(
     "_RequiredGetUserDefinedFunctionRequestRequestTypeDef",
     {
@@ -6252,6 +6390,7 @@ JobRunTypeDef = TypedDict(
         "DPUSeconds": float,
         "ExecutionClass": ExecutionClassType,
         "MaintenanceWindow": str,
+        "ProfileName": str,
     },
     total=False,
 )
@@ -6284,6 +6423,7 @@ JobTypeDef = TypedDict(
         "ExecutionClass": ExecutionClassType,
         "SourceControlDetails": "SourceControlDetailsTypeDef",
         "MaintenanceWindow": str,
+        "ProfileName": str,
     },
     total=False,
 )
@@ -6880,6 +7020,24 @@ ListTriggersResponseTypeDef = TypedDict(
     },
 )
 
+ListUsageProfilesRequestRequestTypeDef = TypedDict(
+    "ListUsageProfilesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListUsageProfilesResponseTypeDef = TypedDict(
+    "ListUsageProfilesResponseTypeDef",
+    {
+        "Profiles": List["UsageProfileDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListWorkflowsRequestRequestTypeDef = TypedDict(
     "ListWorkflowsRequestRequestTypeDef",
     {
@@ -7126,6 +7284,38 @@ NullValueFieldTypeDef = TypedDict(
     },
 )
 
+OAuth2ClientApplicationTypeDef = TypedDict(
+    "OAuth2ClientApplicationTypeDef",
+    {
+        "UserManagedClientApplicationClientId": str,
+        "AWSManagedClientApplicationReference": str,
+    },
+    total=False,
+)
+
+OAuth2PropertiesInputTypeDef = TypedDict(
+    "OAuth2PropertiesInputTypeDef",
+    {
+        "OAuth2GrantType": OAuth2GrantTypeType,
+        "OAuth2ClientApplication": "OAuth2ClientApplicationTypeDef",
+        "TokenUrl": str,
+        "TokenUrlParametersMap": Dict[str, str],
+        "AuthorizationCodeProperties": "AuthorizationCodePropertiesTypeDef",
+    },
+    total=False,
+)
+
+OAuth2PropertiesTypeDef = TypedDict(
+    "OAuth2PropertiesTypeDef",
+    {
+        "OAuth2GrantType": OAuth2GrantTypeType,
+        "OAuth2ClientApplication": "OAuth2ClientApplicationTypeDef",
+        "TokenUrl": str,
+        "TokenUrlParametersMap": Dict[str, str],
+    },
+    total=False,
+)
+
 OpenTableFormatInputTypeDef = TypedDict(
     "OpenTableFormatInputTypeDef",
     {
@@ -7338,6 +7528,15 @@ PrincipalPermissionsTypeDef = TypedDict(
     {
         "Principal": "DataLakePrincipalTypeDef",
         "Permissions": List[PermissionType],
+    },
+    total=False,
+)
+
+ProfileConfigurationTypeDef = TypedDict(
+    "ProfileConfigurationTypeDef",
+    {
+        "SessionConfiguration": Dict[str, "ConfigurationObjectTypeDef"],
+        "JobConfiguration": Dict[str, "ConfigurationObjectTypeDef"],
     },
     total=False,
 )
@@ -8339,6 +8538,7 @@ SessionTypeDef = TypedDict(
         "ExecutionTime": float,
         "DPUSeconds": float,
         "IdleTimeout": int,
+        "ProfileName": str,
     },
     total=False,
 )
@@ -9046,6 +9246,7 @@ _OptionalTableInputTypeDef = TypedDict(
         "TableType": str,
         "Parameters": Dict[str, str],
         "TargetTable": "TableIdentifierTypeDef",
+        "ViewDefinition": "ViewDefinitionInputTypeDef",
     },
     total=False,
 )
@@ -9847,6 +10048,8 @@ _OptionalUpdateTableRequestRequestTypeDef = TypedDict(
         "SkipArchive": bool,
         "TransactionId": str,
         "VersionId": str,
+        "ViewUpdateAction": ViewUpdateActionType,
+        "Force": bool,
     },
     total=False,
 )
@@ -9868,6 +10071,35 @@ UpdateTriggerResponseTypeDef = TypedDict(
     "UpdateTriggerResponseTypeDef",
     {
         "Trigger": "TriggerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateUsageProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateUsageProfileRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Configuration": "ProfileConfigurationTypeDef",
+    },
+)
+_OptionalUpdateUsageProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateUsageProfileRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateUsageProfileRequestRequestTypeDef(
+    _RequiredUpdateUsageProfileRequestRequestTypeDef,
+    _OptionalUpdateUsageProfileRequestRequestTypeDef,
+):
+    pass
+
+UpdateUsageProfileResponseTypeDef = TypedDict(
+    "UpdateUsageProfileResponseTypeDef",
+    {
+        "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -9953,6 +10185,17 @@ UpsertRedshiftTargetOptionsTypeDef = TypedDict(
     total=False,
 )
 
+UsageProfileDefinitionTypeDef = TypedDict(
+    "UsageProfileDefinitionTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "CreatedOn": datetime,
+        "LastModifiedOn": datetime,
+    },
+    total=False,
+)
+
 UserDefinedFunctionInputTypeDef = TypedDict(
     "UserDefinedFunctionInputTypeDef",
     {
@@ -9980,6 +10223,17 @@ UserDefinedFunctionTypeDef = TypedDict(
     total=False,
 )
 
+ViewDefinitionInputTypeDef = TypedDict(
+    "ViewDefinitionInputTypeDef",
+    {
+        "IsProtected": bool,
+        "Definer": str,
+        "Representations": List["ViewRepresentationInputTypeDef"],
+        "SubObjects": List[str],
+    },
+    total=False,
+)
+
 ViewDefinitionTypeDef = TypedDict(
     "ViewDefinitionTypeDef",
     {
@@ -9991,6 +10245,18 @@ ViewDefinitionTypeDef = TypedDict(
     total=False,
 )
 
+ViewRepresentationInputTypeDef = TypedDict(
+    "ViewRepresentationInputTypeDef",
+    {
+        "Dialect": ViewDialectType,
+        "DialectVersion": str,
+        "ViewOriginalText": str,
+        "ValidationConnection": str,
+        "ViewExpandedText": str,
+    },
+    total=False,
+)
+
 ViewRepresentationTypeDef = TypedDict(
     "ViewRepresentationTypeDef",
     {
@@ -9998,6 +10264,7 @@ ViewRepresentationTypeDef = TypedDict(
         "DialectVersion": str,
         "ViewOriginalText": str,
         "ViewExpandedText": str,
+        "ValidationConnection": str,
         "IsStale": bool,
     },
     total=False,

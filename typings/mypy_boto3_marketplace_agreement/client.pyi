@@ -44,7 +44,7 @@ class Exceptions:
 
 class AgreementServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html)
     """
 
@@ -60,7 +60,7 @@ class AgreementServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#can_paginate)
         """
 
@@ -68,7 +68,7 @@ class AgreementServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#close)
         """
 
@@ -77,7 +77,7 @@ class AgreementServiceClient(BaseClient):
         Provides details about an agreement, such as the proposer, acceptor, start date,
         and end date.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.describe_agreement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.describe_agreement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#describe_agreement)
         """
 
@@ -91,7 +91,7 @@ class AgreementServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#generate_presigned_url)
         """
 
@@ -102,7 +102,7 @@ class AgreementServiceClient(BaseClient):
         Obtains details about the terms in an agreement that you participated in as
         proposer or acceptor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.get_agreement_terms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.get_agreement_terms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#get_agreement_terms)
         """
 
@@ -119,6 +119,6 @@ class AgreementServiceClient(BaseClient):
         Searches across all agreements that a proposer or an acceptor has in AWS
         Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-agreement.html#AgreementService.Client.search_agreements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.search_agreements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#search_agreements)
         """

@@ -135,7 +135,7 @@ __all__ = (
 
 class GetSessionsStatisticsAggregationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#getsessionsstatisticsaggregationpaginator)
     """
 
@@ -143,13 +143,13 @@ class GetSessionsStatisticsAggregationPaginator(Boto3Paginator):
         self, *, aggregationId: str, farmId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSessionsStatisticsAggregationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#getsessionsstatisticsaggregationpaginator)
         """
 
 class ListAvailableMeteredProductsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listavailablemeteredproductspaginator)
     """
 
@@ -157,13 +157,13 @@ class ListAvailableMeteredProductsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAvailableMeteredProductsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listavailablemeteredproductspaginator)
         """
 
 class ListBudgetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listbudgetspaginator)
     """
 
@@ -175,13 +175,13 @@ class ListBudgetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBudgetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listbudgetspaginator)
         """
 
 class ListFarmMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmmemberspaginator)
     """
 
@@ -189,13 +189,13 @@ class ListFarmMembersPaginator(Boto3Paginator):
         self, *, farmId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFarmMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmmemberspaginator)
         """
 
 class ListFarmsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmspaginator)
     """
 
@@ -203,13 +203,13 @@ class ListFarmsPaginator(Boto3Paginator):
         self, *, principalId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFarmsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmspaginator)
         """
 
 class ListFleetMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetmemberspaginator)
     """
 
@@ -217,13 +217,13 @@ class ListFleetMembersPaginator(Boto3Paginator):
         self, *, farmId: str, fleetId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetmemberspaginator)
         """
 
 class ListFleetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetspaginator)
     """
 
@@ -237,13 +237,13 @@ class ListFleetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetspaginator)
         """
 
 class ListJobMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobmemberspaginator)
     """
 
@@ -256,13 +256,13 @@ class ListJobMembersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobmemberspaginator)
         """
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobspaginator)
     """
 
@@ -275,13 +275,13 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobspaginator)
         """
 
 class ListLicenseEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listlicenseendpointspaginator)
     """
 
@@ -289,13 +289,13 @@ class ListLicenseEndpointsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLicenseEndpointsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listlicenseendpointspaginator)
         """
 
 class ListMeteredProductsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmeteredproductspaginator)
     """
 
@@ -303,13 +303,13 @@ class ListMeteredProductsPaginator(Boto3Paginator):
         self, *, licenseEndpointId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMeteredProductsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmeteredproductspaginator)
         """
 
 class ListMonitorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmonitorspaginator)
     """
 
@@ -317,13 +317,13 @@ class ListMonitorsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmonitorspaginator)
         """
 
 class ListQueueEnvironmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueueenvironmentspaginator)
     """
 
@@ -331,13 +331,13 @@ class ListQueueEnvironmentsPaginator(Boto3Paginator):
         self, *, farmId: str, queueId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueueEnvironmentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueueenvironmentspaginator)
         """
 
 class ListQueueFleetAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuefleetassociationspaginator)
     """
 
@@ -350,13 +350,13 @@ class ListQueueFleetAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueueFleetAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuefleetassociationspaginator)
         """
 
 class ListQueueMembersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuememberspaginator)
     """
 
@@ -364,13 +364,13 @@ class ListQueueMembersPaginator(Boto3Paginator):
         self, *, farmId: str, queueId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueueMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuememberspaginator)
         """
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuespaginator)
     """
 
@@ -383,13 +383,13 @@ class ListQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueuesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuespaginator)
         """
 
 class ListSessionActionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionactionspaginator)
     """
 
@@ -404,13 +404,13 @@ class ListSessionActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSessionActionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionactionspaginator)
         """
 
 class ListSessionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionspaginator)
     """
 
@@ -423,13 +423,13 @@ class ListSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSessionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionspaginator)
         """
 
 class ListSessionsForWorkerPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionsforworkerpaginator)
     """
 
@@ -442,13 +442,13 @@ class ListSessionsForWorkerPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSessionsForWorkerResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionsforworkerpaginator)
         """
 
 class ListStepConsumersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepconsumerspaginator)
     """
 
@@ -462,13 +462,13 @@ class ListStepConsumersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStepConsumersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepconsumerspaginator)
         """
 
 class ListStepDependenciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepdependenciespaginator)
     """
 
@@ -482,13 +482,13 @@ class ListStepDependenciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStepDependenciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepdependenciespaginator)
         """
 
 class ListStepsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepspaginator)
     """
 
@@ -501,13 +501,13 @@ class ListStepsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStepsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepspaginator)
         """
 
 class ListStorageProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilespaginator)
     """
 
@@ -515,13 +515,13 @@ class ListStorageProfilesPaginator(Boto3Paginator):
         self, *, farmId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStorageProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilespaginator)
         """
 
 class ListStorageProfilesForQueuePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilesforqueuepaginator)
     """
 
@@ -529,13 +529,13 @@ class ListStorageProfilesForQueuePaginator(Boto3Paginator):
         self, *, farmId: str, queueId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStorageProfilesForQueueResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilesforqueuepaginator)
         """
 
 class ListTasksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listtaskspaginator)
     """
 
@@ -549,13 +549,13 @@ class ListTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTasksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listtaskspaginator)
         """
 
 class ListWorkersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listworkerspaginator)
     """
 
@@ -563,6 +563,6 @@ class ListWorkersPaginator(Boto3Paginator):
         self, *, farmId: str, fleetId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listworkerspaginator)
         """

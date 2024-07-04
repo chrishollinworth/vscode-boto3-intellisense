@@ -83,7 +83,7 @@ class Exceptions:
 
 class ChatbotClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html)
     """
 
@@ -99,7 +99,7 @@ class ChatbotClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#can_paginate)
         """
 
@@ -107,7 +107,7 @@ class ChatbotClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#close)
         """
 
@@ -129,7 +129,7 @@ class ChatbotClient(BaseClient):
         client.create_chime_webhook_configuration( WebhookDescription='string',
         WebhookUrl...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.create_chime_webhook_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_chime_webhook_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_chime_webhook_configuration)
         """
 
@@ -155,7 +155,7 @@ class ChatbotClient(BaseClient):
         11/CreateMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
         client.create_microsoft_teams_channel_configuration( ChannelId='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.create_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_microsoft_teams_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_microsoft_teams_channel_configuration)
         """
 
@@ -180,7 +180,7 @@ class ChatbotClient(BaseClient):
         client.create_slack_channel_configuration( SlackTeamId='string',
         SlackChannelId='s...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.create_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_slack_channel_configuration)
         """
 
@@ -191,7 +191,7 @@ class ChatbotClient(BaseClient):
         11/DeleteChimeWebhookConfiguration>`_ **Request Syntax** response =
         client.delete_chime_webhook_configuration( ChatConfigurationArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_chime_webhook_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_chime_webhook_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_chime_webhook_configuration)
         """
 
@@ -204,7 +204,7 @@ class ChatbotClient(BaseClient):
         11/DeleteMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
         client.delete_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_channel_configuration)
         """
 
@@ -213,7 +213,7 @@ class ChatbotClient(BaseClient):
         Deletes the Microsoft Teams team authorization allowing for channels to be
         configured in that Microsoft Teams team.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_configured_team)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_configured_team)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_configured_team)
         """
 
@@ -226,7 +226,7 @@ class ChatbotClient(BaseClient):
         **Request Syntax** response = client.delete_microsoft_teams_user_identity(
         ChatConfigurationArn='string', UserId='str...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_user_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_user_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_user_identity)
         """
 
@@ -237,7 +237,7 @@ class ChatbotClient(BaseClient):
         11/DeleteSlackChannelConfiguration>`_ **Request Syntax** response =
         client.delete_slack_channel_configuration( ChatConfigurationArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_channel_configuration)
         """
 
@@ -250,7 +250,7 @@ class ChatbotClient(BaseClient):
         Syntax** response = client.delete_slack_user_identity(
         ChatConfigurationArn='string', SlackTeamId='string', Sl...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_slack_user_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_user_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_user_identity)
         """
 
@@ -259,7 +259,7 @@ class ChatbotClient(BaseClient):
         Deletes the Slack workspace authorization that allows channels to be configured
         in that workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.delete_slack_workspace_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_workspace_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_workspace_authorization)
         """
 
@@ -272,7 +272,7 @@ class ChatbotClient(BaseClient):
         t-2017-10-11/DescribeChimeWebhookConfigurations>`_ **Request Syntax** response =
         client.describe_chime_webhook_configurations( ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.describe_chime_webhook_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_chime_webhook_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_chime_webhook_configurations)
         """
 
@@ -285,7 +285,7 @@ class ChatbotClient(BaseClient):
         t-2017-10-11/DescribeSlackChannelConfigurations>`_ **Request Syntax** response =
         client.describe_slack_channel_configurations( ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.describe_slack_channel_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_channel_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_channel_configurations)
         """
 
@@ -295,7 +295,7 @@ class ChatbotClient(BaseClient):
         """
         Lists all Slack user identities with a mapped role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.describe_slack_user_identities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_user_identities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_user_identities)
         """
 
@@ -308,7 +308,7 @@ class ChatbotClient(BaseClient):
         11/DescribeSlackWorkspaces>`_ **Request Syntax** response =
         client.describe_slack_workspaces( MaxResults=123, NextToken='string' )...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.describe_slack_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_workspaces)
         """
 
@@ -322,7 +322,7 @@ class ChatbotClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#generate_presigned_url)
         """
 
@@ -332,7 +332,7 @@ class ChatbotClient(BaseClient):
         docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-11/GetAccountPreferences>`_
         **Request Syntax** response = client.get_account_preferences().
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.get_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.get_account_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#get_account_preferences)
         """
 
@@ -345,7 +345,7 @@ class ChatbotClient(BaseClient):
         11/GetMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
         client.get_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.get_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.get_microsoft_teams_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#get_microsoft_teams_channel_configuration)
         """
 
@@ -358,7 +358,7 @@ class ChatbotClient(BaseClient):
         11/ListMicrosoftTeamsChannelConfigurations>`_ **Request Syntax** response =
         client.list_microsoft_teams_channel_configurations( ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_channel_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_channel_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_channel_configurations)
         """
 
@@ -371,7 +371,7 @@ class ChatbotClient(BaseClient):
         11/ListMicrosoftTeamsConfiguredTeams>`_ **Request Syntax** response =
         client.list_microsoft_teams_configured_teams( MaxResults=123, NextToke...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_configured_teams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_configured_teams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_configured_teams)
         """
 
@@ -381,7 +381,7 @@ class ChatbotClient(BaseClient):
         """
         Lists all Microsoft Teams user identities with a mapped role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_user_identities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_user_identities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_user_identities)
         """
 
@@ -389,7 +389,7 @@ class ChatbotClient(BaseClient):
         """
         Retrieves the list of tags applied to a configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_tags_for_resource)
         """
 
@@ -397,7 +397,7 @@ class ChatbotClient(BaseClient):
         """
         Applies the supplied tags to a configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#tag_resource)
         """
 
@@ -408,7 +408,7 @@ class ChatbotClient(BaseClient):
         **Request Syntax** response = client.untag_resource( ResourceARN='string',
         TagKeys=[ 'string', ] ) ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#untag_resource)
         """
 
@@ -422,7 +422,7 @@ class ChatbotClient(BaseClient):
         client.update_account_preferences( UserAuthorizationRequired=True|False,
         TrainingDat...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.update_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_account_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_account_preferences)
         """
 
@@ -443,7 +443,7 @@ class ChatbotClient(BaseClient):
         client.update_chime_webhook_configuration( ChatConfigurationArn='string',
         Webhoo...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.update_chime_webhook_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_chime_webhook_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_chime_webhook_configuration)
         """
 
@@ -465,7 +465,7 @@ class ChatbotClient(BaseClient):
         11/UpdateMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
         client.update_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.update_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_microsoft_teams_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_microsoft_teams_channel_configuration)
         """
 
@@ -488,6 +488,6 @@ class ChatbotClient(BaseClient):
         client.update_slack_channel_configuration( ChatConfigurationArn='string',
         SlackCha...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chatbot.html#Chatbot.Client.update_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_slack_channel_configuration)
         """

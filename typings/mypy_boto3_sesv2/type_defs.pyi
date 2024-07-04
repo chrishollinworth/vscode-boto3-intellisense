@@ -132,6 +132,7 @@ __all__ = (
     "EmailInsightsTypeDef",
     "EmailTemplateContentTypeDef",
     "EmailTemplateMetadataTypeDef",
+    "EventBridgeDestinationTypeDef",
     "EventDestinationDefinitionTypeDef",
     "EventDestinationTypeDef",
     "EventDetailsTypeDef",
@@ -995,6 +996,13 @@ EmailTemplateMetadataTypeDef = TypedDict(
     total=False,
 )
 
+EventBridgeDestinationTypeDef = TypedDict(
+    "EventBridgeDestinationTypeDef",
+    {
+        "EventBusArn": str,
+    },
+)
+
 EventDestinationDefinitionTypeDef = TypedDict(
     "EventDestinationDefinitionTypeDef",
     {
@@ -1003,6 +1011,7 @@ EventDestinationDefinitionTypeDef = TypedDict(
         "KinesisFirehoseDestination": "KinesisFirehoseDestinationTypeDef",
         "CloudWatchDestination": "CloudWatchDestinationTypeDef",
         "SnsDestination": "SnsDestinationTypeDef",
+        "EventBridgeDestination": "EventBridgeDestinationTypeDef",
         "PinpointDestination": "PinpointDestinationTypeDef",
     },
     total=False,
@@ -1022,6 +1031,7 @@ _OptionalEventDestinationTypeDef = TypedDict(
         "KinesisFirehoseDestination": "KinesisFirehoseDestinationTypeDef",
         "CloudWatchDestination": "CloudWatchDestinationTypeDef",
         "SnsDestination": "SnsDestinationTypeDef",
+        "EventBridgeDestination": "EventBridgeDestinationTypeDef",
         "PinpointDestination": "PinpointDestinationTypeDef",
     },
     total=False,

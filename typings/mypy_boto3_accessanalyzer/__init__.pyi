@@ -8,6 +8,7 @@ Usage::
     from mypy_boto3_accessanalyzer import (
         AccessAnalyzerClient,
         Client,
+        GetFindingRecommendationPaginator,
         GetFindingV2Paginator,
         ListAccessPreviewFindingsPaginator,
         ListAccessPreviewsPaginator,
@@ -25,6 +26,7 @@ Usage::
     client: AccessAnalyzerClient = boto3.client("accessanalyzer")
     session_client: AccessAnalyzerClient = session.client("accessanalyzer")
 
+    get_finding_recommendation_paginator: GetFindingRecommendationPaginator = client.get_paginator("get_finding_recommendation")
     get_finding_v2_paginator: GetFindingV2Paginator = client.get_paginator("get_finding_v2")
     list_access_preview_findings_paginator: ListAccessPreviewFindingsPaginator = client.get_paginator("list_access_preview_findings")
     list_access_previews_paginator: ListAccessPreviewsPaginator = client.get_paginator("list_access_previews")
@@ -40,6 +42,7 @@ Usage::
 
 from .client import AccessAnalyzerClient
 from .paginator import (
+    GetFindingRecommendationPaginator,
     GetFindingV2Paginator,
     ListAccessPreviewFindingsPaginator,
     ListAccessPreviewsPaginator,
@@ -57,6 +60,7 @@ Client = AccessAnalyzerClient
 __all__ = (
     "AccessAnalyzerClient",
     "Client",
+    "GetFindingRecommendationPaginator",
     "GetFindingV2Paginator",
     "ListAccessPreviewFindingsPaginator",
     "ListAccessPreviewsPaginator",

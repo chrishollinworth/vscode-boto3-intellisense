@@ -54,7 +54,7 @@ class Exceptions:
 
 class TaxSettingsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html)
     """
 
@@ -72,7 +72,7 @@ class TaxSettingsClient(BaseClient):
         """
         Deletes tax registration for multiple accounts in batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.batch_delete_tax_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.batch_delete_tax_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#batch_delete_tax_registration)
         """
 
@@ -82,7 +82,7 @@ class TaxSettingsClient(BaseClient):
         """
         Adds or updates tax registration for multiple accounts in batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.batch_put_tax_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.batch_put_tax_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#batch_put_tax_registration)
         """
 
@@ -90,7 +90,7 @@ class TaxSettingsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#can_paginate)
         """
 
@@ -98,7 +98,7 @@ class TaxSettingsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#close)
         """
 
@@ -106,7 +106,7 @@ class TaxSettingsClient(BaseClient):
         """
         Deletes tax registration for a single account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.delete_tax_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.delete_tax_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#delete_tax_registration)
         """
 
@@ -120,7 +120,7 @@ class TaxSettingsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#generate_presigned_url)
         """
 
@@ -128,7 +128,7 @@ class TaxSettingsClient(BaseClient):
         """
         Retrieves tax registration for a single account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.get_tax_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.get_tax_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#get_tax_registration)
         """
 
@@ -142,7 +142,7 @@ class TaxSettingsClient(BaseClient):
         Downloads your tax documents to the Amazon S3 bucket that you specify in your
         request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.get_tax_registration_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.get_tax_registration_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#get_tax_registration_document)
         """
 
@@ -153,7 +153,7 @@ class TaxSettingsClient(BaseClient):
         Retrieves the tax registration of accounts listed in a consolidated billing
         family.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.list_tax_registrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.list_tax_registrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#list_tax_registrations)
         """
 
@@ -163,7 +163,7 @@ class TaxSettingsClient(BaseClient):
         """
         Adds or updates tax registration for a single account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Client.put_tax_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Client.put_tax_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/client.html#put_tax_registration)
         """
 
@@ -171,6 +171,6 @@ class TaxSettingsClient(BaseClient):
         self, operation_name: Literal["list_tax_registrations"]
     ) -> ListTaxRegistrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/taxsettings.html#TaxSettings.Paginator.ListTaxRegistrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/taxsettings.html#TaxSettings.Paginator.ListTaxRegistrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/paginators.html#listtaxregistrationspaginator)
         """

@@ -49,7 +49,7 @@ __all__ = (
 
 class BatchGetRumMetricDefinitionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.BatchGetRumMetricDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.BatchGetRumMetricDefinitions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#batchgetrummetricdefinitionspaginator)
     """
 
@@ -62,13 +62,13 @@ class BatchGetRumMetricDefinitionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[BatchGetRumMetricDefinitionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.BatchGetRumMetricDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.BatchGetRumMetricDefinitions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#batchgetrummetricdefinitionspaginator)
         """
 
 class GetAppMonitorDataPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.GetAppMonitorData)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.GetAppMonitorData)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#getappmonitordatapaginator)
     """
 
@@ -81,13 +81,13 @@ class GetAppMonitorDataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetAppMonitorDataResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.GetAppMonitorData.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.GetAppMonitorData.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#getappmonitordatapaginator)
         """
 
 class ListAppMonitorsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.ListAppMonitors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.ListAppMonitors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#listappmonitorspaginator)
     """
 
@@ -95,13 +95,13 @@ class ListAppMonitorsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppMonitorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.ListAppMonitors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.ListAppMonitors.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#listappmonitorspaginator)
         """
 
 class ListRumMetricsDestinationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.ListRumMetricsDestinations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.ListRumMetricsDestinations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#listrummetricsdestinationspaginator)
     """
 
@@ -109,6 +109,6 @@ class ListRumMetricsDestinationsPaginator(Boto3Paginator):
         self, *, AppMonitorName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRumMetricsDestinationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rum.html#CloudWatchRUM.Paginator.ListRumMetricsDestinations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rum.html#CloudWatchRUM.Paginator.ListRumMetricsDestinations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rum/paginators.html#listrummetricsdestinationspaginator)
         """

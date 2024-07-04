@@ -46,7 +46,7 @@ __all__ = (
 
 class ListGraphSnapshotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphsnapshotspaginator)
     """
 
@@ -54,13 +54,13 @@ class ListGraphSnapshotsPaginator(Boto3Paginator):
         self, *, graphIdentifier: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGraphSnapshotsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphsnapshotspaginator)
         """
 
 class ListGraphsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphspaginator)
     """
 
@@ -68,13 +68,13 @@ class ListGraphsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGraphsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphspaginator)
         """
 
 class ListImportTasksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listimporttaskspaginator)
     """
 
@@ -82,13 +82,13 @@ class ListImportTasksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListImportTasksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listimporttaskspaginator)
         """
 
 class ListPrivateGraphEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listprivategraphendpointspaginator)
     """
 
@@ -96,6 +96,6 @@ class ListPrivateGraphEndpointsPaginator(Boto3Paginator):
         self, *, graphIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPrivateGraphEndpointsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listprivategraphendpointspaginator)
         """

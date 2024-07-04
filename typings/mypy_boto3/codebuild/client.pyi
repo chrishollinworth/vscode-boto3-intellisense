@@ -104,6 +104,7 @@ from .type_defs import (
     RetryBuildBatchOutputTypeDef,
     RetryBuildOutputTypeDef,
     ScalingConfigurationInputTypeDef,
+    ScopeConfigurationTypeDef,
     SourceAuthTypeDef,
     StartBuildBatchOutputTypeDef,
     StartBuildOutputTypeDef,
@@ -144,7 +145,7 @@ class Exceptions:
 
 class CodeBuildClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html)
     """
 
@@ -160,7 +161,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes one or more builds.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_delete_builds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_delete_builds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_delete_builds)
         """
 
@@ -168,7 +169,7 @@ class CodeBuildClient(BaseClient):
         """
         Retrieves information about one or more batch builds.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_build_batches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_build_batches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_build_batches)
         """
 
@@ -176,7 +177,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets information about one or more builds.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_builds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_builds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_builds)
         """
 
@@ -184,7 +185,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets information about one or more compute fleets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_fleets)
         """
 
@@ -192,7 +193,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets information about one or more build projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_projects)
         """
 
@@ -202,7 +203,7 @@ class CodeBuildClient(BaseClient):
         """
         Returns an array of report groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_report_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_report_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_report_groups)
         """
 
@@ -210,7 +211,7 @@ class CodeBuildClient(BaseClient):
         """
         Returns an array of reports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.batch_get_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_reports)
         """
 
@@ -218,7 +219,7 @@ class CodeBuildClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#can_paginate)
         """
 
@@ -226,7 +227,7 @@ class CodeBuildClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#close)
         """
 
@@ -246,7 +247,7 @@ class CodeBuildClient(BaseClient):
         """
         Creates a compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_fleet)
         """
 
@@ -278,7 +279,7 @@ class CodeBuildClient(BaseClient):
         """
         Creates a build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_project)
         """
 
@@ -293,7 +294,7 @@ class CodeBuildClient(BaseClient):
         """
         Creates a report group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.create_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_report_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_report_group)
         """
 
@@ -304,14 +305,15 @@ class CodeBuildClient(BaseClient):
         branchFilter: str = None,
         filterGroups: List[List["WebhookFilterTypeDef"]] = None,
         buildType: WebhookBuildTypeType = None,
-        manualCreation: bool = None
+        manualCreation: bool = None,
+        scopeConfiguration: "ScopeConfigurationTypeDef" = None
     ) -> CreateWebhookOutputTypeDef:
         """
         For an existing CodeBuild build project that has its source code stored in a
         GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source
         code every time a code change is pushed to the repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.create_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_webhook)
         """
 
@@ -319,7 +321,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a batch build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_build_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_build_batch)
         """
 
@@ -327,7 +329,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_fleet)
         """
 
@@ -335,7 +337,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_project)
         """
 
@@ -343,7 +345,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_report)
         """
 
@@ -351,7 +353,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a report group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_report_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_report_group)
         """
 
@@ -359,7 +361,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a resource policy that is identified by its resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_resource_policy)
         """
 
@@ -367,7 +369,7 @@ class CodeBuildClient(BaseClient):
         """
         Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_source_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_source_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_source_credentials)
         """
 
@@ -377,7 +379,7 @@ class CodeBuildClient(BaseClient):
         GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code
         every time a code change is pushed to the repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.delete_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_webhook)
         """
 
@@ -395,7 +397,7 @@ class CodeBuildClient(BaseClient):
         """
         Retrieves one or more code coverage reports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.describe_code_coverages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.describe_code_coverages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#describe_code_coverages)
         """
 
@@ -410,7 +412,7 @@ class CodeBuildClient(BaseClient):
         """
         Returns a list of details about test cases for a report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.describe_test_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.describe_test_cases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#describe_test_cases)
         """
 
@@ -424,7 +426,7 @@ class CodeBuildClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#generate_presigned_url)
         """
 
@@ -438,7 +440,7 @@ class CodeBuildClient(BaseClient):
         """
         Analyzes and accumulates test report values for the specified test reports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.get_report_group_trend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.get_report_group_trend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#get_report_group_trend)
         """
 
@@ -446,7 +448,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets a resource policy that is identified by its resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#get_resource_policy)
         """
 
@@ -463,7 +465,7 @@ class CodeBuildClient(BaseClient):
         Imports the source repository credentials for an CodeBuild project that has its
         source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.import_source_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.import_source_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#import_source_credentials)
         """
 
@@ -471,7 +473,7 @@ class CodeBuildClient(BaseClient):
         """
         Resets the cache for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.invalidate_project_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.invalidate_project_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#invalidate_project_cache)
         """
 
@@ -486,7 +488,7 @@ class CodeBuildClient(BaseClient):
         """
         Retrieves the identifiers of your build batches in the current region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_build_batches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_build_batches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_build_batches)
         """
 
@@ -502,7 +504,7 @@ class CodeBuildClient(BaseClient):
         """
         Retrieves the identifiers of the build batches for a specific project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_build_batches_for_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_build_batches_for_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_build_batches_for_project)
         """
 
@@ -512,7 +514,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets a list of build IDs, with each build ID representing a single build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_builds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_builds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_builds)
         """
 
@@ -523,7 +525,7 @@ class CodeBuildClient(BaseClient):
         Gets a list of build identifiers for the specified build project, with each
         build identifier representing a single build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_builds_for_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_builds_for_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_builds_for_project)
         """
 
@@ -531,7 +533,7 @@ class CodeBuildClient(BaseClient):
         """
         Gets information about Docker images that are managed by CodeBuild.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_curated_environment_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_curated_environment_images)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_curated_environment_images)
         """
 
@@ -547,7 +549,7 @@ class CodeBuildClient(BaseClient):
         Gets a list of compute fleet names with each compute fleet name representing a
         single compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_fleets)
         """
 
@@ -562,7 +564,7 @@ class CodeBuildClient(BaseClient):
         Gets a list of build project names, with each build project name representing a
         single build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_projects)
         """
 
@@ -578,7 +580,7 @@ class CodeBuildClient(BaseClient):
         Gets a list ARNs for the report groups in the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_report_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_report_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_report_groups)
         """
 
@@ -594,7 +596,7 @@ class CodeBuildClient(BaseClient):
         Returns a list of ARNs for the reports in the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_reports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_reports)
         """
 
@@ -610,7 +612,7 @@ class CodeBuildClient(BaseClient):
         """
         Returns a list of ARNs for the reports that belong to a `ReportGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_reports_for_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_reports_for_report_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_reports_for_report_group)
         """
 
@@ -626,7 +628,7 @@ class CodeBuildClient(BaseClient):
         Gets a list of projects that are shared with other Amazon Web Services accounts
         or users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_shared_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_shared_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_shared_projects)
         """
 
@@ -642,7 +644,7 @@ class CodeBuildClient(BaseClient):
         Gets a list of report groups that are shared with other Amazon Web Services
         accounts or users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_shared_report_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_shared_report_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_shared_report_groups)
         """
 
@@ -650,7 +652,7 @@ class CodeBuildClient(BaseClient):
         """
         Returns a list of `SourceCredentialsInfo` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.list_source_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_source_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_source_credentials)
         """
 
@@ -660,7 +662,7 @@ class CodeBuildClient(BaseClient):
         """
         Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#put_resource_policy)
         """
 
@@ -670,7 +672,7 @@ class CodeBuildClient(BaseClient):
         """
         Restarts a build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.retry_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.retry_build)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#retry_build)
         """
 
@@ -684,7 +686,7 @@ class CodeBuildClient(BaseClient):
         """
         Restarts a failed batch build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.retry_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.retry_build_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#retry_build_batch)
         """
 
@@ -727,7 +729,7 @@ class CodeBuildClient(BaseClient):
         """
         Starts running a build with the settings defined in the project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.start_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.start_build)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#start_build)
         """
 
@@ -769,7 +771,7 @@ class CodeBuildClient(BaseClient):
         """
         Starts a batch build for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.start_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.start_build_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#start_build_batch)
         """
 
@@ -777,7 +779,7 @@ class CodeBuildClient(BaseClient):
         """
         Attempts to stop running a build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.stop_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.stop_build)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#stop_build)
         """
 
@@ -785,7 +787,7 @@ class CodeBuildClient(BaseClient):
         """
         Stops a running batch build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.stop_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.stop_build_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#stop_build_batch)
         """
 
@@ -805,7 +807,7 @@ class CodeBuildClient(BaseClient):
         """
         Updates a compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.update_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_fleet)
         """
 
@@ -837,7 +839,7 @@ class CodeBuildClient(BaseClient):
         """
         Changes the settings of a build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_project)
         """
 
@@ -851,7 +853,7 @@ class CodeBuildClient(BaseClient):
         """
         Changes the public visibility for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.update_project_visibility)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_project_visibility)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_project_visibility)
         """
 
@@ -865,7 +867,7 @@ class CodeBuildClient(BaseClient):
         """
         Updates a report group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.update_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_report_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_report_group)
         """
 
@@ -881,7 +883,7 @@ class CodeBuildClient(BaseClient):
         """
         Updates the webhook associated with an CodeBuild build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Client.update_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_webhook)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_webhook)
         """
 
@@ -890,7 +892,7 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["describe_code_coverages"]
     ) -> DescribeCodeCoveragesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#describecodecoveragespaginator)
         """
 
@@ -899,7 +901,7 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["describe_test_cases"]
     ) -> DescribeTestCasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#describetestcasespaginator)
         """
 
@@ -908,7 +910,7 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_build_batches"]
     ) -> ListBuildBatchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildbatchespaginator)
         """
 
@@ -917,14 +919,14 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_build_batches_for_project"]
     ) -> ListBuildBatchesForProjectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildbatchesforprojectpaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_builds"]) -> ListBuildsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildspaginator)
         """
 
@@ -933,14 +935,14 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_builds_for_project"]
     ) -> ListBuildsForProjectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildsforprojectpaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listprojectspaginator)
         """
 
@@ -949,14 +951,14 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_report_groups"]
     ) -> ListReportGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportgroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_reports"]) -> ListReportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportspaginator)
         """
 
@@ -965,7 +967,7 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_reports_for_report_group"]
     ) -> ListReportsForReportGroupPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportsforreportgrouppaginator)
         """
 
@@ -974,7 +976,7 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_shared_projects"]
     ) -> ListSharedProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listsharedprojectspaginator)
         """
 
@@ -983,6 +985,6 @@ class CodeBuildClient(BaseClient):
         self, operation_name: Literal["list_shared_report_groups"]
     ) -> ListSharedReportGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listsharedreportgroupspaginator)
         """

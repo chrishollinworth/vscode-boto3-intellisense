@@ -76,7 +76,7 @@ class Exceptions:
 
 class ResourceExplorerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html)
     """
 
@@ -93,7 +93,7 @@ class ResourceExplorerClient(BaseClient):
         Sets the specified view as the default for the Amazon Web Services Region in
         which you call this operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.associate_default_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.associate_default_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#associate_default_view)
         """
 
@@ -101,7 +101,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Retrieves details about a list of views.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.batch_get_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.batch_get_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#batch_get_view)
         """
 
@@ -109,7 +109,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#can_paginate)
         """
 
@@ -117,7 +117,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#close)
         """
 
@@ -128,7 +128,7 @@ class ResourceExplorerClient(BaseClient):
         Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region
         in which you called this operation by creating an index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.create_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.create_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#create_index)
         """
 
@@ -145,7 +145,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Creates a view that users can query by using the  Search operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.create_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.create_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#create_view)
         """
 
@@ -154,7 +154,7 @@ class ResourceExplorerClient(BaseClient):
         Deletes the specified index and turns off Amazon Web Services Resource Explorer
         in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.delete_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.delete_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#delete_index)
         """
 
@@ -162,7 +162,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Deletes the specified view.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.delete_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.delete_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#delete_view)
         """
 
@@ -171,7 +171,7 @@ class ResourceExplorerClient(BaseClient):
         After you call this operation, the affected Amazon Web Services Region no longer
         has a default view.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.disassociate_default_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.disassociate_default_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#disassociate_default_view)
         """
 
@@ -185,7 +185,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#generate_presigned_url)
         """
 
@@ -197,7 +197,7 @@ class ResourceExplorerClient(BaseClient):
         validates the service linked role required to access the multi-account search
         feature.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_account_level_service_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_account_level_service_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#get_account_level_service_configuration)
         """
 
@@ -206,7 +206,7 @@ class ResourceExplorerClient(BaseClient):
         Retrieves the Amazon Resource Name (ARN) of the view that is the default for the
         Amazon Web Services Region in which you call this operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_default_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_default_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#get_default_view)
         """
 
@@ -215,7 +215,7 @@ class ResourceExplorerClient(BaseClient):
         Retrieves details about the Amazon Web Services Resource Explorer index in the
         Amazon Web Services Region in which you invoked the operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#get_index)
         """
 
@@ -223,7 +223,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Retrieves details of the specified view.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.get_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#get_view)
         """
 
@@ -240,7 +240,7 @@ class ResourceExplorerClient(BaseClient):
         currently collecting resource information for Amazon Web Services Resource
         Explorer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_indexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_indexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#list_indexes)
         """
 
@@ -252,7 +252,7 @@ class ResourceExplorerClient(BaseClient):
         are currently collecting resource information for Amazon Web Services Resource
         Explorer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_indexes_for_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_indexes_for_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#list_indexes_for_members)
         """
 
@@ -263,7 +263,7 @@ class ResourceExplorerClient(BaseClient):
         Retrieves a list of all resource types currently supported by Amazon Web
         Services Resource Explorer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_supported_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_supported_resource_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#list_supported_resource_types)
         """
 
@@ -271,7 +271,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Lists the tags that are attached to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#list_tags_for_resource)
         """
 
@@ -284,7 +284,7 @@ class ResourceExplorerClient(BaseClient):
         of the views available in the Amazon Web Services Region in which you call this
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_views)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.list_views)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#list_views)
         """
 
@@ -300,7 +300,7 @@ class ResourceExplorerClient(BaseClient):
         Searches for resources and displays details about all resources that match the
         specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#search)
         """
 
@@ -309,7 +309,7 @@ class ResourceExplorerClient(BaseClient):
         Adds one or more tag key and value pairs to an Amazon Web Services Resource
         Explorer view or index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#tag_resource)
         """
 
@@ -318,7 +318,7 @@ class ResourceExplorerClient(BaseClient):
         Removes one or more tag key and value pairs from an Amazon Web Services Resource
         Explorer view or index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#untag_resource)
         """
 
@@ -326,7 +326,7 @@ class ResourceExplorerClient(BaseClient):
         """
         Changes the type of the index from one of the following types to the other.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.update_index_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.update_index_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#update_index_type)
         """
 
@@ -340,14 +340,14 @@ class ResourceExplorerClient(BaseClient):
         """
         Modifies some of the details of a view.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Client.update_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Client.update_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/client.html#update_view)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_indexes"]) -> ListIndexesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListIndexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListIndexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/paginators.html#listindexespaginator)
         """
 
@@ -356,7 +356,7 @@ class ResourceExplorerClient(BaseClient):
         self, operation_name: Literal["list_indexes_for_members"]
     ) -> ListIndexesForMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListIndexesForMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListIndexesForMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/paginators.html#listindexesformemberspaginator)
         """
 
@@ -365,20 +365,20 @@ class ResourceExplorerClient(BaseClient):
         self, operation_name: Literal["list_supported_resource_types"]
     ) -> ListSupportedResourceTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListSupportedResourceTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListSupportedResourceTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/paginators.html#listsupportedresourcetypespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_views"]) -> ListViewsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListViews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.ListViews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/paginators.html#listviewspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search"]) -> SearchPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.Search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-explorer-2.html#ResourceExplorer.Paginator.Search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/paginators.html#searchpaginator)
         """

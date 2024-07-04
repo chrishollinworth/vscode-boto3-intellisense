@@ -46,7 +46,7 @@ class Exceptions:
 
 class SupplyChainClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html)
     """
 
@@ -62,7 +62,7 @@ class SupplyChainClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#can_paginate)
         """
 
@@ -70,7 +70,7 @@ class SupplyChainClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#close)
         """
 
@@ -81,7 +81,7 @@ class SupplyChainClient(BaseClient):
         CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of
         Materials (BOM) entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.create_bill_of_materials_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.create_bill_of_materials_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#create_bill_of_materials_import_job)
         """
 
@@ -95,7 +95,7 @@ class SupplyChainClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#generate_presigned_url)
         """
 
@@ -105,7 +105,7 @@ class SupplyChainClient(BaseClient):
         """
         Get status and details of a BillOfMaterialsImportJob.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.get_bill_of_materials_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.get_bill_of_materials_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#get_bill_of_materials_import_job)
         """
 
@@ -122,6 +122,6 @@ class SupplyChainClient(BaseClient):
         """
         Send transactional data events with real-time data for analysis or monitoring.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/supplychain.html#SupplyChain.Client.send_data_integration_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/supplychain.html#SupplyChain.Client.send_data_integration_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_supplychain/client.html#send_data_integration_event)
         """

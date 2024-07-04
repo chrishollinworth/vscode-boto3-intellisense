@@ -10,7 +10,6 @@ from mypy_boto3_accessanalyzer.client import AccessAnalyzerClient
 from mypy_boto3_account.client import AccountClient
 from mypy_boto3_acm.client import ACMClient
 from mypy_boto3_acm_pca.client import ACMPCAClient
-from mypy_boto3_alexaforbusiness.client import AlexaForBusinessClient
 from mypy_boto3_amp.client import PrometheusServiceClient
 from mypy_boto3_amplify.client import AmplifyClient
 from mypy_boto3_amplifybackend.client import AmplifyBackendClient
@@ -25,11 +24,13 @@ from mypy_boto3_appflow.client import AppflowClient
 from mypy_boto3_appintegrations.client import AppIntegrationsServiceClient
 from mypy_boto3_application_autoscaling.client import ApplicationAutoScalingClient
 from mypy_boto3_application_insights.client import ApplicationInsightsClient
+from mypy_boto3_application_signals.client import CloudWatchApplicationSignalsClient
 from mypy_boto3_applicationcostprofiler.client import ApplicationCostProfilerClient
 from mypy_boto3_appmesh.client import AppMeshClient
 from mypy_boto3_apprunner.client import AppRunnerClient
 from mypy_boto3_appstream.client import AppStreamClient
 from mypy_boto3_appsync.client import AppSyncClient
+from mypy_boto3_apptest.client import MainframeModernizationApplicationTestingClient
 from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
 from mypy_boto3_artifact.client import ArtifactClient
 from mypy_boto3_athena.client import AthenaClient
@@ -39,7 +40,6 @@ from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
 from mypy_boto3_b2bi.client import B2BIClient
 from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
-from mypy_boto3_backupstorage.client import BackupStorageClient
 from mypy_boto3_batch.client import BatchClient
 from mypy_boto3_bcm_data_exports.client import BillingandCostManagementDataExportsClient
 from mypy_boto3_bedrock.client import BedrockClient
@@ -170,7 +170,6 @@ from mypy_boto3_groundstation.client import GroundStationClient
 from mypy_boto3_guardduty.client import GuardDutyClient
 from mypy_boto3_health.client import HealthClient
 from mypy_boto3_healthlake.client import HealthLakeClient
-from mypy_boto3_honeycode.client import HoneycodeClient
 from mypy_boto3_iam.client import IAMClient
 from mypy_boto3_iam.service_resource import IAMServiceResource
 from mypy_boto3_identitystore.client import IdentityStoreClient
@@ -287,6 +286,7 @@ from mypy_boto3_panorama.client import PanoramaClient
 from mypy_boto3_payment_cryptography.client import PaymentCryptographyControlPlaneClient
 from mypy_boto3_payment_cryptography_data.client import PaymentCryptographyDataPlaneClient
 from mypy_boto3_pca_connector_ad.client import PcaConnectorAdClient
+from mypy_boto3_pca_connector_scep.client import PrivateCAConnectorforSCEPClient
 from mypy_boto3_personalize.client import PersonalizeClient
 from mypy_boto3_personalize_events.client import PersonalizeEventsClient
 from mypy_boto3_personalize_runtime.client import PersonalizeRuntimeClient
@@ -496,19 +496,6 @@ def client(
 ) -> ACMPCAClient: ...
 @overload
 def client(
-    service_name: Literal["alexaforbusiness"],
-    region_name: Optional[str] = None,
-    api_version: Optional[str] = None,
-    use_ssl: Optional[bool] = None,
-    verify: Union[bool, str, None] = None,
-    endpoint_url: Optional[str] = None,
-    aws_access_key_id: Optional[str] = None,
-    aws_secret_access_key: Optional[str] = None,
-    aws_session_token: Optional[str] = None,
-    config: Optional[Config] = None,
-) -> AlexaForBusinessClient: ...
-@overload
-def client(
     service_name: Literal["amp"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -691,6 +678,19 @@ def client(
 ) -> ApplicationInsightsClient: ...
 @overload
 def client(
+    service_name: Literal["application-signals"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> CloudWatchApplicationSignalsClient: ...
+@overload
+def client(
     service_name: Literal["applicationcostprofiler"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -754,6 +754,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> AppSyncClient: ...
+@overload
+def client(
+    service_name: Literal["apptest"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> MainframeModernizationApplicationTestingClient: ...
 @overload
 def client(
     service_name: Literal["arc-zonal-shift"],
@@ -871,19 +884,6 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> BackupGatewayClient: ...
-@overload
-def client(
-    service_name: Literal["backupstorage"],
-    region_name: Optional[str] = None,
-    api_version: Optional[str] = None,
-    use_ssl: Optional[bool] = None,
-    verify: Union[bool, str, None] = None,
-    endpoint_url: Optional[str] = None,
-    aws_access_key_id: Optional[str] = None,
-    aws_secret_access_key: Optional[str] = None,
-    aws_session_token: Optional[str] = None,
-    config: Optional[Config] = None,
-) -> BackupStorageClient: ...
 @overload
 def client(
     service_name: Literal["batch"],
@@ -2511,19 +2511,6 @@ def client(
 ) -> HealthLakeClient: ...
 @overload
 def client(
-    service_name: Literal["honeycode"],
-    region_name: Optional[str] = None,
-    api_version: Optional[str] = None,
-    use_ssl: Optional[bool] = None,
-    verify: Union[bool, str, None] = None,
-    endpoint_url: Optional[str] = None,
-    aws_access_key_id: Optional[str] = None,
-    aws_secret_access_key: Optional[str] = None,
-    aws_session_token: Optional[str] = None,
-    config: Optional[Config] = None,
-) -> HoneycodeClient: ...
-@overload
-def client(
     service_name: Literal["iam"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3952,6 +3939,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> PcaConnectorAdClient: ...
+@overload
+def client(
+    service_name: Literal["pca-connector-scep"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> PrivateCAConnectorforSCEPClient: ...
 @overload
 def client(
     service_name: Literal["personalize"],

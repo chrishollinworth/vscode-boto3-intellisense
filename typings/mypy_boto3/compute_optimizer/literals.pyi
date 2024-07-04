@@ -46,6 +46,7 @@ __all__ = (
     "ExportableInstanceFieldType",
     "ExportableLambdaFunctionFieldType",
     "ExportableLicenseFieldType",
+    "ExportableRDSDBFieldType",
     "ExportableVolumeFieldType",
     "ExternalMetricStatusCodeType",
     "ExternalMetricsSourceType",
@@ -57,6 +58,7 @@ __all__ = (
     "GetLambdaFunctionRecommendationsPaginatorName",
     "GetRecommendationPreferencesPaginatorName",
     "GetRecommendationSummariesPaginatorName",
+    "IdleType",
     "InferredWorkloadTypeType",
     "InferredWorkloadTypesPreferenceType",
     "InstanceIdleType",
@@ -86,6 +88,14 @@ __all__ = (
     "MigrationEffortType",
     "PlatformDifferenceType",
     "PreferredResourceNameType",
+    "RDSDBMetricNameType",
+    "RDSDBMetricStatisticType",
+    "RDSDBRecommendationFilterNameType",
+    "RDSInstanceFindingReasonCodeType",
+    "RDSInstanceFindingType",
+    "RDSSavingsEstimationModeSourceType",
+    "RDSStorageFindingReasonCodeType",
+    "RDSStorageFindingType",
     "RecommendationPreferenceNameType",
     "RecommendationSourceTypeType",
     "ResourceTypeType",
@@ -353,6 +363,67 @@ ExportableLicenseFieldType = Literal[
     "ResourceArn",
     "Tags",
 ]
+ExportableRDSDBFieldType = Literal[
+    "AccountId",
+    "CurrentDBInstanceClass",
+    "CurrentInstanceOnDemandHourlyPrice",
+    "CurrentStorageConfigurationAllocatedStorage",
+    "CurrentStorageConfigurationIOPS",
+    "CurrentStorageConfigurationMaxAllocatedStorage",
+    "CurrentStorageConfigurationStorageThroughput",
+    "CurrentStorageConfigurationStorageType",
+    "CurrentStorageOnDemandMonthlyPrice",
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+    "EffectiveRecommendationPreferencesLookBackPeriod",
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
+    "Engine",
+    "EngineVersion",
+    "Idle",
+    "InstanceFinding",
+    "InstanceFindingReasonCodes",
+    "InstanceRecommendationOptionsDBInstanceClass",
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsValue",
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+    "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice",
+    "InstanceRecommendationOptionsPerformanceRisk",
+    "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+    "InstanceRecommendationOptionsRank",
+    "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
+    "InstanceRecommendationOptionsSavingsOpportunityPercentage",
+    "LastRefreshTimestamp",
+    "LookbackPeriodInDays",
+    "MultiAZDBInstance",
+    "ResourceArn",
+    "StorageFinding",
+    "StorageFindingReasonCodes",
+    "StorageRecommendationOptionsAllocatedStorage",
+    "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
+    "StorageRecommendationOptionsEstimatedMonthlySavingsValue",
+    "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+    "StorageRecommendationOptionsIOPS",
+    "StorageRecommendationOptionsMaxAllocatedStorage",
+    "StorageRecommendationOptionsOnDemandMonthlyPrice",
+    "StorageRecommendationOptionsRank",
+    "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
+    "StorageRecommendationOptionsSavingsOpportunityPercentage",
+    "StorageRecommendationOptionsStorageThroughput",
+    "StorageRecommendationOptionsStorageType",
+    "Tags",
+    "UtilizationMetricsCpuMaximum",
+    "UtilizationMetricsDatabaseConnectionsMaximum",
+    "UtilizationMetricsEBSVolumeReadIOPSMaximum",
+    "UtilizationMetricsEBSVolumeReadThroughputMaximum",
+    "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum",
+    "UtilizationMetricsEBSVolumeWriteIOPSMaximum",
+    "UtilizationMetricsEBSVolumeWriteThroughputMaximum",
+    "UtilizationMetricsMemoryMaximum",
+    "UtilizationMetricsNetworkReceiveThroughputMaximum",
+    "UtilizationMetricsNetworkTransmitThroughputMaximum",
+]
 ExportableVolumeFieldType = Literal[
     "AccountId",
     "CurrentConfigurationRootVolume",
@@ -415,6 +486,7 @@ GetEnrollmentStatusesForOrganizationPaginatorName = Literal[
 GetLambdaFunctionRecommendationsPaginatorName = Literal["get_lambda_function_recommendations"]
 GetRecommendationPreferencesPaginatorName = Literal["get_recommendation_preferences"]
 GetRecommendationSummariesPaginatorName = Literal["get_recommendation_summaries"]
+IdleType = Literal["False", "True"]
 InferredWorkloadTypeType = Literal[
     "AmazonEmr",
     "ApacheCassandra",
@@ -512,6 +584,49 @@ PlatformDifferenceType = Literal[
     "VirtualizationType",
 ]
 PreferredResourceNameType = Literal["Ec2InstanceTypes"]
+RDSDBMetricNameType = Literal[
+    "CPU",
+    "DatabaseConnections",
+    "EBSVolumeReadIOPS",
+    "EBSVolumeReadThroughput",
+    "EBSVolumeStorageSpaceUtilization",
+    "EBSVolumeWriteIOPS",
+    "EBSVolumeWriteThroughput",
+    "Memory",
+    "NetworkReceiveThroughput",
+    "NetworkTransmitThroughput",
+]
+RDSDBMetricStatisticType = Literal["Average", "Maximum", "Minimum"]
+RDSDBRecommendationFilterNameType = Literal[
+    "Idle",
+    "InstanceFinding",
+    "InstanceFindingReasonCode",
+    "StorageFinding",
+    "StorageFindingReasonCode",
+]
+RDSInstanceFindingReasonCodeType = Literal[
+    "CPUOverprovisioned",
+    "CPUUnderprovisioned",
+    "EBSIOPSOverprovisioned",
+    "EBSThroughputOverprovisioned",
+    "EBSThroughputUnderprovisioned",
+    "NetworkBandwidthOverprovisioned",
+    "NetworkBandwidthUnderprovisioned",
+    "NewEngineVersionAvailable",
+    "NewGenerationDBInstanceClassAvailable",
+]
+RDSInstanceFindingType = Literal["Optimized", "Overprovisioned", "Underprovisioned"]
+RDSSavingsEstimationModeSourceType = Literal[
+    "CostExplorerRightsizing", "CostOptimizationHub", "PublicPricing"
+]
+RDSStorageFindingReasonCodeType = Literal[
+    "EBSVolumeAllocatedStorageUnderprovisioned",
+    "EBSVolumeIOPSOverprovisioned",
+    "EBSVolumeThroughputOverprovisioned",
+    "EBSVolumeThroughputUnderprovisioned",
+    "NewGenerationStorageTypeAvailable",
+]
+RDSStorageFindingType = Literal["Optimized", "Overprovisioned", "Underprovisioned"]
 RecommendationPreferenceNameType = Literal[
     "EnhancedInfrastructureMetrics",
     "ExternalMetricsPreference",
@@ -521,7 +636,14 @@ RecommendationPreferenceNameType = Literal[
     "UtilizationPreferences",
 ]
 RecommendationSourceTypeType = Literal[
-    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "EcsService", "LambdaFunction", "License"
+    "AutoScalingGroup",
+    "EbsVolume",
+    "Ec2Instance",
+    "EcsService",
+    "LambdaFunction",
+    "License",
+    "RdsDBInstance",
+    "RdsDBInstanceStorage",
 ]
 ResourceTypeType = Literal[
     "AutoScalingGroup",
@@ -531,6 +653,7 @@ ResourceTypeType = Literal[
     "LambdaFunction",
     "License",
     "NotApplicable",
+    "RdsDBInstance",
 ]
 SavingsEstimationModeType = Literal["AfterDiscounts", "BeforeDiscounts"]
 ScopeNameType = Literal["AccountId", "Organization", "ResourceArn"]

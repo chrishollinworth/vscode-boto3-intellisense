@@ -13,6 +13,7 @@ Usage::
         ListPresetsPaginator,
         ListQueuesPaginator,
         MediaConvertClient,
+        SearchJobsPaginator,
     )
 
     session = boto3.Session()
@@ -25,6 +26,7 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_presets_paginator: ListPresetsPaginator = client.get_paginator("list_presets")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
+    search_jobs_paginator: SearchJobsPaginator = client.get_paginator("search_jobs")
     ```
 """
 
@@ -35,6 +37,7 @@ from .paginator import (
     ListJobTemplatesPaginator,
     ListPresetsPaginator,
     ListQueuesPaginator,
+    SearchJobsPaginator,
 )
 
 Client = MediaConvertClient
@@ -47,4 +50,5 @@ __all__ = (
     "ListPresetsPaginator",
     "ListQueuesPaginator",
     "MediaConvertClient",
+    "SearchJobsPaginator",
 )

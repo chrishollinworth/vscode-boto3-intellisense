@@ -16,7 +16,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import BackupStateType, ClusterStateType, HsmStateType
+from .literals import BackupStateType, ClusterModeType, ClusterStateType, HsmStateType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -44,11 +44,15 @@ __all__ = (
     "DeleteClusterResponseTypeDef",
     "DeleteHsmRequestRequestTypeDef",
     "DeleteHsmResponseTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
+    "DeleteResourcePolicyResponseTypeDef",
     "DescribeBackupsRequestRequestTypeDef",
     "DescribeBackupsResponseTypeDef",
     "DescribeClustersRequestRequestTypeDef",
     "DescribeClustersResponseTypeDef",
     "DestinationBackupTypeDef",
+    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyResponseTypeDef",
     "HsmTypeDef",
     "InitializeClusterRequestRequestTypeDef",
     "InitializeClusterResponseTypeDef",
@@ -59,6 +63,8 @@ __all__ = (
     "ModifyClusterRequestRequestTypeDef",
     "ModifyClusterResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreBackupRequestRequestTypeDef",
     "RestoreBackupResponseTypeDef",
@@ -85,6 +91,7 @@ _RequiredBackupTypeDef = TypedDict(
 _OptionalBackupTypeDef = TypedDict(
     "_OptionalBackupTypeDef",
     {
+        "BackupArn": str,
         "BackupState": BackupStateType,
         "ClusterId": str,
         "CreateTimestamp": datetime,
@@ -95,6 +102,8 @@ _OptionalBackupTypeDef = TypedDict(
         "SourceCluster": str,
         "DeleteTimestamp": datetime,
         "TagList": List["TagTypeDef"],
+        "HsmType": str,
+        "Mode": ClusterModeType,
     },
     total=False,
 )
@@ -132,6 +141,7 @@ ClusterTypeDef = TypedDict(
         "VpcId": str,
         "Certificates": "CertificatesTypeDef",
         "TagList": List["TagTypeDef"],
+        "Mode": ClusterModeType,
     },
     total=False,
 )
@@ -178,6 +188,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "BackupRetentionPolicy": "BackupRetentionPolicyTypeDef",
         "SourceBackupId": str,
         "TagList": List["TagTypeDef"],
+        "Mode": ClusterModeType,
     },
     total=False,
 )
@@ -282,12 +293,30 @@ DeleteHsmResponseTypeDef = TypedDict(
     },
 )
 
+DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+DeleteResourcePolicyResponseTypeDef = TypedDict(
+    "DeleteResourcePolicyResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeBackupsRequestRequestTypeDef = TypedDict(
     "DescribeBackupsRequestRequestTypeDef",
     {
         "NextToken": str,
         "MaxResults": int,
         "Filters": Dict[str, List[str]],
+        "Shared": bool,
         "SortAscending": bool,
     },
     total=False,
@@ -330,6 +359,22 @@ DestinationBackupTypeDef = TypedDict(
         "SourceCluster": str,
     },
     total=False,
+)
+
+GetResourcePolicyRequestRequestTypeDef = TypedDict(
+    "GetResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+GetResourcePolicyResponseTypeDef = TypedDict(
+    "GetResourcePolicyResponseTypeDef",
+    {
+        "Policy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredHsmTypeDef = TypedDict(
@@ -442,6 +487,24 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+PutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "PutResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
+    },
+    total=False,
+)
+
+PutResourcePolicyResponseTypeDef = TypedDict(
+    "PutResourcePolicyResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "Policy": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ResponseMetadataTypeDef = TypedDict(

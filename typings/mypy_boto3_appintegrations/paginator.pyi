@@ -54,7 +54,7 @@ __all__ = (
 
 class ListApplicationAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationassociationspaginator)
     """
 
@@ -62,13 +62,13 @@ class ListApplicationAssociationsPaginator(Boto3Paginator):
         self, *, ApplicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationassociationspaginator)
         """
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationspaginator)
     """
 
@@ -76,13 +76,13 @@ class ListApplicationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationspaginator)
         """
 
 class ListDataIntegrationAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationassociationspaginator)
     """
 
@@ -90,13 +90,13 @@ class ListDataIntegrationAssociationsPaginator(Boto3Paginator):
         self, *, DataIntegrationIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataIntegrationAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationassociationspaginator)
         """
 
 class ListDataIntegrationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationspaginator)
     """
 
@@ -104,13 +104,13 @@ class ListDataIntegrationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataIntegrationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationspaginator)
         """
 
 class ListEventIntegrationAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationassociationspaginator)
     """
 
@@ -118,13 +118,13 @@ class ListEventIntegrationAssociationsPaginator(Boto3Paginator):
         self, *, EventIntegrationName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventIntegrationAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationassociationspaginator)
         """
 
 class ListEventIntegrationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationspaginator)
     """
 
@@ -132,6 +132,6 @@ class ListEventIntegrationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventIntegrationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationspaginator)
         """

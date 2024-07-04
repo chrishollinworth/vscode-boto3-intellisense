@@ -84,7 +84,7 @@ class Exceptions:
 
 class ManagedBlockchainClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html)
     """
 
@@ -100,7 +100,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#can_paginate)
         """
 
@@ -108,7 +108,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#close)
         """
 
@@ -124,7 +124,7 @@ class ManagedBlockchainClient(BaseClient):
         Creates a new accessor for use with Amazon Managed Blockchain service that
         supports token based access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_accessor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_accessor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_accessor)
         """
 
@@ -139,7 +139,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Creates a member within a Managed Blockchain network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_member)
         """
 
@@ -159,7 +159,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Creates a new blockchain network using Amazon Managed Blockchain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_network)
         """
 
@@ -175,7 +175,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Creates a node on the specified blockchain network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_node)
         """
 
@@ -193,7 +193,7 @@ class ManagedBlockchainClient(BaseClient):
         Creates a proposal for a change to the network that other members of the network
         can vote on, for example, a proposal to add a new member to the network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_proposal)
         """
 
@@ -201,7 +201,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Deletes an accessor that your Amazon Web Services account owns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_accessor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_accessor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#delete_accessor)
         """
 
@@ -209,7 +209,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Deletes a member.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#delete_member)
         """
 
@@ -217,7 +217,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Deletes a node that your Amazon Web Services account owns.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#delete_node)
         """
 
@@ -231,7 +231,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#generate_presigned_url)
         """
 
@@ -239,7 +239,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns detailed information about an accessor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_accessor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_accessor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_accessor)
         """
 
@@ -247,7 +247,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns detailed information about a member.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_member)
         """
 
@@ -255,7 +255,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns detailed information about a network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_network)
         """
 
@@ -265,7 +265,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns detailed information about a node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_node)
         """
 
@@ -273,7 +273,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns detailed information about a proposal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_proposal)
         """
 
@@ -287,7 +287,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns a list of the accessors and their properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_accessors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_accessors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_accessors)
         """
 
@@ -297,7 +297,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns a list of all invitations for the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_invitations)
         """
 
@@ -315,7 +315,7 @@ class ManagedBlockchainClient(BaseClient):
         Returns a list of the members in a network and properties of their
         configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_members)
         """
 
@@ -332,7 +332,7 @@ class ManagedBlockchainClient(BaseClient):
         Returns information about the networks in which the current Amazon Web Services
         account participates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_networks)
         """
 
@@ -348,7 +348,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns information about the nodes within a network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_nodes)
         """
 
@@ -359,7 +359,7 @@ class ManagedBlockchainClient(BaseClient):
         Returns the list of votes for a specified proposal, including the value of each
         vote and the unique identifier of the member that cast the vote.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_proposal_votes)
         """
 
@@ -369,7 +369,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns a list of proposals for the network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_proposals)
         """
 
@@ -377,7 +377,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Returns a list of tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_tags_for_resource)
         """
 
@@ -385,7 +385,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Rejects an invitation to join a network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#reject_invitation)
         """
 
@@ -394,7 +394,7 @@ class ManagedBlockchainClient(BaseClient):
         Adds or overwrites the specified tags for the specified Amazon Managed
         Blockchain resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#tag_resource)
         """
 
@@ -402,7 +402,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Removes the specified tags from the Amazon Managed Blockchain resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#untag_resource)
         """
 
@@ -416,7 +416,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Updates a member configuration with new parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#update_member)
         """
 
@@ -431,7 +431,7 @@ class ManagedBlockchainClient(BaseClient):
         """
         Updates a node configuration with new parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#update_node)
         """
 
@@ -441,12 +441,12 @@ class ManagedBlockchainClient(BaseClient):
         """
         Casts a vote for a specified `ProposalId` on behalf of a member.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#vote_on_proposal)
         """
 
     def get_paginator(self, operation_name: Literal["list_accessors"]) -> ListAccessorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/managedblockchain.html#ManagedBlockchain.Paginator.ListAccessors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain.html#ManagedBlockchain.Paginator.ListAccessors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/paginators.html#listaccessorspaginator)
         """

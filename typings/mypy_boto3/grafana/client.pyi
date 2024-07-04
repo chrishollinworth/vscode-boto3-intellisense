@@ -89,7 +89,7 @@ class Exceptions:
 
 class ManagedGrafanaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html)
     """
 
@@ -107,7 +107,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Assigns a Grafana Enterprise license to a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.associate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.associate_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#associate_license)
         """
 
@@ -115,7 +115,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#can_paginate)
         """
 
@@ -123,7 +123,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#close)
         """
 
@@ -151,7 +151,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Creates a *workspace*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.create_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace)
         """
 
@@ -161,7 +161,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Creates a Grafana API key for the workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_api_key)
         """
 
@@ -171,7 +171,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Creates a service account for the workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_service_account)
         """
 
@@ -183,7 +183,7 @@ class ManagedGrafanaClient(BaseClient):
         operations for the given `workspace service account
         <https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_service_account_token)
         """
 
@@ -191,7 +191,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Deletes an Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace)
         """
 
@@ -201,7 +201,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Deletes a Grafana API key for the workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_api_key)
         """
 
@@ -211,7 +211,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Deletes a workspace service account from the workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_service_account)
         """
 
@@ -221,7 +221,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Deletes a token for the workspace service account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_service_account_token)
         """
 
@@ -229,7 +229,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Displays information about one Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace)
         """
 
@@ -240,7 +240,7 @@ class ManagedGrafanaClient(BaseClient):
         Displays information about the authentication methods used in one Amazon Managed
         Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_authentication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_authentication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace_authentication)
         """
 
@@ -250,7 +250,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Gets the current configuration string for the given workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace_configuration)
         """
 
@@ -260,7 +260,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Removes the Grafana Enterprise license from a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.disassociate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.disassociate_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#disassociate_license)
         """
 
@@ -274,7 +274,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#generate_presigned_url)
         """
 
@@ -292,7 +292,7 @@ class ManagedGrafanaClient(BaseClient):
         Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
         this workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_permissions)
         """
 
@@ -301,7 +301,7 @@ class ManagedGrafanaClient(BaseClient):
         The `ListTagsForResource` operation returns the tags that are associated with
         the Amazon Managed Service for Grafana resource specified by the `resourceArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_tags_for_resource)
         """
 
@@ -311,7 +311,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Lists available versions of Grafana.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_versions)
         """
 
@@ -326,7 +326,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Returns a list of tokens for a workspace service account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_account_tokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_account_tokens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspace_service_account_tokens)
         """
 
@@ -336,7 +336,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Returns a list of service accounts for a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspace_service_accounts)
         """
 
@@ -347,7 +347,7 @@ class ManagedGrafanaClient(BaseClient):
         Returns a list of Amazon Managed Grafana workspaces in the account, with some
         information about each workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.list_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspaces)
         """
 
@@ -356,7 +356,7 @@ class ManagedGrafanaClient(BaseClient):
         The `TagResource` operation associates tags with an Amazon Managed Grafana
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#tag_resource)
         """
 
@@ -365,7 +365,7 @@ class ManagedGrafanaClient(BaseClient):
         The `UntagResource` operation removes the association of the tag with the Amazon
         Managed Grafana resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#untag_resource)
         """
 
@@ -375,7 +375,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.update_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_permissions)
         """
 
@@ -401,7 +401,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Modifies an existing Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.update_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace)
         """
 
@@ -416,7 +416,7 @@ class ManagedGrafanaClient(BaseClient):
         Use this operation to define the identity provider (IdP) that this workspace
         authenticates users from, using SAML.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_authentication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_authentication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace_authentication)
         """
 
@@ -429,7 +429,7 @@ class ManagedGrafanaClient(BaseClient):
         18/UpdateWorkspaceConfiguration>`_ **Request Syntax** response =
         client.update_workspace_configuration( configuration='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace_configuration)
         """
 
@@ -438,14 +438,14 @@ class ManagedGrafanaClient(BaseClient):
         self, operation_name: Literal["list_permissions"]
     ) -> ListPermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_versions"]) -> ListVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
         """
 
@@ -454,7 +454,7 @@ class ManagedGrafanaClient(BaseClient):
         self, operation_name: Literal["list_workspace_service_account_tokens"]
     ) -> ListWorkspaceServiceAccountTokensPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
         """
 
@@ -463,13 +463,13 @@ class ManagedGrafanaClient(BaseClient):
         self, operation_name: Literal["list_workspace_service_accounts"]
     ) -> ListWorkspaceServiceAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workspaces"]) -> ListWorkspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
         """

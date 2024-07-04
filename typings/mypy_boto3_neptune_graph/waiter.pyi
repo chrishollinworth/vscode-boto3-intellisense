@@ -50,79 +50,79 @@ __all__ = (
 
 class GraphAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphavailablewaiter)
     """
 
     def wait(self, *, graphIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphavailablewaiter)
         """
 
 class GraphDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphdeletedwaiter)
     """
 
     def wait(self, *, graphIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphdeletedwaiter)
         """
 
 class GraphSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotavailablewaiter)
     """
 
     def wait(self, *, snapshotIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotavailablewaiter)
         """
 
 class GraphSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotdeletedwaiter)
     """
 
     def wait(self, *, snapshotIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotdeletedwaiter)
         """
 
 class ImportTaskCancelledWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtaskcancelledwaiter)
     """
 
     def wait(self, *, taskIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtaskcancelledwaiter)
         """
 
 class ImportTaskSuccessfulWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtasksuccessfulwaiter)
     """
 
     def wait(self, *, taskIdentifier: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtasksuccessfulwaiter)
         """
 
 class PrivateGraphEndpointAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointavailablewaiter)
     """
 
@@ -130,13 +130,13 @@ class PrivateGraphEndpointAvailableWaiter(Boto3Waiter):
         self, *, graphIdentifier: str, vpcId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointavailablewaiter)
         """
 
 class PrivateGraphEndpointDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointdeletedwaiter)
     """
 
@@ -144,6 +144,6 @@ class PrivateGraphEndpointDeletedWaiter(Boto3Waiter):
         self, *, graphIdentifier: str, vpcId: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointdeletedwaiter)
         """

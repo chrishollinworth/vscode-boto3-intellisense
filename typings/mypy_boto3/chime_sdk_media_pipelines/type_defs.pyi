@@ -248,6 +248,7 @@ AmazonTranscribeProcessorConfigurationTypeDef = TypedDict(
         "LanguageModelName": str,
         "FilterPartialResults": bool,
         "IdentifyLanguage": bool,
+        "IdentifyMultipleLanguages": bool,
         "LanguageOptions": str,
         "PreferredLanguage": CallAnalyticsLanguageCodeType,
         "VocabularyNames": str,

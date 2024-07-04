@@ -46,7 +46,7 @@ class Exceptions:
 
 class SupportAppClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html)
     """
 
@@ -62,7 +62,7 @@ class SupportAppClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#can_paginate)
         """
 
@@ -70,7 +70,7 @@ class SupportAppClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#close)
         """
 
@@ -89,7 +89,7 @@ class SupportAppClient(BaseClient):
         """
         Creates a Slack channel configuration for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.create_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.create_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#create_slack_channel_configuration)
         """
 
@@ -97,7 +97,7 @@ class SupportAppClient(BaseClient):
         """
         Deletes an alias for an Amazon Web Services account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.delete_account_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.delete_account_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#delete_account_alias)
         """
 
@@ -105,7 +105,7 @@ class SupportAppClient(BaseClient):
         """
         Deletes a Slack channel configuration from your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.delete_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.delete_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#delete_slack_channel_configuration)
         """
 
@@ -113,7 +113,7 @@ class SupportAppClient(BaseClient):
         """
         Deletes a Slack workspace configuration from your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.delete_slack_workspace_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.delete_slack_workspace_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#delete_slack_workspace_configuration)
         """
 
@@ -127,7 +127,7 @@ class SupportAppClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#generate_presigned_url)
         """
 
@@ -135,7 +135,7 @@ class SupportAppClient(BaseClient):
         """
         Retrieves the alias from an Amazon Web Services account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.get_account_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.get_account_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#get_account_alias)
         """
 
@@ -145,7 +145,7 @@ class SupportAppClient(BaseClient):
         """
         Lists the Slack channel configurations for an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.list_slack_channel_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.list_slack_channel_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#list_slack_channel_configurations)
         """
 
@@ -155,7 +155,7 @@ class SupportAppClient(BaseClient):
         """
         Lists the Slack workspace configurations for an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.list_slack_workspace_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.list_slack_workspace_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#list_slack_workspace_configurations)
         """
 
@@ -163,7 +163,7 @@ class SupportAppClient(BaseClient):
         """
         Creates or updates an individual alias for each Amazon Web Services account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.put_account_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.put_account_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#put_account_alias)
         """
 
@@ -173,7 +173,7 @@ class SupportAppClient(BaseClient):
         """
         Registers a Slack workspace for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.register_slack_workspace_for_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.register_slack_workspace_for_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#register_slack_workspace_for_organization)
         """
 
@@ -193,6 +193,6 @@ class SupportAppClient(BaseClient):
         Updates the configuration for a Slack channel, such as case update
         notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/support-app.html#SupportApp.Client.update_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/support-app.html#SupportApp.Client.update_slack_channel_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/client.html#update_slack_channel_configuration)
         """

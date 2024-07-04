@@ -87,7 +87,7 @@ class Exceptions:
 
 class GroundStationClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html)
     """
 
@@ -103,7 +103,7 @@ class GroundStationClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#can_paginate)
         """
 
@@ -111,7 +111,7 @@ class GroundStationClient(BaseClient):
         """
         Cancels a contact with a specified contact ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.cancel_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.cancel_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#cancel_contact)
         """
 
@@ -119,7 +119,7 @@ class GroundStationClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#close)
         """
 
@@ -129,7 +129,7 @@ class GroundStationClient(BaseClient):
         """
         Creates a `Config` with the specified `configData` parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.create_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.create_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#create_config)
         """
 
@@ -145,7 +145,7 @@ class GroundStationClient(BaseClient):
         Creates a `DataflowEndpoint` group containing the specified list of
         `DataflowEndpoint` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.create_dataflow_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.create_dataflow_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#create_dataflow_endpoint_group)
         """
 
@@ -164,7 +164,7 @@ class GroundStationClient(BaseClient):
         """
         Creates an Ephemeris with the specified `EphemerisData`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.create_ephemeris)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.create_ephemeris)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#create_ephemeris)
         """
 
@@ -184,7 +184,7 @@ class GroundStationClient(BaseClient):
         """
         Creates a mission profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.create_mission_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.create_mission_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#create_mission_profile)
         """
 
@@ -194,7 +194,7 @@ class GroundStationClient(BaseClient):
         """
         Deletes a `Config`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.delete_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.delete_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#delete_config)
         """
 
@@ -204,7 +204,7 @@ class GroundStationClient(BaseClient):
         """
         Deletes a dataflow endpoint group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.delete_dataflow_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.delete_dataflow_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#delete_dataflow_endpoint_group)
         """
 
@@ -214,7 +214,7 @@ class GroundStationClient(BaseClient):
         om/goto/WebAPI/groundstation-2019-05-23/DeleteEphemeris>`_ **Request Syntax**
         response = client.delete_ephemeris( ephemerisId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.delete_ephemeris)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.delete_ephemeris)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#delete_ephemeris)
         """
 
@@ -222,7 +222,7 @@ class GroundStationClient(BaseClient):
         """
         Deletes a mission profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.delete_mission_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.delete_mission_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#delete_mission_profile)
         """
 
@@ -230,7 +230,7 @@ class GroundStationClient(BaseClient):
         """
         Describes an existing contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.describe_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.describe_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#describe_contact)
         """
 
@@ -238,7 +238,7 @@ class GroundStationClient(BaseClient):
         """
         Describes an existing ephemeris.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.describe_ephemeris)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.describe_ephemeris)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#describe_ephemeris)
         """
 
@@ -252,7 +252,7 @@ class GroundStationClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#generate_presigned_url)
         """
 
@@ -260,7 +260,7 @@ class GroundStationClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_agent_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_agent_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_agent_configuration)
         """
 
@@ -270,7 +270,7 @@ class GroundStationClient(BaseClient):
         """
         Returns `Config` information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_config)
         """
 
@@ -280,7 +280,7 @@ class GroundStationClient(BaseClient):
         """
         Returns the dataflow endpoint group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_dataflow_endpoint_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_dataflow_endpoint_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_dataflow_endpoint_group)
         """
 
@@ -288,7 +288,7 @@ class GroundStationClient(BaseClient):
         """
         Returns the number of reserved minutes used by account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_minute_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_minute_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_minute_usage)
         """
 
@@ -296,7 +296,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a mission profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_mission_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_mission_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_mission_profile)
         """
 
@@ -304,7 +304,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a satellite.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.get_satellite)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.get_satellite)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#get_satellite)
         """
 
@@ -314,7 +314,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of `Config` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_configs)
         """
 
@@ -333,7 +333,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of contacts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_contacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_contacts)
         """
 
@@ -343,7 +343,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of `DataflowEndpoint` groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_dataflow_endpoint_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_dataflow_endpoint_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_dataflow_endpoint_groups)
         """
 
@@ -360,7 +360,7 @@ class GroundStationClient(BaseClient):
         """
         List existing ephemerides.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_ephemerides)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_ephemerides)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_ephemerides)
         """
 
@@ -370,7 +370,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of ground stations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_ground_stations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_ground_stations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_ground_stations)
         """
 
@@ -380,7 +380,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of mission profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_mission_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_mission_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_mission_profiles)
         """
 
@@ -390,7 +390,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of satellites.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_satellites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_satellites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_satellites)
         """
 
@@ -398,7 +398,7 @@ class GroundStationClient(BaseClient):
         """
         Returns a list of tags for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#list_tags_for_resource)
         """
 
@@ -408,7 +408,7 @@ class GroundStationClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.register_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.register_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#register_agent)
         """
 
@@ -425,7 +425,7 @@ class GroundStationClient(BaseClient):
         """
         Reserves a contact using specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.reserve_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.reserve_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#reserve_contact)
         """
 
@@ -433,7 +433,7 @@ class GroundStationClient(BaseClient):
         """
         Assigns a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#tag_resource)
         """
 
@@ -441,7 +441,7 @@ class GroundStationClient(BaseClient):
         """
         Deassigns a resource tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#untag_resource)
         """
 
@@ -456,7 +456,7 @@ class GroundStationClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.update_agent_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.update_agent_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#update_agent_status)
         """
 
@@ -471,7 +471,7 @@ class GroundStationClient(BaseClient):
         """
         Updates the `Config` used when scheduling contacts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.update_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.update_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#update_config)
         """
 
@@ -484,7 +484,7 @@ class GroundStationClient(BaseClient):
         Syntax** response = client.update_ephemeris( enabled=True|False,
         ephemerisId='string', name='string', pr...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.update_ephemeris)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.update_ephemeris)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#update_ephemeris)
         """
 
@@ -504,21 +504,21 @@ class GroundStationClient(BaseClient):
         """
         Updates a mission profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Client.update_mission_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Client.update_mission_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/client.html#update_mission_profile)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_configs"]) -> ListConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listconfigspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_contacts"]) -> ListContactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listcontactspaginator)
         """
 
@@ -527,7 +527,7 @@ class GroundStationClient(BaseClient):
         self, operation_name: Literal["list_dataflow_endpoint_groups"]
     ) -> ListDataflowEndpointGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listdataflowendpointgroupspaginator)
         """
 
@@ -536,7 +536,7 @@ class GroundStationClient(BaseClient):
         self, operation_name: Literal["list_ephemerides"]
     ) -> ListEphemeridesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListEphemerides)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListEphemerides)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listephemeridespaginator)
         """
 
@@ -545,7 +545,7 @@ class GroundStationClient(BaseClient):
         self, operation_name: Literal["list_ground_stations"]
     ) -> ListGroundStationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listgroundstationspaginator)
         """
 
@@ -554,19 +554,19 @@ class GroundStationClient(BaseClient):
         self, operation_name: Literal["list_mission_profiles"]
     ) -> ListMissionProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listmissionprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_satellites"]) -> ListSatellitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/paginators.html#listsatellitespaginator)
         """
 
     def get_waiter(self, waiter_name: Literal["contact_scheduled"]) -> ContactScheduledWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/groundstation.html#GroundStation.Waiter.ContactScheduled)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_groundstation/waiters.html#contactscheduledwaiter)
         """

@@ -66,7 +66,7 @@ class Exceptions:
 
 class MarketplaceCatalogClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html)
     """
 
@@ -84,7 +84,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Returns metadata and content for multiple entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.batch_describe_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.batch_describe_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#batch_describe_entities)
         """
 
@@ -92,7 +92,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#can_paginate)
         """
 
@@ -102,7 +102,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Used to cancel an open change request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.cancel_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.cancel_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#cancel_change_set)
         """
 
@@ -110,7 +110,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#close)
         """
 
@@ -119,7 +119,7 @@ class MarketplaceCatalogClient(BaseClient):
         Deletes a resource-based policy on an entity that is identified by its resource
         ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#delete_resource_policy)
         """
 
@@ -129,7 +129,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Provides information about a given change set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#describe_change_set)
         """
 
@@ -137,7 +137,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Returns the metadata and content of the entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#describe_entity)
         """
 
@@ -151,7 +151,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#generate_presigned_url)
         """
 
@@ -160,7 +160,7 @@ class MarketplaceCatalogClient(BaseClient):
         Gets a resource-based policy of an entity that is identified by its resource
         ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#get_resource_policy)
         """
 
@@ -177,7 +177,7 @@ class MarketplaceCatalogClient(BaseClient):
         Returns the list of change sets owned by the account being used to make the
         call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_change_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_change_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#list_change_sets)
         """
 
@@ -197,7 +197,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Provides the list of entities of a given type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#list_entities)
         """
 
@@ -209,7 +209,7 @@ class MarketplaceCatalogClient(BaseClient):
         <https://docs.aws.amazon.com/marketplace-catalog/latest/api-
         reference/welcome.html#working-with-change-se...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#list_tags_for_resource)
         """
 
@@ -217,7 +217,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Attaches a resource-based policy to an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#put_resource_policy)
         """
 
@@ -234,7 +234,7 @@ class MarketplaceCatalogClient(BaseClient):
         """
         Allows you to request changes for your entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.start_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.start_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#start_change_set)
         """
 
@@ -245,7 +245,7 @@ class MarketplaceCatalogClient(BaseClient):
         set <https://docs.aws.amazon.com/marketplace-catalog/latest/api-
         reference/welcome.html#working-with-change-sets>`__).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#tag_resource)
         """
 
@@ -257,20 +257,20 @@ class MarketplaceCatalogClient(BaseClient):
         <https://docs.aws.amazon.com/marketplace-catalog/latest/api-
         reference/welcome.html#working-with-change-sets>`...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#untag_resource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_change_sets"]) -> ListChangeSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListChangeSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListChangeSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listchangesetspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_entities"]) -> ListEntitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListEntities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListEntities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listentitiespaginator)
         """

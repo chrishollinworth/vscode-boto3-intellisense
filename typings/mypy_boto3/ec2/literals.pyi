@@ -992,7 +992,7 @@ GetTransitGatewayRouteTablePropagationsPaginatorName = Literal[
 GetVpnConnectionDeviceTypesPaginatorName = Literal["get_vpn_connection_device_types"]
 HostMaintenanceType = Literal["off", "on"]
 HostRecoveryType = Literal["off", "on"]
-HostTenancyType = Literal["dedicated", "host"]
+HostTenancyType = Literal["dedicated", "default", "host"]
 HostnameTypeType = Literal["ip-name", "resource-name"]
 HttpTokensStateType = Literal["optional", "required"]
 HypervisorTypeType = Literal["ovm", "xen"]
@@ -1229,6 +1229,7 @@ InstanceTypeType = Literal[
     "c7gn.8xlarge",
     "c7gn.large",
     "c7gn.medium",
+    "c7gn.metal",
     "c7gn.xlarge",
     "c7i-flex.2xlarge",
     "c7i-flex.4xlarge",
@@ -1573,6 +1574,7 @@ InstanceTypeType = Literal[
     "m7i.metal-48xl",
     "m7i.xlarge",
     "mac1.metal",
+    "mac2-m1ultra.metal",
     "mac2-m2.metal",
     "mac2-m2pro.metal",
     "mac2.metal",
@@ -1778,6 +1780,18 @@ InstanceTypeType = Literal[
     "r7iz.metal-16xl",
     "r7iz.metal-32xl",
     "r7iz.xlarge",
+    "r8g.12xlarge",
+    "r8g.16xlarge",
+    "r8g.24xlarge",
+    "r8g.2xlarge",
+    "r8g.48xlarge",
+    "r8g.4xlarge",
+    "r8g.8xlarge",
+    "r8g.large",
+    "r8g.medium",
+    "r8g.metal-24xl",
+    "r8g.metal-48xl",
+    "r8g.xlarge",
     "t1.micro",
     "t2.2xlarge",
     "t2.large",
@@ -1823,6 +1837,7 @@ InstanceTypeType = Literal[
     "u-9tb1.112xlarge",
     "u-9tb1.metal",
     "u7i-12tb.224xlarge",
+    "u7ib-12tb.224xlarge",
     "u7in-16tb.224xlarge",
     "u7in-24tb.224xlarge",
     "u7in-32tb.224xlarge",
@@ -2206,6 +2221,7 @@ ResourceTypeType = Literal[
     "volume",
     "vpc",
     "vpc-block-public-access-exclusion",
+    "vpc-encryption-control",
     "vpc-endpoint",
     "vpc-endpoint-connection",
     "vpc-endpoint-connection-device-type",

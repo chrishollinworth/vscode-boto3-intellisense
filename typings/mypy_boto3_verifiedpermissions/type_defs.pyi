@@ -92,6 +92,21 @@ __all__ = (
     "ListPolicyStoresOutputTypeDef",
     "ListPolicyTemplatesInputRequestTypeDef",
     "ListPolicyTemplatesOutputTypeDef",
+    "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
+    "OpenIdConnectAccessTokenConfigurationItemTypeDef",
+    "OpenIdConnectAccessTokenConfigurationTypeDef",
+    "OpenIdConnectConfigurationDetailTypeDef",
+    "OpenIdConnectConfigurationItemTypeDef",
+    "OpenIdConnectConfigurationTypeDef",
+    "OpenIdConnectGroupConfigurationDetailTypeDef",
+    "OpenIdConnectGroupConfigurationItemTypeDef",
+    "OpenIdConnectGroupConfigurationTypeDef",
+    "OpenIdConnectIdentityTokenConfigurationDetailTypeDef",
+    "OpenIdConnectIdentityTokenConfigurationItemTypeDef",
+    "OpenIdConnectIdentityTokenConfigurationTypeDef",
+    "OpenIdConnectTokenSelectionDetailTypeDef",
+    "OpenIdConnectTokenSelectionItemTypeDef",
+    "OpenIdConnectTokenSelectionTypeDef",
     "PaginatorConfigTypeDef",
     "PolicyDefinitionDetailTypeDef",
     "PolicyDefinitionItemTypeDef",
@@ -115,6 +130,11 @@ __all__ = (
     "UpdateConfigurationTypeDef",
     "UpdateIdentitySourceInputRequestTypeDef",
     "UpdateIdentitySourceOutputTypeDef",
+    "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
+    "UpdateOpenIdConnectConfigurationTypeDef",
+    "UpdateOpenIdConnectGroupConfigurationTypeDef",
+    "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
+    "UpdateOpenIdConnectTokenSelectionTypeDef",
     "UpdatePolicyDefinitionTypeDef",
     "UpdatePolicyInputRequestTypeDef",
     "UpdatePolicyOutputTypeDef",
@@ -339,6 +359,7 @@ ConfigurationDetailTypeDef = TypedDict(
     "ConfigurationDetailTypeDef",
     {
         "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationDetailTypeDef",
+        "openIdConnectConfiguration": "OpenIdConnectConfigurationDetailTypeDef",
     },
     total=False,
 )
@@ -347,6 +368,7 @@ ConfigurationItemTypeDef = TypedDict(
     "ConfigurationItemTypeDef",
     {
         "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationItemTypeDef",
+        "openIdConnectConfiguration": "OpenIdConnectConfigurationItemTypeDef",
     },
     total=False,
 )
@@ -355,6 +377,7 @@ ConfigurationTypeDef = TypedDict(
     "ConfigurationTypeDef",
     {
         "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationTypeDef",
+        "openIdConnectConfiguration": "OpenIdConnectConfigurationTypeDef",
     },
     total=False,
 )
@@ -925,6 +948,175 @@ ListPolicyTemplatesOutputTypeDef = TypedDict(
     },
 )
 
+OpenIdConnectAccessTokenConfigurationDetailTypeDef = TypedDict(
+    "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
+    {
+        "principalIdClaim": str,
+        "audiences": List[str],
+    },
+    total=False,
+)
+
+OpenIdConnectAccessTokenConfigurationItemTypeDef = TypedDict(
+    "OpenIdConnectAccessTokenConfigurationItemTypeDef",
+    {
+        "principalIdClaim": str,
+        "audiences": List[str],
+    },
+    total=False,
+)
+
+OpenIdConnectAccessTokenConfigurationTypeDef = TypedDict(
+    "OpenIdConnectAccessTokenConfigurationTypeDef",
+    {
+        "principalIdClaim": str,
+        "audiences": List[str],
+    },
+    total=False,
+)
+
+_RequiredOpenIdConnectConfigurationDetailTypeDef = TypedDict(
+    "_RequiredOpenIdConnectConfigurationDetailTypeDef",
+    {
+        "issuer": str,
+        "tokenSelection": "OpenIdConnectTokenSelectionDetailTypeDef",
+    },
+)
+_OptionalOpenIdConnectConfigurationDetailTypeDef = TypedDict(
+    "_OptionalOpenIdConnectConfigurationDetailTypeDef",
+    {
+        "entityIdPrefix": str,
+        "groupConfiguration": "OpenIdConnectGroupConfigurationDetailTypeDef",
+    },
+    total=False,
+)
+
+class OpenIdConnectConfigurationDetailTypeDef(
+    _RequiredOpenIdConnectConfigurationDetailTypeDef,
+    _OptionalOpenIdConnectConfigurationDetailTypeDef,
+):
+    pass
+
+_RequiredOpenIdConnectConfigurationItemTypeDef = TypedDict(
+    "_RequiredOpenIdConnectConfigurationItemTypeDef",
+    {
+        "issuer": str,
+        "tokenSelection": "OpenIdConnectTokenSelectionItemTypeDef",
+    },
+)
+_OptionalOpenIdConnectConfigurationItemTypeDef = TypedDict(
+    "_OptionalOpenIdConnectConfigurationItemTypeDef",
+    {
+        "entityIdPrefix": str,
+        "groupConfiguration": "OpenIdConnectGroupConfigurationItemTypeDef",
+    },
+    total=False,
+)
+
+class OpenIdConnectConfigurationItemTypeDef(
+    _RequiredOpenIdConnectConfigurationItemTypeDef, _OptionalOpenIdConnectConfigurationItemTypeDef
+):
+    pass
+
+_RequiredOpenIdConnectConfigurationTypeDef = TypedDict(
+    "_RequiredOpenIdConnectConfigurationTypeDef",
+    {
+        "issuer": str,
+        "tokenSelection": "OpenIdConnectTokenSelectionTypeDef",
+    },
+)
+_OptionalOpenIdConnectConfigurationTypeDef = TypedDict(
+    "_OptionalOpenIdConnectConfigurationTypeDef",
+    {
+        "entityIdPrefix": str,
+        "groupConfiguration": "OpenIdConnectGroupConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class OpenIdConnectConfigurationTypeDef(
+    _RequiredOpenIdConnectConfigurationTypeDef, _OptionalOpenIdConnectConfigurationTypeDef
+):
+    pass
+
+OpenIdConnectGroupConfigurationDetailTypeDef = TypedDict(
+    "OpenIdConnectGroupConfigurationDetailTypeDef",
+    {
+        "groupClaim": str,
+        "groupEntityType": str,
+    },
+)
+
+OpenIdConnectGroupConfigurationItemTypeDef = TypedDict(
+    "OpenIdConnectGroupConfigurationItemTypeDef",
+    {
+        "groupClaim": str,
+        "groupEntityType": str,
+    },
+)
+
+OpenIdConnectGroupConfigurationTypeDef = TypedDict(
+    "OpenIdConnectGroupConfigurationTypeDef",
+    {
+        "groupClaim": str,
+        "groupEntityType": str,
+    },
+)
+
+OpenIdConnectIdentityTokenConfigurationDetailTypeDef = TypedDict(
+    "OpenIdConnectIdentityTokenConfigurationDetailTypeDef",
+    {
+        "principalIdClaim": str,
+        "clientIds": List[str],
+    },
+    total=False,
+)
+
+OpenIdConnectIdentityTokenConfigurationItemTypeDef = TypedDict(
+    "OpenIdConnectIdentityTokenConfigurationItemTypeDef",
+    {
+        "principalIdClaim": str,
+        "clientIds": List[str],
+    },
+    total=False,
+)
+
+OpenIdConnectIdentityTokenConfigurationTypeDef = TypedDict(
+    "OpenIdConnectIdentityTokenConfigurationTypeDef",
+    {
+        "principalIdClaim": str,
+        "clientIds": List[str],
+    },
+    total=False,
+)
+
+OpenIdConnectTokenSelectionDetailTypeDef = TypedDict(
+    "OpenIdConnectTokenSelectionDetailTypeDef",
+    {
+        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
+        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationDetailTypeDef",
+    },
+    total=False,
+)
+
+OpenIdConnectTokenSelectionItemTypeDef = TypedDict(
+    "OpenIdConnectTokenSelectionItemTypeDef",
+    {
+        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationItemTypeDef",
+        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationItemTypeDef",
+    },
+    total=False,
+)
+
+OpenIdConnectTokenSelectionTypeDef = TypedDict(
+    "OpenIdConnectTokenSelectionTypeDef",
+    {
+        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationTypeDef",
+        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationTypeDef",
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1218,6 +1410,7 @@ UpdateConfigurationTypeDef = TypedDict(
     "UpdateConfigurationTypeDef",
     {
         "cognitoUserPoolConfiguration": "UpdateCognitoUserPoolConfigurationTypeDef",
+        "openIdConnectConfiguration": "UpdateOpenIdConnectConfigurationTypeDef",
     },
     total=False,
 )
@@ -1253,6 +1446,63 @@ UpdateIdentitySourceOutputTypeDef = TypedDict(
         "policyStoreId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UpdateOpenIdConnectAccessTokenConfigurationTypeDef = TypedDict(
+    "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
+    {
+        "principalIdClaim": str,
+        "audiences": List[str],
+    },
+    total=False,
+)
+
+_RequiredUpdateOpenIdConnectConfigurationTypeDef = TypedDict(
+    "_RequiredUpdateOpenIdConnectConfigurationTypeDef",
+    {
+        "issuer": str,
+        "tokenSelection": "UpdateOpenIdConnectTokenSelectionTypeDef",
+    },
+)
+_OptionalUpdateOpenIdConnectConfigurationTypeDef = TypedDict(
+    "_OptionalUpdateOpenIdConnectConfigurationTypeDef",
+    {
+        "entityIdPrefix": str,
+        "groupConfiguration": "UpdateOpenIdConnectGroupConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateOpenIdConnectConfigurationTypeDef(
+    _RequiredUpdateOpenIdConnectConfigurationTypeDef,
+    _OptionalUpdateOpenIdConnectConfigurationTypeDef,
+):
+    pass
+
+UpdateOpenIdConnectGroupConfigurationTypeDef = TypedDict(
+    "UpdateOpenIdConnectGroupConfigurationTypeDef",
+    {
+        "groupClaim": str,
+        "groupEntityType": str,
+    },
+)
+
+UpdateOpenIdConnectIdentityTokenConfigurationTypeDef = TypedDict(
+    "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
+    {
+        "principalIdClaim": str,
+        "clientIds": List[str],
+    },
+    total=False,
+)
+
+UpdateOpenIdConnectTokenSelectionTypeDef = TypedDict(
+    "UpdateOpenIdConnectTokenSelectionTypeDef",
+    {
+        "accessTokenOnly": "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
+        "identityTokenOnly": "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
+    },
+    total=False,
 )
 
 UpdatePolicyDefinitionTypeDef = TypedDict(

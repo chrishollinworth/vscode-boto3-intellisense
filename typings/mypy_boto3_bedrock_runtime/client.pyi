@@ -22,6 +22,8 @@ from .literals import TraceType
 from .type_defs import (
     ConverseResponseTypeDef,
     ConverseStreamResponseTypeDef,
+    GuardrailConfigurationTypeDef,
+    GuardrailStreamConfigurationTypeDef,
     InferenceConfigurationTypeDef,
     InvokeModelResponseTypeDef,
     InvokeModelWithResponseStreamResponseTypeDef,
@@ -54,7 +56,7 @@ class Exceptions:
 
 class BedrockRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html)
     """
 
@@ -70,7 +72,7 @@ class BedrockRuntimeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#can_paginate)
         """
 
@@ -78,7 +80,7 @@ class BedrockRuntimeClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#close)
         """
 
@@ -90,13 +92,14 @@ class BedrockRuntimeClient(BaseClient):
         system: List["SystemContentBlockTypeDef"] = None,
         inferenceConfig: "InferenceConfigurationTypeDef" = None,
         toolConfig: "ToolConfigurationTypeDef" = None,
+        guardrailConfig: "GuardrailConfigurationTypeDef" = None,
         additionalModelRequestFields: Dict[str, Any] = None,
         additionalModelResponseFieldPaths: List[str] = None
     ) -> ConverseResponseTypeDef:
         """
         Sends messages to the specified Amazon Bedrock model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#converse)
         """
 
@@ -108,6 +111,7 @@ class BedrockRuntimeClient(BaseClient):
         system: List["SystemContentBlockTypeDef"] = None,
         inferenceConfig: "InferenceConfigurationTypeDef" = None,
         toolConfig: "ToolConfigurationTypeDef" = None,
+        guardrailConfig: "GuardrailStreamConfigurationTypeDef" = None,
         additionalModelRequestFields: Dict[str, Any] = None,
         additionalModelResponseFieldPaths: List[str] = None
     ) -> ConverseStreamResponseTypeDef:
@@ -115,7 +119,7 @@ class BedrockRuntimeClient(BaseClient):
         Sends messages to the specified Amazon Bedrock model and returns the response in
         a stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.converse_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#converse_stream)
         """
 
@@ -129,7 +133,7 @@ class BedrockRuntimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#generate_presigned_url)
         """
 
@@ -148,7 +152,7 @@ class BedrockRuntimeClient(BaseClient):
         Invokes the specified Amazon Bedrock model to run inference using the prompt and
         inference parameters provided in the request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model)
         """
 
@@ -167,6 +171,6 @@ class BedrockRuntimeClient(BaseClient):
         Invoke the specified Amazon Bedrock model to run inference using the prompt and
         inference parameters provided in the request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-runtime.html#BedrockRuntime.Client.invoke_model_with_response_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/client.html#invoke_model_with_response_stream)
         """

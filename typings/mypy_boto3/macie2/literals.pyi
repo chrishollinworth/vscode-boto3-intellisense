@@ -23,6 +23,10 @@ __all__ = (
     "AdminStatusType",
     "AllowListStatusCodeType",
     "AllowsUnencryptedObjectUploadsType",
+    "AutoEnableModeType",
+    "AutomatedDiscoveryAccountStatusType",
+    "AutomatedDiscoveryAccountUpdateErrorCodeType",
+    "AutomatedDiscoveryMonitoringStatusType",
     "AutomatedDiscoveryStatusType",
     "AvailabilityCodeType",
     "BucketMetadataErrorCodeType",
@@ -51,6 +55,7 @@ __all__ = (
     "JobTypeType",
     "LastRunErrorStatusCodeType",
     "ListAllowListsPaginatorName",
+    "ListAutomatedDiscoveryAccountsPaginatorName",
     "ListClassificationJobsPaginatorName",
     "ListClassificationScopesPaginatorName",
     "ListCustomDataIdentifiersPaginatorName",
@@ -107,6 +112,10 @@ AllowListStatusCodeType = Literal[
     "UNKNOWN_ERROR",
 ]
 AllowsUnencryptedObjectUploadsType = Literal["FALSE", "TRUE", "UNKNOWN"]
+AutoEnableModeType = Literal["ALL", "NEW", "NONE"]
+AutomatedDiscoveryAccountStatusType = Literal["DISABLED", "ENABLED"]
+AutomatedDiscoveryAccountUpdateErrorCodeType = Literal["ACCOUNT_NOT_FOUND", "ACCOUNT_PAUSED"]
+AutomatedDiscoveryMonitoringStatusType = Literal["MONITORED", "NOT_MONITORED"]
 AutomatedDiscoveryStatusType = Literal["DISABLED", "ENABLED"]
 AvailabilityCodeType = Literal["AVAILABLE", "UNAVAILABLE"]
 BucketMetadataErrorCodeType = Literal["ACCESS_DENIED"]
@@ -151,6 +160,7 @@ JobStatusType = Literal["CANCELLED", "COMPLETE", "IDLE", "PAUSED", "RUNNING", "U
 JobTypeType = Literal["ONE_TIME", "SCHEDULED"]
 LastRunErrorStatusCodeType = Literal["ERROR", "NONE"]
 ListAllowListsPaginatorName = Literal["list_allow_lists"]
+ListAutomatedDiscoveryAccountsPaginatorName = Literal["list_automated_discovery_accounts"]
 ListClassificationJobsPaginatorName = Literal["list_classification_jobs"]
 ListClassificationScopesPaginatorName = Literal["list_classification_scopes"]
 ListCustomDataIdentifiersPaginatorName = Literal["list_custom_data_identifiers"]
@@ -190,7 +200,11 @@ ScopeFilterKeyType = Literal[
 SearchResourcesComparatorType = Literal["EQ", "NE"]
 SearchResourcesPaginatorName = Literal["search_resources"]
 SearchResourcesSimpleCriterionKeyType = Literal[
-    "ACCOUNT_ID", "S3_BUCKET_EFFECTIVE_PERMISSION", "S3_BUCKET_NAME", "S3_BUCKET_SHARED_ACCESS"
+    "ACCOUNT_ID",
+    "AUTOMATED_DISCOVERY_MONITORING_STATUS",
+    "S3_BUCKET_EFFECTIVE_PERMISSION",
+    "S3_BUCKET_NAME",
+    "S3_BUCKET_SHARED_ACCESS",
 ]
 SearchResourcesSortAttributeNameType = Literal[
     "ACCOUNT_ID", "RESOURCE_NAME", "S3_CLASSIFIABLE_OBJECT_COUNT", "S3_CLASSIFIABLE_SIZE_IN_BYTES"

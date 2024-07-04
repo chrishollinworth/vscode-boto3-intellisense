@@ -122,6 +122,7 @@ __all__ = (
     "DeploymentCircuitBreakerTypeDef",
     "DeploymentConfigurationTypeDef",
     "DeploymentControllerTypeDef",
+    "DeploymentEphemeralStorageTypeDef",
     "DeploymentTypeDef",
     "DeregisterContainerInstanceRequestRequestTypeDef",
     "DeregisterContainerInstanceResponseTypeDef",
@@ -194,6 +195,7 @@ __all__ = (
     "ManagedAgentStateChangeTypeDef",
     "ManagedAgentTypeDef",
     "ManagedScalingTypeDef",
+    "ManagedStorageConfigurationTypeDef",
     "MountPointTypeDef",
     "NetworkBindingTypeDef",
     "NetworkConfigurationTypeDef",
@@ -254,6 +256,7 @@ __all__ = (
     "TagTypeDef",
     "TaskDefinitionPlacementConstraintTypeDef",
     "TaskDefinitionTypeDef",
+    "TaskEphemeralStorageTypeDef",
     "TaskManagedEBSVolumeConfigurationTypeDef",
     "TaskManagedEBSVolumeTerminationPolicyTypeDef",
     "TaskOverrideTypeDef",
@@ -415,6 +418,7 @@ ClusterConfigurationTypeDef = TypedDict(
     "ClusterConfigurationTypeDef",
     {
         "executeCommandConfiguration": "ExecuteCommandConfigurationTypeDef",
+        "managedStorageConfiguration": "ManagedStorageConfigurationTypeDef",
     },
     total=False,
 )
@@ -939,6 +943,14 @@ DeploymentControllerTypeDef = TypedDict(
     },
 )
 
+DeploymentEphemeralStorageTypeDef = TypedDict(
+    "DeploymentEphemeralStorageTypeDef",
+    {
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
 DeploymentTypeDef = TypedDict(
     "DeploymentTypeDef",
     {
@@ -961,6 +973,7 @@ DeploymentTypeDef = TypedDict(
         "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
         "serviceConnectResources": List["ServiceConnectServiceResourceTypeDef"],
         "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
+        "fargateEphemeralStorage": "DeploymentEphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -1835,6 +1848,15 @@ ManagedScalingTypeDef = TypedDict(
     total=False,
 )
 
+ManagedStorageConfigurationTypeDef = TypedDict(
+    "ManagedStorageConfigurationTypeDef",
+    {
+        "kmsKeyId": str,
+        "fargateEphemeralStorageKmsKeyId": str,
+    },
+    total=False,
+)
+
 MountPointTypeDef = TypedDict(
     "MountPointTypeDef",
     {
@@ -2657,6 +2679,15 @@ TaskDefinitionTypeDef = TypedDict(
     total=False,
 )
 
+TaskEphemeralStorageTypeDef = TypedDict(
+    "TaskEphemeralStorageTypeDef",
+    {
+        "sizeInGiB": int,
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
 _RequiredTaskManagedEBSVolumeConfigurationTypeDef = TypedDict(
     "_RequiredTaskManagedEBSVolumeConfigurationTypeDef",
     {
@@ -2734,6 +2765,7 @@ TaskSetTypeDef = TypedDict(
         "stabilityStatus": StabilityStatusType,
         "stabilityStatusAt": datetime,
         "tags": List["TagTypeDef"],
+        "fargateEphemeralStorage": "DeploymentEphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -2777,6 +2809,7 @@ TaskTypeDef = TypedDict(
         "taskDefinitionArn": str,
         "version": int,
         "ephemeralStorage": "EphemeralStorageTypeDef",
+        "fargateEphemeralStorage": "TaskEphemeralStorageTypeDef",
     },
     total=False,
 )

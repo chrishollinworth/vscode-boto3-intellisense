@@ -133,7 +133,7 @@ class Exceptions:
 
 class SSOAdminClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html)
     """
 
@@ -155,7 +155,7 @@ class SSOAdminClient(BaseClient):
         """
         Attaches the specified customer managed policy to the specified  PermissionSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.attach_customer_managed_policy_reference_to_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.attach_customer_managed_policy_reference_to_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#attach_customer_managed_policy_reference_to_permission_set)
         """
 
@@ -165,7 +165,7 @@ class SSOAdminClient(BaseClient):
         """
         Attaches an Amazon Web Services managed policy ARN to a permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.attach_managed_policy_to_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.attach_managed_policy_to_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#attach_managed_policy_to_permission_set)
         """
 
@@ -173,7 +173,7 @@ class SSOAdminClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#can_paginate)
         """
 
@@ -181,7 +181,7 @@ class SSOAdminClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#close)
         """
 
@@ -199,7 +199,7 @@ class SSOAdminClient(BaseClient):
         Assigns access to a principal for a specified Amazon Web Services account using
         a specified permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_account_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_account_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_account_assignment)
         """
 
@@ -219,7 +219,7 @@ class SSOAdminClient(BaseClient):
         Creates an application in IAM Identity Center for the given application
         provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_application)
         """
 
@@ -229,7 +229,7 @@ class SSOAdminClient(BaseClient):
         """
         Grant application access to a user or group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_application_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_application_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_application_assignment)
         """
 
@@ -241,7 +241,7 @@ class SSOAdminClient(BaseClient):
         account that is not managed by Organizations or a member Amazon Web Services
         account in an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_instance)
         """
 
@@ -255,7 +255,7 @@ class SSOAdminClient(BaseClient):
         Enables the attributes-based access control (ABAC) feature for the specified IAM
         Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_instance_access_control_attribute_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_instance_access_control_attribute_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_instance_access_control_attribute_configuration)
         """
 
@@ -272,7 +272,7 @@ class SSOAdminClient(BaseClient):
         """
         Creates a permission set within a specified IAM Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_permission_set)
         """
 
@@ -290,7 +290,7 @@ class SSOAdminClient(BaseClient):
         Creates a connection to a trusted token issuer in an instance of IAM Identity
         Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.create_trusted_token_issuer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.create_trusted_token_issuer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#create_trusted_token_issuer)
         """
 
@@ -308,7 +308,7 @@ class SSOAdminClient(BaseClient):
         Deletes a principal's access from a specified Amazon Web Services account using
         a specified permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_account_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_account_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_account_assignment)
         """
 
@@ -316,7 +316,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes the association with the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_application)
         """
 
@@ -324,7 +324,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes an IAM Identity Center access scope from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_access_scope)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_access_scope)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_application_access_scope)
         """
 
@@ -335,7 +335,7 @@ class SSOAdminClient(BaseClient):
         Revoke application access to an application by deleting application assignments
         for a user or group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_application_assignment)
         """
 
@@ -345,7 +345,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes an authentication method from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_authentication_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_authentication_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_application_authentication_method)
         """
 
@@ -353,7 +353,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes a grant from an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_application_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_application_grant)
         """
 
@@ -363,7 +363,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes the inline policy from a specified permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_inline_policy_from_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_inline_policy_from_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_inline_policy_from_permission_set)
         """
 
@@ -371,7 +371,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes the instance of IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_instance)
         """
 
@@ -383,7 +383,7 @@ class SSOAdminClient(BaseClient):
         IAM Identity Center instance and deletes all of the attribute mappings that have
         been configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance_access_control_attribute_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance_access_control_attribute_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_instance_access_control_attribute_configuration)
         """
 
@@ -391,7 +391,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes the specified permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_permission_set)
         """
 
@@ -401,7 +401,7 @@ class SSOAdminClient(BaseClient):
         """
         Deletes the permissions boundary from a specified  PermissionSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_permissions_boundary_from_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_permissions_boundary_from_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_permissions_boundary_from_permission_set)
         """
 
@@ -410,7 +410,7 @@ class SSOAdminClient(BaseClient):
         Deletes a trusted token issuer configuration from an instance of IAM Identity
         Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.delete_trusted_token_issuer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.delete_trusted_token_issuer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#delete_trusted_token_issuer)
         """
 
@@ -420,7 +420,7 @@ class SSOAdminClient(BaseClient):
         """
         Describes the status of the assignment creation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_creation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_creation_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_account_assignment_creation_status)
         """
 
@@ -430,7 +430,7 @@ class SSOAdminClient(BaseClient):
         """
         Describes the status of the assignment deletion request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_deletion_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_deletion_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_account_assignment_deletion_status)
         """
 
@@ -439,7 +439,7 @@ class SSOAdminClient(BaseClient):
         Retrieves the details of an application associated with an instance of IAM
         Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_application)
         """
 
@@ -449,7 +449,7 @@ class SSOAdminClient(BaseClient):
         """
         Retrieves a direct assignment of a user or group to an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_application_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_application_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_application_assignment)
         """
 
@@ -461,7 +461,7 @@ class SSOAdminClient(BaseClient):
         Services managed application or customer managed application to IAM Identity
         Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_application_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_application_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_application_provider)
         """
 
@@ -469,7 +469,7 @@ class SSOAdminClient(BaseClient):
         """
         Returns the details of an instance of IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_instance)
         """
 
@@ -481,7 +481,7 @@ class SSOAdminClient(BaseClient):
         configured to work with attributes-based access control (ABAC) for the specified
         IAM Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance_access_control_attribute_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance_access_control_attribute_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_instance_access_control_attribute_configuration)
         """
 
@@ -491,7 +491,7 @@ class SSOAdminClient(BaseClient):
         """
         Gets the details of the permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_permission_set)
         """
 
@@ -501,7 +501,7 @@ class SSOAdminClient(BaseClient):
         """
         Describes the status for the given permission set provisioning request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set_provisioning_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set_provisioning_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_permission_set_provisioning_status)
         """
 
@@ -512,7 +512,7 @@ class SSOAdminClient(BaseClient):
         Retrieves details about a trusted token issuer configuration stored in an
         instance of IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.describe_trusted_token_issuer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.describe_trusted_token_issuer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#describe_trusted_token_issuer)
         """
 
@@ -527,7 +527,7 @@ class SSOAdminClient(BaseClient):
         Detaches the specified customer managed policy from the specified
         PermissionSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.detach_customer_managed_policy_reference_from_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.detach_customer_managed_policy_reference_from_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#detach_customer_managed_policy_reference_from_permission_set)
         """
 
@@ -538,7 +538,7 @@ class SSOAdminClient(BaseClient):
         Detaches the attached Amazon Web Services managed policy ARN from the specified
         permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.detach_managed_policy_from_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.detach_managed_policy_from_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#detach_managed_policy_from_permission_set)
         """
 
@@ -552,7 +552,7 @@ class SSOAdminClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#generate_presigned_url)
         """
 
@@ -563,7 +563,7 @@ class SSOAdminClient(BaseClient):
         Retrieves the authorized targets for an IAM Identity Center access scope for an
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_application_access_scope)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_application_access_scope)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_application_access_scope)
         """
 
@@ -573,7 +573,7 @@ class SSOAdminClient(BaseClient):
         """
         Retrieves the configuration of  PutApplicationAssignmentConfiguration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_application_assignment_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_application_assignment_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_application_assignment_configuration)
         """
 
@@ -583,7 +583,7 @@ class SSOAdminClient(BaseClient):
         """
         Retrieves details about an authentication method used by an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_application_authentication_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_application_authentication_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_application_authentication_method)
         """
 
@@ -593,7 +593,7 @@ class SSOAdminClient(BaseClient):
         """
         Retrieves details about an application grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_application_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_application_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_application_grant)
         """
 
@@ -603,7 +603,7 @@ class SSOAdminClient(BaseClient):
         """
         Obtains the inline policy assigned to the permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_inline_policy_for_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_inline_policy_for_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_inline_policy_for_permission_set)
         """
 
@@ -613,7 +613,7 @@ class SSOAdminClient(BaseClient):
         """
         Obtains the permissions boundary for a specified  PermissionSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.get_permissions_boundary_for_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.get_permissions_boundary_for_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#get_permissions_boundary_for_permission_set)
         """
 
@@ -629,7 +629,7 @@ class SSOAdminClient(BaseClient):
         Lists the status of the Amazon Web Services account assignment creation requests
         for a specified IAM Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_creation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_creation_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_account_assignment_creation_status)
         """
 
@@ -645,7 +645,7 @@ class SSOAdminClient(BaseClient):
         Lists the status of the Amazon Web Services account assignment deletion requests
         for a specified IAM Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_deletion_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_deletion_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_account_assignment_deletion_status)
         """
 
@@ -662,7 +662,7 @@ class SSOAdminClient(BaseClient):
         Lists the assignee of the specified Amazon Web Services account with the
         specified permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_account_assignments)
         """
 
@@ -680,7 +680,7 @@ class SSOAdminClient(BaseClient):
         Retrieves a list of the IAM Identity Center associated Amazon Web Services
         accounts that the principal has access to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments_for_principal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments_for_principal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_account_assignments_for_principal)
         """
 
@@ -697,7 +697,7 @@ class SSOAdminClient(BaseClient):
         Lists all the Amazon Web Services accounts where the specified permission set is
         provisioned.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_accounts_for_provisioned_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_accounts_for_provisioned_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_accounts_for_provisioned_permission_set)
         """
 
@@ -707,7 +707,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists the access scopes and authorized targets associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_access_scopes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_access_scopes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_access_scopes)
         """
 
@@ -717,7 +717,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists Amazon Web Services account users that are assigned to an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_assignments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_assignments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_assignments)
         """
 
@@ -734,7 +734,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists the applications to which a specified principal is assigned.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_assignments_for_principal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_assignments_for_principal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_assignments_for_principal)
         """
 
@@ -744,7 +744,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists all of the authentication methods supported by the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_authentication_methods)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_authentication_methods)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_authentication_methods)
         """
 
@@ -754,7 +754,7 @@ class SSOAdminClient(BaseClient):
         """
         List the grants associated with an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_grants)
         """
 
@@ -765,7 +765,7 @@ class SSOAdminClient(BaseClient):
         Lists the application providers configured in the IAM Identity Center identity
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_application_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_application_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_application_providers)
         """
 
@@ -780,7 +780,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists all applications associated with the instance of IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_applications)
         """
 
@@ -795,7 +795,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists all customer managed policies attached to a specified  PermissionSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_customer_managed_policy_references_in_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_customer_managed_policy_references_in_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_customer_managed_policy_references_in_permission_set)
         """
 
@@ -806,7 +806,7 @@ class SSOAdminClient(BaseClient):
         Lists the details of the organization and account instances of IAM Identity
         Center that were created in or visible to the account calling this API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_instances)
         """
 
@@ -822,7 +822,7 @@ class SSOAdminClient(BaseClient):
         Lists the Amazon Web Services managed policy that is attached to a specified
         permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_managed_policies_in_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_managed_policies_in_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_managed_policies_in_permission_set)
         """
 
@@ -838,7 +838,7 @@ class SSOAdminClient(BaseClient):
         Lists the status of the permission set provisioning requests for a specified IAM
         Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_set_provisioning_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_set_provisioning_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_permission_set_provisioning_status)
         """
 
@@ -848,7 +848,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists the  PermissionSets in an IAM Identity Center instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_permission_sets)
         """
 
@@ -865,7 +865,7 @@ class SSOAdminClient(BaseClient):
         Lists all the permission sets that are provisioned to a specified Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets_provisioned_to_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets_provisioned_to_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_permission_sets_provisioned_to_account)
         """
 
@@ -875,7 +875,7 @@ class SSOAdminClient(BaseClient):
         """
         Lists the tags that are attached to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_tags_for_resource)
         """
 
@@ -886,7 +886,7 @@ class SSOAdminClient(BaseClient):
         Lists all the trusted token issuers configured in an instance of IAM Identity
         Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.list_trusted_token_issuers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.list_trusted_token_issuers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#list_trusted_token_issuers)
         """
 
@@ -902,7 +902,7 @@ class SSOAdminClient(BaseClient):
         The process by which a specified permission set is provisioned to the specified
         target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.provision_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.provision_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#provision_permission_set)
         """
 
@@ -913,7 +913,7 @@ class SSOAdminClient(BaseClient):
         Adds or updates the list of authorized targets for an IAM Identity Center access
         scope for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_application_access_scope)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_application_access_scope)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_application_access_scope)
         """
 
@@ -923,7 +923,7 @@ class SSOAdminClient(BaseClient):
         """
         Configure how users gain access to an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_application_assignment_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_application_assignment_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_application_assignment_configuration)
         """
 
@@ -937,7 +937,7 @@ class SSOAdminClient(BaseClient):
         """
         Adds or updates an authentication method for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_application_authentication_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_application_authentication_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_application_authentication_method)
         """
 
@@ -947,7 +947,7 @@ class SSOAdminClient(BaseClient):
         """
         Adds a grant to an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_application_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_application_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_application_grant)
         """
 
@@ -957,7 +957,7 @@ class SSOAdminClient(BaseClient):
         """
         Attaches an inline policy to a permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_inline_policy_to_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_inline_policy_to_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_inline_policy_to_permission_set)
         """
 
@@ -972,7 +972,7 @@ class SSOAdminClient(BaseClient):
         Attaches an Amazon Web Services managed or customer managed policy to the
         specified  PermissionSet as a permissions boundary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.put_permissions_boundary_to_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.put_permissions_boundary_to_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#put_permissions_boundary_to_permission_set)
         """
 
@@ -982,7 +982,7 @@ class SSOAdminClient(BaseClient):
         """
         Associates a set of tags with a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#tag_resource)
         """
 
@@ -992,7 +992,7 @@ class SSOAdminClient(BaseClient):
         """
         Disassociates a set of tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#untag_resource)
         """
 
@@ -1008,7 +1008,7 @@ class SSOAdminClient(BaseClient):
         """
         Updates application properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#update_application)
         """
 
@@ -1017,7 +1017,7 @@ class SSOAdminClient(BaseClient):
         Update the details for the instance of IAM Identity Center that is owned by the
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.update_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.update_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#update_instance)
         """
 
@@ -1031,7 +1031,7 @@ class SSOAdminClient(BaseClient):
         Updates the IAM Identity Center identity store attributes that you can use with
         the IAM Identity Center instance for attributes-based access control (ABAC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.update_instance_access_control_attribute_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.update_instance_access_control_attribute_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#update_instance_access_control_attribute_configuration)
         """
 
@@ -1047,7 +1047,7 @@ class SSOAdminClient(BaseClient):
         """
         Updates an existing permission set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.update_permission_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.update_permission_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#update_permission_set)
         """
 
@@ -1062,7 +1062,7 @@ class SSOAdminClient(BaseClient):
         Updates the name of the trusted token issuer, or the path of a source attribute
         or destination attribute for a trusted token issuer configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Client.update_trusted_token_issuer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Client.update_trusted_token_issuer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/client.html#update_trusted_token_issuer)
         """
 
@@ -1071,7 +1071,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_account_assignment_creation_status"]
     ) -> ListAccountAssignmentCreationStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentcreationstatuspaginator)
         """
 
@@ -1080,7 +1080,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_account_assignment_deletion_status"]
     ) -> ListAccountAssignmentDeletionStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentdeletionstatuspaginator)
         """
 
@@ -1089,7 +1089,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_account_assignments"]
     ) -> ListAccountAssignmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentspaginator)
         """
 
@@ -1098,7 +1098,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_account_assignments_for_principal"]
     ) -> ListAccountAssignmentsForPrincipalPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentsForPrincipal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentsForPrincipal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentsforprincipalpaginator)
         """
 
@@ -1107,7 +1107,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_accounts_for_provisioned_permission_set"]
     ) -> ListAccountsForProvisionedPermissionSetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountsforprovisionedpermissionsetpaginator)
         """
 
@@ -1116,7 +1116,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_access_scopes"]
     ) -> ListApplicationAccessScopesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAccessScopes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAccessScopes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationaccessscopespaginator)
         """
 
@@ -1125,7 +1125,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_assignments"]
     ) -> ListApplicationAssignmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAssignments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAssignments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationassignmentspaginator)
         """
 
@@ -1134,7 +1134,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_assignments_for_principal"]
     ) -> ListApplicationAssignmentsForPrincipalPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAssignmentsForPrincipal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAssignmentsForPrincipal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationassignmentsforprincipalpaginator)
         """
 
@@ -1143,7 +1143,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_authentication_methods"]
     ) -> ListApplicationAuthenticationMethodsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAuthenticationMethods)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationAuthenticationMethods)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationauthenticationmethodspaginator)
         """
 
@@ -1152,7 +1152,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_grants"]
     ) -> ListApplicationGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationGrants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationGrants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationgrantspaginator)
         """
 
@@ -1161,7 +1161,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_application_providers"]
     ) -> ListApplicationProvidersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationProviders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplicationProviders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationproviderspaginator)
         """
 
@@ -1170,7 +1170,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listapplicationspaginator)
         """
 
@@ -1179,14 +1179,14 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_customer_managed_policy_references_in_permission_set"]
     ) -> ListCustomerManagedPolicyReferencesInPermissionSetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListCustomerManagedPolicyReferencesInPermissionSet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListCustomerManagedPolicyReferencesInPermissionSet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listcustomermanagedpolicyreferencesinpermissionsetpaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listinstancespaginator)
         """
 
@@ -1195,7 +1195,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_managed_policies_in_permission_set"]
     ) -> ListManagedPoliciesInPermissionSetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listmanagedpoliciesinpermissionsetpaginator)
         """
 
@@ -1204,7 +1204,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_permission_set_provisioning_status"]
     ) -> ListPermissionSetProvisioningStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetprovisioningstatuspaginator)
         """
 
@@ -1213,7 +1213,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_permission_sets"]
     ) -> ListPermissionSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetspaginator)
         """
 
@@ -1222,7 +1222,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_permission_sets_provisioned_to_account"]
     ) -> ListPermissionSetsProvisionedToAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetsprovisionedtoaccountpaginator)
         """
 
@@ -1231,7 +1231,7 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listtagsforresourcepaginator)
         """
 
@@ -1240,6 +1240,6 @@ class SSOAdminClient(BaseClient):
         self, operation_name: Literal["list_trusted_token_issuers"]
     ) -> ListTrustedTokenIssuersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTrustedTokenIssuers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTrustedTokenIssuers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listtrustedtokenissuerspaginator)
         """

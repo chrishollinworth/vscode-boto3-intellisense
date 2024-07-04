@@ -385,6 +385,7 @@ __all__ = (
     "SampleRangeConversionType",
     "ScalingBehaviorType",
     "SccDestinationFramerateType",
+    "SearchJobsPaginatorName",
     "SimulateReservedQueueType",
     "SrtStylePassthroughType",
     "StatusUpdateIntervalType",
@@ -1252,6 +1253,7 @@ SccDestinationFramerateType = Literal[
     "FRAMERATE_29_97_DROPFRAME",
     "FRAMERATE_29_97_NON_DROPFRAME",
 ]
+SearchJobsPaginatorName = Literal["search_jobs"]
 SimulateReservedQueueType = Literal["DISABLED", "ENABLED"]
 SrtStylePassthroughType = Literal["DISABLED", "ENABLED"]
 StatusUpdateIntervalType = Literal[

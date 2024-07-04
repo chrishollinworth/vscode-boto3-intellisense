@@ -34,6 +34,7 @@ __all__ = (
     "ListControlOperationsPaginatorName",
     "ListEnabledBaselinesPaginatorName",
     "ListEnabledControlsPaginatorName",
+    "ListLandingZoneOperationsPaginatorName",
     "ListLandingZonesPaginatorName",
 )
 
@@ -53,4 +54,5 @@ ListBaselinesPaginatorName = Literal["list_baselines"]
 ListControlOperationsPaginatorName = Literal["list_control_operations"]
 ListEnabledBaselinesPaginatorName = Literal["list_enabled_baselines"]
 ListEnabledControlsPaginatorName = Literal["list_enabled_controls"]
+ListLandingZoneOperationsPaginatorName = Literal["list_landing_zone_operations"]
 ListLandingZonesPaginatorName = Literal["list_landing_zones"]

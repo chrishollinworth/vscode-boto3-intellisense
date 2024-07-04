@@ -94,6 +94,7 @@ from .type_defs import (
     ListWebExperiencesResponseTypeDef,
     MessageUsefulnessFeedbackTypeDef,
     PluginAuthConfigurationTypeDef,
+    QAppsConfigurationTypeDef,
     RetrieverConfigurationTypeDef,
     StartDataSourceSyncJobResponseTypeDef,
     TagTypeDef,
@@ -130,7 +131,7 @@ class Exceptions:
 
 class QBusinessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html)
     """
 
@@ -154,7 +155,7 @@ class QBusinessClient(BaseClient):
         Asynchronously deletes one or more documents added using the `BatchPutDocument`
         API from an Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.batch_delete_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.batch_delete_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#batch_delete_document)
         """
 
@@ -170,7 +171,7 @@ class QBusinessClient(BaseClient):
         """
         Adds one or more documents to an Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.batch_put_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.batch_put_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#batch_put_document)
         """
 
@@ -178,7 +179,7 @@ class QBusinessClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#can_paginate)
         """
 
@@ -202,7 +203,7 @@ class QBusinessClient(BaseClient):
         """
         Starts or continues a non-streaming Amazon Q Business conversation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.chat_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.chat_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#chat_sync)
         """
 
@@ -210,7 +211,7 @@ class QBusinessClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#close)
         """
 
@@ -224,12 +225,13 @@ class QBusinessClient(BaseClient):
         encryptionConfiguration: "EncryptionConfigurationTypeDef" = None,
         tags: List["TagTypeDef"] = None,
         clientToken: str = None,
-        attachmentsConfiguration: "AttachmentsConfigurationTypeDef" = None
+        attachmentsConfiguration: "AttachmentsConfigurationTypeDef" = None,
+        qAppsConfiguration: "QAppsConfigurationTypeDef" = None
     ) -> CreateApplicationResponseTypeDef:
         """
         Creates an Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_application)
         """
 
@@ -251,7 +253,7 @@ class QBusinessClient(BaseClient):
         """
         Creates a data source connector for an Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_data_source)
         """
 
@@ -269,7 +271,7 @@ class QBusinessClient(BaseClient):
         """
         Creates an Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_index)
         """
 
@@ -288,7 +290,7 @@ class QBusinessClient(BaseClient):
         """
         Creates an Amazon Q Business plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_plugin)
         """
 
@@ -306,7 +308,7 @@ class QBusinessClient(BaseClient):
         """
         Adds a retriever to your Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_retriever)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_retriever)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_retriever)
         """
 
@@ -322,7 +324,7 @@ class QBusinessClient(BaseClient):
         Creates a universally unique identifier (UUID) mapped to a list of local user
         ids within an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_user)
         """
 
@@ -341,7 +343,7 @@ class QBusinessClient(BaseClient):
         """
         Creates an Amazon Q Business web experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.create_web_experience)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.create_web_experience)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#create_web_experience)
         """
 
@@ -349,7 +351,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_application)
         """
 
@@ -357,7 +359,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes chat controls configured for an existing Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_chat_controls_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_chat_controls_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_chat_controls_configuration)
         """
 
@@ -367,7 +369,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business web experience conversation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_conversation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_conversation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_conversation)
         """
 
@@ -377,7 +379,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business data source connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_data_source)
         """
 
@@ -388,7 +390,7 @@ class QBusinessClient(BaseClient):
         Deletes a group so that all users and sub groups that belong to the group can no
         longer access documents only available to that group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_group)
         """
 
@@ -396,7 +398,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_index)
         """
 
@@ -404,7 +406,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_plugin)
         """
 
@@ -412,7 +414,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes the retriever used by an Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_retriever)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_retriever)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_retriever)
         """
 
@@ -420,7 +422,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes a user by email id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_user)
         """
 
@@ -428,7 +430,7 @@ class QBusinessClient(BaseClient):
         """
         Deletes an Amazon Q Business web experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.delete_web_experience)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.delete_web_experience)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#delete_web_experience)
         """
 
@@ -442,7 +444,7 @@ class QBusinessClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#generate_presigned_url)
         """
 
@@ -450,7 +452,7 @@ class QBusinessClient(BaseClient):
         """
         Gets information about an existing Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_application)
         """
 
@@ -461,7 +463,7 @@ class QBusinessClient(BaseClient):
         Gets information about an chat controls configured for an existing Amazon Q
         Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_chat_controls_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_chat_controls_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_chat_controls_configuration)
         """
 
@@ -471,7 +473,7 @@ class QBusinessClient(BaseClient):
         """
         Gets information about an existing Amazon Q Business data source connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_data_source)
         """
 
@@ -481,7 +483,7 @@ class QBusinessClient(BaseClient):
         """
         Describes a group by group name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_group)
         """
 
@@ -489,7 +491,7 @@ class QBusinessClient(BaseClient):
         """
         Gets information about an existing Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_index)
         """
 
@@ -497,7 +499,7 @@ class QBusinessClient(BaseClient):
         """
         Gets information about an existing Amazon Q Business plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_plugin)
         """
 
@@ -506,7 +508,7 @@ class QBusinessClient(BaseClient):
         Gets information about an existing retriever used by an Amazon Q Business
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_retriever)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_retriever)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_retriever)
         """
 
@@ -515,7 +517,7 @@ class QBusinessClient(BaseClient):
         Describes the universally unique identifier (UUID) associated with a local user
         in a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_user)
         """
 
@@ -525,7 +527,7 @@ class QBusinessClient(BaseClient):
         """
         Gets information about an existing Amazon Q Business web experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.get_web_experience)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.get_web_experience)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#get_web_experience)
         """
 
@@ -535,7 +537,7 @@ class QBusinessClient(BaseClient):
         """
         Lists Amazon Q Business applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_applications)
         """
 
@@ -550,7 +552,7 @@ class QBusinessClient(BaseClient):
         """
         Lists one or more Amazon Q Business conversations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_conversations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_conversations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_conversations)
         """
 
@@ -570,7 +572,7 @@ class QBusinessClient(BaseClient):
         Get information about an Amazon Q Business data source connector
         synchronization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_data_source_sync_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_data_source_sync_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_data_source_sync_jobs)
         """
 
@@ -580,7 +582,7 @@ class QBusinessClient(BaseClient):
         """
         Lists the Amazon Q Business data source connectors that you have created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_data_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_data_sources)
         """
 
@@ -596,7 +598,7 @@ class QBusinessClient(BaseClient):
         """
         A list of documents attached to an index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_documents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_documents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_documents)
         """
 
@@ -613,7 +615,7 @@ class QBusinessClient(BaseClient):
         """
         Provides a list of groups that are mapped to users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_groups)
         """
 
@@ -623,7 +625,7 @@ class QBusinessClient(BaseClient):
         """
         Lists the Amazon Q Business indices you have created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_indices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_indices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_indices)
         """
 
@@ -639,7 +641,7 @@ class QBusinessClient(BaseClient):
         """
         Gets a list of messages associated with an Amazon Q Business web experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_messages)
         """
 
@@ -649,7 +651,7 @@ class QBusinessClient(BaseClient):
         """
         Lists configured Amazon Q Business plugins.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_plugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_plugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_plugins)
         """
 
@@ -659,7 +661,7 @@ class QBusinessClient(BaseClient):
         """
         Lists the retriever used by an Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_retrievers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_retrievers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_retrievers)
         """
 
@@ -667,7 +669,7 @@ class QBusinessClient(BaseClient):
         """
         Gets a list of tags associated with a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_tags_for_resource)
         """
 
@@ -677,7 +679,7 @@ class QBusinessClient(BaseClient):
         """
         Lists one or more Amazon Q Business Web Experiences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.list_web_experiences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.list_web_experiences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#list_web_experiences)
         """
 
@@ -695,7 +697,7 @@ class QBusinessClient(BaseClient):
         Enables your end user to provide feedback on their Amazon Q Business generated
         chat responses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.put_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.put_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#put_feedback)
         """
 
@@ -712,7 +714,7 @@ class QBusinessClient(BaseClient):
         """
         Create, or updates, a mapping of users—who have access to a document—to groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.put_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.put_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#put_group)
         """
 
@@ -722,7 +724,7 @@ class QBusinessClient(BaseClient):
         """
         Starts a data source connector synchronization job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.start_data_source_sync_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.start_data_source_sync_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#start_data_source_sync_job)
         """
 
@@ -733,7 +735,7 @@ class QBusinessClient(BaseClient):
         Stops an Amazon Q Business data source connector synchronization job already in
         progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.stop_data_source_sync_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.stop_data_source_sync_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#stop_data_source_sync_job)
         """
 
@@ -742,7 +744,7 @@ class QBusinessClient(BaseClient):
         Adds the specified tag to the specified Amazon Q Business application or data
         source resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#tag_resource)
         """
 
@@ -750,7 +752,7 @@ class QBusinessClient(BaseClient):
         """
         Removes a tag from an Amazon Q Business application or a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#untag_resource)
         """
 
@@ -762,12 +764,13 @@ class QBusinessClient(BaseClient):
         displayName: str = None,
         description: str = None,
         roleArn: str = None,
-        attachmentsConfiguration: "AttachmentsConfigurationTypeDef" = None
+        attachmentsConfiguration: "AttachmentsConfigurationTypeDef" = None,
+        qAppsConfiguration: "QAppsConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
         Updates an existing Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_application)
         """
 
@@ -786,7 +789,7 @@ class QBusinessClient(BaseClient):
         Updates an set of chat controls configured for an existing Amazon Q Business
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_chat_controls_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_chat_controls_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_chat_controls_configuration)
         """
 
@@ -807,7 +810,7 @@ class QBusinessClient(BaseClient):
         """
         Updates an existing Amazon Q Business data source connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_data_source)
         """
 
@@ -824,7 +827,7 @@ class QBusinessClient(BaseClient):
         """
         Updates an Amazon Q Business index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_index)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_index)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_index)
         """
 
@@ -842,7 +845,7 @@ class QBusinessClient(BaseClient):
         """
         Updates an Amazon Q Business plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_plugin)
         """
 
@@ -858,7 +861,7 @@ class QBusinessClient(BaseClient):
         """
         Updates the retriever used for your Amazon Q Business application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_retriever)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_retriever)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_retriever)
         """
 
@@ -873,7 +876,7 @@ class QBusinessClient(BaseClient):
         """
         Updates a information associated with a user id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_user)
         """
 
@@ -892,7 +895,7 @@ class QBusinessClient(BaseClient):
         """
         Updates an Amazon Q Business web experience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Client.update_web_experience)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Client.update_web_experience)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/client.html#update_web_experience)
         """
 
@@ -901,7 +904,7 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["get_chat_controls_configuration"]
     ) -> GetChatControlsConfigurationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#getchatcontrolsconfigurationpaginator)
         """
 
@@ -910,7 +913,7 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listapplicationspaginator)
         """
 
@@ -919,7 +922,7 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["list_conversations"]
     ) -> ListConversationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listconversationspaginator)
         """
 
@@ -928,7 +931,7 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["list_data_source_sync_jobs"]
     ) -> ListDataSourceSyncJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcesyncjobspaginator)
         """
 
@@ -937,49 +940,49 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_documents"]) -> ListDocumentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdocumentspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listgroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_indices"]) -> ListIndicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listindicespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_messages"]) -> ListMessagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listmessagespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_plugins"]) -> ListPluginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listpluginspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_retrievers"]) -> ListRetrieversPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listretrieverspaginator)
         """
 
@@ -988,6 +991,6 @@ class QBusinessClient(BaseClient):
         self, operation_name: Literal["list_web_experiences"]
     ) -> ListWebExperiencesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listwebexperiencespaginator)
         """

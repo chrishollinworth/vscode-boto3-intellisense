@@ -76,7 +76,7 @@ class Exceptions:
 
 class CodeStarClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html)
     """
 
@@ -100,7 +100,7 @@ class CodeStarClient(BaseClient):
         """
         Adds an IAM user to the team for an AWS CodeStar project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.associate_team_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.associate_team_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#associate_team_member)
         """
 
@@ -108,7 +108,7 @@ class CodeStarClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#can_paginate)
         """
 
@@ -116,7 +116,7 @@ class CodeStarClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#close)
         """
 
@@ -134,7 +134,7 @@ class CodeStarClient(BaseClient):
         """
         Creates a project, including project resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#create_project)
         """
 
@@ -145,7 +145,7 @@ class CodeStarClient(BaseClient):
         Creates a profile for a user that includes user preferences, such as the display
         name and email address assocciated with the user, in AWS CodeStar.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.create_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.create_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#create_user_profile)
         """
 
@@ -155,7 +155,7 @@ class CodeStarClient(BaseClient):
         """
         Deletes a project, including project resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#delete_project)
         """
 
@@ -164,7 +164,7 @@ class CodeStarClient(BaseClient):
         Deletes a user profile in AWS CodeStar, including all personal preference data
         associated with that profile, such as display name and email address.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.delete_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.delete_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#delete_user_profile)
         """
 
@@ -172,7 +172,7 @@ class CodeStarClient(BaseClient):
         """
         Describes a project and its resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.describe_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.describe_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#describe_project)
         """
 
@@ -180,7 +180,7 @@ class CodeStarClient(BaseClient):
         """
         Describes a user in AWS CodeStar and the user attributes across all projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.describe_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.describe_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#describe_user_profile)
         """
 
@@ -188,7 +188,7 @@ class CodeStarClient(BaseClient):
         """
         Removes a user from a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.disassociate_team_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.disassociate_team_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#disassociate_team_member)
         """
 
@@ -202,7 +202,7 @@ class CodeStarClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#generate_presigned_url)
         """
 
@@ -212,7 +212,7 @@ class CodeStarClient(BaseClient):
         """
         Lists all projects in AWS CodeStar associated with your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#list_projects)
         """
 
@@ -222,7 +222,7 @@ class CodeStarClient(BaseClient):
         """
         Lists resources associated with a project in AWS CodeStar.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.list_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.list_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#list_resources)
         """
 
@@ -232,7 +232,7 @@ class CodeStarClient(BaseClient):
         """
         Gets the tags for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.list_tags_for_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.list_tags_for_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#list_tags_for_project)
         """
 
@@ -242,7 +242,7 @@ class CodeStarClient(BaseClient):
         """
         Lists all team members associated with a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.list_team_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.list_team_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#list_team_members)
         """
 
@@ -252,7 +252,7 @@ class CodeStarClient(BaseClient):
         """
         Lists all the user profiles configured for your AWS account in AWS CodeStar.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.list_user_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.list_user_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#list_user_profiles)
         """
 
@@ -260,7 +260,7 @@ class CodeStarClient(BaseClient):
         """
         Adds tags to a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.tag_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.tag_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#tag_project)
         """
 
@@ -268,7 +268,7 @@ class CodeStarClient(BaseClient):
         """
         Removes tags from a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.untag_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.untag_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#untag_project)
         """
 
@@ -278,7 +278,7 @@ class CodeStarClient(BaseClient):
         """
         Updates a project in AWS CodeStar.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.update_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#update_project)
         """
 
@@ -293,7 +293,7 @@ class CodeStarClient(BaseClient):
         """
         Updates a team member's attributes in an AWS CodeStar project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.update_team_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.update_team_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#update_team_member)
         """
 
@@ -308,21 +308,21 @@ class CodeStarClient(BaseClient):
         """
         Updates a user's profile in AWS CodeStar.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Client.update_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Client.update_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/client.html#update_user_profile)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listprojectspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_resources"]) -> ListResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Paginator.ListResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listresourcespaginator)
         """
 
@@ -331,7 +331,7 @@ class CodeStarClient(BaseClient):
         self, operation_name: Literal["list_team_members"]
     ) -> ListTeamMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listteammemberspaginator)
         """
 
@@ -340,6 +340,6 @@ class CodeStarClient(BaseClient):
         self, operation_name: Literal["list_user_profiles"]
     ) -> ListUserProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar/paginators.html#listuserprofilespaginator)
         """

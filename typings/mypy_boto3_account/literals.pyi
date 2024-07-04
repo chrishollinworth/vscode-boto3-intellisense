@@ -19,8 +19,14 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("AlternateContactTypeType", "ListRegionsPaginatorName", "RegionOptStatusType")
+__all__ = (
+    "AlternateContactTypeType",
+    "ListRegionsPaginatorName",
+    "PrimaryEmailUpdateStatusType",
+    "RegionOptStatusType",
+)
 
 AlternateContactTypeType = Literal["BILLING", "OPERATIONS", "SECURITY"]
 ListRegionsPaginatorName = Literal["list_regions"]
+PrimaryEmailUpdateStatusType = Literal["ACCEPTED", "PENDING"]
 RegionOptStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLED_BY_DEFAULT", "ENABLING"]

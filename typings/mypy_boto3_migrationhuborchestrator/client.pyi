@@ -86,7 +86,7 @@ class Exceptions:
 
 class MigrationHubOrchestratorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html)
     """
 
@@ -102,7 +102,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#can_paginate)
         """
 
@@ -110,7 +110,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#close)
         """
 
@@ -126,7 +126,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Creates a migration workflow template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#create_template)
         """
 
@@ -144,7 +144,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Create a workflow to orchestrate your migrations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#create_workflow)
         """
 
@@ -165,7 +165,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Create a step in the migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#create_workflow_step)
         """
 
@@ -181,7 +181,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Create a step group in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow_step_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.create_workflow_step_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#create_workflow_step_group)
         """
 
@@ -189,7 +189,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Deletes a migration workflow template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#delete_template)
         """
 
@@ -197,7 +197,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Delete a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#delete_workflow)
         """
 
@@ -205,7 +205,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Delete a step in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#delete_workflow_step)
         """
 
@@ -213,7 +213,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Delete a step group in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow_step_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.delete_workflow_step_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#delete_workflow_step_group)
         """
 
@@ -227,7 +227,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#generate_presigned_url)
         """
 
@@ -235,7 +235,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get the template you want to use for creating a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_template)
         """
 
@@ -245,7 +245,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get a specific step in a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_template_step)
         """
 
@@ -255,7 +255,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get a step group in a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template_step_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_template_step_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_template_step_group)
         """
 
@@ -263,7 +263,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_workflow)
         """
 
@@ -273,7 +273,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get a step in the migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_workflow_step)
         """
 
@@ -283,7 +283,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Get the step group of a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow_step_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.get_workflow_step_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#get_workflow_step_group)
         """
 
@@ -293,7 +293,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List AWS Migration Hub Orchestrator plugins.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_plugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_plugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_plugins)
         """
 
@@ -301,7 +301,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the tags added to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_tags_for_resource)
         """
 
@@ -311,7 +311,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the step groups in a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_template_step_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_template_step_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_template_step_groups)
         """
 
@@ -321,7 +321,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the steps in a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_template_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_template_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_template_steps)
         """
 
@@ -332,7 +332,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         List the templates available in Migration Hub Orchestrator to create a migration
         workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_templates)
         """
 
@@ -342,7 +342,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the step groups in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflow_step_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflow_step_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_workflow_step_groups)
         """
 
@@ -352,7 +352,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the steps in a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflow_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflow_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_workflow_steps)
         """
 
@@ -369,7 +369,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         List the migration workflows.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.list_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#list_workflows)
         """
 
@@ -379,7 +379,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Retry a failed step in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.retry_workflow_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.retry_workflow_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#retry_workflow_step)
         """
 
@@ -387,7 +387,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Start a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.start_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.start_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#start_workflow)
         """
 
@@ -395,7 +395,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Stop an ongoing migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.stop_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.stop_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#stop_workflow)
         """
 
@@ -403,7 +403,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Tag a resource by specifying its Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#tag_resource)
         """
 
@@ -411,7 +411,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Deletes the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#untag_resource)
         """
 
@@ -426,7 +426,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Updates a migration workflow template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#update_template)
         """
 
@@ -442,7 +442,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Update a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#update_workflow)
         """
 
@@ -465,7 +465,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Update a step in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#update_workflow_step)
         """
 
@@ -482,14 +482,14 @@ class MigrationHubOrchestratorClient(BaseClient):
         """
         Update the step group in a migration workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow_step_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Client.update_workflow_step_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/client.html#update_workflow_step_group)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_plugins"]) -> ListPluginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListPlugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListPlugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listpluginspaginator)
         """
 
@@ -498,7 +498,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         self, operation_name: Literal["list_template_step_groups"]
     ) -> ListTemplateStepGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepgroupspaginator)
         """
 
@@ -507,14 +507,14 @@ class MigrationHubOrchestratorClient(BaseClient):
         self, operation_name: Literal["list_template_steps"]
     ) -> ListTemplateStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_templates"]) -> ListTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatespaginator)
         """
 
@@ -523,7 +523,7 @@ class MigrationHubOrchestratorClient(BaseClient):
         self, operation_name: Literal["list_workflow_step_groups"]
     ) -> ListWorkflowStepGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepgroupspaginator)
         """
 
@@ -532,13 +532,13 @@ class MigrationHubOrchestratorClient(BaseClient):
         self, operation_name: Literal["list_workflow_steps"]
     ) -> ListWorkflowStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workflows"]) -> ListWorkflowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowspaginator)
         """

@@ -103,7 +103,7 @@ class Exceptions:
 
 class IoTTwinMakerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html)
     """
 
@@ -121,7 +121,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Sets values for multiple time series properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.batch_put_property_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.batch_put_property_values)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#batch_put_property_values)
         """
 
@@ -129,7 +129,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#can_paginate)
         """
 
@@ -139,7 +139,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Cancels the metadata transfer job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.cancel_metadata_transfer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.cancel_metadata_transfer_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#cancel_metadata_transfer_job)
         """
 
@@ -147,7 +147,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#close)
         """
 
@@ -169,7 +169,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Creates a component type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_component_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_component_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_component_type)
         """
 
@@ -188,7 +188,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Creates an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_entity)
         """
 
@@ -203,7 +203,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Creates a new metadata transfer job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_metadata_transfer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_metadata_transfer_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_metadata_transfer_job)
         """
 
@@ -221,7 +221,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Creates a scene.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_scene)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_scene)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_scene)
         """
 
@@ -231,7 +231,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         This action creates a SyncJob.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_sync_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_sync_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_sync_job)
         """
 
@@ -247,7 +247,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Creates a workplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.create_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#create_workspace)
         """
 
@@ -257,7 +257,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Deletes a component type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_component_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_component_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#delete_component_type)
         """
 
@@ -267,7 +267,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Deletes an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#delete_entity)
         """
 
@@ -275,7 +275,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Deletes a scene.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_scene)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_scene)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#delete_scene)
         """
 
@@ -283,7 +283,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Delete the SyncJob.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_sync_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_sync_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#delete_sync_job)
         """
 
@@ -291,7 +291,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Deletes a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.delete_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#delete_workspace)
         """
 
@@ -307,7 +307,7 @@ class IoTTwinMakerClient(BaseClient):
         Run queries to access information from your knowledge graph of entities within
         individual workspaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.execute_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.execute_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#execute_query)
         """
 
@@ -321,7 +321,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#generate_presigned_url)
         """
 
@@ -331,7 +331,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Retrieves information about a component type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_component_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_component_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_component_type)
         """
 
@@ -339,7 +339,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Retrieves information about an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_entity)
         """
 
@@ -349,7 +349,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Gets a nmetadata transfer job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_metadata_transfer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_metadata_transfer_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_metadata_transfer_job)
         """
 
@@ -357,7 +357,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Gets the pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_pricing_plan)
         """
 
@@ -378,7 +378,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Gets the property values for a component, component type, entity, or workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_property_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_property_value)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_property_value)
         """
 
@@ -405,7 +405,7 @@ class IoTTwinMakerClient(BaseClient):
         Retrieves information about the history of a time series property value for a
         component, component type, entity, or workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_property_value_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_property_value_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_property_value_history)
         """
 
@@ -413,7 +413,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Retrieves information about a scene.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_scene)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_scene)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_scene)
         """
 
@@ -423,7 +423,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Gets the SyncJob.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_sync_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_sync_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_sync_job)
         """
 
@@ -431,7 +431,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Retrieves information about a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.get_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#get_workspace)
         """
 
@@ -446,7 +446,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists all component types in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_component_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_component_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_component_types)
         """
 
@@ -462,7 +462,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         This API lists the components of an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_components)
         """
 
@@ -477,7 +477,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists all entities in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_entities)
         """
 
@@ -493,7 +493,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists the metadata transfer jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_metadata_transfer_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_metadata_transfer_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_metadata_transfer_jobs)
         """
 
@@ -510,7 +510,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         This API lists the properties of a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_properties)
         """
 
@@ -520,7 +520,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists all scenes in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_scenes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_scenes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_scenes)
         """
 
@@ -530,7 +530,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         List all SyncJobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_sync_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_sync_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_sync_jobs)
         """
 
@@ -546,7 +546,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists the sync resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_sync_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_sync_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_sync_resources)
         """
 
@@ -556,7 +556,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Lists all tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_tags_for_resource)
         """
 
@@ -566,7 +566,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Retrieves information about workspaces in the current account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.list_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#list_workspaces)
         """
 
@@ -574,7 +574,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Adds tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#tag_resource)
         """
 
@@ -582,7 +582,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#untag_resource)
         """
 
@@ -603,7 +603,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Updates information in a component type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_component_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_component_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#update_component_type)
         """
 
@@ -621,7 +621,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Updates an entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#update_entity)
         """
 
@@ -631,7 +631,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Update the pricing plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_pricing_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_pricing_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#update_pricing_plan)
         """
 
@@ -648,7 +648,7 @@ class IoTTwinMakerClient(BaseClient):
         """
         Updates a scene.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_scene)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_scene)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#update_scene)
         """
 
@@ -658,6 +658,6 @@ class IoTTwinMakerClient(BaseClient):
         """
         Updates a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iottwinmaker.html#IoTTwinMaker.Client.update_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/client.html#update_workspace)
         """

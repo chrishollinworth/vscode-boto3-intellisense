@@ -38,7 +38,7 @@ class Exceptions:
 
 class ConnectContactLensClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect-contact-lens.html#ConnectContactLens.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect-contact-lens.html#ConnectContactLens.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/client.html)
     """
 
@@ -54,7 +54,7 @@ class ConnectContactLensClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect-contact-lens.html#ConnectContactLens.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect-contact-lens.html#ConnectContactLens.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/client.html#can_paginate)
         """
 
@@ -62,7 +62,7 @@ class ConnectContactLensClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect-contact-lens.html#ConnectContactLens.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect-contact-lens.html#ConnectContactLens.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/client.html#close)
         """
 
@@ -76,7 +76,7 @@ class ConnectContactLensClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect-contact-lens.html#ConnectContactLens.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect-contact-lens.html#ConnectContactLens.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/client.html#generate_presigned_url)
         """
 
@@ -86,6 +86,6 @@ class ConnectContactLensClient(BaseClient):
         """
         Provides a list of analysis segments for a real-time analysis session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect-contact-lens.html#ConnectContactLens.Client.list_realtime_contact_analysis_segments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect-contact-lens.html#ConnectContactLens.Client.list_realtime_contact_analysis_segments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/client.html#list_realtime_contact_analysis_segments)
         """

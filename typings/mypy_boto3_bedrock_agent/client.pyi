@@ -107,7 +107,7 @@ class Exceptions:
 
 class AgentsforBedrockClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html)
     """
 
@@ -131,7 +131,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Associates a knowledge base with an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.associate_agent_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.associate_agent_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#associate_agent_knowledge_base)
         """
 
@@ -139,7 +139,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#can_paginate)
         """
 
@@ -147,7 +147,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#close)
         """
 
@@ -171,7 +171,7 @@ class AgentsforBedrockClient(BaseClient):
         sources, software applications, user conversations, and APIs to carry out tasks
         to help customers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#create_agent)
         """
 
@@ -192,7 +192,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Creates an action group for an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent_action_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent_action_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#create_agent_action_group)
         """
 
@@ -209,7 +209,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Creates an alias of an agent that can be used to deploy the agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_agent_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#create_agent_alias)
         """
 
@@ -228,7 +228,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Sets up a data source to be added to a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#create_data_source)
         """
 
@@ -247,7 +247,7 @@ class AgentsforBedrockClient(BaseClient):
         Creates a knowledge base that contains data sources from which information can
         be queried and used by LLMs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.create_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#create_knowledge_base)
         """
 
@@ -257,7 +257,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_agent)
         """
 
@@ -272,7 +272,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes an action group in an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_action_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_action_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_agent_action_group)
         """
 
@@ -282,7 +282,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes an alias of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_agent_alias)
         """
 
@@ -292,7 +292,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes a version of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_agent_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_agent_version)
         """
 
@@ -302,7 +302,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes a data source from a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_data_source)
         """
 
@@ -310,7 +310,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Deletes a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.delete_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#delete_knowledge_base)
         """
 
@@ -320,7 +320,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Disassociates a knowledge base from an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.disassociate_agent_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.disassociate_agent_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#disassociate_agent_knowledge_base)
         """
 
@@ -334,7 +334,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#generate_presigned_url)
         """
 
@@ -342,7 +342,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_agent)
         """
 
@@ -352,7 +352,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about an action group for an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_action_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_action_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_agent_action_group)
         """
 
@@ -360,7 +360,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about an alias of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_agent_alias)
         """
 
@@ -370,7 +370,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about a knowledge base associated with an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_agent_knowledge_base)
         """
 
@@ -380,7 +380,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets details about a version of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_agent_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_agent_version)
         """
 
@@ -390,7 +390,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_data_source)
         """
 
@@ -401,7 +401,7 @@ class AgentsforBedrockClient(BaseClient):
         Gets information about a ingestion job, in which a data source is added to a
         knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_ingestion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_ingestion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_ingestion_job)
         """
 
@@ -409,7 +409,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Gets information about a knoweldge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.get_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#get_knowledge_base)
         """
 
@@ -419,7 +419,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the action groups for an agent and information about each one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_action_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_action_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_agent_action_groups)
         """
 
@@ -429,7 +429,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the aliases of an agent and information about each one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_agent_aliases)
         """
 
@@ -439,7 +439,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists knowledge bases associated with an agent and information about each one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_knowledge_bases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_knowledge_bases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_agent_knowledge_bases)
         """
 
@@ -449,7 +449,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the versions of an agent and information about each version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agent_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_agent_versions)
         """
 
@@ -459,7 +459,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the agents belonging to an account and information about each agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_agents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_agents)
         """
 
@@ -469,7 +469,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the data sources in a knowledge base and information about each one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_data_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_data_sources)
         """
 
@@ -486,7 +486,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the ingestion jobs for a data source and information about each of them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_ingestion_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_ingestion_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_ingestion_jobs)
         """
 
@@ -496,7 +496,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Lists the knowledge bases in an account and information about each of them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_knowledge_bases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_knowledge_bases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_knowledge_bases)
         """
 
@@ -504,7 +504,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         List all the tags for the resource you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#list_tags_for_resource)
         """
 
@@ -512,7 +512,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Creates a `DRAFT` version of the agent that can be used for internal testing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.prepare_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.prepare_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#prepare_agent)
         """
 
@@ -527,7 +527,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Begins an ingestion job, in which a data source is added to a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.start_ingestion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.start_ingestion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#start_ingestion_job)
         """
 
@@ -535,7 +535,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Associate tags with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#tag_resource)
         """
 
@@ -543,7 +543,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Remove tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#untag_resource)
         """
 
@@ -564,7 +564,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Updates the configuration of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_agent)
         """
 
@@ -585,7 +585,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Updates the configuration for an action group for an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_action_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_action_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_agent_action_group)
         """
 
@@ -601,7 +601,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Updates configurations for an alias of an agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_agent_alias)
         """
 
@@ -618,7 +618,7 @@ class AgentsforBedrockClient(BaseClient):
         Updates the configuration for a knowledge base that has been associated with an
         agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_agent_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_agent_knowledge_base)
         """
 
@@ -637,7 +637,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Updates configurations for a data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_data_source)
         """
 
@@ -654,7 +654,7 @@ class AgentsforBedrockClient(BaseClient):
         """
         Updates the configuration of a knowledge base with the fields that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Client.update_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/client.html#update_knowledge_base)
         """
 
@@ -663,7 +663,7 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_agent_action_groups"]
     ) -> ListAgentActionGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentactiongroupspaginator)
         """
 
@@ -672,7 +672,7 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_agent_aliases"]
     ) -> ListAgentAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentaliasespaginator)
         """
 
@@ -681,7 +681,7 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_agent_knowledge_bases"]
     ) -> ListAgentKnowledgeBasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentknowledgebasespaginator)
         """
 
@@ -690,14 +690,14 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_agent_versions"]
     ) -> ListAgentVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_agents"]) -> ListAgentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentspaginator)
         """
 
@@ -706,7 +706,7 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listdatasourcespaginator)
         """
 
@@ -715,7 +715,7 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_ingestion_jobs"]
     ) -> ListIngestionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listingestionjobspaginator)
         """
 
@@ -724,6 +724,6 @@ class AgentsforBedrockClient(BaseClient):
         self, operation_name: Literal["list_knowledge_bases"]
     ) -> ListKnowledgeBasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listknowledgebasespaginator)
         """

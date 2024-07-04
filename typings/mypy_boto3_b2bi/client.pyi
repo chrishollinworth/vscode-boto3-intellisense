@@ -79,7 +79,7 @@ class Exceptions:
 
 class B2BIClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html)
     """
 
@@ -95,7 +95,7 @@ class B2BIClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#can_paginate)
         """
 
@@ -103,7 +103,7 @@ class B2BIClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#close)
         """
 
@@ -120,7 +120,7 @@ class B2BIClient(BaseClient):
         """
         Instantiates a capability based on the specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.create_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_capability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_capability)
         """
 
@@ -130,8 +130,8 @@ class B2BIClient(BaseClient):
         profileId: str,
         name: str,
         email: str,
+        capabilities: List[str],
         phone: str = None,
-        capabilities: List[str] = None,
         clientToken: str = None,
         tags: List["TagTypeDef"] = None
     ) -> CreatePartnershipResponseTypeDef:
@@ -139,7 +139,7 @@ class B2BIClient(BaseClient):
         Creates a partnership between a customer and a trading partner, based on the
         supplied parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.create_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_partnership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_partnership)
         """
 
@@ -157,7 +157,7 @@ class B2BIClient(BaseClient):
         """
         Creates a customer profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.create_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_profile)
         """
 
@@ -175,7 +175,7 @@ class B2BIClient(BaseClient):
         """
         Creates a transformer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.create_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_transformer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_transformer)
         """
 
@@ -183,7 +183,7 @@ class B2BIClient(BaseClient):
         """
         Deletes the specified capability.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.delete_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_capability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_capability)
         """
 
@@ -191,7 +191,7 @@ class B2BIClient(BaseClient):
         """
         Deletes the specified partnership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.delete_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_partnership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_partnership)
         """
 
@@ -199,7 +199,7 @@ class B2BIClient(BaseClient):
         """
         Deletes the specified profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.delete_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_profile)
         """
 
@@ -207,7 +207,7 @@ class B2BIClient(BaseClient):
         """
         Deletes the specified transformer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.delete_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_transformer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_transformer)
         """
 
@@ -221,7 +221,7 @@ class B2BIClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#generate_presigned_url)
         """
 
@@ -229,7 +229,7 @@ class B2BIClient(BaseClient):
         """
         Retrieves the details for the specified capability.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.get_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_capability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_capability)
         """
 
@@ -238,7 +238,7 @@ class B2BIClient(BaseClient):
         Retrieves the details for a partnership, based on the partner and profile IDs
         specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.get_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_partnership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_partnership)
         """
 
@@ -246,7 +246,7 @@ class B2BIClient(BaseClient):
         """
         Retrieves the details for the profile specified by the profile ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_profile)
         """
 
@@ -254,7 +254,7 @@ class B2BIClient(BaseClient):
         """
         Retrieves the details for the transformer specified by the transformer ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.get_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_transformer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_transformer)
         """
 
@@ -264,7 +264,7 @@ class B2BIClient(BaseClient):
         """
         Returns the details of the transformer run, based on the Transformer job ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.get_transformer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_transformer_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_transformer_job)
         """
 
@@ -275,7 +275,7 @@ class B2BIClient(BaseClient):
         Lists the capabilities associated with your Amazon Web Services account for your
         current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.list_capabilities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_capabilities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_capabilities)
         """
 
@@ -286,7 +286,7 @@ class B2BIClient(BaseClient):
         Lists the partnerships associated with your Amazon Web Services account for your
         current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.list_partnerships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_partnerships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_partnerships)
         """
 
@@ -297,7 +297,7 @@ class B2BIClient(BaseClient):
         Lists the profiles associated with your Amazon Web Services account for your
         current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.list_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_profiles)
         """
 
@@ -306,7 +306,7 @@ class B2BIClient(BaseClient):
         Lists all of the tags associated with the Amazon Resource Name (ARN) that you
         specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_tags_for_resource)
         """
 
@@ -316,7 +316,7 @@ class B2BIClient(BaseClient):
         """
         Lists the available transformers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.list_transformers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_transformers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_transformers)
         """
 
@@ -333,7 +333,7 @@ class B2BIClient(BaseClient):
         interchange) file into the output structures used by Amazon Web Services B2BI
         Data Interchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.start_transformer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.start_transformer_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#start_transformer_job)
         """
 
@@ -342,7 +342,7 @@ class B2BIClient(BaseClient):
         Attaches a key-value pair to a resource, as identified by its Amazon Resource
         Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#tag_resource)
         """
 
@@ -352,7 +352,7 @@ class B2BIClient(BaseClient):
         """
         Maps the input file according to the provided template file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.test_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.test_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#test_mapping)
         """
 
@@ -366,7 +366,7 @@ class B2BIClient(BaseClient):
         """
         Parses the input EDI (electronic data interchange) file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.test_parsing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.test_parsing)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#test_parsing)
         """
 
@@ -375,7 +375,7 @@ class B2BIClient(BaseClient):
         Detaches a key-value pair from the specified resource, as identified by its
         Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#untag_resource)
         """
 
@@ -391,7 +391,7 @@ class B2BIClient(BaseClient):
         Updates some of the parameters for a capability, based on the specified
         parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.update_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_capability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_capability)
         """
 
@@ -402,7 +402,7 @@ class B2BIClient(BaseClient):
         Updates some of the parameters for a partnership between a customer and trading
         partner.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.update_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_partnership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_partnership)
         """
 
@@ -418,7 +418,7 @@ class B2BIClient(BaseClient):
         """
         Updates the specified parameters for a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.update_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_profile)
         """
 
@@ -436,7 +436,7 @@ class B2BIClient(BaseClient):
         """
         Updates the specified parameters for a transformer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Client.update_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_transformer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_transformer)
         """
 
@@ -445,7 +445,7 @@ class B2BIClient(BaseClient):
         self, operation_name: Literal["list_capabilities"]
     ) -> ListCapabilitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
         """
 
@@ -454,14 +454,14 @@ class B2BIClient(BaseClient):
         self, operation_name: Literal["list_partnerships"]
     ) -> ListPartnershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_profiles"]) -> ListProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
         """
 
@@ -470,6 +470,6 @@ class B2BIClient(BaseClient):
         self, operation_name: Literal["list_transformers"]
     ) -> ListTransformersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
         """

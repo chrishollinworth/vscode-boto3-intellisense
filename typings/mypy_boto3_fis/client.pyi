@@ -71,7 +71,7 @@ class Exceptions:
 
 class FISClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html)
     """
 
@@ -87,7 +87,7 @@ class FISClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#can_paginate)
         """
 
@@ -95,7 +95,7 @@ class FISClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#close)
         """
 
@@ -115,7 +115,7 @@ class FISClient(BaseClient):
         """
         Creates an experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.create_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.create_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#create_experiment_template)
         """
 
@@ -131,7 +131,7 @@ class FISClient(BaseClient):
         """
         Creates a target account configuration for the experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.create_target_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.create_target_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#create_target_account_configuration)
         """
 
@@ -139,7 +139,7 @@ class FISClient(BaseClient):
         """
         Deletes the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.delete_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.delete_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#delete_experiment_template)
         """
 
@@ -149,7 +149,7 @@ class FISClient(BaseClient):
         """
         Deletes the specified target account configuration of the experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.delete_target_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.delete_target_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#delete_target_account_configuration)
         """
 
@@ -163,7 +163,7 @@ class FISClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#generate_presigned_url)
         """
 
@@ -171,7 +171,7 @@ class FISClient(BaseClient):
         """
         Gets information about the specified FIS action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_action)
         """
 
@@ -179,7 +179,7 @@ class FISClient(BaseClient):
         """
         Gets information about the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_experiment)
         """
 
@@ -190,7 +190,7 @@ class FISClient(BaseClient):
         Gets information about the specified target account configuration of the
         experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_experiment_target_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_experiment_target_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_experiment_target_account_configuration)
         """
 
@@ -198,7 +198,7 @@ class FISClient(BaseClient):
         """
         Gets information about the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_experiment_template)
         """
 
@@ -209,7 +209,7 @@ class FISClient(BaseClient):
         Gets information about the specified target account configuration of the
         experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_target_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_target_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_target_account_configuration)
         """
 
@@ -219,7 +219,7 @@ class FISClient(BaseClient):
         """
         Gets information about the specified resource type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.get_target_resource_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.get_target_resource_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_target_resource_type)
         """
 
@@ -229,7 +229,7 @@ class FISClient(BaseClient):
         """
         Lists the available FIS actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_actions)
         """
 
@@ -244,7 +244,7 @@ class FISClient(BaseClient):
         """
         Lists the resolved targets information of the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_experiment_resolved_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_experiment_resolved_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiment_resolved_targets)
         """
 
@@ -254,7 +254,7 @@ class FISClient(BaseClient):
         """
         Lists the target account configurations of the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_experiment_target_account_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_experiment_target_account_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiment_target_account_configurations)
         """
 
@@ -264,7 +264,7 @@ class FISClient(BaseClient):
         """
         Lists your experiment templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_experiment_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_experiment_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiment_templates)
         """
 
@@ -274,7 +274,7 @@ class FISClient(BaseClient):
         """
         Lists your experiments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_experiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_experiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiments)
         """
 
@@ -282,7 +282,7 @@ class FISClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_tags_for_resource)
         """
 
@@ -292,7 +292,7 @@ class FISClient(BaseClient):
         """
         Lists the target account configurations of the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_target_account_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_target_account_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_target_account_configurations)
         """
 
@@ -302,7 +302,7 @@ class FISClient(BaseClient):
         """
         Lists the target resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.list_target_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.list_target_resource_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_target_resource_types)
         """
 
@@ -317,7 +317,7 @@ class FISClient(BaseClient):
         """
         Starts running an experiment from the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.start_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.start_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#start_experiment)
         """
 
@@ -325,7 +325,7 @@ class FISClient(BaseClient):
         """
         Stops the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.stop_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.stop_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#stop_experiment)
         """
 
@@ -333,7 +333,7 @@ class FISClient(BaseClient):
         """
         Applies the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#tag_resource)
         """
 
@@ -341,7 +341,7 @@ class FISClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#untag_resource)
         """
 
@@ -360,7 +360,7 @@ class FISClient(BaseClient):
         """
         Updates the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.update_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.update_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#update_experiment_template)
         """
 
@@ -375,6 +375,6 @@ class FISClient(BaseClient):
         """
         Updates the target account configuration for the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/fis.html#FIS.Client.update_target_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fis.html#FIS.Client.update_target_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#update_target_account_configuration)
         """

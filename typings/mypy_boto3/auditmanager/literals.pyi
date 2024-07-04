@@ -27,8 +27,10 @@ __all__ = (
     "AssessmentStatusType",
     "ControlResponseType",
     "ControlSetStatusType",
+    "ControlStateType",
     "ControlStatusType",
     "ControlTypeType",
+    "DataSourceTypeType",
     "DelegationStatusType",
     "DeleteResourcesType",
     "EvidenceFinderBackfillStatusType",
@@ -63,8 +65,12 @@ AssessmentReportStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
 AssessmentStatusType = Literal["ACTIVE", "INACTIVE"]
 ControlResponseType = Literal["AUTOMATE", "DEFER", "IGNORE", "MANUAL"]
 ControlSetStatusType = Literal["ACTIVE", "REVIEWED", "UNDER_REVIEW"]
+ControlStateType = Literal["ACTIVE", "END_OF_SUPPORT"]
 ControlStatusType = Literal["INACTIVE", "REVIEWED", "UNDER_REVIEW"]
-ControlTypeType = Literal["Custom", "Standard"]
+ControlTypeType = Literal["Core", "Custom", "Standard"]
+DataSourceTypeType = Literal[
+    "AWS_API_Call", "AWS_Cloudtrail", "AWS_Config", "AWS_Security_Hub", "MANUAL"
+]
 DelegationStatusType = Literal["COMPLETE", "IN_PROGRESS", "UNDER_REVIEW"]
 DeleteResourcesType = Literal["ALL", "DEFAULT"]
 EvidenceFinderBackfillStatusType = Literal["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
@@ -96,5 +102,11 @@ ShareRequestTypeType = Literal["RECEIVED", "SENT"]
 SourceFrequencyType = Literal["DAILY", "MONTHLY", "WEEKLY"]
 SourceSetUpOptionType = Literal["Procedural_Controls_Mapping", "System_Controls_Mapping"]
 SourceTypeType = Literal[
-    "AWS_API_Call", "AWS_Cloudtrail", "AWS_Config", "AWS_Security_Hub", "MANUAL"
+    "AWS_API_Call",
+    "AWS_Cloudtrail",
+    "AWS_Config",
+    "AWS_Security_Hub",
+    "Common_Control",
+    "Core_Control",
+    "MANUAL",
 ]

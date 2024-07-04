@@ -70,7 +70,7 @@ class Exceptions:
 
 class IAMRolesAnywhereClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html)
     """
 
@@ -86,7 +86,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#can_paginate)
         """
 
@@ -94,7 +94,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#close)
         """
 
@@ -114,7 +114,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Creates a *profile*, a list of the roles that Roles Anywhere service is trusted
         to assume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.create_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.create_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#create_profile)
         """
 
@@ -131,7 +131,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Creates a trust anchor to establish trust between IAM Roles Anywhere and your
         certificate authority (CA).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.create_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.create_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#create_trust_anchor)
         """
 
@@ -145,7 +145,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Delete an entry from the attribute mapping rules enforced by a given profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_attribute_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_attribute_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#delete_attribute_mapping)
         """
 
@@ -153,7 +153,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Deletes a certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#delete_crl)
         """
 
@@ -161,7 +161,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Deletes a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#delete_profile)
         """
 
@@ -169,7 +169,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Deletes a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.delete_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#delete_trust_anchor)
         """
 
@@ -177,7 +177,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Disables a certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#disable_crl)
         """
 
@@ -185,7 +185,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Disables a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#disable_profile)
         """
 
@@ -193,7 +193,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Disables a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.disable_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#disable_trust_anchor)
         """
 
@@ -201,7 +201,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Enables a certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#enable_crl)
         """
 
@@ -209,7 +209,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Enables temporary credential requests for a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#enable_profile)
         """
 
@@ -217,7 +217,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Enables a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.enable_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#enable_trust_anchor)
         """
 
@@ -231,7 +231,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#generate_presigned_url)
         """
 
@@ -239,7 +239,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Gets a certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#get_crl)
         """
 
@@ -247,7 +247,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Gets a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#get_profile)
         """
 
@@ -256,7 +256,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Gets a *subject*, which associates a certificate identity with authentication
         attempts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_subject)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_subject)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#get_subject)
         """
 
@@ -264,7 +264,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Gets a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.get_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#get_trust_anchor)
         """
 
@@ -280,7 +280,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Imports the certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.import_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.import_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#import_crl)
         """
 
@@ -289,7 +289,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Lists all certificate revocation lists (CRL) in the authenticated account and
         Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_crls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_crls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#list_crls)
         """
 
@@ -299,7 +299,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Lists all profiles in the authenticated account and Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#list_profiles)
         """
 
@@ -309,7 +309,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Lists the subjects in the authenticated account and Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_subjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_subjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#list_subjects)
         """
 
@@ -317,7 +317,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Lists the tags attached to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#list_tags_for_resource)
         """
 
@@ -328,7 +328,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Lists the trust anchors in the authenticated account and Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_trust_anchors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.list_trust_anchors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#list_trust_anchors)
         """
 
@@ -343,7 +343,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Put an entry in the attribute mapping rules that will be enforced by a given
         profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.put_attribute_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.put_attribute_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#put_attribute_mapping)
         """
 
@@ -353,7 +353,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Attaches a list of *notification settings* to a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.put_notification_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.put_notification_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#put_notification_settings)
         """
 
@@ -363,7 +363,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Resets the *custom notification setting* to IAM Roles Anywhere default setting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.reset_notification_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.reset_notification_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#reset_notification_settings)
         """
 
@@ -371,7 +371,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Attaches tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#tag_resource)
         """
 
@@ -379,7 +379,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Removes tags from the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#untag_resource)
         """
 
@@ -393,7 +393,7 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Updates the certificate revocation list (CRL).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_crl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_crl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#update_crl)
         """
 
@@ -411,7 +411,7 @@ class IAMRolesAnywhereClient(BaseClient):
         Updates a *profile*, a list of the roles that IAM Roles Anywhere service is
         trusted to assume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#update_profile)
         """
 
@@ -421,28 +421,28 @@ class IAMRolesAnywhereClient(BaseClient):
         """
         Updates a trust anchor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_trust_anchor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Client.update_trust_anchor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/client.html#update_trust_anchor)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_crls"]) -> ListCrlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListCrls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listcrlspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_profiles"]) -> ListProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_subjects"]) -> ListSubjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListSubjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listsubjectspaginator)
         """
 
@@ -451,6 +451,6 @@ class IAMRolesAnywhereClient(BaseClient):
         self, operation_name: Literal["list_trust_anchors"]
     ) -> ListTrustAnchorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rolesanywhere.html#IAMRolesAnywhere.Paginator.ListTrustAnchors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/paginators.html#listtrustanchorspaginator)
         """

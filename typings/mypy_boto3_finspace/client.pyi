@@ -108,7 +108,7 @@ class Exceptions:
 
 class finspaceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html)
     """
 
@@ -124,7 +124,7 @@ class finspaceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#can_paginate)
         """
 
@@ -132,7 +132,7 @@ class finspaceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#close)
         """
 
@@ -151,7 +151,7 @@ class finspaceClient(BaseClient):
         """
         Create a new FinSpace environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_environment)
         """
 
@@ -166,7 +166,7 @@ class finspaceClient(BaseClient):
         """
         Creates a changeset for a kdb database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_changeset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_changeset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_changeset)
         """
 
@@ -198,7 +198,7 @@ class finspaceClient(BaseClient):
         """
         Creates a new kdb cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_cluster)
         """
 
@@ -214,7 +214,7 @@ class finspaceClient(BaseClient):
         """
         Creates a new kdb database in the environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_database)
         """
 
@@ -238,7 +238,7 @@ class finspaceClient(BaseClient):
         Creates a snapshot of kdb database with tiered storage capabilities and a pre-
         warmed cache, ready for mounting on kdb clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_dataview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_dataview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_dataview)
         """
 
@@ -254,7 +254,7 @@ class finspaceClient(BaseClient):
         """
         Creates a managed kdb environment for the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_environment)
         """
 
@@ -271,7 +271,7 @@ class finspaceClient(BaseClient):
         """
         Creates a new scaling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_scaling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_scaling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_scaling_group)
         """
 
@@ -287,7 +287,7 @@ class finspaceClient(BaseClient):
         """
         Creates a user in FinSpace kdb environment with an associated IAM role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_user)
         """
 
@@ -307,7 +307,7 @@ class finspaceClient(BaseClient):
         """
         Creates a new volume with a specific amount of throughput and storage capacity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.create_kx_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.create_kx_volume)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#create_kx_volume)
         """
 
@@ -315,7 +315,7 @@ class finspaceClient(BaseClient):
         """
         Delete an FinSpace environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_environment)
         """
 
@@ -325,7 +325,7 @@ class finspaceClient(BaseClient):
         """
         Deletes a kdb cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_cluster)
         """
 
@@ -335,7 +335,7 @@ class finspaceClient(BaseClient):
         """
         Deletes the specified nodes from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_cluster_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_cluster_node)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_cluster_node)
         """
 
@@ -345,7 +345,7 @@ class finspaceClient(BaseClient):
         """
         Deletes the specified database and all of its associated data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_database)
         """
 
@@ -355,7 +355,7 @@ class finspaceClient(BaseClient):
         """
         Deletes the specified dataview.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_dataview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_dataview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_dataview)
         """
 
@@ -365,7 +365,7 @@ class finspaceClient(BaseClient):
         """
         Deletes the kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_environment)
         """
 
@@ -375,7 +375,7 @@ class finspaceClient(BaseClient):
         """
         Deletes the specified scaling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_scaling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_scaling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_scaling_group)
         """
 
@@ -385,7 +385,7 @@ class finspaceClient(BaseClient):
         """
         Deletes a user in the specified kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_user)
         """
 
@@ -395,7 +395,7 @@ class finspaceClient(BaseClient):
         """
         Deletes a volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.delete_kx_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.delete_kx_volume)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#delete_kx_volume)
         """
 
@@ -409,7 +409,7 @@ class finspaceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#generate_presigned_url)
         """
 
@@ -417,7 +417,7 @@ class finspaceClient(BaseClient):
         """
         Returns the FinSpace environment object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_environment)
         """
 
@@ -427,7 +427,7 @@ class finspaceClient(BaseClient):
         """
         Returns information about a kdb changeset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_changeset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_changeset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_changeset)
         """
 
@@ -437,7 +437,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves information about a kdb cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_cluster)
         """
 
@@ -447,7 +447,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves a connection string for a user to connect to a kdb cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_connection_string)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_connection_string)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_connection_string)
         """
 
@@ -457,7 +457,7 @@ class finspaceClient(BaseClient):
         """
         Returns database information for the specified environment ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_database)
         """
 
@@ -467,7 +467,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves details of the dataview.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_dataview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_dataview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_dataview)
         """
 
@@ -475,7 +475,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves all the information for the specified kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_environment)
         """
 
@@ -485,7 +485,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves details of a scaling group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_scaling_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_scaling_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_scaling_group)
         """
 
@@ -493,7 +493,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves information about the specified kdb user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_user)
         """
 
@@ -501,7 +501,7 @@ class finspaceClient(BaseClient):
         """
         Retrieves the information about the volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.get_kx_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.get_kx_volume)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#get_kx_volume)
         """
 
@@ -511,7 +511,7 @@ class finspaceClient(BaseClient):
         """
         A list of all of your FinSpace environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_environments)
         """
 
@@ -526,7 +526,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of all the changesets for a database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_changesets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_changesets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_changesets)
         """
 
@@ -536,7 +536,7 @@ class finspaceClient(BaseClient):
         """
         Lists all the nodes in a kdb cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_cluster_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_cluster_nodes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_cluster_nodes)
         """
 
@@ -551,7 +551,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_clusters)
         """
 
@@ -561,7 +561,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of all the databases in the kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_databases)
         """
 
@@ -576,7 +576,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of all the dataviews in the database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_dataviews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_dataviews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_dataviews)
         """
 
@@ -586,7 +586,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of kdb environments created in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_environments)
         """
 
@@ -596,7 +596,7 @@ class finspaceClient(BaseClient):
         """
         Returns a list of scaling groups in a kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_scaling_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_scaling_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_scaling_groups)
         """
 
@@ -606,7 +606,7 @@ class finspaceClient(BaseClient):
         """
         Lists all the users in a kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_users)
         """
 
@@ -621,7 +621,7 @@ class finspaceClient(BaseClient):
         """
         Lists all the volumes in a kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_kx_volumes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_kx_volumes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_kx_volumes)
         """
 
@@ -629,7 +629,7 @@ class finspaceClient(BaseClient):
         """
         A list of all tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#list_tags_for_resource)
         """
 
@@ -637,7 +637,7 @@ class finspaceClient(BaseClient):
         """
         Adds metadata tags to a FinSpace resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#tag_resource)
         """
 
@@ -645,7 +645,7 @@ class finspaceClient(BaseClient):
         """
         Removes metadata tags from a FinSpace resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#untag_resource)
         """
 
@@ -661,7 +661,7 @@ class finspaceClient(BaseClient):
         """
         Update your FinSpace environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_environment)
         """
 
@@ -679,7 +679,7 @@ class finspaceClient(BaseClient):
         """
         Allows you to update code configuration on a running cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_cluster_code_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_cluster_code_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_cluster_code_configuration)
         """
 
@@ -696,7 +696,7 @@ class finspaceClient(BaseClient):
         Updates the databases mounted on a kdb cluster, which includes the `changesetId`
         and all the dbPaths to be cached.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_cluster_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_cluster_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_cluster_databases)
         """
 
@@ -706,7 +706,7 @@ class finspaceClient(BaseClient):
         """
         Updates information for the given kdb database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_database)
         """
 
@@ -724,7 +724,7 @@ class finspaceClient(BaseClient):
         """
         Updates the specified dataview.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_dataview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_dataview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_dataview)
         """
 
@@ -739,7 +739,7 @@ class finspaceClient(BaseClient):
         """
         Updates information for the given kdb environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_environment)
         """
 
@@ -755,7 +755,7 @@ class finspaceClient(BaseClient):
         Updates environment network to connect to your internal network by using a
         transit gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_environment_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_environment_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_environment_network)
         """
 
@@ -765,7 +765,7 @@ class finspaceClient(BaseClient):
         """
         Updates the user details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_user)
         """
 
@@ -781,7 +781,7 @@ class finspaceClient(BaseClient):
         """
         Updates the throughput or capacity of a volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Client.update_kx_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Client.update_kx_volume)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/client.html#update_kx_volume)
         """
 
@@ -789,6 +789,6 @@ class finspaceClient(BaseClient):
         self, operation_name: Literal["list_kx_environments"]
     ) -> ListKxEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/finspace.html#finspace.Paginator.ListKxEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Paginator.ListKxEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators.html#listkxenvironmentspaginator)
         """

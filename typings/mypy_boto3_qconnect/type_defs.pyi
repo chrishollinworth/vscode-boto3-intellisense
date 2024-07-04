@@ -6,9 +6,9 @@ Type annotations for qconnect service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_qconnect.type_defs import AppIntegrationsConfigurationTypeDef
+    from mypy_boto3_qconnect.type_defs import AmazonConnectGuideAssociationDataTypeDef
 
-    data: AppIntegrationsConfigurationTypeDef = {...}
+    data: AmazonConnectGuideAssociationDataTypeDef = {...}
     ```
 """
 
@@ -47,6 +47,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AmazonConnectGuideAssociationDataTypeDef",
     "AppIntegrationsConfigurationTypeDef",
     "AssistantAssociationDataTypeDef",
     "AssistantAssociationInputDataTypeDef",
@@ -58,6 +59,9 @@ __all__ = (
     "AssistantSummaryTypeDef",
     "ConfigurationTypeDef",
     "ConnectConfigurationTypeDef",
+    "ContentAssociationContentsTypeDef",
+    "ContentAssociationDataTypeDef",
+    "ContentAssociationSummaryTypeDef",
     "ContentDataDetailsTypeDef",
     "ContentDataTypeDef",
     "ContentFeedbackDataTypeDef",
@@ -67,6 +71,8 @@ __all__ = (
     "CreateAssistantAssociationResponseTypeDef",
     "CreateAssistantRequestRequestTypeDef",
     "CreateAssistantResponseTypeDef",
+    "CreateContentAssociationRequestRequestTypeDef",
+    "CreateContentAssociationResponseTypeDef",
     "CreateContentRequestRequestTypeDef",
     "CreateContentResponseTypeDef",
     "CreateKnowledgeBaseRequestRequestTypeDef",
@@ -80,6 +86,7 @@ __all__ = (
     "DataSummaryTypeDef",
     "DeleteAssistantAssociationRequestRequestTypeDef",
     "DeleteAssistantRequestRequestTypeDef",
+    "DeleteContentAssociationRequestRequestTypeDef",
     "DeleteContentRequestRequestTypeDef",
     "DeleteImportJobRequestRequestTypeDef",
     "DeleteKnowledgeBaseRequestRequestTypeDef",
@@ -95,6 +102,8 @@ __all__ = (
     "GetAssistantAssociationResponseTypeDef",
     "GetAssistantRequestRequestTypeDef",
     "GetAssistantResponseTypeDef",
+    "GetContentAssociationRequestRequestTypeDef",
+    "GetContentAssociationResponseTypeDef",
     "GetContentRequestRequestTypeDef",
     "GetContentResponseTypeDef",
     "GetContentSummaryRequestRequestTypeDef",
@@ -120,6 +129,8 @@ __all__ = (
     "ListAssistantAssociationsResponseTypeDef",
     "ListAssistantsRequestRequestTypeDef",
     "ListAssistantsResponseTypeDef",
+    "ListContentAssociationsRequestRequestTypeDef",
+    "ListContentAssociationsResponseTypeDef",
     "ListContentsRequestRequestTypeDef",
     "ListContentsResponseTypeDef",
     "ListImportJobsRequestRequestTypeDef",
@@ -190,6 +201,14 @@ __all__ = (
     "UpdateQuickResponseResponseTypeDef",
     "UpdateSessionRequestRequestTypeDef",
     "UpdateSessionResponseTypeDef",
+)
+
+AmazonConnectGuideAssociationDataTypeDef = TypedDict(
+    "AmazonConnectGuideAssociationDataTypeDef",
+    {
+        "flowId": str,
+    },
+    total=False,
 )
 
 _RequiredAppIntegrationsConfigurationTypeDef = TypedDict(
@@ -357,6 +376,66 @@ ConnectConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ContentAssociationContentsTypeDef = TypedDict(
+    "ContentAssociationContentsTypeDef",
+    {
+        "amazonConnectGuideAssociation": "AmazonConnectGuideAssociationDataTypeDef",
+    },
+    total=False,
+)
+
+_RequiredContentAssociationDataTypeDef = TypedDict(
+    "_RequiredContentAssociationDataTypeDef",
+    {
+        "associationData": "ContentAssociationContentsTypeDef",
+        "associationType": Literal["AMAZON_CONNECT_GUIDE"],
+        "contentArn": str,
+        "contentAssociationArn": str,
+        "contentAssociationId": str,
+        "contentId": str,
+        "knowledgeBaseArn": str,
+        "knowledgeBaseId": str,
+    },
+)
+_OptionalContentAssociationDataTypeDef = TypedDict(
+    "_OptionalContentAssociationDataTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class ContentAssociationDataTypeDef(
+    _RequiredContentAssociationDataTypeDef, _OptionalContentAssociationDataTypeDef
+):
+    pass
+
+_RequiredContentAssociationSummaryTypeDef = TypedDict(
+    "_RequiredContentAssociationSummaryTypeDef",
+    {
+        "associationData": "ContentAssociationContentsTypeDef",
+        "associationType": Literal["AMAZON_CONNECT_GUIDE"],
+        "contentArn": str,
+        "contentAssociationArn": str,
+        "contentAssociationId": str,
+        "contentId": str,
+        "knowledgeBaseArn": str,
+        "knowledgeBaseId": str,
+    },
+)
+_OptionalContentAssociationSummaryTypeDef = TypedDict(
+    "_OptionalContentAssociationSummaryTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class ContentAssociationSummaryTypeDef(
+    _RequiredContentAssociationSummaryTypeDef, _OptionalContentAssociationSummaryTypeDef
+):
+    pass
+
 ContentDataDetailsTypeDef = TypedDict(
     "ContentDataDetailsTypeDef",
     {
@@ -497,6 +576,38 @@ CreateAssistantResponseTypeDef = TypedDict(
     "CreateAssistantResponseTypeDef",
     {
         "assistant": "AssistantDataTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateContentAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateContentAssociationRequestRequestTypeDef",
+    {
+        "association": "ContentAssociationContentsTypeDef",
+        "associationType": Literal["AMAZON_CONNECT_GUIDE"],
+        "contentId": str,
+        "knowledgeBaseId": str,
+    },
+)
+_OptionalCreateContentAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateContentAssociationRequestRequestTypeDef",
+    {
+        "clientToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateContentAssociationRequestRequestTypeDef(
+    _RequiredCreateContentAssociationRequestRequestTypeDef,
+    _OptionalCreateContentAssociationRequestRequestTypeDef,
+):
+    pass
+
+CreateContentAssociationResponseTypeDef = TypedDict(
+    "CreateContentAssociationResponseTypeDef",
+    {
+        "contentAssociation": "ContentAssociationDataTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -679,6 +790,15 @@ DeleteAssistantRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteContentAssociationRequestRequestTypeDef = TypedDict(
+    "DeleteContentAssociationRequestRequestTypeDef",
+    {
+        "contentAssociationId": str,
+        "contentId": str,
+        "knowledgeBaseId": str,
+    },
+)
+
 DeleteContentRequestRequestTypeDef = TypedDict(
     "DeleteContentRequestRequestTypeDef",
     {
@@ -806,6 +926,23 @@ GetAssistantResponseTypeDef = TypedDict(
     "GetAssistantResponseTypeDef",
     {
         "assistant": "AssistantDataTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetContentAssociationRequestRequestTypeDef = TypedDict(
+    "GetContentAssociationRequestRequestTypeDef",
+    {
+        "contentAssociationId": str,
+        "contentId": str,
+        "knowledgeBaseId": str,
+    },
+)
+
+GetContentAssociationResponseTypeDef = TypedDict(
+    "GetContentAssociationResponseTypeDef",
+    {
+        "contentAssociation": "ContentAssociationDataTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1114,6 +1251,37 @@ ListAssistantsResponseTypeDef = TypedDict(
     "ListAssistantsResponseTypeDef",
     {
         "assistantSummaries": List["AssistantSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListContentAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListContentAssociationsRequestRequestTypeDef",
+    {
+        "contentId": str,
+        "knowledgeBaseId": str,
+    },
+)
+_OptionalListContentAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListContentAssociationsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListContentAssociationsRequestRequestTypeDef(
+    _RequiredListContentAssociationsRequestRequestTypeDef,
+    _OptionalListContentAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListContentAssociationsResponseTypeDef = TypedDict(
+    "ListContentAssociationsResponseTypeDef",
+    {
+        "contentAssociationSummaries": List["ContentAssociationSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

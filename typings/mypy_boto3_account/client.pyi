@@ -21,11 +21,14 @@ from botocore.client import BaseClient, ClientMeta
 from .literals import AlternateContactTypeType, RegionOptStatusType
 from .paginator import ListRegionsPaginator
 from .type_defs import (
+    AcceptPrimaryEmailUpdateResponseTypeDef,
     ContactInformationTypeDef,
     GetAlternateContactResponseTypeDef,
     GetContactInformationResponseTypeDef,
+    GetPrimaryEmailResponseTypeDef,
     GetRegionOptStatusResponseTypeDef,
     ListRegionsResponseTypeDef,
+    StartPrimaryEmailUpdateResponseTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -53,7 +56,7 @@ class Exceptions:
 
 class AccountClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html)
     """
 
@@ -65,11 +68,23 @@ class AccountClient(BaseClient):
         AccountClient exceptions.
         """
 
+    def accept_primary_email_update(
+        self, *, AccountId: str, Otp: str, PrimaryEmail: str
+    ) -> AcceptPrimaryEmailUpdateResponseTypeDef:
+        """
+        Accepts the request that originated from  StartPrimaryEmailUpdate to update the
+        primary email address (also known as the root user email address) for the
+        specified account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.accept_primary_email_update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#accept_primary_email_update)
+        """
+
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#can_paginate)
         """
 
@@ -77,7 +92,7 @@ class AccountClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#close)
         """
 
@@ -87,7 +102,7 @@ class AccountClient(BaseClient):
         """
         Deletes the specified alternate contact from an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.delete_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.delete_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#delete_alternate_contact)
         """
 
@@ -95,7 +110,7 @@ class AccountClient(BaseClient):
         """
         Disables (opts-out) a particular Region for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.disable_region)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.disable_region)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#disable_region)
         """
 
@@ -103,7 +118,7 @@ class AccountClient(BaseClient):
         """
         Enables (opts-in) a particular Region for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.enable_region)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.enable_region)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#enable_region)
         """
 
@@ -117,7 +132,7 @@ class AccountClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#generate_presigned_url)
         """
 
@@ -128,7 +143,7 @@ class AccountClient(BaseClient):
         Retrieves the specified alternate contact attached to an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.get_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.get_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#get_alternate_contact)
         """
 
@@ -138,8 +153,16 @@ class AccountClient(BaseClient):
         """
         Retrieves the primary contact information of an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.get_contact_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.get_contact_information)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#get_contact_information)
+        """
+
+    def get_primary_email(self, *, AccountId: str) -> GetPrimaryEmailResponseTypeDef:
+        """
+        Retrieves the primary email address for the specified account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.get_primary_email)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#get_primary_email)
         """
 
     def get_region_opt_status(
@@ -148,7 +171,7 @@ class AccountClient(BaseClient):
         """
         Retrieves the opt-in status of a particular Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.get_region_opt_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.get_region_opt_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#get_region_opt_status)
         """
 
@@ -163,7 +186,7 @@ class AccountClient(BaseClient):
         """
         Lists all the Regions for a given account and their respective opt-in statuses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.list_regions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.list_regions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#list_regions)
         """
 
@@ -181,7 +204,7 @@ class AccountClient(BaseClient):
         Modifies the specified alternate contact attached to an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.put_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.put_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#put_alternate_contact)
         """
 
@@ -191,12 +214,23 @@ class AccountClient(BaseClient):
         """
         Updates the primary contact information of an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Client.put_contact_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.put_contact_information)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#put_contact_information)
+        """
+
+    def start_primary_email_update(
+        self, *, AccountId: str, PrimaryEmail: str
+    ) -> StartPrimaryEmailUpdateResponseTypeDef:
+        """
+        Starts the process to update the primary email address for the specified
+        account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Client.start_primary_email_update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#start_primary_email_update)
         """
 
     def get_paginator(self, operation_name: Literal["list_regions"]) -> ListRegionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/account.html#Account.Paginator.ListRegions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Paginator.ListRegions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html#listregionspaginator)
         """

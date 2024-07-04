@@ -14,6 +14,7 @@ Usage::
         ListControlOperationsPaginator,
         ListEnabledBaselinesPaginator,
         ListEnabledControlsPaginator,
+        ListLandingZoneOperationsPaginator,
         ListLandingZonesPaginator,
     )
 
@@ -23,6 +24,7 @@ Usage::
     list_control_operations_paginator: ListControlOperationsPaginator = client.get_paginator("list_control_operations")
     list_enabled_baselines_paginator: ListEnabledBaselinesPaginator = client.get_paginator("list_enabled_baselines")
     list_enabled_controls_paginator: ListEnabledControlsPaginator = client.get_paginator("list_enabled_controls")
+    list_landing_zone_operations_paginator: ListLandingZoneOperationsPaginator = client.get_paginator("list_landing_zone_operations")
     list_landing_zones_paginator: ListLandingZonesPaginator = client.get_paginator("list_landing_zones")
     ```
 """
@@ -35,10 +37,12 @@ from .type_defs import (
     ControlOperationFilterTypeDef,
     EnabledBaselineFilterTypeDef,
     EnabledControlFilterTypeDef,
+    LandingZoneOperationFilterTypeDef,
     ListBaselinesOutputTypeDef,
     ListControlOperationsOutputTypeDef,
     ListEnabledBaselinesOutputTypeDef,
     ListEnabledControlsOutputTypeDef,
+    ListLandingZoneOperationsOutputTypeDef,
     ListLandingZonesOutputTypeDef,
     PaginatorConfigTypeDef,
 )
@@ -48,12 +52,13 @@ __all__ = (
     "ListControlOperationsPaginator",
     "ListEnabledBaselinesPaginator",
     "ListEnabledControlsPaginator",
+    "ListLandingZoneOperationsPaginator",
     "ListLandingZonesPaginator",
 )
 
 class ListBaselinesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListBaselines)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListBaselines)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listbaselinespaginator)
     """
 
@@ -61,13 +66,13 @@ class ListBaselinesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBaselinesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListBaselines.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListBaselines.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listbaselinespaginator)
         """
 
 class ListControlOperationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listcontroloperationspaginator)
     """
 
@@ -78,13 +83,13 @@ class ListControlOperationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListControlOperationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listcontroloperationspaginator)
         """
 
 class ListEnabledBaselinesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledbaselinespaginator)
     """
 
@@ -95,13 +100,13 @@ class ListEnabledBaselinesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnabledBaselinesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledbaselinespaginator)
         """
 
 class ListEnabledControlsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledcontrolspaginator)
     """
 
@@ -113,13 +118,30 @@ class ListEnabledControlsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnabledControlsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledcontrolspaginator)
+        """
+
+class ListLandingZoneOperationsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZoneOperations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzoneoperationspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        filter: "LandingZoneOperationFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListLandingZoneOperationsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZoneOperations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzoneoperationspaginator)
         """
 
 class ListLandingZonesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzonespaginator)
     """
 
@@ -127,6 +149,6 @@ class ListLandingZonesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLandingZonesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzonespaginator)
         """

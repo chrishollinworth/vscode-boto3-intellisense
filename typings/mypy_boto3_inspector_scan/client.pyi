@@ -38,7 +38,7 @@ class Exceptions:
 
 class inspectorscanClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/inspector-scan.html#inspectorscan.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector-scan.html#inspectorscan.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/client.html)
     """
 
@@ -54,7 +54,7 @@ class inspectorscanClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/inspector-scan.html#inspectorscan.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector-scan.html#inspectorscan.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/client.html#can_paginate)
         """
 
@@ -62,7 +62,7 @@ class inspectorscanClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/inspector-scan.html#inspectorscan.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector-scan.html#inspectorscan.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/client.html#close)
         """
 
@@ -76,7 +76,7 @@ class inspectorscanClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/inspector-scan.html#inspectorscan.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector-scan.html#inspectorscan.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/client.html#generate_presigned_url)
         """
 
@@ -87,6 +87,6 @@ class inspectorscanClient(BaseClient):
         Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities
         discovered in that SBOM.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/inspector-scan.html#inspectorscan.Client.scan_sbom)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector-scan.html#inspectorscan.Client.scan_sbom)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/client.html#scan_sbom)
         """

@@ -40,7 +40,7 @@ __all__ = ("ListCommonControlsPaginator", "ListDomainsPaginator", "ListObjective
 
 class ListCommonControlsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listcommoncontrolspaginator)
     """
 
@@ -51,13 +51,13 @@ class ListCommonControlsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCommonControlsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listcommoncontrolspaginator)
         """
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listdomainspaginator)
     """
 
@@ -65,13 +65,13 @@ class ListDomainsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listdomainspaginator)
         """
 
 class ListObjectivesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listobjectivespaginator)
     """
 
@@ -82,6 +82,6 @@ class ListObjectivesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListObjectivesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listobjectivespaginator)
         """

@@ -60,7 +60,7 @@ class Exceptions:
 
 class IoT1ClickDevicesServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html)
     """
 
@@ -76,7 +76,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#can_paginate)
         """
 
@@ -87,7 +87,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Adds device(s) to your account (i.e., claim one or more devices) if and only if
         you received a claim code with the device(s).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.claim_devices_by_claim_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.claim_devices_by_claim_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#claim_devices_by_claim_code)
         """
 
@@ -95,7 +95,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#close)
         """
 
@@ -104,7 +104,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Given a device ID, returns a DescribeDeviceResponse object describing the
         details of the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.describe_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.describe_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#describe_device)
         """
 
@@ -114,7 +114,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Given a device ID, finalizes the claim request for the associated device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.finalize_device_claim)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.finalize_device_claim)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#finalize_device_claim)
         """
 
@@ -128,7 +128,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#generate_presigned_url)
         """
 
@@ -136,7 +136,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Given a device ID, returns the invokable methods associated with the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.get_device_methods)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.get_device_methods)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#get_device_methods)
         """
 
@@ -144,7 +144,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Given a device ID, initiates a claim request for the associated device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.initiate_device_claim)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.initiate_device_claim)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#initiate_device_claim)
         """
 
@@ -159,7 +159,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Given a device ID, issues a request to invoke a named device method (with
         possible parameters).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.invoke_device_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.invoke_device_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#invoke_device_method)
         """
 
@@ -176,7 +176,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Using a device ID, returns a DeviceEventsResponse object containing an array of
         events for the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_device_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_device_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#list_device_events)
         """
 
@@ -186,7 +186,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Lists the 1-Click compatible devices associated with your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#list_devices)
         """
 
@@ -194,7 +194,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Lists the tags associated with the specified resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#list_tags_for_resource)
         """
 
@@ -202,7 +202,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Adds or updates the tags associated with the resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#tag_resource)
         """
 
@@ -210,7 +210,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         """
         Disassociates a device from your AWS account using its device ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.unclaim_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.unclaim_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#unclaim_device)
         """
 
@@ -219,7 +219,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Using tag keys, deletes the tags (key/value pairs) associated with the specified
         resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#untag_resource)
         """
 
@@ -228,7 +228,7 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         Using a Boolean value (true or false), this operation enables or disables the
         device given a device ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.update_device_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Client.update_device_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/client.html#update_device_state)
         """
 
@@ -237,13 +237,13 @@ class IoT1ClickDevicesServiceClient(BaseClient):
         self, operation_name: Literal["list_device_events"]
     ) -> ListDeviceEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdeviceeventspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_devices"]) -> ListDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdevicespaginator)
         """

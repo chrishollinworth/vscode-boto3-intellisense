@@ -60,7 +60,7 @@ class Exceptions:
 
 class TimestreamInfluxDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html)
     """
 
@@ -76,7 +76,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#can_paginate)
         """
 
@@ -84,7 +84,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#close)
         """
 
@@ -110,7 +110,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Creates a new Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#create_db_instance)
         """
 
@@ -126,7 +126,7 @@ class TimestreamInfluxDBClient(BaseClient):
         Creates a new Timestream for InfluxDB DB parameter group to associate with DB
         instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#create_db_parameter_group)
         """
 
@@ -134,7 +134,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Deletes a Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.delete_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.delete_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#delete_db_instance)
         """
 
@@ -148,7 +148,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#generate_presigned_url)
         """
 
@@ -156,7 +156,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Returns a Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#get_db_instance)
         """
 
@@ -164,7 +164,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Returns a Timestream for InfluxDB DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#get_db_parameter_group)
         """
 
@@ -174,7 +174,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Returns a list of Timestream for InfluxDB DB instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_db_instances)
         """
 
@@ -184,7 +184,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Returns a list of Timestream for InfluxDB DB parameter groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_db_parameter_groups)
         """
 
@@ -192,7 +192,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         A list of tags applied to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_tags_for_resource)
         """
 
@@ -200,7 +200,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Tags are composed of a Key/Value pairs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#tag_resource)
         """
 
@@ -208,7 +208,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Removes the tag from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#untag_resource)
         """
 
@@ -222,7 +222,7 @@ class TimestreamInfluxDBClient(BaseClient):
         """
         Updates a Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.update_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.update_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#update_db_instance)
         """
 
@@ -231,7 +231,7 @@ class TimestreamInfluxDBClient(BaseClient):
         self, operation_name: Literal["list_db_instances"]
     ) -> ListDbInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbinstancespaginator)
         """
 
@@ -240,6 +240,6 @@ class TimestreamInfluxDBClient(BaseClient):
         self, operation_name: Literal["list_db_parameter_groups"]
     ) -> ListDbParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbparametergroupspaginator)
         """

@@ -630,6 +630,8 @@ __all__ = (
     "S3DestinationSettingsTypeDef",
     "S3EncryptionSettingsTypeDef",
     "SccDestinationSettingsTypeDef",
+    "SearchJobsRequestRequestTypeDef",
+    "SearchJobsResponseTypeDef",
     "SpekeKeyProviderCmafTypeDef",
     "SpekeKeyProviderTypeDef",
     "SrtDestinationSettingsTypeDef",
@@ -1112,6 +1114,7 @@ CmafGroupSettingsTypeDef = TypedDict(
         "BaseUrl": str,
         "ClientCache": CmafClientCacheType,
         "CodecSpecification": CmafCodecSpecificationType,
+        "DashIFrameTrickPlayNameModifier": str,
         "DashManifestStyle": DashManifestStyleType,
         "Destination": str,
         "DestinationSettings": "DestinationSettingsTypeDef",
@@ -1377,6 +1380,7 @@ DashIsoGroupSettingsTypeDef = TypedDict(
         "AdditionalManifests": List["DashAdditionalManifestTypeDef"],
         "AudioChannelConfigSchemeIdUri": DashIsoGroupAudioChannelConfigSchemeIdUriType,
         "BaseUrl": str,
+        "DashIFrameTrickPlayNameModifier": str,
         "DashManifestStyle": DashManifestStyleType,
         "Destination": str,
         "DestinationSettings": "DestinationSettingsTypeDef",
@@ -2193,7 +2197,11 @@ InputTypeDef = TypedDict(
 InputVideoGeneratorTypeDef = TypedDict(
     "InputVideoGeneratorTypeDef",
     {
+        "Channels": int,
         "Duration": int,
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+        "SampleRate": int,
     },
     total=False,
 )
@@ -3140,6 +3148,28 @@ SccDestinationSettingsTypeDef = TypedDict(
         "Framerate": SccDestinationFramerateType,
     },
     total=False,
+)
+
+SearchJobsRequestRequestTypeDef = TypedDict(
+    "SearchJobsRequestRequestTypeDef",
+    {
+        "InputFile": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "Order": OrderType,
+        "Queue": str,
+        "Status": JobStatusType,
+    },
+    total=False,
+)
+
+SearchJobsResponseTypeDef = TypedDict(
+    "SearchJobsResponseTypeDef",
+    {
+        "Jobs": List["JobTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 SpekeKeyProviderCmafTypeDef = TypedDict(

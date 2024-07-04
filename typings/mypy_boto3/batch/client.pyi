@@ -93,7 +93,7 @@ class Exceptions:
 
 class BatchClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html)
     """
 
@@ -109,7 +109,7 @@ class BatchClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#can_paginate)
         """
 
@@ -117,7 +117,7 @@ class BatchClient(BaseClient):
         """
         Cancels a job in an Batch job queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.cancel_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.cancel_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#cancel_job)
         """
 
@@ -125,7 +125,7 @@ class BatchClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#close)
         """
 
@@ -144,7 +144,7 @@ class BatchClient(BaseClient):
         """
         Creates an Batch compute environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.create_compute_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.create_compute_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#create_compute_environment)
         """
 
@@ -162,7 +162,7 @@ class BatchClient(BaseClient):
         """
         Creates an Batch job queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.create_job_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.create_job_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#create_job_queue)
         """
 
@@ -176,7 +176,7 @@ class BatchClient(BaseClient):
         """
         Creates an Batch scheduling policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.create_scheduling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.create_scheduling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#create_scheduling_policy)
         """
 
@@ -184,7 +184,7 @@ class BatchClient(BaseClient):
         """
         Deletes an Batch compute environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.delete_compute_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.delete_compute_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#delete_compute_environment)
         """
 
@@ -192,7 +192,7 @@ class BatchClient(BaseClient):
         """
         Deletes the specified job queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.delete_job_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.delete_job_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#delete_job_queue)
         """
 
@@ -200,7 +200,7 @@ class BatchClient(BaseClient):
         """
         Deletes the specified scheduling policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.delete_scheduling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.delete_scheduling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#delete_scheduling_policy)
         """
 
@@ -208,7 +208,7 @@ class BatchClient(BaseClient):
         """
         Deregisters an Batch job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.deregister_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.deregister_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#deregister_job_definition)
         """
 
@@ -222,7 +222,7 @@ class BatchClient(BaseClient):
         """
         Describes one or more of your compute environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.describe_compute_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.describe_compute_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_compute_environments)
         """
 
@@ -238,7 +238,7 @@ class BatchClient(BaseClient):
         """
         Describes a list of job definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.describe_job_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.describe_job_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_job_definitions)
         """
 
@@ -248,7 +248,7 @@ class BatchClient(BaseClient):
         """
         Describes one or more of your job queues.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.describe_job_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.describe_job_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_job_queues)
         """
 
@@ -256,7 +256,7 @@ class BatchClient(BaseClient):
         """
         Describes a list of Batch jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.describe_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.describe_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_jobs)
         """
 
@@ -266,7 +266,7 @@ class BatchClient(BaseClient):
         """
         Describes one or more of your scheduling policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.describe_scheduling_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.describe_scheduling_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_scheduling_policies)
         """
 
@@ -280,7 +280,7 @@ class BatchClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#generate_presigned_url)
         """
 
@@ -289,7 +289,7 @@ class BatchClient(BaseClient):
         Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
         queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.get_job_queue_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.get_job_queue_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#get_job_queue_snapshot)
         """
 
@@ -307,7 +307,7 @@ class BatchClient(BaseClient):
         """
         Returns a list of Batch jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#list_jobs)
         """
 
@@ -317,7 +317,7 @@ class BatchClient(BaseClient):
         """
         Returns a list of Batch scheduling policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.list_scheduling_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.list_scheduling_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#list_scheduling_policies)
         """
 
@@ -325,7 +325,7 @@ class BatchClient(BaseClient):
         """
         Lists the tags for an Batch resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#list_tags_for_resource)
         """
 
@@ -349,7 +349,7 @@ class BatchClient(BaseClient):
         """
         Registers an Batch job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.register_job_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.register_job_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#register_job_definition)
         """
 
@@ -376,7 +376,7 @@ class BatchClient(BaseClient):
         """
         Submits an Batch job from a job definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.submit_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.submit_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#submit_job)
         """
 
@@ -384,7 +384,7 @@ class BatchClient(BaseClient):
         """
         Associates the specified tags to a resource with the specified `resourceArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#tag_resource)
         """
 
@@ -392,7 +392,7 @@ class BatchClient(BaseClient):
         """
         Terminates a job in a job queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.terminate_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.terminate_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#terminate_job)
         """
 
@@ -400,7 +400,7 @@ class BatchClient(BaseClient):
         """
         Deletes specified tags from an Batch resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#untag_resource)
         """
 
@@ -417,7 +417,7 @@ class BatchClient(BaseClient):
         """
         Updates an Batch compute environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.update_compute_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.update_compute_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#update_compute_environment)
         """
 
@@ -434,7 +434,7 @@ class BatchClient(BaseClient):
         """
         Updates a job queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.update_job_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.update_job_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#update_job_queue)
         """
 
@@ -444,7 +444,7 @@ class BatchClient(BaseClient):
         """
         Updates a scheduling policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Client.update_scheduling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Client.update_scheduling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#update_scheduling_policy)
         """
 
@@ -453,7 +453,7 @@ class BatchClient(BaseClient):
         self, operation_name: Literal["describe_compute_environments"]
     ) -> DescribeComputeEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describecomputeenvironmentspaginator)
         """
 
@@ -462,7 +462,7 @@ class BatchClient(BaseClient):
         self, operation_name: Literal["describe_job_definitions"]
     ) -> DescribeJobDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobdefinitionspaginator)
         """
 
@@ -471,14 +471,14 @@ class BatchClient(BaseClient):
         self, operation_name: Literal["describe_job_queues"]
     ) -> DescribeJobQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobqueuespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Paginator.ListJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#listjobspaginator)
         """
 
@@ -487,6 +487,6 @@ class BatchClient(BaseClient):
         self, operation_name: Literal["list_scheduling_policies"]
     ) -> ListSchedulingPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/batch.html#Batch.Paginator.ListSchedulingPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/batch.html#Batch.Paginator.ListSchedulingPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#listschedulingpoliciespaginator)
         """

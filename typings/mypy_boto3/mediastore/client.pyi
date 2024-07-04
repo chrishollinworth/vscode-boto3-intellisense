@@ -58,7 +58,7 @@ class Exceptions:
 
 class MediaStoreClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html)
     """
 
@@ -74,7 +74,7 @@ class MediaStoreClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#can_paginate)
         """
 
@@ -82,7 +82,7 @@ class MediaStoreClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#close)
         """
 
@@ -92,7 +92,7 @@ class MediaStoreClient(BaseClient):
         """
         Creates a storage container to hold objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.create_container)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.create_container)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#create_container)
         """
 
@@ -100,7 +100,7 @@ class MediaStoreClient(BaseClient):
         """
         Deletes the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.delete_container)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.delete_container)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#delete_container)
         """
 
@@ -108,7 +108,7 @@ class MediaStoreClient(BaseClient):
         """
         Deletes the access policy that is associated with the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.delete_container_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.delete_container_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#delete_container_policy)
         """
 
@@ -117,7 +117,7 @@ class MediaStoreClient(BaseClient):
         Deletes the cross-origin resource sharing (CORS) configuration information that
         is set for the container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.delete_cors_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.delete_cors_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#delete_cors_policy)
         """
 
@@ -125,7 +125,7 @@ class MediaStoreClient(BaseClient):
         """
         Removes an object lifecycle policy from a container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.delete_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.delete_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#delete_lifecycle_policy)
         """
 
@@ -133,7 +133,7 @@ class MediaStoreClient(BaseClient):
         """
         Deletes the metric policy that is associated with the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.delete_metric_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.delete_metric_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#delete_metric_policy)
         """
 
@@ -141,7 +141,7 @@ class MediaStoreClient(BaseClient):
         """
         Retrieves the properties of the requested container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.describe_container)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.describe_container)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#describe_container)
         """
 
@@ -155,7 +155,7 @@ class MediaStoreClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#generate_presigned_url)
         """
 
@@ -163,7 +163,7 @@ class MediaStoreClient(BaseClient):
         """
         Retrieves the access policy for the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.get_container_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.get_container_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#get_container_policy)
         """
 
@@ -172,7 +172,7 @@ class MediaStoreClient(BaseClient):
         Returns the cross-origin resource sharing (CORS) configuration information that
         is set for the container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.get_cors_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.get_cors_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#get_cors_policy)
         """
 
@@ -180,7 +180,7 @@ class MediaStoreClient(BaseClient):
         """
         Retrieves the object lifecycle policy that is assigned to a container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.get_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.get_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#get_lifecycle_policy)
         """
 
@@ -188,7 +188,7 @@ class MediaStoreClient(BaseClient):
         """
         Returns the metric policy for the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.get_metric_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.get_metric_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#get_metric_policy)
         """
 
@@ -198,7 +198,7 @@ class MediaStoreClient(BaseClient):
         """
         Lists the properties of all containers in AWS Elemental MediaStore.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.list_containers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.list_containers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#list_containers)
         """
 
@@ -206,7 +206,7 @@ class MediaStoreClient(BaseClient):
         """
         Returns a list of the tags assigned to the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#list_tags_for_resource)
         """
 
@@ -215,7 +215,7 @@ class MediaStoreClient(BaseClient):
         Creates an access policy for the specified container to restrict the users and
         clients that can access it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.put_container_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.put_container_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#put_container_policy)
         """
 
@@ -226,7 +226,7 @@ class MediaStoreClient(BaseClient):
         Sets the cross-origin resource sharing (CORS) configuration on a container so
         that the container can service cross-origin requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.put_cors_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.put_cors_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#put_cors_policy)
         """
 
@@ -234,7 +234,7 @@ class MediaStoreClient(BaseClient):
         """
         Writes an object lifecycle policy to a container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.put_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.put_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#put_lifecycle_policy)
         """
 
@@ -244,7 +244,7 @@ class MediaStoreClient(BaseClient):
         """
         The metric policy that you want to add to the container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.put_metric_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.put_metric_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#put_metric_policy)
         """
 
@@ -252,7 +252,7 @@ class MediaStoreClient(BaseClient):
         """
         Starts access logging on the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.start_access_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.start_access_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#start_access_logging)
         """
 
@@ -260,7 +260,7 @@ class MediaStoreClient(BaseClient):
         """
         Stops access logging on the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.stop_access_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.stop_access_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#stop_access_logging)
         """
 
@@ -268,7 +268,7 @@ class MediaStoreClient(BaseClient):
         """
         Adds tags to the specified AWS Elemental MediaStore container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#tag_resource)
         """
 
@@ -276,12 +276,12 @@ class MediaStoreClient(BaseClient):
         """
         Removes tags from the specified container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/client.html#untag_resource)
         """
 
     def get_paginator(self, operation_name: Literal["list_containers"]) -> ListContainersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediastore.html#MediaStore.Paginator.ListContainers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore.html#MediaStore.Paginator.ListContainers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/paginators.html#listcontainerspaginator)
         """

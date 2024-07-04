@@ -50,7 +50,7 @@ __all__ = (
 
 class ListApplicationStatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listapplicationstatespaginator)
     """
 
@@ -58,13 +58,13 @@ class ListApplicationStatesPaginator(Boto3Paginator):
         self, *, ApplicationIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationStatesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listapplicationstatespaginator)
         """
 
 class ListCreatedArtifactsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listcreatedartifactspaginator)
     """
 
@@ -76,13 +76,13 @@ class ListCreatedArtifactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCreatedArtifactsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listcreatedartifactspaginator)
         """
 
 class ListDiscoveredResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listdiscoveredresourcespaginator)
     """
 
@@ -94,13 +94,13 @@ class ListDiscoveredResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDiscoveredResourcesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listdiscoveredresourcespaginator)
         """
 
 class ListMigrationTasksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listmigrationtaskspaginator)
     """
 
@@ -108,13 +108,13 @@ class ListMigrationTasksPaginator(Boto3Paginator):
         self, *, ResourceName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMigrationTasksResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listmigrationtaskspaginator)
         """
 
 class ListProgressUpdateStreamsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listprogressupdatestreamspaginator)
     """
 
@@ -122,6 +122,6 @@ class ListProgressUpdateStreamsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProgressUpdateStreamsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listprogressupdatestreamspaginator)
         """

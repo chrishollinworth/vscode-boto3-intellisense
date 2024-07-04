@@ -62,7 +62,7 @@ class Exceptions:
 
 class CloudWatchObservabilityAccessManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html)
     """
 
@@ -78,7 +78,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#can_paginate)
         """
 
@@ -86,7 +86,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#close)
         """
 
@@ -103,7 +103,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Creates a link between a source account and a sink that you have created in a
         monitoring account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.create_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.create_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#create_link)
         """
 
@@ -112,7 +112,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Use this to create a *sink* in the current account, so that it can be used as a
         monitoring account in CloudWatch cross-account observability.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.create_sink)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.create_sink)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#create_sink)
         """
 
@@ -120,7 +120,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Deletes a link between a monitoring account sink and a source account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.delete_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.delete_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#delete_link)
         """
 
@@ -128,7 +128,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Deletes a sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.delete_sink)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.delete_sink)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#delete_sink)
         """
 
@@ -142,7 +142,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#generate_presigned_url)
         """
 
@@ -150,7 +150,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Returns complete information about one link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#get_link)
         """
 
@@ -158,7 +158,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Returns complete information about one monitoring account sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_sink)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_sink)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#get_sink)
         """
 
@@ -166,7 +166,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Returns the current sink policy attached to this sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_sink_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.get_sink_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#get_sink_policy)
         """
 
@@ -177,7 +177,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Returns a list of source account links that are linked to this monitoring
         account sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_attached_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_attached_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#list_attached_links)
         """
 
@@ -188,7 +188,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Use this operation in a source account to return a list of links to monitoring
         account sinks that this source account has.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#list_links)
         """
 
@@ -199,7 +199,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Use this operation in a monitoring account to return the list of sinks created
         in that account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_sinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_sinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#list_sinks)
         """
 
@@ -207,7 +207,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Displays the tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#list_tags_for_resource)
         """
 
@@ -216,7 +216,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Creates or updates the resource policy that grants permissions to source
         accounts to link to the monitoring account sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.put_sink_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.put_sink_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#put_sink_policy)
         """
 
@@ -224,7 +224,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Assigns one or more tags (key-value pairs) to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#tag_resource)
         """
 
@@ -232,7 +232,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#untag_resource)
         """
 
@@ -247,7 +247,7 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         Use this operation to change what types of data are shared from a source account
         to its linked monitoring account sink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.update_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Client.update_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/client.html#update_link)
         """
 
@@ -256,20 +256,20 @@ class CloudWatchObservabilityAccessManagerClient(BaseClient):
         self, operation_name: Literal["list_attached_links"]
     ) -> ListAttachedLinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListAttachedLinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listattachedlinkspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_links"]) -> ListLinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListLinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listlinkspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_sinks"]) -> ListSinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/oam.html#CloudWatchObservabilityAccessManager.Paginator.ListSinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/paginators.html#listsinkspaginator)
         """

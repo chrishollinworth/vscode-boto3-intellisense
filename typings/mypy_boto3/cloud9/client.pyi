@@ -64,7 +64,7 @@ class Exceptions:
 
 class Cloud9Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html)
     """
 
@@ -80,7 +80,7 @@ class Cloud9Client(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#can_paginate)
         """
 
@@ -88,7 +88,7 @@ class Cloud9Client(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#close)
         """
 
@@ -112,7 +112,7 @@ class Cloud9Client(BaseClient):
         Cloud (Amazon EC2) instance, and then connects from the instance to the
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#create_environment_ec2)
         """
 
@@ -122,7 +122,7 @@ class Cloud9Client(BaseClient):
         """
         Adds an environment member to an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#create_environment_membership)
         """
 
@@ -130,7 +130,7 @@ class Cloud9Client(BaseClient):
         """
         Deletes an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#delete_environment)
         """
 
@@ -138,7 +138,7 @@ class Cloud9Client(BaseClient):
         """
         Deletes an environment member from a development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#delete_environment_membership)
         """
 
@@ -155,7 +155,7 @@ class Cloud9Client(BaseClient):
         Gets information about environment members for an Cloud9 development
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environment_memberships)
         """
 
@@ -165,7 +165,7 @@ class Cloud9Client(BaseClient):
         """
         Gets status information for an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environment_status)
         """
 
@@ -175,7 +175,7 @@ class Cloud9Client(BaseClient):
         """
         Gets information about Cloud9 development environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.describe_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.describe_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#describe_environments)
         """
 
@@ -189,7 +189,7 @@ class Cloud9Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#generate_presigned_url)
         """
 
@@ -199,7 +199,7 @@ class Cloud9Client(BaseClient):
         """
         Gets a list of Cloud9 development environment identifiers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#list_environments)
         """
 
@@ -207,7 +207,7 @@ class Cloud9Client(BaseClient):
         """
         Gets a list of the tags associated with an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#list_tags_for_resource)
         """
 
@@ -215,7 +215,7 @@ class Cloud9Client(BaseClient):
         """
         Adds tags to an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#tag_resource)
         """
 
@@ -223,7 +223,7 @@ class Cloud9Client(BaseClient):
         """
         Removes tags from an Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#untag_resource)
         """
 
@@ -238,7 +238,7 @@ class Cloud9Client(BaseClient):
         """
         Changes the settings of an existing Cloud9 development environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#update_environment)
         """
 
@@ -249,7 +249,7 @@ class Cloud9Client(BaseClient):
         Changes the settings of an existing environment member for an Cloud9 development
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/client.html#update_environment_membership)
         """
 
@@ -258,7 +258,7 @@ class Cloud9Client(BaseClient):
         self, operation_name: Literal["describe_environment_memberships"]
     ) -> DescribeEnvironmentMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/paginators.html#describeenvironmentmembershipspaginator)
         """
 
@@ -267,6 +267,6 @@ class Cloud9Client(BaseClient):
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/paginators.html#listenvironmentspaginator)
         """

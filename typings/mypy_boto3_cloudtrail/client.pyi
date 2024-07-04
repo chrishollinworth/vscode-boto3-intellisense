@@ -183,7 +183,7 @@ class Exceptions:
 
 class CloudTrailClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html)
     """
 
@@ -200,7 +200,7 @@ class CloudTrailClient(BaseClient):
         Adds one or more tags to a trail, event data store, or channel, up to a limit of
         50.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#add_tags)
         """
 
@@ -208,7 +208,7 @@ class CloudTrailClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#can_paginate)
         """
 
@@ -219,7 +219,7 @@ class CloudTrailClient(BaseClient):
         Cancels a query if the query is not in a terminated state, such as `CANCELLED`,
         `FAILED`, `TIMED_OUT`, or `FINISHED`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.cancel_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.cancel_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#cancel_query)
         """
 
@@ -227,7 +227,7 @@ class CloudTrailClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#close)
         """
 
@@ -243,7 +243,7 @@ class CloudTrailClient(BaseClient):
         Creates a channel for CloudTrail to ingest events from a partner or external
         source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#create_channel)
         """
 
@@ -264,7 +264,7 @@ class CloudTrailClient(BaseClient):
         """
         Creates a new event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.create_event_data_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.create_event_data_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#create_event_data_store)
         """
 
@@ -288,7 +288,7 @@ class CloudTrailClient(BaseClient):
         Creates a trail that specifies the settings for delivery of log data to an
         Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#create_trail)
         """
 
@@ -296,7 +296,7 @@ class CloudTrailClient(BaseClient):
         """
         Deletes a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#delete_channel)
         """
 
@@ -305,7 +305,7 @@ class CloudTrailClient(BaseClient):
         Disables the event data store specified by `EventDataStore`, which accepts an
         event data store ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.delete_event_data_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.delete_event_data_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#delete_event_data_store)
         """
 
@@ -313,7 +313,7 @@ class CloudTrailClient(BaseClient):
         """
         Deletes the resource-based policy attached to the CloudTrail channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#delete_resource_policy)
         """
 
@@ -321,7 +321,7 @@ class CloudTrailClient(BaseClient):
         """
         Deletes a trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#delete_trail)
         """
 
@@ -332,7 +332,7 @@ class CloudTrailClient(BaseClient):
         Removes CloudTrail delegated administrator permissions from a member account in
         an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.deregister_organization_delegated_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.deregister_organization_delegated_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#deregister_organization_delegated_admin)
         """
 
@@ -343,7 +343,7 @@ class CloudTrailClient(BaseClient):
         Returns metadata about a query, including query run time in milliseconds, number
         of events scanned and matched, and query status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.describe_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.describe_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#describe_query)
         """
 
@@ -354,7 +354,7 @@ class CloudTrailClient(BaseClient):
         Retrieves settings for one or more trails associated with the current Region for
         your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#describe_trails)
         """
 
@@ -362,7 +362,7 @@ class CloudTrailClient(BaseClient):
         """
         Disables Lake query federation on the specified event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.disable_federation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.disable_federation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#disable_federation)
         """
 
@@ -372,7 +372,7 @@ class CloudTrailClient(BaseClient):
         """
         Enables Lake query federation on the specified event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.enable_federation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.enable_federation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#enable_federation)
         """
 
@@ -386,7 +386,7 @@ class CloudTrailClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#generate_presigned_url)
         """
 
@@ -394,7 +394,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns information about a specific channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_channel)
         """
 
@@ -403,7 +403,7 @@ class CloudTrailClient(BaseClient):
         Returns information about an event data store specified as either an ARN or the
         ID portion of the ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_event_data_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_event_data_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_event_data_store)
         """
 
@@ -412,7 +412,7 @@ class CloudTrailClient(BaseClient):
         Describes the settings for the event selectors that you configured for your
         trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_event_selectors)
         """
 
@@ -420,7 +420,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns information about a specific import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_import)
         """
 
@@ -431,7 +431,7 @@ class CloudTrailClient(BaseClient):
         Describes the settings for the Insights event selectors that you configured for
         your trail or event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_insight_selectors)
         """
 
@@ -446,7 +446,7 @@ class CloudTrailClient(BaseClient):
         """
         Gets event data results of a query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_query_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_query_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_query_results)
         """
 
@@ -455,7 +455,7 @@ class CloudTrailClient(BaseClient):
         Retrieves the JSON text of the resource-based policy document attached to the
         CloudTrail channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_resource_policy)
         """
 
@@ -463,7 +463,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns settings information for a specified trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_trail)
         """
 
@@ -471,7 +471,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns a JSON-formatted list of information about the specified trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_trail_status)
         """
 
@@ -481,7 +481,7 @@ class CloudTrailClient(BaseClient):
         """
         Lists the channels in the current account, and their source names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_channels)
         """
 
@@ -492,7 +492,7 @@ class CloudTrailClient(BaseClient):
         Returns information about all event data stores in the account, in the current
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_event_data_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_event_data_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_event_data_stores)
         """
 
@@ -502,7 +502,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns a list of failures for the specified import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_import_failures)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_import_failures)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_import_failures)
         """
 
@@ -518,7 +518,7 @@ class CloudTrailClient(BaseClient):
         Returns information on all imports, or a select set of imports by `ImportStatus`
         or `Destination`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_imports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_imports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_imports)
         """
 
@@ -539,7 +539,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns Insights metrics data for trails that have enabled Insights.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_insights_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_insights_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_insights_metric_data)
         """
 
@@ -554,7 +554,7 @@ class CloudTrailClient(BaseClient):
         Returns all public keys whose private keys were used to sign the digest files
         within the specified time range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_public_keys)
         """
 
@@ -571,7 +571,7 @@ class CloudTrailClient(BaseClient):
         """
         Returns a list of queries and query statuses for the past seven days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_queries)
         """
 
@@ -582,7 +582,7 @@ class CloudTrailClient(BaseClient):
         Lists the tags for the specified trails, event data stores, or channels in the
         current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_tags)
         """
 
@@ -590,7 +590,7 @@ class CloudTrailClient(BaseClient):
         """
         Lists trails that are in the current account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_trails)
         """
 
@@ -611,7 +611,7 @@ class CloudTrailClient(BaseClient):
         events <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-
         concepts.html#cloudtrail-concepts-insigh...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#lookup_events)
         """
 
@@ -625,7 +625,7 @@ class CloudTrailClient(BaseClient):
         """
         Configures an event selector or advanced event selectors for your trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#put_event_selectors)
         """
 
@@ -641,7 +641,7 @@ class CloudTrailClient(BaseClient):
         Lets you enable Insights event logging by specifying the Insights selectors that
         you want to enable on an existing trail or event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#put_insight_selectors)
         """
 
@@ -652,7 +652,7 @@ class CloudTrailClient(BaseClient):
         Attaches a resource-based permission policy to a CloudTrail channel that is used
         for an integration with an event source outside of Amazon Web Services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#put_resource_policy)
         """
 
@@ -663,7 +663,7 @@ class CloudTrailClient(BaseClient):
         <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-
         delegated-administrator.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.register_organization_delegated_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.register_organization_delegated_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#register_organization_delegated_admin)
         """
 
@@ -671,7 +671,7 @@ class CloudTrailClient(BaseClient):
         """
         Removes the specified tags from a trail, event data store, or channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#remove_tags)
         """
 
@@ -682,7 +682,7 @@ class CloudTrailClient(BaseClient):
         Restores a deleted event data store specified by `EventDataStore`, which accepts
         an event data store ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.restore_event_data_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.restore_event_data_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#restore_event_data_store)
         """
 
@@ -691,7 +691,7 @@ class CloudTrailClient(BaseClient):
         Starts the ingestion of live events on an event data store specified as either
         an ARN or the ID portion of the ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.start_event_data_store_ingestion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.start_event_data_store_ingestion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#start_event_data_store_ingestion)
         """
 
@@ -708,7 +708,7 @@ class CloudTrailClient(BaseClient):
         Starts an import of logged trail events from a source S3 bucket to a destination
         event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.start_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.start_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#start_import)
         """
 
@@ -717,7 +717,7 @@ class CloudTrailClient(BaseClient):
         Starts the recording of Amazon Web Services API calls and log file delivery for
         a trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#start_logging)
         """
 
@@ -732,7 +732,7 @@ class CloudTrailClient(BaseClient):
         """
         Starts a CloudTrail Lake query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.start_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.start_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#start_query)
         """
 
@@ -741,7 +741,7 @@ class CloudTrailClient(BaseClient):
         Stops the ingestion of live events on an event data store specified as either an
         ARN or the ID portion of the ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.stop_event_data_store_ingestion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.stop_event_data_store_ingestion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#stop_event_data_store_ingestion)
         """
 
@@ -749,7 +749,7 @@ class CloudTrailClient(BaseClient):
         """
         Stops a specified import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.stop_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.stop_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#stop_import)
         """
 
@@ -758,7 +758,7 @@ class CloudTrailClient(BaseClient):
         Suspends the recording of Amazon Web Services API calls and log file delivery
         for the specified trail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#stop_logging)
         """
 
@@ -768,7 +768,7 @@ class CloudTrailClient(BaseClient):
         """
         Updates a channel specified by a required channel ARN or UUID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#update_channel)
         """
 
@@ -788,7 +788,7 @@ class CloudTrailClient(BaseClient):
         """
         Updates an event data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.update_event_data_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.update_event_data_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#update_event_data_store)
         """
 
@@ -811,7 +811,7 @@ class CloudTrailClient(BaseClient):
         Updates trail settings that control what events you are logging, and how to
         handle log files.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#update_trail)
         """
 
@@ -820,41 +820,41 @@ class CloudTrailClient(BaseClient):
         self, operation_name: Literal["list_import_failures"]
     ) -> ListImportFailuresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImportFailures)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImportFailures)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportfailurespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_imports"]) -> ListImportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_public_keys"]) -> ListPublicKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listpublickeyspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtagspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_trails"]) -> ListTrailsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtrailspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["lookup_events"]) -> LookupEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#lookupeventspaginator)
         """

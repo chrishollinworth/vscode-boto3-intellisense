@@ -51,7 +51,7 @@ __all__ = (
 
 class ListPermissionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
     """
 
@@ -65,13 +65,13 @@ class ListPermissionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
         """
 
 class ListVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
     """
 
@@ -79,13 +79,13 @@ class ListVersionsPaginator(Boto3Paginator):
         self, *, workspaceId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
         """
 
 class ListWorkspaceServiceAccountTokensPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
     """
 
@@ -97,13 +97,13 @@ class ListWorkspaceServiceAccountTokensPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkspaceServiceAccountTokensResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
         """
 
 class ListWorkspaceServiceAccountsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
     """
 
@@ -111,13 +111,13 @@ class ListWorkspaceServiceAccountsPaginator(Boto3Paginator):
         self, *, workspaceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkspaceServiceAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
         """
 
 class ListWorkspacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
     """
 
@@ -125,6 +125,6 @@ class ListWorkspacesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkspacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
         """

@@ -39,7 +39,7 @@ class Exceptions:
 
 class CloudTrailDataServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail-data.html#CloudTrailDataService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail-data.html#CloudTrailDataService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/client.html)
     """
 
@@ -55,7 +55,7 @@ class CloudTrailDataServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/client.html#can_paginate)
         """
 
@@ -63,7 +63,7 @@ class CloudTrailDataServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/client.html#close)
         """
 
@@ -77,7 +77,7 @@ class CloudTrailDataServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/client.html#generate_presigned_url)
         """
 
@@ -87,6 +87,6 @@ class CloudTrailDataServiceClient(BaseClient):
         """
         Ingests your application events into CloudTrail Lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.put_audit_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail-data.html#CloudTrailDataService.Client.put_audit_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/client.html#put_audit_events)
         """

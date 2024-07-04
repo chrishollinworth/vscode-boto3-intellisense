@@ -402,7 +402,7 @@ class Exceptions:
 
 class RDSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html)
     """
 
@@ -420,7 +420,7 @@ class RDSClient(BaseClient):
         """
         Associates an Identity and Access Management (IAM) role with a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.add_role_to_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.add_role_to_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#add_role_to_db_cluster)
         """
 
@@ -431,7 +431,7 @@ class RDSClient(BaseClient):
         Associates an Amazon Web Services Identity and Access Management (IAM) role with
         a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.add_role_to_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.add_role_to_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#add_role_to_db_instance)
         """
 
@@ -441,7 +441,7 @@ class RDSClient(BaseClient):
         """
         Adds a source identifier to an existing RDS event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.add_source_identifier_to_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.add_source_identifier_to_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#add_source_identifier_to_subscription)
         """
 
@@ -449,7 +449,7 @@ class RDSClient(BaseClient):
         """
         Adds metadata tags to an Amazon RDS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.add_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.add_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#add_tags_to_resource)
         """
 
@@ -460,7 +460,7 @@ class RDSClient(BaseClient):
         Applies a pending maintenance action to a resource (for example, to a DB
         instance).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.apply_pending_maintenance_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.apply_pending_maintenance_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#apply_pending_maintenance_action)
         """
 
@@ -476,7 +476,7 @@ class RDSClient(BaseClient):
         """
         Enables ingress to a DBSecurityGroup using one of two forms of authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.authorize_db_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.authorize_db_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#authorize_db_security_group_ingress)
         """
 
@@ -491,7 +491,7 @@ class RDSClient(BaseClient):
         """
         Backtracks a DB cluster to a specific time, without creating a new DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.backtrack_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.backtrack_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#backtrack_db_cluster)
         """
 
@@ -499,7 +499,7 @@ class RDSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#can_paginate)
         """
 
@@ -508,7 +508,7 @@ class RDSClient(BaseClient):
         Cancels an export task in progress that is exporting a snapshot or cluster to
         Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.cancel_export_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.cancel_export_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#cancel_export_task)
         """
 
@@ -516,7 +516,7 @@ class RDSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#close)
         """
 
@@ -531,7 +531,7 @@ class RDSClient(BaseClient):
         """
         Copies the specified DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.copy_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.copy_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#copy_db_cluster_parameter_group)
         """
 
@@ -549,7 +549,7 @@ class RDSClient(BaseClient):
         """
         Copies a snapshot of a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.copy_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.copy_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#copy_db_cluster_snapshot)
         """
 
@@ -564,7 +564,7 @@ class RDSClient(BaseClient):
         """
         Copies the specified DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.copy_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.copy_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#copy_db_parameter_group)
         """
 
@@ -585,7 +585,7 @@ class RDSClient(BaseClient):
         """
         Copies the specified DB snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.copy_db_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.copy_db_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#copy_db_snapshot)
         """
 
@@ -600,7 +600,7 @@ class RDSClient(BaseClient):
         """
         Copies the specified option group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.copy_option_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.copy_option_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#copy_option_group)
         """
 
@@ -619,7 +619,7 @@ class RDSClient(BaseClient):
         """
         Creates a blue/green deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_blue_green_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_blue_green_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_blue_green_deployment)
         """
 
@@ -641,7 +641,7 @@ class RDSClient(BaseClient):
         """
         Creates a custom DB engine version (CEV).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_custom_db_engine_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_custom_db_engine_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_custom_db_engine_version)
         """
 
@@ -707,7 +707,7 @@ class RDSClient(BaseClient):
         """
         Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_cluster)
         """
 
@@ -725,7 +725,7 @@ class RDSClient(BaseClient):
         Creates a new custom endpoint and associates it with an Amazon Aurora DB
         cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_cluster_endpoint)
         """
 
@@ -740,7 +740,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_cluster_parameter_group)
         """
 
@@ -754,7 +754,7 @@ class RDSClient(BaseClient):
         """
         Creates a snapshot of a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_cluster_snapshot)
         """
 
@@ -828,7 +828,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_instance)
         """
 
@@ -886,7 +886,7 @@ class RDSClient(BaseClient):
         Creates a new DB instance that acts as a read replica for an existing source DB
         instance or Multi-AZ DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_instance_read_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_instance_read_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_instance_read_replica)
         """
 
@@ -901,7 +901,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_parameter_group)
         """
 
@@ -922,7 +922,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB proxy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_proxy)
         """
 
@@ -939,7 +939,7 @@ class RDSClient(BaseClient):
         """
         Creates a `DBProxyEndpoint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_proxy_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_proxy_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_proxy_endpoint)
         """
 
@@ -953,7 +953,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_security_group)
         """
 
@@ -969,7 +969,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB shard group for Aurora Limitless Database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_shard_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_shard_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_shard_group)
         """
 
@@ -983,7 +983,7 @@ class RDSClient(BaseClient):
         """
         Creates a snapshot of a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_snapshot)
         """
 
@@ -998,7 +998,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_db_subnet_group)
         """
 
@@ -1016,7 +1016,7 @@ class RDSClient(BaseClient):
         """
         Creates an RDS event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_event_subscription)
         """
 
@@ -1036,7 +1036,7 @@ class RDSClient(BaseClient):
         Creates an Aurora global database spread across multiple Amazon Web Services
         Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_global_cluster)
         """
 
@@ -1055,7 +1055,7 @@ class RDSClient(BaseClient):
         """
         Creates a zero-ETL integration with Amazon Redshift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_integration)
         """
 
@@ -1071,7 +1071,7 @@ class RDSClient(BaseClient):
         """
         Creates a new option group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_option_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_option_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_option_group)
         """
 
@@ -1090,7 +1090,7 @@ class RDSClient(BaseClient):
         Creates a tenant database in a DB instance that uses the multi-tenant
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.create_tenant_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.create_tenant_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#create_tenant_database)
         """
 
@@ -1100,7 +1100,7 @@ class RDSClient(BaseClient):
         """
         Deletes a blue/green deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_blue_green_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_blue_green_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_blue_green_deployment)
         """
 
@@ -1110,7 +1110,7 @@ class RDSClient(BaseClient):
         """
         Deletes a custom engine version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_custom_db_engine_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_custom_db_engine_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_custom_db_engine_version)
         """
 
@@ -1125,7 +1125,7 @@ class RDSClient(BaseClient):
         """
         The DeleteDBCluster action deletes a previously provisioned DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_cluster)
         """
 
@@ -1136,7 +1136,7 @@ class RDSClient(BaseClient):
         Deletes automated backups using the `DbClusterResourceId` value of the source DB
         cluster or the Amazon Resource Name (ARN) of the automated backups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_cluster_automated_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_cluster_automated_backup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_cluster_automated_backup)
         """
 
@@ -1146,7 +1146,7 @@ class RDSClient(BaseClient):
         """
         Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_cluster_endpoint)
         """
 
@@ -1154,7 +1154,7 @@ class RDSClient(BaseClient):
         """
         Deletes a specified DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_cluster_parameter_group)
         """
 
@@ -1164,7 +1164,7 @@ class RDSClient(BaseClient):
         """
         Deletes a DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_cluster_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_cluster_snapshot)
         """
 
@@ -1179,7 +1179,7 @@ class RDSClient(BaseClient):
         """
         Deletes a previously provisioned DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_instance)
         """
 
@@ -1190,7 +1190,7 @@ class RDSClient(BaseClient):
         Deletes automated backups using the `DbiResourceId` value of the source DB
         instance or the Amazon Resource Name (ARN) of the automated backups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_instance_automated_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_instance_automated_backup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_instance_automated_backup)
         """
 
@@ -1198,7 +1198,7 @@ class RDSClient(BaseClient):
         """
         Deletes a specified DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_parameter_group)
         """
 
@@ -1206,7 +1206,7 @@ class RDSClient(BaseClient):
         """
         Deletes an existing DB proxy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_proxy)
         """
 
@@ -1216,7 +1216,7 @@ class RDSClient(BaseClient):
         """
         Deletes a `DBProxyEndpoint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_proxy_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_proxy_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_proxy_endpoint)
         """
 
@@ -1224,7 +1224,7 @@ class RDSClient(BaseClient):
         """
         Deletes a DB security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_security_group)
         """
 
@@ -1234,7 +1234,7 @@ class RDSClient(BaseClient):
         """
         Deletes an Aurora Limitless Database DB shard group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_shard_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_shard_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_shard_group)
         """
 
@@ -1242,7 +1242,7 @@ class RDSClient(BaseClient):
         """
         Deletes a DB snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_snapshot)
         """
 
@@ -1250,7 +1250,7 @@ class RDSClient(BaseClient):
         """
         Deletes a DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_db_subnet_group)
         """
 
@@ -1260,7 +1260,7 @@ class RDSClient(BaseClient):
         """
         Deletes an RDS event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_event_subscription)
         """
 
@@ -1270,7 +1270,7 @@ class RDSClient(BaseClient):
         """
         Deletes a global database cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_global_cluster)
         """
 
@@ -1280,7 +1280,7 @@ class RDSClient(BaseClient):
         """
         Deletes a zero-ETL integration with Amazon Redshift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_integration)
         """
 
@@ -1288,7 +1288,7 @@ class RDSClient(BaseClient):
         """
         Deletes an existing option group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_option_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_option_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_option_group)
         """
 
@@ -1303,7 +1303,7 @@ class RDSClient(BaseClient):
         """
         Deletes a tenant database from your DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.delete_tenant_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.delete_tenant_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#delete_tenant_database)
         """
 
@@ -1319,7 +1319,7 @@ class RDSClient(BaseClient):
         Remove the association between one or more `DBProxyTarget` data structures and a
         `DBProxyTargetGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.deregister_db_proxy_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.deregister_db_proxy_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#deregister_db_proxy_targets)
         """
 
@@ -1327,7 +1327,7 @@ class RDSClient(BaseClient):
         """
         Lists all of the attributes for a customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_account_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_account_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_account_attributes)
         """
 
@@ -1342,7 +1342,7 @@ class RDSClient(BaseClient):
         """
         Describes one or more blue/green deployments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_blue_green_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_blue_green_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_blue_green_deployments)
         """
 
@@ -1358,7 +1358,7 @@ class RDSClient(BaseClient):
         Lists the set of certificate authority (CA) certificates provided by Amazon RDS
         for this Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_certificates)
         """
 
@@ -1374,7 +1374,7 @@ class RDSClient(BaseClient):
         """
         Displays backups for both current and deleted DB clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_automated_backups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_automated_backups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_automated_backups)
         """
 
@@ -1390,7 +1390,7 @@ class RDSClient(BaseClient):
         """
         Returns information about backtracks for a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_backtracks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_backtracks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_backtracks)
         """
 
@@ -1406,7 +1406,7 @@ class RDSClient(BaseClient):
         """
         Returns information about endpoints for an Amazon Aurora DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_endpoints)
         """
 
@@ -1421,7 +1421,7 @@ class RDSClient(BaseClient):
         """
         Returns a list of `DBClusterParameterGroup` descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_parameter_groups)
         """
 
@@ -1437,7 +1437,7 @@ class RDSClient(BaseClient):
         """
         Returns the detailed parameter list for a particular DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_parameters)
         """
 
@@ -1448,7 +1448,7 @@ class RDSClient(BaseClient):
         Returns a list of DB cluster snapshot attribute names and values for a manual DB
         cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshot_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshot_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_snapshot_attributes)
         """
 
@@ -1468,7 +1468,7 @@ class RDSClient(BaseClient):
         """
         Returns information about DB cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_cluster_snapshots)
         """
 
@@ -1484,7 +1484,7 @@ class RDSClient(BaseClient):
         """
         Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_clusters)
         """
 
@@ -1505,7 +1505,7 @@ class RDSClient(BaseClient):
         """
         Describes the properties of specific versions of DB engines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_engine_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_engine_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_engine_versions)
         """
 
@@ -1522,7 +1522,7 @@ class RDSClient(BaseClient):
         """
         Displays backups for both current and deleted instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_instance_automated_backups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_instance_automated_backups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_instance_automated_backups)
         """
 
@@ -1537,7 +1537,7 @@ class RDSClient(BaseClient):
         """
         Describes provisioned RDS instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_instances)
         """
 
@@ -1555,7 +1555,7 @@ class RDSClient(BaseClient):
         """
         Returns a list of DB log files for the DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_log_files)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_log_files)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_log_files)
         """
 
@@ -1570,7 +1570,7 @@ class RDSClient(BaseClient):
         """
         Returns a list of `DBParameterGroup` descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_parameter_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_parameter_groups)
         """
 
@@ -1586,7 +1586,7 @@ class RDSClient(BaseClient):
         """
         Returns the detailed parameter list for a particular DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_parameters)
         """
 
@@ -1601,7 +1601,7 @@ class RDSClient(BaseClient):
         """
         Returns information about DB proxies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_proxies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_proxies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_proxies)
         """
 
@@ -1617,7 +1617,7 @@ class RDSClient(BaseClient):
         """
         Returns information about DB proxy endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_proxy_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_proxy_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_proxy_endpoints)
         """
 
@@ -1634,7 +1634,7 @@ class RDSClient(BaseClient):
         Returns information about DB proxy target groups, represented by
         `DBProxyTargetGroup` data structures.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_proxy_target_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_proxy_target_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_proxy_target_groups)
         """
 
@@ -1650,7 +1650,7 @@ class RDSClient(BaseClient):
         """
         Returns information about `DBProxyTarget` objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_proxy_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_proxy_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_proxy_targets)
         """
 
@@ -1668,7 +1668,7 @@ class RDSClient(BaseClient):
         Describes the recommendations to resolve the issues for your DB instances, DB
         clusters, and DB parameter groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_recommendations)
         """
 
@@ -1683,7 +1683,7 @@ class RDSClient(BaseClient):
         """
         Returns a list of `DBSecurityGroup` descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_security_groups)
         """
 
@@ -1698,7 +1698,7 @@ class RDSClient(BaseClient):
         """
         Describes existing Aurora Limitless Database DB shard groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_shard_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_shard_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_shard_groups)
         """
 
@@ -1709,7 +1709,7 @@ class RDSClient(BaseClient):
         Returns a list of DB snapshot attribute names and values for a manual DB
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_snapshot_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_snapshot_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_snapshot_attributes)
         """
 
@@ -1727,7 +1727,7 @@ class RDSClient(BaseClient):
         """
         Describes the tenant databases that exist in a DB snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_snapshot_tenant_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_snapshot_tenant_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_snapshot_tenant_databases)
         """
 
@@ -1747,7 +1747,7 @@ class RDSClient(BaseClient):
         """
         Returns information about DB snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_snapshots)
         """
 
@@ -1762,7 +1762,7 @@ class RDSClient(BaseClient):
         """
         Returns a list of DBSubnetGroup descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_db_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_db_subnet_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_db_subnet_groups)
         """
 
@@ -1778,7 +1778,7 @@ class RDSClient(BaseClient):
         Returns the default engine and system parameter information for the cluster
         database engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_engine_default_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_engine_default_cluster_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_engine_default_cluster_parameters)
         """
 
@@ -1794,7 +1794,7 @@ class RDSClient(BaseClient):
         Returns the default engine and system parameter information for the specified
         database engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_engine_default_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_engine_default_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_engine_default_parameters)
         """
 
@@ -1805,7 +1805,7 @@ class RDSClient(BaseClient):
         Displays a list of categories for all event source types, or, if specified, for
         a specified source type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_event_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_event_categories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_event_categories)
         """
 
@@ -1820,7 +1820,7 @@ class RDSClient(BaseClient):
         """
         Lists all the subscription descriptions for a customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_event_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_event_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_event_subscriptions)
         """
 
@@ -1842,7 +1842,7 @@ class RDSClient(BaseClient):
         security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the
         past 14 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_events)
         """
 
@@ -1859,7 +1859,7 @@ class RDSClient(BaseClient):
         """
         Returns information about a snapshot or cluster export to Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_export_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_export_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_export_tasks)
         """
 
@@ -1874,7 +1874,7 @@ class RDSClient(BaseClient):
         """
         Returns information about Aurora global database clusters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_global_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_global_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_global_clusters)
         """
 
@@ -1889,7 +1889,7 @@ class RDSClient(BaseClient):
         """
         Describe one or more zero-ETL integrations with Amazon Redshift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_integrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_integrations)
         """
 
@@ -1905,7 +1905,7 @@ class RDSClient(BaseClient):
         """
         Describes all available options for the specified engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_option_group_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_option_group_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_option_group_options)
         """
 
@@ -1922,7 +1922,7 @@ class RDSClient(BaseClient):
         """
         Describes the available option groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_option_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_option_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_option_groups)
         """
 
@@ -1942,7 +1942,7 @@ class RDSClient(BaseClient):
         """
         Describes the orderable DB instance options for a specified DB engine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_orderable_db_instance_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_orderable_db_instance_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_orderable_db_instance_options)
         """
 
@@ -1958,7 +1958,7 @@ class RDSClient(BaseClient):
         Returns a list of resources (for example, DB instances) that have at least one
         pending maintenance action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_pending_maintenance_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_pending_maintenance_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_pending_maintenance_actions)
         """
 
@@ -1981,7 +1981,7 @@ class RDSClient(BaseClient):
         Returns information about reserved DB instances for this account, or about a
         specified reserved DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_reserved_db_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_reserved_db_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_reserved_db_instances)
         """
 
@@ -2001,7 +2001,7 @@ class RDSClient(BaseClient):
         """
         Lists available reserved DB instance offerings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_reserved_db_instances_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_reserved_db_instances_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_reserved_db_instances_offerings)
         """
 
@@ -2018,7 +2018,7 @@ class RDSClient(BaseClient):
         Amazon Web Services Region can create a read replica, copy a DB snapshot from,
         or replicate automated backups from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_source_regions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_source_regions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_source_regions)
         """
 
@@ -2035,7 +2035,7 @@ class RDSClient(BaseClient):
         Describes the tenant databases in a DB instance that uses the multi-tenant
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_tenant_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_tenant_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_tenant_databases)
         """
 
@@ -2046,7 +2046,7 @@ class RDSClient(BaseClient):
         You can call `DescribeValidDBInstanceModifications` to learn what modifications
         you can make to your DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.describe_valid_db_instance_modifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.describe_valid_db_instance_modifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#describe_valid_db_instance_modifications)
         """
 
@@ -2054,7 +2054,7 @@ class RDSClient(BaseClient):
         """
         Disables the HTTP endpoint for the specified DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.disable_http_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.disable_http_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#disable_http_endpoint)
         """
 
@@ -2069,7 +2069,7 @@ class RDSClient(BaseClient):
         """
         Downloads all or a portion of the specified log file, up to 1 MB in size.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.download_db_log_file_portion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.download_db_log_file_portion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#download_db_log_file_portion)
         """
 
@@ -2077,7 +2077,7 @@ class RDSClient(BaseClient):
         """
         Enables the HTTP endpoint for the DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.enable_http_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.enable_http_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#enable_http_endpoint)
         """
 
@@ -2087,7 +2087,7 @@ class RDSClient(BaseClient):
         """
         Forces a failover for a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.failover_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.failover_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#failover_db_cluster)
         """
 
@@ -2103,7 +2103,7 @@ class RDSClient(BaseClient):
         Promotes the specified secondary DB cluster to be the primary DB cluster in the
         global database cluster to fail over or switch over a global database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.failover_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.failover_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#failover_global_cluster)
         """
 
@@ -2113,7 +2113,7 @@ class RDSClient(BaseClient):
         """
         Generates an auth token used to connect to a db with IAM credentials.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.generate_db_auth_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.generate_db_auth_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#generate_db_auth_token)
         """
 
@@ -2127,7 +2127,7 @@ class RDSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#generate_presigned_url)
         """
 
@@ -2137,7 +2137,7 @@ class RDSClient(BaseClient):
         """
         Lists all tags on an Amazon RDS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#list_tags_for_resource)
         """
 
@@ -2148,7 +2148,7 @@ class RDSClient(BaseClient):
         Changes the audit policy state of a database activity stream to either locked
         (default) or unlocked.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_activity_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_activity_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_activity_stream)
         """
 
@@ -2160,7 +2160,7 @@ class RDSClient(BaseClient):
         (SSL/TLS) certificate for Amazon RDS for new DB instances, or remove the
         override.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_certificates)
         """
 
@@ -2175,7 +2175,7 @@ class RDSClient(BaseClient):
         """
         Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_current_db_cluster_capacity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_current_db_cluster_capacity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_current_db_cluster_capacity)
         """
 
@@ -2190,7 +2190,7 @@ class RDSClient(BaseClient):
         """
         Modifies the status of a custom engine version (CEV).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_custom_db_engine_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_custom_db_engine_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_custom_db_engine_version)
         """
 
@@ -2246,7 +2246,7 @@ class RDSClient(BaseClient):
         """
         Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_cluster)
         """
 
@@ -2261,7 +2261,7 @@ class RDSClient(BaseClient):
         """
         Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_cluster_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_cluster_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_cluster_endpoint)
         """
 
@@ -2271,7 +2271,7 @@ class RDSClient(BaseClient):
         """
         Modifies the parameters of a DB cluster parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_cluster_parameter_group)
         """
 
@@ -2287,7 +2287,7 @@ class RDSClient(BaseClient):
         Adds an attribute and values to, or removes an attribute and values from, a
         manual DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_cluster_snapshot_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_cluster_snapshot_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_cluster_snapshot_attribute)
         """
 
@@ -2358,7 +2358,7 @@ class RDSClient(BaseClient):
         """
         Modifies settings for a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_instance)
         """
 
@@ -2368,7 +2368,7 @@ class RDSClient(BaseClient):
         """
         Modifies the parameters of a DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_parameter_group)
         """
 
@@ -2387,7 +2387,7 @@ class RDSClient(BaseClient):
         """
         Changes the settings for an existing DB proxy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_proxy)
         """
 
@@ -2401,7 +2401,7 @@ class RDSClient(BaseClient):
         """
         Changes the settings for an existing DB proxy endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_proxy_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_proxy_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_proxy_endpoint)
         """
 
@@ -2416,7 +2416,7 @@ class RDSClient(BaseClient):
         """
         Modifies the properties of a `DBProxyTargetGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_proxy_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_proxy_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_proxy_target_group)
         """
 
@@ -2432,7 +2432,7 @@ class RDSClient(BaseClient):
         Updates the recommendation status and recommended action status for the
         specified recommendation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_recommendation)
         """
 
@@ -2442,7 +2442,7 @@ class RDSClient(BaseClient):
         """
         Modifies the settings of an Aurora Limitless Database DB shard group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_shard_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_shard_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_shard_group)
         """
 
@@ -2452,7 +2452,7 @@ class RDSClient(BaseClient):
         """
         Updates a manual DB snapshot with a new engine version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_snapshot)
         """
 
@@ -2468,7 +2468,7 @@ class RDSClient(BaseClient):
         Adds an attribute and values to, or removes an attribute and values from, a
         manual DB snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_snapshot_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_snapshot_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_snapshot_attribute)
         """
 
@@ -2478,7 +2478,7 @@ class RDSClient(BaseClient):
         """
         Modifies an existing DB subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_db_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_db_subnet_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_db_subnet_group)
         """
 
@@ -2494,7 +2494,7 @@ class RDSClient(BaseClient):
         """
         Modifies an existing RDS event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_event_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_event_subscription)
         """
 
@@ -2510,7 +2510,7 @@ class RDSClient(BaseClient):
         """
         Modifies a setting for an Amazon Aurora global database cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_global_cluster)
         """
 
@@ -2525,7 +2525,7 @@ class RDSClient(BaseClient):
         """
         Modifies a zero-ETL integration with Amazon Redshift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_integration)
         """
 
@@ -2540,7 +2540,7 @@ class RDSClient(BaseClient):
         """
         Modifies an existing option group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_option_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_option_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_option_group)
         """
 
@@ -2555,7 +2555,7 @@ class RDSClient(BaseClient):
         """
         Modifies an existing tenant database in a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.modify_tenant_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.modify_tenant_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#modify_tenant_database)
         """
 
@@ -2569,7 +2569,7 @@ class RDSClient(BaseClient):
         """
         Promotes a read replica DB instance to a standalone DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.promote_read_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.promote_read_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#promote_read_replica)
         """
 
@@ -2579,7 +2579,7 @@ class RDSClient(BaseClient):
         """
         Promotes a read replica DB cluster to a standalone DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.promote_read_replica_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.promote_read_replica_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#promote_read_replica_db_cluster)
         """
 
@@ -2594,7 +2594,7 @@ class RDSClient(BaseClient):
         """
         Purchases a reserved DB instance offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.purchase_reserved_db_instances_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.purchase_reserved_db_instances_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#purchase_reserved_db_instances_offering)
         """
 
@@ -2602,7 +2602,7 @@ class RDSClient(BaseClient):
         """
         You might need to reboot your DB cluster, usually for maintenance reasons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.reboot_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.reboot_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#reboot_db_cluster)
         """
 
@@ -2612,7 +2612,7 @@ class RDSClient(BaseClient):
         """
         You might need to reboot your DB instance, usually for maintenance reasons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.reboot_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.reboot_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#reboot_db_instance)
         """
 
@@ -2622,7 +2622,7 @@ class RDSClient(BaseClient):
         """
         You might need to reboot your DB shard group, usually for maintenance reasons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.reboot_db_shard_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.reboot_db_shard_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#reboot_db_shard_group)
         """
 
@@ -2638,7 +2638,7 @@ class RDSClient(BaseClient):
         Associate one or more `DBProxyTarget` data structures with a
         `DBProxyTargetGroup`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.register_db_proxy_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.register_db_proxy_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#register_db_proxy_targets)
         """
 
@@ -2648,7 +2648,7 @@ class RDSClient(BaseClient):
         """
         Detaches an Aurora secondary cluster from an Aurora global database cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.remove_from_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.remove_from_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#remove_from_global_cluster)
         """
 
@@ -2659,7 +2659,7 @@ class RDSClient(BaseClient):
         Removes the asssociation of an Amazon Web Services Identity and Access
         Management (IAM) role from a DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.remove_role_from_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.remove_role_from_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#remove_role_from_db_cluster)
         """
 
@@ -2670,7 +2670,7 @@ class RDSClient(BaseClient):
         Disassociates an Amazon Web Services Identity and Access Management (IAM) role
         from a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.remove_role_from_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.remove_role_from_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#remove_role_from_db_instance)
         """
 
@@ -2681,7 +2681,7 @@ class RDSClient(BaseClient):
         Removes a source identifier from an existing RDS event notification
         subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.remove_source_identifier_from_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.remove_source_identifier_from_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#remove_source_identifier_from_subscription)
         """
 
@@ -2689,7 +2689,7 @@ class RDSClient(BaseClient):
         """
         Removes metadata tags from an Amazon RDS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.remove_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#remove_tags_from_resource)
         """
 
@@ -2703,7 +2703,7 @@ class RDSClient(BaseClient):
         """
         Modifies the parameters of a DB cluster parameter group to the default value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.reset_db_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.reset_db_cluster_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#reset_db_cluster_parameter_group)
         """
 
@@ -2718,7 +2718,7 @@ class RDSClient(BaseClient):
         Modifies the parameters of a DB parameter group to the engine/system default
         value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.reset_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.reset_db_parameter_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#reset_db_parameter_group)
         """
 
@@ -2767,7 +2767,7 @@ class RDSClient(BaseClient):
         Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3
         bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_cluster_from_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_cluster_from_s3)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_cluster_from_s3)
         """
 
@@ -2808,7 +2808,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_cluster_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_cluster_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_cluster_from_snapshot)
         """
 
@@ -2849,7 +2849,7 @@ class RDSClient(BaseClient):
         """
         Restores a DB cluster to an arbitrary point in time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_cluster_to_point_in_time)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_cluster_to_point_in_time)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_cluster_to_point_in_time)
         """
 
@@ -2902,7 +2902,7 @@ class RDSClient(BaseClient):
         """
         Creates a new DB instance from a DB snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_instance_from_db_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_instance_from_db_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_instance_from_db_snapshot)
         """
 
@@ -2965,7 +2965,7 @@ class RDSClient(BaseClient):
         Amazon Relational Database Service (Amazon RDS) supports importing MySQL
         databases by using backup files.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_instance_from_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_instance_from_s3)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_instance_from_s3)
         """
 
@@ -3022,7 +3022,7 @@ class RDSClient(BaseClient):
         """
         Restores a DB instance to an arbitrary point in time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.restore_db_instance_to_point_in_time)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.restore_db_instance_to_point_in_time)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#restore_db_instance_to_point_in_time)
         """
 
@@ -3039,7 +3039,7 @@ class RDSClient(BaseClient):
         Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or
         EC2 or VPC security groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.revoke_db_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.revoke_db_security_group_ingress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#revoke_db_security_group_ingress)
         """
 
@@ -3055,7 +3055,7 @@ class RDSClient(BaseClient):
         """
         Starts a database activity stream to monitor activity on the database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.start_activity_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.start_activity_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#start_activity_stream)
         """
 
@@ -3065,7 +3065,7 @@ class RDSClient(BaseClient):
         Services console, the stop-db-cluster CLI command, or the `StopDBCluster`
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.start_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.start_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#start_db_cluster)
         """
 
@@ -3074,7 +3074,7 @@ class RDSClient(BaseClient):
         Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services
         console, the stop-db-instance CLI command, or the `StopDBInstance` operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.start_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.start_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#start_db_instance)
         """
 
@@ -3091,7 +3091,7 @@ class RDSClient(BaseClient):
         Enables replication of automated backups to a different Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.start_db_instance_automated_backups_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.start_db_instance_automated_backups_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#start_db_instance_automated_backups_replication)
         """
 
@@ -3109,7 +3109,7 @@ class RDSClient(BaseClient):
         """
         Starts an export of DB snapshot or DB cluster data to Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.start_export_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.start_export_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#start_export_task)
         """
 
@@ -3121,7 +3121,7 @@ class RDSClient(BaseClient):
         console, the `start-activity-stream` CLI command, or the `StartActivityStream`
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.stop_activity_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.stop_activity_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#stop_activity_stream)
         """
 
@@ -3129,7 +3129,7 @@ class RDSClient(BaseClient):
         """
         Stops an Amazon Aurora DB cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.stop_db_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.stop_db_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#stop_db_cluster)
         """
 
@@ -3139,7 +3139,7 @@ class RDSClient(BaseClient):
         """
         Stops an Amazon RDS DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.stop_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.stop_db_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#stop_db_instance)
         """
 
@@ -3149,7 +3149,7 @@ class RDSClient(BaseClient):
         """
         Stops automated backup replication for a DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.stop_db_instance_automated_backups_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.stop_db_instance_automated_backups_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#stop_db_instance_automated_backups_replication)
         """
 
@@ -3159,7 +3159,7 @@ class RDSClient(BaseClient):
         """
         Switches over a blue/green deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.switchover_blue_green_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.switchover_blue_green_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#switchover_blue_green_deployment)
         """
 
@@ -3170,7 +3170,7 @@ class RDSClient(BaseClient):
         Switches over the specified secondary DB cluster to be the new primary DB
         cluster in the global database cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.switchover_global_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.switchover_global_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#switchover_global_cluster)
         """
 
@@ -3181,7 +3181,7 @@ class RDSClient(BaseClient):
         Switches over an Oracle standby database in an Oracle Data Guard environment,
         making it the new primary database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Client.switchover_read_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Client.switchover_read_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/client.html#switchover_read_replica)
         """
 
@@ -3190,7 +3190,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_blue_green_deployments"]
     ) -> DescribeBlueGreenDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeBlueGreenDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeBlueGreenDeployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describebluegreendeploymentspaginator)
         """
 
@@ -3199,7 +3199,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_certificates"]
     ) -> DescribeCertificatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeCertificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describecertificatespaginator)
         """
 
@@ -3208,7 +3208,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_automated_backups"]
     ) -> DescribeDBClusterAutomatedBackupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterAutomatedBackups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterAutomatedBackups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterautomatedbackupspaginator)
         """
 
@@ -3217,7 +3217,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_backtracks"]
     ) -> DescribeDBClusterBacktracksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterBacktracks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterBacktracks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterbacktrackspaginator)
         """
 
@@ -3226,7 +3226,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_endpoints"]
     ) -> DescribeDBClusterEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterendpointspaginator)
         """
 
@@ -3235,7 +3235,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_parameter_groups"]
     ) -> DescribeDBClusterParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterparametergroupspaginator)
         """
 
@@ -3244,7 +3244,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_parameters"]
     ) -> DescribeDBClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterparameterspaginator)
         """
 
@@ -3253,7 +3253,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_cluster_snapshots"]
     ) -> DescribeDBClusterSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusterSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusterSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclustersnapshotspaginator)
         """
 
@@ -3262,7 +3262,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_clusters"]
     ) -> DescribeDBClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbclusterspaginator)
         """
 
@@ -3271,7 +3271,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_engine_versions"]
     ) -> DescribeDBEngineVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBEngineVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBEngineVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbengineversionspaginator)
         """
 
@@ -3280,7 +3280,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_instance_automated_backups"]
     ) -> DescribeDBInstanceAutomatedBackupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBInstanceAutomatedBackups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBInstanceAutomatedBackups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbinstanceautomatedbackupspaginator)
         """
 
@@ -3289,7 +3289,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_instances"]
     ) -> DescribeDBInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbinstancespaginator)
         """
 
@@ -3298,7 +3298,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_log_files"]
     ) -> DescribeDBLogFilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBLogFiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBLogFiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedblogfilespaginator)
         """
 
@@ -3307,7 +3307,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_parameter_groups"]
     ) -> DescribeDBParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBParameterGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBParameterGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbparametergroupspaginator)
         """
 
@@ -3316,7 +3316,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_parameters"]
     ) -> DescribeDBParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbparameterspaginator)
         """
 
@@ -3325,7 +3325,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_proxies"]
     ) -> DescribeDBProxiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBProxies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBProxies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbproxiespaginator)
         """
 
@@ -3334,7 +3334,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_proxy_endpoints"]
     ) -> DescribeDBProxyEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBProxyEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBProxyEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbproxyendpointspaginator)
         """
 
@@ -3343,7 +3343,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_proxy_target_groups"]
     ) -> DescribeDBProxyTargetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbproxytargetgroupspaginator)
         """
 
@@ -3352,7 +3352,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_proxy_targets"]
     ) -> DescribeDBProxyTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbproxytargetspaginator)
         """
 
@@ -3361,7 +3361,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_recommendations"]
     ) -> DescribeDBRecommendationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBRecommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBRecommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbrecommendationspaginator)
         """
 
@@ -3370,7 +3370,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_security_groups"]
     ) -> DescribeDBSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBSecurityGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBSecurityGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbsecuritygroupspaginator)
         """
 
@@ -3379,7 +3379,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_snapshot_tenant_databases"]
     ) -> DescribeDBSnapshotTenantDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshotTenantDatabases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshotTenantDatabases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbsnapshottenantdatabasespaginator)
         """
 
@@ -3388,7 +3388,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_snapshots"]
     ) -> DescribeDBSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbsnapshotspaginator)
         """
 
@@ -3397,7 +3397,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_db_subnet_groups"]
     ) -> DescribeDBSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeDBSubnetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeDBSubnetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describedbsubnetgroupspaginator)
         """
 
@@ -3406,7 +3406,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_engine_default_cluster_parameters"]
     ) -> DescribeEngineDefaultClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultClusterParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultClusterParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeenginedefaultclusterparameterspaginator)
         """
 
@@ -3415,7 +3415,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_engine_default_parameters"]
     ) -> DescribeEngineDefaultParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeenginedefaultparameterspaginator)
         """
 
@@ -3424,14 +3424,14 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeEventSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeEventSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeeventsubscriptionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeeventspaginator)
         """
 
@@ -3440,7 +3440,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_export_tasks"]
     ) -> DescribeExportTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeExportTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeExportTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeexporttaskspaginator)
         """
 
@@ -3449,7 +3449,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_global_clusters"]
     ) -> DescribeGlobalClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeGlobalClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeGlobalClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeglobalclusterspaginator)
         """
 
@@ -3458,7 +3458,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_integrations"]
     ) -> DescribeIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeIntegrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeIntegrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeintegrationspaginator)
         """
 
@@ -3467,7 +3467,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_option_group_options"]
     ) -> DescribeOptionGroupOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeOptionGroupOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeOptionGroupOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeoptiongroupoptionspaginator)
         """
 
@@ -3476,7 +3476,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_option_groups"]
     ) -> DescribeOptionGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeOptionGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeOptionGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeoptiongroupspaginator)
         """
 
@@ -3485,7 +3485,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_orderable_db_instance_options"]
     ) -> DescribeOrderableDBInstanceOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeOrderableDBInstanceOptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeOrderableDBInstanceOptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describeorderabledbinstanceoptionspaginator)
         """
 
@@ -3494,7 +3494,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_pending_maintenance_actions"]
     ) -> DescribePendingMaintenanceActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribePendingMaintenanceActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribePendingMaintenanceActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describependingmaintenanceactionspaginator)
         """
 
@@ -3503,7 +3503,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_reserved_db_instances"]
     ) -> DescribeReservedDBInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describereserveddbinstancespaginator)
         """
 
@@ -3512,7 +3512,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_reserved_db_instances_offerings"]
     ) -> DescribeReservedDBInstancesOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstancesOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstancesOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describereserveddbinstancesofferingspaginator)
         """
 
@@ -3521,7 +3521,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_source_regions"]
     ) -> DescribeSourceRegionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeSourceRegions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeSourceRegions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describesourceregionspaginator)
         """
 
@@ -3530,7 +3530,7 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["describe_tenant_databases"]
     ) -> DescribeTenantDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DescribeTenantDatabases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DescribeTenantDatabases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#describetenantdatabasespaginator)
         """
 
@@ -3539,21 +3539,21 @@ class RDSClient(BaseClient):
         self, operation_name: Literal["download_db_log_file_portion"]
     ) -> DownloadDBLogFilePortionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Paginator.DownloadDBLogFilePortion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Paginator.DownloadDBLogFilePortion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/paginators.html#downloaddblogfileportionpaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_cluster_available"]) -> DBClusterAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBClusterAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBClusterAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusteravailablewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_cluster_deleted"]) -> DBClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBClusterDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBClusterDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclusterdeletedwaiter)
         """
 
@@ -3562,7 +3562,7 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["db_cluster_snapshot_available"]
     ) -> DBClusterSnapshotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotavailablewaiter)
         """
 
@@ -3571,7 +3571,7 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["db_cluster_snapshot_deleted"]
     ) -> DBClusterSnapshotDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotdeletedwaiter)
         """
 
@@ -3580,14 +3580,14 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["db_instance_available"]
     ) -> DBInstanceAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstanceavailablewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_instance_deleted"]) -> DBInstanceDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstancedeletedwaiter)
         """
 
@@ -3596,7 +3596,7 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["db_snapshot_available"]
     ) -> DBSnapshotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotavailablewaiter)
         """
 
@@ -3605,14 +3605,14 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["db_snapshot_completed"]
     ) -> DBSnapshotCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_snapshot_deleted"]) -> DBSnapshotDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotdeletedwaiter)
         """
 
@@ -3621,7 +3621,7 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["tenant_database_available"]
     ) -> TenantDatabaseAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.TenantDatabaseAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.TenantDatabaseAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#tenantdatabaseavailablewaiter)
         """
 
@@ -3630,6 +3630,6 @@ class RDSClient(BaseClient):
         self, waiter_name: Literal["tenant_database_deleted"]
     ) -> TenantDatabaseDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rds.html#RDS.Waiter.TenantDatabaseDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rds.html#RDS.Waiter.TenantDatabaseDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#tenantdatabasedeletedwaiter)
         """

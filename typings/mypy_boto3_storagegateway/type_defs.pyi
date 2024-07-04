@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     ActiveDirectoryStatusType,
+    AutomaticUpdatePolicyType,
     AvailabilityMonitorTestStatusType,
     CaseSensitivityType,
     FileShareTypeType,
@@ -204,6 +205,7 @@ __all__ = (
     "SetSMBGuestPasswordOutputTypeDef",
     "ShutdownGatewayInputRequestTypeDef",
     "ShutdownGatewayOutputTypeDef",
+    "SoftwareUpdatePreferencesTypeDef",
     "StartAvailabilityMonitorTestInputRequestTypeDef",
     "StartAvailabilityMonitorTestOutputTypeDef",
     "StartGatewayInputRequestTypeDef",
@@ -1254,6 +1256,7 @@ DescribeMaintenanceStartTimeOutputTypeDef = TypedDict(
         "DayOfWeek": int,
         "DayOfMonth": int,
         "Timezone": str,
+        "SoftwareUpdatePreferences": "SoftwareUpdatePreferencesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2187,6 +2190,14 @@ ShutdownGatewayOutputTypeDef = TypedDict(
     },
 )
 
+SoftwareUpdatePreferencesTypeDef = TypedDict(
+    "SoftwareUpdatePreferencesTypeDef",
+    {
+        "AutomaticUpdatePolicy": AutomaticUpdatePolicyType,
+    },
+    total=False,
+)
+
 StartAvailabilityMonitorTestInputRequestTypeDef = TypedDict(
     "StartAvailabilityMonitorTestInputRequestTypeDef",
     {
@@ -2487,15 +2498,16 @@ _RequiredUpdateMaintenanceStartTimeInputRequestTypeDef = TypedDict(
     "_RequiredUpdateMaintenanceStartTimeInputRequestTypeDef",
     {
         "GatewayARN": str,
-        "HourOfDay": int,
-        "MinuteOfHour": int,
     },
 )
 _OptionalUpdateMaintenanceStartTimeInputRequestTypeDef = TypedDict(
     "_OptionalUpdateMaintenanceStartTimeInputRequestTypeDef",
     {
+        "HourOfDay": int,
+        "MinuteOfHour": int,
         "DayOfWeek": int,
         "DayOfMonth": int,
+        "SoftwareUpdatePreferences": "SoftwareUpdatePreferencesTypeDef",
     },
     total=False,
 )

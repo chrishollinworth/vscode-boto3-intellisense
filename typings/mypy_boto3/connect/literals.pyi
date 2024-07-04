@@ -65,6 +65,7 @@ __all__ = (
     "LexVersionType",
     "ListAgentStatusesPaginatorName",
     "ListApprovedOriginsPaginatorName",
+    "ListAuthenticationProfilesPaginatorName",
     "ListBotsPaginatorName",
     "ListContactEvaluationsPaginatorName",
     "ListContactFlowModulesPaginatorName",
@@ -368,6 +369,7 @@ IntervalPeriodType = Literal["DAY", "FIFTEEN_MIN", "HOUR", "THIRTY_MIN", "TOTAL"
 LexVersionType = Literal["V1", "V2"]
 ListAgentStatusesPaginatorName = Literal["list_agent_statuses"]
 ListApprovedOriginsPaginatorName = Literal["list_approved_origins"]
+ListAuthenticationProfilesPaginatorName = Literal["list_authentication_profiles"]
 ListBotsPaginatorName = Literal["list_bots"]
 ListContactEvaluationsPaginatorName = Literal["list_contact_evaluations"]
 ListContactFlowModulesPaginatorName = Literal["list_contact_flow_modules"]

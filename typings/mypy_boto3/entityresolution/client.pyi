@@ -103,7 +103,7 @@ class Exceptions:
 
 class EntityResolutionClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html)
     """
 
@@ -128,7 +128,7 @@ class EntityResolutionClient(BaseClient):
         """
         Adds a policy statement object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.add_policy_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.add_policy_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#add_policy_statement)
         """
 
@@ -138,7 +138,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes multiple unique IDs in a matching workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.batch_delete_unique_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.batch_delete_unique_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#batch_delete_unique_id)
         """
 
@@ -146,7 +146,7 @@ class EntityResolutionClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#can_paginate)
         """
 
@@ -154,7 +154,7 @@ class EntityResolutionClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#close)
         """
 
@@ -173,7 +173,7 @@ class EntityResolutionClient(BaseClient):
         Creates an `IdMappingWorkflow` object which stores the configuration of the data
         processing job to be run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.create_id_mapping_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.create_id_mapping_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#create_id_mapping_workflow)
         """
 
@@ -192,7 +192,7 @@ class EntityResolutionClient(BaseClient):
         Creates an ID namespace object which will help customers provide metadata
         explaining their dataset and how to use it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.create_id_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.create_id_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#create_id_namespace)
         """
 
@@ -212,7 +212,7 @@ class EntityResolutionClient(BaseClient):
         Creates a `MatchingWorkflow` object which stores the configuration of the data
         processing job to be run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.create_matching_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.create_matching_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#create_matching_workflow)
         """
 
@@ -228,7 +228,7 @@ class EntityResolutionClient(BaseClient):
         Creates a schema mapping, which defines the schema of the input customer records
         table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.create_schema_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.create_schema_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#create_schema_mapping)
         """
 
@@ -238,7 +238,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes the `IdMappingWorkflow` with a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.delete_id_mapping_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.delete_id_mapping_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#delete_id_mapping_workflow)
         """
 
@@ -246,7 +246,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes the `IdNamespace` with a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.delete_id_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.delete_id_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#delete_id_namespace)
         """
 
@@ -254,7 +254,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes the `MatchingWorkflow` with a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.delete_matching_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.delete_matching_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#delete_matching_workflow)
         """
 
@@ -264,7 +264,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes the policy statement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.delete_policy_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.delete_policy_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#delete_policy_statement)
         """
 
@@ -272,7 +272,7 @@ class EntityResolutionClient(BaseClient):
         """
         Deletes the `SchemaMapping` with a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.delete_schema_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.delete_schema_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#delete_schema_mapping)
         """
 
@@ -286,7 +286,7 @@ class EntityResolutionClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#generate_presigned_url)
         """
 
@@ -295,7 +295,7 @@ class EntityResolutionClient(BaseClient):
         Gets the status, metrics, and errors (if there are any) that are associated with
         a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_id_mapping_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_id_mapping_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_id_mapping_job)
         """
 
@@ -303,7 +303,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the `IdMappingWorkflow` with a given name, if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_id_mapping_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_id_mapping_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_id_mapping_workflow)
         """
 
@@ -311,7 +311,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the `IdNamespace` with a given name, if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_id_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_id_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_id_namespace)
         """
 
@@ -322,7 +322,7 @@ class EntityResolutionClient(BaseClient):
         Returns the corresponding Match ID of a customer record if the record has been
         processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_match_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_match_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_match_id)
         """
 
@@ -331,7 +331,7 @@ class EntityResolutionClient(BaseClient):
         Gets the status, metrics, and errors (if there are any) that are associated with
         a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_matching_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_matching_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_matching_job)
         """
 
@@ -339,7 +339,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the `MatchingWorkflow` with a given name, if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_matching_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_matching_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_matching_workflow)
         """
 
@@ -347,7 +347,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the resource-based policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_policy)
         """
 
@@ -357,7 +357,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the `ProviderService` of a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_provider_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_provider_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_provider_service)
         """
 
@@ -365,7 +365,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns the SchemaMapping of a given name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.get_schema_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.get_schema_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#get_schema_mapping)
         """
 
@@ -375,7 +375,7 @@ class EntityResolutionClient(BaseClient):
         """
         Lists all ID mapping jobs for a given workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_id_mapping_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_id_mapping_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_id_mapping_jobs)
         """
 
@@ -386,7 +386,7 @@ class EntityResolutionClient(BaseClient):
         Returns a list of all the `IdMappingWorkflows` that have been created for an
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_id_mapping_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_id_mapping_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_id_mapping_workflows)
         """
 
@@ -396,7 +396,7 @@ class EntityResolutionClient(BaseClient):
         """
         Returns a list of all ID namespaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_id_namespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_id_namespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_id_namespaces)
         """
 
@@ -406,7 +406,7 @@ class EntityResolutionClient(BaseClient):
         """
         Lists all jobs for a given workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_matching_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_matching_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_matching_jobs)
         """
 
@@ -417,7 +417,7 @@ class EntityResolutionClient(BaseClient):
         Returns a list of all the `MatchingWorkflows` that have been created for an
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_matching_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_matching_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_matching_workflows)
         """
 
@@ -428,7 +428,7 @@ class EntityResolutionClient(BaseClient):
         Returns a list of all the `ProviderServices` that are available in this Amazon
         Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_provider_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_provider_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_provider_services)
         """
 
@@ -439,7 +439,7 @@ class EntityResolutionClient(BaseClient):
         Returns a list of all the `SchemaMappings` that have been created for an Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_schema_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_schema_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_schema_mappings)
         """
 
@@ -447,7 +447,7 @@ class EntityResolutionClient(BaseClient):
         """
         Displays the tags associated with an Entity Resolution resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#list_tags_for_resource)
         """
 
@@ -455,7 +455,7 @@ class EntityResolutionClient(BaseClient):
         """
         Updates the resource-based policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.put_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.put_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#put_policy)
         """
 
@@ -468,7 +468,7 @@ class EntityResolutionClient(BaseClient):
         """
         Starts the `IdMappingJob` of a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.start_id_mapping_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.start_id_mapping_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#start_id_mapping_job)
         """
 
@@ -476,7 +476,7 @@ class EntityResolutionClient(BaseClient):
         """
         Starts the `MatchingJob` of a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.start_matching_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.start_matching_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#start_matching_job)
         """
 
@@ -485,7 +485,7 @@ class EntityResolutionClient(BaseClient):
         Assigns one or more tags (key-value pairs) to the specified Entity Resolution
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#tag_resource)
         """
 
@@ -493,7 +493,7 @@ class EntityResolutionClient(BaseClient):
         """
         Removes one or more tags from the specified Entity Resolution resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#untag_resource)
         """
 
@@ -510,7 +510,7 @@ class EntityResolutionClient(BaseClient):
         """
         Updates an existing `IdMappingWorkflow`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.update_id_mapping_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.update_id_mapping_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#update_id_mapping_workflow)
         """
 
@@ -526,7 +526,7 @@ class EntityResolutionClient(BaseClient):
         """
         Updates an existing ID namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.update_id_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.update_id_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#update_id_namespace)
         """
 
@@ -544,7 +544,7 @@ class EntityResolutionClient(BaseClient):
         """
         Updates an existing `MatchingWorkflow`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.update_matching_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.update_matching_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#update_matching_workflow)
         """
 
@@ -558,7 +558,7 @@ class EntityResolutionClient(BaseClient):
         """
         Updates a schema mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Client.update_schema_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Client.update_schema_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/client.html#update_schema_mapping)
         """
 
@@ -567,7 +567,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_id_mapping_jobs"]
     ) -> ListIdMappingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingjobspaginator)
         """
 
@@ -576,7 +576,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_id_mapping_workflows"]
     ) -> ListIdMappingWorkflowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdMappingWorkflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidmappingworkflowspaginator)
         """
 
@@ -585,7 +585,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_id_namespaces"]
     ) -> ListIdNamespacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdNamespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListIdNamespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listidnamespacespaginator)
         """
 
@@ -594,7 +594,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_matching_jobs"]
     ) -> ListMatchingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingjobspaginator)
         """
 
@@ -603,7 +603,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_matching_workflows"]
     ) -> ListMatchingWorkflowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListMatchingWorkflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listmatchingworkflowspaginator)
         """
 
@@ -612,7 +612,7 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_provider_services"]
     ) -> ListProviderServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListProviderServices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listproviderservicespaginator)
         """
 
@@ -621,6 +621,6 @@ class EntityResolutionClient(BaseClient):
         self, operation_name: Literal["list_schema_mappings"]
     ) -> ListSchemaMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/entityresolution.html#EntityResolution.Paginator.ListSchemaMappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/paginators.html#listschemamappingspaginator)
         """

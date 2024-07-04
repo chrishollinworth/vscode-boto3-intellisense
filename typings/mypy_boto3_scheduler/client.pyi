@@ -60,7 +60,7 @@ class Exceptions:
 
 class EventBridgeSchedulerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html)
     """
 
@@ -76,7 +76,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#can_paginate)
         """
 
@@ -84,7 +84,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#close)
         """
 
@@ -108,7 +108,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Creates the specified schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.create_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.create_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#create_schedule)
         """
 
@@ -118,7 +118,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Creates the specified schedule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.create_schedule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.create_schedule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#create_schedule_group)
         """
 
@@ -128,7 +128,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Deletes the specified schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.delete_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.delete_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#delete_schedule)
         """
 
@@ -136,7 +136,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Deletes the specified schedule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.delete_schedule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.delete_schedule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#delete_schedule_group)
         """
 
@@ -150,7 +150,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#generate_presigned_url)
         """
 
@@ -158,7 +158,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Retrieves the specified schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.get_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.get_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#get_schedule)
         """
 
@@ -166,7 +166,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Retrieves the specified schedule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.get_schedule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.get_schedule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#get_schedule_group)
         """
 
@@ -176,7 +176,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Returns a paginated list of your schedule groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.list_schedule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.list_schedule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#list_schedule_groups)
         """
 
@@ -192,7 +192,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Returns a paginated list of your EventBridge Scheduler schedules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.list_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.list_schedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#list_schedules)
         """
 
@@ -200,7 +200,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Lists the tags associated with the Scheduler resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#list_tags_for_resource)
         """
 
@@ -209,7 +209,7 @@ class EventBridgeSchedulerClient(BaseClient):
         Assigns one or more tags (key-value pairs) to the specified EventBridge
         Scheduler resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#tag_resource)
         """
 
@@ -218,7 +218,7 @@ class EventBridgeSchedulerClient(BaseClient):
         Removes one or more tags from the specified EventBridge Scheduler schedule
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#untag_resource)
         """
 
@@ -242,7 +242,7 @@ class EventBridgeSchedulerClient(BaseClient):
         """
         Updates the specified schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Client.update_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Client.update_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/client.html#update_schedule)
         """
 
@@ -251,13 +251,13 @@ class EventBridgeSchedulerClient(BaseClient):
         self, operation_name: Literal["list_schedule_groups"]
     ) -> ListScheduleGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Paginator.ListScheduleGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Paginator.ListScheduleGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/paginators.html#listschedulegroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_schedules"]) -> ListSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/scheduler.html#EventBridgeScheduler.Paginator.ListSchedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/scheduler.html#EventBridgeScheduler.Paginator.ListSchedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_scheduler/paginators.html#listschedulespaginator)
         """

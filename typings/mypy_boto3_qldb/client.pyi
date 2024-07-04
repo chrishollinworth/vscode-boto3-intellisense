@@ -62,7 +62,7 @@ class Exceptions:
 
 class QLDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html)
     """
 
@@ -78,7 +78,7 @@ class QLDBClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#can_paginate)
         """
 
@@ -88,7 +88,7 @@ class QLDBClient(BaseClient):
         """
         Ends a given Amazon QLDB journal stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#cancel_journal_kinesis_stream)
         """
 
@@ -96,7 +96,7 @@ class QLDBClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#close)
         """
 
@@ -112,7 +112,7 @@ class QLDBClient(BaseClient):
         """
         Creates a new ledger in your Amazon Web Services account in the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.create_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.create_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#create_ledger)
         """
 
@@ -120,7 +120,7 @@ class QLDBClient(BaseClient):
         """
         Deletes a ledger and all of its contents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.delete_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.delete_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#delete_ledger)
         """
 
@@ -130,7 +130,7 @@ class QLDBClient(BaseClient):
         """
         Returns detailed information about a given Amazon QLDB journal stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_journal_kinesis_stream)
         """
 
@@ -142,7 +142,7 @@ class QLDBClient(BaseClient):
         export ID, creation time, current status, and the parameters of the original
         export creation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_journal_s3_export)
         """
 
@@ -151,7 +151,7 @@ class QLDBClient(BaseClient):
         Returns information about a ledger, including its state, permissions mode,
         encryption at rest settings, and when it was created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.describe_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.describe_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_ledger)
         """
 
@@ -169,7 +169,7 @@ class QLDBClient(BaseClient):
         Exports journal contents within a date and time range from a ledger into a
         specified Amazon Simple Storage Service (Amazon S3) bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#export_journal_to_s3)
         """
 
@@ -183,7 +183,7 @@ class QLDBClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#generate_presigned_url)
         """
 
@@ -197,7 +197,7 @@ class QLDBClient(BaseClient):
         """
         Returns a block object at a specified address in a journal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.get_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.get_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_block)
         """
 
@@ -205,7 +205,7 @@ class QLDBClient(BaseClient):
         """
         Returns the digest of a ledger at the latest committed block in the journal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.get_digest)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.get_digest)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_digest)
         """
 
@@ -220,7 +220,7 @@ class QLDBClient(BaseClient):
         """
         Returns a revision data object for a specified document ID and block address.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.get_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.get_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_revision)
         """
 
@@ -230,7 +230,7 @@ class QLDBClient(BaseClient):
         """
         Returns all Amazon QLDB journal streams for a given ledger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_kinesis_streams_for_ledger)
         """
 
@@ -241,7 +241,7 @@ class QLDBClient(BaseClient):
         Returns all journal export jobs for all ledgers that are associated with the
         current Amazon Web Services account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_s3_exports)
         """
 
@@ -251,7 +251,7 @@ class QLDBClient(BaseClient):
         """
         Returns all journal export jobs for a specified ledger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_s3_exports_for_ledger)
         """
 
@@ -262,7 +262,7 @@ class QLDBClient(BaseClient):
         Returns all ledgers that are associated with the current Amazon Web Services
         account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.list_ledgers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.list_ledgers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_ledgers)
         """
 
@@ -270,7 +270,7 @@ class QLDBClient(BaseClient):
         """
         Returns all tags for a specified Amazon QLDB resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_tags_for_resource)
         """
 
@@ -288,7 +288,7 @@ class QLDBClient(BaseClient):
         """
         Creates a journal stream for a given Amazon QLDB ledger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#stream_journal_to_kinesis)
         """
 
@@ -296,7 +296,7 @@ class QLDBClient(BaseClient):
         """
         Adds one or more tags to a specified Amazon QLDB resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#tag_resource)
         """
 
@@ -304,7 +304,7 @@ class QLDBClient(BaseClient):
         """
         Removes one or more tags from a specified Amazon QLDB resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#untag_resource)
         """
 
@@ -314,7 +314,7 @@ class QLDBClient(BaseClient):
         """
         Updates properties on a ledger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.update_ledger)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.update_ledger)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#update_ledger)
         """
 
@@ -324,6 +324,6 @@ class QLDBClient(BaseClient):
         """
         Updates the permissions mode of a ledger.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qldb.html#QLDB.Client.update_ledger_permissions_mode)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qldb.html#QLDB.Client.update_ledger_permissions_mode)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#update_ledger_permissions_mode)
         """

@@ -78,7 +78,7 @@ class Exceptions:
 
 class MQClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html)
     """
 
@@ -94,7 +94,7 @@ class MQClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#can_paginate)
         """
 
@@ -102,25 +102,25 @@ class MQClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#close)
         """
 
     def create_broker(
         self,
         *,
-        AutoMinorVersionUpgrade: bool,
         BrokerName: str,
         DeploymentMode: DeploymentModeType,
         EngineType: EngineTypeType,
-        EngineVersion: str,
         HostInstanceType: str,
         PubliclyAccessible: bool,
         Users: List["UserTypeDef"],
         AuthenticationStrategy: AuthenticationStrategyType = None,
+        AutoMinorVersionUpgrade: bool = None,
         Configuration: "ConfigurationIdTypeDef" = None,
         CreatorRequestId: str = None,
         EncryptionOptions: "EncryptionOptionsTypeDef" = None,
+        EngineVersion: str = None,
         LdapServerMetadata: "LdapServerMetadataInputTypeDef" = None,
         Logs: "LogsTypeDef" = None,
         MaintenanceWindowStartTime: "WeeklyStartTimeTypeDef" = None,
@@ -134,7 +134,7 @@ class MQClient(BaseClient):
         """
         Creates a broker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.create_broker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.create_broker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#create_broker)
         """
 
@@ -142,15 +142,15 @@ class MQClient(BaseClient):
         self,
         *,
         EngineType: EngineTypeType,
-        EngineVersion: str,
         Name: str,
         AuthenticationStrategy: AuthenticationStrategyType = None,
+        EngineVersion: str = None,
         Tags: Dict[str, str] = None
     ) -> CreateConfigurationResponseTypeDef:
         """
         Creates a new configuration for the specified configuration name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.create_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.create_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#create_configuration)
         """
 
@@ -158,7 +158,7 @@ class MQClient(BaseClient):
         """
         Add a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#create_tags)
         """
 
@@ -175,7 +175,7 @@ class MQClient(BaseClient):
         """
         Creates an ActiveMQ user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#create_user)
         """
 
@@ -183,7 +183,7 @@ class MQClient(BaseClient):
         """
         Deletes a broker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.delete_broker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.delete_broker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#delete_broker)
         """
 
@@ -191,7 +191,7 @@ class MQClient(BaseClient):
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#delete_tags)
         """
 
@@ -199,7 +199,7 @@ class MQClient(BaseClient):
         """
         Deletes an ActiveMQ user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#delete_user)
         """
 
@@ -207,7 +207,7 @@ class MQClient(BaseClient):
         """
         Returns information about the specified broker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_broker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_broker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_broker)
         """
 
@@ -217,7 +217,7 @@ class MQClient(BaseClient):
         """
         Describe available engine types and versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_broker_engine_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_broker_engine_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_broker_engine_types)
         """
 
@@ -233,7 +233,7 @@ class MQClient(BaseClient):
         """
         Describe available broker instance options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_broker_instance_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_broker_instance_options)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_broker_instance_options)
         """
 
@@ -243,7 +243,7 @@ class MQClient(BaseClient):
         """
         Returns information about the specified configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_configuration)
         """
 
@@ -253,7 +253,7 @@ class MQClient(BaseClient):
         """
         Returns the specified configuration revision for the specified configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_configuration_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_configuration_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_configuration_revision)
         """
 
@@ -261,7 +261,7 @@ class MQClient(BaseClient):
         """
         Returns information about an ActiveMQ user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.describe_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.describe_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#describe_user)
         """
 
@@ -275,7 +275,7 @@ class MQClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#generate_presigned_url)
         """
 
@@ -285,7 +285,7 @@ class MQClient(BaseClient):
         """
         Returns a list of all brokers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.list_brokers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.list_brokers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#list_brokers)
         """
 
@@ -295,7 +295,7 @@ class MQClient(BaseClient):
         """
         Returns a list of all revisions for the specified configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.list_configuration_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.list_configuration_revisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#list_configuration_revisions)
         """
 
@@ -305,7 +305,7 @@ class MQClient(BaseClient):
         """
         Returns a list of all configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.list_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.list_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#list_configurations)
         """
 
@@ -313,7 +313,7 @@ class MQClient(BaseClient):
         """
         Lists tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.list_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#list_tags)
         """
 
@@ -323,7 +323,7 @@ class MQClient(BaseClient):
         """
         Returns a list of all ActiveMQ users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#list_users)
         """
 
@@ -331,7 +331,7 @@ class MQClient(BaseClient):
         """
         Promotes a data replication replica broker to the primary broker role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.promote)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.promote)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#promote)
         """
 
@@ -339,7 +339,7 @@ class MQClient(BaseClient):
         """
         Reboots a broker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.reboot_broker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.reboot_broker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#reboot_broker)
         """
 
@@ -361,7 +361,7 @@ class MQClient(BaseClient):
         """
         Adds a pending configuration change to a broker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.update_broker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.update_broker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#update_broker)
         """
 
@@ -371,7 +371,7 @@ class MQClient(BaseClient):
         """
         Updates the specified configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.update_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.update_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#update_configuration)
         """
 
@@ -388,12 +388,12 @@ class MQClient(BaseClient):
         """
         Updates the information for an ActiveMQ user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/client.html#update_user)
         """
 
     def get_paginator(self, operation_name: Literal["list_brokers"]) -> ListBrokersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mq.html#MQ.Paginator.ListBrokers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mq.html#MQ.Paginator.ListBrokers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mq/paginators.html#listbrokerspaginator)
         """

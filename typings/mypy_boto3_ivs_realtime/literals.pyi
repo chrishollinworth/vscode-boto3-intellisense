@@ -24,6 +24,10 @@ __all__ = (
     "DestinationStateType",
     "EventErrorCodeType",
     "EventNameType",
+    "ListPublicKeysPaginatorName",
+    "ParticipantRecordingFilterByRecordingStateType",
+    "ParticipantRecordingMediaTypeType",
+    "ParticipantRecordingStateType",
     "ParticipantStateType",
     "ParticipantTokenCapabilityType",
     "PipBehaviorType",
@@ -48,6 +52,14 @@ EventNameType = Literal[
     "SUBSCRIBE_ERROR",
     "SUBSCRIBE_STARTED",
     "SUBSCRIBE_STOPPED",
+]
+ListPublicKeysPaginatorName = Literal["list_public_keys"]
+ParticipantRecordingFilterByRecordingStateType = Literal[
+    "ACTIVE", "FAILED", "STARTING", "STOPPED", "STOPPING"
+]
+ParticipantRecordingMediaTypeType = Literal["AUDIO_ONLY", "AUDIO_VIDEO"]
+ParticipantRecordingStateType = Literal[
+    "ACTIVE", "DISABLED", "FAILED", "STARTING", "STOPPED", "STOPPING"
 ]
 ParticipantStateType = Literal["CONNECTED", "DISCONNECTED"]
 ParticipantTokenCapabilityType = Literal["PUBLISH", "SUBSCRIBE"]

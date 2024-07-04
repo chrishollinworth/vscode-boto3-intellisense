@@ -43,6 +43,7 @@ from .literals import (
     MarketTypeType,
     NotebookExecutionStatusType,
     OnDemandCapacityReservationPreferenceType,
+    OnDemandProvisioningAllocationStrategyType,
     PlacementGroupStrategyType,
     ReconfigurationTypeType,
     RepoUpgradeOnBootType,
@@ -1401,6 +1402,7 @@ _OptionalInstanceTypeConfigTypeDef = TypedDict(
         "EbsConfiguration": "EbsConfigurationTypeDef",
         "Configurations": List["ConfigurationTypeDef"],
         "CustomAmiId": str,
+        "Priority": float,
     },
     total=False,
 )
@@ -1440,6 +1442,7 @@ InstanceTypeSpecificationTypeDef = TypedDict(
         "EbsBlockDevices": List["EbsBlockDeviceTypeDef"],
         "EbsOptimized": bool,
         "CustomAmiId": str,
+        "Priority": float,
     },
     total=False,
 )
@@ -2014,7 +2017,7 @@ OnDemandCapacityReservationOptionsTypeDef = TypedDict(
 _RequiredOnDemandProvisioningSpecificationTypeDef = TypedDict(
     "_RequiredOnDemandProvisioningSpecificationTypeDef",
     {
-        "AllocationStrategy": Literal["lowest-price"],
+        "AllocationStrategy": OnDemandProvisioningAllocationStrategyType,
     },
 )
 _OptionalOnDemandProvisioningSpecificationTypeDef = TypedDict(

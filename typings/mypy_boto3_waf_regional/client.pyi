@@ -150,7 +150,7 @@ class Exceptions:
 
 class WAFRegionalClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html)
     """
 
@@ -166,7 +166,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.associate_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.associate_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#associate_web_acl)
         """
 
@@ -174,7 +174,7 @@ class WAFRegionalClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#can_paginate)
         """
 
@@ -182,7 +182,7 @@ class WAFRegionalClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#close)
         """
 
@@ -192,7 +192,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_byte_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_byte_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_byte_match_set)
         """
 
@@ -202,7 +202,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_geo_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_geo_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_geo_match_set)
         """
 
@@ -210,7 +210,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_ip_set)
         """
 
@@ -227,7 +227,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_rate_based_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_rate_based_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_rate_based_rule)
         """
 
@@ -237,7 +237,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_regex_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_regex_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_regex_match_set)
         """
 
@@ -247,7 +247,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_regex_pattern_set)
         """
 
@@ -257,7 +257,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_rule)
         """
 
@@ -267,7 +267,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_rule_group)
         """
 
@@ -277,7 +277,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_size_constraint_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_size_constraint_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_size_constraint_set)
         """
 
@@ -287,7 +287,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_sql_injection_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_sql_injection_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_sql_injection_match_set)
         """
 
@@ -303,7 +303,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_web_acl)
         """
 
@@ -314,7 +314,7 @@ class WAFRegionalClient(BaseClient):
         Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the
         specified Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_web_acl_migration_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_web_acl_migration_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_web_acl_migration_stack)
         """
 
@@ -324,7 +324,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.create_xss_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.create_xss_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#create_xss_match_set)
         """
 
@@ -334,7 +334,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_byte_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_byte_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_byte_match_set)
         """
 
@@ -344,7 +344,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_geo_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_geo_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_geo_match_set)
         """
 
@@ -352,7 +352,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_ip_set)
         """
 
@@ -360,7 +360,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_logging_configuration)
         """
 
@@ -368,7 +368,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_permission_policy)
         """
 
@@ -378,7 +378,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_rate_based_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_rate_based_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_rate_based_rule)
         """
 
@@ -388,7 +388,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_regex_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_regex_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_regex_match_set)
         """
 
@@ -398,7 +398,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_regex_pattern_set)
         """
 
@@ -406,7 +406,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_rule)
         """
 
@@ -416,7 +416,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_rule_group)
         """
 
@@ -426,7 +426,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_size_constraint_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_size_constraint_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_size_constraint_set)
         """
 
@@ -436,7 +436,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_sql_injection_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_sql_injection_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_sql_injection_match_set)
         """
 
@@ -444,7 +444,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_web_acl)
         """
 
@@ -454,7 +454,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.delete_xss_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.delete_xss_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#delete_xss_match_set)
         """
 
@@ -462,7 +462,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.disassociate_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.disassociate_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#disassociate_web_acl)
         """
 
@@ -476,7 +476,7 @@ class WAFRegionalClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#generate_presigned_url)
         """
 
@@ -484,7 +484,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_byte_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_byte_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_byte_match_set)
         """
 
@@ -492,7 +492,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_change_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_change_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_change_token)
         """
 
@@ -500,7 +500,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_change_token_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_change_token_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_change_token_status)
         """
 
@@ -508,7 +508,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_geo_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_geo_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_geo_match_set)
         """
 
@@ -516,7 +516,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_ip_set)
         """
 
@@ -526,7 +526,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_logging_configuration)
         """
 
@@ -534,7 +534,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_permission_policy)
         """
 
@@ -542,7 +542,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_rate_based_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_rate_based_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_rate_based_rule)
         """
 
@@ -552,7 +552,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_rate_based_rule_managed_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_rate_based_rule_managed_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_rate_based_rule_managed_keys)
         """
 
@@ -560,7 +560,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_regex_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_regex_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_regex_match_set)
         """
 
@@ -568,7 +568,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_regex_pattern_set)
         """
 
@@ -576,7 +576,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_rule)
         """
 
@@ -584,7 +584,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_rule_group)
         """
 
@@ -594,7 +594,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_sampled_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_sampled_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_sampled_requests)
         """
 
@@ -604,7 +604,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_size_constraint_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_size_constraint_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_size_constraint_set)
         """
 
@@ -614,7 +614,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_sql_injection_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_sql_injection_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_sql_injection_match_set)
         """
 
@@ -622,7 +622,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_web_acl)
         """
 
@@ -630,7 +630,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_web_acl_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_web_acl_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_web_acl_for_resource)
         """
 
@@ -638,7 +638,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.get_xss_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.get_xss_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#get_xss_match_set)
         """
 
@@ -648,7 +648,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_activated_rules_in_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_activated_rules_in_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_activated_rules_in_rule_group)
         """
 
@@ -658,7 +658,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_byte_match_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_byte_match_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_byte_match_sets)
         """
 
@@ -668,7 +668,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_geo_match_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_geo_match_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_geo_match_sets)
         """
 
@@ -678,7 +678,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_ip_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_ip_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_ip_sets)
         """
 
@@ -688,7 +688,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_logging_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_logging_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_logging_configurations)
         """
 
@@ -698,7 +698,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_rate_based_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_rate_based_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_rate_based_rules)
         """
 
@@ -708,7 +708,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_regex_match_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_regex_match_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_regex_match_sets)
         """
 
@@ -718,7 +718,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_regex_pattern_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_regex_pattern_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_regex_pattern_sets)
         """
 
@@ -728,7 +728,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_resources_for_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_resources_for_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_resources_for_web_acl)
         """
 
@@ -738,7 +738,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_rule_groups)
         """
 
@@ -746,7 +746,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_rules)
         """
 
@@ -756,7 +756,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_size_constraint_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_size_constraint_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_size_constraint_sets)
         """
 
@@ -766,7 +766,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_sql_injection_match_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_sql_injection_match_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_sql_injection_match_sets)
         """
 
@@ -776,7 +776,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_subscribed_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_subscribed_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_subscribed_rule_groups)
         """
 
@@ -786,7 +786,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_tags_for_resource)
         """
 
@@ -796,7 +796,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_web_acls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_web_acls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_web_acls)
         """
 
@@ -806,7 +806,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.list_xss_match_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.list_xss_match_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#list_xss_match_sets)
         """
 
@@ -816,7 +816,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.put_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.put_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#put_logging_configuration)
         """
 
@@ -824,7 +824,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.put_permission_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.put_permission_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#put_permission_policy)
         """
 
@@ -832,7 +832,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#tag_resource)
         """
 
@@ -840,7 +840,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#untag_resource)
         """
 
@@ -850,7 +850,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_byte_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_byte_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_byte_match_set)
         """
 
@@ -860,7 +860,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_geo_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_geo_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_geo_match_set)
         """
 
@@ -870,7 +870,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_ip_set)
         """
 
@@ -880,7 +880,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_rate_based_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_rate_based_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_rate_based_rule)
         """
 
@@ -890,7 +890,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_regex_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_regex_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_regex_match_set)
         """
 
@@ -904,7 +904,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_regex_pattern_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_regex_pattern_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_regex_pattern_set)
         """
 
@@ -914,7 +914,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_rule)
         """
 
@@ -924,7 +924,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_rule_group)
         """
 
@@ -938,7 +938,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_size_constraint_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_size_constraint_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_size_constraint_set)
         """
 
@@ -952,7 +952,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_sql_injection_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_sql_injection_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_sql_injection_match_set)
         """
 
@@ -967,7 +967,7 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_web_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_web_acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_web_acl)
         """
 
@@ -977,6 +977,6 @@ class WAFRegionalClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/waf-regional.html#WAFRegional.Client.update_xss_match_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/waf-regional.html#WAFRegional.Client.update_xss_match_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/client.html#update_xss_match_set)
         """

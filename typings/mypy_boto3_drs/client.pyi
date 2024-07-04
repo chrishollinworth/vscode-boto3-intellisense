@@ -116,7 +116,7 @@ class Exceptions:
 
 class drsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html)
     """
 
@@ -135,7 +135,7 @@ class drsClient(BaseClient):
         Associate a Source Network to an existing CloudFormation Stack and modify launch
         templates to use this network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.associate_source_network_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.associate_source_network_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#associate_source_network_stack)
         """
 
@@ -143,7 +143,7 @@ class drsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#can_paginate)
         """
 
@@ -151,7 +151,7 @@ class drsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#close)
         """
 
@@ -162,7 +162,7 @@ class drsClient(BaseClient):
         Create an extended source server in the target Account based on the source
         server in staging account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.create_extended_source_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.create_extended_source_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#create_extended_source_server)
         """
 
@@ -182,7 +182,7 @@ class drsClient(BaseClient):
         """
         Creates a new Launch Configuration Template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.create_launch_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.create_launch_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#create_launch_configuration_template)
         """
 
@@ -208,7 +208,7 @@ class drsClient(BaseClient):
         """
         Creates a new ReplicationConfigurationTemplate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.create_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.create_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#create_replication_configuration_template)
         """
 
@@ -218,7 +218,7 @@ class drsClient(BaseClient):
         """
         Create a new Source Network resource for a provided VPC ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.create_source_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.create_source_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#create_source_network)
         """
 
@@ -226,7 +226,7 @@ class drsClient(BaseClient):
         """
         Deletes a single Job by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_job)
         """
 
@@ -234,7 +234,7 @@ class drsClient(BaseClient):
         """
         Deletes a resource launch action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_launch_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_launch_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_launch_action)
         """
 
@@ -244,7 +244,7 @@ class drsClient(BaseClient):
         """
         Deletes a single Launch Configuration Template by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_launch_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_launch_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_launch_configuration_template)
         """
 
@@ -252,7 +252,7 @@ class drsClient(BaseClient):
         """
         Deletes a single Recovery Instance by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_recovery_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_recovery_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_recovery_instance)
         """
 
@@ -265,7 +265,7 @@ class drsClient(BaseClient):
         26/DeleteReplicationConfigurationTemplate>`_ **Request Syntax** response =
         client.delete_replication_configuration_template( replication...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_replication_configuration_template)
         """
 
@@ -273,7 +273,7 @@ class drsClient(BaseClient):
         """
         Delete Source Network resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_source_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_source_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_source_network)
         """
 
@@ -281,7 +281,7 @@ class drsClient(BaseClient):
         """
         Deletes a single Source Server by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.delete_source_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.delete_source_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#delete_source_server)
         """
 
@@ -291,7 +291,7 @@ class drsClient(BaseClient):
         """
         Retrieves a detailed Job log with pagination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_job_log_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_job_log_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_job_log_items)
         """
 
@@ -305,7 +305,7 @@ class drsClient(BaseClient):
         """
         Returns a list of Jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_jobs)
         """
 
@@ -322,7 +322,7 @@ class drsClient(BaseClient):
         WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates>`_ **Request Syntax**
         response = client.describe_launch_configuration_te...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_launch_configuration_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_launch_configuration_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_launch_configuration_templates)
         """
 
@@ -336,7 +336,7 @@ class drsClient(BaseClient):
         """
         Lists all Recovery Instances or multiple Recovery Instances by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_recovery_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_recovery_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_recovery_instances)
         """
 
@@ -352,7 +352,7 @@ class drsClient(BaseClient):
         """
         Lists all Recovery Snapshots for a single Source Server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_recovery_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_recovery_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_recovery_snapshots)
         """
 
@@ -366,7 +366,7 @@ class drsClient(BaseClient):
         """
         Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_replication_configuration_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_replication_configuration_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_replication_configuration_templates)
         """
 
@@ -380,7 +380,7 @@ class drsClient(BaseClient):
         """
         Lists all Source Networks or multiple Source Networks filtered by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_source_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_source_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_source_networks)
         """
 
@@ -394,7 +394,7 @@ class drsClient(BaseClient):
         """
         Lists all Source Servers or multiple Source Servers filtered by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.describe_source_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.describe_source_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#describe_source_servers)
         """
 
@@ -402,7 +402,7 @@ class drsClient(BaseClient):
         """
         Disconnect a Recovery Instance from Elastic Disaster Recovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.disconnect_recovery_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.disconnect_recovery_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#disconnect_recovery_instance)
         """
 
@@ -412,7 +412,7 @@ class drsClient(BaseClient):
         """
         Disconnects a specific Source Server from Elastic Disaster Recovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.disconnect_source_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.disconnect_source_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#disconnect_source_server)
         """
 
@@ -422,7 +422,7 @@ class drsClient(BaseClient):
         """
         Export the Source Network CloudFormation template to an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.export_source_network_cfn_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.export_source_network_cfn_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#export_source_network_cfn_template)
         """
 
@@ -436,7 +436,7 @@ class drsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#generate_presigned_url)
         """
 
@@ -446,7 +446,7 @@ class drsClient(BaseClient):
         """
         Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.get_failback_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.get_failback_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#get_failback_replication_configuration)
         """
 
@@ -454,7 +454,7 @@ class drsClient(BaseClient):
         """
         Gets a LaunchConfiguration, filtered by Source Server IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.get_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.get_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#get_launch_configuration)
         """
 
@@ -464,7 +464,7 @@ class drsClient(BaseClient):
         """
         Gets a ReplicationConfiguration, filtered by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.get_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.get_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#get_replication_configuration)
         """
 
@@ -472,7 +472,7 @@ class drsClient(BaseClient):
         """
         Initialize Elastic Disaster Recovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.initialize_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.initialize_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#initialize_service)
         """
 
@@ -483,7 +483,7 @@ class drsClient(BaseClient):
         Returns a list of source servers on a staging account that are extensible, which
         means that: a.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.list_extensible_source_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.list_extensible_source_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#list_extensible_source_servers)
         """
 
@@ -498,7 +498,7 @@ class drsClient(BaseClient):
         """
         Lists resource launch actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.list_launch_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.list_launch_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#list_launch_actions)
         """
 
@@ -508,7 +508,7 @@ class drsClient(BaseClient):
         """
         Returns an array of staging accounts for existing extended source servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.list_staging_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.list_staging_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#list_staging_accounts)
         """
 
@@ -516,7 +516,7 @@ class drsClient(BaseClient):
         """
         List all tags for your Elastic Disaster Recovery resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#list_tags_for_resource)
         """
 
@@ -538,7 +538,7 @@ class drsClient(BaseClient):
         """
         Puts a resource launch action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.put_launch_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.put_launch_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#put_launch_action)
         """
 
@@ -546,7 +546,7 @@ class drsClient(BaseClient):
         """
         WARNING: RetryDataReplication is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.retry_data_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.retry_data_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#retry_data_replication)
         """
 
@@ -555,7 +555,7 @@ class drsClient(BaseClient):
         Start replication to origin / target region - applies only to protected
         instances that originated in EC2.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.reverse_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.reverse_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#reverse_replication)
         """
 
@@ -566,7 +566,7 @@ class drsClient(BaseClient):
         Initiates a Job for launching the machine that is being failed back to from the
         specified Recovery Instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.start_failback_launch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.start_failback_launch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#start_failback_launch)
         """
 
@@ -580,7 +580,7 @@ class drsClient(BaseClient):
         """
         Launches Recovery Instances for the specified Source Servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.start_recovery)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.start_recovery)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#start_recovery)
         """
 
@@ -588,7 +588,7 @@ class drsClient(BaseClient):
         """
         Starts replication for a stopped Source Server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.start_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.start_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#start_replication)
         """
 
@@ -603,7 +603,7 @@ class drsClient(BaseClient):
         Deploy VPC for the specified Source Network and modify launch templates to use
         this network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.start_source_network_recovery)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.start_source_network_recovery)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#start_source_network_recovery)
         """
 
@@ -613,7 +613,7 @@ class drsClient(BaseClient):
         """
         Starts replication for a Source Network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.start_source_network_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.start_source_network_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#start_source_network_replication)
         """
 
@@ -621,7 +621,7 @@ class drsClient(BaseClient):
         """
         Stops the failback process for a specified Recovery Instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.stop_failback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.stop_failback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#stop_failback)
         """
 
@@ -629,7 +629,7 @@ class drsClient(BaseClient):
         """
         Stops replication for a Source Server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.stop_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.stop_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#stop_replication)
         """
 
@@ -639,7 +639,7 @@ class drsClient(BaseClient):
         """
         Stops replication for a Source Network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.stop_source_network_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.stop_source_network_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#stop_source_network_replication)
         """
 
@@ -648,7 +648,7 @@ class drsClient(BaseClient):
         Adds or overwrites only the specified tags for the specified Elastic Disaster
         Recovery resource or resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#tag_resource)
         """
 
@@ -660,7 +660,7 @@ class drsClient(BaseClient):
         Recovery Instances, and then will delete the Recovery Instances from the Elastic
         Disaster Recovery service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.terminate_recovery_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.terminate_recovery_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#terminate_recovery_instances)
         """
 
@@ -669,7 +669,7 @@ class drsClient(BaseClient):
         Deletes the specified set of tags from the specified set of Elastic Disaster
         Recovery resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#untag_resource)
         """
 
@@ -685,7 +685,7 @@ class drsClient(BaseClient):
         Allows you to update the failback replication configuration of a Recovery
         Instance by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.update_failback_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.update_failback_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#update_failback_replication_configuration)
         """
 
@@ -705,7 +705,7 @@ class drsClient(BaseClient):
         """
         Updates a LaunchConfiguration by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.update_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.update_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#update_launch_configuration)
         """
 
@@ -725,7 +725,7 @@ class drsClient(BaseClient):
         """
         Updates an existing Launch Configuration Template by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.update_launch_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.update_launch_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#update_launch_configuration_template)
         """
 
@@ -753,7 +753,7 @@ class drsClient(BaseClient):
         """
         Allows you to update a ReplicationConfiguration by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.update_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.update_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#update_replication_configuration)
         """
 
@@ -780,7 +780,7 @@ class drsClient(BaseClient):
         """
         Updates a ReplicationConfigurationTemplate by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Client.update_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Client.update_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/client.html#update_replication_configuration_template)
         """
 
@@ -789,14 +789,14 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_job_log_items"]
     ) -> DescribeJobLogItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeJobLogItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeJobLogItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describejoblogitemspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_jobs"]) -> DescribeJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describejobspaginator)
         """
 
@@ -805,7 +805,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_launch_configuration_templates"]
     ) -> DescribeLaunchConfigurationTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeLaunchConfigurationTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeLaunchConfigurationTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describelaunchconfigurationtemplatespaginator)
         """
 
@@ -814,7 +814,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_recovery_instances"]
     ) -> DescribeRecoveryInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeRecoveryInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeRecoveryInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describerecoveryinstancespaginator)
         """
 
@@ -823,7 +823,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_recovery_snapshots"]
     ) -> DescribeRecoverySnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeRecoverySnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeRecoverySnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describerecoverysnapshotspaginator)
         """
 
@@ -832,7 +832,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_replication_configuration_templates"]
     ) -> DescribeReplicationConfigurationTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeReplicationConfigurationTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeReplicationConfigurationTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describereplicationconfigurationtemplatespaginator)
         """
 
@@ -841,7 +841,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_source_networks"]
     ) -> DescribeSourceNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeSourceNetworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeSourceNetworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describesourcenetworkspaginator)
         """
 
@@ -850,7 +850,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["describe_source_servers"]
     ) -> DescribeSourceServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.DescribeSourceServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.DescribeSourceServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#describesourceserverspaginator)
         """
 
@@ -859,7 +859,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["list_extensible_source_servers"]
     ) -> ListExtensibleSourceServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.ListExtensibleSourceServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.ListExtensibleSourceServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#listextensiblesourceserverspaginator)
         """
 
@@ -868,7 +868,7 @@ class drsClient(BaseClient):
         self, operation_name: Literal["list_launch_actions"]
     ) -> ListLaunchActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.ListLaunchActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.ListLaunchActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#listlaunchactionspaginator)
         """
 
@@ -877,6 +877,6 @@ class drsClient(BaseClient):
         self, operation_name: Literal["list_staging_accounts"]
     ) -> ListStagingAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/drs.html#drs.Paginator.ListStagingAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/drs.html#drs.Paginator.ListStagingAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/paginators.html#liststagingaccountspaginator)
         """

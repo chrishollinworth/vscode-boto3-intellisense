@@ -64,7 +64,7 @@ __all__ = (
 
 class DescribeBudgetActionHistoriesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionhistoriespaginator)
     """
 
@@ -78,13 +78,13 @@ class DescribeBudgetActionHistoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetActionHistoriesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionhistoriespaginator)
         """
 
 class DescribeBudgetActionsForAccountPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforaccountpaginator)
     """
 
@@ -92,13 +92,13 @@ class DescribeBudgetActionsForAccountPaginator(Boto3Paginator):
         self, *, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetActionsForAccountResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforaccountpaginator)
         """
 
 class DescribeBudgetActionsForBudgetPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforbudgetpaginator)
     """
 
@@ -106,13 +106,13 @@ class DescribeBudgetActionsForBudgetPaginator(Boto3Paginator):
         self, *, AccountId: str, BudgetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetActionsForBudgetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetactionsforbudgetpaginator)
         """
 
 class DescribeBudgetNotificationsForAccountPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetnotificationsforaccountpaginator)
     """
 
@@ -120,13 +120,13 @@ class DescribeBudgetNotificationsForAccountPaginator(Boto3Paginator):
         self, *, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetNotificationsForAccountResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetNotificationsForAccount.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetnotificationsforaccountpaginator)
         """
 
 class DescribeBudgetPerformanceHistoryPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetperformancehistorypaginator)
     """
 
@@ -139,13 +139,13 @@ class DescribeBudgetPerformanceHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetPerformanceHistoryResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetperformancehistorypaginator)
         """
 
 class DescribeBudgetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetspaginator)
     """
 
@@ -153,13 +153,13 @@ class DescribeBudgetsPaginator(Boto3Paginator):
         self, *, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describebudgetspaginator)
         """
 
 class DescribeNotificationsForBudgetPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describenotificationsforbudgetpaginator)
     """
 
@@ -167,13 +167,13 @@ class DescribeNotificationsForBudgetPaginator(Boto3Paginator):
         self, *, AccountId: str, BudgetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNotificationsForBudgetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describenotificationsforbudgetpaginator)
         """
 
 class DescribeSubscribersForNotificationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describesubscribersfornotificationpaginator)
     """
 
@@ -186,6 +186,6 @@ class DescribeSubscribersForNotificationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSubscribersForNotificationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/paginators.html#describesubscribersfornotificationpaginator)
         """

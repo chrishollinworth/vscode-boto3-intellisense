@@ -1824,7 +1824,7 @@ StructuredMessageFieldNameAndDataTypePairTypeDef = TypedDict(
     "StructuredMessageFieldNameAndDataTypePairTypeDef",
     {
         "fieldName": str,
-        "dataType": Dict[str, Any],
+        "dataType": "StructuredMessageTypeDef",
     },
 )
 
@@ -1832,7 +1832,7 @@ _RequiredStructuredMessageListDefinitionTypeDef = TypedDict(
     "_RequiredStructuredMessageListDefinitionTypeDef",
     {
         "name": str,
-        "memberType": "StructuredMessageTypeDef",
+        "memberType": Dict[str, Any],
         "listType": StructuredMessageListTypeType,
     },
 )

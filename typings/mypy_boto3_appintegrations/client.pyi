@@ -75,7 +75,7 @@ class Exceptions:
 
 class AppIntegrationsServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html)
     """
 
@@ -91,7 +91,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#can_paginate)
         """
 
@@ -99,7 +99,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#close)
         """
 
@@ -119,7 +119,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         This API is in preview release and subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_application)
         """
 
@@ -139,7 +139,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Creates and persists a DataIntegration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.create_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_data_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_data_integration)
         """
 
@@ -158,7 +158,7 @@ class AppIntegrationsServiceClient(BaseClient):
         reference to an Amazon EventBridge bus in your account and a partner event
         source that pushes events to that bus.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.create_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_event_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_event_integration)
         """
 
@@ -166,7 +166,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Deletes the Application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_application)
         """
 
@@ -174,7 +174,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Deletes the DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_data_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_data_integration)
         """
 
@@ -182,7 +182,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Deletes the specified existing event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_event_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_event_integration)
         """
 
@@ -196,7 +196,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#generate_presigned_url)
         """
 
@@ -204,7 +204,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         This API is in preview release and subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_application)
         """
 
@@ -212,7 +212,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns information about the DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.get_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_data_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_data_integration)
         """
 
@@ -220,7 +220,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns information about the event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.get_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_event_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_event_integration)
         """
 
@@ -230,7 +230,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns a paginated list of application associations for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_application_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_application_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_application_associations)
         """
 
@@ -240,7 +240,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         This API is in preview release and subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_applications)
         """
 
@@ -250,7 +250,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns a paginated list of DataIntegration associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integration_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_data_integration_associations)
         """
 
@@ -260,7 +260,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns a paginated list of DataIntegrations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_data_integrations)
         """
 
@@ -270,7 +270,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns a paginated list of event integration associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integration_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_event_integration_associations)
         """
 
@@ -280,7 +280,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Returns a paginated list of event integrations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_event_integrations)
         """
 
@@ -288,7 +288,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_tags_for_resource)
         """
 
@@ -296,7 +296,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#tag_resource)
         """
 
@@ -304,7 +304,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#untag_resource)
         """
 
@@ -322,7 +322,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         This API is in preview release and subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_application)
         """
 
@@ -332,7 +332,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Updates the description of a DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.update_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_data_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_data_integration)
         """
 
@@ -340,7 +340,7 @@ class AppIntegrationsServiceClient(BaseClient):
         """
         Updates the description of an event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Client.update_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_event_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_event_integration)
         """
 
@@ -349,7 +349,7 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_application_associations"]
     ) -> ListApplicationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationassociationspaginator)
         """
 
@@ -358,7 +358,7 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationspaginator)
         """
 
@@ -367,7 +367,7 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_data_integration_associations"]
     ) -> ListDataIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationassociationspaginator)
         """
 
@@ -376,7 +376,7 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_data_integrations"]
     ) -> ListDataIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationspaginator)
         """
 
@@ -385,7 +385,7 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_event_integration_associations"]
     ) -> ListEventIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationassociationspaginator)
         """
 
@@ -394,6 +394,6 @@ class AppIntegrationsServiceClient(BaseClient):
         self, operation_name: Literal["list_event_integrations"]
     ) -> ListEventIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationspaginator)
         """

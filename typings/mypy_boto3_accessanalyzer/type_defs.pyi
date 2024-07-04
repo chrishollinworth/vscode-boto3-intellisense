@@ -18,12 +18,14 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     AccessCheckPolicyTypeType,
+    AccessCheckResourceTypeType,
     AccessPreviewStatusReasonCodeType,
     AccessPreviewStatusType,
     AclPermissionType,
     AnalyzerStatusType,
     CheckAccessNotGrantedResultType,
     CheckNoNewAccessResultType,
+    CheckNoPublicAccessResultType,
     FindingChangeTypeType,
     FindingSourceTypeType,
     FindingStatusType,
@@ -36,12 +38,18 @@ from .literals import (
     OrderByType,
     PolicyTypeType,
     ReasonCodeType,
+    RecommendedRemediationActionType,
     ResourceTypeType,
+    StatusType,
     TypeType,
     ValidatePolicyFindingTypeType,
     ValidatePolicyResourceTypeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -65,6 +73,8 @@ __all__ = (
     "CheckAccessNotGrantedResponseTypeDef",
     "CheckNoNewAccessRequestRequestTypeDef",
     "CheckNoNewAccessResponseTypeDef",
+    "CheckNoPublicAccessRequestRequestTypeDef",
+    "CheckNoPublicAccessResponseTypeDef",
     "CloudTrailDetailsTypeDef",
     "CloudTrailPropertiesTypeDef",
     "ConfigurationTypeDef",
@@ -88,6 +98,7 @@ __all__ = (
     "FindingSummaryTypeDef",
     "FindingSummaryV2TypeDef",
     "FindingTypeDef",
+    "GenerateFindingRecommendationRequestRequestTypeDef",
     "GeneratedPolicyPropertiesTypeDef",
     "GeneratedPolicyResultTypeDef",
     "GeneratedPolicyTypeDef",
@@ -99,6 +110,8 @@ __all__ = (
     "GetAnalyzerResponseTypeDef",
     "GetArchiveRuleRequestRequestTypeDef",
     "GetArchiveRuleResponseTypeDef",
+    "GetFindingRecommendationRequestRequestTypeDef",
+    "GetFindingRecommendationResponseTypeDef",
     "GetFindingRequestRequestTypeDef",
     "GetFindingResponseTypeDef",
     "GetFindingV2RequestRequestTypeDef",
@@ -142,6 +155,8 @@ __all__ = (
     "RdsDbSnapshotAttributeValueTypeDef",
     "RdsDbSnapshotConfigurationTypeDef",
     "ReasonSummaryTypeDef",
+    "RecommendationErrorTypeDef",
+    "RecommendedStepTypeDef",
     "ResponseMetadataTypeDef",
     "S3AccessPointConfigurationTypeDef",
     "S3BucketAclGrantConfigurationTypeDef",
@@ -168,6 +183,7 @@ __all__ = (
     "UnusedIamUserAccessKeyDetailsTypeDef",
     "UnusedIamUserPasswordDetailsTypeDef",
     "UnusedPermissionDetailsTypeDef",
+    "UnusedPermissionsRecommendedStepTypeDef",
     "UpdateArchiveRuleRequestRequestTypeDef",
     "UpdateFindingsRequestRequestTypeDef",
     "ValidatePolicyFindingTypeDef",
@@ -262,7 +278,9 @@ AccessTypeDef = TypedDict(
     "AccessTypeDef",
     {
         "actions": List[str],
+        "resources": List[str],
     },
+    total=False,
 )
 
 AclGranteeTypeDef = TypedDict(
@@ -411,6 +429,24 @@ CheckNoNewAccessResponseTypeDef = TypedDict(
     "CheckNoNewAccessResponseTypeDef",
     {
         "result": CheckNoNewAccessResultType,
+        "message": str,
+        "reasons": List["ReasonSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CheckNoPublicAccessRequestRequestTypeDef = TypedDict(
+    "CheckNoPublicAccessRequestRequestTypeDef",
+    {
+        "policyDocument": str,
+        "resourceType": AccessCheckResourceTypeType,
+    },
+)
+
+CheckNoPublicAccessResponseTypeDef = TypedDict(
+    "CheckNoPublicAccessResponseTypeDef",
+    {
+        "result": CheckNoPublicAccessResultType,
         "message": str,
         "reasons": List["ReasonSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -784,6 +820,14 @@ _OptionalFindingTypeDef = TypedDict(
 class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
     pass
 
+GenerateFindingRecommendationRequestRequestTypeDef = TypedDict(
+    "GenerateFindingRecommendationRequestRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+    },
+)
+
 _RequiredGeneratedPolicyPropertiesTypeDef = TypedDict(
     "_RequiredGeneratedPolicyPropertiesTypeDef",
     {
@@ -889,6 +933,43 @@ GetArchiveRuleResponseTypeDef = TypedDict(
     "GetArchiveRuleResponseTypeDef",
     {
         "archiveRule": "ArchiveRuleSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFindingRecommendationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetFindingRecommendationRequestRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+    },
+)
+_OptionalGetFindingRecommendationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetFindingRecommendationRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class GetFindingRecommendationRequestRequestTypeDef(
+    _RequiredGetFindingRecommendationRequestRequestTypeDef,
+    _OptionalGetFindingRecommendationRequestRequestTypeDef,
+):
+    pass
+
+GetFindingRecommendationResponseTypeDef = TypedDict(
+    "GetFindingRecommendationResponseTypeDef",
+    {
+        "startedAt": datetime,
+        "completedAt": datetime,
+        "nextToken": str,
+        "error": "RecommendationErrorTypeDef",
+        "resourceArn": str,
+        "recommendedSteps": List["RecommendedStepTypeDef"],
+        "recommendationType": Literal["UnusedPermissionRecommendation"],
+        "status": StatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1418,6 +1499,22 @@ ReasonSummaryTypeDef = TypedDict(
     total=False,
 )
 
+RecommendationErrorTypeDef = TypedDict(
+    "RecommendationErrorTypeDef",
+    {
+        "code": str,
+        "message": str,
+    },
+)
+
+RecommendedStepTypeDef = TypedDict(
+    "RecommendedStepTypeDef",
+    {
+        "unusedPermissionsRecommendedStep": "UnusedPermissionsRecommendedStepTypeDef",
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1709,6 +1806,28 @@ _OptionalUnusedPermissionDetailsTypeDef = TypedDict(
 
 class UnusedPermissionDetailsTypeDef(
     _RequiredUnusedPermissionDetailsTypeDef, _OptionalUnusedPermissionDetailsTypeDef
+):
+    pass
+
+_RequiredUnusedPermissionsRecommendedStepTypeDef = TypedDict(
+    "_RequiredUnusedPermissionsRecommendedStepTypeDef",
+    {
+        "recommendedAction": RecommendedRemediationActionType,
+    },
+)
+_OptionalUnusedPermissionsRecommendedStepTypeDef = TypedDict(
+    "_OptionalUnusedPermissionsRecommendedStepTypeDef",
+    {
+        "policyUpdatedAt": datetime,
+        "recommendedPolicy": str,
+        "existingPolicyId": str,
+    },
+    total=False,
+)
+
+class UnusedPermissionsRecommendedStepTypeDef(
+    _RequiredUnusedPermissionsRecommendedStepTypeDef,
+    _OptionalUnusedPermissionsRecommendedStepTypeDef,
 ):
     pass
 

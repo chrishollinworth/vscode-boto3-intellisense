@@ -93,7 +93,7 @@ class Exceptions:
 
 class SSMContactsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html)
     """
 
@@ -118,7 +118,7 @@ class SSMContactsClient(BaseClient):
         """
         Used to acknowledge an engagement to a contact channel during an incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.accept_page)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.accept_page)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#accept_page)
         """
 
@@ -128,7 +128,7 @@ class SSMContactsClient(BaseClient):
         """
         Activates a contact's contact channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.activate_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.activate_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#activate_contact_channel)
         """
 
@@ -136,7 +136,7 @@ class SSMContactsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#can_paginate)
         """
 
@@ -144,7 +144,7 @@ class SSMContactsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#close)
         """
 
@@ -163,7 +163,7 @@ class SSMContactsClient(BaseClient):
         incident or the escalation plans that Incident Manager uses to engage contacts
         in phases during an incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.create_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.create_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#create_contact)
         """
 
@@ -181,7 +181,7 @@ class SSMContactsClient(BaseClient):
         A contact channel is the method that Incident Manager uses to engage your
         contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.create_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.create_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#create_contact_channel)
         """
 
@@ -199,7 +199,7 @@ class SSMContactsClient(BaseClient):
         """
         Creates a rotation in an on-call schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.create_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.create_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#create_rotation)
         """
 
@@ -215,7 +215,7 @@ class SSMContactsClient(BaseClient):
         """
         Creates an override for a rotation in an on-call schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.create_rotation_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.create_rotation_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#create_rotation_override)
         """
 
@@ -224,7 +224,7 @@ class SSMContactsClient(BaseClient):
         To no longer receive Incident Manager engagements to a contact channel, you can
         deactivate the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.deactivate_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.deactivate_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#deactivate_contact_channel)
         """
 
@@ -232,7 +232,7 @@ class SSMContactsClient(BaseClient):
         """
         To remove a contact from Incident Manager, you can delete the contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.delete_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.delete_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#delete_contact)
         """
 
@@ -241,7 +241,7 @@ class SSMContactsClient(BaseClient):
         To no longer receive engagements on a contact channel, you can delete the
         channel from a contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.delete_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.delete_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#delete_contact_channel)
         """
 
@@ -249,7 +249,7 @@ class SSMContactsClient(BaseClient):
         """
         Deletes a rotation from the system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.delete_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.delete_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#delete_rotation)
         """
 
@@ -259,7 +259,7 @@ class SSMContactsClient(BaseClient):
         """
         Deletes an existing override for an on-call rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.delete_rotation_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.delete_rotation_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#delete_rotation_override)
         """
 
@@ -268,7 +268,7 @@ class SSMContactsClient(BaseClient):
         Incident Manager uses engagements to engage contacts and escalation plans during
         an incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.describe_engagement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.describe_engagement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#describe_engagement)
         """
 
@@ -276,7 +276,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists details of the engagement to a contact channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.describe_page)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.describe_page)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#describe_page)
         """
 
@@ -290,7 +290,7 @@ class SSMContactsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#generate_presigned_url)
         """
 
@@ -298,7 +298,7 @@ class SSMContactsClient(BaseClient):
         """
         Retrieves information about the specified contact or escalation plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#get_contact)
         """
 
@@ -306,7 +306,7 @@ class SSMContactsClient(BaseClient):
         """
         List details about a specific contact channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#get_contact_channel)
         """
 
@@ -315,7 +315,7 @@ class SSMContactsClient(BaseClient):
         Retrieves the resource policies attached to the specified contact or escalation
         plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.get_contact_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#get_contact_policy)
         """
 
@@ -323,7 +323,7 @@ class SSMContactsClient(BaseClient):
         """
         Retrieves information about an on-call rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.get_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.get_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#get_rotation)
         """
 
@@ -333,7 +333,7 @@ class SSMContactsClient(BaseClient):
         """
         Retrieves information about an override to an on-call rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.get_rotation_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.get_rotation_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#get_rotation_override)
         """
 
@@ -343,7 +343,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists all contact channels for the specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_contact_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_contact_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_contact_channels)
         """
 
@@ -358,7 +358,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists all contacts and escalation plans in Incident Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_contacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_contacts)
         """
 
@@ -373,7 +373,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists all engagements that have happened in an incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_engagements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_engagements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_engagements)
         """
 
@@ -383,7 +383,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists all of the engagements to contact channels that have been acknowledged.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_page_receipts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_page_receipts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_page_receipts)
         """
 
@@ -393,7 +393,7 @@ class SSMContactsClient(BaseClient):
         """
         Returns the resolution path of an engagement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_page_resolutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_page_resolutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_page_resolutions)
         """
 
@@ -403,7 +403,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists the engagements to a contact's contact channels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_pages_by_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_pages_by_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_pages_by_contact)
         """
 
@@ -413,7 +413,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists the engagements to contact channels that occurred by engaging a contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_pages_by_engagement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_pages_by_engagement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_pages_by_engagement)
         """
 
@@ -433,7 +433,7 @@ class SSMContactsClient(BaseClient):
         """
         Returns a list of shifts based on rotation configuration parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_preview_rotation_shifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_preview_rotation_shifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_preview_rotation_shifts)
         """
 
@@ -449,7 +449,7 @@ class SSMContactsClient(BaseClient):
         """
         Retrieves a list of overrides currently specified for an on-call rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotation_overrides)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotation_overrides)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_rotation_overrides)
         """
 
@@ -465,7 +465,7 @@ class SSMContactsClient(BaseClient):
         """
         Returns a list of shifts generated by an existing rotation in the system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotation_shifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotation_shifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_rotation_shifts)
         """
 
@@ -475,7 +475,7 @@ class SSMContactsClient(BaseClient):
         """
         Retrieves a list of on-call rotations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_rotations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_rotations)
         """
 
@@ -483,7 +483,7 @@ class SSMContactsClient(BaseClient):
         """
         Lists the tags of an escalation plan or contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#list_tags_for_resource)
         """
 
@@ -491,7 +491,7 @@ class SSMContactsClient(BaseClient):
         """
         Adds a resource policy to the specified contact or escalation plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.put_contact_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.put_contact_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#put_contact_policy)
         """
 
@@ -499,7 +499,7 @@ class SSMContactsClient(BaseClient):
         """
         Sends an activation code to a contact channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.send_activation_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.send_activation_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#send_activation_code)
         """
 
@@ -518,7 +518,7 @@ class SSMContactsClient(BaseClient):
         """
         Starts an engagement to a contact or escalation plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.start_engagement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.start_engagement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#start_engagement)
         """
 
@@ -527,7 +527,7 @@ class SSMContactsClient(BaseClient):
         Stops an engagement before it finishes the final stage of the escalation plan or
         engagement plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.stop_engagement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.stop_engagement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#stop_engagement)
         """
 
@@ -535,7 +535,7 @@ class SSMContactsClient(BaseClient):
         """
         Tags a contact or escalation plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#tag_resource)
         """
 
@@ -543,7 +543,7 @@ class SSMContactsClient(BaseClient):
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#untag_resource)
         """
 
@@ -553,7 +553,7 @@ class SSMContactsClient(BaseClient):
         """
         Updates the contact or escalation plan specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.update_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.update_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#update_contact)
         """
 
@@ -567,7 +567,7 @@ class SSMContactsClient(BaseClient):
         """
         Updates a contact's contact channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.update_contact_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.update_contact_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#update_contact_channel)
         """
 
@@ -583,7 +583,7 @@ class SSMContactsClient(BaseClient):
         """
         Updates the information specified for an on-call rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Client.update_rotation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Client.update_rotation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/client.html#update_rotation)
         """
 
@@ -592,14 +592,14 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_contact_channels"]
     ) -> ListContactChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContactChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactchannelspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_contacts"]) -> ListContactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListContacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listcontactspaginator)
         """
 
@@ -608,7 +608,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_engagements"]
     ) -> ListEngagementsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListEngagements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listengagementspaginator)
         """
 
@@ -617,7 +617,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_page_receipts"]
     ) -> ListPageReceiptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageReceipts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagereceiptspaginator)
         """
 
@@ -626,7 +626,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_page_resolutions"]
     ) -> ListPageResolutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPageResolutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpageresolutionspaginator)
         """
 
@@ -635,7 +635,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_pages_by_contact"]
     ) -> ListPagesByContactPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByContact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbycontactpaginator)
         """
 
@@ -644,7 +644,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_pages_by_engagement"]
     ) -> ListPagesByEngagementPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPagesByEngagement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpagesbyengagementpaginator)
         """
 
@@ -653,7 +653,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_preview_rotation_shifts"]
     ) -> ListPreviewRotationShiftsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListPreviewRotationShifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listpreviewrotationshiftspaginator)
         """
 
@@ -662,7 +662,7 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_rotation_overrides"]
     ) -> ListRotationOverridesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationOverrides)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationoverridespaginator)
         """
 
@@ -671,13 +671,13 @@ class SSMContactsClient(BaseClient):
         self, operation_name: Literal["list_rotation_shifts"]
     ) -> ListRotationShiftsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotationShifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationshiftspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rotations"]) -> ListRotationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-contacts.html#SSMContacts.Paginator.ListRotations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/paginators.html#listrotationspaginator)
         """

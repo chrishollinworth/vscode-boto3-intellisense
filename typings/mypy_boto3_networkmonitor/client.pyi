@@ -59,7 +59,7 @@ class Exceptions:
 
 class CloudWatchNetworkMonitorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html)
     """
 
@@ -75,7 +75,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#can_paginate)
         """
 
@@ -83,7 +83,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#close)
         """
 
@@ -99,7 +99,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Creates a monitor between a source subnet and destination IP address.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.create_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.create_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#create_monitor)
         """
 
@@ -114,7 +114,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Create a probe within a monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.create_probe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.create_probe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#create_probe)
         """
 
@@ -122,7 +122,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Deletes a specified monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.delete_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.delete_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#delete_monitor)
         """
 
@@ -130,7 +130,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Deletes the specified probe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.delete_probe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.delete_probe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#delete_probe)
         """
 
@@ -144,7 +144,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#generate_presigned_url)
         """
 
@@ -152,7 +152,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Returns details about a specific monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.get_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.get_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#get_monitor)
         """
 
@@ -160,7 +160,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Returns the details about a probe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.get_probe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.get_probe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#get_probe)
         """
 
@@ -170,7 +170,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Returns a list of all of your monitors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.list_monitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.list_monitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#list_monitors)
         """
 
@@ -178,7 +178,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Lists the tags assigned to this resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#list_tags_for_resource)
         """
 
@@ -186,7 +186,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Adds key-value pairs to a monitor or probe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#tag_resource)
         """
 
@@ -194,7 +194,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Removes a key-value pair from a monitor or probe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#untag_resource)
         """
 
@@ -204,7 +204,7 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Updates the `aggregationPeriod` for a monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.update_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.update_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#update_monitor)
         """
 
@@ -222,12 +222,12 @@ class CloudWatchNetworkMonitorClient(BaseClient):
         """
         Updates a monitor probe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.update_probe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Client.update_probe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/client.html#update_probe)
         """
 
     def get_paginator(self, operation_name: Literal["list_monitors"]) -> ListMonitorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html#listmonitorspaginator)
         """

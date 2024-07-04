@@ -203,7 +203,7 @@ class Exceptions:
 
 class CognitoIdentityProviderClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html)
     """
 
@@ -221,7 +221,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Adds additional user attributes to the user pool schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.add_custom_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.add_custom_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#add_custom_attributes)
         """
 
@@ -229,7 +229,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Adds a user to a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_add_user_to_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_add_user_to_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_add_user_to_group)
         """
 
@@ -240,7 +240,7 @@ class CognitoIdentityProviderClient(BaseClient):
         This IAM-authenticated API operation provides a code that Amazon Cognito sent to
         your user when they signed up in your user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_confirm_sign_up)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_confirm_sign_up)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_confirm_sign_up)
         """
 
@@ -260,7 +260,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates a new user in the specified user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_create_user)
         """
 
@@ -268,7 +268,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes a user as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_delete_user)
         """
 
@@ -278,7 +278,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes the user attributes in a user pool as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_delete_user_attributes)
         """
 
@@ -289,7 +289,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Prevents the user from signing in with the specified external (SAML or social)
         identity provider (IdP).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_provider_for_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_provider_for_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_disable_provider_for_user)
         """
 
@@ -297,7 +297,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deactivates a user and revokes all access tokens for the user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_disable_user)
         """
 
@@ -305,7 +305,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Enables the specified user as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_enable_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_enable_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_enable_user)
         """
 
@@ -313,7 +313,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Forgets the device, as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_forget_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_forget_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_forget_device)
         """
 
@@ -323,7 +323,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the device, as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_get_device)
         """
 
@@ -331,7 +331,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the specified user by user name in a user pool as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_get_user)
         """
 
@@ -349,7 +349,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Initiates the authentication flow, as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_initiate_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_initiate_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_initiate_auth)
         """
 
@@ -365,7 +365,7 @@ class CognitoIdentityProviderClient(BaseClient):
         identity from an external IdP ( `SourceUser`) based on a specified attribute
         name and value from the external IdP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_link_provider_for_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_link_provider_for_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_link_provider_for_user)
         """
 
@@ -375,7 +375,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists devices, as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_devices)
         """
 
@@ -385,7 +385,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the groups that a user belongs to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_groups_for_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_groups_for_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_groups_for_user)
         """
 
@@ -396,7 +396,7 @@ class CognitoIdentityProviderClient(BaseClient):
         A history of user activity and any risks detected as part of Amazon Cognito
         advanced security.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_user_auth_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_user_auth_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_user_auth_events)
         """
 
@@ -406,7 +406,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Removes the specified user from the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_remove_user_from_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_remove_user_from_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_remove_user_from_group)
         """
 
@@ -416,7 +416,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Resets the specified user's password in a user pool as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_reset_user_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_reset_user_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_reset_user_password)
         """
 
@@ -437,7 +437,7 @@ class CognitoIdentityProviderClient(BaseClient):
         MFA code, for device authentication that bypasses MFA, or for a custom
         authentication challenge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_respond_to_auth_challenge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_respond_to_auth_challenge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_respond_to_auth_challenge)
         """
 
@@ -453,7 +453,7 @@ class CognitoIdentityProviderClient(BaseClient):
         The user's multi-factor authentication (MFA) preference, including which MFA
         options are activated, and if any are preferred.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_mfa_preference)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_mfa_preference)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_mfa_preference)
         """
 
@@ -463,7 +463,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Sets the specified user's password in a user pool as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_password)
         """
 
@@ -473,7 +473,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         *This action is no longer supported.* You can use it to configure only SMS MFA.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_settings)
         """
 
@@ -484,7 +484,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Provides feedback for an authentication event indicating if it was from a valid
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_auth_event_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_auth_event_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_auth_event_feedback)
         """
 
@@ -499,7 +499,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates the device status as an administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_device_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_device_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_device_status)
         """
 
@@ -514,7 +514,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_user_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_user_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_user_attributes)
         """
 
@@ -523,7 +523,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Invalidates the identity, access, and refresh tokens that Amazon Cognito issued
         to a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_user_global_sign_out)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_user_global_sign_out)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_user_global_sign_out)
         """
 
@@ -535,7 +535,7 @@ class CognitoIdentityProviderClient(BaseClient):
         (MFA) for a user, with a unique private key that Amazon Cognito generates and
         returns in the API response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.associate_software_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.associate_software_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#associate_software_token)
         """
 
@@ -543,7 +543,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#can_paginate)
         """
 
@@ -553,7 +553,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Changes the password for a specified user in a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.change_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.change_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#change_password)
         """
 
@@ -561,7 +561,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#close)
         """
 
@@ -576,7 +576,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Confirms tracking of the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_device)
         """
 
@@ -595,7 +595,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Allows a user to enter a confirmation code to reset a forgotten password.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_forgot_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_forgot_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_forgot_password)
         """
 
@@ -617,7 +617,7 @@ class CognitoIdentityProviderClient(BaseClient):
         <https://docs.aws.amazon.com/cognito-user-identity-
         pools/latest/APIReference/API_SignUp.html>`__ API operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_sign_up)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_sign_up)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_sign_up)
         """
 
@@ -633,7 +633,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates a new group in the specified user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_group)
         """
 
@@ -651,7 +651,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Adds a configuration and trust relationship between a third-party identity
         provider (IdP) and a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_identity_provider)
         """
 
@@ -666,7 +666,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates a new OAuth2.0 resource server and defines custom scopes within it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_resource_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_resource_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_resource_server)
         """
 
@@ -676,7 +676,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates a user import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_import_job)
         """
 
@@ -710,7 +710,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool)
         """
 
@@ -743,7 +743,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates the user pool client.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool_client)
         """
 
@@ -757,7 +757,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Creates a new domain for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool_domain)
         """
 
@@ -765,7 +765,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_group)
         """
 
@@ -773,7 +773,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes an IdP for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_identity_provider)
         """
 
@@ -781,7 +781,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes a resource server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_resource_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_resource_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_resource_server)
         """
 
@@ -789,7 +789,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Allows a user to delete their own user profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user)
         """
 
@@ -799,7 +799,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes the attributes for a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_attributes)
         """
 
@@ -807,7 +807,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes the specified Amazon Cognito user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool)
         """
 
@@ -815,7 +815,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Allows the developer to delete the user pool client.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool_client)
         """
 
@@ -823,7 +823,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Deletes a domain for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool_domain)
         """
 
@@ -833,7 +833,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets information about a specific IdP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_identity_provider)
         """
 
@@ -843,7 +843,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Describes a resource server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_resource_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_resource_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_resource_server)
         """
 
@@ -853,7 +853,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Describes the risk configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_risk_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_risk_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_risk_configuration)
         """
 
@@ -863,7 +863,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Describes the user import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_import_job)
         """
 
@@ -871,7 +871,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Returns the configuration information and metadata of the specified user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool)
         """
 
@@ -882,7 +882,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Client method for returning the configuration information and metadata of the
         specified user pool app client.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool_client)
         """
 
@@ -890,7 +890,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets information about a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool_domain)
         """
 
@@ -898,7 +898,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Forgets the specified device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forget_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forget_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#forget_device)
         """
 
@@ -916,7 +916,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Calling this API causes a message to be sent to the end user with a confirmation
         code that is required to change the user's password.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forgot_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forgot_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#forgot_password)
         """
 
@@ -930,7 +930,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#generate_presigned_url)
         """
 
@@ -939,7 +939,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Gets the header information for the comma-separated value (CSV) file to be used
         as input for the user import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_csv_header)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_csv_header)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_csv_header)
         """
 
@@ -947,7 +947,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_device)
         """
 
@@ -955,7 +955,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_group)
         """
 
@@ -965,7 +965,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the specified IdP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_identity_provider_by_identifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_identity_provider_by_identifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_identity_provider_by_identifier)
         """
 
@@ -975,7 +975,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the detailed activity logging configuration for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_log_delivery_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_log_delivery_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_log_delivery_configuration)
         """
 
@@ -983,7 +983,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         This method takes a user pool ID, and returns the signing certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_signing_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_signing_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_signing_certificate)
         """
 
@@ -994,7 +994,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Gets the user interface (UI) Customization information for a particular app
         client's app UI, if any such information exists for the client.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_ui_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_ui_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_ui_customization)
         """
 
@@ -1002,7 +1002,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the user attributes and metadata for a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user)
         """
 
@@ -1012,7 +1012,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Generates a user attribute verification code for the specified attribute name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_attribute_verification_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_attribute_verification_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user_attribute_verification_code)
         """
 
@@ -1020,7 +1020,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Gets the user pool multi-factor authentication (MFA) configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_pool_mfa_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_pool_mfa_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user_pool_mfa_config)
         """
 
@@ -1029,7 +1029,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Invalidates the identity, access, and refresh tokens that Amazon Cognito issued
         to a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.global_sign_out)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.global_sign_out)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#global_sign_out)
         """
 
@@ -1046,7 +1046,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Initiates sign-in for a user in the Amazon Cognito user directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.initiate_auth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.initiate_auth)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#initiate_auth)
         """
 
@@ -1057,7 +1057,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Lists the sign-in devices that Amazon Cognito has registered to the current
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_devices)
         """
 
@@ -1067,7 +1067,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the groups associated with a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_groups)
         """
 
@@ -1077,7 +1077,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists information about all IdPs for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_identity_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_identity_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_identity_providers)
         """
 
@@ -1087,7 +1087,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the resource servers for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_resource_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_resource_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_resource_servers)
         """
 
@@ -1095,7 +1095,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the tags that are assigned to an Amazon Cognito user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_tags_for_resource)
         """
 
@@ -1105,7 +1105,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists user import jobs for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_import_jobs)
         """
 
@@ -1115,7 +1115,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the clients that have been created for the specified user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pool_clients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pool_clients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_pool_clients)
         """
 
@@ -1125,7 +1125,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the user pools associated with an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pools)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_pools)
         """
 
@@ -1141,7 +1141,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists users and their basic details in a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_users)
         """
 
@@ -1151,7 +1151,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Lists the users in the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users_in_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users_in_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_users_in_group)
         """
 
@@ -1169,7 +1169,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Resends the confirmation (for confirmation of registration) to a specific user
         in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.resend_confirmation_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.resend_confirmation_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#resend_confirmation_code)
         """
 
@@ -1189,7 +1189,7 @@ class CognitoIdentityProviderClient(BaseClient):
         MFA code, for device authentication that bypasses MFA, or for a custom
         authentication challenge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.respond_to_auth_challenge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.respond_to_auth_challenge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#respond_to_auth_challenge)
         """
 
@@ -1200,7 +1200,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Revokes all of the access tokens generated by, and at the same time as, the
         specified refresh token.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.revoke_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.revoke_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#revoke_token)
         """
 
@@ -1210,7 +1210,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Sets up or modifies the detailed activity logging configuration of a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_log_delivery_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_log_delivery_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_log_delivery_configuration)
         """
 
@@ -1226,7 +1226,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Configures actions on detected risks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_risk_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_risk_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_risk_configuration)
         """
 
@@ -1242,7 +1242,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Sets the user interface (UI) customization information for a user pool's built-
         in app UI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_ui_customization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_ui_customization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_ui_customization)
         """
 
@@ -1257,7 +1257,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Set the user's multi-factor authentication (MFA) method preference, including
         which MFA factors are activated and if any are preferred.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_mfa_preference)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_mfa_preference)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_mfa_preference)
         """
 
@@ -1272,7 +1272,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Sets the user pool multi-factor authentication (MFA) configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_pool_mfa_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_pool_mfa_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_pool_mfa_config)
         """
 
@@ -1282,7 +1282,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         *This action is no longer supported.* You can use it to configure only SMS MFA.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_settings)
         """
 
@@ -1303,7 +1303,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Registers the user in the specified user pool and creates a user name, password,
         and user attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.sign_up)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.sign_up)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#sign_up)
         """
 
@@ -1313,7 +1313,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Starts the user import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.start_user_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.start_user_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#start_user_import_job)
         """
 
@@ -1323,7 +1323,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Stops the user import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.stop_user_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.stop_user_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#stop_user_import_job)
         """
 
@@ -1331,7 +1331,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Assigns a set of tags to an Amazon Cognito user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#tag_resource)
         """
 
@@ -1339,7 +1339,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Removes the specified tags from an Amazon Cognito user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#untag_resource)
         """
 
@@ -1356,7 +1356,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Provides the feedback for an authentication event, whether it was from a valid
         user or not.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_auth_event_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_auth_event_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_auth_event_feedback)
         """
 
@@ -1370,7 +1370,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates the device status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_device_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_device_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_device_status)
         """
 
@@ -1386,7 +1386,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates the specified group with the specified attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_group)
         """
 
@@ -1402,7 +1402,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates IdP information for a user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_identity_provider)
         """
 
@@ -1417,7 +1417,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates the name and scopes of resource server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_resource_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_resource_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_resource_server)
         """
 
@@ -1432,7 +1432,7 @@ class CognitoIdentityProviderClient(BaseClient):
         With this operation, your users can update one or more of their attributes with
         their own credentials.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_attributes)
         """
 
@@ -1462,7 +1462,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool)
         """
 
@@ -1495,7 +1495,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Updates the specified user pool app client with the specified attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool_client)
         """
 
@@ -1506,7 +1506,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Updates the Secure Sockets Layer (SSL) certificate for the custom domain for
         your user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool_domain)
         """
 
@@ -1522,7 +1522,7 @@ class CognitoIdentityProviderClient(BaseClient):
         Use this API to register a user's entered time-based one-time password (TOTP)
         code and mark the user's software token MFA status as "verified" if successful.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_software_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_software_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#verify_software_token)
         """
 
@@ -1532,7 +1532,7 @@ class CognitoIdentityProviderClient(BaseClient):
         """
         Verifies the specified user attributes in the user pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_user_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_user_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#verify_user_attribute)
         """
 
@@ -1541,7 +1541,7 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["admin_list_groups_for_user"]
     ) -> AdminListGroupsForUserPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#adminlistgroupsforuserpaginator)
         """
 
@@ -1550,14 +1550,14 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["admin_list_user_auth_events"]
     ) -> AdminListUserAuthEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#adminlistuserautheventspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listgroupspaginator)
         """
 
@@ -1566,7 +1566,7 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["list_identity_providers"]
     ) -> ListIdentityProvidersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listidentityproviderspaginator)
         """
 
@@ -1575,7 +1575,7 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["list_resource_servers"]
     ) -> ListResourceServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listresourceserverspaginator)
         """
 
@@ -1584,21 +1584,21 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["list_user_pool_clients"]
     ) -> ListUserPoolClientsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserpoolclientspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_user_pools"]) -> ListUserPoolsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserpoolspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserspaginator)
         """
 
@@ -1607,6 +1607,6 @@ class CognitoIdentityProviderClient(BaseClient):
         self, operation_name: Literal["list_users_in_group"]
     ) -> ListUsersInGroupPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listusersingrouppaginator)
         """

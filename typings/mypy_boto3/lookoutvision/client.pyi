@@ -78,7 +78,7 @@ class Exceptions:
 
 class LookoutforVisionClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html)
     """
 
@@ -94,7 +94,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#can_paginate)
         """
 
@@ -102,7 +102,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#close)
         """
 
@@ -117,7 +117,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Creates a new dataset in an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.create_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.create_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#create_dataset)
         """
 
@@ -134,7 +134,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Creates a new version of a model within an an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.create_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.create_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#create_model)
         """
 
@@ -144,7 +144,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Creates an empty Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#create_project)
         """
 
@@ -154,7 +154,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Deletes an existing Amazon Lookout for Vision `dataset`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.delete_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.delete_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#delete_dataset)
         """
 
@@ -164,7 +164,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Deletes an Amazon Lookout for Vision model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.delete_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.delete_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#delete_model)
         """
 
@@ -174,7 +174,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Deletes an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#delete_project)
         """
 
@@ -184,7 +184,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Describe an Amazon Lookout for Vision dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.describe_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.describe_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#describe_dataset)
         """
 
@@ -194,7 +194,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Describes a version of an Amazon Lookout for Vision model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.describe_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.describe_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#describe_model)
         """
 
@@ -204,7 +204,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Describes an Amazon Lookout for Vision model packaging job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.describe_model_packaging_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.describe_model_packaging_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#describe_model_packaging_job)
         """
 
@@ -212,7 +212,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Describes an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.describe_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.describe_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#describe_project)
         """
 
@@ -227,7 +227,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Detects anomalies in an image that you supply.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.detect_anomalies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.detect_anomalies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#detect_anomalies)
         """
 
@@ -241,7 +241,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#generate_presigned_url)
         """
 
@@ -261,7 +261,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Lists the JSON Lines within a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.list_dataset_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.list_dataset_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#list_dataset_entries)
         """
 
@@ -271,7 +271,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Lists the model packaging jobs created for an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.list_model_packaging_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.list_model_packaging_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#list_model_packaging_jobs)
         """
 
@@ -281,7 +281,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Lists the versions of a model in an Amazon Lookout for Vision project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.list_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.list_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#list_models)
         """
 
@@ -292,7 +292,7 @@ class LookoutforVisionClient(BaseClient):
         Lists the Amazon Lookout for Vision projects in your AWS account that are in the
         AWS Region in which you call `ListProjects`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#list_projects)
         """
 
@@ -301,7 +301,7 @@ class LookoutforVisionClient(BaseClient):
         Returns a list of tags attached to the specified Amazon Lookout for Vision
         model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#list_tags_for_resource)
         """
 
@@ -317,7 +317,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Starts the running of the version of an Amazon Lookout for Vision model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.start_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.start_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#start_model)
         """
 
@@ -334,7 +334,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Starts an Amazon Lookout for Vision model packaging job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.start_model_packaging_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.start_model_packaging_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#start_model_packaging_job)
         """
 
@@ -344,7 +344,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Stops the hosting of a running model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.stop_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.stop_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#stop_model)
         """
 
@@ -352,7 +352,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Adds one or more key-value tags to an Amazon Lookout for Vision model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#tag_resource)
         """
 
@@ -360,7 +360,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Removes one or more tags from an Amazon Lookout for Vision model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#untag_resource)
         """
 
@@ -375,7 +375,7 @@ class LookoutforVisionClient(BaseClient):
         """
         Adds or updates one or more JSON Line entries in a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Client.update_dataset_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Client.update_dataset_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/client.html#update_dataset_entries)
         """
 
@@ -384,7 +384,7 @@ class LookoutforVisionClient(BaseClient):
         self, operation_name: Literal["list_dataset_entries"]
     ) -> ListDatasetEntriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listdatasetentriespaginator)
         """
 
@@ -393,20 +393,20 @@ class LookoutforVisionClient(BaseClient):
         self, operation_name: Literal["list_model_packaging_jobs"]
     ) -> ListModelPackagingJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModelPackagingJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModelPackagingJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listmodelpackagingjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_models"]) -> ListModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listmodelspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listprojectspaginator)
         """

@@ -98,7 +98,7 @@ class Exceptions:
 
 class NeptuneGraphClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html)
     """
 
@@ -114,7 +114,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#can_paginate)
         """
 
@@ -122,7 +122,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Deletes the specified import task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.cancel_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.cancel_import_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#cancel_import_task)
         """
 
@@ -130,7 +130,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Cancels a specified query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.cancel_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.cancel_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#cancel_query)
         """
 
@@ -138,7 +138,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#close)
         """
 
@@ -157,7 +157,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Creates a new Neptune Analytics graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#create_graph)
         """
 
@@ -167,7 +167,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Creates a snapshot of the specific graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#create_graph_snapshot)
         """
 
@@ -194,7 +194,7 @@ class NeptuneGraphClient(BaseClient):
         Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune
         database snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph_using_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.create_graph_using_import_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#create_graph_using_import_task)
         """
 
@@ -210,7 +210,7 @@ class NeptuneGraphClient(BaseClient):
         Create a private graph endpoint to allow private access from to the graph from
         within a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.create_private_graph_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.create_private_graph_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#create_private_graph_endpoint)
         """
 
@@ -218,7 +218,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Deletes the specified graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#delete_graph)
         """
 
@@ -226,7 +226,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Deletes the specifed graph snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_graph_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_graph_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#delete_graph_snapshot)
         """
 
@@ -236,7 +236,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Deletes a private graph endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_private_graph_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.delete_private_graph_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#delete_private_graph_endpoint)
         """
 
@@ -254,7 +254,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Execute an openCypher query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.execute_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.execute_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#execute_query)
         """
 
@@ -268,7 +268,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#generate_presigned_url)
         """
 
@@ -276,7 +276,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Gets information about a specified graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_graph)
         """
 
@@ -284,7 +284,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Retrieves a specified graph snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_graph_snapshot)
         """
 
@@ -294,7 +294,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Gets a graph summary for a property graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_graph_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_graph_summary)
         """
 
@@ -302,7 +302,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Retrieves a specified import task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_import_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_import_task)
         """
 
@@ -312,7 +312,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Retrieves information about a specified private endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_private_graph_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_private_graph_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_private_graph_endpoint)
         """
 
@@ -320,7 +320,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Retrieves the status of a specified query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.get_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.get_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#get_query)
         """
 
@@ -330,7 +330,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists available snapshots of a specified Neptune Analytics graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_graph_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_graph_snapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_graph_snapshots)
         """
 
@@ -340,7 +340,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists available Neptune Analytics graphs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_graphs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_graphs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_graphs)
         """
 
@@ -350,7 +350,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists import tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_import_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_import_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_import_tasks)
         """
 
@@ -360,7 +360,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists private endpoints for a specified Neptune Analytics graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_private_graph_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_private_graph_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_private_graph_endpoints)
         """
 
@@ -370,7 +370,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists active openCypher queries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_queries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_queries)
         """
 
@@ -378,7 +378,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Lists tags associated with a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#list_tags_for_resource)
         """
 
@@ -386,7 +386,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Empties the data from a specified Neptune Analytics graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.reset_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.reset_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#reset_graph)
         """
 
@@ -404,7 +404,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Restores a graph from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.restore_graph_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.restore_graph_from_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#restore_graph_from_snapshot)
         """
 
@@ -422,7 +422,7 @@ class NeptuneGraphClient(BaseClient):
         Import data into existing Neptune Analytics graph from Amazon Simple Storage
         Service (S3).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.start_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.start_import_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#start_import_task)
         """
 
@@ -430,7 +430,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Adds tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#tag_resource)
         """
 
@@ -438,7 +438,7 @@ class NeptuneGraphClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#untag_resource)
         """
 
@@ -456,7 +456,7 @@ class NeptuneGraphClient(BaseClient):
         graph-2023-11-29/UpdateGraph>`_ **Request Syntax** response =
         client.update_graph( graphIdentifier='string', publicConnectivity...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Client.update_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Client.update_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/client.html#update_graph)
         """
 
@@ -465,14 +465,14 @@ class NeptuneGraphClient(BaseClient):
         self, operation_name: Literal["list_graph_snapshots"]
     ) -> ListGraphSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphSnapshots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphsnapshotspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_graphs"]) -> ListGraphsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListGraphs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listgraphspaginator)
         """
 
@@ -481,7 +481,7 @@ class NeptuneGraphClient(BaseClient):
         self, operation_name: Literal["list_import_tasks"]
     ) -> ListImportTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListImportTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listimporttaskspaginator)
         """
 
@@ -490,21 +490,21 @@ class NeptuneGraphClient(BaseClient):
         self, operation_name: Literal["list_private_graph_endpoints"]
     ) -> ListPrivateGraphEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Paginator.ListPrivateGraphEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/paginators.html#listprivategraphendpointspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["graph_available"]) -> GraphAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphavailablewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["graph_deleted"]) -> GraphDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphdeletedwaiter)
         """
 
@@ -513,7 +513,7 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["graph_snapshot_available"]
     ) -> GraphSnapshotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotavailablewaiter)
         """
 
@@ -522,7 +522,7 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["graph_snapshot_deleted"]
     ) -> GraphSnapshotDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.GraphSnapshotDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#graphsnapshotdeletedwaiter)
         """
 
@@ -531,7 +531,7 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["import_task_cancelled"]
     ) -> ImportTaskCancelledWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskCancelled)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtaskcancelledwaiter)
         """
 
@@ -540,7 +540,7 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["import_task_successful"]
     ) -> ImportTaskSuccessfulWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.ImportTaskSuccessful)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#importtasksuccessfulwaiter)
         """
 
@@ -549,7 +549,7 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["private_graph_endpoint_available"]
     ) -> PrivateGraphEndpointAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointavailablewaiter)
         """
 
@@ -558,6 +558,6 @@ class NeptuneGraphClient(BaseClient):
         self, waiter_name: Literal["private_graph_endpoint_deleted"]
     ) -> PrivateGraphEndpointDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune-graph.html#NeptuneGraph.Waiter.PrivateGraphEndpointDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/waiters.html#privategraphendpointdeletedwaiter)
         """

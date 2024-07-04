@@ -15,9 +15,10 @@ Usage::
 
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import IO, Any, Dict, List, Type, Union, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
 from .literals import (
     ChangeActionType,
@@ -25,6 +26,7 @@ from .literals import (
     DataSourceRunStatusType,
     DataSourceStatusType,
     DomainStatusType,
+    EdgeDirectionType,
     EnableSettingType,
     EnvironmentStatusType,
     FormTypeStatusType,
@@ -56,10 +58,12 @@ from .paginator import (
     ListDataSourceRunsPaginator,
     ListDataSourcesPaginator,
     ListDomainsPaginator,
+    ListEnvironmentActionsPaginator,
     ListEnvironmentBlueprintConfigurationsPaginator,
     ListEnvironmentBlueprintsPaginator,
     ListEnvironmentProfilesPaginator,
     ListEnvironmentsPaginator,
+    ListLineageNodeHistoryPaginator,
     ListMetadataGenerationRunsPaginator,
     ListNotificationsPaginator,
     ListProjectMembershipsPaginator,
@@ -80,6 +84,7 @@ from .type_defs import (
     AcceptPredictionsOutputTypeDef,
     AcceptRuleTypeDef,
     AcceptSubscriptionRequestOutputTypeDef,
+    ActionParametersTypeDef,
     AssetTargetNameMapTypeDef,
     CancelSubscriptionOutputTypeDef,
     CreateAssetOutputTypeDef,
@@ -87,6 +92,7 @@ from .type_defs import (
     CreateAssetTypeOutputTypeDef,
     CreateDataSourceOutputTypeDef,
     CreateDomainOutputTypeDef,
+    CreateEnvironmentActionOutputTypeDef,
     CreateEnvironmentOutputTypeDef,
     CreateEnvironmentProfileOutputTypeDef,
     CreateFormTypeOutputTypeDef,
@@ -113,6 +119,7 @@ from .type_defs import (
     GetDataSourceOutputTypeDef,
     GetDataSourceRunOutputTypeDef,
     GetDomainOutputTypeDef,
+    GetEnvironmentActionOutputTypeDef,
     GetEnvironmentBlueprintConfigurationOutputTypeDef,
     GetEnvironmentBlueprintOutputTypeDef,
     GetEnvironmentOutputTypeDef,
@@ -122,6 +129,7 @@ from .type_defs import (
     GetGlossaryTermOutputTypeDef,
     GetGroupProfileOutputTypeDef,
     GetIamPortalLoginUrlOutputTypeDef,
+    GetLineageNodeOutputTypeDef,
     GetListingOutputTypeDef,
     GetMetadataGenerationRunOutputTypeDef,
     GetProjectOutputTypeDef,
@@ -137,10 +145,12 @@ from .type_defs import (
     ListDataSourceRunsOutputTypeDef,
     ListDataSourcesOutputTypeDef,
     ListDomainsOutputTypeDef,
+    ListEnvironmentActionsOutputTypeDef,
     ListEnvironmentBlueprintConfigurationsOutputTypeDef,
     ListEnvironmentBlueprintsOutputTypeDef,
     ListEnvironmentProfilesOutputTypeDef,
     ListEnvironmentsOutputTypeDef,
+    ListLineageNodeHistoryOutputTypeDef,
     ListMetadataGenerationRunsOutputTypeDef,
     ListNotificationsOutputTypeDef,
     ListProjectMembershipsOutputTypeDef,
@@ -181,6 +191,7 @@ from .type_defs import (
     TimeSeriesDataPointFormInputTypeDef,
     UpdateDataSourceOutputTypeDef,
     UpdateDomainOutputTypeDef,
+    UpdateEnvironmentActionOutputTypeDef,
     UpdateEnvironmentOutputTypeDef,
     UpdateEnvironmentProfileOutputTypeDef,
     UpdateGlossaryOutputTypeDef,
@@ -220,7 +231,7 @@ class Exceptions:
 
 class DataZoneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html)
     """
 
@@ -246,7 +257,7 @@ class DataZoneClient(BaseClient):
         Accepts automatically generated business-friendly metadata for your Amazon
         DataZone assets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.accept_predictions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.accept_predictions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#accept_predictions)
         """
 
@@ -256,15 +267,25 @@ class DataZoneClient(BaseClient):
         """
         Accepts a subscription request to a specific asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.accept_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.accept_subscription_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#accept_subscription_request)
+        """
+
+    def associate_environment_role(
+        self, *, domainIdentifier: str, environmentIdentifier: str, environmentRoleArn: str
+    ) -> Dict[str, Any]:
+        """
+        Associates the environment role in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.associate_environment_role)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#associate_environment_role)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#can_paginate)
         """
 
@@ -274,7 +295,7 @@ class DataZoneClient(BaseClient):
         """
         Cancels the metadata generation run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.cancel_metadata_generation_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.cancel_metadata_generation_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#cancel_metadata_generation_run)
         """
 
@@ -284,7 +305,7 @@ class DataZoneClient(BaseClient):
         """
         Cancels the subscription to the specified asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.cancel_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.cancel_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#cancel_subscription)
         """
 
@@ -292,7 +313,7 @@ class DataZoneClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#close)
         """
 
@@ -314,7 +335,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an asset in Amazon DataZone catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset)
         """
 
@@ -334,7 +355,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a revision of the asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_asset_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset_revision)
         """
 
@@ -350,7 +371,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a custom asset type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_asset_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset_type)
         """
 
@@ -374,7 +395,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an Amazon DataZone data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_data_source)
         """
 
@@ -392,7 +413,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_domain)
         """
 
@@ -404,14 +425,34 @@ class DataZoneClient(BaseClient):
         name: str,
         projectIdentifier: str,
         description: str = None,
+        environmentAccountIdentifier: str = None,
+        environmentAccountRegion: str = None,
+        environmentBlueprintIdentifier: str = None,
         glossaryTerms: List[str] = None,
         userParameters: List["EnvironmentParameterTypeDef"] = None
     ) -> CreateEnvironmentOutputTypeDef:
         """
         Create an Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment)
+        """
+
+    def create_environment_action(
+        self,
+        *,
+        domainIdentifier: str,
+        environmentIdentifier: str,
+        name: str,
+        parameters: "ActionParametersTypeDef",
+        description: str = None
+    ) -> CreateEnvironmentActionOutputTypeDef:
+        """
+        Creates an action for the environment, for example, creates a console link for
+        an analytics tool that is available in this environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment_action)
         """
 
     def create_environment_profile(
@@ -429,7 +470,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an Amazon DataZone environment profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment_profile)
         """
 
@@ -446,7 +487,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a metadata form type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_form_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_form_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_form_type)
         """
 
@@ -463,7 +504,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an Amazon DataZone business glossary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_glossary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_glossary)
         """
 
@@ -482,7 +523,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a business glossary term.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_glossary_term)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_glossary_term)
         """
 
@@ -492,7 +533,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a group profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_group_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_group_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_group_profile)
         """
 
@@ -510,7 +551,7 @@ class DataZoneClient(BaseClient):
         Publishes a listing (a record of an asset at a given time) or removes a listing
         from the catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_listing_change_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_listing_change_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_listing_change_set)
         """
 
@@ -525,7 +566,7 @@ class DataZoneClient(BaseClient):
         """
         Creates an Amazon DataZone project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_project)
         """
 
@@ -540,7 +581,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a project membership in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_project_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_project_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_project_membership)
         """
 
@@ -557,7 +598,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a subsscription grant in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_subscription_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_grant)
         """
 
@@ -573,7 +614,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a subscription request in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_request)
         """
 
@@ -594,7 +635,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_target)
         """
 
@@ -609,7 +650,7 @@ class DataZoneClient(BaseClient):
         """
         Creates a user profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.create_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_user_profile)
         """
 
@@ -617,7 +658,7 @@ class DataZoneClient(BaseClient):
         """
         Delets an asset in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_asset)
         """
 
@@ -625,17 +666,22 @@ class DataZoneClient(BaseClient):
         """
         Deletes an asset type in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_asset_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_asset_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_asset_type)
         """
 
     def delete_data_source(
-        self, *, domainIdentifier: str, identifier: str, clientToken: str = None
+        self,
+        *,
+        domainIdentifier: str,
+        identifier: str,
+        clientToken: str = None,
+        retainPermissionsOnRevokeFailure: bool = None
     ) -> DeleteDataSourceOutputTypeDef:
         """
         Deletes a data source in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_data_source)
         """
 
@@ -645,7 +691,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_domain)
         """
 
@@ -653,8 +699,19 @@ class DataZoneClient(BaseClient):
         """
         Deletes an environment in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment)
+        """
+
+    def delete_environment_action(
+        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
+    ) -> None:
+        """
+        Deletes an action for the environment, for example, deletes a console link for
+        an analytics tool that is available in this environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_action)
         """
 
     def delete_environment_blueprint_configuration(
@@ -663,7 +720,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes the blueprint configuration in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_environment_blueprint_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_blueprint_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_blueprint_configuration)
         """
 
@@ -671,7 +728,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes an environment profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_profile)
         """
 
@@ -679,7 +736,7 @@ class DataZoneClient(BaseClient):
         """
         Delets and metadata form type in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_form_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_form_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_form_type)
         """
 
@@ -687,7 +744,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a business glossary in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_glossary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_glossary)
         """
 
@@ -695,7 +752,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a business glossary term in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_glossary_term)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_glossary_term)
         """
 
@@ -703,7 +760,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a listing (a record of an asset at a given time).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_listing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_listing)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_listing)
         """
 
@@ -713,7 +770,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a project in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_project)
         """
 
@@ -723,7 +780,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes project membership in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_project_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_project_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_project_membership)
         """
 
@@ -733,7 +790,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes and subscription grant in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_subscription_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_grant)
         """
 
@@ -741,7 +798,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a subscription request in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_request)
         """
 
@@ -751,7 +808,7 @@ class DataZoneClient(BaseClient):
         """
         Deletes a subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_target)
         """
 
@@ -767,8 +824,18 @@ class DataZoneClient(BaseClient):
         """
         Deletes the specified time series form for the specified asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.delete_time_series_data_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_time_series_data_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_time_series_data_points)
+        """
+
+    def disassociate_environment_role(
+        self, *, domainIdentifier: str, environmentIdentifier: str, environmentRoleArn: str
+    ) -> Dict[str, Any]:
+        """
+        Disassociates the environment role in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.disassociate_environment_role)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#disassociate_environment_role)
         """
 
     def generate_presigned_url(
@@ -781,7 +848,7 @@ class DataZoneClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#generate_presigned_url)
         """
 
@@ -791,7 +858,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_asset)
         """
 
@@ -801,7 +868,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone asset type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_asset_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_asset_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_asset_type)
         """
 
@@ -811,7 +878,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_data_source)
         """
 
@@ -821,7 +888,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone data source run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_data_source_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_data_source_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_data_source_run)
         """
 
@@ -829,7 +896,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_domain)
         """
 
@@ -839,8 +906,18 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment)
+        """
+
+    def get_environment_action(
+        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
+    ) -> GetEnvironmentActionOutputTypeDef:
+        """
+        Gets the specified environment action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_action)
         """
 
     def get_environment_blueprint(
@@ -849,7 +926,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an Amazon DataZone blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_environment_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_blueprint)
         """
 
@@ -859,7 +936,7 @@ class DataZoneClient(BaseClient):
         """
         Gets the blueprint configuration in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_environment_blueprint_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_blueprint_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_blueprint_configuration)
         """
 
@@ -869,7 +946,7 @@ class DataZoneClient(BaseClient):
         """
         Gets an evinronment profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_profile)
         """
 
@@ -879,7 +956,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a metadata form type in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_form_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_form_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_form_type)
         """
 
@@ -887,7 +964,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a business glossary in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_glossary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_glossary)
         """
 
@@ -897,7 +974,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a business glossary term in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_glossary_term)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_glossary_term)
         """
 
@@ -907,7 +984,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a group profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_group_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_group_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_group_profile)
         """
 
@@ -917,8 +994,18 @@ class DataZoneClient(BaseClient):
         """
         Gets the data portal URL for the specified Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_iam_portal_login_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_iam_portal_login_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_iam_portal_login_url)
+        """
+
+    def get_lineage_node(
+        self, *, domainIdentifier: str, identifier: str, eventTimestamp: Union[datetime, str] = None
+    ) -> GetLineageNodeOutputTypeDef:
+        """
+        Gets the data lineage node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_lineage_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_lineage_node)
         """
 
     def get_listing(
@@ -927,7 +1014,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a listing (a record of an asset at a given time).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_listing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_listing)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_listing)
         """
 
@@ -937,7 +1024,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a metadata generation run in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_metadata_generation_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_metadata_generation_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_metadata_generation_run)
         """
 
@@ -945,7 +1032,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a project in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_project)
         """
 
@@ -955,7 +1042,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a subscription in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription)
         """
 
@@ -965,7 +1052,7 @@ class DataZoneClient(BaseClient):
         """
         Gets the subscription grant in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_subscription_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_grant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_grant)
         """
 
@@ -975,7 +1062,7 @@ class DataZoneClient(BaseClient):
         """
         Gets the details of the specified subscription request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_subscription_request_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_request_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_request_details)
         """
 
@@ -985,7 +1072,7 @@ class DataZoneClient(BaseClient):
         """
         Gets the subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_target)
         """
 
@@ -1001,7 +1088,7 @@ class DataZoneClient(BaseClient):
         """
         Gets the existing data point for the asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_time_series_data_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_time_series_data_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_time_series_data_point)
         """
 
@@ -1011,7 +1098,7 @@ class DataZoneClient(BaseClient):
         """
         Gets a user profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.get_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_user_profile)
         """
 
@@ -1026,7 +1113,7 @@ class DataZoneClient(BaseClient):
         """
         Lists the revisions for the asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_asset_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_asset_revisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_asset_revisions)
         """
 
@@ -1042,7 +1129,7 @@ class DataZoneClient(BaseClient):
         """
         Lists data source run activities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_data_source_run_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_source_run_activities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_source_run_activities)
         """
 
@@ -1058,7 +1145,7 @@ class DataZoneClient(BaseClient):
         """
         Lists data source runs in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_data_source_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_source_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_source_runs)
         """
 
@@ -1077,7 +1164,7 @@ class DataZoneClient(BaseClient):
         """
         Lists data sources in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_sources)
         """
 
@@ -1087,8 +1174,23 @@ class DataZoneClient(BaseClient):
         """
         Lists Amazon DataZone domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_domains)
+        """
+
+    def list_environment_actions(
+        self,
+        *,
+        domainIdentifier: str,
+        environmentIdentifier: str,
+        maxResults: int = None,
+        nextToken: str = None
+    ) -> ListEnvironmentActionsOutputTypeDef:
+        """
+        Lists existing environment actions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_actions)
         """
 
     def list_environment_blueprint_configurations(
@@ -1097,7 +1199,7 @@ class DataZoneClient(BaseClient):
         """
         Lists blueprint configurations for a Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_environment_blueprint_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_blueprint_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_blueprint_configurations)
         """
 
@@ -1113,7 +1215,7 @@ class DataZoneClient(BaseClient):
         """
         Lists blueprints in an Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_environment_blueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_blueprints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_blueprints)
         """
 
@@ -1132,7 +1234,7 @@ class DataZoneClient(BaseClient):
         """
         Lists Amazon DataZone environment profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_environment_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_profiles)
         """
 
@@ -1154,8 +1256,27 @@ class DataZoneClient(BaseClient):
         """
         Lists Amazon DataZone environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environments)
+        """
+
+    def list_lineage_node_history(
+        self,
+        *,
+        domainIdentifier: str,
+        identifier: str,
+        direction: EdgeDirectionType = None,
+        eventTimestampGTE: Union[datetime, str] = None,
+        eventTimestampLTE: Union[datetime, str] = None,
+        maxResults: int = None,
+        nextToken: str = None,
+        sortOrder: SortOrderType = None
+    ) -> ListLineageNodeHistoryOutputTypeDef:
+        """
+        Lists the history of the specified data lineage node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_lineage_node_history)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_lineage_node_history)
         """
 
     def list_metadata_generation_runs(
@@ -1170,7 +1291,7 @@ class DataZoneClient(BaseClient):
         """
         Lists all metadata generation runs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_metadata_generation_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_metadata_generation_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_metadata_generation_runs)
         """
 
@@ -1189,7 +1310,7 @@ class DataZoneClient(BaseClient):
         """
         Lists all Amazon DataZone notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_notifications)
         """
 
@@ -1206,7 +1327,7 @@ class DataZoneClient(BaseClient):
         """
         Lists all members of the specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_project_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_project_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_project_memberships)
         """
 
@@ -1223,7 +1344,7 @@ class DataZoneClient(BaseClient):
         """
         Lists Amazon DataZone projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_projects)
         """
 
@@ -1243,7 +1364,7 @@ class DataZoneClient(BaseClient):
         """
         Lists subscription grants.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_subscription_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_grants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_grants)
         """
 
@@ -1263,7 +1384,7 @@ class DataZoneClient(BaseClient):
         """
         Lists Amazon DataZone subscription requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_subscription_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_requests)
         """
 
@@ -1280,7 +1401,7 @@ class DataZoneClient(BaseClient):
         """
         Lists subscription targets in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_subscription_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_targets)
         """
 
@@ -1301,7 +1422,7 @@ class DataZoneClient(BaseClient):
         """
         Lists subscriptions in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscriptions)
         """
 
@@ -1309,7 +1430,7 @@ class DataZoneClient(BaseClient):
         """
         Lists tags for the specified resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_tags_for_resource)
         """
 
@@ -1328,8 +1449,22 @@ class DataZoneClient(BaseClient):
         """
         Lists time series data points.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.list_time_series_data_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_time_series_data_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_time_series_data_points)
+        """
+
+    def post_lineage_event(
+        self,
+        *,
+        domainIdentifier: str,
+        event: Union[bytes, IO[bytes], StreamingBody],
+        clientToken: str = None
+    ) -> Dict[str, Any]:
+        """
+        Posts a data lineage event.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.post_lineage_event)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#post_lineage_event)
         """
 
     def post_time_series_data_points(
@@ -1344,7 +1479,7 @@ class DataZoneClient(BaseClient):
         """
         Posts time series data points to Amazon DataZone for the specified asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.post_time_series_data_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.post_time_series_data_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#post_time_series_data_points)
         """
 
@@ -1362,7 +1497,7 @@ class DataZoneClient(BaseClient):
         Writes the configuration for the specified environment blueprint in Amazon
         DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.put_environment_blueprint_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.put_environment_blueprint_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#put_environment_blueprint_configuration)
         """
 
@@ -1380,7 +1515,7 @@ class DataZoneClient(BaseClient):
         Rejects automatically generated business-friendly metadata for your Amazon
         DataZone assets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.reject_predictions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.reject_predictions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#reject_predictions)
         """
 
@@ -1390,7 +1525,7 @@ class DataZoneClient(BaseClient):
         """
         Rejects the specified subscription request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.reject_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.reject_subscription_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#reject_subscription_request)
         """
 
@@ -1400,7 +1535,7 @@ class DataZoneClient(BaseClient):
         """
         Revokes a specified subscription in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.revoke_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.revoke_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#revoke_subscription)
         """
 
@@ -1421,7 +1556,7 @@ class DataZoneClient(BaseClient):
         """
         Searches for assets in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search)
         """
 
@@ -1437,7 +1572,7 @@ class DataZoneClient(BaseClient):
         """
         Searches group profiles in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.search_group_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_group_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_group_profiles)
         """
 
@@ -1456,7 +1591,7 @@ class DataZoneClient(BaseClient):
         """
         Searches listings (records of an asset at a given time) in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.search_listings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_listings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_listings)
         """
 
@@ -1476,7 +1611,7 @@ class DataZoneClient(BaseClient):
         """
         Searches for types in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.search_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_types)
         """
 
@@ -1492,7 +1627,7 @@ class DataZoneClient(BaseClient):
         """
         Searches user profiles in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.search_user_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_user_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_user_profiles)
         """
 
@@ -1502,7 +1637,7 @@ class DataZoneClient(BaseClient):
         """
         Start the run of the specified data source in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.start_data_source_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.start_data_source_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#start_data_source_run)
         """
 
@@ -1518,7 +1653,7 @@ class DataZoneClient(BaseClient):
         """
         Starts the metadata generation run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.start_metadata_generation_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.start_metadata_generation_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#start_metadata_generation_run)
         """
 
@@ -1526,7 +1661,7 @@ class DataZoneClient(BaseClient):
         """
         Tags a resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#tag_resource)
         """
 
@@ -1534,7 +1669,7 @@ class DataZoneClient(BaseClient):
         """
         Untags a resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#untag_resource)
         """
 
@@ -1550,12 +1685,13 @@ class DataZoneClient(BaseClient):
         name: str = None,
         publishOnImport: bool = None,
         recommendation: "RecommendationConfigurationTypeDef" = None,
+        retainPermissionsOnRevokeFailure: bool = None,
         schedule: "ScheduleConfigurationTypeDef" = None
     ) -> UpdateDataSourceOutputTypeDef:
         """
         Updates the specified data source in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_data_source)
         """
 
@@ -1572,7 +1708,7 @@ class DataZoneClient(BaseClient):
         """
         Updates a Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_domain)
         """
 
@@ -1588,8 +1724,25 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified environment in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment)
+        """
+
+    def update_environment_action(
+        self,
+        *,
+        domainIdentifier: str,
+        environmentIdentifier: str,
+        identifier: str,
+        description: str = None,
+        name: str = None,
+        parameters: "ActionParametersTypeDef" = None
+    ) -> UpdateEnvironmentActionOutputTypeDef:
+        """
+        Updates an environment action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment_action)
         """
 
     def update_environment_profile(
@@ -1606,7 +1759,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified environment profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment_profile)
         """
 
@@ -1623,7 +1776,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the business glossary in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_glossary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_glossary)
         """
 
@@ -1642,7 +1795,7 @@ class DataZoneClient(BaseClient):
         """
         Updates a business glossary term in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_glossary_term)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_glossary_term)
         """
 
@@ -1652,7 +1805,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified group profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_group_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_group_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_group_profile)
         """
 
@@ -1668,7 +1821,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified project in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_project)
         """
 
@@ -1686,7 +1839,7 @@ class DataZoneClient(BaseClient):
         Updates the status of the specified subscription grant status in Amazon
         DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_subscription_grant_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_grant_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_grant_status)
         """
 
@@ -1696,7 +1849,7 @@ class DataZoneClient(BaseClient):
         """
         Updates a specified subscription request in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_request)
         """
 
@@ -1716,7 +1869,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_target)
         """
 
@@ -1731,7 +1884,7 @@ class DataZoneClient(BaseClient):
         """
         Updates the specified user profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Client.update_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_user_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_user_profile)
         """
 
@@ -1740,7 +1893,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_asset_revisions"]
     ) -> ListAssetRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listassetrevisionspaginator)
         """
 
@@ -1749,7 +1902,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_data_source_run_activities"]
     ) -> ListDataSourceRunActivitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunactivitiespaginator)
         """
 
@@ -1758,7 +1911,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_data_source_runs"]
     ) -> ListDataSourceRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunspaginator)
         """
 
@@ -1767,15 +1920,24 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListDataSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdomainspaginator)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_environment_actions"]
+    ) -> ListEnvironmentActionsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentActions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentactionspaginator)
         """
 
     @overload
@@ -1783,7 +1945,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_environment_blueprint_configurations"]
     ) -> ListEnvironmentBlueprintConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintconfigurationspaginator)
         """
 
@@ -1792,7 +1954,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_environment_blueprints"]
     ) -> ListEnvironmentBlueprintsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintspaginator)
         """
 
@@ -1801,7 +1963,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_environment_profiles"]
     ) -> ListEnvironmentProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentprofilespaginator)
         """
 
@@ -1810,8 +1972,17 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentspaginator)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_lineage_node_history"]
+    ) -> ListLineageNodeHistoryPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListLineageNodeHistory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listlineagenodehistorypaginator)
         """
 
     @overload
@@ -1819,7 +1990,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_metadata_generation_runs"]
     ) -> ListMetadataGenerationRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListMetadataGenerationRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListMetadataGenerationRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listmetadatagenerationrunspaginator)
         """
 
@@ -1828,7 +1999,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_notifications"]
     ) -> ListNotificationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListNotifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListNotifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listnotificationspaginator)
         """
 
@@ -1837,14 +2008,14 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_project_memberships"]
     ) -> ListProjectMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectmembershipspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectspaginator)
         """
 
@@ -1853,7 +2024,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_subscription_grants"]
     ) -> ListSubscriptionGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiongrantspaginator)
         """
 
@@ -1862,7 +2033,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_subscription_requests"]
     ) -> ListSubscriptionRequestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionrequestspaginator)
         """
 
@@ -1871,7 +2042,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_subscription_targets"]
     ) -> ListSubscriptionTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiontargetspaginator)
         """
 
@@ -1880,7 +2051,7 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_subscriptions"]
     ) -> ListSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionspaginator)
         """
 
@@ -1889,14 +2060,14 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["list_time_series_data_points"]
     ) -> ListTimeSeriesDataPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.ListTimeSeriesDataPoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListTimeSeriesDataPoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listtimeseriesdatapointspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search"]) -> SearchPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.Search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.Search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchpaginator)
         """
 
@@ -1905,21 +2076,21 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["search_group_profiles"]
     ) -> SearchGroupProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchgroupprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_listings"]) -> SearchListingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.SearchListings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchListings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchlistingspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_types"]) -> SearchTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.SearchTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchtypespaginator)
         """
 
@@ -1928,6 +2099,6 @@ class DataZoneClient(BaseClient):
         self, operation_name: Literal["search_user_profiles"]
     ) -> SearchUserProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchuserprofilespaginator)
         """

@@ -23,6 +23,7 @@ __all__ = (
     "BackupPolicyType",
     "BackupRetentionTypeType",
     "BackupStateType",
+    "ClusterModeType",
     "ClusterStateType",
     "DescribeBackupsPaginatorName",
     "DescribeClustersPaginatorName",
@@ -33,6 +34,7 @@ __all__ = (
 BackupPolicyType = Literal["DEFAULT"]
 BackupRetentionTypeType = Literal["DAYS"]
 BackupStateType = Literal["CREATE_IN_PROGRESS", "DELETED", "PENDING_DELETION", "READY"]
+ClusterModeType = Literal["FIPS", "NON_FIPS"]
 ClusterStateType = Literal[
     "ACTIVE",
     "CREATE_IN_PROGRESS",

@@ -46,7 +46,7 @@ __all__ = (
 
 class ListCapabilitiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
     """
 
@@ -54,13 +54,13 @@ class ListCapabilitiesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCapabilitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
         """
 
 class ListPartnershipsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
     """
 
@@ -68,13 +68,13 @@ class ListPartnershipsPaginator(Boto3Paginator):
         self, *, profileId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPartnershipsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
         """
 
 class ListProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
     """
 
@@ -82,13 +82,13 @@ class ListProfilesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
         """
 
 class ListTransformersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
     """
 
@@ -96,6 +96,6 @@ class ListTransformersPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTransformersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/b2bi.html#B2BI.Paginator.ListTransformers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
         """

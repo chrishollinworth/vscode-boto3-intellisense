@@ -142,7 +142,7 @@ class Exceptions:
 
 class APIGatewayClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html)
     """
 
@@ -158,7 +158,7 @@ class APIGatewayClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#can_paginate)
         """
 
@@ -166,7 +166,7 @@ class APIGatewayClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#close)
         """
 
@@ -185,7 +185,7 @@ class APIGatewayClient(BaseClient):
         """
         Create an ApiKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_api_key)
         """
 
@@ -206,7 +206,7 @@ class APIGatewayClient(BaseClient):
         """
         Adds a new Authorizer resource to an existing RestApi resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_authorizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_authorizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_authorizer)
         """
 
@@ -216,7 +216,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a new BasePathMapping resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_base_path_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_base_path_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_base_path_mapping)
         """
 
@@ -237,7 +237,7 @@ class APIGatewayClient(BaseClient):
         Creates a Deployment resource, which makes a specified RestApi callable over the
         internet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_deployment)
         """
 
@@ -247,7 +247,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a documentation part.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_documentation_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_documentation_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_documentation_part)
         """
 
@@ -265,7 +265,7 @@ class APIGatewayClient(BaseClient):
         **Request Syntax** response = client.create_documentation_version(
         restApiId='string', documentationVersion='string'...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_documentation_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_documentation_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_documentation_version)
         """
 
@@ -289,7 +289,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a new domain name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_domain_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_domain_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_domain_name)
         """
 
@@ -305,7 +305,7 @@ class APIGatewayClient(BaseClient):
         """
         Adds a new Model resource to an existing RestApi resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_model)
         """
 
@@ -320,7 +320,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a RequestValidator of a given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_request_validator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_request_validator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_request_validator)
         """
 
@@ -330,7 +330,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a Resource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_resource)
         """
 
@@ -352,7 +352,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a new RestApi resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_rest_api)
         """
 
@@ -375,7 +375,7 @@ class APIGatewayClient(BaseClient):
         Creates a new Stage resource that references a pre-existing Deployment for the
         API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_stage)
         """
 
@@ -393,7 +393,7 @@ class APIGatewayClient(BaseClient):
         Creates a usage plan with the throttle and quota limits, as well as the
         associated API stages, specified in the payload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_usage_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_usage_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_usage_plan)
         """
 
@@ -403,7 +403,7 @@ class APIGatewayClient(BaseClient):
         """
         Creates a usage plan key for adding an existing API key to a usage plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_usage_plan_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_usage_plan_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_usage_plan_key)
         """
 
@@ -420,7 +420,7 @@ class APIGatewayClient(BaseClient):
         asynchronous operation that typically takes 2-4 minutes to complete and become
         operational.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.create_vpc_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.create_vpc_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_vpc_link)
         """
 
@@ -428,7 +428,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes the ApiKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_api_key)
         """
 
@@ -436,7 +436,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes an existing Authorizer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_authorizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_authorizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_authorizer)
         """
 
@@ -444,7 +444,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes the BasePathMapping resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_base_path_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_base_path_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_base_path_mapping)
         """
 
@@ -452,7 +452,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes the ClientCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_client_certificate)
         """
 
@@ -460,7 +460,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a Deployment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_deployment)
         """
 
@@ -471,7 +471,7 @@ class APIGatewayClient(BaseClient):
         **Request Syntax** response = client.delete_documentation_part(
         restApiId='string', documentationPartId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_documentation_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_documentation_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_documentation_part)
         """
 
@@ -479,7 +479,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a documentation version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_documentation_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_documentation_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_documentation_version)
         """
 
@@ -487,7 +487,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes the DomainName resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_domain_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_domain_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_domain_name)
         """
 
@@ -498,7 +498,7 @@ class APIGatewayClient(BaseClient):
         Clears any customization of a GatewayResponse of a specified response type on
         the given RestApi and resets it with the default settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_gateway_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_gateway_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_gateway_response)
         """
 
@@ -506,7 +506,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a delete integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_integration)
         """
 
@@ -516,7 +516,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a delete integration response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_integration_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_integration_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_integration_response)
         """
 
@@ -524,7 +524,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes an existing Method resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_method)
         """
 
@@ -534,7 +534,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes an existing MethodResponse resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_method_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_method_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_method_response)
         """
 
@@ -542,7 +542,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_model)
         """
 
@@ -550,7 +550,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a RequestValidator of a given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_request_validator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_request_validator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_request_validator)
         """
 
@@ -558,7 +558,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a Resource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_resource)
         """
 
@@ -566,7 +566,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes the specified API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_rest_api)
         """
 
@@ -574,7 +574,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a Stage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_stage)
         """
 
@@ -582,7 +582,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes a usage plan of a given plan Id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_usage_plan)
         """
 
@@ -591,7 +591,7 @@ class APIGatewayClient(BaseClient):
         Deletes a usage plan key and remove the underlying API key from the associated
         usage plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_usage_plan_key)
         """
 
@@ -599,7 +599,7 @@ class APIGatewayClient(BaseClient):
         """
         Deletes an existing VpcLink of a specified identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.delete_vpc_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.delete_vpc_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_vpc_link)
         """
 
@@ -607,7 +607,7 @@ class APIGatewayClient(BaseClient):
         """
         Flushes all authorizer cache entries on a stage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.flush_stage_authorizers_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.flush_stage_authorizers_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#flush_stage_authorizers_cache)
         """
 
@@ -615,7 +615,7 @@ class APIGatewayClient(BaseClient):
         """
         Flushes a stage's cache.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.flush_stage_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.flush_stage_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#flush_stage_cache)
         """
 
@@ -625,7 +625,7 @@ class APIGatewayClient(BaseClient):
         """
         Generates a ClientCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.generate_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.generate_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#generate_client_certificate)
         """
 
@@ -639,7 +639,7 @@ class APIGatewayClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#generate_presigned_url)
         """
 
@@ -647,7 +647,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about the current Account resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_account)
         """
 
@@ -657,7 +657,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about the current ApiKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_api_key)
         """
 
@@ -673,7 +673,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about the current ApiKeys resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_api_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_api_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_api_keys)
         """
 
@@ -683,7 +683,7 @@ class APIGatewayClient(BaseClient):
         """
         Describe an existing Authorizer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_authorizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_authorizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_authorizer)
         """
 
@@ -693,7 +693,7 @@ class APIGatewayClient(BaseClient):
         """
         Describe an existing Authorizers resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_authorizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_authorizers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_authorizers)
         """
 
@@ -703,7 +703,7 @@ class APIGatewayClient(BaseClient):
         """
         Describe a BasePathMapping resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_base_path_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_base_path_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_base_path_mapping)
         """
 
@@ -713,7 +713,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a collection of BasePathMapping resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_base_path_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_base_path_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_base_path_mappings)
         """
 
@@ -723,7 +723,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about the current ClientCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_client_certificate)
         """
 
@@ -733,7 +733,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a collection of ClientCertificate resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_client_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_client_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_client_certificates)
         """
 
@@ -743,7 +743,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about a Deployment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_deployment)
         """
 
@@ -753,7 +753,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about a Deployments collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_deployments)
         """
 
@@ -763,7 +763,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a documentation part.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_documentation_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_documentation_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_part)
         """
 
@@ -781,7 +781,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets documentation parts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_documentation_parts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_documentation_parts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_parts)
         """
 
@@ -791,7 +791,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a documentation version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_documentation_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_documentation_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_version)
         """
 
@@ -801,7 +801,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets documentation versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_documentation_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_documentation_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_versions)
         """
 
@@ -810,7 +810,7 @@ class APIGatewayClient(BaseClient):
         Represents a domain name that is contained in a simpler, more intuitive URL that
         can be called.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_domain_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_domain_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_domain_name)
         """
 
@@ -818,7 +818,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a collection of DomainName resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_domain_names)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_domain_names)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_domain_names)
         """
 
@@ -834,7 +834,7 @@ class APIGatewayClient(BaseClient):
         """
         Exports a deployed version of a RestApi in a specified format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_export)
         """
 
@@ -844,7 +844,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a GatewayResponse of a specified response type on the given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_gateway_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_gateway_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_gateway_response)
         """
 
@@ -854,7 +854,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets the GatewayResponses collection on the given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_gateway_responses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_gateway_responses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_gateway_responses)
         """
 
@@ -864,7 +864,7 @@ class APIGatewayClient(BaseClient):
         """
         Get the integration settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_integration)
         """
 
@@ -874,7 +874,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a get integration response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_integration_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_integration_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_integration_response)
         """
 
@@ -884,7 +884,7 @@ class APIGatewayClient(BaseClient):
         """
         Describe an existing Method resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_method)
         """
 
@@ -894,7 +894,7 @@ class APIGatewayClient(BaseClient):
         """
         Describes a MethodResponse resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_method_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_method_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_method_response)
         """
 
@@ -904,7 +904,7 @@ class APIGatewayClient(BaseClient):
         """
         Describes an existing model defined for a RestApi resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_model)
         """
 
@@ -913,7 +913,7 @@ class APIGatewayClient(BaseClient):
         Generates a sample mapping template that can be used to transform a payload into
         the structure of a model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_model_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_model_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_model_template)
         """
 
@@ -923,7 +923,7 @@ class APIGatewayClient(BaseClient):
         """
         Describes existing Models defined for a RestApi resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_models)
         """
 
@@ -933,7 +933,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a RequestValidator of a given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_request_validator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_request_validator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_request_validator)
         """
 
@@ -943,7 +943,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets the RequestValidators collection of a given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_request_validators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_request_validators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_request_validators)
         """
 
@@ -953,7 +953,7 @@ class APIGatewayClient(BaseClient):
         """
         Lists information about a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_resource)
         """
 
@@ -963,7 +963,7 @@ class APIGatewayClient(BaseClient):
         """
         Lists information about a collection of Resource resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_resources)
         """
 
@@ -971,7 +971,7 @@ class APIGatewayClient(BaseClient):
         """
         Lists the RestApi resource in the collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_rest_api)
         """
 
@@ -979,7 +979,7 @@ class APIGatewayClient(BaseClient):
         """
         Lists the RestApis resources for your collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_rest_apis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_rest_apis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_rest_apis)
         """
 
@@ -989,7 +989,7 @@ class APIGatewayClient(BaseClient):
         """
         Generates a client SDK for a RestApi and Stage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_sdk)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_sdk)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk)
         """
 
@@ -997,7 +997,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets an SDK type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_sdk_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_sdk_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk_type)
         """
 
@@ -1008,7 +1008,7 @@ class APIGatewayClient(BaseClient):
         **Request Syntax** response = client.get_sdk_types( position='string', limit=123
         ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_sdk_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_sdk_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk_types)
         """
 
@@ -1016,7 +1016,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about a Stage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_stage)
         """
 
@@ -1024,7 +1024,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets information about one or more Stage resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_stages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_stages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_stages)
         """
 
@@ -1032,7 +1032,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets the Tags collection for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_tags)
         """
 
@@ -1049,7 +1049,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets the usage data of a usage plan in a specified time interval.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage)
         """
 
@@ -1057,7 +1057,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a usage plan of a given plan identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_usage_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_usage_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan)
         """
 
@@ -1067,7 +1067,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a usage plan key of a given key identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan_key)
         """
 
@@ -1078,7 +1078,7 @@ class APIGatewayClient(BaseClient):
         Gets all the usage plan keys representing the API keys added to a specified
         usage plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan_keys)
         """
 
@@ -1088,7 +1088,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets all the usage plans of the caller's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_usage_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_usage_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plans)
         """
 
@@ -1096,7 +1096,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets a specified VPC link under the caller's account in a region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_vpc_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_vpc_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_vpc_link)
         """
 
@@ -1104,7 +1104,7 @@ class APIGatewayClient(BaseClient):
         """
         Gets the VpcLinks collection under the caller's account in a selected region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.get_vpc_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.get_vpc_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_vpc_links)
         """
 
@@ -1118,7 +1118,7 @@ class APIGatewayClient(BaseClient):
         """
         Import API keys from an external source, such as a CSV-formatted file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.import_api_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.import_api_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_api_keys)
         """
 
@@ -1136,7 +1136,7 @@ class APIGatewayClient(BaseClient):
         **Request Syntax** response = client.import_documentation_parts(
         restApiId='string', mode='merge'|'overwrite', failO...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.import_documentation_parts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.import_documentation_parts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_documentation_parts)
         """
 
@@ -1151,7 +1151,7 @@ class APIGatewayClient(BaseClient):
         A feature of the API Gateway control service for creating a new API from an
         external API definition file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.import_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.import_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_rest_api)
         """
 
@@ -1168,7 +1168,7 @@ class APIGatewayClient(BaseClient):
         Creates a customization of a GatewayResponse of a specified response type and
         status code on the given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_gateway_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_gateway_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_gateway_response)
         """
 
@@ -1196,7 +1196,7 @@ class APIGatewayClient(BaseClient):
         """
         Sets up a method's integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_integration)
         """
 
@@ -1215,7 +1215,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents a put integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_integration_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_integration_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_integration_response)
         """
 
@@ -1237,7 +1237,7 @@ class APIGatewayClient(BaseClient):
         """
         Add a method to an existing Resource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_method)
         """
 
@@ -1254,7 +1254,7 @@ class APIGatewayClient(BaseClient):
         """
         Adds a MethodResponse to an existing Method resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_method_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_method_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_method_response)
         """
 
@@ -1271,7 +1271,7 @@ class APIGatewayClient(BaseClient):
         A feature of the API Gateway control service for updating an existing API with
         an input of external API definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.put_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.put_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_rest_api)
         """
 
@@ -1279,7 +1279,7 @@ class APIGatewayClient(BaseClient):
         """
         Adds or updates a tag on a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#tag_resource)
         """
 
@@ -1299,7 +1299,7 @@ class APIGatewayClient(BaseClient):
         Simulate the execution of an Authorizer in your RestApi with headers,
         parameters, and an incoming request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.test_invoke_authorizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.test_invoke_authorizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#test_invoke_authorizer)
         """
 
@@ -1320,7 +1320,7 @@ class APIGatewayClient(BaseClient):
         Simulate the invocation of a Method in your RestApi with headers, parameters,
         and an incoming request body.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.test_invoke_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.test_invoke_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#test_invoke_method)
         """
 
@@ -1328,7 +1328,7 @@ class APIGatewayClient(BaseClient):
         """
         Removes a tag from a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#untag_resource)
         """
 
@@ -1338,7 +1338,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about the current Account resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_account)
         """
 
@@ -1348,7 +1348,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about an ApiKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_api_key)
         """
 
@@ -1362,7 +1362,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates an existing Authorizer resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_authorizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_authorizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_authorizer)
         """
 
@@ -1376,7 +1376,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about the BasePathMapping resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_base_path_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_base_path_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_base_path_mapping)
         """
 
@@ -1386,7 +1386,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about an ClientCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_client_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_client_certificate)
         """
 
@@ -1400,7 +1400,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about a Deployment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_deployment)
         """
 
@@ -1414,7 +1414,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates a documentation part.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_documentation_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_documentation_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_documentation_part)
         """
 
@@ -1428,7 +1428,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates a documentation version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_documentation_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_documentation_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_documentation_version)
         """
 
@@ -1438,7 +1438,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about the DomainName resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_domain_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_domain_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_domain_name)
         """
 
@@ -1452,7 +1452,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates a GatewayResponse of a specified response type on the given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_gateway_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_gateway_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_gateway_response)
         """
 
@@ -1467,7 +1467,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents an update integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_integration)
         """
 
@@ -1483,7 +1483,7 @@ class APIGatewayClient(BaseClient):
         """
         Represents an update integration response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_integration_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_integration_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_integration_response)
         """
 
@@ -1498,7 +1498,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates an existing Method resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_method)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_method)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_method)
         """
 
@@ -1514,7 +1514,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates an existing MethodResponse resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_method_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_method_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_method_response)
         """
 
@@ -1528,7 +1528,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about a model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_model)
         """
 
@@ -1542,7 +1542,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates a RequestValidator of a given RestApi.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_request_validator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_request_validator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_request_validator)
         """
 
@@ -1556,7 +1556,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about a Resource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_resource)
         """
 
@@ -1566,7 +1566,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about the specified API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_rest_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_rest_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_rest_api)
         """
 
@@ -1580,7 +1580,7 @@ class APIGatewayClient(BaseClient):
         """
         Changes information about a Stage resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_stage)
         """
 
@@ -1591,7 +1591,7 @@ class APIGatewayClient(BaseClient):
         Grants a temporary extension to the remaining quota of a usage plan associated
         with a specified API key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_usage)
         """
 
@@ -1601,7 +1601,7 @@ class APIGatewayClient(BaseClient):
         """
         Updates a usage plan of a given plan Id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_usage_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_usage_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_usage_plan)
         """
 
@@ -1611,21 +1611,21 @@ class APIGatewayClient(BaseClient):
         """
         Updates an existing VpcLink of a specified identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Client.update_vpc_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Client.update_vpc_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_vpc_link)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_api_keys"]) -> GetApiKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getapikeyspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_authorizers"]) -> GetAuthorizersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getauthorizerspaginator)
         """
 
@@ -1634,7 +1634,7 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_base_path_mappings"]
     ) -> GetBasePathMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getbasepathmappingspaginator)
         """
 
@@ -1643,14 +1643,14 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_client_certificates"]
     ) -> GetClientCertificatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getclientcertificatespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_deployments"]) -> GetDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdeploymentspaginator)
         """
 
@@ -1659,7 +1659,7 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_documentation_parts"]
     ) -> GetDocumentationPartsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdocumentationpartspaginator)
         """
 
@@ -1668,14 +1668,14 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_documentation_versions"]
     ) -> GetDocumentationVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdocumentationversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_domain_names"]) -> GetDomainNamesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdomainnamespaginator)
         """
 
@@ -1684,14 +1684,14 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_gateway_responses"]
     ) -> GetGatewayResponsesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getgatewayresponsespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_models"]) -> GetModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getmodelspaginator)
         """
 
@@ -1700,35 +1700,35 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_request_validators"]
     ) -> GetRequestValidatorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getrequestvalidatorspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_resources"]) -> GetResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getresourcespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_rest_apis"]) -> GetRestApisPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getrestapispaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_sdk_types"]) -> GetSdkTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getsdktypespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_usage"]) -> GetUsagePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusagepaginator)
         """
 
@@ -1737,20 +1737,20 @@ class APIGatewayClient(BaseClient):
         self, operation_name: Literal["get_usage_plan_keys"]
     ) -> GetUsagePlanKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusageplankeyspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_usage_plans"]) -> GetUsagePlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusageplanspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_vpc_links"]) -> GetVpcLinksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getvpclinkspaginator)
         """

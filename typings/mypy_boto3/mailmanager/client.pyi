@@ -98,7 +98,7 @@ class Exceptions:
 
 class MailManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html)
     """
 
@@ -114,7 +114,7 @@ class MailManagerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#can_paginate)
         """
 
@@ -122,7 +122,7 @@ class MailManagerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#close)
         """
 
@@ -132,7 +132,7 @@ class MailManagerClient(BaseClient):
         """
         Creates an Add On instance for the subscription indicated in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_addon_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_addon_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_addon_instance)
         """
 
@@ -143,7 +143,7 @@ class MailManagerClient(BaseClient):
         Creates a subscription for an Add On representing the acceptance of its terms of
         use and additional pricing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_addon_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_addon_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_addon_subscription)
         """
 
@@ -159,7 +159,7 @@ class MailManagerClient(BaseClient):
         """
         Creates a new email archive resource for storing and retaining emails.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_archive)
         """
 
@@ -177,7 +177,7 @@ class MailManagerClient(BaseClient):
         """
         Provision a new ingress endpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_ingress_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_ingress_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_ingress_point)
         """
 
@@ -195,7 +195,7 @@ class MailManagerClient(BaseClient):
         Creates a relay resource which can be used in rules to relay incoming emails to
         defined relay destinations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_relay)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_relay)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_relay)
         """
 
@@ -210,7 +210,7 @@ class MailManagerClient(BaseClient):
         """
         Provision a new rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_rule_set)
         """
 
@@ -227,7 +227,7 @@ class MailManagerClient(BaseClient):
         """
         Provision a new traffic policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.create_traffic_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.create_traffic_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#create_traffic_policy)
         """
 
@@ -235,7 +235,7 @@ class MailManagerClient(BaseClient):
         """
         Deletes an Add On instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_addon_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_addon_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_addon_instance)
         """
 
@@ -243,7 +243,7 @@ class MailManagerClient(BaseClient):
         """
         Deletes an Add On subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_addon_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_addon_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_addon_subscription)
         """
 
@@ -251,7 +251,7 @@ class MailManagerClient(BaseClient):
         """
         Initiates deletion of an email archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_archive)
         """
 
@@ -259,7 +259,7 @@ class MailManagerClient(BaseClient):
         """
         Delete an ingress endpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_ingress_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_ingress_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_ingress_point)
         """
 
@@ -267,7 +267,7 @@ class MailManagerClient(BaseClient):
         """
         Deletes an existing relay resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_relay)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_relay)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_relay)
         """
 
@@ -275,7 +275,7 @@ class MailManagerClient(BaseClient):
         """
         Delete a rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_rule_set)
         """
 
@@ -283,7 +283,7 @@ class MailManagerClient(BaseClient):
         """
         Delete a traffic policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.delete_traffic_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.delete_traffic_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#delete_traffic_policy)
         """
 
@@ -297,7 +297,7 @@ class MailManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#generate_presigned_url)
         """
 
@@ -305,7 +305,7 @@ class MailManagerClient(BaseClient):
         """
         Gets detailed information about an Add On instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_addon_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_addon_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_addon_instance)
         """
 
@@ -315,7 +315,7 @@ class MailManagerClient(BaseClient):
         """
         Gets detailed information about an Add On subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_addon_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_addon_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_addon_subscription)
         """
 
@@ -323,7 +323,7 @@ class MailManagerClient(BaseClient):
         """
         Retrieves the full details and current state of a specified email archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive)
         """
 
@@ -331,7 +331,7 @@ class MailManagerClient(BaseClient):
         """
         Retrieves the details and current status of a specific email archive export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive_export)
         """
 
@@ -340,7 +340,7 @@ class MailManagerClient(BaseClient):
         Returns a pre-signed URL that provides temporary download access to the specific
         email message stored in the archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive_message)
         """
 
@@ -350,7 +350,7 @@ class MailManagerClient(BaseClient):
         """
         Returns the textual content of a specific email message stored in the archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive_message_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive_message_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive_message_content)
         """
 
@@ -358,7 +358,7 @@ class MailManagerClient(BaseClient):
         """
         Retrieves the details and current status of a specific email archive search job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive_search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive_search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive_search)
         """
 
@@ -368,7 +368,7 @@ class MailManagerClient(BaseClient):
         """
         Returns the results of a completed email archive search job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_archive_search_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_archive_search_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_archive_search_results)
         """
 
@@ -376,7 +376,7 @@ class MailManagerClient(BaseClient):
         """
         Fetch ingress endpoint resource attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_ingress_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_ingress_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_ingress_point)
         """
 
@@ -384,7 +384,7 @@ class MailManagerClient(BaseClient):
         """
         Fetch the relay resource and it's attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_relay)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_relay)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_relay)
         """
 
@@ -392,7 +392,7 @@ class MailManagerClient(BaseClient):
         """
         Fetch attributes of a rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_rule_set)
         """
 
@@ -400,7 +400,7 @@ class MailManagerClient(BaseClient):
         """
         Fetch attributes of a traffic policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.get_traffic_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.get_traffic_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#get_traffic_policy)
         """
 
@@ -410,7 +410,7 @@ class MailManagerClient(BaseClient):
         """
         Lists all Add On instances in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_addon_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_addon_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_addon_instances)
         """
 
@@ -420,7 +420,7 @@ class MailManagerClient(BaseClient):
         """
         Lists all Add On subscriptions in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_addon_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_addon_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_addon_subscriptions)
         """
 
@@ -430,7 +430,7 @@ class MailManagerClient(BaseClient):
         """
         Returns a list of email archive export jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_archive_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_archive_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_archive_exports)
         """
 
@@ -440,7 +440,7 @@ class MailManagerClient(BaseClient):
         """
         Returns a list of email archive search jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_archive_searches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_archive_searches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_archive_searches)
         """
 
@@ -450,7 +450,7 @@ class MailManagerClient(BaseClient):
         """
         Returns a list of all email archives in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_archives)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_archives)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_archives)
         """
 
@@ -460,7 +460,7 @@ class MailManagerClient(BaseClient):
         """
         List all ingress endpoint resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_ingress_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_ingress_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_ingress_points)
         """
 
@@ -470,7 +470,7 @@ class MailManagerClient(BaseClient):
         """
         Lists all the existing relay resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_relays)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_relays)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_relays)
         """
 
@@ -480,7 +480,7 @@ class MailManagerClient(BaseClient):
         """
         List rule sets for this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_rule_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_rule_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_rule_sets)
         """
 
@@ -488,7 +488,7 @@ class MailManagerClient(BaseClient):
         """
         Retrieves the list of tags (keys and values) assigned to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_tags_for_resource)
         """
 
@@ -498,7 +498,7 @@ class MailManagerClient(BaseClient):
         """
         List traffic policy resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.list_traffic_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.list_traffic_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#list_traffic_policies)
         """
 
@@ -515,7 +515,7 @@ class MailManagerClient(BaseClient):
         """
         Initiates an export of emails from the specified archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.start_archive_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.start_archive_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#start_archive_export)
         """
 
@@ -531,7 +531,7 @@ class MailManagerClient(BaseClient):
         """
         Initiates a search across emails in the specified archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.start_archive_search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.start_archive_search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#start_archive_search)
         """
 
@@ -539,7 +539,7 @@ class MailManagerClient(BaseClient):
         """
         Stops an in-progress export of emails from an archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.stop_archive_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.stop_archive_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#stop_archive_export)
         """
 
@@ -547,7 +547,7 @@ class MailManagerClient(BaseClient):
         """
         Stops an in-progress archive search job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.stop_archive_search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.stop_archive_search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#stop_archive_search)
         """
 
@@ -555,7 +555,7 @@ class MailManagerClient(BaseClient):
         """
         Adds one or more tags (keys and values) to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#tag_resource)
         """
 
@@ -563,7 +563,7 @@ class MailManagerClient(BaseClient):
         """
         Remove one or more tags (keys and values) from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#untag_resource)
         """
 
@@ -577,7 +577,7 @@ class MailManagerClient(BaseClient):
         """
         Updates the attributes of an existing email archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.update_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.update_archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#update_archive)
         """
 
@@ -594,7 +594,7 @@ class MailManagerClient(BaseClient):
         """
         Update attributes of a provisioned ingress endpoint resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.update_ingress_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.update_ingress_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#update_ingress_point)
         """
 
@@ -610,7 +610,7 @@ class MailManagerClient(BaseClient):
         """
         Updates the attributes of an existing relay resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.update_relay)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.update_relay)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#update_relay)
         """
 
@@ -620,7 +620,7 @@ class MailManagerClient(BaseClient):
         """
         >Update attributes of an already provisioned rule set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.update_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.update_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#update_rule_set)
         """
 
@@ -636,7 +636,7 @@ class MailManagerClient(BaseClient):
         """
         Update attributes of an already provisioned traffic policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Client.update_traffic_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Client.update_traffic_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/client.html#update_traffic_policy)
         """
 
@@ -645,7 +645,7 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_addon_instances"]
     ) -> ListAddonInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListAddonInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListAddonInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listaddoninstancespaginator)
         """
 
@@ -654,7 +654,7 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_addon_subscriptions"]
     ) -> ListAddonSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListAddonSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListAddonSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listaddonsubscriptionspaginator)
         """
 
@@ -663,7 +663,7 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_archive_exports"]
     ) -> ListArchiveExportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListArchiveExports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListArchiveExports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listarchiveexportspaginator)
         """
 
@@ -672,14 +672,14 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_archive_searches"]
     ) -> ListArchiveSearchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListArchiveSearches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListArchiveSearches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listarchivesearchespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_archives"]) -> ListArchivesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListArchives)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListArchives)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listarchivespaginator)
         """
 
@@ -688,21 +688,21 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_ingress_points"]
     ) -> ListIngressPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListIngressPoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListIngressPoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listingresspointspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_relays"]) -> ListRelaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListRelays)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListRelays)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listrelayspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rule_sets"]) -> ListRuleSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListRuleSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListRuleSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listrulesetspaginator)
         """
 
@@ -711,6 +711,6 @@ class MailManagerClient(BaseClient):
         self, operation_name: Literal["list_traffic_policies"]
     ) -> ListTrafficPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mailmanager.html#MailManager.Paginator.ListTrafficPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mailmanager.html#MailManager.Paginator.ListTrafficPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mailmanager/paginators.html#listtrafficpoliciespaginator)
         """

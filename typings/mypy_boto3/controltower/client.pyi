@@ -23,6 +23,7 @@ from .paginator import (
     ListControlOperationsPaginator,
     ListEnabledBaselinesPaginator,
     ListEnabledControlsPaginator,
+    ListLandingZoneOperationsPaginator,
     ListLandingZonesPaginator,
 )
 from .type_defs import (
@@ -44,10 +45,12 @@ from .type_defs import (
     GetEnabledControlOutputTypeDef,
     GetLandingZoneOperationOutputTypeDef,
     GetLandingZoneOutputTypeDef,
+    LandingZoneOperationFilterTypeDef,
     ListBaselinesOutputTypeDef,
     ListControlOperationsOutputTypeDef,
     ListEnabledBaselinesOutputTypeDef,
     ListEnabledControlsOutputTypeDef,
+    ListLandingZoneOperationsOutputTypeDef,
     ListLandingZonesOutputTypeDef,
     ListTagsForResourceOutputTypeDef,
     ResetEnabledBaselineOutputTypeDef,
@@ -83,7 +86,7 @@ class Exceptions:
 
 class ControlTowerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html)
     """
 
@@ -99,7 +102,7 @@ class ControlTowerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#can_paginate)
         """
 
@@ -107,7 +110,7 @@ class ControlTowerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#close)
         """
 
@@ -117,7 +120,7 @@ class ControlTowerClient(BaseClient):
         """
         Creates a new landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.create_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.create_landing_zone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#create_landing_zone)
         """
 
@@ -125,7 +128,7 @@ class ControlTowerClient(BaseClient):
         """
         Decommissions a landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.delete_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.delete_landing_zone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#delete_landing_zone)
         """
 
@@ -133,7 +136,7 @@ class ControlTowerClient(BaseClient):
         """
         Disable an `EnabledBaseline` resource on the specified Target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.disable_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.disable_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#disable_baseline)
         """
 
@@ -143,7 +146,7 @@ class ControlTowerClient(BaseClient):
         """
         This API call turns off a control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.disable_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.disable_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#disable_control)
         """
 
@@ -159,7 +162,7 @@ class ControlTowerClient(BaseClient):
         """
         Enable (apply) a `Baseline` to a Target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.enable_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.enable_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#enable_baseline)
         """
 
@@ -174,7 +177,7 @@ class ControlTowerClient(BaseClient):
         """
         This API call activates a control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.enable_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.enable_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#enable_control)
         """
 
@@ -188,7 +191,7 @@ class ControlTowerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#generate_presigned_url)
         """
 
@@ -197,7 +200,7 @@ class ControlTowerClient(BaseClient):
         Retrieve details about an existing `Baseline` resource by specifying its
         identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_baseline)
         """
 
@@ -209,7 +212,7 @@ class ControlTowerClient(BaseClient):
         of these APIs: `EnableBaseline`, `DisableBaseline`, `UpdateEnabledBaseline`,
         `ResetEnabledBaseline`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_baseline_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_baseline_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_baseline_operation)
         """
 
@@ -220,7 +223,7 @@ class ControlTowerClient(BaseClient):
         Returns the status of a particular `EnableControl` or `DisableControl`
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_control_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_control_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_control_operation)
         """
 
@@ -230,7 +233,7 @@ class ControlTowerClient(BaseClient):
         """
         Retrieve details of an `EnabledBaseline` resource by specifying its identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_enabled_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_enabled_baseline)
         """
 
@@ -240,7 +243,7 @@ class ControlTowerClient(BaseClient):
         """
         Retrieves details about an enabled control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_enabled_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_enabled_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_enabled_control)
         """
 
@@ -248,7 +251,7 @@ class ControlTowerClient(BaseClient):
         """
         Returns details about the landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_landing_zone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_landing_zone)
         """
 
@@ -258,7 +261,7 @@ class ControlTowerClient(BaseClient):
         """
         Returns the status of the specified landing zone operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.get_landing_zone_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_landing_zone_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_landing_zone_operation)
         """
 
@@ -268,7 +271,7 @@ class ControlTowerClient(BaseClient):
         """
         Returns a summary list of all available baselines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_baselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_baselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_baselines)
         """
 
@@ -282,7 +285,7 @@ class ControlTowerClient(BaseClient):
         """
         Provides a list of operations in progress or queued.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_control_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_control_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_control_operations)
         """
 
@@ -296,7 +299,7 @@ class ControlTowerClient(BaseClient):
         """
         Returns a list of summaries describing `EnabledBaseline` resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_enabled_baselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_enabled_baselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_enabled_baselines)
         """
 
@@ -312,8 +315,22 @@ class ControlTowerClient(BaseClient):
         Lists the controls enabled by Amazon Web Services Control Tower on the specified
         organizational unit and the accounts it contains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_enabled_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_enabled_controls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_enabled_controls)
+        """
+
+    def list_landing_zone_operations(
+        self,
+        *,
+        filter: "LandingZoneOperationFilterTypeDef" = None,
+        maxResults: int = None,
+        nextToken: str = None
+    ) -> ListLandingZoneOperationsOutputTypeDef:
+        """
+        Lists all landing zone operations from the past 90 days.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_landing_zone_operations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_landing_zone_operations)
         """
 
     def list_landing_zones(
@@ -323,7 +340,7 @@ class ControlTowerClient(BaseClient):
         Returns the landing zone ARN for the landing zone deployed in your managed
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_landing_zones)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_landing_zones)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_landing_zones)
         """
 
@@ -331,7 +348,7 @@ class ControlTowerClient(BaseClient):
         """
         Returns a list of tags associated with the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_tags_for_resource)
         """
 
@@ -341,7 +358,7 @@ class ControlTowerClient(BaseClient):
         """
         Re-enables an `EnabledBaseline` resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.reset_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.reset_enabled_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#reset_enabled_baseline)
         """
 
@@ -349,7 +366,7 @@ class ControlTowerClient(BaseClient):
         """
         This API call resets a landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.reset_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.reset_landing_zone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#reset_landing_zone)
         """
 
@@ -357,7 +374,7 @@ class ControlTowerClient(BaseClient):
         """
         Applies tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#tag_resource)
         """
 
@@ -365,7 +382,7 @@ class ControlTowerClient(BaseClient):
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#untag_resource)
         """
 
@@ -379,7 +396,7 @@ class ControlTowerClient(BaseClient):
         """
         Updates an `EnabledBaseline` resource's applied parameters or version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.update_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_enabled_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_enabled_baseline)
         """
 
@@ -389,7 +406,7 @@ class ControlTowerClient(BaseClient):
         """
         Updates the configuration of an already enabled control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.update_enabled_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_enabled_control)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_enabled_control)
         """
 
@@ -399,14 +416,14 @@ class ControlTowerClient(BaseClient):
         """
         This API call updates the landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Client.update_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_landing_zone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_landing_zone)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_baselines"]) -> ListBaselinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListBaselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListBaselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listbaselinespaginator)
         """
 
@@ -415,7 +432,7 @@ class ControlTowerClient(BaseClient):
         self, operation_name: Literal["list_control_operations"]
     ) -> ListControlOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listcontroloperationspaginator)
         """
 
@@ -424,7 +441,7 @@ class ControlTowerClient(BaseClient):
         self, operation_name: Literal["list_enabled_baselines"]
     ) -> ListEnabledBaselinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledbaselinespaginator)
         """
 
@@ -433,8 +450,17 @@ class ControlTowerClient(BaseClient):
         self, operation_name: Literal["list_enabled_controls"]
     ) -> ListEnabledControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledcontrolspaginator)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_landing_zone_operations"]
+    ) -> ListLandingZoneOperationsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZoneOperations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzoneoperationspaginator)
         """
 
     @overload
@@ -442,6 +468,6 @@ class ControlTowerClient(BaseClient):
         self, operation_name: Literal["list_landing_zones"]
     ) -> ListLandingZonesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzonespaginator)
         """

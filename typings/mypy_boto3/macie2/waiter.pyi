@@ -27,12 +27,12 @@ __all__ = ("FindingRevealedWaiter",)
 
 class FindingRevealedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/macie2.html#Macie2.Waiter.FindingRevealed)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/macie2.html#Macie2.Waiter.FindingRevealed)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/waiters.html#findingrevealedwaiter)
     """
 
     def wait(self, *, findingId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/macie2.html#Macie2.Waiter.FindingRevealed.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/macie2.html#Macie2.Waiter.FindingRevealed.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/waiters.html#findingrevealedwaiter)
         """

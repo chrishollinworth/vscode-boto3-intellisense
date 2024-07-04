@@ -29,7 +29,7 @@ __all__ = ("ListSpacesPaginator",)
 
 class ListSpacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html#listspacespaginator)
     """
 
@@ -37,6 +37,6 @@ class ListSpacesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSpacesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html#listspacespaginator)
         """

@@ -24,6 +24,7 @@ __all__ = (
     "AssistantStatusType",
     "AssistantTypeType",
     "AssociationTypeType",
+    "ContentAssociationTypeType",
     "ContentStatusType",
     "ExternalSourceType",
     "FilterFieldType",
@@ -34,6 +35,7 @@ __all__ = (
     "KnowledgeBaseTypeType",
     "ListAssistantAssociationsPaginatorName",
     "ListAssistantsPaginatorName",
+    "ListContentAssociationsPaginatorName",
     "ListContentsPaginatorName",
     "ListImportJobsPaginatorName",
     "ListKnowledgeBasesPaginatorName",
@@ -70,6 +72,7 @@ AssistantStatusType = Literal[
 ]
 AssistantTypeType = Literal["AGENT"]
 AssociationTypeType = Literal["KNOWLEDGE_BASE"]
+ContentAssociationTypeType = Literal["AMAZON_CONNECT_GUIDE"]
 ContentStatusType = Literal[
     "ACTIVE",
     "CREATE_FAILED",
@@ -97,6 +100,7 @@ KnowledgeBaseStatusType = Literal[
 KnowledgeBaseTypeType = Literal["CUSTOM", "EXTERNAL", "QUICK_RESPONSES"]
 ListAssistantAssociationsPaginatorName = Literal["list_assistant_associations"]
 ListAssistantsPaginatorName = Literal["list_assistants"]
+ListContentAssociationsPaginatorName = Literal["list_content_associations"]
 ListContentsPaginatorName = Literal["list_contents"]
 ListImportJobsPaginatorName = Literal["list_import_jobs"]
 ListKnowledgeBasesPaginatorName = Literal["list_knowledge_bases"]

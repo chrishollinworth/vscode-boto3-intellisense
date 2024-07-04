@@ -1396,6 +1396,7 @@ _OptionalUpdateAcceleratorRequestRequestTypeDef = TypedDict(
     {
         "Name": str,
         "IpAddressType": IpAddressTypeType,
+        "IpAddresses": List[str],
         "Enabled": bool,
     },
     total=False,
@@ -1487,6 +1488,7 @@ _OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
     {
         "Name": str,
         "IpAddressType": IpAddressTypeType,
+        "IpAddresses": List[str],
         "Enabled": bool,
     },
     total=False,

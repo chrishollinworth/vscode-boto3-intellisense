@@ -245,7 +245,7 @@ class Exceptions:
 
 class ChimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html)
     """
 
@@ -263,7 +263,7 @@ class ChimeClient(BaseClient):
         """
         Associates a phone number with the specified Amazon Chime user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.associate_phone_number_with_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.associate_phone_number_with_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#associate_phone_number_with_user)
         """
 
@@ -273,7 +273,7 @@ class ChimeClient(BaseClient):
         """
         Associates phone numbers with the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.associate_phone_numbers_with_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.associate_phone_numbers_with_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#associate_phone_numbers_with_voice_connector)
         """
 
@@ -287,7 +287,7 @@ class ChimeClient(BaseClient):
         """
         Associates phone numbers with the specified Amazon Chime Voice Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.associate_phone_numbers_with_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.associate_phone_numbers_with_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#associate_phone_numbers_with_voice_connector_group)
         """
 
@@ -298,7 +298,7 @@ class ChimeClient(BaseClient):
         Associates the specified sign-in delegate groups with the specified Amazon Chime
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.associate_signin_delegate_groups_with_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.associate_signin_delegate_groups_with_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#associate_signin_delegate_groups_with_account)
         """
 
@@ -308,7 +308,7 @@ class ChimeClient(BaseClient):
         """
         Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_create_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_create_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_create_attendee)
         """
 
@@ -323,7 +323,7 @@ class ChimeClient(BaseClient):
         """
         Adds a specified number of users to a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_create_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_create_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_create_channel_membership)
         """
 
@@ -333,7 +333,7 @@ class ChimeClient(BaseClient):
         """
         Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_create_room_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_create_room_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_create_room_membership)
         """
 
@@ -343,7 +343,7 @@ class ChimeClient(BaseClient):
         """
         Moves phone numbers into the **Deletion queue**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_delete_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_delete_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_delete_phone_number)
         """
 
@@ -353,7 +353,7 @@ class ChimeClient(BaseClient):
         """
         Suspends up to 50 users from a `Team` or `EnterpriseLWA` Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_suspend_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_suspend_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_suspend_user)
         """
 
@@ -364,7 +364,7 @@ class ChimeClient(BaseClient):
         Removes the suspension from up to 50 previously suspended users for the
         specified Amazon Chime `EnterpriseLWA` account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_unsuspend_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_unsuspend_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_unsuspend_user)
         """
 
@@ -374,7 +374,7 @@ class ChimeClient(BaseClient):
         """
         Updates phone number product types or calling names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_update_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_update_phone_number)
         """
 
@@ -385,7 +385,7 @@ class ChimeClient(BaseClient):
         Updates user details within the  UpdateUserRequestItem object for up to 20 users
         for the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.batch_update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.batch_update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#batch_update_user)
         """
 
@@ -393,7 +393,7 @@ class ChimeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#can_paginate)
         """
 
@@ -401,7 +401,7 @@ class ChimeClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#close)
         """
 
@@ -409,7 +409,7 @@ class ChimeClient(BaseClient):
         """
         Creates an Amazon Chime account under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_account)
         """
 
@@ -424,7 +424,7 @@ class ChimeClient(BaseClient):
         """
         Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_app_instance)
         """
 
@@ -434,7 +434,7 @@ class ChimeClient(BaseClient):
         """
         Promotes an `AppInstanceUser` to an `AppInstanceAdmin`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_app_instance_admin)
         """
 
@@ -451,7 +451,7 @@ class ChimeClient(BaseClient):
         """
         Creates a user under an Amazon Chime `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_app_instance_user)
         """
 
@@ -461,7 +461,7 @@ class ChimeClient(BaseClient):
         """
         Creates a new attendee for an active Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_attendee)
         """
 
@@ -471,7 +471,7 @@ class ChimeClient(BaseClient):
         """
         Creates a bot for an Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_bot)
         """
 
@@ -490,7 +490,7 @@ class ChimeClient(BaseClient):
         """
         Creates a channel to which you can add users and send messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_channel)
         """
 
@@ -500,7 +500,7 @@ class ChimeClient(BaseClient):
         """
         Permanently bans a member from a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_channel_ban)
         """
 
@@ -515,7 +515,7 @@ class ChimeClient(BaseClient):
         """
         Adds a user to a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_channel_membership)
         """
 
@@ -525,7 +525,7 @@ class ChimeClient(BaseClient):
         """
         Creates a new `ChannelModerator`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_channel_moderator)
         """
 
@@ -542,7 +542,7 @@ class ChimeClient(BaseClient):
         """
         Creates a media capture pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_media_capture_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_media_capture_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_media_capture_pipeline)
         """
 
@@ -560,7 +560,7 @@ class ChimeClient(BaseClient):
         Creates a new Amazon Chime SDK meeting in the specified media Region with no
         initial attendees.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_meeting)
         """
 
@@ -572,7 +572,7 @@ class ChimeClient(BaseClient):
         number, and so forth) to initiate an outbound call to a public switched
         telephone network (PSTN) and join them into a Chime meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_meeting_dial_out)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_meeting_dial_out)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_meeting_dial_out)
         """
 
@@ -591,7 +591,7 @@ class ChimeClient(BaseClient):
         Creates a new Amazon Chime SDK meeting in the specified media Region, with
         attendees.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_meeting_with_attendees)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_meeting_with_attendees)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_meeting_with_attendees)
         """
 
@@ -601,7 +601,7 @@ class ChimeClient(BaseClient):
         """
         Creates an order for phone numbers to be provisioned.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_phone_number_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_phone_number_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_phone_number_order)
         """
 
@@ -621,7 +621,7 @@ class ChimeClient(BaseClient):
         Creates a proxy session on the specified Amazon Chime Voice Connector for the
         specified participant phone numbers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_proxy_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_proxy_session)
         """
 
@@ -631,7 +631,7 @@ class ChimeClient(BaseClient):
         """
         Creates a chat room for the specified Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_room)
         """
 
@@ -641,7 +641,7 @@ class ChimeClient(BaseClient):
         """
         Adds a member to a chat room in an Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_room_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_room_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_room_membership)
         """
 
@@ -651,7 +651,7 @@ class ChimeClient(BaseClient):
         """
         Creates a SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_sip_media_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_sip_media_application)
         """
 
@@ -668,7 +668,7 @@ class ChimeClient(BaseClient):
         the request, and it invokes the endpoint of the specified
         `sipMediaApplicationId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_sip_media_application_call)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_sip_media_application_call)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_sip_media_application_call)
         """
 
@@ -685,7 +685,7 @@ class ChimeClient(BaseClient):
         Creates a SIP rule which can be used to run a SIP media application as a target
         for a specific trigger type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_sip_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_sip_rule)
         """
 
@@ -700,7 +700,7 @@ class ChimeClient(BaseClient):
         """
         Creates a user under the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_user)
         """
 
@@ -710,7 +710,7 @@ class ChimeClient(BaseClient):
         """
         Creates an Amazon Chime Voice Connector under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_voice_connector)
         """
 
@@ -721,7 +721,7 @@ class ChimeClient(BaseClient):
         Creates an Amazon Chime Voice Connector group under the administrator's AWS
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.create_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.create_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#create_voice_connector_group)
         """
 
@@ -729,7 +729,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_account)
         """
 
@@ -737,7 +737,7 @@ class ChimeClient(BaseClient):
         """
         Deletes an `AppInstance` and all associated data asynchronously.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_app_instance)
         """
 
@@ -745,7 +745,7 @@ class ChimeClient(BaseClient):
         """
         Demotes an `AppInstanceAdmin` to an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_app_instance_admin)
         """
 
@@ -753,7 +753,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the streaming configurations of an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_app_instance_streaming_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_app_instance_streaming_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_app_instance_streaming_configurations)
         """
 
@@ -761,7 +761,7 @@ class ChimeClient(BaseClient):
         """
         Deletes an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_app_instance_user)
         """
 
@@ -770,7 +770,7 @@ class ChimeClient(BaseClient):
         Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
         their `JoinToken`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_attendee)
         """
 
@@ -779,7 +779,7 @@ class ChimeClient(BaseClient):
         Immediately makes a channel and its memberships inaccessible and marks them for
         deletion.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_channel)
         """
 
@@ -789,7 +789,7 @@ class ChimeClient(BaseClient):
         """
         Removes a user from a channel's ban list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_channel_ban)
         """
 
@@ -799,7 +799,7 @@ class ChimeClient(BaseClient):
         """
         Removes a member from a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_channel_membership)
         """
 
@@ -809,7 +809,7 @@ class ChimeClient(BaseClient):
         """
         Deletes a channel message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_channel_message)
         """
 
@@ -819,7 +819,7 @@ class ChimeClient(BaseClient):
         """
         Deletes a channel moderator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_channel_moderator)
         """
 
@@ -827,7 +827,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the events configuration that allows a bot to receive outgoing events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_events_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_events_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_events_configuration)
         """
 
@@ -835,7 +835,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the media capture pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_media_capture_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_media_capture_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_media_capture_pipeline)
         """
 
@@ -843,7 +843,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_meeting)
         """
 
@@ -851,7 +851,7 @@ class ChimeClient(BaseClient):
         """
         Moves the specified phone number into the **Deletion queue**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_phone_number)
         """
 
@@ -860,7 +860,7 @@ class ChimeClient(BaseClient):
         Deletes the specified proxy session from the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_proxy_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_proxy_session)
         """
 
@@ -868,7 +868,7 @@ class ChimeClient(BaseClient):
         """
         Deletes a chat room in an Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_room)
         """
 
@@ -876,7 +876,7 @@ class ChimeClient(BaseClient):
         """
         Removes a member from a chat room in an Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_room_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_room_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_room_membership)
         """
 
@@ -884,7 +884,7 @@ class ChimeClient(BaseClient):
         """
         Deletes a SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_sip_media_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_sip_media_application)
         """
 
@@ -892,7 +892,7 @@ class ChimeClient(BaseClient):
         """
         Deletes a SIP rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_sip_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_sip_rule)
         """
 
@@ -900,7 +900,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector)
         """
 
@@ -911,7 +911,7 @@ class ChimeClient(BaseClient):
         Deletes the emergency calling configuration details from the specified Amazon
         Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_emergency_calling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_emergency_calling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_emergency_calling_configuration)
         """
 
@@ -919,7 +919,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the specified Amazon Chime Voice Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_group)
         """
 
@@ -927,7 +927,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the origination settings for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_origination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_origination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_origination)
         """
 
@@ -935,7 +935,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_proxy)
         """
 
@@ -944,7 +944,7 @@ class ChimeClient(BaseClient):
         Deletes the streaming configuration for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_streaming_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_streaming_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_streaming_configuration)
         """
 
@@ -952,7 +952,7 @@ class ChimeClient(BaseClient):
         """
         Deletes the termination settings for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_termination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_termination)
         """
 
@@ -963,7 +963,7 @@ class ChimeClient(BaseClient):
         Deletes the specified SIP credentials used by your equipment to authenticate
         during call termination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.delete_voice_connector_termination_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.delete_voice_connector_termination_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#delete_voice_connector_termination_credentials)
         """
 
@@ -971,7 +971,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_app_instance)
         """
 
@@ -981,7 +981,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of an `AppInstanceAdmin`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_app_instance_admin)
         """
 
@@ -991,7 +991,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_app_instance_user)
         """
 
@@ -1001,7 +1001,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of a channel in an Amazon Chime `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel)
         """
 
@@ -1011,7 +1011,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of a channel ban.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel_ban)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel_ban)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel_ban)
         """
 
@@ -1021,7 +1021,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of a user's channel membership.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel_membership)
         """
 
@@ -1032,7 +1032,7 @@ class ChimeClient(BaseClient):
         Returns the details of a channel based on the membership of the specified
         `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel_membership_for_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel_membership_for_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel_membership_for_app_instance_user)
         """
 
@@ -1043,7 +1043,7 @@ class ChimeClient(BaseClient):
         Returns the full details of a channel moderated by the specified
         `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel_moderated_by_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel_moderated_by_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel_moderated_by_app_instance_user)
         """
 
@@ -1053,7 +1053,7 @@ class ChimeClient(BaseClient):
         """
         Returns the full details of a single ChannelModerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.describe_channel_moderator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.describe_channel_moderator)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#describe_channel_moderator)
         """
 
@@ -1062,7 +1062,7 @@ class ChimeClient(BaseClient):
         Disassociates the primary provisioned phone number from the specified Amazon
         Chime user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.disassociate_phone_number_from_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.disassociate_phone_number_from_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#disassociate_phone_number_from_user)
         """
 
@@ -1073,7 +1073,7 @@ class ChimeClient(BaseClient):
         Disassociates the specified phone numbers from the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.disassociate_phone_numbers_from_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.disassociate_phone_numbers_from_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#disassociate_phone_numbers_from_voice_connector)
         """
 
@@ -1084,7 +1084,7 @@ class ChimeClient(BaseClient):
         Disassociates the specified phone numbers from the specified Amazon Chime Voice
         Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.disassociate_phone_numbers_from_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.disassociate_phone_numbers_from_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#disassociate_phone_numbers_from_voice_connector_group)
         """
 
@@ -1095,7 +1095,7 @@ class ChimeClient(BaseClient):
         Disassociates the specified sign-in delegate groups from the specified Amazon
         Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.disassociate_signin_delegate_groups_from_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.disassociate_signin_delegate_groups_from_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#disassociate_signin_delegate_groups_from_account)
         """
 
@@ -1109,7 +1109,7 @@ class ChimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#generate_presigned_url)
         """
 
@@ -1118,7 +1118,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified Amazon Chime account, such as account type
         and supported licenses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_account)
         """
 
@@ -1127,7 +1127,7 @@ class ChimeClient(BaseClient):
         Retrieves account settings for the specified Amazon Chime account ID, such as
         remote control and dialout settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_account_settings)
         """
 
@@ -1137,7 +1137,7 @@ class ChimeClient(BaseClient):
         """
         Gets the retention settings for an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_app_instance_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_app_instance_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_app_instance_retention_settings)
         """
 
@@ -1147,7 +1147,7 @@ class ChimeClient(BaseClient):
         """
         Gets the streaming settings for an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_app_instance_streaming_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_app_instance_streaming_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_app_instance_streaming_configurations)
         """
 
@@ -1156,7 +1156,7 @@ class ChimeClient(BaseClient):
         Gets the Amazon Chime SDK attendee details for a specified meeting ID and
         attendee ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_attendee)
         """
 
@@ -1165,7 +1165,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified bot, such as bot email address, bot type,
         status, and display name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_bot)
         """
 
@@ -1175,7 +1175,7 @@ class ChimeClient(BaseClient):
         """
         Gets the full details of a channel message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_channel_message)
         """
 
@@ -1186,7 +1186,7 @@ class ChimeClient(BaseClient):
         Gets details for an events configuration that allows a bot to receive outgoing
         events, such as an HTTPS endpoint or Lambda function ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_events_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_events_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_events_configuration)
         """
 
@@ -1195,7 +1195,7 @@ class ChimeClient(BaseClient):
         Retrieves global settings for the administrator's AWS account, such as Amazon
         Chime Business Calling and Amazon Chime Voice Connector settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_global_settings)
         """
 
@@ -1205,7 +1205,7 @@ class ChimeClient(BaseClient):
         """
         Gets an existing media capture pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_media_capture_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_media_capture_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_media_capture_pipeline)
         """
 
@@ -1213,7 +1213,7 @@ class ChimeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_meeting)
         """
 
@@ -1221,7 +1221,7 @@ class ChimeClient(BaseClient):
         """
         The details of the endpoint for the messaging session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_messaging_session_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_messaging_session_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_messaging_session_endpoint)
         """
 
@@ -1230,7 +1230,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified phone number ID, such as associations,
         capabilities, and product type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_phone_number)
         """
 
@@ -1242,7 +1242,7 @@ class ChimeClient(BaseClient):
         creation timestamp, phone numbers in E.164 format, product type, and order
         status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_phone_number_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_phone_number_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_phone_number_order)
         """
 
@@ -1251,7 +1251,7 @@ class ChimeClient(BaseClient):
         Retrieves the phone number settings for the administrator's AWS account, such as
         the default outbound calling name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_phone_number_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_phone_number_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_phone_number_settings)
         """
 
@@ -1262,7 +1262,7 @@ class ChimeClient(BaseClient):
         Gets the specified proxy session details for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_proxy_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_proxy_session)
         """
 
@@ -1270,7 +1270,7 @@ class ChimeClient(BaseClient):
         """
         Gets the retention settings for the specified Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_retention_settings)
         """
 
@@ -1279,7 +1279,7 @@ class ChimeClient(BaseClient):
         Retrieves room details, such as the room name, for a room in an Amazon Chime
         Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_room)
         """
 
@@ -1290,7 +1290,7 @@ class ChimeClient(BaseClient):
         Retrieves the information for a SIP media application, including name, AWS
         Region, and endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_sip_media_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_sip_media_application)
         """
 
@@ -1300,7 +1300,7 @@ class ChimeClient(BaseClient):
         """
         Returns the logging configuration for the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_sip_media_application_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_sip_media_application_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_sip_media_application_logging_configuration)
         """
 
@@ -1309,7 +1309,7 @@ class ChimeClient(BaseClient):
         Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
         target endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_sip_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_sip_rule)
         """
 
@@ -1318,7 +1318,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified user ID, such as primary email address,
         license type,and personal meeting PIN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_user)
         """
 
@@ -1327,7 +1327,7 @@ class ChimeClient(BaseClient):
         Retrieves settings for the specified user ID, such as any associated phone
         number settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_user_settings)
         """
 
@@ -1336,7 +1336,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified Amazon Chime Voice Connector, such as
         timestamps,name, outbound host, and encryption requirements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector)
         """
 
@@ -1347,7 +1347,7 @@ class ChimeClient(BaseClient):
         Gets the emergency calling configuration details for the specified Amazon Chime
         Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_emergency_calling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_emergency_calling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_emergency_calling_configuration)
         """
 
@@ -1358,7 +1358,7 @@ class ChimeClient(BaseClient):
         Retrieves details for the specified Amazon Chime Voice Connector group, such as
         timestamps,name, and associated `VoiceConnectorItems`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_group)
         """
 
@@ -1369,7 +1369,7 @@ class ChimeClient(BaseClient):
         Retrieves the logging configuration details for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_logging_configuration)
         """
 
@@ -1380,7 +1380,7 @@ class ChimeClient(BaseClient):
         Retrieves origination setting details for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_origination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_origination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_origination)
         """
 
@@ -1391,7 +1391,7 @@ class ChimeClient(BaseClient):
         Gets the proxy configuration details for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_proxy)
         """
 
@@ -1402,7 +1402,7 @@ class ChimeClient(BaseClient):
         Retrieves the streaming configuration details for the specified Amazon Chime
         Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_streaming_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_streaming_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_streaming_configuration)
         """
 
@@ -1413,7 +1413,7 @@ class ChimeClient(BaseClient):
         Retrieves termination setting details for the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_termination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_termination)
         """
 
@@ -1423,7 +1423,7 @@ class ChimeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.get_voice_connector_termination_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.get_voice_connector_termination_health)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#get_voice_connector_termination_health)
         """
 
@@ -1434,7 +1434,7 @@ class ChimeClient(BaseClient):
         Sends email to a maximum of 50 users, inviting them to the specified Amazon
         Chime `Team` account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.invite_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.invite_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#invite_users)
         """
 
@@ -1449,7 +1449,7 @@ class ChimeClient(BaseClient):
         """
         Lists the Amazon Chime accounts under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_accounts)
         """
 
@@ -1459,7 +1459,7 @@ class ChimeClient(BaseClient):
         """
         Returns a list of the administrators in the `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_app_instance_admins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_app_instance_admins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_app_instance_admins)
         """
 
@@ -1469,7 +1469,7 @@ class ChimeClient(BaseClient):
         """
         List all `AppInstanceUsers` created under a single `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_app_instance_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_app_instance_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_app_instance_users)
         """
 
@@ -1479,7 +1479,7 @@ class ChimeClient(BaseClient):
         """
         Lists all Amazon Chime `AppInstance`s created under a single AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_app_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_app_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_app_instances)
         """
 
@@ -1489,7 +1489,7 @@ class ChimeClient(BaseClient):
         """
         Lists the tags applied to an Amazon Chime SDK attendee resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_attendee_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_attendee_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_attendee_tags)
         """
 
@@ -1499,7 +1499,7 @@ class ChimeClient(BaseClient):
         """
         Lists the attendees for the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_attendees)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_attendees)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_attendees)
         """
 
@@ -1510,7 +1510,7 @@ class ChimeClient(BaseClient):
         Lists the bots associated with the administrator's Amazon Chime Enterprise
         account ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_bots)
         """
 
@@ -1525,7 +1525,7 @@ class ChimeClient(BaseClient):
         """
         Lists all the users banned from a particular channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channel_bans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channel_bans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channel_bans)
         """
 
@@ -1541,7 +1541,7 @@ class ChimeClient(BaseClient):
         """
         Lists all channel memberships in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channel_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channel_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channel_memberships)
         """
 
@@ -1556,7 +1556,7 @@ class ChimeClient(BaseClient):
         """
         Lists all channels that a particular `AppInstanceUser` is a part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channel_memberships_for_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channel_memberships_for_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channel_memberships_for_app_instance_user)
         """
 
@@ -1574,7 +1574,7 @@ class ChimeClient(BaseClient):
         """
         List all the messages in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channel_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channel_messages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channel_messages)
         """
 
@@ -1589,7 +1589,7 @@ class ChimeClient(BaseClient):
         """
         Lists all the moderators for a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channel_moderators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channel_moderators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channel_moderators)
         """
 
@@ -1605,7 +1605,7 @@ class ChimeClient(BaseClient):
         """
         Lists all Channels created under a single Chime App as a paginated list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channels)
         """
 
@@ -1620,7 +1620,7 @@ class ChimeClient(BaseClient):
         """
         A list of the channels moderated by an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_channels_moderated_by_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_channels_moderated_by_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_channels_moderated_by_app_instance_user)
         """
 
@@ -1630,7 +1630,7 @@ class ChimeClient(BaseClient):
         """
         Returns a list of media capture pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_media_capture_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_media_capture_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_media_capture_pipelines)
         """
 
@@ -1638,7 +1638,7 @@ class ChimeClient(BaseClient):
         """
         Lists the tags applied to an Amazon Chime SDK meeting resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_meeting_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_meeting_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_meeting_tags)
         """
 
@@ -1648,7 +1648,7 @@ class ChimeClient(BaseClient):
         """
         Lists up to 100 active Amazon Chime SDK meetings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_meetings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_meetings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_meetings)
         """
 
@@ -1658,7 +1658,7 @@ class ChimeClient(BaseClient):
         """
         Lists the phone number orders for the administrator's Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_phone_number_orders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_phone_number_orders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_phone_number_orders)
         """
 
@@ -1676,7 +1676,7 @@ class ChimeClient(BaseClient):
         Lists the phone numbers for the specified Amazon Chime account, Amazon Chime
         user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_phone_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_phone_numbers)
         """
 
@@ -1691,7 +1691,7 @@ class ChimeClient(BaseClient):
         """
         Lists the proxy sessions for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_proxy_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_proxy_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_proxy_sessions)
         """
 
@@ -1702,7 +1702,7 @@ class ChimeClient(BaseClient):
         Lists the membership details for the specified room in an Amazon Chime
         Enterprise account, such as the members' IDs, email addresses, and names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_room_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_room_memberships)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_room_memberships)
         """
 
@@ -1712,7 +1712,7 @@ class ChimeClient(BaseClient):
         """
         Lists the room details for the specified Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_rooms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_rooms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_rooms)
         """
 
@@ -1722,7 +1722,7 @@ class ChimeClient(BaseClient):
         """
         Lists the SIP media applications under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_sip_media_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_sip_media_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_sip_media_applications)
         """
 
@@ -1732,7 +1732,7 @@ class ChimeClient(BaseClient):
         """
         Lists the SIP rules under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_sip_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_sip_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_sip_rules)
         """
 
@@ -1742,7 +1742,7 @@ class ChimeClient(BaseClient):
         """
         Lists supported phone number countries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_supported_phone_number_countries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_supported_phone_number_countries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_supported_phone_number_countries)
         """
 
@@ -1750,7 +1750,7 @@ class ChimeClient(BaseClient):
         """
         Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_tags_for_resource)
         """
 
@@ -1766,7 +1766,7 @@ class ChimeClient(BaseClient):
         """
         Lists the users that belong to the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_users)
         """
 
@@ -1777,7 +1777,7 @@ class ChimeClient(BaseClient):
         Lists the Amazon Chime Voice Connector groups for the administrator's AWS
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_voice_connector_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_voice_connector_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_voice_connector_groups)
         """
 
@@ -1787,7 +1787,7 @@ class ChimeClient(BaseClient):
         """
         Lists the SIP credentials for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_voice_connector_termination_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_voice_connector_termination_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_voice_connector_termination_credentials)
         """
 
@@ -1797,7 +1797,7 @@ class ChimeClient(BaseClient):
         """
         Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.list_voice_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.list_voice_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#list_voice_connectors)
         """
 
@@ -1806,7 +1806,7 @@ class ChimeClient(BaseClient):
         Logs out the specified user from all of the devices they are currently logged
         into.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.logout_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.logout_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#logout_user)
         """
 
@@ -1819,7 +1819,7 @@ class ChimeClient(BaseClient):
         """
         Sets the amount of time in days that a given `AppInstance` retains data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_app_instance_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_app_instance_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_app_instance_retention_settings)
         """
 
@@ -1832,7 +1832,7 @@ class ChimeClient(BaseClient):
         """
         The data streaming configurations of an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_app_instance_streaming_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_app_instance_streaming_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_app_instance_streaming_configurations)
         """
 
@@ -1848,7 +1848,7 @@ class ChimeClient(BaseClient):
         Creates an events configuration that allows a bot to receive outgoing events
         sent by Amazon Chime.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_events_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_events_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_events_configuration)
         """
 
@@ -1858,7 +1858,7 @@ class ChimeClient(BaseClient):
         """
         Puts retention settings for the specified Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_retention_settings)
         """
 
@@ -1871,7 +1871,7 @@ class ChimeClient(BaseClient):
         """
         Updates the logging configuration for the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_sip_media_application_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_sip_media_application_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_sip_media_application_logging_configuration)
         """
 
@@ -1885,7 +1885,7 @@ class ChimeClient(BaseClient):
         Puts emergency calling configuration details to the specified Amazon Chime Voice
         Connector, such as emergency phone numbers and calling countries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_emergency_calling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_emergency_calling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_emergency_calling_configuration)
         """
 
@@ -1895,7 +1895,7 @@ class ChimeClient(BaseClient):
         """
         Adds a logging configuration for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_logging_configuration)
         """
 
@@ -1905,7 +1905,7 @@ class ChimeClient(BaseClient):
         """
         Adds origination settings for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_origination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_origination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_origination)
         """
 
@@ -1922,7 +1922,7 @@ class ChimeClient(BaseClient):
         Puts the specified proxy configuration to the specified Amazon Chime Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_proxy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_proxy)
         """
 
@@ -1932,7 +1932,7 @@ class ChimeClient(BaseClient):
         """
         Adds a streaming configuration for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_streaming_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_streaming_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_streaming_configuration)
         """
 
@@ -1942,7 +1942,7 @@ class ChimeClient(BaseClient):
         """
         Adds termination settings for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_termination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_termination)
         """
 
@@ -1952,7 +1952,7 @@ class ChimeClient(BaseClient):
         """
         Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.put_voice_connector_termination_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.put_voice_connector_termination_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#put_voice_connector_termination_credentials)
         """
 
@@ -1962,7 +1962,7 @@ class ChimeClient(BaseClient):
         """
         Redacts message content, but not metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.redact_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.redact_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#redact_channel_message)
         """
 
@@ -1972,7 +1972,7 @@ class ChimeClient(BaseClient):
         """
         Redacts the specified message from the specified Amazon Chime conversation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.redact_conversation_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.redact_conversation_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#redact_conversation_message)
         """
 
@@ -1980,7 +1980,7 @@ class ChimeClient(BaseClient):
         """
         Redacts the specified message from the specified Amazon Chime channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.redact_room_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.redact_room_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#redact_room_message)
         """
 
@@ -1990,7 +1990,7 @@ class ChimeClient(BaseClient):
         """
         Regenerates the security token for a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.regenerate_security_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.regenerate_security_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#regenerate_security_token)
         """
 
@@ -1999,7 +1999,7 @@ class ChimeClient(BaseClient):
         Resets the personal meeting PIN for the specified user on an Amazon Chime
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.reset_personal_pin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.reset_personal_pin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#reset_personal_pin)
         """
 
@@ -2008,7 +2008,7 @@ class ChimeClient(BaseClient):
         Moves a phone number from the **Deletion queue** back into the phone number
         **Inventory**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.restore_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.restore_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#restore_phone_number)
         """
 
@@ -2027,7 +2027,7 @@ class ChimeClient(BaseClient):
         """
         Searches for phone numbers that can be ordered.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.search_available_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.search_available_phone_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#search_available_phone_numbers)
         """
 
@@ -2045,7 +2045,7 @@ class ChimeClient(BaseClient):
         """
         Sends a message to a particular channel that the member is a part of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.send_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.send_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#send_channel_message)
         """
 
@@ -2055,7 +2055,7 @@ class ChimeClient(BaseClient):
         """
         Starts transcription for the specified `meetingId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.start_meeting_transcription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.start_meeting_transcription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#start_meeting_transcription)
         """
 
@@ -2063,7 +2063,7 @@ class ChimeClient(BaseClient):
         """
         Stops transcription for the specified `meetingId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.stop_meeting_transcription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.stop_meeting_transcription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#stop_meeting_transcription)
         """
 
@@ -2071,7 +2071,7 @@ class ChimeClient(BaseClient):
         """
         Applies the specified tags to the specified Amazon Chime attendee.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.tag_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.tag_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#tag_attendee)
         """
 
@@ -2079,7 +2079,7 @@ class ChimeClient(BaseClient):
         """
         Applies the specified tags to the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.tag_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.tag_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#tag_meeting)
         """
 
@@ -2087,7 +2087,7 @@ class ChimeClient(BaseClient):
         """
         Applies the specified tags to the specified Amazon Chime SDK meeting resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#tag_resource)
         """
 
@@ -2095,7 +2095,7 @@ class ChimeClient(BaseClient):
         """
         Untags the specified tags from the specified Amazon Chime SDK attendee.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.untag_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.untag_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#untag_attendee)
         """
 
@@ -2103,7 +2103,7 @@ class ChimeClient(BaseClient):
         """
         Untags the specified tags from the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.untag_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.untag_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#untag_meeting)
         """
 
@@ -2111,7 +2111,7 @@ class ChimeClient(BaseClient):
         """
         Untags the specified tags from the specified Amazon Chime SDK meeting resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#untag_resource)
         """
 
@@ -2121,7 +2121,7 @@ class ChimeClient(BaseClient):
         """
         Updates account details for the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_account)
         """
 
@@ -2131,7 +2131,7 @@ class ChimeClient(BaseClient):
         """
         Updates the settings for the specified Amazon Chime account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_account_settings)
         """
 
@@ -2141,7 +2141,7 @@ class ChimeClient(BaseClient):
         """
         Updates `AppInstance` metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_app_instance)
         """
 
@@ -2151,7 +2151,7 @@ class ChimeClient(BaseClient):
         """
         Updates the details of an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_app_instance_user)
         """
 
@@ -2162,7 +2162,7 @@ class ChimeClient(BaseClient):
         Updates the status of the specified bot, such as starting or stopping the bot
         from running in your Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_bot)
         """
 
@@ -2178,7 +2178,7 @@ class ChimeClient(BaseClient):
         """
         Update a channel's attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_channel)
         """
 
@@ -2194,7 +2194,7 @@ class ChimeClient(BaseClient):
         """
         Updates the content of a message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_channel_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_channel_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_channel_message)
         """
 
@@ -2204,7 +2204,7 @@ class ChimeClient(BaseClient):
         """
         The details of the time when a user last read messages in a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_channel_read_marker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_channel_read_marker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_channel_read_marker)
         """
 
@@ -2218,7 +2218,7 @@ class ChimeClient(BaseClient):
         Updates global settings for the administrator's AWS account, such as Amazon
         Chime Business Calling and Amazon Chime Voice Connector settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_global_settings)
         """
 
@@ -2233,7 +2233,7 @@ class ChimeClient(BaseClient):
         Updates phone number details, such as product type or calling name, for the
         specified phone number ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_phone_number)
         """
 
@@ -2242,7 +2242,7 @@ class ChimeClient(BaseClient):
         Updates the phone number settings for the administrator's AWS account, such as
         the default outbound calling name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_phone_number_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_phone_number_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_phone_number_settings)
         """
 
@@ -2257,7 +2257,7 @@ class ChimeClient(BaseClient):
         """
         Updates the specified proxy session details, such as voice or SMS capabilities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_proxy_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_proxy_session)
         """
 
@@ -2268,7 +2268,7 @@ class ChimeClient(BaseClient):
         Updates room details, such as the room name, for a room in an Amazon Chime
         Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_room)
         """
 
@@ -2279,7 +2279,7 @@ class ChimeClient(BaseClient):
         Updates room membership details, such as the member role, for a room in an
         Amazon Chime Enterprise account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_room_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_room_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_room_membership)
         """
 
@@ -2293,7 +2293,7 @@ class ChimeClient(BaseClient):
         """
         Updates the details of the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_sip_media_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_sip_media_application)
         """
 
@@ -2304,7 +2304,7 @@ class ChimeClient(BaseClient):
         Invokes the AWS Lambda function associated with the SIP media application and
         transaction ID in an update request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_sip_media_application_call)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_sip_media_application_call)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_sip_media_application_call)
         """
 
@@ -2319,7 +2319,7 @@ class ChimeClient(BaseClient):
         """
         Updates the details of the specified SIP rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_sip_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_sip_rule)
         """
 
@@ -2335,7 +2335,7 @@ class ChimeClient(BaseClient):
         """
         Updates user details for a specified user ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_user)
         """
 
@@ -2345,7 +2345,7 @@ class ChimeClient(BaseClient):
         """
         Updates the settings for the specified user, such as phone number settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_user_settings)
         """
 
@@ -2355,7 +2355,7 @@ class ChimeClient(BaseClient):
         """
         Updates details for the specified Amazon Chime Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_voice_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_voice_connector)
         """
 
@@ -2370,7 +2370,7 @@ class ChimeClient(BaseClient):
         Updates details of the specified Amazon Chime Voice Connector group, such as the
         name and Amazon Chime Voice Connector priority ranking.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.update_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.update_voice_connector_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#update_voice_connector_group)
         """
 
@@ -2389,20 +2389,20 @@ class ChimeClient(BaseClient):
         Validates an address to be used for 911 calls made with Amazon Chime Voice
         Connectors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Client.validate_e911_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Client.validate_e911_address)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/client.html#validate_e911_address)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_accounts"]) -> ListAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Paginator.ListAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Paginator.ListAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listaccountspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime.html#Chime.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime.html#Chime.Paginator.ListUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listuserspaginator)
         """

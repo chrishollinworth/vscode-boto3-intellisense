@@ -27,12 +27,12 @@ __all__ = ("SuccessfulSigningJobWaiter",)
 
 class SuccessfulSigningJobWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html#successfulsigningjobwaiter)
     """
 
     def wait(self, *, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html#successfulsigningjobwaiter)
         """

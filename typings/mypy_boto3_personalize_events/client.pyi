@@ -42,7 +42,7 @@ class Exceptions:
 
 class PersonalizeEventsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html)
     """
 
@@ -58,7 +58,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#can_paginate)
         """
 
@@ -66,7 +66,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#close)
         """
 
@@ -80,7 +80,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#generate_presigned_url)
         """
 
@@ -90,7 +90,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Records action interaction event data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.put_action_interactions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_action_interactions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_action_interactions)
         """
 
@@ -98,7 +98,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Adds one or more actions to an Actions dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.put_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_actions)
         """
 
@@ -113,7 +113,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Records item interaction event data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.put_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_events)
         """
 
@@ -121,7 +121,7 @@ class PersonalizeEventsClient(BaseClient):
         """
         Adds one or more items to an Items dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.put_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_items)
         """
 
@@ -129,6 +129,6 @@ class PersonalizeEventsClient(BaseClient):
         """
         Adds one or more users to a Users dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize-events.html#PersonalizeEvents.Client.put_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_users)
         """

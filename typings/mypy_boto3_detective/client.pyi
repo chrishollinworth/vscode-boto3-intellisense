@@ -63,7 +63,7 @@ class Exceptions:
 
 class DetectiveClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html)
     """
 
@@ -80,7 +80,7 @@ class DetectiveClient(BaseClient):
         Accepts an invitation for the member account to contribute data to a behavior
         graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.accept_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.accept_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#accept_invitation)
         """
 
@@ -90,7 +90,7 @@ class DetectiveClient(BaseClient):
         """
         Gets data source package information for the behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.batch_get_graph_member_datasources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.batch_get_graph_member_datasources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#batch_get_graph_member_datasources)
         """
 
@@ -100,7 +100,7 @@ class DetectiveClient(BaseClient):
         """
         Gets information on the data source package history for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.batch_get_membership_datasources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.batch_get_membership_datasources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#batch_get_membership_datasources)
         """
 
@@ -108,7 +108,7 @@ class DetectiveClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#can_paginate)
         """
 
@@ -116,7 +116,7 @@ class DetectiveClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#close)
         """
 
@@ -125,7 +125,7 @@ class DetectiveClient(BaseClient):
         Creates a new behavior graph for the calling account, and sets that account as
         the administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.create_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.create_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#create_graph)
         """
 
@@ -140,7 +140,7 @@ class DetectiveClient(BaseClient):
         """
         `CreateMembers` is used to send invitations to accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.create_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.create_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#create_members)
         """
 
@@ -148,7 +148,7 @@ class DetectiveClient(BaseClient):
         """
         Disables the specified behavior graph and queues it to be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.delete_graph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.delete_graph)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#delete_graph)
         """
 
@@ -158,7 +158,7 @@ class DetectiveClient(BaseClient):
         """
         Removes the specified member accounts from the behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.delete_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.delete_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#delete_members)
         """
 
@@ -168,7 +168,7 @@ class DetectiveClient(BaseClient):
         """
         Returns information about the configuration for the organization behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.describe_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.describe_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#describe_organization_configuration)
         """
 
@@ -176,7 +176,7 @@ class DetectiveClient(BaseClient):
         """
         Removes the Detective administrator account in the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.disable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.disable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#disable_organization_admin_account)
         """
 
@@ -184,7 +184,7 @@ class DetectiveClient(BaseClient):
         """
         Removes the member account from the specified behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.disassociate_membership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.disassociate_membership)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#disassociate_membership)
         """
 
@@ -193,7 +193,7 @@ class DetectiveClient(BaseClient):
         Designates the Detective administrator account for the organization in the
         current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.enable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.enable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#enable_organization_admin_account)
         """
 
@@ -207,7 +207,7 @@ class DetectiveClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#generate_presigned_url)
         """
 
@@ -218,7 +218,7 @@ class DetectiveClient(BaseClient):
         Detective investigations lets you investigate IAM users and IAM roles using
         indicators of compromise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.get_investigation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.get_investigation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#get_investigation)
         """
 
@@ -227,7 +227,7 @@ class DetectiveClient(BaseClient):
         Returns the membership details for specified member accounts for a behavior
         graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.get_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.get_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#get_members)
         """
 
@@ -237,7 +237,7 @@ class DetectiveClient(BaseClient):
         """
         Lists data source packages in the behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_datasource_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_datasource_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_datasource_packages)
         """
 
@@ -248,7 +248,7 @@ class DetectiveClient(BaseClient):
         Returns the list of behavior graphs that the calling account is an administrator
         account of.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_graphs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_graphs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_graphs)
         """
 
@@ -264,7 +264,7 @@ class DetectiveClient(BaseClient):
         """
         Gets the indicators from an investigation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_indicators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_indicators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_indicators)
         """
 
@@ -281,7 +281,7 @@ class DetectiveClient(BaseClient):
         Detective investigations lets you investigate IAM users and IAM roles using
         indicators of compromise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_investigations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_investigations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_investigations)
         """
 
@@ -292,7 +292,7 @@ class DetectiveClient(BaseClient):
         Retrieves the list of open and accepted behavior graph invitations for the
         member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_invitations)
         """
 
@@ -302,7 +302,7 @@ class DetectiveClient(BaseClient):
         """
         Retrieves the list of member accounts for a behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_members)
         """
 
@@ -313,7 +313,7 @@ class DetectiveClient(BaseClient):
         Returns information about the Detective administrator account for an
         organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_organization_admin_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_organization_admin_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_organization_admin_accounts)
         """
 
@@ -321,7 +321,7 @@ class DetectiveClient(BaseClient):
         """
         Returns the tag values that are assigned to a behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#list_tags_for_resource)
         """
 
@@ -329,7 +329,7 @@ class DetectiveClient(BaseClient):
         """
         Rejects an invitation to contribute the account data to a behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.reject_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.reject_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#reject_invitation)
         """
 
@@ -345,7 +345,7 @@ class DetectiveClient(BaseClient):
         Detective investigations lets you investigate IAM users and IAM roles using
         indicators of compromise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.start_investigation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.start_investigation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#start_investigation)
         """
 
@@ -354,7 +354,7 @@ class DetectiveClient(BaseClient):
         Sends a request to enable data ingest for a member account that has a status of
         `ACCEPTED_BUT_DISABLED`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.start_monitoring_member)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.start_monitoring_member)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#start_monitoring_member)
         """
 
@@ -362,7 +362,7 @@ class DetectiveClient(BaseClient):
         """
         Applies tag values to a behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#tag_resource)
         """
 
@@ -370,7 +370,7 @@ class DetectiveClient(BaseClient):
         """
         Removes tags from a behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#untag_resource)
         """
 
@@ -380,7 +380,7 @@ class DetectiveClient(BaseClient):
         """
         Starts a data source packages for the behavior graph.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.update_datasource_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.update_datasource_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#update_datasource_packages)
         """
 
@@ -390,7 +390,7 @@ class DetectiveClient(BaseClient):
         """
         Updates the state of an investigation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.update_investigation_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.update_investigation_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#update_investigation_state)
         """
 
@@ -399,6 +399,6 @@ class DetectiveClient(BaseClient):
         Updates the configuration for the Organizations integration in the current
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/detective.html#Detective.Client.update_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/detective.html#Detective.Client.update_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/client.html#update_organization_configuration)
         """

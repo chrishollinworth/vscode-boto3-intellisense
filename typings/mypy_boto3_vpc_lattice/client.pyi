@@ -108,7 +108,7 @@ class Exceptions:
 
 class VPCLatticeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html)
     """
 
@@ -126,7 +126,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the listener rules in a batch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.batch_update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.batch_update_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#batch_update_rule)
         """
 
@@ -134,7 +134,7 @@ class VPCLatticeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#can_paginate)
         """
 
@@ -142,7 +142,7 @@ class VPCLatticeClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#close)
         """
 
@@ -158,7 +158,7 @@ class VPCLatticeClient(BaseClient):
         Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon
         Kinesis Data Firehose.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_access_log_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_access_log_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_access_log_subscription)
         """
 
@@ -176,7 +176,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates a listener for a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_listener)
         """
 
@@ -195,7 +195,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates a listener rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_rule)
         """
 
@@ -212,7 +212,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_service)
         """
 
@@ -227,7 +227,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates a service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_service_network)
         """
 
@@ -242,7 +242,7 @@ class VPCLatticeClient(BaseClient):
         """
         Associates a service with a service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network_service_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network_service_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_service_network_service_association)
         """
 
@@ -258,7 +258,7 @@ class VPCLatticeClient(BaseClient):
         """
         Associates a VPC with a service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network_vpc_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_service_network_vpc_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_service_network_vpc_association)
         """
 
@@ -274,7 +274,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates a target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.create_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.create_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#create_target_group)
         """
 
@@ -284,7 +284,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes the specified access log subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_access_log_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_access_log_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_access_log_subscription)
         """
 
@@ -292,7 +292,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes the specified auth policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_auth_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_auth_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_auth_policy)
         """
 
@@ -300,7 +300,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes the specified listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_listener)
         """
 
@@ -308,7 +308,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes the specified resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_resource_policy)
         """
 
@@ -318,7 +318,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes a listener rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_rule)
         """
 
@@ -326,7 +326,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_service)
         """
 
@@ -334,7 +334,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes a service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_service_network)
         """
 
@@ -345,7 +345,7 @@ class VPCLatticeClient(BaseClient):
         Deletes the association between a specified service and the specific service
         network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network_service_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network_service_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_service_network_service_association)
         """
 
@@ -355,7 +355,7 @@ class VPCLatticeClient(BaseClient):
         """
         Disassociates the VPC from the service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network_vpc_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_service_network_vpc_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_service_network_vpc_association)
         """
 
@@ -365,7 +365,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deletes a target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.delete_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.delete_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#delete_target_group)
         """
 
@@ -375,7 +375,7 @@ class VPCLatticeClient(BaseClient):
         """
         Deregisters the specified targets from the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.deregister_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.deregister_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#deregister_targets)
         """
 
@@ -389,7 +389,7 @@ class VPCLatticeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#generate_presigned_url)
         """
 
@@ -399,7 +399,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the specified access log subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_access_log_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_access_log_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_access_log_subscription)
         """
 
@@ -408,7 +408,7 @@ class VPCLatticeClient(BaseClient):
         Retrieves information about the auth policy for the specified service or service
         network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_auth_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_auth_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_auth_policy)
         """
 
@@ -418,7 +418,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the specified listener for the specified service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_listener)
         """
 
@@ -426,7 +426,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_resource_policy)
         """
 
@@ -436,7 +436,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about listener rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_rule)
         """
 
@@ -444,7 +444,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the specified service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_service)
         """
 
@@ -454,7 +454,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the specified service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_service_network)
         """
 
@@ -465,7 +465,7 @@ class VPCLatticeClient(BaseClient):
         Retrieves information about the specified association between a service network
         and a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network_service_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network_service_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_service_network_service_association)
         """
 
@@ -475,7 +475,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the association between a service network and a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network_vpc_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_service_network_vpc_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_service_network_vpc_association)
         """
 
@@ -483,7 +483,7 @@ class VPCLatticeClient(BaseClient):
         """
         Retrieves information about the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.get_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.get_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#get_target_group)
         """
 
@@ -493,7 +493,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists all access log subscriptions for the specified service network or service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_access_log_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_access_log_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_access_log_subscriptions)
         """
 
@@ -503,7 +503,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the listeners for the specified service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_listeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_listeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_listeners)
         """
 
@@ -518,7 +518,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the rules for the listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_rules)
         """
 
@@ -533,7 +533,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the associations between the service network and the service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_network_service_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_network_service_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_service_network_service_associations)
         """
 
@@ -548,7 +548,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the service network and VPC associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_network_vpc_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_network_vpc_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_service_network_vpc_associations)
         """
 
@@ -559,7 +559,7 @@ class VPCLatticeClient(BaseClient):
         Lists the service networks owned by the caller account or shared with the caller
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_networks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_service_networks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_service_networks)
         """
 
@@ -570,7 +570,7 @@ class VPCLatticeClient(BaseClient):
         Lists the services owned by the caller account or shared with the caller
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_services)
         """
 
@@ -578,7 +578,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_tags_for_resource)
         """
 
@@ -593,7 +593,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists your target groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_target_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_target_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_target_groups)
         """
 
@@ -608,7 +608,7 @@ class VPCLatticeClient(BaseClient):
         """
         Lists the targets for the target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.list_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.list_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#list_targets)
         """
 
@@ -618,7 +618,7 @@ class VPCLatticeClient(BaseClient):
         """
         Creates or updates the auth policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.put_auth_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.put_auth_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#put_auth_policy)
         """
 
@@ -626,7 +626,7 @@ class VPCLatticeClient(BaseClient):
         """
         Attaches a resource-based permission policy to a service or service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#put_resource_policy)
         """
 
@@ -636,7 +636,7 @@ class VPCLatticeClient(BaseClient):
         """
         Registers the targets with the target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.register_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.register_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#register_targets)
         """
 
@@ -644,7 +644,7 @@ class VPCLatticeClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#tag_resource)
         """
 
@@ -652,7 +652,7 @@ class VPCLatticeClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#untag_resource)
         """
 
@@ -662,7 +662,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the specified access log subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_access_log_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_access_log_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_access_log_subscription)
         """
 
@@ -672,7 +672,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the specified listener for the specified service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_listener)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_listener)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_listener)
         """
 
@@ -689,7 +689,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates a rule for the listener.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_rule)
         """
 
@@ -699,7 +699,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the specified service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_service)
         """
 
@@ -709,7 +709,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the specified service network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_service_network)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_service_network)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_service_network)
         """
 
@@ -719,7 +719,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the service network and VPC association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_service_network_vpc_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_service_network_vpc_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_service_network_vpc_association)
         """
 
@@ -729,7 +729,7 @@ class VPCLatticeClient(BaseClient):
         """
         Updates the specified target group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Client.update_target_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Client.update_target_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/client.html#update_target_group)
         """
 
@@ -738,21 +738,21 @@ class VPCLatticeClient(BaseClient):
         self, operation_name: Literal["list_access_log_subscriptions"]
     ) -> ListAccessLogSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListAccessLogSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listaccesslogsubscriptionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_listeners"]) -> ListListenersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListListeners)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listlistenerspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listrulespaginator)
         """
 
@@ -761,7 +761,7 @@ class VPCLatticeClient(BaseClient):
         self, operation_name: Literal["list_service_network_service_associations"]
     ) -> ListServiceNetworkServiceAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkServiceAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkserviceassociationspaginator)
         """
 
@@ -770,7 +770,7 @@ class VPCLatticeClient(BaseClient):
         self, operation_name: Literal["list_service_network_vpc_associations"]
     ) -> ListServiceNetworkVpcAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworkVpcAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkvpcassociationspaginator)
         """
 
@@ -779,14 +779,14 @@ class VPCLatticeClient(BaseClient):
         self, operation_name: Literal["list_service_networks"]
     ) -> ListServiceNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServiceNetworks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicenetworkspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListServices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listservicespaginator)
         """
 
@@ -795,13 +795,13 @@ class VPCLatticeClient(BaseClient):
         self, operation_name: Literal["list_target_groups"]
     ) -> ListTargetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetgroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_targets"]) -> ListTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/vpc-lattice.html#VPCLattice.Paginator.ListTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/paginators.html#listtargetspaginator)
         """

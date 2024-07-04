@@ -143,7 +143,7 @@ class Exceptions:
 
 class MediaConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html)
     """
 
@@ -161,7 +161,7 @@ class MediaConnectClient(BaseClient):
         """
         Adds outputs to an existing bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_bridge_outputs)
         """
 
@@ -171,7 +171,7 @@ class MediaConnectClient(BaseClient):
         """
         Adds sources to an existing bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_bridge_sources)
         """
 
@@ -181,7 +181,7 @@ class MediaConnectClient(BaseClient):
         """
         Adds media streams to an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_media_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_media_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_media_streams)
         """
 
@@ -191,7 +191,7 @@ class MediaConnectClient(BaseClient):
         """
         Adds outputs to an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_outputs)
         """
 
@@ -204,7 +204,7 @@ class MediaConnectClient(BaseClient):
         response = client.add_flow_sources( FlowArn='string', Sources=[ { 'Decryption':
         { ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_sources)
         """
 
@@ -217,7 +217,7 @@ class MediaConnectClient(BaseClient):
         Syntax** response = client.add_flow_vpc_interfaces( FlowArn='string',
         VpcInterfaces=[ { 'Nam...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_vpc_interfaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_vpc_interfaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_vpc_interfaces)
         """
 
@@ -225,7 +225,7 @@ class MediaConnectClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#can_paginate)
         """
 
@@ -233,7 +233,7 @@ class MediaConnectClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#close)
         """
 
@@ -251,7 +251,7 @@ class MediaConnectClient(BaseClient):
         """
         Creates a new bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.create_bridge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_bridge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_bridge)
         """
 
@@ -272,7 +272,7 @@ class MediaConnectClient(BaseClient):
         """
         Creates a new flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.create_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_flow)
         """
 
@@ -282,7 +282,7 @@ class MediaConnectClient(BaseClient):
         """
         Creates a new gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.create_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_gateway)
         """
 
@@ -290,7 +290,7 @@ class MediaConnectClient(BaseClient):
         """
         Deletes a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.delete_bridge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_bridge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_bridge)
         """
 
@@ -298,7 +298,7 @@ class MediaConnectClient(BaseClient):
         """
         Deletes a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.delete_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_flow)
         """
 
@@ -306,7 +306,7 @@ class MediaConnectClient(BaseClient):
         """
         Deletes a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.delete_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_gateway)
         """
 
@@ -316,7 +316,7 @@ class MediaConnectClient(BaseClient):
         """
         Deregisters an instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.deregister_gateway_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.deregister_gateway_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#deregister_gateway_instance)
         """
 
@@ -324,7 +324,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_bridge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_bridge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_bridge)
         """
 
@@ -332,7 +332,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_flow)
         """
 
@@ -342,7 +342,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays details of the flow's source stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow_source_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow_source_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_flow_source_metadata)
         """
 
@@ -350,7 +350,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_gateway)
         """
 
@@ -360,7 +360,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of an instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_gateway_instance)
         """
 
@@ -368,7 +368,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of an offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_offering)
         """
 
@@ -376,7 +376,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays the details of a reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.describe_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_reservation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_reservation)
         """
 
@@ -390,7 +390,7 @@ class MediaConnectClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#generate_presigned_url)
         """
 
@@ -400,7 +400,7 @@ class MediaConnectClient(BaseClient):
         """
         Grants entitlements to an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.grant_flow_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.grant_flow_entitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#grant_flow_entitlements)
         """
 
@@ -411,7 +411,7 @@ class MediaConnectClient(BaseClient):
         Displays a list of bridges that are associated with this account and an
         optionally specified Arn.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_bridges)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_bridges)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_bridges)
         """
 
@@ -421,7 +421,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays a list of all entitlements that have been granted to this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_entitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_entitlements)
         """
 
@@ -431,7 +431,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays a list of flows that are associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_flows)
         """
 
@@ -441,7 +441,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays a list of instances associated with the AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_gateway_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_gateway_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_gateway_instances)
         """
 
@@ -451,7 +451,7 @@ class MediaConnectClient(BaseClient):
         """
         Displays a list of gateways that are associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_gateways)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_gateways)
         """
 
@@ -462,7 +462,7 @@ class MediaConnectClient(BaseClient):
         Displays a list of all offerings that are available to this account in the
         current AWS Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_offerings)
         """
 
@@ -473,7 +473,7 @@ class MediaConnectClient(BaseClient):
         Displays a list of all reservations that have been purchased by this account in
         the current AWS Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_reservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_reservations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_reservations)
         """
 
@@ -484,7 +484,7 @@ class MediaConnectClient(BaseClient):
         14/ListTagsForResource>`_ **Request Syntax** response =
         client.list_tags_for_resource( ResourceArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_tags_for_resource)
         """
 
@@ -494,7 +494,7 @@ class MediaConnectClient(BaseClient):
         """
         Submits a request to purchase an offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.purchase_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.purchase_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#purchase_offering)
         """
 
@@ -504,7 +504,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes an output from a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_bridge_output)
         """
 
@@ -514,7 +514,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes a source from a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_bridge_source)
         """
 
@@ -524,7 +524,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes a media stream from a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_media_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_media_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_media_stream)
         """
 
@@ -534,7 +534,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes an output from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_output)
         """
 
@@ -544,7 +544,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes a source from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_source)
         """
 
@@ -554,7 +554,7 @@ class MediaConnectClient(BaseClient):
         """
         Removes a VPC Interface from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_vpc_interface)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_vpc_interface)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_vpc_interface)
         """
 
@@ -564,7 +564,7 @@ class MediaConnectClient(BaseClient):
         """
         Revokes an entitlement from a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.revoke_flow_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.revoke_flow_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#revoke_flow_entitlement)
         """
 
@@ -572,7 +572,7 @@ class MediaConnectClient(BaseClient):
         """
         Starts a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.start_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.start_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#start_flow)
         """
 
@@ -580,7 +580,7 @@ class MediaConnectClient(BaseClient):
         """
         Stops a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.stop_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.stop_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#stop_flow)
         """
 
@@ -588,7 +588,7 @@ class MediaConnectClient(BaseClient):
         """
         Associates the specified tags to a resource with the specified resourceArn.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#tag_resource)
         """
 
@@ -596,7 +596,7 @@ class MediaConnectClient(BaseClient):
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#untag_resource)
         """
 
@@ -614,7 +614,7 @@ class MediaConnectClient(BaseClient):
         **Request Syntax** response = client.update_bridge( BridgeArn='string',
         EgressGatewayBridge={ 'MaxBitrate': 123 }, Ingres...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge)
         """
 
@@ -628,7 +628,7 @@ class MediaConnectClient(BaseClient):
         """
         Updates an existing bridge output.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_output)
         """
 
@@ -643,7 +643,7 @@ class MediaConnectClient(BaseClient):
         """
         Updates an existing bridge source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_source)
         """
 
@@ -656,7 +656,7 @@ class MediaConnectClient(BaseClient):
         Syntax** response = client.update_bridge_state( BridgeArn='string',
         DesiredState='ACTIVE'|'STANDBY'|'DELETED' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_state)
         """
 
@@ -673,7 +673,7 @@ class MediaConnectClient(BaseClient):
         **Request Syntax** response = client.update_flow( FlowArn='string',
         SourceFailoverConfig={ 'FailoverMode': 'MERGE'|'FAILOVER', 'Rec...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow)
         """
 
@@ -690,7 +690,7 @@ class MediaConnectClient(BaseClient):
         """
         You can change an entitlement's description, subscribers, and encryption.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_entitlement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_entitlement)
         """
 
@@ -708,7 +708,7 @@ class MediaConnectClient(BaseClient):
         """
         Updates an existing media stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_media_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_media_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_media_stream)
         """
 
@@ -738,7 +738,7 @@ class MediaConnectClient(BaseClient):
         """
         Updates an existing flow output.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_output)
         """
 
@@ -771,7 +771,7 @@ class MediaConnectClient(BaseClient):
         """
         Updates the source of a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_source)
         """
 
@@ -781,14 +781,14 @@ class MediaConnectClient(BaseClient):
         """
         Updates the configuration of an existing Gateway Instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Client.update_gateway_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_gateway_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_gateway_instance)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_bridges"]) -> ListBridgesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListBridges)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListBridges)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listbridgespaginator)
         """
 
@@ -797,14 +797,14 @@ class MediaConnectClient(BaseClient):
         self, operation_name: Literal["list_entitlements"]
     ) -> ListEntitlementsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_flows"]) -> ListFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
         """
 
@@ -813,21 +813,21 @@ class MediaConnectClient(BaseClient):
         self, operation_name: Literal["list_gateway_instances"]
     ) -> ListGatewayInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGatewayInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGatewayInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayinstancespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGateways)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
         """
 
@@ -836,27 +836,27 @@ class MediaConnectClient(BaseClient):
         self, operation_name: Literal["list_reservations"]
     ) -> ListReservationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["flow_active"]) -> FlowActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["flow_deleted"]) -> FlowDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowdeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["flow_standby"]) -> FlowStandbyWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowstandbywaiter)
         """

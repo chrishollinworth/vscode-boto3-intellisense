@@ -59,6 +59,8 @@ ResourceTypeType = Literal[
     "ElastiCacheReservedInstances",
     "LambdaFunction",
     "OpenSearchReservedInstances",
+    "RdsDbInstance",
+    "RdsDbInstanceStorage",
     "RdsReservedInstances",
     "RedshiftReservedInstances",
     "SageMakerSavingsPlans",

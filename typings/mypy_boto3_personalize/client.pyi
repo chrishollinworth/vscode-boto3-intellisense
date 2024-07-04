@@ -145,7 +145,7 @@ class Exceptions:
 
 class PersonalizeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html)
     """
 
@@ -161,7 +161,7 @@ class PersonalizeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#can_paginate)
         """
 
@@ -169,7 +169,7 @@ class PersonalizeClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#close)
         """
 
@@ -192,7 +192,7 @@ class PersonalizeClient(BaseClient):
         Generates batch recommendations based on a list of items or users stored in
         Amazon S3 and exports the recommendations to an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_batch_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_batch_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_batch_inference_job)
         """
 
@@ -211,7 +211,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates a batch segment job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_batch_segment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_batch_segment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_batch_segment_job)
         """
 
@@ -227,7 +227,7 @@ class PersonalizeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_campaign)
         """
 
@@ -244,7 +244,7 @@ class PersonalizeClient(BaseClient):
         Creates a batch job that deletes all references to specific users from an Amazon
         Personalize dataset group in batches.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_data_deletion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_data_deletion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_data_deletion_job)
         """
 
@@ -260,7 +260,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates an empty dataset and adds it to the specified dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_dataset)
         """
 
@@ -277,7 +277,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates a job that exports data from your dataset to an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_dataset_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_dataset_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_dataset_export_job)
         """
 
@@ -293,7 +293,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates an empty dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_dataset_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_dataset_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_dataset_group)
         """
 
@@ -312,7 +312,7 @@ class PersonalizeClient(BaseClient):
         Creates a job that imports training data from your data source (an Amazon S3
         bucket) to an Amazon Personalize dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_dataset_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_dataset_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_dataset_import_job)
         """
 
@@ -325,7 +325,7 @@ class PersonalizeClient(BaseClient):
         <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html>`__
         API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_event_tracker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_event_tracker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_event_tracker)
         """
 
@@ -340,7 +340,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates a recommendation filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_filter)
         """
 
@@ -355,7 +355,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates a metric attribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_metric_attribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_metric_attribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_metric_attribution)
         """
 
@@ -372,7 +372,7 @@ class PersonalizeClient(BaseClient):
         Creates a recommender with the recipe (a Domain dataset group use case) you
         specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_recommender)
         """
 
@@ -382,7 +382,7 @@ class PersonalizeClient(BaseClient):
         """
         Creates an Amazon Personalize schema from the specified schema string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_schema)
         """
 
@@ -402,7 +402,7 @@ class PersonalizeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_solution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_solution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_solution)
         """
 
@@ -417,7 +417,7 @@ class PersonalizeClient(BaseClient):
         """
         Trains or retrains an active solution in a Custom dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.create_solution_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.create_solution_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#create_solution_version)
         """
 
@@ -425,7 +425,7 @@ class PersonalizeClient(BaseClient):
         """
         Removes a campaign by deleting the solution deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_campaign)
         """
 
@@ -433,7 +433,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_dataset)
         """
 
@@ -441,7 +441,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes a dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_dataset_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_dataset_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_dataset_group)
         """
 
@@ -449,7 +449,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes the event tracker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_event_tracker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_event_tracker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_event_tracker)
         """
 
@@ -457,7 +457,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes a filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_filter)
         """
 
@@ -465,7 +465,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes a metric attribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_metric_attribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_metric_attribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_metric_attribution)
         """
 
@@ -473,7 +473,7 @@ class PersonalizeClient(BaseClient):
         """
         Deactivates and removes a recommender.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_recommender)
         """
 
@@ -481,7 +481,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes a schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_schema)
         """
 
@@ -489,7 +489,7 @@ class PersonalizeClient(BaseClient):
         """
         Deletes all versions of a solution and the `Solution` object itself.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.delete_solution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.delete_solution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#delete_solution)
         """
 
@@ -497,7 +497,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given algorithm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_algorithm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_algorithm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_algorithm)
         """
 
@@ -509,7 +509,7 @@ class PersonalizeClient(BaseClient):
         Name (ARN), status, input and output configurations, and the ARN of the solution
         version used to generate the recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_batch_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_batch_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_batch_inference_job)
         """
 
@@ -521,7 +521,7 @@ class PersonalizeClient(BaseClient):
         (ARN), status, input and output configurations, and the ARN of the solution
         version used to generate segments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_batch_segment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_batch_segment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_batch_segment_job)
         """
 
@@ -529,7 +529,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given campaign, including its status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_campaign)
         """
 
@@ -541,7 +541,7 @@ class PersonalizeClient(BaseClient):
         aws.amazon.com/personalize/latest/dg/API_CreateDataDeletionJob.html>`__,
         including the job status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_data_deletion_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_data_deletion_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_data_deletion_job)
         """
 
@@ -549,7 +549,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_dataset)
         """
 
@@ -561,7 +561,7 @@ class PersonalizeClient(BaseClient):
         s.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html>`__,
         including the export job status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_dataset_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_dataset_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_dataset_export_job)
         """
 
@@ -571,7 +571,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_dataset_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_dataset_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_dataset_group)
         """
 
@@ -583,7 +583,7 @@ class PersonalizeClient(BaseClient):
         s.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html>`__,
         including the import job status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_dataset_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_dataset_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_dataset_import_job)
         """
 
@@ -593,7 +593,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes an event tracker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_event_tracker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_event_tracker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_event_tracker)
         """
 
@@ -603,7 +603,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given feature transformation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_feature_transformation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_feature_transformation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_feature_transformation)
         """
 
@@ -611,7 +611,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a filter's properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_filter)
         """
 
@@ -621,7 +621,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a metric attribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_metric_attribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_metric_attribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_metric_attribution)
         """
 
@@ -629,7 +629,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_recipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_recipe)
         """
 
@@ -637,7 +637,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes the given recommender, including its status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_recommender)
         """
 
@@ -645,7 +645,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a schema.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_schema)
         """
 
@@ -653,7 +653,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a solution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_solution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_solution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_solution)
         """
 
@@ -663,7 +663,7 @@ class PersonalizeClient(BaseClient):
         """
         Describes a specific version of a solution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.describe_solution_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.describe_solution_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#describe_solution_version)
         """
 
@@ -677,7 +677,7 @@ class PersonalizeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#generate_presigned_url)
         """
 
@@ -685,7 +685,7 @@ class PersonalizeClient(BaseClient):
         """
         Gets the metrics for the specified solution version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.get_solution_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.get_solution_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#get_solution_metrics)
         """
 
@@ -696,7 +696,7 @@ class PersonalizeClient(BaseClient):
         Gets a list of the batch inference jobs that have been performed off of a
         solution version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_batch_inference_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_batch_inference_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_batch_inference_jobs)
         """
 
@@ -707,7 +707,7 @@ class PersonalizeClient(BaseClient):
         Gets a list of the batch segment jobs that have been performed off of a solution
         version that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_batch_segment_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_batch_segment_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_batch_segment_jobs)
         """
 
@@ -717,7 +717,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of campaigns that use the given solution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_campaigns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_campaigns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_campaigns)
         """
 
@@ -728,7 +728,7 @@ class PersonalizeClient(BaseClient):
         Returns a list of data deletion jobs for a dataset group ordered by creation
         time, with the most recent first.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_data_deletion_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_data_deletion_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_data_deletion_jobs)
         """
 
@@ -738,7 +738,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of dataset export jobs that use the given dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_dataset_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_dataset_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_dataset_export_jobs)
         """
 
@@ -748,7 +748,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of dataset groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_dataset_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_dataset_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_dataset_groups)
         """
 
@@ -758,7 +758,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of dataset import jobs that use the given dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_dataset_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_dataset_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_dataset_import_jobs)
         """
 
@@ -768,7 +768,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns the list of datasets contained in the given dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_datasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_datasets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_datasets)
         """
 
@@ -778,7 +778,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns the list of event trackers associated with the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_event_trackers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_event_trackers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_event_trackers)
         """
 
@@ -788,7 +788,7 @@ class PersonalizeClient(BaseClient):
         """
         Lists all filters that belong to a given dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_filters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_filters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_filters)
         """
 
@@ -798,7 +798,7 @@ class PersonalizeClient(BaseClient):
         """
         Lists the metrics for the metric attribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_metric_attribution_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_metric_attribution_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_metric_attribution_metrics)
         """
 
@@ -808,7 +808,7 @@ class PersonalizeClient(BaseClient):
         """
         Lists metric attributions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_metric_attributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_metric_attributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_metric_attributions)
         """
 
@@ -823,7 +823,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of available recipes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_recipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_recipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_recipes)
         """
 
@@ -833,7 +833,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of recommenders in a given Domain dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_recommenders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_recommenders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_recommenders)
         """
 
@@ -843,7 +843,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns the list of schemas associated with the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_schemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_schemas)
         """
 
@@ -853,7 +853,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of solution versions for the given solution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_solution_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_solution_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_solution_versions)
         """
 
@@ -863,7 +863,7 @@ class PersonalizeClient(BaseClient):
         """
         Returns a list of solutions in a given dataset group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_solutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_solutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_solutions)
         """
 
@@ -872,7 +872,7 @@ class PersonalizeClient(BaseClient):
         Get a list of `tags <https://docs.aws.amazon.com/personalize/latest/dg/tagging-
         resources.html>`__ attached to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#list_tags_for_resource)
         """
 
@@ -880,7 +880,7 @@ class PersonalizeClient(BaseClient):
         """
         Starts a recommender that is INACTIVE.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.start_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.start_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#start_recommender)
         """
 
@@ -888,7 +888,7 @@ class PersonalizeClient(BaseClient):
         """
         Stops a recommender that is ACTIVE.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.stop_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.stop_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#stop_recommender)
         """
 
@@ -897,7 +897,7 @@ class PersonalizeClient(BaseClient):
         Stops creating a solution version that is in a state of CREATE_PENDING or CREATE
         IN_PROGRESS.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.stop_solution_version_creation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.stop_solution_version_creation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#stop_solution_version_creation)
         """
 
@@ -905,7 +905,7 @@ class PersonalizeClient(BaseClient):
         """
         Add a list of tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#tag_resource)
         """
 
@@ -913,7 +913,7 @@ class PersonalizeClient(BaseClient):
         """
         Removes the specified tags that are attached to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#untag_resource)
         """
 
@@ -930,7 +930,7 @@ class PersonalizeClient(BaseClient):
         campaign, change your campaign's `minProvisionedTPS`, or modify your campaign's
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.update_campaign)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.update_campaign)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#update_campaign)
         """
 
@@ -938,7 +938,7 @@ class PersonalizeClient(BaseClient):
         """
         Update a dataset to replace its schema with a new or existing one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.update_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.update_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#update_dataset)
         """
 
@@ -953,7 +953,7 @@ class PersonalizeClient(BaseClient):
         """
         Updates a metric attribution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.update_metric_attribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.update_metric_attribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#update_metric_attribution)
         """
 
@@ -963,7 +963,7 @@ class PersonalizeClient(BaseClient):
         """
         Updates the recommender to modify the recommender configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Client.update_recommender)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Client.update_recommender)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/client.html#update_recommender)
         """
 
@@ -972,7 +972,7 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_batch_inference_jobs"]
     ) -> ListBatchInferenceJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchinferencejobspaginator)
         """
 
@@ -981,14 +981,14 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_batch_segment_jobs"]
     ) -> ListBatchSegmentJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListBatchSegmentJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listbatchsegmentjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_campaigns"]) -> ListCampaignsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listcampaignspaginator)
         """
 
@@ -997,7 +997,7 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_dataset_export_jobs"]
     ) -> ListDatasetExportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetexportjobspaginator)
         """
 
@@ -1006,7 +1006,7 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_dataset_groups"]
     ) -> ListDatasetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetgroupspaginator)
         """
 
@@ -1015,14 +1015,14 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_dataset_import_jobs"]
     ) -> ListDatasetImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetimportjobspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listdatasetspaginator)
         """
 
@@ -1031,14 +1031,14 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_event_trackers"]
     ) -> ListEventTrackersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listeventtrackerspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_filters"]) -> ListFiltersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListFilters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListFilters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listfilterspaginator)
         """
 
@@ -1047,7 +1047,7 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_metric_attribution_metrics"]
     ) -> ListMetricAttributionMetricsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListMetricAttributionMetrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListMetricAttributionMetrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listmetricattributionmetricspaginator)
         """
 
@@ -1056,14 +1056,14 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_metric_attributions"]
     ) -> ListMetricAttributionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListMetricAttributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListMetricAttributions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listmetricattributionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_recipes"]) -> ListRecipesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecipespaginator)
         """
 
@@ -1072,14 +1072,14 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_recommenders"]
     ) -> ListRecommendersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListRecommenders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListRecommenders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listrecommenderspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listschemaspaginator)
         """
 
@@ -1088,13 +1088,13 @@ class PersonalizeClient(BaseClient):
         self, operation_name: Literal["list_solution_versions"]
     ) -> ListSolutionVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_solutions"]) -> ListSolutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/paginators.html#listsolutionspaginator)
         """

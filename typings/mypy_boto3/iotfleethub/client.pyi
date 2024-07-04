@@ -51,7 +51,7 @@ class Exceptions:
 
 class IoTFleetHubClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html)
     """
 
@@ -67,7 +67,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#can_paginate)
         """
 
@@ -75,7 +75,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#close)
         """
 
@@ -91,7 +91,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Creates a Fleet Hub for IoT Device Management web application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#create_application)
         """
 
@@ -99,7 +99,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Deletes a Fleet Hub for IoT Device Management web application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#delete_application)
         """
 
@@ -107,7 +107,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Gets information about a Fleet Hub for IoT Device Management web application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.describe_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.describe_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#describe_application)
         """
 
@@ -121,7 +121,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#generate_presigned_url)
         """
 
@@ -130,7 +130,7 @@ class IoTFleetHubClient(BaseClient):
         Gets a list of Fleet Hub for IoT Device Management web applications for the
         current account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#list_applications)
         """
 
@@ -138,7 +138,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#list_tags_for_resource)
         """
 
@@ -146,7 +146,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Adds to or modifies the tags of the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#tag_resource)
         """
 
@@ -154,7 +154,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Removes the specified tags (metadata) from the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#untag_resource)
         """
 
@@ -169,7 +169,7 @@ class IoTFleetHubClient(BaseClient):
         """
         Updates information about a Fleet Hub for IoT Device Management web application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/client.html#update_application)
         """
 
@@ -177,6 +177,6 @@ class IoTFleetHubClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleethub.html#IoTFleetHub.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleethub.html#IoTFleetHub.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/paginators.html#listapplicationspaginator)
         """

@@ -70,7 +70,7 @@ class Exceptions:
 
 class ResourceGroupsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html)
     """
 
@@ -86,7 +86,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#can_paginate)
         """
 
@@ -94,7 +94,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#close)
         """
 
@@ -110,7 +110,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Creates a resource group with the specified name and description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#create_group)
         """
 
@@ -118,7 +118,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Deletes the specified resource group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.delete_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.delete_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#delete_group)
         """
 
@@ -132,7 +132,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#generate_presigned_url)
         """
 
@@ -140,7 +140,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Retrieves the current status of optional features in Resource Groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.get_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#get_account_settings)
         """
 
@@ -148,7 +148,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Returns information about a specified resource group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.get_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.get_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#get_group)
         """
 
@@ -157,7 +157,7 @@ class ResourceGroupsClient(BaseClient):
         Retrieves the service configuration associated with the specified resource
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.get_group_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.get_group_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#get_group_configuration)
         """
 
@@ -167,7 +167,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Retrieves the resource query associated with the specified resource group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.get_group_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.get_group_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#get_group_query)
         """
 
@@ -176,7 +176,7 @@ class ResourceGroupsClient(BaseClient):
         Returns a list of tags that are associated with a resource group, specified by
         an ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.get_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.get_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#get_tags)
         """
 
@@ -186,7 +186,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Adds the specified resources to the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.group_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.group_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#group_resources)
         """
 
@@ -203,7 +203,7 @@ class ResourceGroupsClient(BaseClient):
         Returns a list of ARNs of the resources that are members of a specified resource
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.list_group_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.list_group_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#list_group_resources)
         """
 
@@ -217,7 +217,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Returns a list of existing Resource Groups in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.list_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.list_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#list_groups)
         """
 
@@ -227,7 +227,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Attaches a service configuration to the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.put_group_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.put_group_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#put_group_configuration)
         """
 
@@ -242,7 +242,7 @@ class ResourceGroupsClient(BaseClient):
         Returns a list of Amazon Web Services resource identifiers that matches the
         specified query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.search_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.search_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#search_resources)
         """
 
@@ -250,7 +250,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Adds tags to a resource group with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.tag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.tag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#tag)
         """
 
@@ -260,7 +260,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Removes the specified resources from the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.ungroup_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.ungroup_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#ungroup_resources)
         """
 
@@ -268,7 +268,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Deletes tags from a specified resource group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.untag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.untag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#untag)
         """
 
@@ -278,7 +278,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Turns on or turns off optional features in Resource Groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.update_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#update_account_settings)
         """
 
@@ -288,7 +288,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Updates the description for an existing group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.update_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.update_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#update_group)
         """
 
@@ -298,7 +298,7 @@ class ResourceGroupsClient(BaseClient):
         """
         Updates the resource query of a group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Client.update_group_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Client.update_group_query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/client.html#update_group_query)
         """
 
@@ -307,14 +307,14 @@ class ResourceGroupsClient(BaseClient):
         self, operation_name: Literal["list_group_resources"]
     ) -> ListGroupResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupresourcespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupspaginator)
         """
 
@@ -323,6 +323,6 @@ class ResourceGroupsClient(BaseClient):
         self, operation_name: Literal["search_resources"]
     ) -> SearchResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#searchresourcespaginator)
         """

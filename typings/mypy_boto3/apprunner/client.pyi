@@ -85,7 +85,7 @@ class Exceptions:
 
 class AppRunnerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html)
     """
 
@@ -104,7 +104,7 @@ class AppRunnerClient(BaseClient):
         Associate your own domain name with the App Runner subdomain URL of your App
         Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.associate_custom_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.associate_custom_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#associate_custom_domain)
         """
 
@@ -112,7 +112,7 @@ class AppRunnerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#can_paginate)
         """
 
@@ -120,7 +120,7 @@ class AppRunnerClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#close)
         """
 
@@ -136,7 +136,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner automatic scaling configuration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_auto_scaling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_auto_scaling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_auto_scaling_configuration)
         """
 
@@ -150,7 +150,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner connection resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_connection)
         """
 
@@ -164,7 +164,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner observability configuration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_observability_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_observability_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_observability_configuration)
         """
 
@@ -184,7 +184,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_service)
         """
 
@@ -199,7 +199,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner VPC connector resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_vpc_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_vpc_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_vpc_connector)
         """
 
@@ -214,7 +214,7 @@ class AppRunnerClient(BaseClient):
         """
         Create an App Runner VPC Ingress Connection resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.create_vpc_ingress_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.create_vpc_ingress_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#create_vpc_ingress_connection)
         """
 
@@ -224,7 +224,7 @@ class AppRunnerClient(BaseClient):
         """
         Delete an App Runner automatic scaling configuration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_auto_scaling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_auto_scaling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_auto_scaling_configuration)
         """
 
@@ -232,7 +232,7 @@ class AppRunnerClient(BaseClient):
         """
         Delete an App Runner connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_connection)
         """
 
@@ -242,7 +242,7 @@ class AppRunnerClient(BaseClient):
         """
         Delete an App Runner observability configuration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_observability_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_observability_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_observability_configuration)
         """
 
@@ -250,7 +250,7 @@ class AppRunnerClient(BaseClient):
         """
         Delete an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_service)
         """
 
@@ -258,7 +258,7 @@ class AppRunnerClient(BaseClient):
         """
         Delete an App Runner VPC connector resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_vpc_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_vpc_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_vpc_connector)
         """
 
@@ -269,7 +269,7 @@ class AppRunnerClient(BaseClient):
         Delete an App Runner VPC Ingress Connection resource that's associated with an
         App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.delete_vpc_ingress_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.delete_vpc_ingress_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#delete_vpc_ingress_connection)
         """
 
@@ -280,7 +280,7 @@ class AppRunnerClient(BaseClient):
         Return a full description of an App Runner automatic scaling configuration
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_auto_scaling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_auto_scaling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_auto_scaling_configuration)
         """
 
@@ -291,7 +291,7 @@ class AppRunnerClient(BaseClient):
         Return a description of custom domain names that are associated with an App
         Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_custom_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_custom_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_custom_domains)
         """
 
@@ -301,7 +301,7 @@ class AppRunnerClient(BaseClient):
         """
         Return a full description of an App Runner observability configuration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_observability_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_observability_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_observability_configuration)
         """
 
@@ -309,7 +309,7 @@ class AppRunnerClient(BaseClient):
         """
         Return a full description of an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_service)
         """
 
@@ -319,7 +319,7 @@ class AppRunnerClient(BaseClient):
         """
         Return a description of an App Runner VPC connector resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_vpc_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_vpc_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_vpc_connector)
         """
 
@@ -329,7 +329,7 @@ class AppRunnerClient(BaseClient):
         """
         Return a full description of an App Runner VPC Ingress Connection resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.describe_vpc_ingress_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.describe_vpc_ingress_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#describe_vpc_ingress_connection)
         """
 
@@ -339,7 +339,7 @@ class AppRunnerClient(BaseClient):
         """
         Disassociate a custom domain name from an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.disassociate_custom_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.disassociate_custom_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#disassociate_custom_domain)
         """
 
@@ -353,7 +353,7 @@ class AppRunnerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#generate_presigned_url)
         """
 
@@ -369,7 +369,7 @@ class AppRunnerClient(BaseClient):
         Returns a list of active App Runner automatic scaling configurations in your
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_auto_scaling_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_auto_scaling_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_auto_scaling_configurations)
         """
 
@@ -380,7 +380,7 @@ class AppRunnerClient(BaseClient):
         Returns a list of App Runner connections that are associated with your Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_connections)
         """
 
@@ -396,7 +396,7 @@ class AppRunnerClient(BaseClient):
         Returns a list of active App Runner observability configurations in your Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_observability_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_observability_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_observability_configurations)
         """
 
@@ -406,7 +406,7 @@ class AppRunnerClient(BaseClient):
         """
         Return a list of operations that occurred on an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_operations)
         """
 
@@ -417,7 +417,7 @@ class AppRunnerClient(BaseClient):
         Returns a list of running App Runner services in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_services)
         """
 
@@ -428,7 +428,7 @@ class AppRunnerClient(BaseClient):
         Returns a list of the associated App Runner services using an auto scaling
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_services_for_auto_scaling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_services_for_auto_scaling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_services_for_auto_scaling_configuration)
         """
 
@@ -436,7 +436,7 @@ class AppRunnerClient(BaseClient):
         """
         List tags that are associated with for an App Runner resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_tags_for_resource)
         """
 
@@ -446,7 +446,7 @@ class AppRunnerClient(BaseClient):
         """
         Returns a list of App Runner VPC connectors in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_vpc_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_vpc_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_vpc_connectors)
         """
 
@@ -461,7 +461,7 @@ class AppRunnerClient(BaseClient):
         Return a list of App Runner VPC Ingress Connections in your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.list_vpc_ingress_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.list_vpc_ingress_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#list_vpc_ingress_connections)
         """
 
@@ -469,7 +469,7 @@ class AppRunnerClient(BaseClient):
         """
         Pause an active App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.pause_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.pause_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#pause_service)
         """
 
@@ -477,7 +477,7 @@ class AppRunnerClient(BaseClient):
         """
         Resume an active App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.resume_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.resume_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#resume_service)
         """
 
@@ -486,7 +486,7 @@ class AppRunnerClient(BaseClient):
         Initiate a manual deployment of the latest commit in a source code repository or
         the latest image in a source image repository to an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.start_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.start_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#start_deployment)
         """
 
@@ -494,7 +494,7 @@ class AppRunnerClient(BaseClient):
         """
         Add tags to, or update the tag values of, an App Runner resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#tag_resource)
         """
 
@@ -502,7 +502,7 @@ class AppRunnerClient(BaseClient):
         """
         Remove tags from an App Runner resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#untag_resource)
         """
 
@@ -512,7 +512,7 @@ class AppRunnerClient(BaseClient):
         """
         Update an auto scaling configuration to be the default.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.update_default_auto_scaling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.update_default_auto_scaling_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#update_default_auto_scaling_configuration)
         """
 
@@ -530,7 +530,7 @@ class AppRunnerClient(BaseClient):
         """
         Update an App Runner service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.update_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.update_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#update_service)
         """
 
@@ -543,6 +543,6 @@ class AppRunnerClient(BaseClient):
         """
         Update an existing App Runner VPC Ingress Connection resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/apprunner.html#AppRunner.Client.update_vpc_ingress_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apprunner.html#AppRunner.Client.update_vpc_ingress_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/client.html#update_vpc_ingress_connection)
         """

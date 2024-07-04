@@ -64,7 +64,7 @@ __all__ = (
 
 class ListAgentActionGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentactiongroupspaginator)
     """
 
@@ -72,13 +72,13 @@ class ListAgentActionGroupsPaginator(Boto3Paginator):
         self, *, agentId: str, agentVersion: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentActionGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentActionGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentactiongroupspaginator)
         """
 
 class ListAgentAliasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentaliasespaginator)
     """
 
@@ -86,13 +86,13 @@ class ListAgentAliasesPaginator(Boto3Paginator):
         self, *, agentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentAliasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentAliases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentaliasespaginator)
         """
 
 class ListAgentKnowledgeBasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentknowledgebasespaginator)
     """
 
@@ -100,13 +100,13 @@ class ListAgentKnowledgeBasesPaginator(Boto3Paginator):
         self, *, agentId: str, agentVersion: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentKnowledgeBasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentKnowledgeBases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentknowledgebasespaginator)
         """
 
 class ListAgentVersionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentversionspaginator)
     """
 
@@ -114,13 +114,13 @@ class ListAgentVersionsPaginator(Boto3Paginator):
         self, *, agentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgentVersions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentversionspaginator)
         """
 
 class ListAgentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentspaginator)
     """
 
@@ -128,13 +128,13 @@ class ListAgentsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListAgents.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listagentspaginator)
         """
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listdatasourcespaginator)
     """
 
@@ -142,13 +142,13 @@ class ListDataSourcesPaginator(Boto3Paginator):
         self, *, knowledgeBaseId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListDataSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listdatasourcespaginator)
         """
 
 class ListIngestionJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listingestionjobspaginator)
     """
 
@@ -162,13 +162,13 @@ class ListIngestionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIngestionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListIngestionJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listingestionjobspaginator)
         """
 
 class ListKnowledgeBasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listknowledgebasespaginator)
     """
 
@@ -176,6 +176,6 @@ class ListKnowledgeBasesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKnowledgeBasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock-agent.html#AgentsforBedrock.Paginator.ListKnowledgeBases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_agent/paginators.html#listknowledgebasespaginator)
         """

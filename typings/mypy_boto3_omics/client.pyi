@@ -204,7 +204,7 @@ class Exceptions:
 
 class OmicsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html)
     """
 
@@ -222,7 +222,7 @@ class OmicsClient(BaseClient):
         """
         Stops a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.abort_multipart_read_set_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.abort_multipart_read_set_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#abort_multipart_read_set_upload)
         """
 
@@ -230,7 +230,7 @@ class OmicsClient(BaseClient):
         """
         Accept a resource share request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.accept_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.accept_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#accept_share)
         """
 
@@ -240,7 +240,7 @@ class OmicsClient(BaseClient):
         """
         Deletes one or more read sets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.batch_delete_read_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.batch_delete_read_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#batch_delete_read_set)
         """
 
@@ -248,7 +248,7 @@ class OmicsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#can_paginate)
         """
 
@@ -256,7 +256,7 @@ class OmicsClient(BaseClient):
         """
         Cancels an annotation import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.cancel_annotation_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.cancel_annotation_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#cancel_annotation_import_job)
         """
 
@@ -264,7 +264,7 @@ class OmicsClient(BaseClient):
         """
         Cancels a run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.cancel_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.cancel_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#cancel_run)
         """
 
@@ -272,7 +272,7 @@ class OmicsClient(BaseClient):
         """
         Cancels a variant import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.cancel_variant_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.cancel_variant_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#cancel_variant_import_job)
         """
 
@@ -280,7 +280,7 @@ class OmicsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#close)
         """
 
@@ -294,7 +294,7 @@ class OmicsClient(BaseClient):
         """
         Concludes a multipart upload once you have uploaded all the components.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.complete_multipart_read_set_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.complete_multipart_read_set_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#complete_multipart_read_set_upload)
         """
 
@@ -313,7 +313,7 @@ class OmicsClient(BaseClient):
         """
         Creates an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_annotation_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_annotation_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_annotation_store)
         """
 
@@ -329,7 +329,7 @@ class OmicsClient(BaseClient):
         """
         Creates a new version of an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_annotation_store_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_annotation_store_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_annotation_store_version)
         """
 
@@ -350,7 +350,7 @@ class OmicsClient(BaseClient):
         """
         Begins a multipart read set upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_multipart_read_set_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_multipart_read_set_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_multipart_read_set_upload)
         """
 
@@ -366,7 +366,7 @@ class OmicsClient(BaseClient):
         """
         Creates a reference store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_reference_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_reference_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_reference_store)
         """
 
@@ -384,7 +384,7 @@ class OmicsClient(BaseClient):
         """
         Creates a run group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_run_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_run_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_run_group)
         """
 
@@ -402,7 +402,7 @@ class OmicsClient(BaseClient):
         """
         Creates a sequence store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_sequence_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_sequence_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_sequence_store)
         """
 
@@ -412,7 +412,7 @@ class OmicsClient(BaseClient):
         """
         Creates a cross-account shared resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_share)
         """
 
@@ -428,7 +428,7 @@ class OmicsClient(BaseClient):
         """
         Creates a variant store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_variant_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_variant_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_variant_store)
         """
 
@@ -450,7 +450,7 @@ class OmicsClient(BaseClient):
         """
         Creates a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.create_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.create_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#create_workflow)
         """
 
@@ -460,7 +460,7 @@ class OmicsClient(BaseClient):
         """
         Deletes an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_annotation_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_annotation_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_annotation_store)
         """
 
@@ -470,7 +470,7 @@ class OmicsClient(BaseClient):
         """
         Deletes one or multiple versions of an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_annotation_store_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_annotation_store_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_annotation_store_versions)
         """
 
@@ -478,7 +478,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a genome reference.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_reference)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_reference)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_reference)
         """
 
@@ -486,7 +486,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a genome reference store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_reference_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_reference_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_reference_store)
         """
 
@@ -494,7 +494,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_run)
         """
 
@@ -502,7 +502,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a workflow run group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_run_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_run_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_run_group)
         """
 
@@ -510,7 +510,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a sequence store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_sequence_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_sequence_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_sequence_store)
         """
 
@@ -518,7 +518,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a resource share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_share)
         """
 
@@ -528,7 +528,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a variant store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_variant_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_variant_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_variant_store)
         """
 
@@ -536,7 +536,7 @@ class OmicsClient(BaseClient):
         """
         Deletes a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.delete_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.delete_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#delete_workflow)
         """
 
@@ -550,7 +550,7 @@ class OmicsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#generate_presigned_url)
         """
 
@@ -558,7 +558,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about an annotation import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_annotation_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_annotation_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_annotation_import_job)
         """
 
@@ -566,7 +566,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_annotation_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_annotation_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_annotation_store)
         """
 
@@ -576,7 +576,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves the metadata for an annotation store version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_annotation_store_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_annotation_store_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_annotation_store_version)
         """
 
@@ -586,7 +586,7 @@ class OmicsClient(BaseClient):
         """
         Gets a file from a read set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_read_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_read_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_read_set)
         """
 
@@ -596,7 +596,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a read set activation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_read_set_activation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_read_set_activation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_read_set_activation_job)
         """
 
@@ -606,7 +606,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a read set export job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_read_set_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_read_set_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_read_set_export_job)
         """
 
@@ -616,7 +616,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a read set import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_read_set_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_read_set_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_read_set_import_job)
         """
 
@@ -626,7 +626,7 @@ class OmicsClient(BaseClient):
         """
         Gets details about a read set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_read_set_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_read_set_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_read_set_metadata)
         """
 
@@ -642,7 +642,7 @@ class OmicsClient(BaseClient):
         """
         Gets a reference file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_reference)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_reference)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_reference)
         """
 
@@ -652,7 +652,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a reference import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_reference_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_reference_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_reference_import_job)
         """
 
@@ -662,7 +662,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a genome reference's metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_reference_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_reference_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_reference_metadata)
         """
 
@@ -670,7 +670,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a reference store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_reference_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_reference_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_reference_store)
         """
 
@@ -680,7 +680,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_run)
         """
 
@@ -688,7 +688,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a workflow run group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_run_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_run_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_run_group)
         """
 
@@ -696,7 +696,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a workflow run task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_run_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_run_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_run_task)
         """
 
@@ -704,7 +704,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a sequence store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_sequence_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_sequence_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_sequence_store)
         """
 
@@ -712,7 +712,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves the metadata for the specified resource share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_share)
         """
 
@@ -720,7 +720,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a variant import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_variant_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_variant_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_variant_import_job)
         """
 
@@ -728,7 +728,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a variant store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_variant_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_variant_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_variant_store)
         """
 
@@ -743,7 +743,7 @@ class OmicsClient(BaseClient):
         """
         Gets information about a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.get_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.get_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#get_workflow)
         """
 
@@ -758,7 +758,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of annotation import jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_annotation_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_annotation_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_annotation_import_jobs)
         """
 
@@ -773,7 +773,7 @@ class OmicsClient(BaseClient):
         """
         Lists the versions of an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_annotation_store_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_annotation_store_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_annotation_store_versions)
         """
 
@@ -788,7 +788,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of annotation stores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_annotation_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_annotation_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_annotation_stores)
         """
 
@@ -798,7 +798,7 @@ class OmicsClient(BaseClient):
         """
         Lists multipart read set uploads and for in progress uploads.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_multipart_read_set_uploads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_multipart_read_set_uploads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_multipart_read_set_uploads)
         """
 
@@ -813,7 +813,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of read set activation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_read_set_activation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_read_set_activation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_read_set_activation_jobs)
         """
 
@@ -828,7 +828,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of read set export jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_read_set_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_read_set_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_read_set_export_jobs)
         """
 
@@ -843,7 +843,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of read set import jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_read_set_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_read_set_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_read_set_import_jobs)
         """
 
@@ -861,7 +861,7 @@ class OmicsClient(BaseClient):
         This operation will list all parts in a requested multipart upload for a
         sequence store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_read_set_upload_parts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_read_set_upload_parts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_read_set_upload_parts)
         """
 
@@ -876,7 +876,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of read sets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_read_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_read_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_read_sets)
         """
 
@@ -891,7 +891,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of reference import jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_reference_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_reference_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_reference_import_jobs)
         """
 
@@ -905,7 +905,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of reference stores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_reference_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_reference_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_reference_stores)
         """
 
@@ -920,7 +920,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of references.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_references)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_references)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_references)
         """
 
@@ -930,7 +930,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of run groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_run_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_run_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_run_groups)
         """
 
@@ -945,7 +945,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of tasks for a run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_run_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_run_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_run_tasks)
         """
 
@@ -961,7 +961,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of runs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_runs)
         """
 
@@ -975,7 +975,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of sequence stores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_sequence_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_sequence_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_sequence_stores)
         """
 
@@ -990,7 +990,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves the resource shares associated with an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_shares)
         """
 
@@ -998,7 +998,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_tags_for_resource)
         """
 
@@ -1013,7 +1013,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of variant import jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_variant_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_variant_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_variant_import_jobs)
         """
 
@@ -1028,7 +1028,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of variant stores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_variant_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_variant_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_variant_stores)
         """
 
@@ -1043,7 +1043,7 @@ class OmicsClient(BaseClient):
         """
         Retrieves a list of workflows.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.list_workflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.list_workflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#list_workflows)
         """
 
@@ -1061,7 +1061,7 @@ class OmicsClient(BaseClient):
         """
         Starts an annotation import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_annotation_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_annotation_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_annotation_import_job)
         """
 
@@ -1075,7 +1075,7 @@ class OmicsClient(BaseClient):
         """
         Activates an archived read set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_read_set_activation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_read_set_activation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_read_set_activation_job)
         """
 
@@ -1091,7 +1091,7 @@ class OmicsClient(BaseClient):
         """
         Exports a read set to Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_read_set_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_read_set_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_read_set_export_job)
         """
 
@@ -1106,7 +1106,7 @@ class OmicsClient(BaseClient):
         """
         Starts a read set import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_read_set_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_read_set_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_read_set_import_job)
         """
 
@@ -1121,7 +1121,7 @@ class OmicsClient(BaseClient):
         """
         Starts a reference import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_reference_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_reference_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_reference_import_job)
         """
 
@@ -1148,7 +1148,7 @@ class OmicsClient(BaseClient):
         """
         Starts a workflow run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_run)
         """
 
@@ -1164,7 +1164,7 @@ class OmicsClient(BaseClient):
         """
         Starts a variant import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.start_variant_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.start_variant_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#start_variant_import_job)
         """
 
@@ -1172,7 +1172,7 @@ class OmicsClient(BaseClient):
         """
         Tags a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#tag_resource)
         """
 
@@ -1180,7 +1180,7 @@ class OmicsClient(BaseClient):
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#untag_resource)
         """
 
@@ -1190,7 +1190,7 @@ class OmicsClient(BaseClient):
         """
         Updates an annotation store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.update_annotation_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.update_annotation_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#update_annotation_store)
         """
 
@@ -1200,7 +1200,7 @@ class OmicsClient(BaseClient):
         """
         Updates the description of an annotation store version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.update_annotation_store_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.update_annotation_store_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#update_annotation_store_version)
         """
 
@@ -1217,7 +1217,7 @@ class OmicsClient(BaseClient):
         """
         Updates a run group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.update_run_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.update_run_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#update_run_group)
         """
 
@@ -1227,7 +1227,7 @@ class OmicsClient(BaseClient):
         """
         Updates a variant store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.update_variant_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.update_variant_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#update_variant_store)
         """
 
@@ -1235,7 +1235,7 @@ class OmicsClient(BaseClient):
         """
         Updates a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.update_workflow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.update_workflow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#update_workflow)
         """
 
@@ -1251,7 +1251,7 @@ class OmicsClient(BaseClient):
         """
         This operation uploads a specific part of a read set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Client.upload_read_set_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Client.upload_read_set_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/client.html#upload_read_set_part)
         """
 
@@ -1260,7 +1260,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_annotation_import_jobs"]
     ) -> ListAnnotationImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListAnnotationImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListAnnotationImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listannotationimportjobspaginator)
         """
 
@@ -1269,7 +1269,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_annotation_store_versions"]
     ) -> ListAnnotationStoreVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListAnnotationStoreVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListAnnotationStoreVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listannotationstoreversionspaginator)
         """
 
@@ -1278,7 +1278,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_annotation_stores"]
     ) -> ListAnnotationStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListAnnotationStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListAnnotationStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listannotationstorespaginator)
         """
 
@@ -1287,7 +1287,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_multipart_read_set_uploads"]
     ) -> ListMultipartReadSetUploadsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListMultipartReadSetUploads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListMultipartReadSetUploads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listmultipartreadsetuploadspaginator)
         """
 
@@ -1296,7 +1296,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_read_set_activation_jobs"]
     ) -> ListReadSetActivationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReadSetActivationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReadSetActivationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreadsetactivationjobspaginator)
         """
 
@@ -1305,7 +1305,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_read_set_export_jobs"]
     ) -> ListReadSetExportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReadSetExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReadSetExportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreadsetexportjobspaginator)
         """
 
@@ -1314,7 +1314,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_read_set_import_jobs"]
     ) -> ListReadSetImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReadSetImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReadSetImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreadsetimportjobspaginator)
         """
 
@@ -1323,14 +1323,14 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_read_set_upload_parts"]
     ) -> ListReadSetUploadPartsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReadSetUploadParts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReadSetUploadParts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreadsetuploadpartspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_read_sets"]) -> ListReadSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReadSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReadSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreadsetspaginator)
         """
 
@@ -1339,7 +1339,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_reference_import_jobs"]
     ) -> ListReferenceImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReferenceImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReferenceImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreferenceimportjobspaginator)
         """
 
@@ -1348,35 +1348,35 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_reference_stores"]
     ) -> ListReferenceStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReferenceStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReferenceStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreferencestorespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_references"]) -> ListReferencesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListReferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListReferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listreferencespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_run_groups"]) -> ListRunGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListRunGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListRunGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listrungroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_run_tasks"]) -> ListRunTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListRunTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListRunTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listruntaskspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_runs"]) -> ListRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listrunspaginator)
         """
 
@@ -1385,14 +1385,14 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_sequence_stores"]
     ) -> ListSequenceStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListSequenceStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListSequenceStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listsequencestorespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_shares"]) -> ListSharesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListShares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListShares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listsharespaginator)
         """
 
@@ -1401,7 +1401,7 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_variant_import_jobs"]
     ) -> ListVariantImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListVariantImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListVariantImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listvariantimportjobspaginator)
         """
 
@@ -1410,14 +1410,14 @@ class OmicsClient(BaseClient):
         self, operation_name: Literal["list_variant_stores"]
     ) -> ListVariantStoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListVariantStores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListVariantStores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listvariantstorespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workflows"]) -> ListWorkflowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Paginator.ListWorkflows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Paginator.ListWorkflows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/paginators.html#listworkflowspaginator)
         """
 
@@ -1426,7 +1426,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["annotation_import_job_created"]
     ) -> AnnotationImportJobCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationImportJobCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationimportjobcreatedwaiter)
         """
 
@@ -1435,7 +1435,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["annotation_store_created"]
     ) -> AnnotationStoreCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstorecreatedwaiter)
         """
 
@@ -1444,7 +1444,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["annotation_store_deleted"]
     ) -> AnnotationStoreDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoredeletedwaiter)
         """
 
@@ -1453,7 +1453,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["annotation_store_version_created"]
     ) -> AnnotationStoreVersionCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversioncreatedwaiter)
         """
 
@@ -1462,7 +1462,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["annotation_store_version_deleted"]
     ) -> AnnotationStoreVersionDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.AnnotationStoreVersionDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#annotationstoreversiondeletedwaiter)
         """
 
@@ -1471,7 +1471,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["read_set_activation_job_completed"]
     ) -> ReadSetActivationJobCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetActivationJobCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetactivationjobcompletedwaiter)
         """
 
@@ -1480,7 +1480,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["read_set_export_job_completed"]
     ) -> ReadSetExportJobCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetExportJobCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetexportjobcompletedwaiter)
         """
 
@@ -1489,7 +1489,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["read_set_import_job_completed"]
     ) -> ReadSetImportJobCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReadSetImportJobCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#readsetimportjobcompletedwaiter)
         """
 
@@ -1498,35 +1498,35 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["reference_import_job_completed"]
     ) -> ReferenceImportJobCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.ReferenceImportJobCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#referenceimportjobcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["run_completed"]) -> RunCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["run_running"]) -> RunRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.RunRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.RunRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#runrunningwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["task_completed"]) -> TaskCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["task_running"]) -> TaskRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.TaskRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.TaskRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#taskrunningwaiter)
         """
 
@@ -1535,7 +1535,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["variant_import_job_created"]
     ) -> VariantImportJobCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantImportJobCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantimportjobcreatedwaiter)
         """
 
@@ -1544,7 +1544,7 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["variant_store_created"]
     ) -> VariantStoreCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstorecreatedwaiter)
         """
 
@@ -1553,13 +1553,13 @@ class OmicsClient(BaseClient):
         self, waiter_name: Literal["variant_store_deleted"]
     ) -> VariantStoreDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.VariantStoreDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#variantstoredeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["workflow_active"]) -> WorkflowActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/omics.html#Omics.Waiter.WorkflowActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/omics.html#Omics.Waiter.WorkflowActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/waiters.html#workflowactivewaiter)
         """

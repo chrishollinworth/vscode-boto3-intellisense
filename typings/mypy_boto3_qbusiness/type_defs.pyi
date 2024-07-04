@@ -45,6 +45,7 @@ from .literals import (
     PluginBuildStatusType,
     PluginStateType,
     PluginTypeType,
+    QAppsControlModeType,
     ReadAccessTypeType,
     ResponseScopeType,
     RetrieverStatusType,
@@ -208,6 +209,7 @@ __all__ = (
     "PrincipalUserTypeDef",
     "PutFeedbackRequestRequestTypeDef",
     "PutGroupRequestRequestTypeDef",
+    "QAppsConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "RetrieverConfigurationTypeDef",
     "RetrieverTypeDef",
@@ -604,6 +606,7 @@ _OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
         "tags": List["TagTypeDef"],
         "clientToken": str,
         "attachmentsConfiguration": "AttachmentsConfigurationTypeDef",
+        "qAppsConfiguration": "QAppsConfigurationTypeDef",
     },
     total=False,
 )
@@ -1202,6 +1205,7 @@ GetApplicationResponseTypeDef = TypedDict(
         "updatedAt": datetime,
         "error": "ErrorDetailTypeDef",
         "attachmentsConfiguration": "AppliedAttachmentsConfigurationTypeDef",
+        "qAppsConfiguration": "QAppsConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2098,6 +2102,13 @@ class PutGroupRequestRequestTypeDef(
 ):
     pass
 
+QAppsConfigurationTypeDef = TypedDict(
+    "QAppsConfigurationTypeDef",
+    {
+        "qAppsControlMode": QAppsControlModeType,
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -2339,6 +2350,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "description": str,
         "roleArn": str,
         "attachmentsConfiguration": "AttachmentsConfigurationTypeDef",
+        "qAppsConfiguration": "QAppsConfigurationTypeDef",
     },
     total=False,
 )

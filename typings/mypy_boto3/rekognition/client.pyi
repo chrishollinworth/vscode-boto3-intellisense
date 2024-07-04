@@ -187,7 +187,7 @@ class Exceptions:
 
 class RekognitionClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html)
     """
 
@@ -211,7 +211,7 @@ class RekognitionClient(BaseClient):
         """
         Associates one or more faces with an existing UserID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.associate_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.associate_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#associate_faces)
         """
 
@@ -219,7 +219,7 @@ class RekognitionClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#can_paginate)
         """
 
@@ -227,7 +227,7 @@ class RekognitionClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#close)
         """
 
@@ -243,7 +243,7 @@ class RekognitionClient(BaseClient):
         Compares a face in the *source* input image with each of the 100 largest faces
         detected in the *target* input image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.compare_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.compare_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#compare_faces)
         """
 
@@ -261,7 +261,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.copy_project_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.copy_project_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#copy_project_version)
         """
 
@@ -271,7 +271,7 @@ class RekognitionClient(BaseClient):
         """
         Creates a collection in an AWS Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_collection)
         """
 
@@ -285,7 +285,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_dataset)
         """
 
@@ -299,7 +299,7 @@ class RekognitionClient(BaseClient):
         """
         This API operation initiates a Face Liveness session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_face_liveness_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_face_liveness_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_face_liveness_session)
         """
 
@@ -313,7 +313,7 @@ class RekognitionClient(BaseClient):
         """
         Creates a new Amazon Rekognition project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_project)
         """
 
@@ -334,7 +334,7 @@ class RekognitionClient(BaseClient):
         Creates a new version of Amazon Rekognition project (like a Custom Labels model
         or a custom adapter) and begins training.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_project_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_project_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_project_version)
         """
 
@@ -356,7 +356,7 @@ class RekognitionClient(BaseClient):
         Creates an Amazon Rekognition stream processor that you can use to detect and
         recognize faces or to detect labels in a streaming video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_stream_processor)
         """
 
@@ -366,7 +366,7 @@ class RekognitionClient(BaseClient):
         """
         Creates a new User within a collection specified by `CollectionId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#create_user)
         """
 
@@ -374,7 +374,7 @@ class RekognitionClient(BaseClient):
         """
         Deletes the specified collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_collection)
         """
 
@@ -382,7 +382,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_dataset)
         """
 
@@ -390,7 +390,7 @@ class RekognitionClient(BaseClient):
         """
         Deletes faces from a collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_faces)
         """
 
@@ -398,7 +398,7 @@ class RekognitionClient(BaseClient):
         """
         Deletes a Amazon Rekognition project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_project)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_project)
         """
 
@@ -408,7 +408,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_project_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_project_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_project_policy)
         """
 
@@ -419,7 +419,7 @@ class RekognitionClient(BaseClient):
         Deletes a Rekognition project model or project version, like a Amazon
         Rekognition Custom Labels model or a custom adapter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_project_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_project_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_project_version)
         """
 
@@ -427,7 +427,7 @@ class RekognitionClient(BaseClient):
         """
         Deletes the stream processor identified by `Name`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_stream_processor)
         """
 
@@ -437,7 +437,7 @@ class RekognitionClient(BaseClient):
         """
         Deletes the specified UserID within the collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#delete_user)
         """
 
@@ -445,7 +445,7 @@ class RekognitionClient(BaseClient):
         """
         Describes the specified collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.describe_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.describe_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#describe_collection)
         """
 
@@ -453,7 +453,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.describe_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.describe_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#describe_dataset)
         """
 
@@ -468,7 +468,7 @@ class RekognitionClient(BaseClient):
         """
         Lists and describes the versions of an Amazon Rekognition project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.describe_project_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.describe_project_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#describe_project_versions)
         """
 
@@ -483,7 +483,7 @@ class RekognitionClient(BaseClient):
         """
         Gets information about your Rekognition projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.describe_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.describe_projects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#describe_projects)
         """
 
@@ -491,7 +491,7 @@ class RekognitionClient(BaseClient):
         """
         Provides information about a stream processor created by  CreateStreamProcessor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.describe_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.describe_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#describe_stream_processor)
         """
 
@@ -506,7 +506,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_custom_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_custom_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_custom_labels)
         """
 
@@ -516,7 +516,7 @@ class RekognitionClient(BaseClient):
         """
         Detects faces within an image that is provided as input.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_faces)
         """
 
@@ -533,7 +533,7 @@ class RekognitionClient(BaseClient):
         Detects instances of real-world entities within an image (JPEG or PNG) provided
         as input.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_labels)
         """
 
@@ -548,7 +548,7 @@ class RekognitionClient(BaseClient):
         """
         Detects unsafe content in a specified JPEG or PNG format image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_moderation_labels)
         """
 
@@ -561,7 +561,7 @@ class RekognitionClient(BaseClient):
         """
         Detects Personal Protective Equipment (PPE) worn by people detected in an image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_protective_equipment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_protective_equipment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_protective_equipment)
         """
 
@@ -571,7 +571,7 @@ class RekognitionClient(BaseClient):
         """
         Detects text in the input image and converts it into machine-readable text.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.detect_text)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.detect_text)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#detect_text)
         """
 
@@ -582,7 +582,7 @@ class RekognitionClient(BaseClient):
         Removes the association between a `Face` supplied in an array of `FaceIds` and
         the User.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.disassociate_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.disassociate_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#disassociate_faces)
         """
 
@@ -592,7 +592,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.distribute_dataset_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.distribute_dataset_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#distribute_dataset_entries)
         """
 
@@ -606,7 +606,7 @@ class RekognitionClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#generate_presigned_url)
         """
 
@@ -615,7 +615,7 @@ class RekognitionClient(BaseClient):
         Gets the name and additional information about a celebrity based on their Amazon
         Rekognition ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_celebrity_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_celebrity_info)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_celebrity_info)
         """
 
@@ -631,7 +631,7 @@ class RekognitionClient(BaseClient):
         Gets the celebrity recognition results for a Amazon Rekognition Video analysis
         started by  StartCelebrityRecognition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_celebrity_recognition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_celebrity_recognition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_celebrity_recognition)
         """
 
@@ -648,7 +648,7 @@ class RekognitionClient(BaseClient):
         Gets the inappropriate, unwanted, or offensive content analysis results for a
         Amazon Rekognition Video analysis started by  StartContentModeration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_content_moderation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_content_moderation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_content_moderation)
         """
 
@@ -659,7 +659,7 @@ class RekognitionClient(BaseClient):
         Gets face detection results for a Amazon Rekognition Video analysis started by
         StartFaceDetection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_face_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_face_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_face_detection)
         """
 
@@ -669,7 +669,7 @@ class RekognitionClient(BaseClient):
         """
         Retrieves the results of a specific Face Liveness session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_face_liveness_session_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_face_liveness_session_results)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_face_liveness_session_results)
         """
 
@@ -685,7 +685,7 @@ class RekognitionClient(BaseClient):
         Gets the face search results for Amazon Rekognition Video face search started by
         StartFaceSearch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_face_search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_face_search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_face_search)
         """
 
@@ -702,7 +702,7 @@ class RekognitionClient(BaseClient):
         Gets the label detection results of a Amazon Rekognition Video analysis started
         by  StartLabelDetection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_label_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_label_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_label_detection)
         """
 
@@ -710,7 +710,7 @@ class RekognitionClient(BaseClient):
         """
         Retrieves the results for a given media analysis job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_media_analysis_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_media_analysis_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_media_analysis_job)
         """
 
@@ -726,7 +726,7 @@ class RekognitionClient(BaseClient):
         Gets the path tracking results of a Amazon Rekognition Video analysis started by
         StartPersonTracking.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_person_tracking)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_person_tracking)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_person_tracking)
         """
 
@@ -737,7 +737,7 @@ class RekognitionClient(BaseClient):
         Gets the segment detection results of a Amazon Rekognition Video analysis
         started by  StartSegmentDetection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_segment_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_segment_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_segment_detection)
         """
 
@@ -748,7 +748,7 @@ class RekognitionClient(BaseClient):
         Gets the text detection results of a Amazon Rekognition Video analysis started
         by  StartTextDetection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.get_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.get_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#get_text_detection)
         """
 
@@ -765,7 +765,7 @@ class RekognitionClient(BaseClient):
         """
         Detects faces in the input image and adds them to the specified collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.index_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.index_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#index_faces)
         """
 
@@ -775,7 +775,7 @@ class RekognitionClient(BaseClient):
         """
         Returns list of collection IDs in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_collections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_collections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_collections)
         """
 
@@ -793,7 +793,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_dataset_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_dataset_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_dataset_entries)
         """
 
@@ -803,7 +803,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_dataset_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_dataset_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_dataset_labels)
         """
 
@@ -819,7 +819,7 @@ class RekognitionClient(BaseClient):
         """
         Returns metadata for faces in the specified collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_faces)
         """
 
@@ -829,7 +829,7 @@ class RekognitionClient(BaseClient):
         """
         Returns a list of media analysis jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_media_analysis_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_media_analysis_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_media_analysis_jobs)
         """
 
@@ -839,7 +839,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_project_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_project_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_project_policies)
         """
 
@@ -850,7 +850,7 @@ class RekognitionClient(BaseClient):
         Gets a list of stream processors that you have created with
         CreateStreamProcessor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_stream_processors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_stream_processors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_stream_processors)
         """
 
@@ -859,7 +859,7 @@ class RekognitionClient(BaseClient):
         Returns a list of tags in an Amazon Rekognition collection, stream processor, or
         Custom Labels model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_tags_for_resource)
         """
 
@@ -869,7 +869,7 @@ class RekognitionClient(BaseClient):
         """
         Returns metadata of the User such as `UserID` in the specified collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#list_users)
         """
 
@@ -879,7 +879,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.put_project_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.put_project_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#put_project_policy)
         """
 
@@ -889,7 +889,7 @@ class RekognitionClient(BaseClient):
         """
         Returns an array of celebrities recognized in the input image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.recognize_celebrities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.recognize_celebrities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#recognize_celebrities)
         """
 
@@ -905,7 +905,7 @@ class RekognitionClient(BaseClient):
         For a given input face ID, searches for matching faces in the collection the
         face belongs to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.search_faces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.search_faces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#search_faces)
         """
 
@@ -922,7 +922,7 @@ class RekognitionClient(BaseClient):
         For a given input image, first detects the largest face in the image, and then
         searches the specified collection for matching faces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.search_faces_by_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.search_faces_by_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#search_faces_by_image)
         """
 
@@ -938,7 +938,7 @@ class RekognitionClient(BaseClient):
         """
         Searches for UserIDs within a collection based on a `FaceId` or `UserId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.search_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.search_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#search_users)
         """
 
@@ -954,7 +954,7 @@ class RekognitionClient(BaseClient):
         """
         Searches for UserIDs using a supplied image.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.search_users_by_image)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.search_users_by_image)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#search_users_by_image)
         """
 
@@ -969,7 +969,7 @@ class RekognitionClient(BaseClient):
         """
         Starts asynchronous recognition of celebrities in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_celebrity_recognition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_celebrity_recognition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_celebrity_recognition)
         """
 
@@ -986,7 +986,7 @@ class RekognitionClient(BaseClient):
         Starts asynchronous detection of inappropriate, unwanted, or offensive content
         in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_content_moderation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_content_moderation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_content_moderation)
         """
 
@@ -1002,7 +1002,7 @@ class RekognitionClient(BaseClient):
         """
         Starts asynchronous detection of faces in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_face_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_face_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_face_detection)
         """
 
@@ -1020,7 +1020,7 @@ class RekognitionClient(BaseClient):
         Starts the asynchronous search for faces in a collection that match the faces of
         persons detected in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_face_search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_face_search)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_face_search)
         """
 
@@ -1038,7 +1038,7 @@ class RekognitionClient(BaseClient):
         """
         Starts asynchronous detection of labels in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_label_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_label_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_label_detection)
         """
 
@@ -1055,7 +1055,7 @@ class RekognitionClient(BaseClient):
         """
         Initiates a new media analysis job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_media_analysis_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_media_analysis_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_media_analysis_job)
         """
 
@@ -1070,7 +1070,7 @@ class RekognitionClient(BaseClient):
         """
         Starts the asynchronous tracking of a person's path in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_person_tracking)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_person_tracking)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_person_tracking)
         """
 
@@ -1080,7 +1080,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_project_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_project_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_project_version)
         """
 
@@ -1097,7 +1097,7 @@ class RekognitionClient(BaseClient):
         """
         Starts asynchronous detection of segment detection in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_segment_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_segment_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_segment_detection)
         """
 
@@ -1111,7 +1111,7 @@ class RekognitionClient(BaseClient):
         """
         Starts processing a stream processor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_stream_processor)
         """
 
@@ -1127,7 +1127,7 @@ class RekognitionClient(BaseClient):
         """
         Starts asynchronous detection of text in a stored video.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.start_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.start_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#start_text_detection)
         """
 
@@ -1135,7 +1135,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.stop_project_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.stop_project_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#stop_project_version)
         """
 
@@ -1143,7 +1143,7 @@ class RekognitionClient(BaseClient):
         """
         Stops a running stream processor that was created by  CreateStreamProcessor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.stop_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.stop_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#stop_stream_processor)
         """
 
@@ -1152,7 +1152,7 @@ class RekognitionClient(BaseClient):
         Adds one or more key-value tags to an Amazon Rekognition collection, stream
         processor, or Custom Labels model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#tag_resource)
         """
 
@@ -1161,7 +1161,7 @@ class RekognitionClient(BaseClient):
         Removes one or more tags from an Amazon Rekognition collection, stream
         processor, or Custom Labels model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#untag_resource)
         """
 
@@ -1171,7 +1171,7 @@ class RekognitionClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.update_dataset_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.update_dataset_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#update_dataset_entries)
         """
 
@@ -1187,7 +1187,7 @@ class RekognitionClient(BaseClient):
         """
         Allows you to update a stream processor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Client.update_stream_processor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Client.update_stream_processor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/client.html#update_stream_processor)
         """
 
@@ -1196,7 +1196,7 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["describe_project_versions"]
     ) -> DescribeProjectVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectversionspaginator)
         """
 
@@ -1205,7 +1205,7 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["describe_projects"]
     ) -> DescribeProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectspaginator)
         """
 
@@ -1214,7 +1214,7 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["list_collections"]
     ) -> ListCollectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listcollectionspaginator)
         """
 
@@ -1223,7 +1223,7 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["list_dataset_entries"]
     ) -> ListDatasetEntriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListDatasetEntries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListDatasetEntries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listdatasetentriespaginator)
         """
 
@@ -1232,14 +1232,14 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["list_dataset_labels"]
     ) -> ListDatasetLabelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListDatasetLabels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListDatasetLabels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listdatasetlabelspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_faces"]) -> ListFacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listfacespaginator)
         """
 
@@ -1248,7 +1248,7 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["list_project_policies"]
     ) -> ListProjectPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListProjectPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListProjectPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listprojectpoliciespaginator)
         """
 
@@ -1257,14 +1257,14 @@ class RekognitionClient(BaseClient):
         self, operation_name: Literal["list_stream_processors"]
     ) -> ListStreamProcessorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#liststreamprocessorspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Paginator.ListUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listuserspaginator)
         """
 
@@ -1273,7 +1273,7 @@ class RekognitionClient(BaseClient):
         self, waiter_name: Literal["project_version_running"]
     ) -> ProjectVersionRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversionrunningwaiter)
         """
 
@@ -1282,6 +1282,6 @@ class RekognitionClient(BaseClient):
         self, waiter_name: Literal["project_version_training_completed"]
     ) -> ProjectVersionTrainingCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversiontrainingcompletedwaiter)
         """

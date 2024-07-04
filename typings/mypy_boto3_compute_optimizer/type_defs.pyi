@@ -40,12 +40,14 @@ from .literals import (
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
     ExportableLicenseFieldType,
+    ExportableRDSDBFieldType,
     ExportableVolumeFieldType,
     ExternalMetricsSourceType,
     ExternalMetricStatusCodeType,
     FilterNameType,
     FindingReasonCodeType,
     FindingType,
+    IdleType,
     InferredWorkloadTypesPreferenceType,
     InferredWorkloadTypeType,
     InstanceIdleType,
@@ -71,6 +73,14 @@ from .literals import (
     MetricStatisticType,
     MigrationEffortType,
     PlatformDifferenceType,
+    RDSDBMetricNameType,
+    RDSDBMetricStatisticType,
+    RDSDBRecommendationFilterNameType,
+    RDSInstanceFindingReasonCodeType,
+    RDSInstanceFindingType,
+    RDSSavingsEstimationModeSourceType,
+    RDSStorageFindingReasonCodeType,
+    RDSStorageFindingType,
     RecommendationPreferenceNameType,
     RecommendationSourceTypeType,
     ResourceTypeType,
@@ -99,6 +109,7 @@ __all__ = (
     "ContainerRecommendationTypeDef",
     "CurrentPerformanceRiskRatingsTypeDef",
     "CustomizableMetricParametersTypeDef",
+    "DBStorageConfigurationTypeDef",
     "DeleteRecommendationPreferencesRequestRequestTypeDef",
     "DescribeRecommendationExportJobsRequestRequestTypeDef",
     "DescribeRecommendationExportJobsResponseTypeDef",
@@ -136,6 +147,8 @@ __all__ = (
     "ExportLambdaFunctionRecommendationsResponseTypeDef",
     "ExportLicenseRecommendationsRequestRequestTypeDef",
     "ExportLicenseRecommendationsResponseTypeDef",
+    "ExportRDSDatabaseRecommendationsRequestRequestTypeDef",
+    "ExportRDSDatabaseRecommendationsResponseTypeDef",
     "ExternalMetricStatusTypeDef",
     "ExternalMetricsPreferenceTypeDef",
     "FilterTypeDef",
@@ -160,6 +173,10 @@ __all__ = (
     "GetLambdaFunctionRecommendationsResponseTypeDef",
     "GetLicenseRecommendationsRequestRequestTypeDef",
     "GetLicenseRecommendationsResponseTypeDef",
+    "GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
+    "GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef",
+    "GetRDSDatabaseRecommendationsRequestRequestTypeDef",
+    "GetRDSDatabaseRecommendationsResponseTypeDef",
     "GetRecommendationErrorTypeDef",
     "GetRecommendationPreferencesRequestRequestTypeDef",
     "GetRecommendationPreferencesResponseTypeDef",
@@ -193,6 +210,19 @@ __all__ = (
     "PreferredResourceTypeDef",
     "ProjectedMetricTypeDef",
     "PutRecommendationPreferencesRequestRequestTypeDef",
+    "RDSDBInstanceRecommendationOptionTypeDef",
+    "RDSDBRecommendationFilterTypeDef",
+    "RDSDBRecommendationTypeDef",
+    "RDSDBStorageRecommendationOptionTypeDef",
+    "RDSDBUtilizationMetricTypeDef",
+    "RDSDatabaseProjectedMetricTypeDef",
+    "RDSDatabaseRecommendedOptionProjectedMetricTypeDef",
+    "RDSEffectiveRecommendationPreferencesTypeDef",
+    "RDSInstanceEstimatedMonthlySavingsTypeDef",
+    "RDSInstanceSavingsOpportunityAfterDiscountsTypeDef",
+    "RDSSavingsEstimationModeTypeDef",
+    "RDSStorageEstimatedMonthlySavingsTypeDef",
+    "RDSStorageSavingsOpportunityAfterDiscountsTypeDef",
     "ReasonCodeSummaryTypeDef",
     "RecommendationExportJobTypeDef",
     "RecommendationPreferencesDetailTypeDef",
@@ -252,13 +282,13 @@ AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
     "AutoScalingGroupRecommendationOptionTypeDef",
     {
         "configuration": "AutoScalingGroupConfigurationTypeDef",
+        "instanceGpuInfo": "GpuInfoTypeDef",
         "projectedUtilizationMetrics": List["UtilizationMetricTypeDef"],
         "performanceRisk": float,
         "rank": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "migrationEffort": MigrationEffortType,
-        "instanceGpuInfo": "GpuInfoTypeDef",
         "savingsOpportunityAfterDiscounts": "AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef",
+        "migrationEffort": MigrationEffortType,
     },
     total=False,
 )
@@ -273,12 +303,12 @@ AutoScalingGroupRecommendationTypeDef = TypedDict(
         "utilizationMetrics": List["UtilizationMetricTypeDef"],
         "lookBackPeriodInDays": float,
         "currentConfiguration": "AutoScalingGroupConfigurationTypeDef",
+        "currentInstanceGpuInfo": "GpuInfoTypeDef",
         "recommendationOptions": List["AutoScalingGroupRecommendationOptionTypeDef"],
         "lastRefreshTimestamp": datetime,
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
         "inferredWorkloadTypes": List[InferredWorkloadTypeType],
-        "currentInstanceGpuInfo": "GpuInfoTypeDef",
     },
     total=False,
 )
@@ -328,6 +358,18 @@ CustomizableMetricParametersTypeDef = TypedDict(
     {
         "threshold": CustomizableMetricThresholdType,
         "headroom": CustomizableMetricHeadroomType,
+    },
+    total=False,
+)
+
+DBStorageConfigurationTypeDef = TypedDict(
+    "DBStorageConfigurationTypeDef",
+    {
+        "storageType": str,
+        "allocatedStorage": int,
+        "iops": int,
+        "maxAllocatedStorage": int,
+        "storageThroughput": int,
     },
     total=False,
 )
@@ -497,9 +539,9 @@ ECSServiceRecommendationOptionTypeDef = TypedDict(
         "memory": int,
         "cpu": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "savingsOpportunityAfterDiscounts": "ECSSavingsOpportunityAfterDiscountsTypeDef",
         "projectedUtilizationMetrics": List["ECSServiceProjectedUtilizationMetricTypeDef"],
         "containerRecommendations": List["ContainerRecommendationTypeDef"],
-        "savingsOpportunityAfterDiscounts": "ECSSavingsOpportunityAfterDiscountsTypeDef",
     },
     total=False,
 )
@@ -518,8 +560,8 @@ ECSServiceRecommendationTypeDef = TypedDict(
         "findingReasonCodes": List[ECSServiceRecommendationFindingReasonCodeType],
         "serviceRecommendationOptions": List["ECSServiceRecommendationOptionTypeDef"],
         "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "tags": List["TagTypeDef"],
         "effectiveRecommendationPreferences": "ECSEffectiveRecommendationPreferencesTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -796,6 +838,40 @@ ExportLicenseRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
+    "_RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef",
+    {
+        "s3DestinationConfig": "S3DestinationConfigTypeDef",
+    },
+)
+_OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
+    "_OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef",
+    {
+        "accountIds": List[str],
+        "filters": List["RDSDBRecommendationFilterTypeDef"],
+        "fieldsToExport": List[ExportableRDSDBFieldType],
+        "fileFormat": Literal["Csv"],
+        "includeMemberAccounts": bool,
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
+    },
+    total=False,
+)
+
+class ExportRDSDatabaseRecommendationsRequestRequestTypeDef(
+    _RequiredExportRDSDatabaseRecommendationsRequestRequestTypeDef,
+    _OptionalExportRDSDatabaseRecommendationsRequestRequestTypeDef,
+):
+    pass
+
+ExportRDSDatabaseRecommendationsResponseTypeDef = TypedDict(
+    "ExportRDSDatabaseRecommendationsResponseTypeDef",
+    {
+        "jobId": str,
+        "s3Destination": "S3DestinationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ExternalMetricStatusTypeDef = TypedDict(
     "ExternalMetricStatusTypeDef",
     {
@@ -1058,6 +1134,63 @@ GetLicenseRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "stat": MetricStatisticType,
+        "period": int,
+        "startTime": Union[datetime, str],
+        "endTime": Union[datetime, str],
+    },
+)
+_OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef",
+    {
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
+    },
+    total=False,
+)
+
+class GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef(
+    _RequiredGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef,
+    _OptionalGetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef,
+):
+    pass
+
+GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef = TypedDict(
+    "GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef",
+    {
+        "recommendedOptionProjectedMetrics": List[
+            "RDSDatabaseRecommendedOptionProjectedMetricTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRDSDatabaseRecommendationsRequestRequestTypeDef = TypedDict(
+    "GetRDSDatabaseRecommendationsRequestRequestTypeDef",
+    {
+        "resourceArns": List[str],
+        "nextToken": str,
+        "maxResults": int,
+        "filters": List["RDSDBRecommendationFilterTypeDef"],
+        "accountIds": List[str],
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
+    },
+    total=False,
+)
+
+GetRDSDatabaseRecommendationsResponseTypeDef = TypedDict(
+    "GetRDSDatabaseRecommendationsResponseTypeDef",
+    {
+        "nextToken": str,
+        "rdsDBRecommendations": List["RDSDBRecommendationTypeDef"],
+        "errors": List["GetRecommendationErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetRecommendationErrorTypeDef = TypedDict(
     "GetRecommendationErrorTypeDef",
     {
@@ -1157,14 +1290,14 @@ InstanceRecommendationOptionTypeDef = TypedDict(
     "InstanceRecommendationOptionTypeDef",
     {
         "instanceType": str,
+        "instanceGpuInfo": "GpuInfoTypeDef",
         "projectedUtilizationMetrics": List["UtilizationMetricTypeDef"],
         "platformDifferences": List[PlatformDifferenceType],
         "performanceRisk": float,
         "rank": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
-        "migrationEffort": MigrationEffortType,
-        "instanceGpuInfo": "GpuInfoTypeDef",
         "savingsOpportunityAfterDiscounts": "InstanceSavingsOpportunityAfterDiscountsTypeDef",
+        "migrationEffort": MigrationEffortType,
     },
     total=False,
 )
@@ -1284,8 +1417,8 @@ LambdaFunctionRecommendationTypeDef = TypedDict(
         "findingReasonCodes": List[LambdaFunctionRecommendationFindingReasonCodeType],
         "memorySizeRecommendationOptions": List["LambdaFunctionMemoryRecommendationOptionTypeDef"],
         "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "tags": List["TagTypeDef"],
         "effectiveRecommendationPreferences": "LambdaEffectiveRecommendationPreferencesTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1443,6 +1576,149 @@ class PutRecommendationPreferencesRequestRequestTypeDef(
     _OptionalPutRecommendationPreferencesRequestRequestTypeDef,
 ):
     pass
+
+RDSDBInstanceRecommendationOptionTypeDef = TypedDict(
+    "RDSDBInstanceRecommendationOptionTypeDef",
+    {
+        "dbInstanceClass": str,
+        "projectedUtilizationMetrics": List["RDSDBUtilizationMetricTypeDef"],
+        "performanceRisk": float,
+        "rank": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "savingsOpportunityAfterDiscounts": "RDSInstanceSavingsOpportunityAfterDiscountsTypeDef",
+    },
+    total=False,
+)
+
+RDSDBRecommendationFilterTypeDef = TypedDict(
+    "RDSDBRecommendationFilterTypeDef",
+    {
+        "name": RDSDBRecommendationFilterNameType,
+        "values": List[str],
+    },
+    total=False,
+)
+
+RDSDBRecommendationTypeDef = TypedDict(
+    "RDSDBRecommendationTypeDef",
+    {
+        "resourceArn": str,
+        "accountId": str,
+        "engine": str,
+        "engineVersion": str,
+        "currentDBInstanceClass": str,
+        "currentStorageConfiguration": "DBStorageConfigurationTypeDef",
+        "idle": IdleType,
+        "instanceFinding": RDSInstanceFindingType,
+        "storageFinding": RDSStorageFindingType,
+        "instanceFindingReasonCodes": List[RDSInstanceFindingReasonCodeType],
+        "storageFindingReasonCodes": List[RDSStorageFindingReasonCodeType],
+        "instanceRecommendationOptions": List["RDSDBInstanceRecommendationOptionTypeDef"],
+        "storageRecommendationOptions": List["RDSDBStorageRecommendationOptionTypeDef"],
+        "utilizationMetrics": List["RDSDBUtilizationMetricTypeDef"],
+        "effectiveRecommendationPreferences": "RDSEffectiveRecommendationPreferencesTypeDef",
+        "lookbackPeriodInDays": float,
+        "lastRefreshTimestamp": datetime,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+RDSDBStorageRecommendationOptionTypeDef = TypedDict(
+    "RDSDBStorageRecommendationOptionTypeDef",
+    {
+        "storageConfiguration": "DBStorageConfigurationTypeDef",
+        "rank": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "savingsOpportunityAfterDiscounts": "RDSStorageSavingsOpportunityAfterDiscountsTypeDef",
+    },
+    total=False,
+)
+
+RDSDBUtilizationMetricTypeDef = TypedDict(
+    "RDSDBUtilizationMetricTypeDef",
+    {
+        "name": RDSDBMetricNameType,
+        "statistic": RDSDBMetricStatisticType,
+        "value": float,
+    },
+    total=False,
+)
+
+RDSDatabaseProjectedMetricTypeDef = TypedDict(
+    "RDSDatabaseProjectedMetricTypeDef",
+    {
+        "name": RDSDBMetricNameType,
+        "timestamps": List[datetime],
+        "values": List[float],
+    },
+    total=False,
+)
+
+RDSDatabaseRecommendedOptionProjectedMetricTypeDef = TypedDict(
+    "RDSDatabaseRecommendedOptionProjectedMetricTypeDef",
+    {
+        "recommendedDBInstanceClass": str,
+        "rank": int,
+        "projectedMetrics": List["RDSDatabaseProjectedMetricTypeDef"],
+    },
+    total=False,
+)
+
+RDSEffectiveRecommendationPreferencesTypeDef = TypedDict(
+    "RDSEffectiveRecommendationPreferencesTypeDef",
+    {
+        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
+        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "lookBackPeriod": LookBackPeriodPreferenceType,
+        "savingsEstimationMode": "RDSSavingsEstimationModeTypeDef",
+    },
+    total=False,
+)
+
+RDSInstanceEstimatedMonthlySavingsTypeDef = TypedDict(
+    "RDSInstanceEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
+RDSInstanceSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "RDSInstanceSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "RDSInstanceEstimatedMonthlySavingsTypeDef",
+    },
+    total=False,
+)
+
+RDSSavingsEstimationModeTypeDef = TypedDict(
+    "RDSSavingsEstimationModeTypeDef",
+    {
+        "source": RDSSavingsEstimationModeSourceType,
+    },
+    total=False,
+)
+
+RDSStorageEstimatedMonthlySavingsTypeDef = TypedDict(
+    "RDSStorageEstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
+    },
+    total=False,
+)
+
+RDSStorageSavingsOpportunityAfterDiscountsTypeDef = TypedDict(
+    "RDSStorageSavingsOpportunityAfterDiscountsTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "RDSStorageEstimatedMonthlySavingsTypeDef",
+    },
+    total=False,
+)
 
 ReasonCodeSummaryTypeDef = TypedDict(
     "ReasonCodeSummaryTypeDef",
@@ -1688,8 +1964,8 @@ VolumeRecommendationTypeDef = TypedDict(
         "volumeRecommendationOptions": List["VolumeRecommendationOptionTypeDef"],
         "lastRefreshTimestamp": datetime,
         "currentPerformanceRisk": CurrentPerformanceRiskType,
-        "tags": List["TagTypeDef"],
         "effectiveRecommendationPreferences": "EBSEffectiveRecommendationPreferencesTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )

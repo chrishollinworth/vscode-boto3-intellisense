@@ -90,7 +90,9 @@ PipelineExecutionStatusType = Literal[
 PipelineTriggerProviderTypeType = Literal["CodeStarSourceConnection"]
 PipelineTypeType = Literal["V1", "V2"]
 ResultType = Literal["ROLLBACK"]
-SourceRevisionTypeType = Literal["COMMIT_ID", "IMAGE_DIGEST", "S3_OBJECT_VERSION_ID"]
+SourceRevisionTypeType = Literal[
+    "COMMIT_ID", "IMAGE_DIGEST", "S3_OBJECT_KEY", "S3_OBJECT_VERSION_ID"
+]
 StageExecutionStatusType = Literal[
     "Cancelled", "Failed", "InProgress", "Stopped", "Stopping", "Succeeded"
 ]

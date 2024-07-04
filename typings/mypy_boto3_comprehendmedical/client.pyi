@@ -77,7 +77,7 @@ class Exceptions:
 
 class ComprehendMedicalClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html)
     """
 
@@ -93,7 +93,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#can_paginate)
         """
 
@@ -101,7 +101,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#close)
         """
 
@@ -111,7 +111,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets the properties associated with a medical entities detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_entities_detection_v2_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_entities_detection_v2_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#describe_entities_detection_v2_job)
         """
 
@@ -121,7 +121,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets the properties associated with an InferICD10CM job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_icd10_cm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_icd10_cm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#describe_icd10_cm_inference_job)
         """
 
@@ -130,7 +130,7 @@ class ComprehendMedicalClient(BaseClient):
         Gets the properties associated with a protected health information (PHI)
         detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_phi_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_phi_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#describe_phi_detection_job)
         """
 
@@ -140,7 +140,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets the properties associated with an InferRxNorm job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_rx_norm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_rx_norm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#describe_rx_norm_inference_job)
         """
 
@@ -150,7 +150,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets the properties associated with an InferSNOMEDCT job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_snomedct_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_snomedct_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#describe_snomedct_inference_job)
         """
 
@@ -158,7 +158,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         The `DetectEntities` operation is deprecated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#detect_entities)
         """
 
@@ -168,7 +168,7 @@ class ComprehendMedicalClient(BaseClient):
         specific information about them such as entity category, location, and
         confidence score on that information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#detect_entities_v2)
         """
 
@@ -177,7 +177,7 @@ class ComprehendMedicalClient(BaseClient):
         Inspects the clinical text for protected health information (PHI) entities and
         returns the entity category, location, and confidence score for each entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_phi)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_phi)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#detect_phi)
         """
 
@@ -191,7 +191,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#generate_presigned_url)
         """
 
@@ -201,7 +201,7 @@ class ComprehendMedicalClient(BaseClient):
         and links those entities to normalized concept identifiers in the ICD-10-CM
         knowledge base from the Centers for Disease Control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_icd10_cm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_icd10_cm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#infer_icd10_cm)
         """
 
@@ -211,7 +211,7 @@ class ComprehendMedicalClient(BaseClient):
         to the normalized concept identifiers in the RxNorm database from the National
         Library of Medicine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_rx_norm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_rx_norm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#infer_rx_norm)
         """
 
@@ -222,7 +222,7 @@ class ComprehendMedicalClient(BaseClient):
         ontology See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebA
         PI/comprehendmedical-2018-10-30/InferSNOMEDCT>`_ **Re...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_snomedct)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_snomedct)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#infer_snomedct)
         """
 
@@ -236,7 +236,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets a list of medical entity detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_entities_detection_v2_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_entities_detection_v2_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#list_entities_detection_v2_jobs)
         """
 
@@ -250,7 +250,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets a list of InferICD10CM jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_icd10_cm_inference_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_icd10_cm_inference_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#list_icd10_cm_inference_jobs)
         """
 
@@ -265,7 +265,7 @@ class ComprehendMedicalClient(BaseClient):
         Gets a list of protected health information (PHI) detection jobs you have
         submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_phi_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_phi_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#list_phi_detection_jobs)
         """
 
@@ -279,7 +279,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets a list of InferRxNorm jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_rx_norm_inference_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_rx_norm_inference_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#list_rx_norm_inference_jobs)
         """
 
@@ -293,7 +293,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Gets a list of InferSNOMEDCT jobs a user has submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_snomedct_inference_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_snomedct_inference_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#list_snomedct_inference_jobs)
         """
 
@@ -312,7 +312,7 @@ class ComprehendMedicalClient(BaseClient):
         Starts an asynchronous medical entity detection job for a collection of
         documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_entities_detection_v2_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_entities_detection_v2_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#start_entities_detection_v2_job)
         """
 
@@ -331,7 +331,7 @@ class ComprehendMedicalClient(BaseClient):
         Starts an asynchronous job to detect medical conditions and link them to the
         ICD-10-CM ontology.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_icd10_cm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_icd10_cm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#start_icd10_cm_inference_job)
         """
 
@@ -349,7 +349,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Starts an asynchronous job to detect protected health information (PHI).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_phi_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_phi_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#start_phi_detection_job)
         """
 
@@ -368,7 +368,7 @@ class ComprehendMedicalClient(BaseClient):
         Starts an asynchronous job to detect medication entities and link them to the
         RxNorm ontology.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_rx_norm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_rx_norm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#start_rx_norm_inference_job)
         """
 
@@ -387,7 +387,7 @@ class ComprehendMedicalClient(BaseClient):
         Starts an asynchronous job to detect medical concepts and link them to the
         SNOMED-CT ontology.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_snomedct_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_snomedct_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#start_snomedct_inference_job)
         """
 
@@ -397,7 +397,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Stops a medical entities detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_entities_detection_v2_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_entities_detection_v2_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#stop_entities_detection_v2_job)
         """
 
@@ -405,7 +405,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Stops an InferICD10CM inference job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_icd10_cm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_icd10_cm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#stop_icd10_cm_inference_job)
         """
 
@@ -413,7 +413,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Stops a protected health information (PHI) detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_phi_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_phi_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#stop_phi_detection_job)
         """
 
@@ -421,7 +421,7 @@ class ComprehendMedicalClient(BaseClient):
         """
         Stops an InferRxNorm inference job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_rx_norm_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_rx_norm_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#stop_rx_norm_inference_job)
         """
 
@@ -429,6 +429,6 @@ class ComprehendMedicalClient(BaseClient):
         """
         Stops an InferSNOMEDCT inference job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_snomedct_inference_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_snomedct_inference_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/client.html#stop_snomedct_inference_job)
         """

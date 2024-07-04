@@ -186,7 +186,7 @@ class Exceptions:
 
 class ProtonClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html)
     """
 
@@ -204,7 +204,7 @@ class ProtonClient(BaseClient):
         """
         In a management account, an environment account connection request is accepted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.accept_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.accept_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#accept_environment_account_connection)
         """
 
@@ -212,7 +212,7 @@ class ProtonClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#can_paginate)
         """
 
@@ -223,7 +223,7 @@ class ProtonClient(BaseClient):
         Attempts to cancel a component deployment (for a component that is in the
         `IN_PROGRESS` deployment status).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.cancel_component_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.cancel_component_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#cancel_component_deployment)
         """
 
@@ -234,7 +234,7 @@ class ProtonClient(BaseClient):
         Attempts to cancel an environment deployment on an  UpdateEnvironment action, if
         the deployment is `IN_PROGRESS`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.cancel_environment_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.cancel_environment_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#cancel_environment_deployment)
         """
 
@@ -245,7 +245,7 @@ class ProtonClient(BaseClient):
         Attempts to cancel a service instance deployment on an  UpdateServiceInstance
         action, if the deployment is `IN_PROGRESS`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.cancel_service_instance_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.cancel_service_instance_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#cancel_service_instance_deployment)
         """
 
@@ -256,7 +256,7 @@ class ProtonClient(BaseClient):
         Attempts to cancel a service pipeline deployment on an  UpdateServicePipeline
         action, if the deployment is `IN_PROGRESS`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.cancel_service_pipeline_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.cancel_service_pipeline_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#cancel_service_pipeline_deployment)
         """
 
@@ -264,7 +264,7 @@ class ProtonClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#close)
         """
 
@@ -285,7 +285,7 @@ class ProtonClient(BaseClient):
         """
         Create an Proton component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_component)
         """
 
@@ -308,7 +308,7 @@ class ProtonClient(BaseClient):
         """
         Deploy a new environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_environment)
         """
 
@@ -328,7 +328,7 @@ class ProtonClient(BaseClient):
         environment infrastructure resources can be provisioned in the environment
         account from a management account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_environment_account_connection)
         """
 
@@ -345,7 +345,7 @@ class ProtonClient(BaseClient):
         """
         Create an environment template for Proton.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_environment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_environment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_environment_template)
         """
 
@@ -362,7 +362,7 @@ class ProtonClient(BaseClient):
         """
         Create a new major or minor version of an environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_environment_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_environment_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_environment_template_version)
         """
 
@@ -378,7 +378,7 @@ class ProtonClient(BaseClient):
         """
         Create and register a link to a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_repository)
         """
 
@@ -399,7 +399,7 @@ class ProtonClient(BaseClient):
         """
         Create an Proton service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_service)
         """
 
@@ -417,7 +417,7 @@ class ProtonClient(BaseClient):
         """
         Create a service instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_service_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_service_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_service_instance)
         """
 
@@ -433,7 +433,7 @@ class ProtonClient(BaseClient):
         """
         Create the Proton Ops configuration file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_service_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_service_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_service_sync_config)
         """
 
@@ -450,7 +450,7 @@ class ProtonClient(BaseClient):
         """
         Create a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_service_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_service_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_service_template)
         """
 
@@ -469,7 +469,7 @@ class ProtonClient(BaseClient):
         """
         Create a new major or minor version of a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_service_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_service_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_service_template_version)
         """
 
@@ -487,7 +487,7 @@ class ProtonClient(BaseClient):
         Set up a template to create new template versions automatically by tracking a
         linked repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.create_template_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.create_template_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#create_template_sync_config)
         """
 
@@ -495,7 +495,7 @@ class ProtonClient(BaseClient):
         """
         Delete an Proton component resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_component)
         """
 
@@ -503,7 +503,7 @@ class ProtonClient(BaseClient):
         """
         Delete the deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_deployment)
         """
 
@@ -511,7 +511,7 @@ class ProtonClient(BaseClient):
         """
         Delete an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_environment)
         """
 
@@ -521,7 +521,7 @@ class ProtonClient(BaseClient):
         """
         In an environment account, delete an environment account connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_environment_account_connection)
         """
 
@@ -530,7 +530,7 @@ class ProtonClient(BaseClient):
         If no other major or minor versions of an environment template exist, delete the
         environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_environment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_environment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_environment_template)
         """
 
@@ -541,7 +541,7 @@ class ProtonClient(BaseClient):
         If no other minor versions of an environment template exist, delete a major
         version of the environment template if it's not the `Recommended` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_environment_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_environment_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_environment_template_version)
         """
 
@@ -551,7 +551,7 @@ class ProtonClient(BaseClient):
         """
         De-register and unlink your repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_repository)
         """
 
@@ -559,7 +559,7 @@ class ProtonClient(BaseClient):
         """
         Delete a service, with its instances and pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_service)
         """
 
@@ -569,7 +569,7 @@ class ProtonClient(BaseClient):
         """
         Delete the Proton Ops file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_service_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_service_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_service_sync_config)
         """
 
@@ -578,7 +578,7 @@ class ProtonClient(BaseClient):
         If no other major or minor versions of the service template exist, delete the
         service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_service_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_service_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_service_template)
         """
 
@@ -589,7 +589,7 @@ class ProtonClient(BaseClient):
         If no other minor versions of a service template exist, delete a major version
         of the service template if it's not the `Recommended` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_service_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_service_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_service_template_version)
         """
 
@@ -599,7 +599,7 @@ class ProtonClient(BaseClient):
         """
         Delete a template sync configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.delete_template_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.delete_template_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#delete_template_sync_config)
         """
 
@@ -613,7 +613,7 @@ class ProtonClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#generate_presigned_url)
         """
 
@@ -621,7 +621,7 @@ class ProtonClient(BaseClient):
         """
         Get detail data for Proton account-wide settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_account_settings)
         """
 
@@ -629,7 +629,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_component)
         """
 
@@ -645,7 +645,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_deployment)
         """
 
@@ -653,7 +653,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_environment)
         """
 
@@ -664,7 +664,7 @@ class ProtonClient(BaseClient):
         In an environment account, get the detailed data for an environment account
         connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_environment_account_connection)
         """
 
@@ -672,7 +672,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for an environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_environment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_environment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_environment_template)
         """
 
@@ -682,7 +682,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a major or minor version of an environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_environment_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_environment_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_environment_template_version)
         """
 
@@ -692,7 +692,7 @@ class ProtonClient(BaseClient):
         """
         Get detail data for a linked repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_repository)
         """
 
@@ -707,7 +707,7 @@ class ProtonClient(BaseClient):
         """
         Get the sync status of a repository used for Proton template sync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_repository_sync_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_repository_sync_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_repository_sync_status)
         """
 
@@ -715,7 +715,7 @@ class ProtonClient(BaseClient):
         """
         Get counts of Proton resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_resources_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_resources_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_resources_summary)
         """
 
@@ -723,7 +723,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service)
         """
 
@@ -733,7 +733,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a service instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_instance)
         """
 
@@ -743,7 +743,7 @@ class ProtonClient(BaseClient):
         """
         Get the status of the synced service instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_instance_sync_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_instance_sync_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_instance_sync_status)
         """
 
@@ -753,7 +753,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for the service sync blocker summary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_sync_blocker_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_sync_blocker_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_sync_blocker_summary)
         """
 
@@ -761,7 +761,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed information for the service sync configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_sync_config)
         """
 
@@ -769,7 +769,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_template)
         """
 
@@ -779,7 +779,7 @@ class ProtonClient(BaseClient):
         """
         Get detailed data for a major or minor version of a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_service_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_service_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_service_template_version)
         """
 
@@ -789,7 +789,7 @@ class ProtonClient(BaseClient):
         """
         Get detail data for a template sync configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_template_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_template_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_template_sync_config)
         """
 
@@ -799,7 +799,7 @@ class ProtonClient(BaseClient):
         """
         Get the status of a template sync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.get_template_sync_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.get_template_sync_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#get_template_sync_status)
         """
 
@@ -809,7 +809,7 @@ class ProtonClient(BaseClient):
         """
         Get a list of component Infrastructure as Code (IaC) outputs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_component_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_component_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_component_outputs)
         """
 
@@ -819,7 +819,7 @@ class ProtonClient(BaseClient):
         """
         List provisioned resources for a component with details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_component_provisioned_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_component_provisioned_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_component_provisioned_resources)
         """
 
@@ -835,7 +835,7 @@ class ProtonClient(BaseClient):
         """
         List components with summary data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_components)
         """
 
@@ -852,7 +852,7 @@ class ProtonClient(BaseClient):
         """
         List deployments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_deployments)
         """
 
@@ -868,7 +868,7 @@ class ProtonClient(BaseClient):
         """
         View a list of environment account connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environment_account_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environment_account_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environment_account_connections)
         """
 
@@ -878,7 +878,7 @@ class ProtonClient(BaseClient):
         """
         List the infrastructure as code outputs for your environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environment_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environment_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environment_outputs)
         """
 
@@ -888,7 +888,7 @@ class ProtonClient(BaseClient):
         """
         List the provisioned resources for your environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environment_provisioned_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environment_provisioned_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environment_provisioned_resources)
         """
 
@@ -903,7 +903,7 @@ class ProtonClient(BaseClient):
         """
         List major or minor versions of an environment template with detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environment_template_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environment_template_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environment_template_versions)
         """
 
@@ -913,7 +913,7 @@ class ProtonClient(BaseClient):
         """
         List environment templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environment_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environment_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environment_templates)
         """
 
@@ -927,7 +927,7 @@ class ProtonClient(BaseClient):
         """
         List environments with detail data summaries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_environments)
         """
 
@@ -937,7 +937,7 @@ class ProtonClient(BaseClient):
         """
         List linked repositories with detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_repositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_repositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_repositories)
         """
 
@@ -952,7 +952,7 @@ class ProtonClient(BaseClient):
         """
         List repository sync definitions with detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_repository_sync_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_repository_sync_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_repository_sync_definitions)
         """
 
@@ -967,7 +967,7 @@ class ProtonClient(BaseClient):
         """
         Get a list service of instance Infrastructure as Code (IaC) outputs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_instance_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_instance_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_instance_outputs)
         """
 
@@ -977,7 +977,7 @@ class ProtonClient(BaseClient):
         """
         List provisioned resources for a service instance with details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_instance_provisioned_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_instance_provisioned_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_instance_provisioned_resources)
         """
 
@@ -994,7 +994,7 @@ class ProtonClient(BaseClient):
         """
         List service instances with summary data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_instances)
         """
 
@@ -1004,7 +1004,7 @@ class ProtonClient(BaseClient):
         """
         Get a list of service pipeline Infrastructure as Code (IaC) outputs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_pipeline_outputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_pipeline_outputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_pipeline_outputs)
         """
 
@@ -1014,7 +1014,7 @@ class ProtonClient(BaseClient):
         """
         List provisioned resources for a service and pipeline with details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_pipeline_provisioned_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_pipeline_provisioned_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_pipeline_provisioned_resources)
         """
 
@@ -1029,7 +1029,7 @@ class ProtonClient(BaseClient):
         """
         List major or minor versions of a service template with detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_template_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_template_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_template_versions)
         """
 
@@ -1039,7 +1039,7 @@ class ProtonClient(BaseClient):
         """
         List service templates with detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_service_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_service_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_service_templates)
         """
 
@@ -1049,7 +1049,7 @@ class ProtonClient(BaseClient):
         """
         List services with summaries of detail data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_services)
         """
 
@@ -1059,7 +1059,7 @@ class ProtonClient(BaseClient):
         """
         List tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#list_tags_for_resource)
         """
 
@@ -1076,7 +1076,7 @@ class ProtonClient(BaseClient):
         Notify Proton of status changes to a provisioned resource when you use self-
         managed provisioning.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.notify_resource_deployment_status_change)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.notify_resource_deployment_status_change)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#notify_resource_deployment_status_change)
         """
 
@@ -1087,7 +1087,7 @@ class ProtonClient(BaseClient):
         In a management account, reject an environment account connection from another
         environment account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.reject_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.reject_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#reject_environment_account_connection)
         """
 
@@ -1095,7 +1095,7 @@ class ProtonClient(BaseClient):
         """
         Tag a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#tag_resource)
         """
 
@@ -1103,7 +1103,7 @@ class ProtonClient(BaseClient):
         """
         Remove a customer tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#untag_resource)
         """
 
@@ -1119,7 +1119,7 @@ class ProtonClient(BaseClient):
         Update Proton settings that are used for multiple services in the Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_account_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_account_settings)
         """
 
@@ -1138,7 +1138,7 @@ class ProtonClient(BaseClient):
         """
         Update a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_component)
         """
 
@@ -1160,7 +1160,7 @@ class ProtonClient(BaseClient):
         """
         Update an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_environment)
         """
 
@@ -1176,7 +1176,7 @@ class ProtonClient(BaseClient):
         In an environment account, update an environment account connection to use a new
         IAM role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_environment_account_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_environment_account_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_environment_account_connection)
         """
 
@@ -1186,7 +1186,7 @@ class ProtonClient(BaseClient):
         """
         Update an environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_environment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_environment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_environment_template)
         """
 
@@ -1202,7 +1202,7 @@ class ProtonClient(BaseClient):
         """
         Update a major or minor version of an environment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_environment_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_environment_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_environment_template_version)
         """
 
@@ -1212,7 +1212,7 @@ class ProtonClient(BaseClient):
         """
         Edit a service description or use a spec to add and delete service instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service)
         """
 
@@ -1230,7 +1230,7 @@ class ProtonClient(BaseClient):
         """
         Update a service instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_instance)
         """
 
@@ -1246,7 +1246,7 @@ class ProtonClient(BaseClient):
         """
         Update the service pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_pipeline)
         """
 
@@ -1256,7 +1256,7 @@ class ProtonClient(BaseClient):
         """
         Update the service sync blocker by resolving it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_sync_blocker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_sync_blocker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_sync_blocker)
         """
 
@@ -1272,7 +1272,7 @@ class ProtonClient(BaseClient):
         """
         Update the Proton Ops config file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_sync_config)
         """
 
@@ -1282,7 +1282,7 @@ class ProtonClient(BaseClient):
         """
         Update a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_template)
         """
 
@@ -1300,7 +1300,7 @@ class ProtonClient(BaseClient):
         """
         Update a major or minor version of a service template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_service_template_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_service_template_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_service_template_version)
         """
 
@@ -1318,7 +1318,7 @@ class ProtonClient(BaseClient):
         Update template sync configuration parameters, except for the `templateName` and
         `templateType`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Client.update_template_sync_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Client.update_template_sync_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/client.html#update_template_sync_config)
         """
 
@@ -1327,7 +1327,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_component_outputs"]
     ) -> ListComponentOutputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListComponentOutputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentOutputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentoutputspaginator)
         """
 
@@ -1336,14 +1336,14 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_component_provisioned_resources"]
     ) -> ListComponentProvisionedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListComponentProvisionedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentProvisionedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentprovisionedresourcespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_components"]) -> ListComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListComponents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentspaginator)
         """
 
@@ -1352,7 +1352,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_deployments"]
     ) -> ListDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListDeployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listdeploymentspaginator)
         """
 
@@ -1361,7 +1361,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environment_account_connections"]
     ) -> ListEnvironmentAccountConnectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironmentAccountConnections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentAccountConnections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentaccountconnectionspaginator)
         """
 
@@ -1370,7 +1370,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environment_outputs"]
     ) -> ListEnvironmentOutputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironmentOutputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentOutputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentoutputspaginator)
         """
 
@@ -1379,7 +1379,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environment_provisioned_resources"]
     ) -> ListEnvironmentProvisionedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironmentProvisionedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentProvisionedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentprovisionedresourcespaginator)
         """
 
@@ -1388,7 +1388,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environment_template_versions"]
     ) -> ListEnvironmentTemplateVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplateVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplateVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplateversionspaginator)
         """
 
@@ -1397,7 +1397,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environment_templates"]
     ) -> ListEnvironmentTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplatespaginator)
         """
 
@@ -1406,7 +1406,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentspaginator)
         """
 
@@ -1415,7 +1415,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_repositories"]
     ) -> ListRepositoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListRepositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositoriespaginator)
         """
 
@@ -1424,7 +1424,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_repository_sync_definitions"]
     ) -> ListRepositorySyncDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListRepositorySyncDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositorySyncDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositorysyncdefinitionspaginator)
         """
 
@@ -1433,7 +1433,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_instance_outputs"]
     ) -> ListServiceInstanceOutputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServiceInstanceOutputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceOutputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceoutputspaginator)
         """
 
@@ -1442,7 +1442,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_instance_provisioned_resources"]
     ) -> ListServiceInstanceProvisionedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServiceInstanceProvisionedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceProvisionedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceprovisionedresourcespaginator)
         """
 
@@ -1451,7 +1451,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_instances"]
     ) -> ListServiceInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServiceInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstancespaginator)
         """
 
@@ -1460,7 +1460,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_pipeline_outputs"]
     ) -> ListServicePipelineOutputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServicePipelineOutputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineOutputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineoutputspaginator)
         """
 
@@ -1469,7 +1469,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_pipeline_provisioned_resources"]
     ) -> ListServicePipelineProvisionedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServicePipelineProvisionedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineProvisionedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineprovisionedresourcespaginator)
         """
 
@@ -1478,7 +1478,7 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_template_versions"]
     ) -> ListServiceTemplateVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServiceTemplateVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplateVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplateversionspaginator)
         """
 
@@ -1487,14 +1487,14 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_service_templates"]
     ) -> ListServiceTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServiceTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplatespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicespaginator)
         """
 
@@ -1503,28 +1503,28 @@ class ProtonClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listtagsforresourcepaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["component_deleted"]) -> ComponentDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ComponentDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["component_deployed"]) -> ComponentDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ComponentDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeployedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["environment_deployed"]) -> EnvironmentDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.EnvironmentDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmentdeployedwaiter)
         """
 
@@ -1533,21 +1533,21 @@ class ProtonClient(BaseClient):
         self, waiter_name: Literal["environment_template_version_registered"]
     ) -> EnvironmentTemplateVersionRegisteredWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.EnvironmentTemplateVersionRegistered)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentTemplateVersionRegistered)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmenttemplateversionregisteredwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["service_created"]) -> ServiceCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServiceCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicecreatedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["service_deleted"]) -> ServiceDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServiceDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicedeletedwaiter)
         """
 
@@ -1556,7 +1556,7 @@ class ProtonClient(BaseClient):
         self, waiter_name: Literal["service_instance_deployed"]
     ) -> ServiceInstanceDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServiceInstanceDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceInstanceDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceinstancedeployedwaiter)
         """
 
@@ -1565,7 +1565,7 @@ class ProtonClient(BaseClient):
         self, waiter_name: Literal["service_pipeline_deployed"]
     ) -> ServicePipelineDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServicePipelineDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServicePipelineDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicepipelinedeployedwaiter)
         """
 
@@ -1574,13 +1574,13 @@ class ProtonClient(BaseClient):
         self, waiter_name: Literal["service_template_version_registered"]
     ) -> ServiceTemplateVersionRegisteredWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServiceTemplateVersionRegistered)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceTemplateVersionRegistered)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicetemplateversionregisteredwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["service_updated"]) -> ServiceUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/proton.html#Proton.Waiter.ServiceUpdated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceUpdated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceupdatedwaiter)
         """

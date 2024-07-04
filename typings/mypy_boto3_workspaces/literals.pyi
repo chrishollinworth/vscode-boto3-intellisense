@@ -23,10 +23,12 @@ __all__ = (
     "AccessPropertyValueType",
     "AccountLinkStatusEnumType",
     "ApplicationAssociatedResourceTypeType",
+    "ApplicationSettingsStatusEnumType",
     "ApplicationType",
     "AssociationErrorCodeType",
     "AssociationStateType",
     "AssociationStatusType",
+    "AuthenticationTypeType",
     "BundleAssociatedResourceTypeType",
     "BundleTypeType",
     "CertificateBasedAuthStatusEnumType",
@@ -48,6 +50,8 @@ __all__ = (
     "DescribeWorkspaceImagesPaginatorName",
     "DescribeWorkspacesConnectionStatusPaginatorName",
     "DescribeWorkspacesPaginatorName",
+    "DescribeWorkspacesPoolsFilterNameType",
+    "DescribeWorkspacesPoolsFilterOperatorType",
     "ImageAssociatedResourceTypeType",
     "ImageTypeType",
     "ListAccountLinksPaginatorName",
@@ -61,9 +65,16 @@ __all__ = (
     "ReconnectEnumType",
     "RunningModeType",
     "SamlStatusEnumType",
+    "SessionConnectionStateType",
     "StandbyWorkspaceRelationshipTypeType",
+    "StorageConnectorStatusEnumType",
+    "StorageConnectorTypeEnumType",
+    "StreamingExperiencePreferredProtocolEnumType",
     "TargetWorkspaceStateType",
     "TenancyType",
+    "UserIdentityTypeType",
+    "UserSettingActionEnumType",
+    "UserSettingPermissionEnumType",
     "WorkSpaceApplicationLicenseTypeType",
     "WorkSpaceApplicationStateType",
     "WorkSpaceAssociatedResourceTypeType",
@@ -75,6 +86,9 @@ __all__ = (
     "WorkspaceImageRequiredTenancyType",
     "WorkspaceImageStateType",
     "WorkspaceStateType",
+    "WorkspaceTypeType",
+    "WorkspacesPoolErrorCodeType",
+    "WorkspacesPoolStateType",
 )
 
 AccessPropertyValueType = Literal["ALLOW", "DENY"]
@@ -82,6 +96,7 @@ AccountLinkStatusEnumType = Literal[
     "LINKED", "LINKING_FAILED", "LINK_NOT_FOUND", "PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT", "REJECTED"
 ]
 ApplicationAssociatedResourceTypeType = Literal["BUNDLE", "IMAGE", "WORKSPACE"]
+ApplicationSettingsStatusEnumType = Literal["DISABLED", "ENABLED"]
 ApplicationType = Literal["Microsoft_Office_2016", "Microsoft_Office_2019"]
 AssociationErrorCodeType = Literal[
     "DeploymentError.InternalServerError",
@@ -108,6 +123,7 @@ AssociationStatusType = Literal[
     "PENDING_ASSOCIATION",
     "PENDING_DISASSOCIATION",
 ]
+AuthenticationTypeType = Literal["SAML"]
 BundleAssociatedResourceTypeType = Literal["APPLICATION"]
 BundleTypeType = Literal["REGULAR", "STANDBY"]
 CertificateBasedAuthStatusEnumType = Literal["DISABLED", "ENABLED"]
@@ -150,6 +166,10 @@ DescribeWorkspaceDirectoriesPaginatorName = Literal["describe_workspace_director
 DescribeWorkspaceImagesPaginatorName = Literal["describe_workspace_images"]
 DescribeWorkspacesConnectionStatusPaginatorName = Literal["describe_workspaces_connection_status"]
 DescribeWorkspacesPaginatorName = Literal["describe_workspaces"]
+DescribeWorkspacesPoolsFilterNameType = Literal["PoolName"]
+DescribeWorkspacesPoolsFilterOperatorType = Literal[
+    "CONTAINS", "EQUALS", "NOTCONTAINS", "NOTEQUALS"
+]
 ImageAssociatedResourceTypeType = Literal["APPLICATION"]
 ImageTypeType = Literal["OWNED", "SHARED"]
 ListAccountLinksPaginatorName = Literal["list_account_links"]
@@ -159,6 +179,7 @@ ModificationResourceEnumType = Literal["COMPUTE_TYPE", "ROOT_VOLUME", "USER_VOLU
 ModificationStateEnumType = Literal["UPDATE_INITIATED", "UPDATE_IN_PROGRESS"]
 OperatingSystemNameType = Literal[
     "AMAZON_LINUX_2",
+    "RHEL_8",
     "UBUNTU_18_04",
     "UBUNTU_20_04",
     "UBUNTU_22_04",
@@ -175,9 +196,21 @@ ProtocolType = Literal["PCOIP", "WSP"]
 ReconnectEnumType = Literal["DISABLED", "ENABLED"]
 RunningModeType = Literal["ALWAYS_ON", "AUTO_STOP", "MANUAL"]
 SamlStatusEnumType = Literal["DISABLED", "ENABLED", "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK"]
+SessionConnectionStateType = Literal["CONNECTED", "NOT_CONNECTED"]
 StandbyWorkspaceRelationshipTypeType = Literal["PRIMARY", "STANDBY"]
+StorageConnectorStatusEnumType = Literal["DISABLED", "ENABLED"]
+StorageConnectorTypeEnumType = Literal["HOME_FOLDER"]
+StreamingExperiencePreferredProtocolEnumType = Literal["TCP", "UDP"]
 TargetWorkspaceStateType = Literal["ADMIN_MAINTENANCE", "AVAILABLE"]
 TenancyType = Literal["DEDICATED", "SHARED"]
+UserIdentityTypeType = Literal["AWS_DIRECTORY_SERVICE", "CUSTOMER_MANAGED"]
+UserSettingActionEnumType = Literal[
+    "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+    "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+    "PRINTING_TO_LOCAL_DEVICE",
+    "SMART_CARD",
+]
+UserSettingPermissionEnumType = Literal["DISABLED", "ENABLED"]
 WorkSpaceApplicationLicenseTypeType = Literal["LICENSED", "UNLICENSED"]
 WorkSpaceApplicationStateType = Literal["AVAILABLE", "ERROR", "PENDING", "UNINSTALL_ONLY"]
 WorkSpaceAssociatedResourceTypeType = Literal["APPLICATION"]
@@ -185,7 +218,7 @@ WorkspaceBundleStateType = Literal["AVAILABLE", "ERROR", "PENDING"]
 WorkspaceDirectoryStateType = Literal[
     "DEREGISTERED", "DEREGISTERING", "ERROR", "REGISTERED", "REGISTERING"
 ]
-WorkspaceDirectoryTypeType = Literal["AD_CONNECTOR", "SIMPLE_AD"]
+WorkspaceDirectoryTypeType = Literal["AD_CONNECTOR", "CUSTOMER_MANAGED", "SIMPLE_AD"]
 WorkspaceImageErrorDetailCodeType = Literal[
     "AdditionalDrivesAttached",
     "AntiVirusInstalled",
@@ -243,4 +276,50 @@ WorkspaceStateType = Literal[
     "TERMINATING",
     "UNHEALTHY",
     "UPDATING",
+]
+WorkspaceTypeType = Literal["PERSONAL", "POOLS"]
+WorkspacesPoolErrorCodeType = Literal[
+    "BUNDLE_NOT_FOUND",
+    "DEFAULT_OU_IS_MISSING",
+    "DIRECTORY_NOT_FOUND",
+    "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+    "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+    "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+    "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+    "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+    "DOMAIN_JOIN_ERROR_MORE_DATA",
+    "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+    "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+    "DOMAIN_JOIN_ERROR_SECRET_ACTION_PERMISSION_IS_MISSING",
+    "DOMAIN_JOIN_ERROR_SECRET_DECRYPTION_FAILURE",
+    "DOMAIN_JOIN_ERROR_SECRET_INVALID",
+    "DOMAIN_JOIN_ERROR_SECRET_NOT_FOUND",
+    "DOMAIN_JOIN_ERROR_SECRET_STATE_INVALID",
+    "DOMAIN_JOIN_ERROR_SECRET_VALUE_KEY_NOT_FOUND",
+    "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+    "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+    "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+    "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+    "IAM_SERVICE_ROLE_IS_MISSING",
+    "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+    "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+    "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+    "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+    "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+    "IGW_NOT_ATTACHED",
+    "IMAGE_NOT_FOUND",
+    "INSUFFICIENT_PERMISSIONS_ERROR",
+    "INTERNAL_SERVICE_ERROR",
+    "INVALID_SUBNET_CONFIGURATION",
+    "MACHINE_ROLE_IS_MISSING",
+    "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+    "SECURITY_GROUPS_NOT_FOUND",
+    "STS_DISABLED_IN_REGION",
+    "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+    "SUBNET_NOT_FOUND",
+    "WORKSPACES_POOL_INSTANCE_PROVISIONING_FAILURE",
+    "WORKSPACES_POOL_STOPPED",
+]
+WorkspacesPoolStateType = Literal[
+    "CREATING", "DELETING", "RUNNING", "STARTING", "STOPPED", "STOPPING", "UPDATING"
 ]

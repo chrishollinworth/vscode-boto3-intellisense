@@ -70,7 +70,7 @@ class Exceptions:
 
 class KeyspacesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html)
     """
 
@@ -86,7 +86,7 @@ class KeyspacesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#can_paginate)
         """
 
@@ -94,7 +94,7 @@ class KeyspacesClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#close)
         """
 
@@ -108,7 +108,7 @@ class KeyspacesClient(BaseClient):
         """
         The `CreateKeyspace` operation adds a new keyspace to your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.create_keyspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.create_keyspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#create_keyspace)
         """
 
@@ -132,7 +132,7 @@ class KeyspacesClient(BaseClient):
         """
         The `CreateTable` operation adds a new table to the specified keyspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.create_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.create_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#create_table)
         """
 
@@ -140,7 +140,7 @@ class KeyspacesClient(BaseClient):
         """
         The `DeleteKeyspace` operation deletes a keyspace and all of its tables.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.delete_keyspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.delete_keyspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#delete_keyspace)
         """
 
@@ -148,7 +148,7 @@ class KeyspacesClient(BaseClient):
         """
         The `DeleteTable` operation deletes a table and all of its data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.delete_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.delete_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#delete_table)
         """
 
@@ -162,7 +162,7 @@ class KeyspacesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#generate_presigned_url)
         """
 
@@ -170,7 +170,7 @@ class KeyspacesClient(BaseClient):
         """
         Returns the name and the Amazon Resource Name (ARN) of the specified table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.get_keyspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.get_keyspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#get_keyspace)
         """
 
@@ -179,7 +179,7 @@ class KeyspacesClient(BaseClient):
         Returns information about the table, including the table's name and current
         status, the keyspace name, configuration settings, and metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.get_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.get_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#get_table)
         """
 
@@ -189,7 +189,7 @@ class KeyspacesClient(BaseClient):
         """
         Returns auto scaling related settings of the specified table in JSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.get_table_auto_scaling_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.get_table_auto_scaling_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#get_table_auto_scaling_settings)
         """
 
@@ -199,7 +199,7 @@ class KeyspacesClient(BaseClient):
         """
         Returns a list of keyspaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.list_keyspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.list_keyspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#list_keyspaces)
         """
 
@@ -209,7 +209,7 @@ class KeyspacesClient(BaseClient):
         """
         Returns a list of tables for a specified keyspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.list_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.list_tables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#list_tables)
         """
 
@@ -220,7 +220,7 @@ class KeyspacesClient(BaseClient):
         Returns a list of all tags associated with the specified Amazon Keyspaces
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#list_tags_for_resource)
         """
 
@@ -243,7 +243,7 @@ class KeyspacesClient(BaseClient):
         Restores the table to the specified point in time within the
         `earliest_restorable_timestamp` and the current time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.restore_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.restore_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#restore_table)
         """
 
@@ -251,7 +251,7 @@ class KeyspacesClient(BaseClient):
         """
         Associates a set of tags with a Amazon Keyspaces resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#tag_resource)
         """
 
@@ -259,7 +259,7 @@ class KeyspacesClient(BaseClient):
         """
         Removes the association of tags from a Amazon Keyspaces resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#untag_resource)
         """
 
@@ -283,21 +283,21 @@ class KeyspacesClient(BaseClient):
         example capacity mode, auto scaling, encryption, point-in-time recovery, or ttl
         settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Client.update_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Client.update_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/client.html#update_table)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_keyspaces"]) -> ListKeyspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Paginator.ListKeyspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listkeyspacespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Paginator.ListTables)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtablespaginator)
         """
 
@@ -306,6 +306,6 @@ class KeyspacesClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/keyspaces.html#Keyspaces.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/paginators.html#listtagsforresourcepaginator)
         """

@@ -26,6 +26,7 @@ __all__ = (
     "EmvEncryptionModeType",
     "EmvMajorKeyDerivationModeType",
     "EncryptionModeType",
+    "KeyCheckValueAlgorithmType",
     "MacAlgorithmType",
     "MajorKeyDerivationModeType",
     "PaddingTypeType",
@@ -39,6 +40,7 @@ DukptKeyVariantType = Literal["BIDIRECTIONAL", "REQUEST", "RESPONSE"]
 EmvEncryptionModeType = Literal["CBC", "ECB"]
 EmvMajorKeyDerivationModeType = Literal["EMV_OPTION_A", "EMV_OPTION_B"]
 EncryptionModeType = Literal["CBC", "CFB", "CFB1", "CFB128", "CFB64", "CFB8", "ECB", "OFB"]
+KeyCheckValueAlgorithmType = Literal["ANSI_X9_24", "CMAC"]
 MacAlgorithmType = Literal[
     "CMAC",
     "HMAC_SHA224",

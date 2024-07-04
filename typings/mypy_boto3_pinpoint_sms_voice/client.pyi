@@ -44,7 +44,7 @@ class Exceptions:
 
 class PinpointSMSVoiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html)
     """
 
@@ -60,7 +60,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#can_paginate)
         """
 
@@ -68,7 +68,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#close)
         """
 
@@ -76,7 +76,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Create a new configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#create_configuration_set)
         """
 
@@ -90,7 +90,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Create a new event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#create_configuration_set_event_destination)
         """
 
@@ -98,7 +98,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Deletes an existing configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#delete_configuration_set)
         """
 
@@ -108,7 +108,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Deletes an event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#delete_configuration_set_event_destination)
         """
 
@@ -122,7 +122,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#generate_presigned_url)
         """
 
@@ -134,7 +134,7 @@ class PinpointSMSVoiceClient(BaseClient):
         reports, the Amazon Resource Name (ARN) of the destination, and the name of the
         event destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.get_configuration_set_event_destinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.get_configuration_set_event_destinations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#get_configuration_set_event_destinations)
         """
 
@@ -150,7 +150,7 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Create a new voice message and send it to a recipient's phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.send_voice_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.send_voice_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#send_voice_message)
         """
 
@@ -164,6 +164,6 @@ class PinpointSMSVoiceClient(BaseClient):
         """
         Update an event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.update_configuration_set_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.update_configuration_set_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#update_configuration_set_event_destination)
         """

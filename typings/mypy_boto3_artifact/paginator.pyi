@@ -29,7 +29,7 @@ __all__ = ("ListReportsPaginator",)
 
 class ListReportsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/artifact.html#Artifact.Paginator.ListReports)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/artifact.html#Artifact.Paginator.ListReports)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_artifact/paginators.html#listreportspaginator)
     """
 
@@ -37,6 +37,6 @@ class ListReportsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/artifact.html#Artifact.Paginator.ListReports.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/artifact.html#Artifact.Paginator.ListReports.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_artifact/paginators.html#listreportspaginator)
         """

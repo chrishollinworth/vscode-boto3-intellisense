@@ -188,14 +188,18 @@ NotebookExecutionStatusType = Literal[
 ]
 OnDemandCapacityReservationPreferenceType = Literal["none", "open"]
 OnDemandCapacityReservationUsageStrategyType = Literal["use-capacity-reservations-first"]
-OnDemandProvisioningAllocationStrategyType = Literal["lowest-price"]
+OnDemandProvisioningAllocationStrategyType = Literal["lowest-price", "prioritized"]
 OutputNotebookFormatType = Literal["HTML"]
 PlacementGroupStrategyType = Literal["CLUSTER", "NONE", "PARTITION", "SPREAD"]
 ReconfigurationTypeType = Literal["MERGE", "OVERWRITE"]
 RepoUpgradeOnBootType = Literal["NONE", "SECURITY"]
 ScaleDownBehaviorType = Literal["TERMINATE_AT_INSTANCE_HOUR", "TERMINATE_AT_TASK_COMPLETION"]
 SpotProvisioningAllocationStrategyType = Literal[
-    "capacity-optimized", "diversified", "lowest-price", "price-capacity-optimized"
+    "capacity-optimized",
+    "capacity-optimized-prioritized",
+    "diversified",
+    "lowest-price",
+    "price-capacity-optimized",
 ]
 SpotProvisioningTimeoutActionType = Literal["SWITCH_TO_ON_DEMAND", "TERMINATE_CLUSTER"]
 StatisticType = Literal["AVERAGE", "MAXIMUM", "MINIMUM", "SAMPLE_COUNT", "SUM"]

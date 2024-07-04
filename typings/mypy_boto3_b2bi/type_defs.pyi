@@ -170,13 +170,13 @@ _RequiredCreatePartnershipRequestRequestTypeDef = TypedDict(
         "profileId": str,
         "name": str,
         "email": str,
+        "capabilities": List[str],
     },
 )
 _OptionalCreatePartnershipRequestRequestTypeDef = TypedDict(
     "_OptionalCreatePartnershipRequestRequestTypeDef",
     {
         "phone": str,
-        "capabilities": List[str],
         "clientToken": str,
         "tags": List["TagTypeDef"],
     },

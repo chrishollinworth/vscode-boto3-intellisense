@@ -61,7 +61,7 @@ class Exceptions:
 
 class EventBridgePipesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html)
     """
 
@@ -77,7 +77,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#can_paginate)
         """
 
@@ -85,7 +85,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#close)
         """
 
@@ -108,7 +108,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Create a pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.create_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.create_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#create_pipe)
         """
 
@@ -116,7 +116,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Delete an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.delete_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.delete_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#delete_pipe)
         """
 
@@ -124,7 +124,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Get the information about an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.describe_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.describe_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#describe_pipe)
         """
 
@@ -138,7 +138,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#generate_presigned_url)
         """
 
@@ -156,7 +156,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Get the pipes associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.list_pipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.list_pipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#list_pipes)
         """
 
@@ -164,7 +164,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Displays the tags associated with a pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#list_tags_for_resource)
         """
 
@@ -172,7 +172,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Start an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.start_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.start_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#start_pipe)
         """
 
@@ -180,7 +180,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Stop an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.stop_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.stop_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#stop_pipe)
         """
 
@@ -188,7 +188,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Assigns one or more tags (key-value pairs) to the specified pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#tag_resource)
         """
 
@@ -196,7 +196,7 @@ class EventBridgePipesClient(BaseClient):
         """
         Removes one or more tags from the specified pipes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#untag_resource)
         """
 
@@ -217,12 +217,12 @@ class EventBridgePipesClient(BaseClient):
         """
         Update an existing pipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Client.update_pipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Client.update_pipe)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/client.html#update_pipe)
         """
 
     def get_paginator(self, operation_name: Literal["list_pipes"]) -> ListPipesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pipes.html#EventBridgePipes.Paginator.ListPipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pipes.html#EventBridgePipes.Paginator.ListPipes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/paginators.html#listpipespaginator)
         """

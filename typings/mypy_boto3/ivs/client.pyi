@@ -88,7 +88,7 @@ class Exceptions:
 
 class IVSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html)
     """
 
@@ -104,7 +104,7 @@ class IVSClient(BaseClient):
         """
         Performs  GetChannel on multiple ARNs simultaneously.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.batch_get_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.batch_get_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#batch_get_channel)
         """
 
@@ -112,7 +112,7 @@ class IVSClient(BaseClient):
         """
         Performs  GetStreamKey on multiple ARNs simultaneously.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.batch_get_stream_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.batch_get_stream_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#batch_get_stream_key)
         """
 
@@ -123,7 +123,7 @@ class IVSClient(BaseClient):
         Performs  StartViewerSessionRevocation on multiple channel ARN and viewer ID
         pairs simultaneously.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.batch_start_viewer_session_revocation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.batch_start_viewer_session_revocation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#batch_start_viewer_session_revocation)
         """
 
@@ -131,7 +131,7 @@ class IVSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#can_paginate)
         """
 
@@ -139,7 +139,7 @@ class IVSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#close)
         """
 
@@ -159,7 +159,7 @@ class IVSClient(BaseClient):
         """
         Creates a new channel and an associated stream key to start streaming.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#create_channel)
         """
 
@@ -176,7 +176,7 @@ class IVSClient(BaseClient):
         Creates a new playback restriction policy, for constraining playback by
         countries and/or origins.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.create_playback_restriction_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.create_playback_restriction_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#create_playback_restriction_policy)
         """
 
@@ -193,7 +193,7 @@ class IVSClient(BaseClient):
         """
         Creates a new recording configuration, used to enable recording to Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.create_recording_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.create_recording_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#create_recording_configuration)
         """
 
@@ -203,7 +203,7 @@ class IVSClient(BaseClient):
         """
         Creates a stream key, used to initiate a stream, for the specified channel ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.create_stream_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.create_stream_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#create_stream_key)
         """
 
@@ -211,7 +211,7 @@ class IVSClient(BaseClient):
         """
         Deletes the specified channel and its associated stream keys.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#delete_channel)
         """
 
@@ -219,7 +219,7 @@ class IVSClient(BaseClient):
         """
         Deletes a specified authorization key pair.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.delete_playback_key_pair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.delete_playback_key_pair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#delete_playback_key_pair)
         """
 
@@ -227,7 +227,7 @@ class IVSClient(BaseClient):
         """
         Deletes the specified playback restriction policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.delete_playback_restriction_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.delete_playback_restriction_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#delete_playback_restriction_policy)
         """
 
@@ -235,7 +235,7 @@ class IVSClient(BaseClient):
         """
         Deletes the recording configuration for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.delete_recording_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.delete_recording_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#delete_recording_configuration)
         """
 
@@ -244,7 +244,7 @@ class IVSClient(BaseClient):
         Deletes the stream key for the specified ARN, so it can no longer be used to
         stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.delete_stream_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.delete_stream_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#delete_stream_key)
         """
 
@@ -258,7 +258,7 @@ class IVSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#generate_presigned_url)
         """
 
@@ -266,7 +266,7 @@ class IVSClient(BaseClient):
         """
         Gets the channel configuration for the specified channel ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_channel)
         """
 
@@ -275,7 +275,7 @@ class IVSClient(BaseClient):
         Gets a specified playback authorization key pair and returns the `arn` and
         `fingerprint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_playback_key_pair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_playback_key_pair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_playback_key_pair)
         """
 
@@ -285,7 +285,7 @@ class IVSClient(BaseClient):
         """
         Gets the specified playback restriction policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_playback_restriction_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_playback_restriction_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_playback_restriction_policy)
         """
 
@@ -293,7 +293,7 @@ class IVSClient(BaseClient):
         """
         Gets the recording configuration for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_recording_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_recording_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_recording_configuration)
         """
 
@@ -301,7 +301,7 @@ class IVSClient(BaseClient):
         """
         Gets information about the active (live) stream on a specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_stream)
         """
 
@@ -309,7 +309,7 @@ class IVSClient(BaseClient):
         """
         Gets stream-key information for a specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_stream_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_stream_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_stream_key)
         """
 
@@ -319,7 +319,7 @@ class IVSClient(BaseClient):
         """
         Gets metadata on a specified stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.get_stream_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.get_stream_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#get_stream_session)
         """
 
@@ -330,7 +330,7 @@ class IVSClient(BaseClient):
         Imports the public portion of a new key pair and returns its `arn` and
         `fingerprint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.import_playback_key_pair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.import_playback_key_pair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#import_playback_key_pair)
         """
 
@@ -347,7 +347,7 @@ class IVSClient(BaseClient):
         Gets summary information about all channels in your account, in the Amazon Web
         Services region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_channels)
         """
 
@@ -357,7 +357,7 @@ class IVSClient(BaseClient):
         """
         Gets summary information about playback key pairs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_playback_key_pairs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_playback_key_pairs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_playback_key_pairs)
         """
 
@@ -367,7 +367,7 @@ class IVSClient(BaseClient):
         """
         Gets summary information about playback restriction policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_playback_restriction_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_playback_restriction_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_playback_restriction_policies)
         """
 
@@ -378,7 +378,7 @@ class IVSClient(BaseClient):
         Gets summary information about all recording configurations in your account, in
         the Amazon Web Services region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_recording_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_recording_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_recording_configurations)
         """
 
@@ -388,7 +388,7 @@ class IVSClient(BaseClient):
         """
         Gets summary information about stream keys for the specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_stream_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_stream_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_stream_keys)
         """
 
@@ -399,7 +399,7 @@ class IVSClient(BaseClient):
         Gets a summary of current and previous streams for a specified channel in your
         account, in the AWS region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_stream_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_stream_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_stream_sessions)
         """
 
@@ -414,7 +414,7 @@ class IVSClient(BaseClient):
         Gets summary information about live streams in your account, in the Amazon Web
         Services region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_streams)
         """
 
@@ -422,7 +422,7 @@ class IVSClient(BaseClient):
         """
         Gets information about Amazon Web Services tags for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#list_tags_for_resource)
         """
 
@@ -430,7 +430,7 @@ class IVSClient(BaseClient):
         """
         Inserts metadata into the active stream of the specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.put_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.put_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#put_metadata)
         """
 
@@ -441,7 +441,7 @@ class IVSClient(BaseClient):
         Starts the process of revoking the viewer session associated with a specified
         channel ARN and viewer ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.start_viewer_session_revocation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.start_viewer_session_revocation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#start_viewer_session_revocation)
         """
 
@@ -449,7 +449,7 @@ class IVSClient(BaseClient):
         """
         Disconnects the incoming RTMPS stream for the specified channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.stop_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.stop_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#stop_stream)
         """
 
@@ -458,7 +458,7 @@ class IVSClient(BaseClient):
         Adds or updates tags for the Amazon Web Services resource with the specified
         ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#tag_resource)
         """
 
@@ -466,7 +466,7 @@ class IVSClient(BaseClient):
         """
         Removes tags from the resource with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#untag_resource)
         """
 
@@ -486,7 +486,7 @@ class IVSClient(BaseClient):
         """
         Updates a channel's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#update_channel)
         """
 
@@ -502,14 +502,14 @@ class IVSClient(BaseClient):
         """
         Updates a specified playback restriction policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Client.update_playback_restriction_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Client.update_playback_restriction_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/client.html#update_playback_restriction_policy)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Paginator.ListChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listchannelspaginator)
         """
 
@@ -518,7 +518,7 @@ class IVSClient(BaseClient):
         self, operation_name: Literal["list_playback_key_pairs"]
     ) -> ListPlaybackKeyPairsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listplaybackkeypairspaginator)
         """
 
@@ -527,20 +527,20 @@ class IVSClient(BaseClient):
         self, operation_name: Literal["list_recording_configurations"]
     ) -> ListRecordingConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Paginator.ListRecordingConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListRecordingConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listrecordingconfigurationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_stream_keys"]) -> ListStreamKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamkeyspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivs.html#IVS.Paginator.ListStreams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamspaginator)
         """

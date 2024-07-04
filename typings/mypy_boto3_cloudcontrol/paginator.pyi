@@ -36,7 +36,7 @@ __all__ = ("ListResourceRequestsPaginator", "ListResourcesPaginator")
 
 class ListResourceRequestsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcerequestspaginator)
     """
 
@@ -47,13 +47,13 @@ class ListResourceRequestsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceRequestsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcerequestspaginator)
         """
 
 class ListResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcespaginator)
     """
 
@@ -67,6 +67,6 @@ class ListResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcespaginator)
         """

@@ -11,6 +11,7 @@ Usage::
         FindingRevealedWaiter,
         GetUsageStatisticsPaginator,
         ListAllowListsPaginator,
+        ListAutomatedDiscoveryAccountsPaginator,
         ListClassificationJobsPaginator,
         ListClassificationScopesPaginator,
         ListCustomDataIdentifiersPaginator,
@@ -37,6 +38,7 @@ Usage::
     describe_buckets_paginator: DescribeBucketsPaginator = client.get_paginator("describe_buckets")
     get_usage_statistics_paginator: GetUsageStatisticsPaginator = client.get_paginator("get_usage_statistics")
     list_allow_lists_paginator: ListAllowListsPaginator = client.get_paginator("list_allow_lists")
+    list_automated_discovery_accounts_paginator: ListAutomatedDiscoveryAccountsPaginator = client.get_paginator("list_automated_discovery_accounts")
     list_classification_jobs_paginator: ListClassificationJobsPaginator = client.get_paginator("list_classification_jobs")
     list_classification_scopes_paginator: ListClassificationScopesPaginator = client.get_paginator("list_classification_scopes")
     list_custom_data_identifiers_paginator: ListCustomDataIdentifiersPaginator = client.get_paginator("list_custom_data_identifiers")
@@ -58,6 +60,7 @@ from .paginator import (
     DescribeBucketsPaginator,
     GetUsageStatisticsPaginator,
     ListAllowListsPaginator,
+    ListAutomatedDiscoveryAccountsPaginator,
     ListClassificationJobsPaginator,
     ListClassificationScopesPaginator,
     ListCustomDataIdentifiersPaginator,
@@ -82,6 +85,7 @@ __all__ = (
     "FindingRevealedWaiter",
     "GetUsageStatisticsPaginator",
     "ListAllowListsPaginator",
+    "ListAutomatedDiscoveryAccountsPaginator",
     "ListClassificationJobsPaginator",
     "ListClassificationScopesPaginator",
     "ListCustomDataIdentifiersPaginator",

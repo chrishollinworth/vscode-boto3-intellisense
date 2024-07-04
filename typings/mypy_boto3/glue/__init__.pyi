@@ -23,10 +23,16 @@ Usage::
         GetTablesPaginator,
         GetTriggersPaginator,
         GetUserDefinedFunctionsPaginator,
+        GetWorkflowRunsPaginator,
         GlueClient,
+        ListBlueprintsPaginator,
+        ListJobsPaginator,
         ListRegistriesPaginator,
         ListSchemaVersionsPaginator,
         ListSchemasPaginator,
+        ListTriggersPaginator,
+        ListUsageProfilesPaginator,
+        ListWorkflowsPaginator,
     )
 
     session = boto3.Session()
@@ -50,9 +56,15 @@ Usage::
     get_tables_paginator: GetTablesPaginator = client.get_paginator("get_tables")
     get_triggers_paginator: GetTriggersPaginator = client.get_paginator("get_triggers")
     get_user_defined_functions_paginator: GetUserDefinedFunctionsPaginator = client.get_paginator("get_user_defined_functions")
+    get_workflow_runs_paginator: GetWorkflowRunsPaginator = client.get_paginator("get_workflow_runs")
+    list_blueprints_paginator: ListBlueprintsPaginator = client.get_paginator("list_blueprints")
+    list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_registries_paginator: ListRegistriesPaginator = client.get_paginator("list_registries")
     list_schema_versions_paginator: ListSchemaVersionsPaginator = client.get_paginator("list_schema_versions")
     list_schemas_paginator: ListSchemasPaginator = client.get_paginator("list_schemas")
+    list_triggers_paginator: ListTriggersPaginator = client.get_paginator("list_triggers")
+    list_usage_profiles_paginator: ListUsageProfilesPaginator = client.get_paginator("list_usage_profiles")
+    list_workflows_paginator: ListWorkflowsPaginator = client.get_paginator("list_workflows")
     ```
 """
 
@@ -74,9 +86,15 @@ from .paginator import (
     GetTableVersionsPaginator,
     GetTriggersPaginator,
     GetUserDefinedFunctionsPaginator,
+    GetWorkflowRunsPaginator,
+    ListBlueprintsPaginator,
+    ListJobsPaginator,
     ListRegistriesPaginator,
     ListSchemasPaginator,
     ListSchemaVersionsPaginator,
+    ListTriggersPaginator,
+    ListUsageProfilesPaginator,
+    ListWorkflowsPaginator,
 )
 
 Client = GlueClient
@@ -99,8 +117,14 @@ __all__ = (
     "GetTablesPaginator",
     "GetTriggersPaginator",
     "GetUserDefinedFunctionsPaginator",
+    "GetWorkflowRunsPaginator",
     "GlueClient",
+    "ListBlueprintsPaginator",
+    "ListJobsPaginator",
     "ListRegistriesPaginator",
     "ListSchemaVersionsPaginator",
     "ListSchemasPaginator",
+    "ListTriggersPaginator",
+    "ListUsageProfilesPaginator",
+    "ListWorkflowsPaginator",
 )

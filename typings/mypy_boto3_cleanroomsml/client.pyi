@@ -76,7 +76,7 @@ class Exceptions:
 
 class CleanRoomsMLClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html)
     """
 
@@ -92,7 +92,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#can_paginate)
         """
 
@@ -100,7 +100,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#close)
         """
 
@@ -118,7 +118,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Defines the information necessary to create an audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#create_audience_model)
         """
 
@@ -138,7 +138,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Defines the information necessary to create a configured audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_configured_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_configured_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#create_configured_audience_model)
         """
 
@@ -154,7 +154,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Defines the information necessary to create a training dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_training_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.create_training_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#create_training_dataset)
         """
 
@@ -163,7 +163,7 @@ class CleanRoomsMLClient(BaseClient):
         Deletes the specified audience generation job, and removes all data associated
         with the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_audience_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_audience_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#delete_audience_generation_job)
         """
 
@@ -171,7 +171,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Specifies an audience model that you want to delete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#delete_audience_model)
         """
 
@@ -179,7 +179,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Deletes the specified configured audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_configured_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_configured_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#delete_configured_audience_model)
         """
 
@@ -187,7 +187,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Deletes the specified configured audience model policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_configured_audience_model_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_configured_audience_model_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#delete_configured_audience_model_policy)
         """
 
@@ -195,7 +195,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Specifies a training dataset that you want to delete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_training_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.delete_training_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#delete_training_dataset)
         """
 
@@ -209,7 +209,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#generate_presigned_url)
         """
 
@@ -219,7 +219,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns information about an audience generation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_audience_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_audience_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#get_audience_generation_job)
         """
 
@@ -230,7 +230,7 @@ class CleanRoomsMLClient(BaseClient):
         06/GetAudienceModel>`_ **Request Syntax** response = client.get_audience_model(
         audienceModelArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#get_audience_model)
         """
 
@@ -240,7 +240,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns information about a specified configured audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_configured_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_configured_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#get_configured_audience_model)
         """
 
@@ -250,7 +250,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns information about a configured audience model policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_configured_audience_model_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_configured_audience_model_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#get_configured_audience_model_policy)
         """
 
@@ -258,7 +258,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns information about a training dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_training_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.get_training_dataset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#get_training_dataset)
         """
 
@@ -268,7 +268,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of the audience export jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_audience_export_jobs)
         """
 
@@ -283,7 +283,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of audience generation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_generation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_generation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_audience_generation_jobs)
         """
 
@@ -293,7 +293,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of audience models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_audience_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_audience_models)
         """
 
@@ -303,7 +303,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of the configured audience models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_configured_audience_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_configured_audience_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_configured_audience_models)
         """
 
@@ -311,7 +311,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of tags for a provided resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_tags_for_resource)
         """
 
@@ -321,7 +321,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Returns a list of training datasets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_training_datasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.list_training_datasets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#list_training_datasets)
         """
 
@@ -336,7 +336,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Create or update the resource policy for a configured audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.put_configured_audience_model_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.put_configured_audience_model_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#put_configured_audience_model_policy)
         """
 
@@ -351,7 +351,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Export an audience of a specified size after you have generated an audience.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.start_audience_export_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.start_audience_export_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#start_audience_export_job)
         """
 
@@ -369,7 +369,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Information necessary to start the audience generation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.start_audience_generation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.start_audience_generation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#start_audience_generation_job)
         """
 
@@ -377,7 +377,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Adds metadata tags to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#tag_resource)
         """
 
@@ -385,7 +385,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Removes metadata tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#untag_resource)
         """
 
@@ -403,7 +403,7 @@ class CleanRoomsMLClient(BaseClient):
         """
         Provides the information necessary to update a configured audience model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Client.update_configured_audience_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Client.update_configured_audience_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/client.html#update_configured_audience_model)
         """
 
@@ -412,7 +412,7 @@ class CleanRoomsMLClient(BaseClient):
         self, operation_name: Literal["list_audience_export_jobs"]
     ) -> ListAudienceExportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceExportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudienceexportjobspaginator)
         """
 
@@ -421,7 +421,7 @@ class CleanRoomsMLClient(BaseClient):
         self, operation_name: Literal["list_audience_generation_jobs"]
     ) -> ListAudienceGenerationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceGenerationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencegenerationjobspaginator)
         """
 
@@ -430,7 +430,7 @@ class CleanRoomsMLClient(BaseClient):
         self, operation_name: Literal["list_audience_models"]
     ) -> ListAudienceModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListAudienceModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listaudiencemodelspaginator)
         """
 
@@ -439,7 +439,7 @@ class CleanRoomsMLClient(BaseClient):
         self, operation_name: Literal["list_configured_audience_models"]
     ) -> ListConfiguredAudienceModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListConfiguredAudienceModels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listconfiguredaudiencemodelspaginator)
         """
 
@@ -448,6 +448,6 @@ class CleanRoomsMLClient(BaseClient):
         self, operation_name: Literal["list_training_datasets"]
     ) -> ListTrainingDatasetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cleanroomsml.html#CleanRoomsML.Paginator.ListTrainingDatasets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cleanroomsml/paginators.html#listtrainingdatasetspaginator)
         """

@@ -49,7 +49,7 @@ __all__ = (
 
 class ServiceResourceStacksCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.stacks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.stacks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#serviceresourcestackscollection)
     """
 
@@ -87,7 +87,7 @@ class ServiceResourceStacksCollection(ResourceCollection):
 
 class StackEventsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.events)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.events)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackeventscollection)
     """
 
@@ -125,7 +125,7 @@ class StackEventsCollection(ResourceCollection):
 
 class StackResourceSummariesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.resource_summaries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.resource_summaries)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcesummariescollection)
     """
 
@@ -163,7 +163,7 @@ class StackResourceSummariesCollection(ResourceCollection):
 
 class Event(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#event)
     """
 
@@ -190,7 +190,7 @@ class Event(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Event.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Event.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#eventget_available_subresources-method)
         """
 
@@ -198,7 +198,7 @@ _Event = Event
 
 class Stack(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stack)
     """
 
@@ -235,7 +235,7 @@ class Stack(Boto3ServiceResource):
         """
         Creates a StackResource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.Resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.Resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresource-method)
         """
 
@@ -243,7 +243,7 @@ class Stack(Boto3ServiceResource):
         """
         Cancels an update on the specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.cancel_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.cancel_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackcancel_update-method)
         """
 
@@ -258,7 +258,7 @@ class Stack(Boto3ServiceResource):
         """
         Deletes a specified stack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackdelete-method)
         """
 
@@ -266,7 +266,7 @@ class Stack(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackget_available_subresources-method)
         """
 
@@ -275,7 +275,7 @@ class Stack(Boto3ServiceResource):
         Calls :py:meth:`CloudFormation.Client.describe_stacks` to update the attributes
         of the Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackload-method)
         """
 
@@ -284,7 +284,7 @@ class Stack(Boto3ServiceResource):
         Calls :py:meth:`CloudFormation.Client.describe_stacks` to update the attributes
         of the Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackreload-method)
         """
 
@@ -312,7 +312,7 @@ class Stack(Boto3ServiceResource):
         """
         Updates a stack as specified in the template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.Stack.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.Stack.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackupdate-method)
         """
 
@@ -320,7 +320,7 @@ _Stack = Stack
 
 class StackResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresource)
     """
 
@@ -342,7 +342,7 @@ class StackResource(Boto3ServiceResource):
         """
         Creates a Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResource.Stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResource.Stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcestack-method)
         """
 
@@ -350,7 +350,7 @@ class StackResource(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourceget_available_subresources-method)
         """
 
@@ -359,7 +359,7 @@ class StackResource(Boto3ServiceResource):
         Calls :py:meth:`CloudFormation.Client.describe_stack_resource` to update the
         attributes of the StackResource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResource.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResource.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourceload-method)
         """
 
@@ -368,7 +368,7 @@ class StackResource(Boto3ServiceResource):
         Calls :py:meth:`CloudFormation.Client.describe_stack_resource` to update the
         attributes of the StackResource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResource.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResource.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcereload-method)
         """
 
@@ -376,7 +376,7 @@ _StackResource = StackResource
 
 class StackResourceSummary(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcesummary)
     """
 
@@ -395,7 +395,7 @@ class StackResourceSummary(Boto3ServiceResource):
         """
         Creates a StackResource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.Resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.Resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcesummaryresource-method)
         """
 
@@ -403,7 +403,7 @@ class StackResourceSummary(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#stackresourcesummaryget_available_subresources-method)
         """
 
@@ -414,7 +414,7 @@ class CloudFormationResourceMeta(ResourceMeta):
 
 class CloudFormationServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html)
     """
 
@@ -425,7 +425,7 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Creates a Event resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourceevent-method)
         """
 
@@ -433,7 +433,7 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Creates a Stack resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourcestack-method)
         """
 
@@ -441,7 +441,7 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Creates a StackResource resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourcestackresource-method)
         """
 
@@ -449,7 +449,7 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Creates a StackResourceSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourcestackresourcesummary-method)
         """
 
@@ -478,7 +478,7 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Creates a stack as specified in the template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.create_stack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.create_stack)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourcecreate_stack-method)
         """
 
@@ -486,6 +486,6 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudformation.html#CloudFormation.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudformation.html#CloudFormation.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/service_resource.html#cloudformationserviceresourceget_available_subresources-method)
         """

@@ -29,6 +29,8 @@ __all__ = (
     "DashSegmentTemplateFormatType",
     "DashUtcTimingModeType",
     "DrmSystemType",
+    "EndpointErrorConditionType",
+    "InputTypeType",
     "ListChannelGroupsPaginatorName",
     "ListChannelsPaginatorName",
     "ListOriginEndpointsPaginatorName",
@@ -49,6 +51,10 @@ DashPeriodTriggerType = Literal[
 DashSegmentTemplateFormatType = Literal["NUMBER_WITH_TIMELINE"]
 DashUtcTimingModeType = Literal["HTTP_HEAD", "HTTP_ISO", "HTTP_XSDATE", "UTC_DIRECT"]
 DrmSystemType = Literal["CLEAR_KEY_AES_128", "FAIRPLAY", "PLAYREADY", "WIDEVINE"]
+EndpointErrorConditionType = Literal[
+    "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT", "STALE_MANIFEST"
+]
+InputTypeType = Literal["CMAF", "HLS"]
 ListChannelGroupsPaginatorName = Literal["list_channel_groups"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListOriginEndpointsPaginatorName = Literal["list_origin_endpoints"]

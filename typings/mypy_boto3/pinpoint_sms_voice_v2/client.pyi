@@ -183,7 +183,7 @@ class Exceptions:
 
 class PinpointSMSVoiceV2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html)
     """
 
@@ -201,7 +201,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Associates the specified origination identity with a pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.associate_origination_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.associate_origination_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#associate_origination_identity)
         """
 
@@ -211,7 +211,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Associate a protect configuration with a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.associate_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.associate_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#associate_protect_configuration)
         """
 
@@ -219,7 +219,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#can_paginate)
         """
 
@@ -227,7 +227,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#close)
         """
 
@@ -237,7 +237,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates a new configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_configuration_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_configuration_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_configuration_set)
         """
 
@@ -255,7 +255,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates a new event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_event_destination)
         """
 
@@ -265,7 +265,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates a new opt-out list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_opt_out_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_opt_out_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_opt_out_list)
         """
 
@@ -283,7 +283,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Creates a new pool and associates the specified origination identity to the
         pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_pool)
         """
 
@@ -297,7 +297,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Create a new protect configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_protect_configuration)
         """
 
@@ -307,7 +307,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates a new registration based on the **RegistrationType** field.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_registration)
         """
 
@@ -318,7 +318,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Associate the registration with an origination identity such as a phone number
         or sender ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_registration_association)
         """
 
@@ -334,7 +334,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Create a new registration attachment to use for uploading a file or a URL to a
         file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_registration_attachment)
         """
 
@@ -344,7 +344,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Create a new version of the registration and increase the **VersionNumber**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_registration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_registration_version)
         """
 
@@ -359,7 +359,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         You can only send messages to verified destination numbers when your account is
         in the sandbox.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_verified_destination_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.create_verified_destination_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#create_verified_destination_number)
         """
 
@@ -369,7 +369,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Removes the current account default protect configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_account_default_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_account_default_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_account_default_protect_configuration)
         """
 
@@ -379,7 +379,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_configuration_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_configuration_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_configuration_set)
         """
 
@@ -389,7 +389,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing default message type on a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_default_message_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_default_message_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_default_message_type)
         """
 
@@ -399,7 +399,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing default sender ID on a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_default_sender_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_default_sender_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_default_sender_id)
         """
 
@@ -409,7 +409,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing event destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_event_destination)
         """
 
@@ -419,7 +419,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing keyword from an origination phone number or pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_keyword)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_keyword)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_keyword)
         """
 
@@ -430,7 +430,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Deletes an account-level monthly spending limit override for sending multimedia
         messages (MMS).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_media_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_media_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_media_message_spend_limit_override)
         """
 
@@ -438,7 +438,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing opt-out list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_opt_out_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_opt_out_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_opt_out_list)
         """
 
@@ -449,7 +449,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Deletes an existing opted out destination phone number from the specified opt-
         out list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_opted_out_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_opted_out_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_opted_out_number)
         """
 
@@ -457,7 +457,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Deletes an existing pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_pool)
         """
 
@@ -467,7 +467,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Permanently delete the protect configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_protect_configuration)
         """
 
@@ -475,7 +475,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Permanently delete an existing registration from your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_registration)
         """
 
@@ -485,7 +485,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Permanently delete the specified registration attachment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_registration_attachment)
         """
 
@@ -495,7 +495,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Delete the value in a registration form field.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration_field_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_registration_field_value)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_registration_field_value)
         """
 
@@ -506,7 +506,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Deletes an account-level monthly spending limit override for sending text
         messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_text_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_text_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_text_message_spend_limit_override)
         """
 
@@ -516,7 +516,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Delete a verified destination phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_verified_destination_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_verified_destination_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_verified_destination_number)
         """
 
@@ -527,7 +527,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Deletes an account level monthly spend limit override for sending voice
         messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_voice_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.delete_voice_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#delete_voice_message_spend_limit_override)
         """
 
@@ -537,7 +537,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Describes attributes of your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_account_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_account_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_account_attributes)
         """
 
@@ -548,7 +548,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_account_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_account_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_account_limits)
         """
 
@@ -563,7 +563,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Describes the specified configuration sets or all in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_configuration_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_configuration_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_configuration_sets)
         """
 
@@ -580,7 +580,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the specified keywords or all keywords on your origination phone
         number or pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_keywords)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_keywords)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_keywords)
         """
 
@@ -590,7 +590,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Describes the specified opt-out list or all opt-out lists in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_opt_out_lists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_opt_out_lists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_opt_out_lists)
         """
 
@@ -607,7 +607,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the specified opted out destination numbers or all opted out
         destination numbers in an opt-out list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_opted_out_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_opted_out_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_opted_out_numbers)
         """
 
@@ -623,7 +623,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the specified origination phone number, or all the phone numbers in
         your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_phone_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_phone_numbers)
         """
 
@@ -639,7 +639,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Retrieves the specified pools or all pools associated with your Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_pools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_pools)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_pools)
         """
 
@@ -654,7 +654,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the protect configurations that match any of filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_protect_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_protect_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_protect_configurations)
         """
 
@@ -670,7 +670,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Retrieves the specified registration attachments or all registration attachments
         associated with your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_attachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_attachments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_attachments)
         """
 
@@ -686,7 +686,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registration type field definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_field_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_field_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_field_definitions)
         """
 
@@ -703,7 +703,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registration field values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_field_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_field_values)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_field_values)
         """
 
@@ -718,7 +718,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registration section definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_section_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_section_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_section_definitions)
         """
 
@@ -733,7 +733,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registration type definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_type_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_type_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_type_definitions)
         """
 
@@ -749,7 +749,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registration version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registration_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registration_versions)
         """
 
@@ -764,7 +764,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified registrations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_registrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_registrations)
         """
 
@@ -780,7 +780,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the specified SenderIds or all SenderIds associated with your Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_sender_ids)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_sender_ids)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_sender_ids)
         """
 
@@ -791,7 +791,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Describes the current Amazon Pinpoint monthly spend limits for sending voice and
         text messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_spend_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_spend_limits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_spend_limits)
         """
 
@@ -807,7 +807,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Retrieves the specified verified destiona numbers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_verified_destination_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.describe_verified_destination_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#describe_verified_destination_numbers)
         """
 
@@ -817,7 +817,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Removes the specified origination identity from an existing pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.disassociate_origination_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.disassociate_origination_identity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#disassociate_origination_identity)
         """
 
@@ -827,7 +827,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Disassociate a protect configuration from a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.disassociate_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.disassociate_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#disassociate_protect_configuration)
         """
 
@@ -837,7 +837,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Discard the current version of the registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.discard_registration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.discard_registration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#discard_registration_version)
         """
 
@@ -851,7 +851,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#generate_presigned_url)
         """
 
@@ -862,7 +862,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Retrieve the CountryRuleSet for the specified NumberCapability from a protect
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.get_protect_configuration_country_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.get_protect_configuration_country_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#get_protect_configuration_country_rule_set)
         """
 
@@ -877,7 +877,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Lists all associated origination identities in your pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_pool_origination_identities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_pool_origination_identities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#list_pool_origination_identities)
         """
 
@@ -893,7 +893,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Retreive all of the origination identies that are associated with a
         registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_registration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_registration_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#list_registration_associations)
         """
 
@@ -901,7 +901,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         List all tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#list_tags_for_resource)
         """
 
@@ -917,7 +917,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Creates or updates a keyword configuration on an origination phone number or
         pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_keyword)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_keyword)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#put_keyword)
         """
 
@@ -927,7 +927,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates an opted out destination phone number in the opt-out list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_opted_out_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_opted_out_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#put_opted_out_number)
         """
 
@@ -943,7 +943,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates or updates a field value for a registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_registration_field_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.put_registration_field_value)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#put_registration_field_value)
         """
 
@@ -951,7 +951,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Releases an existing origination phone number in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.release_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.release_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#release_phone_number)
         """
 
@@ -961,7 +961,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Releases an existing sender ID in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.release_sender_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.release_sender_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#release_sender_id)
         """
 
@@ -982,7 +982,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Request an origination phone number for use in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.request_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.request_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#request_phone_number)
         """
 
@@ -999,7 +999,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Request a new sender ID that doesn't require registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.request_sender_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.request_sender_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#request_sender_id)
         """
 
@@ -1018,7 +1018,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Before you can send test messages to a verified destination phone number you
         need to opt-in the verified destination phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_destination_number_verification_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_destination_number_verification_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#send_destination_number_verification_code)
         """
 
@@ -1040,7 +1040,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Creates a new multimedia message (MMS) and sends it to a recipient's phone
         number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_media_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_media_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#send_media_message)
         """
 
@@ -1063,7 +1063,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Creates a new text message and sends it to a recipient's phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_text_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_text_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#send_text_message)
         """
 
@@ -1085,7 +1085,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Allows you to send a request that sends a voice message through Amazon Pinpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_voice_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.send_voice_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#send_voice_message)
         """
 
@@ -1095,7 +1095,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Set a protect configuration as your account default.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_account_default_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_account_default_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_account_default_protect_configuration)
         """
 
@@ -1105,7 +1105,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Sets the default message type on a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_default_message_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_default_message_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_default_message_type)
         """
 
@@ -1115,7 +1115,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Sets default sender ID on a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_default_sender_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_default_sender_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_default_sender_id)
         """
 
@@ -1125,7 +1125,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Sets an account level monthly spend limit override for sending MMS messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_media_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_media_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_media_message_spend_limit_override)
         """
 
@@ -1135,7 +1135,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Sets an account level monthly spend limit override for sending text messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_text_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_text_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_text_message_spend_limit_override)
         """
 
@@ -1145,7 +1145,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Sets an account level monthly spend limit override for sending voice messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_voice_message_spend_limit_override)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.set_voice_message_spend_limit_override)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#set_voice_message_spend_limit_override)
         """
 
@@ -1155,7 +1155,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Submit the specified registration for review and approval.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.submit_registration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.submit_registration_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#submit_registration_version)
         """
 
@@ -1164,7 +1164,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Adds or overwrites only the specified tags for the specified Amazon Pinpoint SMS
         Voice, version 2 resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#tag_resource)
         """
 
@@ -1173,7 +1173,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Removes the association of the specified tags from an Amazon Pinpoint SMS Voice
         V2 resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#untag_resource)
         """
 
@@ -1191,7 +1191,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Updates an existing event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_event_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_event_destination)
         """
 
@@ -1209,7 +1209,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Updates the configuration of an existing origination phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_phone_number)
         """
 
@@ -1228,7 +1228,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Updates the configuration of an existing pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_pool)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_pool)
         """
 
@@ -1238,7 +1238,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Update the setting for an existing protect configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_protect_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_protect_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_protect_configuration)
         """
 
@@ -1253,7 +1253,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Update a country rule set to `ALLOW` or `BLOCK` messages to be sent to the
         specified destination counties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_protect_configuration_country_rule_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_protect_configuration_country_rule_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_protect_configuration_country_rule_set)
         """
 
@@ -1263,7 +1263,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         """
         Updates the configuration of an existing sender ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_sender_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.update_sender_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#update_sender_id)
         """
 
@@ -1274,7 +1274,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         Use the verification code that was received by the verified destination phone
         number to opt-in the verified destination phone number to receive more messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.verify_destination_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Client.verify_destination_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/client.html#verify_destination_number)
         """
 
@@ -1283,7 +1283,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_account_attributes"]
     ) -> DescribeAccountAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeAccountAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeAccountAttributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeaccountattributespaginator)
         """
 
@@ -1292,7 +1292,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_account_limits"]
     ) -> DescribeAccountLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeAccountLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeAccountLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeaccountlimitspaginator)
         """
 
@@ -1301,7 +1301,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_configuration_sets"]
     ) -> DescribeConfigurationSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeConfigurationSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeConfigurationSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeconfigurationsetspaginator)
         """
 
@@ -1310,7 +1310,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_keywords"]
     ) -> DescribeKeywordsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeKeywords)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeKeywords)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describekeywordspaginator)
         """
 
@@ -1319,7 +1319,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_opt_out_lists"]
     ) -> DescribeOptOutListsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeOptOutLists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeOptOutLists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeoptoutlistspaginator)
         """
 
@@ -1328,7 +1328,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_opted_out_numbers"]
     ) -> DescribeOptedOutNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeOptedOutNumbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeOptedOutNumbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeoptedoutnumberspaginator)
         """
 
@@ -1337,14 +1337,14 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_phone_numbers"]
     ) -> DescribePhoneNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribePhoneNumbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribePhoneNumbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describephonenumberspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_pools"]) -> DescribePoolsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribePools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribePools)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describepoolspaginator)
         """
 
@@ -1353,7 +1353,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_protect_configurations"]
     ) -> DescribeProtectConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeProtectConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeProtectConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeprotectconfigurationspaginator)
         """
 
@@ -1362,7 +1362,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_attachments"]
     ) -> DescribeRegistrationAttachmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationAttachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationAttachments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationattachmentspaginator)
         """
 
@@ -1371,7 +1371,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_field_definitions"]
     ) -> DescribeRegistrationFieldDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationFieldDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationFieldDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationfielddefinitionspaginator)
         """
 
@@ -1380,7 +1380,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_field_values"]
     ) -> DescribeRegistrationFieldValuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationFieldValues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationFieldValues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationfieldvaluespaginator)
         """
 
@@ -1389,7 +1389,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_section_definitions"]
     ) -> DescribeRegistrationSectionDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationSectionDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationSectionDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationsectiondefinitionspaginator)
         """
 
@@ -1398,7 +1398,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_type_definitions"]
     ) -> DescribeRegistrationTypeDefinitionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationTypeDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationTypeDefinitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationtypedefinitionspaginator)
         """
 
@@ -1407,7 +1407,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registration_versions"]
     ) -> DescribeRegistrationVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrationVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationversionspaginator)
         """
 
@@ -1416,7 +1416,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_registrations"]
     ) -> DescribeRegistrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeRegistrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeregistrationspaginator)
         """
 
@@ -1425,7 +1425,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_sender_ids"]
     ) -> DescribeSenderIdsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeSenderIds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeSenderIds)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describesenderidspaginator)
         """
 
@@ -1434,7 +1434,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_spend_limits"]
     ) -> DescribeSpendLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeSpendLimits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeSpendLimits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describespendlimitspaginator)
         """
 
@@ -1443,7 +1443,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["describe_verified_destination_numbers"]
     ) -> DescribeVerifiedDestinationNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeVerifiedDestinationNumbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.DescribeVerifiedDestinationNumbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#describeverifieddestinationnumberspaginator)
         """
 
@@ -1452,7 +1452,7 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["list_pool_origination_identities"]
     ) -> ListPoolOriginationIdentitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.ListPoolOriginationIdentities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.ListPoolOriginationIdentities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#listpooloriginationidentitiespaginator)
         """
 
@@ -1461,6 +1461,6 @@ class PinpointSMSVoiceV2Client(BaseClient):
         self, operation_name: Literal["list_registration_associations"]
     ) -> ListRegistrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.ListRegistrationAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice-v2.html#PinpointSMSVoiceV2.Paginator.ListRegistrationAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/paginators.html#listregistrationassociationspaginator)
         """

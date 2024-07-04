@@ -53,7 +53,7 @@ class Exceptions:
 
 class rePostPrivateClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html)
     """
 
@@ -69,7 +69,7 @@ class rePostPrivateClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#can_paginate)
         """
 
@@ -77,7 +77,7 @@ class rePostPrivateClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#close)
         """
 
@@ -95,7 +95,7 @@ class rePostPrivateClient(BaseClient):
         """
         Creates an AWS re:Post Private private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.create_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.create_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#create_space)
         """
 
@@ -103,7 +103,7 @@ class rePostPrivateClient(BaseClient):
         """
         Deletes an AWS re:Post Private private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.delete_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.delete_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#delete_space)
         """
 
@@ -112,7 +112,7 @@ class rePostPrivateClient(BaseClient):
         Removes the user or group from the list of administrators of the private
         re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.deregister_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.deregister_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#deregister_admin)
         """
 
@@ -126,7 +126,7 @@ class rePostPrivateClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#generate_presigned_url)
         """
 
@@ -134,7 +134,7 @@ class rePostPrivateClient(BaseClient):
         """
         Displays information about the AWS re:Post Private private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.get_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.get_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#get_space)
         """
 
@@ -145,7 +145,7 @@ class rePostPrivateClient(BaseClient):
         Returns a list of AWS re:Post Private private re:Posts in the account with some
         information about each private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.list_spaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.list_spaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#list_spaces)
         """
 
@@ -154,7 +154,7 @@ class rePostPrivateClient(BaseClient):
         Returns the tags that are associated with the AWS re:Post Private resource
         specified by the resourceArn.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#list_tags_for_resource)
         """
 
@@ -162,7 +162,7 @@ class rePostPrivateClient(BaseClient):
         """
         Adds a user or group to the list of administrators of the private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.register_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.register_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#register_admin)
         """
 
@@ -170,7 +170,7 @@ class rePostPrivateClient(BaseClient):
         """
         Sends an invitation email to selected users and groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.send_invites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.send_invites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#send_invites)
         """
 
@@ -178,7 +178,7 @@ class rePostPrivateClient(BaseClient):
         """
         Associates tags with an AWS re:Post Private resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#tag_resource)
         """
 
@@ -186,7 +186,7 @@ class rePostPrivateClient(BaseClient):
         """
         Removes the association of the tag with the AWS re:Post Private resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#untag_resource)
         """
 
@@ -201,12 +201,12 @@ class rePostPrivateClient(BaseClient):
         """
         Modifies an existing AWS re:Post Private private re:Post.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Client.update_space)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Client.update_space)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/client.html#update_space)
         """
 
     def get_paginator(self, operation_name: Literal["list_spaces"]) -> ListSpacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html#listspacespaginator)
         """

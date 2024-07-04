@@ -84,6 +84,7 @@ EventNotificationTopicStatusType = Literal["Disabled", "Enabled"]
 EventType = Literal["ack", "discovered", "lost", "nack", "passthrough"]
 ExpressionTypeType = Literal["MqttTopic", "RuleName"]
 FuotaDeviceStatusType = Literal[
+    "Device_exist_in_conflict_fuota_task",
     "FragAlgo_unsupported",
     "FragIndex_unsupported",
     "Initial",
@@ -130,6 +131,8 @@ MetricNameType = Literal[
     "DeviceJoinRequestCount",
     "DeviceRSSI",
     "DeviceRoamingDownlinkCount",
+    "DeviceRoamingRSSI",
+    "DeviceRoamingSNR",
     "DeviceRoamingUplinkCount",
     "DeviceSNR",
     "DeviceUplinkCount",

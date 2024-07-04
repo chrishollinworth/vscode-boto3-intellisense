@@ -399,6 +399,7 @@ _OptionalCreateIdentityProviderRequestRequestTypeDef = TypedDict(
     "_OptionalCreateIdentityProviderRequestRequestTypeDef",
     {
         "clientToken": str,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -579,6 +580,7 @@ _OptionalCreateUserSettingsRequestRequestTypeDef = TypedDict(
         "clientToken": str,
         "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
         "customerManagedKey": str,
+        "deepLinkAllowed": EnabledTypeType,
         "disconnectTimeoutInMinutes": int,
         "idleDisconnectTimeoutInMinutes": int,
         "tags": List["TagTypeDef"],
@@ -1551,6 +1553,7 @@ _OptionalUpdateUserSettingsRequestRequestTypeDef = TypedDict(
         "clientToken": str,
         "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
         "copyAllowed": EnabledTypeType,
+        "deepLinkAllowed": EnabledTypeType,
         "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
         "idleDisconnectTimeoutInMinutes": int,
@@ -1626,6 +1629,7 @@ _OptionalUserSettingsSummaryTypeDef = TypedDict(
     {
         "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
         "copyAllowed": EnabledTypeType,
+        "deepLinkAllowed": EnabledTypeType,
         "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
         "idleDisconnectTimeoutInMinutes": int,
@@ -1655,6 +1659,7 @@ _OptionalUserSettingsTypeDef = TypedDict(
         "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
         "copyAllowed": EnabledTypeType,
         "customerManagedKey": str,
+        "deepLinkAllowed": EnabledTypeType,
         "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
         "idleDisconnectTimeoutInMinutes": int,

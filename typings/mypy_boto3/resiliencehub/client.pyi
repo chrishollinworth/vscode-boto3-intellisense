@@ -124,7 +124,7 @@ class Exceptions:
 
 class ResilienceHubClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html)
     """
 
@@ -142,7 +142,7 @@ class ResilienceHubClient(BaseClient):
         """
         Adds the source of resource-maps to the draft version of an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.add_draft_app_version_resource_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.add_draft_app_version_resource_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#add_draft_app_version_resource_mappings)
         """
 
@@ -152,7 +152,7 @@ class ResilienceHubClient(BaseClient):
         """
         Enables you to include or exclude one or more operational recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.batch_update_recommendation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.batch_update_recommendation_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#batch_update_recommendation_status)
         """
 
@@ -160,7 +160,7 @@ class ResilienceHubClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#can_paginate)
         """
 
@@ -168,7 +168,7 @@ class ResilienceHubClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#close)
         """
 
@@ -187,7 +187,7 @@ class ResilienceHubClient(BaseClient):
         """
         Creates an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.create_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#create_app)
         """
 
@@ -204,7 +204,7 @@ class ResilienceHubClient(BaseClient):
         """
         Creates a new Application Component in the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.create_app_version_app_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.create_app_version_app_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#create_app_version_app_component)
         """
 
@@ -226,7 +226,7 @@ class ResilienceHubClient(BaseClient):
         Adds a resource to the Resilience Hub application and assigns it to the
         specified Application Components.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.create_app_version_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.create_app_version_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#create_app_version_resource)
         """
 
@@ -245,7 +245,7 @@ class ResilienceHubClient(BaseClient):
         """
         Creates a new recommendation template for the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.create_recommendation_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.create_recommendation_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#create_recommendation_template)
         """
 
@@ -263,7 +263,7 @@ class ResilienceHubClient(BaseClient):
         """
         Creates a resiliency policy for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.create_resiliency_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.create_resiliency_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#create_resiliency_policy)
         """
 
@@ -273,7 +273,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_app)
         """
 
@@ -283,7 +283,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes an Resilience Hub application assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_app_assessment)
         """
 
@@ -300,7 +300,7 @@ class ResilienceHubClient(BaseClient):
         Deletes the input source and all of its imported resources from the Resilience
         Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_input_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_input_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_app_input_source)
         """
 
@@ -310,7 +310,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes an Application Component from the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_version_app_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_version_app_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_app_version_app_component)
         """
 
@@ -328,7 +328,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes a resource from the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_version_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_app_version_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_app_version_resource)
         """
 
@@ -338,7 +338,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes a recommendation template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_recommendation_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_recommendation_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_recommendation_template)
         """
 
@@ -348,7 +348,7 @@ class ResilienceHubClient(BaseClient):
         """
         Deletes a resiliency policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.delete_resiliency_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.delete_resiliency_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#delete_resiliency_policy)
         """
 
@@ -356,7 +356,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app)
         """
 
@@ -366,7 +366,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes an assessment for an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_assessment)
         """
 
@@ -376,7 +376,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes the Resilience Hub application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_version)
         """
 
@@ -386,7 +386,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes an Application Component in the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_app_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_app_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_version_app_component)
         """
 
@@ -404,7 +404,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes a resource of the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_version_resource)
         """
 
@@ -415,7 +415,7 @@ class ResilienceHubClient(BaseClient):
         Returns the resolution status for the specified resolution identifier for an
         application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_resources_resolution_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_resources_resolution_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_version_resources_resolution_status)
         """
 
@@ -425,7 +425,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes details about an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_app_version_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_app_version_template)
         """
 
@@ -435,7 +435,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes the status of importing resources to an application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_draft_app_version_resources_import_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_draft_app_version_resources_import_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_draft_app_version_resources_import_status)
         """
 
@@ -445,7 +445,7 @@ class ResilienceHubClient(BaseClient):
         """
         Describes a specified resiliency policy for an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.describe_resiliency_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.describe_resiliency_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#describe_resiliency_policy)
         """
 
@@ -459,7 +459,7 @@ class ResilienceHubClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#generate_presigned_url)
         """
 
@@ -476,7 +476,7 @@ class ResilienceHubClient(BaseClient):
         Imports resources to Resilience Hub application draft version from different
         input sources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.import_resources_to_draft_app_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.import_resources_to_draft_app_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#import_resources_to_draft_app_version)
         """
 
@@ -486,7 +486,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the alarm recommendations for an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_alarm_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_alarm_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_alarm_recommendations)
         """
 
@@ -496,7 +496,7 @@ class ResilienceHubClient(BaseClient):
         """
         List of compliance drifts that were detected while running an assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessment_compliance_drifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessment_compliance_drifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_assessment_compliance_drifts)
         """
 
@@ -507,7 +507,7 @@ class ResilienceHubClient(BaseClient):
         Indicates the list of resource drifts that were detected while running an
         assessment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessment_resource_drifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessment_resource_drifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_assessment_resource_drifts)
         """
 
@@ -526,7 +526,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the assessments for an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_assessments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_assessments)
         """
 
@@ -536,7 +536,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the compliances for an Resilience Hub Application Component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_component_compliances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_component_compliances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_component_compliances)
         """
 
@@ -546,7 +546,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the recommendations for an Resilience Hub Application Component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_component_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_component_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_component_recommendations)
         """
 
@@ -556,7 +556,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists all the input sources of the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_input_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_input_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_input_sources)
         """
 
@@ -566,7 +566,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists all the Application Components in the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_app_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_app_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_version_app_components)
         """
 
@@ -576,7 +576,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists how the resources in an application version are mapped/sourced from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_resource_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_resource_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_version_resource_mappings)
         """
 
@@ -592,7 +592,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists all the resources in an Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_version_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_version_resources)
         """
 
@@ -608,7 +608,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the different versions for the Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_app_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_app_versions)
         """
 
@@ -626,7 +626,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists your Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_apps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_apps)
         """
 
@@ -644,7 +644,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the recommendation templates for the Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_recommendation_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_recommendation_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_recommendation_templates)
         """
 
@@ -654,7 +654,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the resiliency policies for the Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_resiliency_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_resiliency_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_resiliency_policies)
         """
 
@@ -665,7 +665,7 @@ class ResilienceHubClient(BaseClient):
         Lists the standard operating procedure (SOP) recommendations for the Resilience
         Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_sop_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_sop_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_sop_recommendations)
         """
 
@@ -675,7 +675,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the suggested resiliency policies for the Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_suggested_resiliency_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_suggested_resiliency_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_suggested_resiliency_policies)
         """
 
@@ -683,7 +683,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the tags for your resources in your Resilience Hub applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_tags_for_resource)
         """
 
@@ -693,7 +693,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the test recommendations for the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_test_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_test_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_test_recommendations)
         """
 
@@ -709,7 +709,7 @@ class ResilienceHubClient(BaseClient):
         """
         Lists the resources that are not currently supported in Resilience Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.list_unsupported_app_version_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.list_unsupported_app_version_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#list_unsupported_app_version_resources)
         """
 
@@ -719,7 +719,7 @@ class ResilienceHubClient(BaseClient):
         """
         Publishes a new version of a specific Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.publish_app_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.publish_app_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#publish_app_version)
         """
 
@@ -730,7 +730,7 @@ class ResilienceHubClient(BaseClient):
         Adds or updates the app template for an Resilience Hub application draft
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.put_draft_app_version_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.put_draft_app_version_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#put_draft_app_version_template)
         """
 
@@ -748,7 +748,7 @@ class ResilienceHubClient(BaseClient):
         """
         Removes resource mappings from a draft application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.remove_draft_app_version_resource_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.remove_draft_app_version_resource_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#remove_draft_app_version_resource_mappings)
         """
 
@@ -758,7 +758,7 @@ class ResilienceHubClient(BaseClient):
         """
         Resolves the resources for an application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.resolve_app_version_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.resolve_app_version_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#resolve_app_version_resources)
         """
 
@@ -774,7 +774,7 @@ class ResilienceHubClient(BaseClient):
         """
         Creates a new application assessment for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.start_app_assessment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.start_app_assessment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#start_app_assessment)
         """
 
@@ -782,7 +782,7 @@ class ResilienceHubClient(BaseClient):
         """
         Applies one or more tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#tag_resource)
         """
 
@@ -790,7 +790,7 @@ class ResilienceHubClient(BaseClient):
         """
         Removes one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#untag_resource)
         """
 
@@ -808,7 +808,7 @@ class ResilienceHubClient(BaseClient):
         """
         Updates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.update_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.update_app)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#update_app)
         """
 
@@ -818,7 +818,7 @@ class ResilienceHubClient(BaseClient):
         """
         Updates the Resilience Hub application version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#update_app_version)
         """
 
@@ -834,7 +834,7 @@ class ResilienceHubClient(BaseClient):
         """
         Updates an existing Application Component in the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version_app_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version_app_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#update_app_version_app_component)
         """
 
@@ -855,7 +855,7 @@ class ResilienceHubClient(BaseClient):
         """
         Updates the resource details in the Resilience Hub application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.update_app_version_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#update_app_version_resource)
         """
 
@@ -872,7 +872,7 @@ class ResilienceHubClient(BaseClient):
         """
         Updates a resiliency policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Client.update_resiliency_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Client.update_resiliency_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/client.html#update_resiliency_policy)
         """
 
@@ -880,6 +880,6 @@ class ResilienceHubClient(BaseClient):
         self, operation_name: Literal["list_app_assessment_resource_drifts"]
     ) -> ListAppAssessmentResourceDriftsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/resiliencehub.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators.html#listappassessmentresourcedriftspaginator)
         """

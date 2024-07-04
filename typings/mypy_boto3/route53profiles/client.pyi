@@ -70,7 +70,7 @@ class Exceptions:
 
 class Route53ProfilesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html)
     """
 
@@ -88,7 +88,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Associates a Route 53 Profiles profile with a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.associate_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.associate_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#associate_profile)
         """
 
@@ -98,7 +98,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Associates a DNS reource configuration to a Route 53 Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.associate_resource_to_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.associate_resource_to_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#associate_resource_to_profile)
         """
 
@@ -106,7 +106,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#can_paginate)
         """
 
@@ -114,7 +114,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#close)
         """
 
@@ -124,7 +124,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Creates an empty Route 53 Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.create_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.create_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#create_profile)
         """
 
@@ -132,7 +132,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Deletes the specified Route 53 Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.delete_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.delete_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#delete_profile)
         """
 
@@ -142,7 +142,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Dissociates a specified Route 53 Profile from the specified VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.disassociate_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.disassociate_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#disassociate_profile)
         """
 
@@ -152,7 +152,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Dissoaciated a specified resource, from the Route 53 Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.disassociate_resource_from_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.disassociate_resource_from_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#disassociate_resource_from_profile)
         """
 
@@ -166,7 +166,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#generate_presigned_url)
         """
 
@@ -175,7 +175,7 @@ class Route53ProfilesClient(BaseClient):
         Returns information about a specified Route 53 Profile, such as whether whether
         the Profile is shared, and the current status of the Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.get_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#get_profile)
         """
 
@@ -185,7 +185,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Retrieves a Route 53 Profile association for a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.get_profile_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.get_profile_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#get_profile_association)
         """
 
@@ -195,7 +195,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Returns information about a specified Route 53 Profile resource association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.get_profile_resource_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.get_profile_resource_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#get_profile_resource_association)
         """
 
@@ -210,7 +210,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Lists all the VPCs that the specified Route 53 Profile is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.list_profile_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.list_profile_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#list_profile_associations)
         """
 
@@ -225,7 +225,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Lists all the resource associations for the specified Route 53 Profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.list_profile_resource_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.list_profile_resource_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#list_profile_resource_associations)
         """
 
@@ -236,7 +236,7 @@ class Route53ProfilesClient(BaseClient):
         Lists all the Route 53 Profiles associated with your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.list_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.list_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#list_profiles)
         """
 
@@ -244,7 +244,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Lists the tags that you associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#list_tags_for_resource)
         """
 
@@ -252,7 +252,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Adds one or more tags to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#tag_resource)
         """
 
@@ -260,7 +260,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Removes one or more tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#untag_resource)
         """
 
@@ -270,7 +270,7 @@ class Route53ProfilesClient(BaseClient):
         """
         Updates the specified Route 53 Profile resourse association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Client.update_profile_resource_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Client.update_profile_resource_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/client.html#update_profile_resource_association)
         """
 
@@ -279,7 +279,7 @@ class Route53ProfilesClient(BaseClient):
         self, operation_name: Literal["list_profile_associations"]
     ) -> ListProfileAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileassociationspaginator)
         """
 
@@ -288,13 +288,13 @@ class Route53ProfilesClient(BaseClient):
         self, operation_name: Literal["list_profile_resource_associations"]
     ) -> ListProfileResourceAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileresourceassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_profiles"]) -> ListProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofilespaginator)
         """

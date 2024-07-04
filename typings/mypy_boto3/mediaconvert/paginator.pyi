@@ -15,6 +15,7 @@ Usage::
         ListJobsPaginator,
         ListPresetsPaginator,
         ListQueuesPaginator,
+        SearchJobsPaginator,
     )
 
     client: MediaConvertClient = boto3.client("mediaconvert")
@@ -24,6 +25,7 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_presets_paginator: ListPresetsPaginator = client.get_paginator("list_presets")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
+    search_jobs_paginator: SearchJobsPaginator = client.get_paginator("search_jobs")
     ```
 """
 
@@ -46,6 +48,7 @@ from .type_defs import (
     ListPresetsResponseTypeDef,
     ListQueuesResponseTypeDef,
     PaginatorConfigTypeDef,
+    SearchJobsResponseTypeDef,
 )
 
 __all__ = (
@@ -54,11 +57,12 @@ __all__ = (
     "ListJobsPaginator",
     "ListPresetsPaginator",
     "ListQueuesPaginator",
+    "SearchJobsPaginator",
 )
 
 class DescribeEndpointsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#describeendpointspaginator)
     """
 
@@ -69,13 +73,13 @@ class DescribeEndpointsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEndpointsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#describeendpointspaginator)
         """
 
 class ListJobTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listjobtemplatespaginator)
     """
 
@@ -88,13 +92,13 @@ class ListJobTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listjobtemplatespaginator)
         """
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listjobspaginator)
     """
 
@@ -107,13 +111,13 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listjobspaginator)
         """
 
 class ListPresetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listpresetspaginator)
     """
 
@@ -126,13 +130,13 @@ class ListPresetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPresetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listpresetspaginator)
         """
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listqueuespaginator)
     """
 
@@ -144,6 +148,26 @@ class ListQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueuesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#listqueuespaginator)
+        """
+
+class SearchJobsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.SearchJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#searchjobspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        InputFile: str = None,
+        Order: OrderType = None,
+        Queue: str = None,
+        Status: JobStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconvert.html#MediaConvert.Paginator.SearchJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/paginators.html#searchjobspaginator)
         """

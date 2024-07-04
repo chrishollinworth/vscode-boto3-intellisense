@@ -22,6 +22,7 @@ else:
 __all__ = (
     "AdditionalOptionKeysType",
     "AggFunctionType",
+    "AuthenticationTypeType",
     "BackfillErrorCodeType",
     "BlueprintRunStateType",
     "BlueprintStatusType",
@@ -33,6 +34,7 @@ __all__ = (
     "CompatibilityType",
     "CompressionTypeType",
     "ConnectionPropertyKeyType",
+    "ConnectionStatusType",
     "ConnectionTypeType",
     "CrawlStateType",
     "CrawlerHistoryStateType",
@@ -40,10 +42,12 @@ __all__ = (
     "CrawlerStateType",
     "CsvHeaderOptionType",
     "CsvSerdeOptionType",
+    "DQCompositeRuleEvaluationMethodType",
     "DQStopJobOnFailureTimingType",
     "DQTransformOutputType",
     "DataFormatType",
     "DataQualityRuleResultStatusType",
+    "DatabaseAttributesType",
     "DeleteBehaviorType",
     "DeltaTargetCompressionTypeType",
     "EnableHybridValuesType",
@@ -70,6 +74,7 @@ __all__ = (
     "GetTablesPaginatorName",
     "GetTriggersPaginatorName",
     "GetUserDefinedFunctionsPaginatorName",
+    "GetWorkflowRunsPaginatorName",
     "GlueRecordTypeType",
     "HudiTargetCompressionTypeType",
     "JDBCConnectionTypeType",
@@ -81,14 +86,20 @@ __all__ = (
     "JoinTypeType",
     "LanguageType",
     "LastCrawlStatusType",
+    "ListBlueprintsPaginatorName",
+    "ListJobsPaginatorName",
     "ListRegistriesPaginatorName",
     "ListSchemaVersionsPaginatorName",
     "ListSchemasPaginatorName",
+    "ListTriggersPaginatorName",
+    "ListUsageProfilesPaginatorName",
+    "ListWorkflowsPaginatorName",
     "LogicalOperatorType",
     "LogicalType",
     "MLUserDataEncryptionModeStringType",
     "MetadataOperationType",
     "NodeTypeType",
+    "OAuth2GrantTypeType",
     "ParamTypeType",
     "ParquetCompressionTypeType",
     "PartitionIndexStatusType",
@@ -129,6 +140,7 @@ __all__ = (
     "UpdateBehaviorType",
     "UpdateCatalogBehaviorType",
     "ViewDialectType",
+    "ViewUpdateActionType",
     "WorkerTypeType",
     "WorkflowRunStatusType",
 )
@@ -151,6 +163,7 @@ AggFunctionType = Literal[
     "var_pop",
     "var_samp",
 ]
+AuthenticationTypeType = Literal["BASIC", "CUSTOM", "OAUTH2"]
 BackfillErrorCodeType = Literal[
     "ENCRYPTED_PARTITION_ERROR",
     "INTERNAL_ERROR",
@@ -213,21 +226,27 @@ ConnectionPropertyKeyType = Literal[
     "KAFKA_SSL_ENABLED",
     "PASSWORD",
     "PORT",
+    "ROLE_ARN",
     "SECRET_ID",
     "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
     "USERNAME",
 ]
-ConnectionTypeType = Literal["CUSTOM", "JDBC", "KAFKA", "MARKETPLACE", "MONGODB", "NETWORK", "SFTP"]
+ConnectionStatusType = Literal["FAILED", "IN_PROGRESS", "READY"]
+ConnectionTypeType = Literal[
+    "CUSTOM", "JDBC", "KAFKA", "MARKETPLACE", "MONGODB", "NETWORK", "SALESFORCE", "SFTP"
+]
 CrawlStateType = Literal["CANCELLED", "CANCELLING", "ERROR", "FAILED", "RUNNING", "SUCCEEDED"]
 CrawlerHistoryStateType = Literal["COMPLETED", "FAILED", "RUNNING", "STOPPED"]
 CrawlerLineageSettingsType = Literal["DISABLE", "ENABLE"]
 CrawlerStateType = Literal["READY", "RUNNING", "STOPPING"]
 CsvHeaderOptionType = Literal["ABSENT", "PRESENT", "UNKNOWN"]
 CsvSerdeOptionType = Literal["LazySimpleSerDe", "None", "OpenCSVSerDe"]
+DQCompositeRuleEvaluationMethodType = Literal["COLUMN", "ROW"]
 DQStopJobOnFailureTimingType = Literal["AfterDataLoad", "Immediate"]
 DQTransformOutputType = Literal["EvaluationResults", "PrimaryInput"]
 DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
 DataQualityRuleResultStatusType = Literal["ERROR", "FAIL", "PASS"]
+DatabaseAttributesType = Literal["NAME"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
 DeltaTargetCompressionTypeType = Literal["snappy", "uncompressed"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
@@ -254,6 +273,7 @@ GetTableVersionsPaginatorName = Literal["get_table_versions"]
 GetTablesPaginatorName = Literal["get_tables"]
 GetTriggersPaginatorName = Literal["get_triggers"]
 GetUserDefinedFunctionsPaginatorName = Literal["get_user_defined_functions"]
+GetWorkflowRunsPaginatorName = Literal["get_workflow_runs"]
 GlueRecordTypeType = Literal[
     "BIGDECIMAL", "BYTE", "DATE", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP"
 ]
@@ -318,14 +338,20 @@ JobRunStateType = Literal[
 JoinTypeType = Literal["equijoin", "left", "leftanti", "leftsemi", "outer", "right"]
 LanguageType = Literal["PYTHON", "SCALA"]
 LastCrawlStatusType = Literal["CANCELLED", "FAILED", "SUCCEEDED"]
+ListBlueprintsPaginatorName = Literal["list_blueprints"]
+ListJobsPaginatorName = Literal["list_jobs"]
 ListRegistriesPaginatorName = Literal["list_registries"]
 ListSchemaVersionsPaginatorName = Literal["list_schema_versions"]
 ListSchemasPaginatorName = Literal["list_schemas"]
+ListTriggersPaginatorName = Literal["list_triggers"]
+ListUsageProfilesPaginatorName = Literal["list_usage_profiles"]
+ListWorkflowsPaginatorName = Literal["list_workflows"]
 LogicalOperatorType = Literal["EQUALS"]
 LogicalType = Literal["AND", "ANY"]
 MLUserDataEncryptionModeStringType = Literal["DISABLED", "SSE-KMS"]
 MetadataOperationType = Literal["CREATE"]
 NodeTypeType = Literal["CRAWLER", "JOB", "TRIGGER"]
+OAuth2GrantTypeType = Literal["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "JWT_BEARER"]
 ParamTypeType = Literal["bool", "complex", "float", "int", "list", "null", "str"]
 ParquetCompressionTypeType = Literal["gzip", "lzo", "none", "snappy", "uncompressed"]
 PartitionIndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
@@ -393,5 +419,6 @@ UnionTypeType = Literal["ALL", "DISTINCT"]
 UpdateBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 UpdateCatalogBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 ViewDialectType = Literal["ATHENA", "REDSHIFT", "SPARK"]
+ViewUpdateActionType = Literal["ADD", "ADD_OR_REPLACE", "DROP", "REPLACE"]
 WorkerTypeType = Literal["G.025X", "G.1X", "G.2X", "G.4X", "G.8X", "Standard", "Z.2X"]
 WorkflowRunStatusType = Literal["COMPLETED", "ERROR", "RUNNING", "STOPPED", "STOPPING"]

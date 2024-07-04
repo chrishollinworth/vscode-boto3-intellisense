@@ -56,7 +56,7 @@ class Exceptions:
 
 class EBSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html)
     """
 
@@ -72,7 +72,7 @@ class EBSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#can_paginate)
         """
 
@@ -80,7 +80,7 @@ class EBSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#close)
         """
 
@@ -97,7 +97,7 @@ class EBSClient(BaseClient):
         Seals and completes the snapshot after all of the required blocks of data have
         been written to it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.complete_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.complete_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#complete_snapshot)
         """
 
@@ -111,7 +111,7 @@ class EBSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#generate_presigned_url)
         """
 
@@ -121,7 +121,7 @@ class EBSClient(BaseClient):
         """
         Returns the data in a block in an Amazon Elastic Block Store snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.get_snapshot_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.get_snapshot_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#get_snapshot_block)
         """
 
@@ -138,7 +138,7 @@ class EBSClient(BaseClient):
         Returns information about the blocks that are different between two Amazon
         Elastic Block Store snapshots of the same volume/snapshot lineage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.list_changed_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.list_changed_blocks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#list_changed_blocks)
         """
 
@@ -153,7 +153,7 @@ class EBSClient(BaseClient):
         """
         Returns information about the blocks in an Amazon Elastic Block Store snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.list_snapshot_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.list_snapshot_blocks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#list_snapshot_blocks)
         """
 
@@ -171,7 +171,7 @@ class EBSClient(BaseClient):
         """
         Writes a block of data to a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.put_snapshot_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.put_snapshot_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#put_snapshot_block)
         """
 
@@ -190,6 +190,6 @@ class EBSClient(BaseClient):
         """
         Creates a new Amazon EBS snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ebs.html#EBS.Client.start_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.start_snapshot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#start_snapshot)
         """

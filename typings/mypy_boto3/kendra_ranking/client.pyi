@@ -50,7 +50,7 @@ class Exceptions:
 
 class KendraRankingClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html)
     """
 
@@ -66,7 +66,7 @@ class KendraRankingClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#can_paginate)
         """
 
@@ -74,7 +74,7 @@ class KendraRankingClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#close)
         """
 
@@ -90,7 +90,7 @@ class KendraRankingClient(BaseClient):
         """
         Creates a rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.create_rescore_execution_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.create_rescore_execution_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#create_rescore_execution_plan)
         """
 
@@ -98,7 +98,7 @@ class KendraRankingClient(BaseClient):
         """
         Deletes a rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.delete_rescore_execution_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.delete_rescore_execution_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#delete_rescore_execution_plan)
         """
 
@@ -108,7 +108,7 @@ class KendraRankingClient(BaseClient):
         """
         Gets information about a rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.describe_rescore_execution_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.describe_rescore_execution_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#describe_rescore_execution_plan)
         """
 
@@ -122,7 +122,7 @@ class KendraRankingClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#generate_presigned_url)
         """
 
@@ -132,7 +132,7 @@ class KendraRankingClient(BaseClient):
         """
         Lists your rescore execution plans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.list_rescore_execution_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.list_rescore_execution_plans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#list_rescore_execution_plans)
         """
 
@@ -140,7 +140,7 @@ class KendraRankingClient(BaseClient):
         """
         Gets a list of tags associated with a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#list_tags_for_resource)
         """
 
@@ -151,7 +151,7 @@ class KendraRankingClient(BaseClient):
         Rescores or re-ranks search results from a search service such as OpenSearch
         (self managed).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.rescore)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.rescore)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#rescore)
         """
 
@@ -159,7 +159,7 @@ class KendraRankingClient(BaseClient):
         """
         Adds a specified tag to a specified rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#tag_resource)
         """
 
@@ -167,7 +167,7 @@ class KendraRankingClient(BaseClient):
         """
         Removes a tag from a rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#untag_resource)
         """
 
@@ -182,6 +182,6 @@ class KendraRankingClient(BaseClient):
         """
         Updates a rescore execution plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kendra-ranking.html#KendraRanking.Client.update_rescore_execution_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kendra-ranking.html#KendraRanking.Client.update_rescore_execution_plan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/client.html#update_rescore_execution_plan)
         """

@@ -436,6 +436,7 @@ _OptionalPutSecretValueRequestRequestTypeDef = TypedDict(
         "SecretBinary": Union[bytes, IO[bytes], StreamingBody],
         "SecretString": str,
         "VersionStages": List[str],
+        "RotationToken": str,
     },
     total=False,
 )

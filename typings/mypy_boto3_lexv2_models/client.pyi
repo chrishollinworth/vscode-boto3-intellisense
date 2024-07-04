@@ -244,7 +244,7 @@ class Exceptions:
 
 class LexModelsV2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html)
     """
 
@@ -268,7 +268,7 @@ class LexModelsV2Client(BaseClient):
         Create a batch of custom vocabulary items for a given bot locale's custom
         vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.batch_create_custom_vocabulary_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.batch_create_custom_vocabulary_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#batch_create_custom_vocabulary_item)
         """
 
@@ -284,7 +284,7 @@ class LexModelsV2Client(BaseClient):
         Delete a batch of custom vocabulary items for a given bot locale's custom
         vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.batch_delete_custom_vocabulary_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.batch_delete_custom_vocabulary_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#batch_delete_custom_vocabulary_item)
         """
 
@@ -300,7 +300,7 @@ class LexModelsV2Client(BaseClient):
         Update a batch of custom vocabulary items for a given bot locale's custom
         vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.batch_update_custom_vocabulary_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.batch_update_custom_vocabulary_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#batch_update_custom_vocabulary_item)
         """
 
@@ -310,7 +310,7 @@ class LexModelsV2Client(BaseClient):
         """
         Builds a bot, its intents, and its slot types into a specific locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.build_bot_locale)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.build_bot_locale)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#build_bot_locale)
         """
 
@@ -318,7 +318,7 @@ class LexModelsV2Client(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#can_paginate)
         """
 
@@ -326,7 +326,7 @@ class LexModelsV2Client(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#close)
         """
 
@@ -346,7 +346,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates an Amazon Lex conversational bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_bot)
         """
 
@@ -365,7 +365,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates an alias for the specified version of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_bot_alias)
         """
 
@@ -383,7 +383,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates a locale in the bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_locale)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_locale)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_bot_locale)
         """
 
@@ -393,7 +393,7 @@ class LexModelsV2Client(BaseClient):
         """
         Action to create a replication of the source bot in the secondary region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_bot_replica)
         """
 
@@ -407,7 +407,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates an immutable version of the bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_bot_version)
         """
 
@@ -421,7 +421,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates a zip archive containing the contents of a bot or a bot locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_export)
         """
 
@@ -448,7 +448,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_intent)
         """
 
@@ -458,7 +458,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates a new resource policy with the specified policy statements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_resource_policy)
         """
 
@@ -476,7 +476,7 @@ class LexModelsV2Client(BaseClient):
         """
         Adds a new resource policy statement to a bot or bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_resource_policy_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_resource_policy_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_resource_policy_statement)
         """
 
@@ -498,7 +498,7 @@ class LexModelsV2Client(BaseClient):
         """
         Creates a slot in an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_slot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_slot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_slot)
         """
 
@@ -521,7 +521,7 @@ class LexModelsV2Client(BaseClient):
         slot type and a set of enumeration values, the values that a slot of this type
         can assume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_slot_type)
         """
 
@@ -531,7 +531,7 @@ class LexModelsV2Client(BaseClient):
         """
         Create a report that describes the differences between the bot and the test set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_test_set_discrepancy_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_test_set_discrepancy_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_test_set_discrepancy_report)
         """
 
@@ -540,7 +540,7 @@ class LexModelsV2Client(BaseClient):
         Gets a pre-signed S3 write URL that you use to upload the zip archive when
         importing a bot or a bot locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.create_upload_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.create_upload_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#create_upload_url)
         """
 
@@ -550,7 +550,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes all versions of a bot, including the `Draft` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_bot)
         """
 
@@ -560,7 +560,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes the specified bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_bot_alias)
         """
 
@@ -570,7 +570,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes a locale from a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_locale)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_locale)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_bot_locale)
         """
 
@@ -580,7 +580,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to delete the replicated bot in the secondary region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_bot_replica)
         """
 
@@ -590,7 +590,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes a specific version of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_bot_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_bot_version)
         """
 
@@ -600,7 +600,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes a custom vocabulary from the specified locale in the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_custom_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_custom_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_custom_vocabulary)
         """
 
@@ -608,7 +608,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes a previous export and the associated files stored in an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_export)
         """
 
@@ -616,7 +616,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes a previous import and the associated file stored in an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_import)
         """
 
@@ -624,7 +624,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes the specified intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_intent)
         """
 
@@ -634,7 +634,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes an existing policy from a bot or bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_resource_policy)
         """
 
@@ -644,7 +644,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes a policy statement from a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_resource_policy_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_resource_policy_statement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_resource_policy_statement)
         """
 
@@ -654,7 +654,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes the specified slot from an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_slot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_slot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_slot)
         """
 
@@ -670,7 +670,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes a slot type from a bot locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_slot_type)
         """
 
@@ -678,7 +678,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to delete the selected test set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_test_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_test_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_test_set)
         """
 
@@ -688,7 +688,7 @@ class LexModelsV2Client(BaseClient):
         """
         Deletes stored utterances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.delete_utterances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.delete_utterances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#delete_utterances)
         """
 
@@ -696,7 +696,7 @@ class LexModelsV2Client(BaseClient):
         """
         Provides metadata information about a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot)
         """
 
@@ -704,7 +704,7 @@ class LexModelsV2Client(BaseClient):
         """
         Get information about a specific bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_alias)
         """
 
@@ -714,7 +714,7 @@ class LexModelsV2Client(BaseClient):
         """
         Describes the settings that a bot has for a specific locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_locale)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_locale)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_locale)
         """
 
@@ -724,7 +724,7 @@ class LexModelsV2Client(BaseClient):
         """
         Provides metadata information about a bot recommendation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_recommendation)
         """
 
@@ -734,7 +734,7 @@ class LexModelsV2Client(BaseClient):
         """
         Monitors the bot replication status through the UI console.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_replica)
         """
 
@@ -745,7 +745,7 @@ class LexModelsV2Client(BaseClient):
         Returns information about a request to generate a bot through natural language
         description, made through the `StartBotResource` API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_resource_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_resource_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_resource_generation)
         """
 
@@ -755,7 +755,7 @@ class LexModelsV2Client(BaseClient):
         """
         Provides metadata about a version of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_bot_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_bot_version)
         """
 
@@ -765,7 +765,7 @@ class LexModelsV2Client(BaseClient):
         """
         Provides metadata information about a custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_custom_vocabulary_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_custom_vocabulary_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_custom_vocabulary_metadata)
         """
 
@@ -773,7 +773,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets information about a specific export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_export)
         """
 
@@ -781,7 +781,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets information about a specific import.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_import)
         """
 
@@ -791,7 +791,7 @@ class LexModelsV2Client(BaseClient):
         """
         Returns metadata about an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_intent)
         """
 
@@ -801,7 +801,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets the resource policy and policy revision for a bot or bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_resource_policy)
         """
 
@@ -811,7 +811,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about a slot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_slot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_slot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_slot)
         """
 
@@ -821,7 +821,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about a slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_slot_type)
         """
 
@@ -831,7 +831,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about the test execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_test_execution)
         """
 
@@ -839,7 +839,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about the test set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_test_set)
         """
 
@@ -849,7 +849,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about the test set discrepancy report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set_discrepancy_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set_discrepancy_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_test_set_discrepancy_report)
         """
 
@@ -859,7 +859,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets metadata information about the test set generation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.describe_test_set_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#describe_test_set_generation)
         """
 
@@ -869,7 +869,7 @@ class LexModelsV2Client(BaseClient):
         """
         Generates sample utterances for an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.generate_bot_element)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.generate_bot_element)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#generate_bot_element)
         """
 
@@ -883,7 +883,7 @@ class LexModelsV2Client(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#generate_presigned_url)
         """
 
@@ -893,7 +893,7 @@ class LexModelsV2Client(BaseClient):
         """
         The pre-signed Amazon S3 URL to download the test execution result artifacts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.get_test_execution_artifacts_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.get_test_execution_artifacts_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#get_test_execution_artifacts_url)
         """
 
@@ -913,7 +913,7 @@ class LexModelsV2Client(BaseClient):
         """
         Provides a list of utterances that users have sent to the bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_aggregated_utterances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_aggregated_utterances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_aggregated_utterances)
         """
 
@@ -923,7 +923,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to list the replicated bots created from the source bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_alias_replicas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_alias_replicas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_alias_replicas)
         """
 
@@ -933,7 +933,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of aliases for the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_aliases)
         """
 
@@ -950,7 +950,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of locales for the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_locales)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_locales)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_locales)
         """
 
@@ -966,7 +966,7 @@ class LexModelsV2Client(BaseClient):
         """
         Get a list of bot recommendations that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_recommendations)
         """
 
@@ -974,7 +974,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to list the replicated bots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_replicas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_replicas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_replicas)
         """
 
@@ -991,7 +991,7 @@ class LexModelsV2Client(BaseClient):
         """
         Lists the generation requests made for a bot locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_resource_generations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_resource_generations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_resource_generations)
         """
 
@@ -1008,7 +1008,7 @@ class LexModelsV2Client(BaseClient):
         Contains information about all the versions replication statuses applicable for
         Global Resiliency.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_version_replicas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_version_replicas)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_version_replicas)
         """
 
@@ -1023,7 +1023,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets information about all of the versions of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bot_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bot_versions)
         """
 
@@ -1038,7 +1038,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of available bots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_bots)
         """
 
@@ -1054,7 +1054,7 @@ class LexModelsV2Client(BaseClient):
         Gets a list of built-in intents provided by Amazon Lex that you can use in your
         bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_built_in_intents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_built_in_intents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_built_in_intents)
         """
 
@@ -1069,7 +1069,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of built-in slot types that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_built_in_slot_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_built_in_slot_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_built_in_slot_types)
         """
 
@@ -1086,7 +1086,7 @@ class LexModelsV2Client(BaseClient):
         Paginated list of custom vocabulary items for a given bot locale's custom
         vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_custom_vocabulary_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_custom_vocabulary_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_custom_vocabulary_items)
         """
 
@@ -1104,7 +1104,7 @@ class LexModelsV2Client(BaseClient):
         """
         Lists the exports for a bot, bot locale, or custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_exports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_exports)
         """
 
@@ -1122,7 +1122,7 @@ class LexModelsV2Client(BaseClient):
         """
         Lists the imports for a bot, bot locale, or custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_imports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_imports)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_imports)
         """
 
@@ -1142,7 +1142,7 @@ class LexModelsV2Client(BaseClient):
         """
         Retrieves summary metrics for the intents in your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_intent_metrics)
         """
 
@@ -1159,7 +1159,7 @@ class LexModelsV2Client(BaseClient):
         Retrieves summary statistics for a path of intents that users take over sessions
         with your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_paths)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_paths)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_intent_paths)
         """
 
@@ -1179,7 +1179,7 @@ class LexModelsV2Client(BaseClient):
         """
         Retrieves summary metrics for the stages within intents in your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_stage_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_intent_stage_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_intent_stage_metrics)
         """
 
@@ -1197,7 +1197,7 @@ class LexModelsV2Client(BaseClient):
         """
         Get a list of intents that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_intents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_intents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_intents)
         """
 
@@ -1215,7 +1215,7 @@ class LexModelsV2Client(BaseClient):
         Gets a list of recommended intents provided by the bot recommendation that you
         can use in your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_recommended_intents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_recommended_intents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_recommended_intents)
         """
 
@@ -1233,7 +1233,7 @@ class LexModelsV2Client(BaseClient):
         """
         Retrieves a list of metadata for individual user sessions with your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_session_analytics_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_session_analytics_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_session_analytics_data)
         """
 
@@ -1253,7 +1253,7 @@ class LexModelsV2Client(BaseClient):
         """
         Retrieves summary metrics for the user sessions with your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_session_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_session_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_session_metrics)
         """
 
@@ -1271,7 +1271,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of slot types that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_slot_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_slot_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_slot_types)
         """
 
@@ -1290,7 +1290,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of slots that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_slots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_slots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_slots)
         """
 
@@ -1298,7 +1298,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of tags associated with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_tags_for_resource)
         """
 
@@ -1313,7 +1313,7 @@ class LexModelsV2Client(BaseClient):
         """
         Gets a list of test execution result items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_execution_result_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_execution_result_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_test_execution_result_items)
         """
 
@@ -1327,7 +1327,7 @@ class LexModelsV2Client(BaseClient):
         """
         The list of test set executions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_test_executions)
         """
 
@@ -1337,7 +1337,7 @@ class LexModelsV2Client(BaseClient):
         """
         The list of test set records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_set_records)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_set_records)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_test_set_records)
         """
 
@@ -1354,7 +1354,7 @@ class LexModelsV2Client(BaseClient):
         response = client.list_test_sets( sortBy={ 'attribute':
         'TestSetName'|'LastUpdatedDateTime', 'order'...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_test_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_test_sets)
         """
 
@@ -1372,7 +1372,7 @@ class LexModelsV2Client(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_utterance_analytics_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_utterance_analytics_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_utterance_analytics_data)
         """
 
@@ -1393,7 +1393,7 @@ class LexModelsV2Client(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.list_utterance_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.list_utterance_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#list_utterance_metrics)
         """
 
@@ -1412,7 +1412,7 @@ class LexModelsV2Client(BaseClient):
         """
         Search for associated transcripts that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.search_associated_transcripts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.search_associated_transcripts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#search_associated_transcripts)
         """
 
@@ -1429,7 +1429,7 @@ class LexModelsV2Client(BaseClient):
         Use this to provide your transcript data, and to start the bot recommendation
         process.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.start_bot_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.start_bot_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#start_bot_recommendation)
         """
 
@@ -1440,7 +1440,7 @@ class LexModelsV2Client(BaseClient):
         Starts a request for the descriptive bot builder to generate a bot locale
         configuration based on the prompt you provide it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.start_bot_resource_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.start_bot_resource_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#start_bot_resource_generation)
         """
 
@@ -1456,7 +1456,7 @@ class LexModelsV2Client(BaseClient):
         Starts importing a bot, bot locale, or custom vocabulary from a zip archive that
         you uploaded to an S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.start_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.start_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#start_import)
         """
 
@@ -1471,7 +1471,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to start test set execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.start_test_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.start_test_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#start_test_execution)
         """
 
@@ -1488,7 +1488,7 @@ class LexModelsV2Client(BaseClient):
         """
         The action to start the generation of test set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.start_test_set_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.start_test_set_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#start_test_set_generation)
         """
 
@@ -1498,7 +1498,7 @@ class LexModelsV2Client(BaseClient):
         """
         Stop an already running Bot Recommendation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.stop_bot_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.stop_bot_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#stop_bot_recommendation)
         """
 
@@ -1506,7 +1506,7 @@ class LexModelsV2Client(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#tag_resource)
         """
 
@@ -1514,7 +1514,7 @@ class LexModelsV2Client(BaseClient):
         """
         Removes tags from a bot, bot alias, or bot channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#untag_resource)
         """
 
@@ -1533,7 +1533,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the configuration of an existing bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_bot)
         """
 
@@ -1552,7 +1552,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the configuration of an existing bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_bot_alias)
         """
 
@@ -1570,7 +1570,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the settings that a bot has for a specific locale.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_locale)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_locale)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_bot_locale)
         """
 
@@ -1586,7 +1586,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates an existing bot recommendation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_bot_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_bot_recommendation)
         """
 
@@ -1596,7 +1596,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the password used to protect an export zip archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_export)
         """
 
@@ -1625,7 +1625,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the settings for an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_intent)
         """
 
@@ -1635,7 +1635,7 @@ class LexModelsV2Client(BaseClient):
         """
         Replaces the existing resource policy for a bot or bot alias with a new one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_resource_policy)
         """
 
@@ -1658,7 +1658,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the settings for a slot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_slot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_slot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_slot)
         """
 
@@ -1680,7 +1680,7 @@ class LexModelsV2Client(BaseClient):
         """
         Updates the configuration of an existing slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_slot_type)
         """
 
@@ -1690,49 +1690,49 @@ class LexModelsV2Client(BaseClient):
         """
         The action to update the test set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Client.update_test_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Client.update_test_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/client.html#update_test_set)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_alias_available"]) -> BotAliasAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAliasAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botaliasavailablewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_available"]) -> BotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botavailablewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_export_completed"]) -> BotExportCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotExportCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botexportcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_import_completed"]) -> BotImportCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotImportCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botimportcompletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_locale_built"]) -> BotLocaleBuiltWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleBuilt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalebuiltwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bot_locale_created"]) -> BotLocaleCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocalecreatedwaiter)
         """
 
@@ -1741,7 +1741,7 @@ class LexModelsV2Client(BaseClient):
         self, waiter_name: Literal["bot_locale_express_testing_available"]
     ) -> BotLocaleExpressTestingAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotLocaleExpressTestingAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botlocaleexpresstestingavailablewaiter)
         """
 
@@ -1750,6 +1750,6 @@ class LexModelsV2Client(BaseClient):
         self, waiter_name: Literal["bot_version_available"]
     ) -> BotVersionAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lexv2-models.html#LexModelsV2.Waiter.BotVersionAvailable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/waiters.html#botversionavailablewaiter)
         """

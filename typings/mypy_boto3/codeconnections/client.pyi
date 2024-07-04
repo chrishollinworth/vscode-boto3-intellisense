@@ -80,7 +80,7 @@ class Exceptions:
 
 class CodeConnectionsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html)
     """
 
@@ -96,7 +96,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#can_paginate)
         """
 
@@ -104,7 +104,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#close)
         """
 
@@ -120,7 +120,7 @@ class CodeConnectionsClient(BaseClient):
         Creates a connection that can then be given to other Amazon Web Services
         services like CodePipeline so that it can access third-party code repositories.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.create_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.create_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#create_connection)
         """
 
@@ -137,7 +137,7 @@ class CodeConnectionsClient(BaseClient):
         Creates a resource that represents the infrastructure where a third-party
         provider is installed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.create_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.create_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#create_host)
         """
 
@@ -153,7 +153,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Creates a link to a specified external Git repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.create_repository_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.create_repository_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#create_repository_link)
         """
 
@@ -173,7 +173,7 @@ class CodeConnectionsClient(BaseClient):
         Creates a sync configuration which allows Amazon Web Services to sync content
         from a Git repository to update a specified Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.create_sync_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.create_sync_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#create_sync_configuration)
         """
 
@@ -181,7 +181,7 @@ class CodeConnectionsClient(BaseClient):
         """
         The connection to be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#delete_connection)
         """
 
@@ -189,7 +189,7 @@ class CodeConnectionsClient(BaseClient):
         """
         The host to be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.delete_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.delete_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#delete_host)
         """
 
@@ -198,7 +198,7 @@ class CodeConnectionsClient(BaseClient):
         Deletes the association between your connection and a specified external Git
         repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.delete_repository_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.delete_repository_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#delete_repository_link)
         """
 
@@ -208,7 +208,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Deletes the sync configuration for a specified repository and connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.delete_sync_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.delete_sync_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#delete_sync_configuration)
         """
 
@@ -222,7 +222,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#generate_presigned_url)
         """
 
@@ -230,7 +230,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Returns the connection ARN and details such as status, owner, and provider type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_connection)
         """
 
@@ -239,7 +239,7 @@ class CodeConnectionsClient(BaseClient):
         Returns the host ARN and details such as status, provider type, endpoint, and,
         if applicable, the VPC configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_host)
         """
 
@@ -247,7 +247,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Returns details about a repository link.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_repository_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_repository_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_repository_link)
         """
 
@@ -257,7 +257,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Returns details about the sync status for a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_repository_sync_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_repository_sync_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_repository_sync_status)
         """
 
@@ -268,7 +268,7 @@ class CodeConnectionsClient(BaseClient):
         Returns the status of the sync with the Git repository for a specific Amazon Web
         Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_resource_sync_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_resource_sync_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_resource_sync_status)
         """
 
@@ -278,7 +278,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Returns a list of the most recent sync blockers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_sync_blocker_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_sync_blocker_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_sync_blocker_summary)
         """
 
@@ -289,7 +289,7 @@ class CodeConnectionsClient(BaseClient):
         Returns details about a sync configuration, including the sync type and resource
         name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.get_sync_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.get_sync_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#get_sync_configuration)
         """
 
@@ -304,7 +304,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Lists the connections associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_connections)
         """
 
@@ -314,7 +314,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Lists the hosts associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_hosts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_hosts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_hosts)
         """
 
@@ -324,7 +324,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Lists the repository links created for connections in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_repository_links)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_repository_links)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_repository_links)
         """
 
@@ -334,7 +334,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Lists the repository sync definitions for repository links in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_repository_sync_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_repository_sync_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_repository_sync_definitions)
         """
 
@@ -349,7 +349,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Returns a list of sync configurations for a specified repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_sync_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_sync_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_sync_configurations)
         """
 
@@ -357,7 +357,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Gets the set of key-value pairs (metadata) that are used to manage the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#list_tags_for_resource)
         """
 
@@ -365,7 +365,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Adds to or modifies the tags of the given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#tag_resource)
         """
 
@@ -373,7 +373,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Removes tags from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#untag_resource)
         """
 
@@ -387,7 +387,7 @@ class CodeConnectionsClient(BaseClient):
         """
         Updates a specified host with the provided configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.update_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.update_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#update_host)
         """
 
@@ -398,7 +398,7 @@ class CodeConnectionsClient(BaseClient):
         Updates the association between your connection and a specified external Git
         repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.update_repository_link)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.update_repository_link)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#update_repository_link)
         """
 
@@ -414,7 +414,7 @@ class CodeConnectionsClient(BaseClient):
         Allows you to update the status of a sync blocker, resolving the blocker and
         allowing syncing to continue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.update_sync_blocker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.update_sync_blocker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#update_sync_blocker)
         """
 
@@ -434,6 +434,6 @@ class CodeConnectionsClient(BaseClient):
         Updates the sync configuration for your connection and a specified external Git
         repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeconnections.html#CodeConnections.Client.update_sync_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeconnections.html#CodeConnections.Client.update_sync_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/client.html#update_sync_configuration)
         """

@@ -81,7 +81,7 @@ class Exceptions:
 
 class PrometheusServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html)
     """
 
@@ -97,7 +97,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#can_paginate)
         """
 
@@ -105,7 +105,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#close)
         """
 
@@ -120,7 +120,7 @@ class PrometheusServiceClient(BaseClient):
         The `CreateAlertManagerDefinition` operation creates the alert manager
         definition in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.create_alert_manager_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.create_alert_manager_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_alert_manager_definition)
         """
 
@@ -131,7 +131,7 @@ class PrometheusServiceClient(BaseClient):
         The `CreateLoggingConfiguration` operation creates a logging configuration for
         the workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.create_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.create_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_logging_configuration)
         """
 
@@ -148,7 +148,7 @@ class PrometheusServiceClient(BaseClient):
         The `CreateRuleGroupsNamespace` operation creates a rule groups namespace within
         a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.create_rule_groups_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.create_rule_groups_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_rule_groups_namespace)
         """
 
@@ -165,7 +165,7 @@ class PrometheusServiceClient(BaseClient):
         """
         The `CreateScraper` operation creates a scraper to collect metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.create_scraper)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.create_scraper)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_scraper)
         """
 
@@ -180,7 +180,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Creates a Prometheus workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.create_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.create_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_workspace)
         """
 
@@ -188,7 +188,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Deletes the alert manager definition from a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.delete_alert_manager_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.delete_alert_manager_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_alert_manager_definition)
         """
 
@@ -196,7 +196,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Deletes the logging configuration for a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.delete_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.delete_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_logging_configuration)
         """
 
@@ -206,7 +206,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Deletes one rule groups namespace and its associated rule groups definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.delete_rule_groups_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.delete_rule_groups_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_rule_groups_namespace)
         """
 
@@ -217,7 +217,7 @@ class PrometheusServiceClient(BaseClient):
         The `DeleteScraper` operation deletes one scraper, and stops any metrics
         collection that the scraper performs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.delete_scraper)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.delete_scraper)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_scraper)
         """
 
@@ -225,7 +225,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Deletes an existing workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.delete_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.delete_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_workspace)
         """
 
@@ -236,7 +236,7 @@ class PrometheusServiceClient(BaseClient):
         Retrieves the full information about the alert manager definition for a
         workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.describe_alert_manager_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.describe_alert_manager_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_alert_manager_definition)
         """
 
@@ -247,7 +247,7 @@ class PrometheusServiceClient(BaseClient):
         Returns complete information about the current logging configuration of the
         workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.describe_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.describe_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_logging_configuration)
         """
 
@@ -257,7 +257,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Returns complete information about one rule groups namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.describe_rule_groups_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.describe_rule_groups_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_rule_groups_namespace)
         """
 
@@ -265,7 +265,7 @@ class PrometheusServiceClient(BaseClient):
         """
         The `DescribeScraper` operation displays information about an existing scraper.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.describe_scraper)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.describe_scraper)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_scraper)
         """
 
@@ -273,7 +273,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Returns information about an existing workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.describe_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.describe_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_workspace)
         """
 
@@ -287,7 +287,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#generate_presigned_url)
         """
 
@@ -296,7 +296,7 @@ class PrometheusServiceClient(BaseClient):
         The `GetDefaultScraperConfiguration` operation returns the default scraper
         configuration used when Amazon EKS creates a scraper for you.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.get_default_scraper_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.get_default_scraper_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#get_default_scraper_configuration)
         """
 
@@ -306,7 +306,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Returns a list of rule groups namespaces in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.list_rule_groups_namespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.list_rule_groups_namespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#list_rule_groups_namespaces)
         """
 
@@ -316,7 +316,7 @@ class PrometheusServiceClient(BaseClient):
         """
         The `ListScrapers` operation lists all of the scrapers in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.list_scrapers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.list_scrapers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#list_scrapers)
         """
 
@@ -325,7 +325,7 @@ class PrometheusServiceClient(BaseClient):
         The `ListTagsForResource` operation returns the tags that are associated with an
         Amazon Managed Service for Prometheus resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#list_tags_for_resource)
         """
 
@@ -336,7 +336,7 @@ class PrometheusServiceClient(BaseClient):
         Lists all of the Amazon Managed Service for Prometheus workspaces in your
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.list_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.list_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#list_workspaces)
         """
 
@@ -350,7 +350,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Updates an existing alert manager definition in a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.put_alert_manager_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.put_alert_manager_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#put_alert_manager_definition)
         """
 
@@ -365,7 +365,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Updates an existing rule groups namespace within a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.put_rule_groups_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.put_rule_groups_namespace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#put_rule_groups_namespace)
         """
 
@@ -374,7 +374,7 @@ class PrometheusServiceClient(BaseClient):
         The `TagResource` operation associates tags with an Amazon Managed Service for
         Prometheus resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#tag_resource)
         """
 
@@ -383,7 +383,7 @@ class PrometheusServiceClient(BaseClient):
         Removes the specified tags from an Amazon Managed Service for Prometheus
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#untag_resource)
         """
 
@@ -394,7 +394,7 @@ class PrometheusServiceClient(BaseClient):
         Updates the log group ARN or the workspace ID of the current logging
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.update_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.update_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#update_logging_configuration)
         """
 
@@ -404,7 +404,7 @@ class PrometheusServiceClient(BaseClient):
         """
         Updates the alias of an existing workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Client.update_workspace_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Client.update_workspace_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#update_workspace_alias)
         """
 
@@ -413,48 +413,48 @@ class PrometheusServiceClient(BaseClient):
         self, operation_name: Literal["list_rule_groups_namespaces"]
     ) -> ListRuleGroupsNamespacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Paginator.ListRuleGroupsNamespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Paginator.ListRuleGroupsNamespaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/paginators.html#listrulegroupsnamespacespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_scrapers"]) -> ListScrapersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Paginator.ListScrapers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Paginator.ListScrapers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/paginators.html#listscraperspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workspaces"]) -> ListWorkspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Paginator.ListWorkspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Paginator.ListWorkspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/paginators.html#listworkspacespaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["scraper_active"]) -> ScraperActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Waiter.ScraperActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["scraper_deleted"]) -> ScraperDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Waiter.ScraperDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperdeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["workspace_active"]) -> WorkspaceActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Waiter.WorkspaceActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspaceactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["workspace_deleted"]) -> WorkspaceDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/amp.html#PrometheusService.Waiter.WorkspaceDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspacedeletedwaiter)
         """

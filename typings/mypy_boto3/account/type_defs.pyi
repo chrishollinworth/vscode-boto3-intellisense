@@ -6,16 +6,16 @@ Type annotations for account service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_account.type_defs import AlternateContactTypeDef
+    from mypy_boto3_account.type_defs import AcceptPrimaryEmailUpdateRequestRequestTypeDef
 
-    data: AlternateContactTypeDef = {...}
+    data: AcceptPrimaryEmailUpdateRequestRequestTypeDef = {...}
     ```
 """
 
 import sys
 from typing import Any, Dict, List
 
-from .literals import AlternateContactTypeType, RegionOptStatusType
+from .literals import AlternateContactTypeType, PrimaryEmailUpdateStatusType, RegionOptStatusType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -23,6 +23,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AcceptPrimaryEmailUpdateRequestRequestTypeDef",
+    "AcceptPrimaryEmailUpdateResponseTypeDef",
     "AlternateContactTypeDef",
     "ContactInformationTypeDef",
     "DeleteAlternateContactRequestRequestTypeDef",
@@ -32,6 +34,8 @@ __all__ = (
     "GetAlternateContactResponseTypeDef",
     "GetContactInformationRequestRequestTypeDef",
     "GetContactInformationResponseTypeDef",
+    "GetPrimaryEmailRequestRequestTypeDef",
+    "GetPrimaryEmailResponseTypeDef",
     "GetRegionOptStatusRequestRequestTypeDef",
     "GetRegionOptStatusResponseTypeDef",
     "ListRegionsRequestRequestTypeDef",
@@ -41,6 +45,25 @@ __all__ = (
     "PutContactInformationRequestRequestTypeDef",
     "RegionTypeDef",
     "ResponseMetadataTypeDef",
+    "StartPrimaryEmailUpdateRequestRequestTypeDef",
+    "StartPrimaryEmailUpdateResponseTypeDef",
+)
+
+AcceptPrimaryEmailUpdateRequestRequestTypeDef = TypedDict(
+    "AcceptPrimaryEmailUpdateRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Otp": str,
+        "PrimaryEmail": str,
+    },
+)
+
+AcceptPrimaryEmailUpdateResponseTypeDef = TypedDict(
+    "AcceptPrimaryEmailUpdateResponseTypeDef",
+    {
+        "Status": PrimaryEmailUpdateStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AlternateContactTypeDef = TypedDict(
@@ -186,6 +209,21 @@ GetContactInformationResponseTypeDef = TypedDict(
     },
 )
 
+GetPrimaryEmailRequestRequestTypeDef = TypedDict(
+    "GetPrimaryEmailRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+
+GetPrimaryEmailResponseTypeDef = TypedDict(
+    "GetPrimaryEmailResponseTypeDef",
+    {
+        "PrimaryEmail": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetRegionOptStatusRequestRequestTypeDef = TypedDict(
     "_RequiredGetRegionOptStatusRequestRequestTypeDef",
     {
@@ -306,5 +344,21 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+StartPrimaryEmailUpdateRequestRequestTypeDef = TypedDict(
+    "StartPrimaryEmailUpdateRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "PrimaryEmail": str,
+    },
+)
+
+StartPrimaryEmailUpdateResponseTypeDef = TypedDict(
+    "StartPrimaryEmailUpdateResponseTypeDef",
+    {
+        "Status": PrimaryEmailUpdateStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

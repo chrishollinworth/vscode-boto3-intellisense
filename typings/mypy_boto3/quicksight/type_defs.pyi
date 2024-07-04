@@ -319,6 +319,11 @@ __all__ = (
     "BinWidthOptionsTypeDef",
     "BodySectionConfigurationTypeDef",
     "BodySectionContentTypeDef",
+    "BodySectionDynamicCategoryDimensionConfigurationTypeDef",
+    "BodySectionDynamicNumericDimensionConfigurationTypeDef",
+    "BodySectionRepeatConfigurationTypeDef",
+    "BodySectionRepeatDimensionConfigurationTypeDef",
+    "BodySectionRepeatPageBreakConfigurationTypeDef",
     "BookmarksConfigurationsTypeDef",
     "BorderStyleTypeDef",
     "BoxPlotAggregatedFieldWellsTypeDef",
@@ -341,6 +346,7 @@ __all__ = (
     "CategoryDrillDownFilterTypeDef",
     "CategoryFilterConfigurationTypeDef",
     "CategoryFilterTypeDef",
+    "CategoryInnerFilterTypeDef",
     "CellValueSynonymTypeDef",
     "ChartAxisLabelOptionsTypeDef",
     "ClusterMarkerConfigurationTypeDef",
@@ -789,6 +795,7 @@ __all__ = (
     "IdentityCenterConfigurationTypeDef",
     "IncrementalRefreshTypeDef",
     "IngestionTypeDef",
+    "InnerFilterTypeDef",
     "InputColumnTypeDef",
     "InsightConfigurationTypeDef",
     "InsightVisualTypeDef",
@@ -918,6 +925,7 @@ __all__ = (
     "NamespaceInfoV2TypeDef",
     "NegativeFormatTypeDef",
     "NegativeValueConfigurationTypeDef",
+    "NestedFilterTypeDef",
     "NetworkInterfaceTypeDef",
     "NewDefaultValuesTypeDef",
     "NullValueFormatConfigurationTypeDef",
@@ -2420,6 +2428,7 @@ _OptionalBodySectionConfigurationTypeDef = TypedDict(
     {
         "Style": "SectionStyleTypeDef",
         "PageBreakConfiguration": "SectionPageBreakConfigurationTypeDef",
+        "RepeatConfiguration": "BodySectionRepeatConfigurationTypeDef",
     },
     total=False,
 )
@@ -2433,6 +2442,75 @@ BodySectionContentTypeDef = TypedDict(
     "BodySectionContentTypeDef",
     {
         "Layout": "SectionLayoutConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredBodySectionDynamicCategoryDimensionConfigurationTypeDef = TypedDict(
+    "_RequiredBodySectionDynamicCategoryDimensionConfigurationTypeDef",
+    {
+        "Column": "ColumnIdentifierTypeDef",
+    },
+)
+_OptionalBodySectionDynamicCategoryDimensionConfigurationTypeDef = TypedDict(
+    "_OptionalBodySectionDynamicCategoryDimensionConfigurationTypeDef",
+    {
+        "Limit": int,
+        "SortByMetrics": List["ColumnSortTypeDef"],
+    },
+    total=False,
+)
+
+class BodySectionDynamicCategoryDimensionConfigurationTypeDef(
+    _RequiredBodySectionDynamicCategoryDimensionConfigurationTypeDef,
+    _OptionalBodySectionDynamicCategoryDimensionConfigurationTypeDef,
+):
+    pass
+
+_RequiredBodySectionDynamicNumericDimensionConfigurationTypeDef = TypedDict(
+    "_RequiredBodySectionDynamicNumericDimensionConfigurationTypeDef",
+    {
+        "Column": "ColumnIdentifierTypeDef",
+    },
+)
+_OptionalBodySectionDynamicNumericDimensionConfigurationTypeDef = TypedDict(
+    "_OptionalBodySectionDynamicNumericDimensionConfigurationTypeDef",
+    {
+        "Limit": int,
+        "SortByMetrics": List["ColumnSortTypeDef"],
+    },
+    total=False,
+)
+
+class BodySectionDynamicNumericDimensionConfigurationTypeDef(
+    _RequiredBodySectionDynamicNumericDimensionConfigurationTypeDef,
+    _OptionalBodySectionDynamicNumericDimensionConfigurationTypeDef,
+):
+    pass
+
+BodySectionRepeatConfigurationTypeDef = TypedDict(
+    "BodySectionRepeatConfigurationTypeDef",
+    {
+        "DimensionConfigurations": List["BodySectionRepeatDimensionConfigurationTypeDef"],
+        "PageBreakConfiguration": "BodySectionRepeatPageBreakConfigurationTypeDef",
+        "NonRepeatingVisuals": List[str],
+    },
+    total=False,
+)
+
+BodySectionRepeatDimensionConfigurationTypeDef = TypedDict(
+    "BodySectionRepeatDimensionConfigurationTypeDef",
+    {
+        "DynamicCategoryDimensionConfiguration": "BodySectionDynamicCategoryDimensionConfigurationTypeDef",
+        "DynamicNumericDimensionConfiguration": "BodySectionDynamicNumericDimensionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+BodySectionRepeatPageBreakConfigurationTypeDef = TypedDict(
+    "BodySectionRepeatPageBreakConfigurationTypeDef",
+    {
+        "After": "SectionAfterPageBreakTypeDef",
     },
     total=False,
 )
@@ -2697,6 +2775,26 @@ _OptionalCategoryFilterTypeDef = TypedDict(
 )
 
 class CategoryFilterTypeDef(_RequiredCategoryFilterTypeDef, _OptionalCategoryFilterTypeDef):
+    pass
+
+_RequiredCategoryInnerFilterTypeDef = TypedDict(
+    "_RequiredCategoryInnerFilterTypeDef",
+    {
+        "Column": "ColumnIdentifierTypeDef",
+        "Configuration": "CategoryFilterConfigurationTypeDef",
+    },
+)
+_OptionalCategoryInnerFilterTypeDef = TypedDict(
+    "_OptionalCategoryInnerFilterTypeDef",
+    {
+        "DefaultFilterControlConfiguration": "DefaultFilterControlConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CategoryInnerFilterTypeDef(
+    _RequiredCategoryInnerFilterTypeDef, _OptionalCategoryInnerFilterTypeDef
+):
     pass
 
 CellValueSynonymTypeDef = TypedDict(
@@ -7318,6 +7416,7 @@ FilterTypeDef = TypedDict(
         "TimeRangeFilter": "TimeRangeFilterTypeDef",
         "RelativeDatesFilter": "RelativeDatesFilterTypeDef",
         "TopBottomFilter": "TopBottomFilterTypeDef",
+        "NestedFilter": "NestedFilterTypeDef",
     },
     total=False,
 )
@@ -8378,6 +8477,14 @@ _OptionalIngestionTypeDef = TypedDict(
 
 class IngestionTypeDef(_RequiredIngestionTypeDef, _OptionalIngestionTypeDef):
     pass
+
+InnerFilterTypeDef = TypedDict(
+    "InnerFilterTypeDef",
+    {
+        "CategoryInnerFilter": "CategoryInnerFilterTypeDef",
+    },
+    total=False,
+)
 
 _RequiredInputColumnTypeDef = TypedDict(
     "_RequiredInputColumnTypeDef",
@@ -10081,6 +10188,16 @@ NegativeValueConfigurationTypeDef = TypedDict(
     "NegativeValueConfigurationTypeDef",
     {
         "DisplayMode": NegativeValueDisplayModeType,
+    },
+)
+
+NestedFilterTypeDef = TypedDict(
+    "NestedFilterTypeDef",
+    {
+        "FilterId": str,
+        "Column": "ColumnIdentifierTypeDef",
+        "IncludeInnerSet": bool,
+        "InnerFilter": "InnerFilterTypeDef",
     },
 )
 

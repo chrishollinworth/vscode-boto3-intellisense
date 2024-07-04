@@ -57,7 +57,7 @@ class Exceptions:
 
 class ivschatClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html)
     """
 
@@ -73,7 +73,7 @@ class ivschatClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#can_paginate)
         """
 
@@ -81,7 +81,7 @@ class ivschatClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#close)
         """
 
@@ -98,7 +98,7 @@ class ivschatClient(BaseClient):
         Creates an encrypted token that is used by a chat participant to establish an
         individual WebSocket chat connection to a room.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.create_chat_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.create_chat_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#create_chat_token)
         """
 
@@ -113,7 +113,7 @@ class ivschatClient(BaseClient):
         Creates a logging configuration that allows clients to store and record sent
         messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.create_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.create_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#create_logging_configuration)
         """
 
@@ -130,7 +130,7 @@ class ivschatClient(BaseClient):
         """
         Creates a room that allows clients to connect and pass messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.create_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.create_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#create_room)
         """
 
@@ -138,7 +138,7 @@ class ivschatClient(BaseClient):
         """
         Deletes the specified logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.delete_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.delete_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#delete_logging_configuration)
         """
 
@@ -150,7 +150,7 @@ class ivschatClient(BaseClient):
         message; that is, unrender it from view and delete it from the client’s chat
         history.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.delete_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.delete_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#delete_message)
         """
 
@@ -158,7 +158,7 @@ class ivschatClient(BaseClient):
         """
         Deletes the specified room.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.delete_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.delete_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#delete_room)
         """
 
@@ -168,7 +168,7 @@ class ivschatClient(BaseClient):
         """
         Disconnects all connections using a specified user ID from a room.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.disconnect_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.disconnect_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#disconnect_user)
         """
 
@@ -182,7 +182,7 @@ class ivschatClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#generate_presigned_url)
         """
 
@@ -192,7 +192,7 @@ class ivschatClient(BaseClient):
         """
         Gets the specified logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.get_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.get_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#get_logging_configuration)
         """
 
@@ -200,7 +200,7 @@ class ivschatClient(BaseClient):
         """
         Gets the specified room.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.get_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.get_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#get_room)
         """
 
@@ -211,7 +211,7 @@ class ivschatClient(BaseClient):
         Gets summary information about all your logging configurations in the AWS region
         where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.list_logging_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.list_logging_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#list_logging_configurations)
         """
 
@@ -228,7 +228,7 @@ class ivschatClient(BaseClient):
         Gets summary information about all your rooms in the AWS region where the API
         request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.list_rooms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.list_rooms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#list_rooms)
         """
 
@@ -236,7 +236,7 @@ class ivschatClient(BaseClient):
         """
         Gets information about AWS tags for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#list_tags_for_resource)
         """
 
@@ -246,7 +246,7 @@ class ivschatClient(BaseClient):
         """
         Sends an event to a room.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.send_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.send_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#send_event)
         """
 
@@ -254,7 +254,7 @@ class ivschatClient(BaseClient):
         """
         Adds or updates tags for the AWS resource with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#tag_resource)
         """
 
@@ -262,7 +262,7 @@ class ivschatClient(BaseClient):
         """
         Removes tags from the resource with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#untag_resource)
         """
 
@@ -276,7 +276,7 @@ class ivschatClient(BaseClient):
         """
         Updates a specified logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.update_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.update_logging_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#update_logging_configuration)
         """
 
@@ -293,6 +293,6 @@ class ivschatClient(BaseClient):
         """
         Updates a room’s configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ivschat.html#ivschat.Client.update_room)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivschat.html#ivschat.Client.update_room)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivschat/client.html#update_room)
         """

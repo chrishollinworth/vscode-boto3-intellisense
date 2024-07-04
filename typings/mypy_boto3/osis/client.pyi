@@ -59,7 +59,7 @@ class Exceptions:
 
 class OpenSearchIngestionClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html)
     """
 
@@ -75,7 +75,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#can_paginate)
         """
 
@@ -83,7 +83,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#close)
         """
 
@@ -103,7 +103,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Creates an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.create_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.create_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#create_pipeline)
         """
 
@@ -111,7 +111,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Deletes an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.delete_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.delete_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#delete_pipeline)
         """
 
@@ -125,7 +125,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#generate_presigned_url)
         """
 
@@ -133,7 +133,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Retrieves information about an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#get_pipeline)
         """
 
@@ -143,7 +143,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Retrieves information about a specific blueprint for OpenSearch Ingestion.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline_blueprint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#get_pipeline_blueprint)
         """
 
@@ -154,7 +154,7 @@ class OpenSearchIngestionClient(BaseClient):
         Returns progress information for the current change happening on an OpenSearch
         Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline_change_progress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.get_pipeline_change_progress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#get_pipeline_change_progress)
         """
 
@@ -162,7 +162,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Retrieves a list of all available blueprints for Data Prepper.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.list_pipeline_blueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.list_pipeline_blueprints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#list_pipeline_blueprints)
         """
 
@@ -173,7 +173,7 @@ class OpenSearchIngestionClient(BaseClient):
         Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
         account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.list_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.list_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#list_pipelines)
         """
 
@@ -181,7 +181,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Lists all resource tags associated with an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#list_tags_for_resource)
         """
 
@@ -189,7 +189,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Starts an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.start_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.start_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#start_pipeline)
         """
 
@@ -197,7 +197,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Stops an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.stop_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.stop_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#stop_pipeline)
         """
 
@@ -205,7 +205,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Tags an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#tag_resource)
         """
 
@@ -213,7 +213,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Removes one or more tags from an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#untag_resource)
         """
 
@@ -231,7 +231,7 @@ class OpenSearchIngestionClient(BaseClient):
         """
         Updates an OpenSearch Ingestion pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.update_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.update_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#update_pipeline)
         """
 
@@ -242,6 +242,6 @@ class OpenSearchIngestionClient(BaseClient):
         Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to
         creation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/osis.html#OpenSearchIngestion.Client.validate_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/osis.html#OpenSearchIngestion.Client.validate_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_osis/client.html#validate_pipeline)
         """

@@ -81,6 +81,8 @@ __all__ = (
     "LandingZoneDetailTypeDef",
     "LandingZoneDriftStatusSummaryTypeDef",
     "LandingZoneOperationDetailTypeDef",
+    "LandingZoneOperationFilterTypeDef",
+    "LandingZoneOperationSummaryTypeDef",
     "LandingZoneSummaryTypeDef",
     "ListBaselinesInputRequestTypeDef",
     "ListBaselinesOutputTypeDef",
@@ -90,6 +92,8 @@ __all__ = (
     "ListEnabledBaselinesOutputTypeDef",
     "ListEnabledControlsInputRequestTypeDef",
     "ListEnabledControlsOutputTypeDef",
+    "ListLandingZoneOperationsInputRequestTypeDef",
+    "ListLandingZoneOperationsOutputTypeDef",
     "ListLandingZonesInputRequestTypeDef",
     "ListLandingZonesOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
@@ -603,10 +607,30 @@ LandingZoneOperationDetailTypeDef = TypedDict(
     "LandingZoneOperationDetailTypeDef",
     {
         "endTime": datetime,
+        "operationIdentifier": str,
         "operationType": LandingZoneOperationTypeType,
         "startTime": datetime,
         "status": LandingZoneOperationStatusType,
         "statusMessage": str,
+    },
+    total=False,
+)
+
+LandingZoneOperationFilterTypeDef = TypedDict(
+    "LandingZoneOperationFilterTypeDef",
+    {
+        "statuses": List[LandingZoneOperationStatusType],
+        "types": List[LandingZoneOperationTypeType],
+    },
+    total=False,
+)
+
+LandingZoneOperationSummaryTypeDef = TypedDict(
+    "LandingZoneOperationSummaryTypeDef",
+    {
+        "operationIdentifier": str,
+        "operationType": LandingZoneOperationTypeType,
+        "status": LandingZoneOperationStatusType,
     },
     total=False,
 )
@@ -690,6 +714,25 @@ ListEnabledControlsOutputTypeDef = TypedDict(
     "ListEnabledControlsOutputTypeDef",
     {
         "enabledControls": List["EnabledControlSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLandingZoneOperationsInputRequestTypeDef = TypedDict(
+    "ListLandingZoneOperationsInputRequestTypeDef",
+    {
+        "filter": "LandingZoneOperationFilterTypeDef",
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListLandingZoneOperationsOutputTypeDef = TypedDict(
+    "ListLandingZoneOperationsOutputTypeDef",
+    {
+        "landingZoneOperations": List["LandingZoneOperationSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

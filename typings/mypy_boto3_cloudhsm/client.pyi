@@ -66,7 +66,7 @@ class Exceptions:
 
 class CloudHSMClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html)
     """
 
@@ -84,7 +84,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.add_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.add_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#add_tags_to_resource)
         """
 
@@ -92,7 +92,7 @@ class CloudHSMClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#can_paginate)
         """
 
@@ -100,7 +100,7 @@ class CloudHSMClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#close)
         """
 
@@ -108,7 +108,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.create_hapg)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.create_hapg)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#create_hapg)
         """
 
@@ -127,7 +127,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.create_hsm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.create_hsm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#create_hsm)
         """
 
@@ -137,7 +137,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.create_luna_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.create_luna_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#create_luna_client)
         """
 
@@ -145,7 +145,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.delete_hapg)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.delete_hapg)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#delete_hapg)
         """
 
@@ -153,7 +153,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.delete_hsm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.delete_hsm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#delete_hsm)
         """
 
@@ -161,7 +161,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.delete_luna_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.delete_luna_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#delete_luna_client)
         """
 
@@ -169,7 +169,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.describe_hapg)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.describe_hapg)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#describe_hapg)
         """
 
@@ -179,7 +179,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.describe_hsm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.describe_hsm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#describe_hsm)
         """
 
@@ -189,7 +189,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.describe_luna_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.describe_luna_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#describe_luna_client)
         """
 
@@ -203,7 +203,7 @@ class CloudHSMClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#generate_presigned_url)
         """
 
@@ -213,7 +213,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.get_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.get_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#get_config)
         """
 
@@ -221,7 +221,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.list_available_zones)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.list_available_zones)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#list_available_zones)
         """
 
@@ -229,7 +229,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.list_hapgs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.list_hapgs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#list_hapgs)
         """
 
@@ -237,7 +237,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.list_hsms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.list_hsms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#list_hsms)
         """
 
@@ -245,7 +245,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.list_luna_clients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.list_luna_clients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#list_luna_clients)
         """
 
@@ -253,7 +253,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#list_tags_for_resource)
         """
 
@@ -263,7 +263,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.modify_hapg)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.modify_hapg)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#modify_hapg)
         """
 
@@ -280,7 +280,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.modify_hsm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.modify_hsm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#modify_hsm)
         """
 
@@ -290,7 +290,7 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.modify_luna_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.modify_luna_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#modify_luna_client)
         """
 
@@ -300,21 +300,21 @@ class CloudHSMClient(BaseClient):
         """
         This is documentation for **AWS CloudHSM Classic**.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Client.remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Client.remove_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/client.html#remove_tags_from_resource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_hapgs"]) -> ListHapgsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhapgspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_hsms"]) -> ListHsmsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listhsmspaginator)
         """
 
@@ -323,6 +323,6 @@ class CloudHSMClient(BaseClient):
         self, operation_name: Literal["list_luna_clients"]
     ) -> ListLunaClientsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/paginators.html#listlunaclientspaginator)
         """

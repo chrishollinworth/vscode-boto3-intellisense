@@ -40,6 +40,7 @@ from .literals import (
     InputOntapVolumeTypeType,
     LustreAccessAuditLogLevelType,
     LustreDeploymentTypeType,
+    MetadataConfigurationModeType,
     OntapDeploymentTypeType,
     OntapVolumeTypeType,
     OpenZFSCopyStrategyType,
@@ -111,6 +112,7 @@ __all__ = (
     "CreateFileSystemFromBackupRequestRequestTypeDef",
     "CreateFileSystemFromBackupResponseTypeDef",
     "CreateFileSystemLustreConfigurationTypeDef",
+    "CreateFileSystemLustreMetadataConfigurationTypeDef",
     "CreateFileSystemOntapConfigurationTypeDef",
     "CreateFileSystemOpenZFSConfigurationTypeDef",
     "CreateFileSystemRequestRequestTypeDef",
@@ -192,6 +194,7 @@ __all__ = (
     "FileSystemEndpointTypeDef",
     "FileSystemEndpointsTypeDef",
     "FileSystemFailureDetailsTypeDef",
+    "FileSystemLustreMetadataConfigurationTypeDef",
     "FileSystemTypeDef",
     "FilterTypeDef",
     "LifecycleTransitionReasonTypeDef",
@@ -244,6 +247,7 @@ __all__ = (
     "UpdateFileCacheRequestRequestTypeDef",
     "UpdateFileCacheResponseTypeDef",
     "UpdateFileSystemLustreConfigurationTypeDef",
+    "UpdateFileSystemLustreMetadataConfigurationTypeDef",
     "UpdateFileSystemOntapConfigurationTypeDef",
     "UpdateFileSystemOpenZFSConfigurationTypeDef",
     "UpdateFileSystemRequestRequestTypeDef",
@@ -730,9 +734,30 @@ CreateFileSystemLustreConfigurationTypeDef = TypedDict(
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
         "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
+        "MetadataConfiguration": "CreateFileSystemLustreMetadataConfigurationTypeDef",
     },
     total=False,
 )
+
+_RequiredCreateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
+    "_RequiredCreateFileSystemLustreMetadataConfigurationTypeDef",
+    {
+        "Mode": MetadataConfigurationModeType,
+    },
+)
+_OptionalCreateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
+    "_OptionalCreateFileSystemLustreMetadataConfigurationTypeDef",
+    {
+        "Iops": int,
+    },
+    total=False,
+)
+
+class CreateFileSystemLustreMetadataConfigurationTypeDef(
+    _RequiredCreateFileSystemLustreMetadataConfigurationTypeDef,
+    _OptionalCreateFileSystemLustreMetadataConfigurationTypeDef,
+):
+    pass
 
 _RequiredCreateFileSystemOntapConfigurationTypeDef = TypedDict(
     "_RequiredCreateFileSystemOntapConfigurationTypeDef",
@@ -1880,6 +1905,26 @@ FileSystemFailureDetailsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
+    "_RequiredFileSystemLustreMetadataConfigurationTypeDef",
+    {
+        "Mode": MetadataConfigurationModeType,
+    },
+)
+_OptionalFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
+    "_OptionalFileSystemLustreMetadataConfigurationTypeDef",
+    {
+        "Iops": int,
+    },
+    total=False,
+)
+
+class FileSystemLustreMetadataConfigurationTypeDef(
+    _RequiredFileSystemLustreMetadataConfigurationTypeDef,
+    _OptionalFileSystemLustreMetadataConfigurationTypeDef,
+):
+    pass
+
 FileSystemTypeDef = TypedDict(
     "FileSystemTypeDef",
     {
@@ -1970,6 +2015,7 @@ LustreFileSystemConfigurationTypeDef = TypedDict(
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogConfigurationTypeDef",
         "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
+        "MetadataConfiguration": "FileSystemLustreMetadataConfigurationTypeDef",
     },
     total=False,
 )
@@ -2582,6 +2628,16 @@ UpdateFileSystemLustreConfigurationTypeDef = TypedDict(
         "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
         "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
         "PerUnitStorageThroughput": int,
+        "MetadataConfiguration": "UpdateFileSystemLustreMetadataConfigurationTypeDef",
+    },
+    total=False,
+)
+
+UpdateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
+    "UpdateFileSystemLustreMetadataConfigurationTypeDef",
+    {
+        "Iops": int,
+        "Mode": MetadataConfigurationModeType,
     },
     total=False,
 )

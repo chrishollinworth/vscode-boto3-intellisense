@@ -61,6 +61,7 @@ __all__ = (
     "PluginBuildStatusType",
     "PluginStateType",
     "PluginTypeType",
+    "QAppsControlModeType",
     "ReadAccessTypeType",
     "ResponseScopeType",
     "RetrieverStatusType",
@@ -172,6 +173,7 @@ PluginBuildStatusType = Literal[
 ]
 PluginStateType = Literal["DISABLED", "ENABLED"]
 PluginTypeType = Literal["CUSTOM", "JIRA", "SALESFORCE", "SERVICE_NOW", "ZENDESK"]
+QAppsControlModeType = Literal["DISABLED", "ENABLED"]
 ReadAccessTypeType = Literal["ALLOW", "DENY"]
 ResponseScopeType = Literal["ENTERPRISE_CONTENT_ONLY", "EXTENDED_KNOWLEDGE_ENABLED"]
 RetrieverStatusType = Literal["ACTIVE", "CREATING", "FAILED"]

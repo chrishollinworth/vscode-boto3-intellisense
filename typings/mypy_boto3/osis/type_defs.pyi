@@ -20,6 +20,7 @@ from .literals import (
     ChangeProgressStageStatusesType,
     ChangeProgressStatusesType,
     PipelineStatusType,
+    VpcEndpointManagementType,
 )
 
 if sys.version_info >= (3, 8):
@@ -346,6 +347,7 @@ PipelineTypeDef = TypedDict(
         "VpcEndpoints": List["VpcEndpointTypeDef"],
         "BufferOptions": "BufferOptionsTypeDef",
         "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
+        "VpcEndpointService": str,
         "ServiceVpcEndpoints": List["ServiceVpcEndpointTypeDef"],
         "Destinations": List["PipelineDestinationTypeDef"],
         "Tags": List["TagTypeDef"],
@@ -523,6 +525,7 @@ _OptionalVpcOptionsTypeDef = TypedDict(
     {
         "SecurityGroupIds": List[str],
         "VpcAttachmentOptions": "VpcAttachmentOptionsTypeDef",
+        "VpcEndpointManagement": VpcEndpointManagementType,
     },
     total=False,
 )

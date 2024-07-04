@@ -22,6 +22,7 @@ from .literals import KnowledgeBaseTypeType, TargetTypeType
 from .paginator import (
     ListAssistantAssociationsPaginator,
     ListAssistantsPaginator,
+    ListContentAssociationsPaginator,
     ListContentsPaginator,
     ListImportJobsPaginator,
     ListKnowledgeBasesPaginator,
@@ -33,9 +34,11 @@ from .paginator import (
 )
 from .type_defs import (
     AssistantAssociationInputDataTypeDef,
+    ContentAssociationContentsTypeDef,
     ContentFeedbackDataTypeDef,
     CreateAssistantAssociationResponseTypeDef,
     CreateAssistantResponseTypeDef,
+    CreateContentAssociationResponseTypeDef,
     CreateContentResponseTypeDef,
     CreateKnowledgeBaseResponseTypeDef,
     CreateQuickResponseResponseTypeDef,
@@ -43,6 +46,7 @@ from .type_defs import (
     ExternalSourceConfigurationTypeDef,
     GetAssistantAssociationResponseTypeDef,
     GetAssistantResponseTypeDef,
+    GetContentAssociationResponseTypeDef,
     GetContentResponseTypeDef,
     GetContentSummaryResponseTypeDef,
     GetImportJobResponseTypeDef,
@@ -53,6 +57,7 @@ from .type_defs import (
     GroupingConfigurationTypeDef,
     ListAssistantAssociationsResponseTypeDef,
     ListAssistantsResponseTypeDef,
+    ListContentAssociationsResponseTypeDef,
     ListContentsResponseTypeDef,
     ListImportJobsResponseTypeDef,
     ListKnowledgeBasesResponseTypeDef,
@@ -102,12 +107,13 @@ class Exceptions:
     RequestTimeoutException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class QConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html)
     """
 
@@ -123,7 +129,7 @@ class QConnectClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#can_paginate)
         """
 
@@ -131,7 +137,7 @@ class QConnectClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#close)
         """
 
@@ -148,7 +154,7 @@ class QConnectClient(BaseClient):
         """
         Creates an Amazon Q in Connect assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_assistant)
         """
 
@@ -165,7 +171,7 @@ class QConnectClient(BaseClient):
         Creates an association between an Amazon Q in Connect assistant and another
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_assistant_association)
         """
 
@@ -184,8 +190,27 @@ class QConnectClient(BaseClient):
         """
         Creates Amazon Q in Connect content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_content)
+        """
+
+    def create_content_association(
+        self,
+        *,
+        association: "ContentAssociationContentsTypeDef",
+        associationType: Literal["AMAZON_CONNECT_GUIDE"],
+        contentId: str,
+        knowledgeBaseId: str,
+        clientToken: str = None,
+        tags: Dict[str, str] = None
+    ) -> CreateContentAssociationResponseTypeDef:
+        """
+        Creates an association between a content resource in a knowledge base and `step-
+        by-step guides <https://docs.aws.amazon.com/connect/latest/adminguide/step-by-
+        step-guided-experiences.html>`__.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_content_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_content_association)
         """
 
     def create_knowledge_base(
@@ -203,7 +228,7 @@ class QConnectClient(BaseClient):
         """
         Creates a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_knowledge_base)
         """
 
@@ -226,7 +251,7 @@ class QConnectClient(BaseClient):
         """
         Creates an Amazon Q in Connect quick response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_quick_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_quick_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_quick_response)
         """
 
@@ -243,7 +268,7 @@ class QConnectClient(BaseClient):
         """
         Creates a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.create_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.create_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#create_session)
         """
 
@@ -251,7 +276,7 @@ class QConnectClient(BaseClient):
         """
         Deletes an assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_assistant)
         """
 
@@ -261,7 +286,7 @@ class QConnectClient(BaseClient):
         """
         Deletes an assistant association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_assistant_association)
         """
 
@@ -269,15 +294,25 @@ class QConnectClient(BaseClient):
         """
         Deletes the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_content)
+        """
+
+    def delete_content_association(
+        self, *, contentAssociationId: str, contentId: str, knowledgeBaseId: str
+    ) -> Dict[str, Any]:
+        """
+        Deletes the content association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_content_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_content_association)
         """
 
     def delete_import_job(self, *, importJobId: str, knowledgeBaseId: str) -> Dict[str, Any]:
         """
         Deletes the quick response import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_import_job)
         """
 
@@ -285,7 +320,7 @@ class QConnectClient(BaseClient):
         """
         Deletes the knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_knowledge_base)
         """
 
@@ -295,7 +330,7 @@ class QConnectClient(BaseClient):
         """
         Deletes a quick response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.delete_quick_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.delete_quick_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#delete_quick_response)
         """
 
@@ -309,7 +344,7 @@ class QConnectClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#generate_presigned_url)
         """
 
@@ -317,7 +352,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves information about an assistant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_assistant)
         """
 
@@ -327,7 +362,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves information about an assistant association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_assistant_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_assistant_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_assistant_association)
         """
 
@@ -335,8 +370,18 @@ class QConnectClient(BaseClient):
         """
         Retrieves content, including a pre-signed URL to download the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_content)
+        """
+
+    def get_content_association(
+        self, *, contentAssociationId: str, contentId: str, knowledgeBaseId: str
+    ) -> GetContentAssociationResponseTypeDef:
+        """
+        Returns the content association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_content_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_content_association)
         """
 
     def get_content_summary(
@@ -345,7 +390,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves summary information about the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_content_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_content_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_content_summary)
         """
 
@@ -355,7 +400,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves the started import job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_import_job)
         """
 
@@ -363,7 +408,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves information about the knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_knowledge_base)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_knowledge_base)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_knowledge_base)
         """
 
@@ -373,7 +418,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves the quick response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_quick_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_quick_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_quick_response)
         """
 
@@ -388,7 +433,7 @@ class QConnectClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_recommendations)
         """
 
@@ -396,7 +441,7 @@ class QConnectClient(BaseClient):
         """
         Retrieves information for a specified session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.get_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.get_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#get_session)
         """
 
@@ -406,7 +451,7 @@ class QConnectClient(BaseClient):
         """
         Lists information about assistant associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_assistant_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_assistant_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_assistant_associations)
         """
 
@@ -416,8 +461,18 @@ class QConnectClient(BaseClient):
         """
         Lists information about assistants.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_assistants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_assistants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_assistants)
+        """
+
+    def list_content_associations(
+        self, *, contentId: str, knowledgeBaseId: str, maxResults: int = None, nextToken: str = None
+    ) -> ListContentAssociationsResponseTypeDef:
+        """
+        Lists the content associations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_content_associations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_content_associations)
         """
 
     def list_contents(
@@ -426,7 +481,7 @@ class QConnectClient(BaseClient):
         """
         Lists the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_contents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_contents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_contents)
         """
 
@@ -436,7 +491,7 @@ class QConnectClient(BaseClient):
         """
         Lists information about import jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_import_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_import_jobs)
         """
 
@@ -446,7 +501,7 @@ class QConnectClient(BaseClient):
         """
         Lists the knowledge bases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_knowledge_bases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_knowledge_bases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_knowledge_bases)
         """
 
@@ -456,7 +511,7 @@ class QConnectClient(BaseClient):
         """
         Lists information about quick response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_quick_responses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_quick_responses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_quick_responses)
         """
 
@@ -464,7 +519,7 @@ class QConnectClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#list_tags_for_resource)
         """
 
@@ -475,7 +530,7 @@ class QConnectClient(BaseClient):
         Removes the specified recommendations from the specified assistant's queue of
         newly available recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.notify_recommendations_received)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.notify_recommendations_received)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#notify_recommendations_received)
         """
 
@@ -490,7 +545,7 @@ class QConnectClient(BaseClient):
         """
         Provides feedback against the specified assistant for the specified target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.put_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.put_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#put_feedback)
         """
 
@@ -507,7 +562,7 @@ class QConnectClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.query_assistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.query_assistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#query_assistant)
         """
 
@@ -515,7 +570,7 @@ class QConnectClient(BaseClient):
         """
         Removes a URI template from a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.remove_knowledge_base_template_uri)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.remove_knowledge_base_template_uri)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#remove_knowledge_base_template_uri)
         """
 
@@ -530,7 +585,7 @@ class QConnectClient(BaseClient):
         """
         Searches for content in a specified knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.search_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.search_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#search_content)
         """
 
@@ -547,7 +602,7 @@ class QConnectClient(BaseClient):
         Searches existing Amazon Q in Connect quick responses in an Amazon Q in Connect
         knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.search_quick_responses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.search_quick_responses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#search_quick_responses)
         """
 
@@ -562,7 +617,7 @@ class QConnectClient(BaseClient):
         """
         Searches for sessions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.search_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.search_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#search_sessions)
         """
 
@@ -572,7 +627,7 @@ class QConnectClient(BaseClient):
         """
         Get a URL to upload content to a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.start_content_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.start_content_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#start_content_upload)
         """
 
@@ -590,7 +645,7 @@ class QConnectClient(BaseClient):
         Start an asynchronous job to import Amazon Q in Connect resources from an
         uploaded source file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.start_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.start_import_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#start_import_job)
         """
 
@@ -598,7 +653,7 @@ class QConnectClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#tag_resource)
         """
 
@@ -606,7 +661,7 @@ class QConnectClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#untag_resource)
         """
 
@@ -625,7 +680,7 @@ class QConnectClient(BaseClient):
         """
         Updates information about the content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.update_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.update_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#update_content)
         """
 
@@ -635,7 +690,7 @@ class QConnectClient(BaseClient):
         """
         Updates the template URI of a knowledge base.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.update_knowledge_base_template_uri)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.update_knowledge_base_template_uri)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#update_knowledge_base_template_uri)
         """
 
@@ -660,7 +715,7 @@ class QConnectClient(BaseClient):
         """
         Updates an existing Amazon Q in Connect quick response.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.update_quick_response)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.update_quick_response)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#update_quick_response)
         """
 
@@ -675,7 +730,7 @@ class QConnectClient(BaseClient):
         """
         Updates a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Client.update_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Client.update_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/client.html#update_session)
         """
 
@@ -684,28 +739,37 @@ class QConnectClient(BaseClient):
         self, operation_name: Literal["list_assistant_associations"]
     ) -> ListAssistantAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListAssistantAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListAssistantAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listassistantassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_assistants"]) -> ListAssistantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListAssistants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListAssistants)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listassistantspaginator)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_content_associations"]
+    ) -> ListContentAssociationsPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListContentAssociations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listcontentassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_contents"]) -> ListContentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListContents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListContents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listcontentspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_import_jobs"]) -> ListImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListImportJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listimportjobspaginator)
         """
 
@@ -714,7 +778,7 @@ class QConnectClient(BaseClient):
         self, operation_name: Literal["list_knowledge_bases"]
     ) -> ListKnowledgeBasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListKnowledgeBases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListKnowledgeBases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listknowledgebasespaginator)
         """
 
@@ -723,21 +787,21 @@ class QConnectClient(BaseClient):
         self, operation_name: Literal["list_quick_responses"]
     ) -> ListQuickResponsesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.ListQuickResponses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.ListQuickResponses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#listquickresponsespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["query_assistant"]) -> QueryAssistantPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.QueryAssistant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.QueryAssistant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#queryassistantpaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_content"]) -> SearchContentPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.SearchContent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.SearchContent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#searchcontentpaginator)
         """
 
@@ -746,13 +810,13 @@ class QConnectClient(BaseClient):
         self, operation_name: Literal["search_quick_responses"]
     ) -> SearchQuickResponsesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.SearchQuickResponses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.SearchQuickResponses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#searchquickresponsespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_sessions"]) -> SearchSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qconnect.html#QConnect.Paginator.SearchSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qconnect.html#QConnect.Paginator.SearchSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qconnect/paginators.html#searchsessionspaginator)
         """

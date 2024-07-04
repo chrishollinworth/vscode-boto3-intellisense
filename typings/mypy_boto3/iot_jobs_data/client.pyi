@@ -46,7 +46,7 @@ class Exceptions:
 
 class IoTJobsDataPlaneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html)
     """
 
@@ -62,7 +62,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#can_paginate)
         """
 
@@ -70,7 +70,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#close)
         """
 
@@ -85,7 +85,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Gets details of a job execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#describe_job_execution)
         """
 
@@ -99,7 +99,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#generate_presigned_url)
         """
 
@@ -109,7 +109,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Gets the list of all jobs for a thing that are not in a terminal status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#get_pending_job_executions)
         """
 
@@ -124,7 +124,7 @@ class IoTJobsDataPlaneClient(BaseClient):
         Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution
         for a thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#start_next_pending_job_execution)
         """
 
@@ -144,6 +144,6 @@ class IoTJobsDataPlaneClient(BaseClient):
         """
         Updates the status of a job execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/client.html#update_job_execution)
         """

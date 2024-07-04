@@ -78,7 +78,7 @@ class Exceptions:
 
 class SageMakergeospatialcapabilitiesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html)
     """
 
@@ -94,7 +94,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#can_paginate)
         """
 
@@ -102,7 +102,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#close)
         """
 
@@ -110,7 +110,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to delete an Earth Observation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.delete_earth_observation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.delete_earth_observation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#delete_earth_observation_job)
         """
 
@@ -118,7 +118,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to delete a Vector Enrichment job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.delete_vector_enrichment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.delete_vector_enrichment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#delete_vector_enrichment_job)
         """
 
@@ -135,7 +135,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         Use this operation to export results of an Earth Observation job and optionally
         source images used as input to the EOJ to an Amazon S3 location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.export_earth_observation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.export_earth_observation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#export_earth_observation_job)
         """
 
@@ -151,7 +151,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         Use this operation to copy results of a Vector Enrichment job to an Amazon S3
         location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.export_vector_enrichment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.export_vector_enrichment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#export_vector_enrichment_job)
         """
 
@@ -165,7 +165,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#generate_presigned_url)
         """
 
@@ -173,7 +173,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Get the details for a previously initiated Earth Observation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_earth_observation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_earth_observation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#get_earth_observation_job)
         """
 
@@ -181,7 +181,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to get details of a specific raster data collection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_raster_data_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_raster_data_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#get_raster_data_collection)
         """
 
@@ -204,7 +204,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Gets a web mercator tile for the given Earth Observation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_tile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_tile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#get_tile)
         """
 
@@ -213,7 +213,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         Retrieves details of a Vector Enrichment Job for a given job Amazon Resource
         Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_vector_enrichment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.get_vector_enrichment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#get_vector_enrichment_job)
         """
 
@@ -230,7 +230,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         Use this operation to get a list of the Earth Observation jobs associated with
         the calling Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_earth_observation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_earth_observation_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#list_earth_observation_jobs)
         """
 
@@ -240,7 +240,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to get raster data collections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_raster_data_collections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_raster_data_collections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#list_raster_data_collections)
         """
 
@@ -248,7 +248,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Lists the tags attached to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#list_tags_for_resource)
         """
 
@@ -264,7 +264,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Retrieves a list of vector enrichment jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_vector_enrichment_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.list_vector_enrichment_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#list_vector_enrichment_jobs)
         """
 
@@ -279,7 +279,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         Allows you run image query on a specific raster data collection to get a list of
         the satellite imagery matching the selected filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.search_raster_data_collection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.search_raster_data_collection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#search_raster_data_collection)
         """
 
@@ -297,7 +297,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to create an Earth observation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.start_earth_observation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.start_earth_observation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#start_earth_observation_job)
         """
 
@@ -315,7 +315,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Creates a Vector Enrichment job for the supplied job type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.start_vector_enrichment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.start_vector_enrichment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#start_vector_enrichment_job)
         """
 
@@ -323,7 +323,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Use this operation to stop an existing earth observation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.stop_earth_observation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.stop_earth_observation_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#stop_earth_observation_job)
         """
 
@@ -331,7 +331,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         Stops the Vector Enrichment job for a given job ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.stop_vector_enrichment_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.stop_vector_enrichment_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#stop_vector_enrichment_job)
         """
 
@@ -339,7 +339,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         The resource you want to tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#tag_resource)
         """
 
@@ -347,7 +347,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         """
         The resource you want to untag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/client.html#untag_resource)
         """
 
@@ -356,7 +356,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         self, operation_name: Literal["list_earth_observation_jobs"]
     ) -> ListEarthObservationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListEarthObservationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListEarthObservationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/paginators.html#listearthobservationjobspaginator)
         """
 
@@ -365,7 +365,7 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         self, operation_name: Literal["list_raster_data_collections"]
     ) -> ListRasterDataCollectionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListRasterDataCollections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListRasterDataCollections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/paginators.html#listrasterdatacollectionspaginator)
         """
 
@@ -374,6 +374,6 @@ class SageMakergeospatialcapabilitiesClient(BaseClient):
         self, operation_name: Literal["list_vector_enrichment_jobs"]
     ) -> ListVectorEnrichmentJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListVectorEnrichmentJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-geospatial.html#SageMakergeospatialcapabilities.Paginator.ListVectorEnrichmentJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/paginators.html#listvectorenrichmentjobspaginator)
         """

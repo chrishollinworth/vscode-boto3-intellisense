@@ -52,6 +52,7 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "LustreAccessAuditLogLevelType",
     "LustreDeploymentTypeType",
+    "MetadataConfigurationModeType",
     "NfsVersionType",
     "OntapDeploymentTypeType",
     "OntapVolumeTypeType",
@@ -162,6 +163,7 @@ InputOntapVolumeTypeType = Literal["DP", "RW"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
+MetadataConfigurationModeType = Literal["AUTOMATIC", "USER_PROVISIONED"]
 NfsVersionType = Literal["NFS3"]
 OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1", "SINGLE_AZ_2"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]

@@ -70,6 +70,8 @@ __all__ = (
     "DeleteAliasRequestRequestTypeDef",
     "DeleteCustomKeyStoreRequestRequestTypeDef",
     "DeleteImportedKeyMaterialRequestRequestTypeDef",
+    "DeriveSharedSecretRequestRequestTypeDef",
+    "DeriveSharedSecretResponseTypeDef",
     "DescribeCustomKeyStoresRequestRequestTypeDef",
     "DescribeCustomKeyStoresResponseTypeDef",
     "DescribeKeyRequestRequestTypeDef",
@@ -361,6 +363,42 @@ DeleteImportedKeyMaterialRequestRequestTypeDef = TypedDict(
     "DeleteImportedKeyMaterialRequestRequestTypeDef",
     {
         "KeyId": str,
+    },
+)
+
+_RequiredDeriveSharedSecretRequestRequestTypeDef = TypedDict(
+    "_RequiredDeriveSharedSecretRequestRequestTypeDef",
+    {
+        "KeyId": str,
+        "KeyAgreementAlgorithm": Literal["ECDH"],
+        "PublicKey": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalDeriveSharedSecretRequestRequestTypeDef = TypedDict(
+    "_OptionalDeriveSharedSecretRequestRequestTypeDef",
+    {
+        "GrantTokens": List[str],
+        "DryRun": bool,
+        "Recipient": "RecipientInfoTypeDef",
+    },
+    total=False,
+)
+
+class DeriveSharedSecretRequestRequestTypeDef(
+    _RequiredDeriveSharedSecretRequestRequestTypeDef,
+    _OptionalDeriveSharedSecretRequestRequestTypeDef,
+):
+    pass
+
+DeriveSharedSecretResponseTypeDef = TypedDict(
+    "DeriveSharedSecretResponseTypeDef",
+    {
+        "KeyId": str,
+        "SharedSecret": bytes,
+        "CiphertextForRecipient": bytes,
+        "KeyAgreementAlgorithm": Literal["ECDH"],
+        "KeyOrigin": OriginTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -778,6 +816,7 @@ GetPublicKeyResponseTypeDef = TypedDict(
         "KeyUsage": KeyUsageTypeType,
         "EncryptionAlgorithms": List[EncryptionAlgorithmSpecType],
         "SigningAlgorithms": List[SigningAlgorithmSpecType],
+        "KeyAgreementAlgorithms": List[Literal["ECDH"]],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -865,6 +904,7 @@ _OptionalKeyMetadataTypeDef = TypedDict(
         "KeySpec": KeySpecType,
         "EncryptionAlgorithms": List[EncryptionAlgorithmSpecType],
         "SigningAlgorithms": List[SigningAlgorithmSpecType],
+        "KeyAgreementAlgorithms": List[Literal["ECDH"]],
         "MultiRegion": bool,
         "MultiRegionConfiguration": "MultiRegionConfigurationTypeDef",
         "PendingDeletionWindowInDays": int,

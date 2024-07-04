@@ -39,7 +39,7 @@ __all__ = ("ListCertificateAuthoritiesPaginator", "ListPermissionsPaginator", "L
 
 class ListCertificateAuthoritiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listcertificateauthoritiespaginator)
     """
 
@@ -50,13 +50,13 @@ class ListCertificateAuthoritiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCertificateAuthoritiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listcertificateauthoritiespaginator)
         """
 
 class ListPermissionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listpermissionspaginator)
     """
 
@@ -64,13 +64,13 @@ class ListPermissionsPaginator(Boto3Paginator):
         self, *, CertificateAuthorityArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listpermissionspaginator)
         """
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listtagspaginator)
     """
 
@@ -78,6 +78,6 @@ class ListTagsPaginator(Boto3Paginator):
         self, *, CertificateAuthorityArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/paginators.html#listtagspaginator)
         """

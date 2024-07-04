@@ -41,6 +41,7 @@ __all__ = (
     "ErrorCodeType",
     "FargateProfileActiveWaiterName",
     "FargateProfileDeletedWaiterName",
+    "FargateProfileIssueCodeType",
     "FargateProfileStatusType",
     "InsightStatusValueType",
     "IpFamilyType",
@@ -111,7 +112,7 @@ AddonStatusType = Literal[
     "UPDATING",
 ]
 AuthenticationModeType = Literal["API", "API_AND_CONFIG_MAP", "CONFIG_MAP"]
-CapacityTypesType = Literal["ON_DEMAND", "SPOT"]
+CapacityTypesType = Literal["CAPACITY_BLOCK", "ON_DEMAND", "SPOT"]
 CategoryType = Literal["UPGRADE_READINESS"]
 ClusterActiveWaiterName = Literal["cluster_active"]
 ClusterDeletedWaiterName = Literal["cluster_deleted"]
@@ -167,6 +168,9 @@ ErrorCodeType = Literal[
 ]
 FargateProfileActiveWaiterName = Literal["fargate_profile_active"]
 FargateProfileDeletedWaiterName = Literal["fargate_profile_deleted"]
+FargateProfileIssueCodeType = Literal[
+    "AccessDenied", "ClusterUnreachable", "InternalFailure", "PodExecutionRoleAlreadyInUse"
+]
 FargateProfileStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]

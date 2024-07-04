@@ -76,6 +76,7 @@ __all__ = (
     "StatusTypeType",
     "WebhookBuildTypeType",
     "WebhookFilterTypeType",
+    "WebhookScopeTypeType",
 )
 
 ArtifactNamespaceType = Literal["BUILD_ID", "NONE"]
@@ -216,3 +217,4 @@ WebhookFilterTypeType = Literal[
     "TAG_NAME",
     "WORKFLOW_NAME",
 ]
+WebhookScopeTypeType = Literal["GITHUB_GLOBAL", "GITHUB_ORGANIZATION"]

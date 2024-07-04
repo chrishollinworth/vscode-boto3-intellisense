@@ -24,6 +24,8 @@ from .literals import (
     DashPeriodTriggerType,
     DashUtcTimingModeType,
     DrmSystemType,
+    EndpointErrorConditionType,
+    InputTypeType,
     PresetSpeke20AudioType,
     PresetSpeke20VideoType,
     ScteFilterType,
@@ -61,6 +63,7 @@ __all__ = (
     "EncryptionMethodTypeDef",
     "EncryptionTypeDef",
     "FilterConfigurationTypeDef",
+    "ForceEndpointErrorConfigurationTypeDef",
     "GetChannelGroupRequestRequestTypeDef",
     "GetChannelGroupResponseTypeDef",
     "GetChannelPolicyRequestRequestTypeDef",
@@ -142,6 +145,7 @@ _OptionalChannelListConfigurationTypeDef = TypedDict(
     "_OptionalChannelListConfigurationTypeDef",
     {
         "Description": str,
+        "InputType": InputTypeType,
     },
     total=False,
 )
@@ -199,6 +203,7 @@ _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalCreateChannelRequestRequestTypeDef",
     {
         "ClientToken": str,
+        "InputType": InputTypeType,
         "Description": str,
         "Tags": Dict[str, str],
     },
@@ -220,6 +225,7 @@ CreateChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "InputType": InputTypeType,
         "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -320,6 +326,7 @@ _OptionalCreateOriginEndpointRequestRequestTypeDef = TypedDict(
         "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
         "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -347,6 +354,7 @@ CreateOriginEndpointResponseTypeDef = TypedDict(
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
         "DashManifests": List["GetDashManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
         "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -450,6 +458,14 @@ FilterConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ForceEndpointErrorConfigurationTypeDef = TypedDict(
+    "ForceEndpointErrorConfigurationTypeDef",
+    {
+        "EndpointErrorConditions": List[EndpointErrorConditionType],
+    },
+    total=False,
+)
+
 GetChannelGroupRequestRequestTypeDef = TypedDict(
     "GetChannelGroupRequestRequestTypeDef",
     {
@@ -508,6 +524,7 @@ GetChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "InputType": InputTypeType,
         "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -636,9 +653,10 @@ GetOriginEndpointResponseTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
+        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
         "ETag": str,
         "Tags": Dict[str, str],
-        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -824,6 +842,7 @@ _OptionalOriginEndpointListConfigurationTypeDef = TypedDict(
         "HlsManifests": List["ListHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["ListLowLatencyHlsManifestConfigurationTypeDef"],
         "DashManifests": List["ListDashManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
     },
     total=False,
 )
@@ -1005,6 +1024,7 @@ UpdateChannelResponseTypeDef = TypedDict(
         "ModifiedAt": datetime,
         "Description": str,
         "IngestEndpoints": List["IngestEndpointTypeDef"],
+        "InputType": InputTypeType,
         "ETag": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -1029,6 +1049,7 @@ _OptionalUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
         "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
         "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
         "ETag": str,
     },
     total=False,
@@ -1055,6 +1076,7 @@ UpdateOriginEndpointResponseTypeDef = TypedDict(
         "StartoverWindowSeconds": int,
         "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
         "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
+        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
         "ETag": str,
         "Tags": Dict[str, str],
         "DashManifests": List["GetDashManifestConfigurationTypeDef"],

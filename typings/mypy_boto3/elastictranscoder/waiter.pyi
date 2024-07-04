@@ -27,12 +27,12 @@ __all__ = ("JobCompleteWaiter",)
 
 class JobCompleteWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/waiters.html#jobcompletewaiter)
     """
 
     def wait(self, *, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/waiters.html#jobcompletewaiter)
         """

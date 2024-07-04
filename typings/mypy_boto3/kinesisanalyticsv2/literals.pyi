@@ -27,10 +27,13 @@ __all__ = (
     "CodeContentTypeType",
     "ConfigurationTypeType",
     "InputStartingPositionType",
+    "ListApplicationOperationsPaginatorName",
     "ListApplicationSnapshotsPaginatorName",
+    "ListApplicationVersionsPaginatorName",
     "ListApplicationsPaginatorName",
     "LogLevelType",
     "MetricsLevelType",
+    "OperationStatusType",
     "RecordFormatTypeType",
     "RuntimeEnvironmentType",
     "SnapshotStatusType",
@@ -58,16 +61,20 @@ ArtifactTypeType = Literal["DEPENDENCY_JAR", "UDF"]
 CodeContentTypeType = Literal["PLAINTEXT", "ZIPFILE"]
 ConfigurationTypeType = Literal["CUSTOM", "DEFAULT"]
 InputStartingPositionType = Literal["LAST_STOPPED_POINT", "NOW", "TRIM_HORIZON"]
+ListApplicationOperationsPaginatorName = Literal["list_application_operations"]
 ListApplicationSnapshotsPaginatorName = Literal["list_application_snapshots"]
+ListApplicationVersionsPaginatorName = Literal["list_application_versions"]
 ListApplicationsPaginatorName = Literal["list_applications"]
 LogLevelType = Literal["DEBUG", "ERROR", "INFO", "WARN"]
 MetricsLevelType = Literal["APPLICATION", "OPERATOR", "PARALLELISM", "TASK"]
+OperationStatusType = Literal["CANCELLED", "FAILED", "IN_PROGRESS", "SUCCESSFUL"]
 RecordFormatTypeType = Literal["CSV", "JSON"]
 RuntimeEnvironmentType = Literal[
     "FLINK-1_11",
     "FLINK-1_13",
     "FLINK-1_15",
     "FLINK-1_18",
+    "FLINK-1_19",
     "FLINK-1_6",
     "FLINK-1_8",
     "SQL-1_0",

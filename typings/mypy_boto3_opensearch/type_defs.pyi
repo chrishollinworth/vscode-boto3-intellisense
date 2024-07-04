@@ -211,6 +211,8 @@ __all__ = (
     "InstanceCountLimitsTypeDef",
     "InstanceLimitsTypeDef",
     "InstanceTypeDetailsTypeDef",
+    "JWTOptionsInputTypeDef",
+    "JWTOptionsOutputTypeDef",
     "LimitsTypeDef",
     "ListDataSourcesRequestRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
@@ -410,6 +412,7 @@ AdvancedSecurityOptionsInputTypeDef = TypedDict(
         "InternalUserDatabaseEnabled": bool,
         "MasterUserOptions": "MasterUserOptionsTypeDef",
         "SAMLOptions": "SAMLOptionsInputTypeDef",
+        "JWTOptions": "JWTOptionsInputTypeDef",
         "AnonymousAuthEnabled": bool,
     },
     total=False,
@@ -429,6 +432,7 @@ AdvancedSecurityOptionsTypeDef = TypedDict(
         "Enabled": bool,
         "InternalUserDatabaseEnabled": bool,
         "SAMLOptions": "SAMLOptionsOutputTypeDef",
+        "JWTOptions": "JWTOptionsOutputTypeDef",
         "AnonymousAuthDisableDate": datetime,
         "AnonymousAuthEnabled": bool,
     },
@@ -1790,6 +1794,28 @@ InstanceTypeDetailsTypeDef = TypedDict(
         "WarmEnabled": bool,
         "InstanceRole": List[str],
         "AvailabilityZones": List[str],
+    },
+    total=False,
+)
+
+JWTOptionsInputTypeDef = TypedDict(
+    "JWTOptionsInputTypeDef",
+    {
+        "Enabled": bool,
+        "SubjectKey": str,
+        "RolesKey": str,
+        "PublicKey": str,
+    },
+    total=False,
+)
+
+JWTOptionsOutputTypeDef = TypedDict(
+    "JWTOptionsOutputTypeDef",
+    {
+        "Enabled": bool,
+        "SubjectKey": str,
+        "RolesKey": str,
+        "PublicKey": str,
     },
     total=False,
 )

@@ -6,9 +6,9 @@ Type annotations for networkmanager service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_networkmanager.literals import AttachmentStateType
+    from mypy_boto3_networkmanager.literals import AttachmentErrorCodeType
 
-    data: AttachmentStateType = "AVAILABLE"
+    data: AttachmentErrorCodeType = "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED"
     ```
 """
 
@@ -20,6 +20,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AttachmentErrorCodeType",
     "AttachmentStateType",
     "AttachmentTypeType",
     "ChangeActionType",
@@ -27,6 +28,7 @@ __all__ = (
     "ChangeStatusType",
     "ChangeTypeType",
     "ConnectPeerAssociationStateType",
+    "ConnectPeerErrorCodeType",
     "ConnectPeerStateType",
     "ConnectionStateType",
     "ConnectionStatusType",
@@ -59,6 +61,7 @@ __all__ = (
     "ListCoreNetworkPolicyVersionsPaginatorName",
     "ListCoreNetworksPaginatorName",
     "ListPeeringsPaginatorName",
+    "PeeringErrorCodeType",
     "PeeringStateType",
     "PeeringTypeType",
     "RouteAnalysisCompletionReasonCodeType",
@@ -67,12 +70,24 @@ __all__ = (
     "RouteStateType",
     "RouteTableTypeType",
     "RouteTypeType",
+    "SegmentActionServiceInsertionType",
+    "SendViaModeType",
     "SiteStateType",
     "TransitGatewayConnectPeerAssociationStateType",
     "TransitGatewayRegistrationStateType",
     "TunnelProtocolType",
 )
 
+AttachmentErrorCodeType = Literal[
+    "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+    "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
+    "SUBNET_NOT_FOUND",
+    "SUBNET_NO_FREE_ADDRESSES",
+    "SUBNET_NO_IPV6_CIDRS",
+    "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE",
+    "VPC_NOT_FOUND",
+    "VPN_CONNECTION_NOT_FOUND",
+]
 AttachmentStateType = Literal[
     "AVAILABLE",
     "CREATING",
@@ -103,10 +118,19 @@ ChangeTypeType = Literal[
     "CORE_NETWORK_CONFIGURATION",
     "CORE_NETWORK_EDGE",
     "CORE_NETWORK_SEGMENT",
+    "NETWORK_FUNCTION_GROUP",
     "SEGMENTS_CONFIGURATION",
     "SEGMENT_ACTIONS_CONFIGURATION",
 ]
 ConnectPeerAssociationStateType = Literal["AVAILABLE", "DELETED", "DELETING", "PENDING"]
+ConnectPeerErrorCodeType = Literal[
+    "EDGE_LOCATION_NO_FREE_IPS",
+    "EDGE_LOCATION_PEER_DUPLICATE",
+    "INVALID_INSIDE_CIDR_BLOCK",
+    "IP_OUTSIDE_SUBNET_CIDR_RANGE",
+    "NO_ASSOCIATED_CIDR_BLOCK",
+    "SUBNET_NOT_FOUND",
+]
 ConnectPeerStateType = Literal["AVAILABLE", "CREATING", "DELETING", "FAILED"]
 ConnectionStateType = Literal["AVAILABLE", "DELETING", "PENDING", "UPDATING"]
 ConnectionStatusType = Literal["DOWN", "UP"]
@@ -141,6 +165,14 @@ ListConnectPeersPaginatorName = Literal["list_connect_peers"]
 ListCoreNetworkPolicyVersionsPaginatorName = Literal["list_core_network_policy_versions"]
 ListCoreNetworksPaginatorName = Literal["list_core_networks"]
 ListPeeringsPaginatorName = Literal["list_peerings"]
+PeeringErrorCodeType = Literal[
+    "EDGE_LOCATION_PEER_DUPLICATE",
+    "INTERNAL_ERROR",
+    "INVALID_TRANSIT_GATEWAY_STATE",
+    "MISSING_PERMISSIONS",
+    "TRANSIT_GATEWAY_NOT_FOUND",
+    "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED",
+]
 PeeringStateType = Literal["AVAILABLE", "CREATING", "DELETING", "FAILED"]
 PeeringTypeType = Literal["TRANSIT_GATEWAY"]
 RouteAnalysisCompletionReasonCodeType = Literal[
@@ -159,8 +191,12 @@ RouteAnalysisCompletionReasonCodeType = Literal[
 RouteAnalysisCompletionResultCodeType = Literal["CONNECTED", "NOT_CONNECTED"]
 RouteAnalysisStatusType = Literal["COMPLETED", "FAILED", "RUNNING"]
 RouteStateType = Literal["ACTIVE", "BLACKHOLE"]
-RouteTableTypeType = Literal["CORE_NETWORK_SEGMENT", "TRANSIT_GATEWAY_ROUTE_TABLE"]
+RouteTableTypeType = Literal[
+    "CORE_NETWORK_SEGMENT", "NETWORK_FUNCTION_GROUP", "TRANSIT_GATEWAY_ROUTE_TABLE"
+]
 RouteTypeType = Literal["PROPAGATED", "STATIC"]
+SegmentActionServiceInsertionType = Literal["send-to", "send-via"]
+SendViaModeType = Literal["dual-hop", "single-hop"]
 SiteStateType = Literal["AVAILABLE", "DELETING", "PENDING", "UPDATING"]
 TransitGatewayConnectPeerAssociationStateType = Literal[
     "AVAILABLE", "DELETED", "DELETING", "PENDING"

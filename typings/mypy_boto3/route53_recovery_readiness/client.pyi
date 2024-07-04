@@ -84,7 +84,7 @@ class Exceptions:
 
 class Route53RecoveryReadinessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html)
     """
 
@@ -100,7 +100,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#can_paginate)
         """
 
@@ -108,7 +108,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#close)
         """
 
@@ -118,7 +118,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Creates a cell in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_cell)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_cell)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#create_cell)
         """
 
@@ -128,7 +128,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Creates a cross-account readiness authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_cross_account_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_cross_account_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#create_cross_account_authorization)
         """
 
@@ -138,7 +138,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Creates a readiness check in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_readiness_check)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_readiness_check)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#create_readiness_check)
         """
 
@@ -148,7 +148,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Creates a recovery group in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_recovery_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_recovery_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#create_recovery_group)
         """
 
@@ -163,7 +163,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Creates a resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.create_resource_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#create_resource_set)
         """
 
@@ -171,7 +171,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Delete a cell.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_cell)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_cell)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#delete_cell)
         """
 
@@ -181,7 +181,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Deletes cross account readiness authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_cross_account_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_cross_account_authorization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#delete_cross_account_authorization)
         """
 
@@ -189,7 +189,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Deletes a readiness check.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_readiness_check)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_readiness_check)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#delete_readiness_check)
         """
 
@@ -197,7 +197,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Deletes a recovery group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_recovery_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_recovery_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#delete_recovery_group)
         """
 
@@ -205,7 +205,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Deletes a resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.delete_resource_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#delete_resource_set)
         """
 
@@ -219,7 +219,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#generate_presigned_url)
         """
 
@@ -230,7 +230,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Gets recommendations about architecture designs for improving resiliency for an
         application, based on a recovery group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_architecture_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_architecture_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_architecture_recommendations)
         """
 
@@ -240,7 +240,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with
         their associated recovery group ARNs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_cell)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_cell)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_cell)
         """
 
@@ -250,7 +250,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Gets readiness for a cell.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_cell_readiness_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_cell_readiness_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_cell_readiness_summary)
         """
 
@@ -258,7 +258,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Gets details about a readiness check.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_readiness_check)
         """
 
@@ -273,7 +273,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Gets individual readiness status for a readiness check.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check_resource_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check_resource_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_readiness_check_resource_status)
         """
 
@@ -283,7 +283,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Gets the readiness status for an individual readiness check.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_readiness_check_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_readiness_check_status)
         """
 
@@ -292,7 +292,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Gets details about a recovery group, including a list of the cells that are
         included in it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_recovery_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_recovery_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_recovery_group)
         """
 
@@ -302,7 +302,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Displays a summary of information about a recovery group's readiness status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_recovery_group_readiness_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_recovery_group_readiness_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_recovery_group_readiness_summary)
         """
 
@@ -311,7 +311,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Displays the details about a resource set, including a list of the resources in
         the set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.get_resource_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#get_resource_set)
         """
 
@@ -321,7 +321,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Lists the cells for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_cells)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_cells)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_cells)
         """
 
@@ -332,7 +332,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Lists the cross-account readiness authorizations that are in place for an
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_cross_account_authorizations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_cross_account_authorizations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_cross_account_authorizations)
         """
 
@@ -342,7 +342,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Lists the readiness checks for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_readiness_checks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_readiness_checks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_readiness_checks)
         """
 
@@ -352,7 +352,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Lists the recovery groups in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_recovery_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_recovery_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_recovery_groups)
         """
 
@@ -362,7 +362,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Lists the resource sets in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_resource_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_resource_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_resource_sets)
         """
 
@@ -373,7 +373,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Lists all readiness rules, or lists the readiness rules for a specific resource
         type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_rules)
         """
 
@@ -381,7 +381,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Lists the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_tags_for_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.list_tags_for_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#list_tags_for_resources)
         """
 
@@ -389,7 +389,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Adds a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#tag_resource)
         """
 
@@ -397,7 +397,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#untag_resource)
         """
 
@@ -406,7 +406,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         Updates a cell to replace the list of nested cells with a new list of nested
         cells.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_cell)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_cell)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#update_cell)
         """
 
@@ -416,7 +416,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Updates a readiness check.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_readiness_check)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_readiness_check)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#update_readiness_check)
         """
 
@@ -426,7 +426,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Updates a recovery group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_recovery_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_recovery_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#update_recovery_group)
         """
 
@@ -436,7 +436,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         """
         Updates a resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Client.update_resource_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/client.html#update_resource_set)
         """
 
@@ -445,7 +445,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["get_cell_readiness_summary"]
     ) -> GetCellReadinessSummaryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetCellReadinessSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetCellReadinessSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#getcellreadinesssummarypaginator)
         """
 
@@ -454,7 +454,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["get_readiness_check_resource_status"]
     ) -> GetReadinessCheckResourceStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetReadinessCheckResourceStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetReadinessCheckResourceStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#getreadinesscheckresourcestatuspaginator)
         """
 
@@ -463,7 +463,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["get_readiness_check_status"]
     ) -> GetReadinessCheckStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetReadinessCheckStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetReadinessCheckStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#getreadinesscheckstatuspaginator)
         """
 
@@ -472,14 +472,14 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["get_recovery_group_readiness_summary"]
     ) -> GetRecoveryGroupReadinessSummaryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetRecoveryGroupReadinessSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.GetRecoveryGroupReadinessSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#getrecoverygroupreadinesssummarypaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_cells"]) -> ListCellsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListCells)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListCells)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listcellspaginator)
         """
 
@@ -488,7 +488,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["list_cross_account_authorizations"]
     ) -> ListCrossAccountAuthorizationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListCrossAccountAuthorizations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListCrossAccountAuthorizations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listcrossaccountauthorizationspaginator)
         """
 
@@ -497,7 +497,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["list_readiness_checks"]
     ) -> ListReadinessChecksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListReadinessChecks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListReadinessChecks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listreadinesscheckspaginator)
         """
 
@@ -506,7 +506,7 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["list_recovery_groups"]
     ) -> ListRecoveryGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListRecoveryGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListRecoveryGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listrecoverygroupspaginator)
         """
 
@@ -515,13 +515,13 @@ class Route53RecoveryReadinessClient(BaseClient):
         self, operation_name: Literal["list_resource_sets"]
     ) -> ListResourceSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListResourceSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListResourceSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listresourcesetspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-readiness.html#Route53RecoveryReadiness.Paginator.ListRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_readiness/paginators.html#listrulespaginator)
         """

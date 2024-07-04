@@ -35,7 +35,7 @@ __all__ = ("ImageScanCompleteWaiter", "LifecyclePolicyPreviewCompleteWaiter")
 
 class ImageScanCompleteWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#imagescancompletewaiter)
     """
 
@@ -50,13 +50,13 @@ class ImageScanCompleteWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#imagescancompletewaiter)
         """
 
 class LifecyclePolicyPreviewCompleteWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#lifecyclepolicypreviewcompletewaiter)
     """
 
@@ -72,6 +72,6 @@ class LifecyclePolicyPreviewCompleteWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#lifecyclepolicypreviewcompletewaiter)
         """

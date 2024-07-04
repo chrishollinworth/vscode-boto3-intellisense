@@ -122,7 +122,7 @@ __all__ = (
 
 class ServiceResourceBucketsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.buckets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.buckets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#serviceresourcebucketscollection)
     """
 
@@ -158,7 +158,7 @@ class ServiceResourceBucketsCollection(ResourceCollection):
 
 class BucketMultipartUploadsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.multipart_uploads)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.multipart_uploads)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketmultipartuploadscollection)
     """
 
@@ -205,7 +205,7 @@ class BucketMultipartUploadsCollection(ResourceCollection):
 
 class BucketObjectVersionsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.object_versions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.object_versions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketobjectversionscollection)
     """
 
@@ -266,7 +266,7 @@ class BucketObjectVersionsCollection(ResourceCollection):
 
 class BucketObjectsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.objects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.objects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketobjectscollection)
     """
 
@@ -326,7 +326,7 @@ class BucketObjectsCollection(ResourceCollection):
 
 class MultipartUploadPartsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.parts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.parts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpartscollection)
     """
 
@@ -372,7 +372,7 @@ class MultipartUploadPartsCollection(ResourceCollection):
 
 class BucketAcl(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketAcl)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketAcl)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketacl)
     """
 
@@ -384,7 +384,7 @@ class BucketAcl(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketAcl.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketAcl.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketaclbucket-method)
         """
 
@@ -392,7 +392,7 @@ class BucketAcl(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketAcl.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketAcl.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketaclget_available_subresources-method)
         """
 
@@ -401,7 +401,7 @@ class BucketAcl(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the
         BucketAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketAcl.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketAcl.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketaclload-method)
         """
 
@@ -421,7 +421,7 @@ class BucketAcl(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketAcl.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketAcl.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketaclput-method)
         """
 
@@ -430,7 +430,7 @@ class BucketAcl(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the
         BucketAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketAcl.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketAcl.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketaclreload-method)
         """
 
@@ -438,7 +438,7 @@ _BucketAcl = BucketAcl
 
 class BucketCors(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketCors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketCors)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcors)
     """
 
@@ -449,7 +449,7 @@ class BucketCors(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsbucket-method)
         """
 
@@ -457,7 +457,7 @@ class BucketCors(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsdelete-method)
         """
 
@@ -465,7 +465,7 @@ class BucketCors(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsget_available_subresources-method)
         """
 
@@ -474,7 +474,7 @@ class BucketCors(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the
         BucketCors resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsload-method)
         """
 
@@ -488,7 +488,7 @@ class BucketCors(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsput-method)
         """
 
@@ -497,7 +497,7 @@ class BucketCors(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the
         BucketCors resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketCors.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketCors.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcorsreload-method)
         """
 
@@ -505,7 +505,7 @@ _BucketCors = BucketCors
 
 class BucketLifecycle(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLifecycle)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLifecycle)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycle)
     """
 
@@ -516,7 +516,7 @@ class BucketLifecycle(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecyclebucket-method)
         """
 
@@ -524,7 +524,7 @@ class BucketLifecycle(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycledelete-method)
         """
 
@@ -532,7 +532,7 @@ class BucketLifecycle(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleget_available_subresources-method)
         """
 
@@ -541,7 +541,7 @@ class BucketLifecycle(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_lifecycle` to update the attributes of the
         BucketLifecycle resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleload-method)
         """
 
@@ -555,7 +555,7 @@ class BucketLifecycle(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleput-method)
         """
 
@@ -564,7 +564,7 @@ class BucketLifecycle(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_lifecycle` to update the attributes of the
         BucketLifecycle resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycle.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycle.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecyclereload-method)
         """
 
@@ -572,7 +572,7 @@ _BucketLifecycle = BucketLifecycle
 
 class BucketLifecycleConfiguration(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfiguration)
     """
 
@@ -583,7 +583,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationbucket-method)
         """
 
@@ -591,7 +591,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationdelete-method)
         """
 
@@ -599,7 +599,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationget_available_subresources-method)
         """
 
@@ -608,7 +608,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the
         attributes of the BucketLifecycleConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationload-method)
         """
 
@@ -622,7 +622,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationput-method)
         """
 
@@ -631,7 +631,7 @@ class BucketLifecycleConfiguration(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the
         attributes of the BucketLifecycleConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLifecycleConfiguration.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLifecycleConfiguration.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfigurationreload-method)
         """
 
@@ -639,7 +639,7 @@ _BucketLifecycleConfiguration = BucketLifecycleConfiguration
 
 class BucketLogging(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLogging)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLogging)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlogging)
     """
 
@@ -650,7 +650,7 @@ class BucketLogging(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLogging.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLogging.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketloggingbucket-method)
         """
 
@@ -658,7 +658,7 @@ class BucketLogging(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLogging.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLogging.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketloggingget_available_subresources-method)
         """
 
@@ -667,7 +667,7 @@ class BucketLogging(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_logging` to update the attributes of the
         BucketLogging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLogging.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLogging.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketloggingload-method)
         """
 
@@ -681,7 +681,7 @@ class BucketLogging(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLogging.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLogging.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketloggingput-method)
         """
 
@@ -690,7 +690,7 @@ class BucketLogging(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_logging` to update the attributes of the
         BucketLogging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketLogging.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketLogging.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketloggingreload-method)
         """
 
@@ -698,7 +698,7 @@ _BucketLogging = BucketLogging
 
 class BucketNotification(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketNotification)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketNotification)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotification)
     """
 
@@ -712,7 +712,7 @@ class BucketNotification(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketNotification.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketNotification.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotificationbucket-method)
         """
 
@@ -720,7 +720,7 @@ class BucketNotification(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketNotification.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketNotification.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotificationget_available_subresources-method)
         """
 
@@ -729,7 +729,7 @@ class BucketNotification(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_notification_configuration` to update the
         attributes of the BucketNotification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketNotification.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketNotification.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotificationload-method)
         """
 
@@ -743,7 +743,7 @@ class BucketNotification(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketNotification.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketNotification.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotificationput-method)
         """
 
@@ -752,7 +752,7 @@ class BucketNotification(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_notification_configuration` to update the
         attributes of the BucketNotification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketNotification.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketNotification.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotificationreload-method)
         """
 
@@ -760,7 +760,7 @@ _BucketNotification = BucketNotification
 
 class BucketPolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketPolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketPolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicy)
     """
 
@@ -771,7 +771,7 @@ class BucketPolicy(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicybucket-method)
         """
 
@@ -779,7 +779,7 @@ class BucketPolicy(Boto3ServiceResource):
         """
         Deletes the policy of a specified bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicydelete-method)
         """
 
@@ -787,7 +787,7 @@ class BucketPolicy(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicyget_available_subresources-method)
         """
 
@@ -796,7 +796,7 @@ class BucketPolicy(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_policy` to update the attributes of the
         BucketPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicyload-method)
         """
 
@@ -811,7 +811,7 @@ class BucketPolicy(Boto3ServiceResource):
         """
         Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicyput-method)
         """
 
@@ -820,7 +820,7 @@ class BucketPolicy(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_policy` to update the attributes of the
         BucketPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketPolicy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketPolicy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicyreload-method)
         """
 
@@ -828,7 +828,7 @@ _BucketPolicy = BucketPolicy
 
 class BucketRequestPayment(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketRequestPayment)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketRequestPayment)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpayment)
     """
 
@@ -839,7 +839,7 @@ class BucketRequestPayment(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketRequestPayment.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketRequestPayment.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpaymentbucket-method)
         """
 
@@ -847,7 +847,7 @@ class BucketRequestPayment(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketRequestPayment.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketRequestPayment.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpaymentget_available_subresources-method)
         """
 
@@ -856,7 +856,7 @@ class BucketRequestPayment(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes
         of the BucketRequestPayment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketRequestPayment.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketRequestPayment.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpaymentload-method)
         """
 
@@ -870,7 +870,7 @@ class BucketRequestPayment(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketRequestPayment.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketRequestPayment.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpaymentput-method)
         """
 
@@ -879,7 +879,7 @@ class BucketRequestPayment(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes
         of the BucketRequestPayment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketRequestPayment.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketRequestPayment.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpaymentreload-method)
         """
 
@@ -887,7 +887,7 @@ _BucketRequestPayment = BucketRequestPayment
 
 class BucketTagging(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketTagging)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketTagging)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettagging)
     """
 
@@ -898,7 +898,7 @@ class BucketTagging(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingbucket-method)
         """
 
@@ -906,7 +906,7 @@ class BucketTagging(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingdelete-method)
         """
 
@@ -914,7 +914,7 @@ class BucketTagging(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingget_available_subresources-method)
         """
 
@@ -923,7 +923,7 @@ class BucketTagging(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the
         BucketTagging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingload-method)
         """
 
@@ -937,7 +937,7 @@ class BucketTagging(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingput-method)
         """
 
@@ -946,7 +946,7 @@ class BucketTagging(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the
         BucketTagging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketTagging.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketTagging.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettaggingreload-method)
         """
 
@@ -954,7 +954,7 @@ _BucketTagging = BucketTagging
 
 class BucketVersioning(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketVersioning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketVersioning)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioning)
     """
 
@@ -966,7 +966,7 @@ class BucketVersioning(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningbucket-method)
         """
 
@@ -981,7 +981,7 @@ class BucketVersioning(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.enable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.enable)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningenable-method)
         """
 
@@ -989,7 +989,7 @@ class BucketVersioning(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningget_available_subresources-method)
         """
 
@@ -998,7 +998,7 @@ class BucketVersioning(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the
         BucketVersioning resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningload-method)
         """
 
@@ -1013,7 +1013,7 @@ class BucketVersioning(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningput-method)
         """
 
@@ -1022,7 +1022,7 @@ class BucketVersioning(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the
         BucketVersioning resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningreload-method)
         """
 
@@ -1037,7 +1037,7 @@ class BucketVersioning(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketVersioning.suspend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketVersioning.suspend)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioningsuspend-method)
         """
 
@@ -1045,7 +1045,7 @@ _BucketVersioning = BucketVersioning
 
 class BucketWebsite(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketWebsite)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketWebsite)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsite)
     """
 
@@ -1059,7 +1059,7 @@ class BucketWebsite(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsitebucket-method)
         """
 
@@ -1067,7 +1067,7 @@ class BucketWebsite(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsitedelete-method)
         """
 
@@ -1075,7 +1075,7 @@ class BucketWebsite(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsiteget_available_subresources-method)
         """
 
@@ -1084,7 +1084,7 @@ class BucketWebsite(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the
         BucketWebsite resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsiteload-method)
         """
 
@@ -1098,7 +1098,7 @@ class BucketWebsite(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsiteput-method)
         """
 
@@ -1107,7 +1107,7 @@ class BucketWebsite(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the
         BucketWebsite resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.BucketWebsite.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.BucketWebsite.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsitereload-method)
         """
 
@@ -1115,7 +1115,7 @@ _BucketWebsite = BucketWebsite
 
 class MultipartUploadPart(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.MultipartUploadPart)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.MultipartUploadPart)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpart)
     """
 
@@ -1135,7 +1135,7 @@ class MultipartUploadPart(Boto3ServiceResource):
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUploadPart.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUploadPart.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpartmultipartupload-method)
         """
 
@@ -1161,7 +1161,7 @@ class MultipartUploadPart(Boto3ServiceResource):
         """
         Uploads a part by copying data from an existing object as data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUploadPart.copy_from)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUploadPart.copy_from)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpartcopy_from-method)
         """
 
@@ -1169,7 +1169,7 @@ class MultipartUploadPart(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUploadPart.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUploadPart.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpartget_available_subresources-method)
         """
 
@@ -1193,7 +1193,7 @@ class MultipartUploadPart(Boto3ServiceResource):
         """
         Uploads a part in a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUploadPart.upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUploadPart.upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpartupload-method)
         """
 
@@ -1201,7 +1201,7 @@ _MultipartUploadPart = MultipartUploadPart
 
 class ObjectAcl(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectAcl)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectAcl)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectacl)
     """
 
@@ -1215,7 +1215,7 @@ class ObjectAcl(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectAcl.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectAcl.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectaclobject-method)
         """
 
@@ -1223,7 +1223,7 @@ class ObjectAcl(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectAcl.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectAcl.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectaclget_available_subresources-method)
         """
 
@@ -1232,7 +1232,7 @@ class ObjectAcl(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the
         ObjectAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectAcl.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectAcl.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectaclload-method)
         """
 
@@ -1254,7 +1254,7 @@ class ObjectAcl(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectAcl.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectAcl.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectaclput-method)
         """
 
@@ -1263,7 +1263,7 @@ class ObjectAcl(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the
         ObjectAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectAcl.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectAcl.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectaclreload-method)
         """
 
@@ -1271,7 +1271,7 @@ _ObjectAcl = ObjectAcl
 
 class ObjectVersion(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectVersion)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectVersion)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversion)
     """
 
@@ -1293,7 +1293,7 @@ class ObjectVersion(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectVersion.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectVersion.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversionobject-method)
         """
 
@@ -1308,7 +1308,7 @@ class ObjectVersion(Boto3ServiceResource):
         """
         Removes an object from a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectVersion.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectVersion.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversiondelete-method)
         """
 
@@ -1337,7 +1337,7 @@ class ObjectVersion(Boto3ServiceResource):
         """
         Retrieves an object from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectVersion.get)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectVersion.get)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversionget-method)
         """
 
@@ -1345,7 +1345,7 @@ class ObjectVersion(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectVersion.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectVersion.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversionget_available_subresources-method)
         """
 
@@ -1357,6 +1357,12 @@ class ObjectVersion(Boto3ServiceResource):
         IfNoneMatch: str = None,
         IfUnmodifiedSince: Union[datetime, str] = None,
         Range: str = None,
+        ResponseCacheControl: str = None,
+        ResponseContentDisposition: str = None,
+        ResponseContentEncoding: str = None,
+        ResponseContentLanguage: str = None,
+        ResponseContentType: str = None,
+        ResponseExpires: Union[datetime, str] = None,
         SSECustomerAlgorithm: str = None,
         SSECustomerKey: str = None,
         SSECustomerKeyMD5: str = None,
@@ -1369,7 +1375,7 @@ class ObjectVersion(Boto3ServiceResource):
         The `HEAD` operation retrieves metadata from an object without returning the
         object itself.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectVersion.head)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectVersion.head)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversionhead-method)
         """
 
@@ -1377,7 +1383,7 @@ _ObjectVersion = ObjectVersion
 
 class MultipartUpload(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.MultipartUpload)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.MultipartUpload)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartupload)
     """
 
@@ -1397,7 +1403,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadobject-method)
         """
 
@@ -1405,7 +1411,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         Creates a MultipartUploadPart resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.Part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.Part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadpart-method)
         """
 
@@ -1415,7 +1421,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         This operation aborts a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.abort)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.abort)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadabort-method)
         """
 
@@ -1436,7 +1442,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         Completes a multipart upload by assembling previously uploaded parts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.complete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.complete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadcomplete-method)
         """
 
@@ -1444,7 +1450,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.MultipartUpload.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.MultipartUpload.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#multipartuploadget_available_subresources-method)
         """
 
@@ -1452,7 +1458,7 @@ _MultipartUpload = MultipartUpload
 
 class Object(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.Object)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.Object)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#object)
     """
 
@@ -1497,7 +1503,7 @@ class Object(Boto3ServiceResource):
         """
         Creates a ObjectAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.Acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.Acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectacl-method)
         """
 
@@ -1505,7 +1511,7 @@ class Object(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectbucket-method)
         """
 
@@ -1513,7 +1519,7 @@ class Object(Boto3ServiceResource):
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectmultipartupload-method)
         """
 
@@ -1521,7 +1527,7 @@ class Object(Boto3ServiceResource):
         """
         Creates a ObjectVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.Version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.Version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectversion-method)
         """
 
@@ -1537,7 +1543,7 @@ class Object(Boto3ServiceResource):
         """
         Copy an object from one S3 location to this object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectcopy-method)
         """
 
@@ -1587,7 +1593,7 @@ class Object(Boto3ServiceResource):
         """
         Creates a copy of an object that is already stored in Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.copy_from)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.copy_from)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectcopy_from-method)
         """
 
@@ -1603,7 +1609,7 @@ class Object(Boto3ServiceResource):
         """
         Removes an object from a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectdelete-method)
         """
 
@@ -1618,7 +1624,7 @@ class Object(Boto3ServiceResource):
         """
         Download an S3 object to a file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.download_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.download_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectdownload_file-method)
         """
 
@@ -1633,7 +1639,7 @@ class Object(Boto3ServiceResource):
         """
         Download this object from S3 to a file-like object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.download_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.download_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectdownload_fileobj-method)
         """
 
@@ -1663,7 +1669,7 @@ class Object(Boto3ServiceResource):
         """
         Retrieves an object from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.get)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.get)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectget-method)
         """
 
@@ -1671,7 +1677,7 @@ class Object(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectget_available_subresources-method)
         """
 
@@ -1710,7 +1716,7 @@ class Object(Boto3ServiceResource):
         """
         This action initiates a multipart upload and returns an upload ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.initiate_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.initiate_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectinitiate_multipart_upload-method)
         """
 
@@ -1719,7 +1725,7 @@ class Object(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectload-method)
         """
 
@@ -1765,7 +1771,7 @@ class Object(Boto3ServiceResource):
         """
         Adds an object to a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectput-method)
         """
 
@@ -1774,7 +1780,7 @@ class Object(Boto3ServiceResource):
         Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectreload-method)
         """
 
@@ -1790,7 +1796,7 @@ class Object(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.restore_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.restore_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectrestore_object-method)
         """
 
@@ -1805,7 +1811,7 @@ class Object(Boto3ServiceResource):
         """
         Upload a file to an S3 object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.upload_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.upload_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectupload_file-method)
         """
 
@@ -1820,7 +1826,7 @@ class Object(Boto3ServiceResource):
         """
         Upload a file-like object to this object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.upload_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.upload_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectupload_fileobj-method)
         """
 
@@ -1828,7 +1834,7 @@ class Object(Boto3ServiceResource):
         """
         Waits until this Object is exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.wait_until_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.wait_until_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectwait_until_exists-method)
         """
 
@@ -1836,7 +1842,7 @@ class Object(Boto3ServiceResource):
         """
         Waits until this Object is not exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Object.wait_until_not_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Object.wait_until_not_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectwait_until_not_exists-method)
         """
 
@@ -1844,7 +1850,7 @@ _Object = Object
 
 class ObjectSummary(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectSummary)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectSummary)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummary)
     """
 
@@ -1862,7 +1868,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a ObjectAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.Acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.Acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryacl-method)
         """
 
@@ -1870,7 +1876,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarybucket-method)
         """
 
@@ -1878,7 +1884,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarymultipartupload-method)
         """
 
@@ -1886,7 +1892,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryobject-method)
         """
 
@@ -1894,7 +1900,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a ObjectVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.Version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.Version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryversion-method)
         """
 
@@ -1944,7 +1950,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Creates a copy of an object that is already stored in Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.copy_from)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.copy_from)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarycopy_from-method)
         """
 
@@ -1960,7 +1966,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Removes an object from a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarydelete-method)
         """
 
@@ -1990,7 +1996,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Retrieves an object from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.get)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.get)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryget-method)
         """
 
@@ -1998,7 +2004,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryget_available_subresources-method)
         """
 
@@ -2037,7 +2043,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         This action initiates a multipart upload and returns an upload ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.initiate_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.initiate_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryinitiate_multipart_upload-method)
         """
 
@@ -2046,7 +2052,7 @@ class ObjectSummary(Boto3ServiceResource):
         Calls s3.Client.head_object to update the attributes of the ObjectSummary
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryload-method)
         """
 
@@ -2092,7 +2098,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Adds an object to a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryput-method)
         """
 
@@ -2108,7 +2114,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.restore_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.restore_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummaryrestore_object-method)
         """
 
@@ -2116,7 +2122,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Waits until this ObjectSummary is exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.wait_until_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.wait_until_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarywait_until_exists-method)
         """
 
@@ -2124,7 +2130,7 @@ class ObjectSummary(Boto3ServiceResource):
         """
         Waits until this ObjectSummary is not exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ObjectSummary.wait_until_not_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ObjectSummary.wait_until_not_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#objectsummarywait_until_not_exists-method)
         """
 
@@ -2132,7 +2138,7 @@ _ObjectSummary = ObjectSummary
 
 class Bucket(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.Bucket)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.Bucket)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucket)
     """
 
@@ -2146,7 +2152,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Acl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketacl-method)
         """
 
@@ -2154,7 +2160,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketCors resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Cors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Cors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcors-method)
         """
 
@@ -2162,7 +2168,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketLifecycle resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Lifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Lifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycle-method)
         """
 
@@ -2170,7 +2176,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketLifecycleConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.LifecycleConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.LifecycleConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlifecycleconfiguration-method)
         """
 
@@ -2178,7 +2184,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketLogging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Logging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketlogging-method)
         """
 
@@ -2186,7 +2192,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketNotification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketnotification-method)
         """
 
@@ -2194,7 +2200,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketobject-method)
         """
 
@@ -2202,7 +2208,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketpolicy-method)
         """
 
@@ -2210,7 +2216,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketRequestPayment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.RequestPayment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.RequestPayment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketrequestpayment-method)
         """
 
@@ -2218,7 +2224,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketTagging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Tagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Tagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#buckettagging-method)
         """
 
@@ -2226,7 +2232,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketVersioning resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Versioning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Versioning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketversioning-method)
         """
 
@@ -2234,7 +2240,7 @@ class Bucket(Boto3ServiceResource):
         """
         Creates a BucketWebsite resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.Website)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.Website)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwebsite-method)
         """
 
@@ -2251,7 +2257,7 @@ class Bucket(Boto3ServiceResource):
         """
         Copy an object from one S3 location to an object in this bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.copy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcopy-method)
         """
 
@@ -2271,7 +2277,7 @@ class Bucket(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.create)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.create)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketcreate-method)
         """
 
@@ -2279,7 +2285,7 @@ class Bucket(Boto3ServiceResource):
         """
         Deletes the S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketdelete-method)
         """
 
@@ -2297,7 +2303,7 @@ class Bucket(Boto3ServiceResource):
         This operation enables you to delete multiple objects from a bucket using a
         single HTTP request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.delete_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.delete_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketdelete_objects-method)
         """
 
@@ -2313,7 +2319,7 @@ class Bucket(Boto3ServiceResource):
         """
         Download an S3 object to a file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.download_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.download_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketdownload_file-method)
         """
 
@@ -2329,7 +2335,7 @@ class Bucket(Boto3ServiceResource):
         """
         Download an object from this bucket to a file-like-object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.download_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.download_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketdownload_fileobj-method)
         """
 
@@ -2337,7 +2343,7 @@ class Bucket(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketget_available_subresources-method)
         """
 
@@ -2345,7 +2351,7 @@ class Bucket(Boto3ServiceResource):
         """
         Calls s3.Client.list_buckets() to update the attributes of the Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketload-method)
         """
 
@@ -2392,7 +2398,7 @@ class Bucket(Boto3ServiceResource):
         """
         Adds an object to a bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.put_object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.put_object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketput_object-method)
         """
 
@@ -2408,7 +2414,7 @@ class Bucket(Boto3ServiceResource):
         """
         Upload a file to an S3 object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.upload_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.upload_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketupload_file-method)
         """
 
@@ -2424,7 +2430,7 @@ class Bucket(Boto3ServiceResource):
         """
         Upload a file-like object to this bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.upload_fileobj)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.upload_fileobj)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketupload_fileobj-method)
         """
 
@@ -2432,7 +2438,7 @@ class Bucket(Boto3ServiceResource):
         """
         Waits until this Bucket is exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.wait_until_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.wait_until_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwait_until_exists-method)
         """
 
@@ -2440,7 +2446,7 @@ class Bucket(Boto3ServiceResource):
         """
         Waits until this Bucket is not exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.Bucket.wait_until_not_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Bucket.wait_until_not_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#bucketwait_until_not_exists-method)
         """
 
@@ -2451,7 +2457,7 @@ class S3ResourceMeta(ResourceMeta):
 
 class S3ServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html)
     """
 
@@ -2462,7 +2468,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a Bucket resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.Bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.Bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucket-method)
         """
 
@@ -2470,7 +2476,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketAcl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketAcl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketacl-method)
         """
 
@@ -2478,7 +2484,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketCors resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketCors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketCors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketcors-method)
         """
 
@@ -2486,7 +2492,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketLifecycle resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLifecycle)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLifecycle)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketlifecycle-method)
         """
 
@@ -2494,7 +2500,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketLifecycleConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketlifecycleconfiguration-method)
         """
 
@@ -2502,7 +2508,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketLogging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketLogging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketLogging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketlogging-method)
         """
 
@@ -2510,7 +2516,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketNotification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketNotification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketNotification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketnotification-method)
         """
 
@@ -2518,7 +2524,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketPolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketpolicy-method)
         """
 
@@ -2526,7 +2532,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketRequestPayment resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketRequestPayment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketRequestPayment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketrequestpayment-method)
         """
 
@@ -2534,7 +2540,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketTagging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketTagging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketTagging)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebuckettagging-method)
         """
 
@@ -2542,7 +2548,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketVersioning resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketVersioning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketVersioning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketversioning-method)
         """
 
@@ -2550,7 +2556,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a BucketWebsite resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.BucketWebsite)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.BucketWebsite)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcebucketwebsite-method)
         """
 
@@ -2558,7 +2564,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcemultipartupload-method)
         """
 
@@ -2568,7 +2574,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a MultipartUploadPart resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.MultipartUploadPart)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.MultipartUploadPart)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcemultipartuploadpart-method)
         """
 
@@ -2576,7 +2582,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a Object resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.Object)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.Object)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourceobject-method)
         """
 
@@ -2584,7 +2590,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a ObjectAcl resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectAcl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectAcl)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourceobjectacl-method)
         """
 
@@ -2592,7 +2598,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a ObjectSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourceobjectsummary-method)
         """
 
@@ -2600,7 +2606,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Creates a ObjectVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.ObjectVersion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.ObjectVersion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourceobjectversion-method)
         """
 
@@ -2621,7 +2627,7 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.create_bucket)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.create_bucket)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourcecreate_bucket-method)
         """
 
@@ -2629,6 +2635,6 @@ class S3ServiceResource(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/s3.html#S3.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/service_resource.html#s3serviceresourceget_available_subresources-method)
         """

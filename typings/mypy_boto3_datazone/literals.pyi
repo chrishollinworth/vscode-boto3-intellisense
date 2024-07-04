@@ -32,6 +32,7 @@ __all__ = (
     "DeploymentStatusType",
     "DeploymentTypeType",
     "DomainStatusType",
+    "EdgeDirectionType",
     "EnableSettingType",
     "EntityTypeType",
     "EnvironmentStatusType",
@@ -47,10 +48,12 @@ __all__ = (
     "ListDataSourceRunsPaginatorName",
     "ListDataSourcesPaginatorName",
     "ListDomainsPaginatorName",
+    "ListEnvironmentActionsPaginatorName",
     "ListEnvironmentBlueprintConfigurationsPaginatorName",
     "ListEnvironmentBlueprintsPaginatorName",
     "ListEnvironmentProfilesPaginatorName",
     "ListEnvironmentsPaginatorName",
+    "ListLineageNodeHistoryPaginatorName",
     "ListMetadataGenerationRunsPaginatorName",
     "ListNotificationsPaginatorName",
     "ListProjectMembershipsPaginatorName",
@@ -75,6 +78,7 @@ __all__ = (
     "SearchPaginatorName",
     "SearchTypesPaginatorName",
     "SearchUserProfilesPaginatorName",
+    "SelfGrantStatusType",
     "SortFieldProjectType",
     "SortKeyType",
     "SortOrderType",
@@ -136,6 +140,7 @@ DeploymentTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 DomainStatusType = Literal[
     "AVAILABLE", "CREATING", "CREATION_FAILED", "DELETED", "DELETING", "DELETION_FAILED"
 ]
+EdgeDirectionType = Literal["DOWNSTREAM", "UPSTREAM"]
 EnableSettingType = Literal["DISABLED", "ENABLED"]
 EntityTypeType = Literal["ASSET"]
 EnvironmentStatusType = Literal[
@@ -165,12 +170,14 @@ ListDataSourceRunActivitiesPaginatorName = Literal["list_data_source_run_activit
 ListDataSourceRunsPaginatorName = Literal["list_data_source_runs"]
 ListDataSourcesPaginatorName = Literal["list_data_sources"]
 ListDomainsPaginatorName = Literal["list_domains"]
+ListEnvironmentActionsPaginatorName = Literal["list_environment_actions"]
 ListEnvironmentBlueprintConfigurationsPaginatorName = Literal[
     "list_environment_blueprint_configurations"
 ]
 ListEnvironmentBlueprintsPaginatorName = Literal["list_environment_blueprints"]
 ListEnvironmentProfilesPaginatorName = Literal["list_environment_profiles"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ListLineageNodeHistoryPaginatorName = Literal["list_lineage_node_history"]
 ListMetadataGenerationRunsPaginatorName = Literal["list_metadata_generation_runs"]
 ListNotificationsPaginatorName = Literal["list_notifications"]
 ListProjectMembershipsPaginatorName = Literal["list_project_memberships"]
@@ -199,6 +206,15 @@ SearchOutputAdditionalAttributeType = Literal["FORMS", "TIME_SERIES_DATA_POINT_F
 SearchPaginatorName = Literal["search"]
 SearchTypesPaginatorName = Literal["search_types"]
 SearchUserProfilesPaginatorName = Literal["search_user_profiles"]
+SelfGrantStatusType = Literal[
+    "GRANTED",
+    "GRANT_FAILED",
+    "GRANT_IN_PROGRESS",
+    "GRANT_PENDING",
+    "REVOKE_FAILED",
+    "REVOKE_IN_PROGRESS",
+    "REVOKE_PENDING",
+]
 SortFieldProjectType = Literal["NAME"]
 SortKeyType = Literal["CREATED_AT", "UPDATED_AT"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
@@ -291,7 +307,7 @@ TimezoneType = Literal[
     "US_PACIFIC",
     "UTC",
 ]
-TypesSearchScopeType = Literal["ASSET_TYPE", "FORM_TYPE"]
+TypesSearchScopeType = Literal["ASSET_TYPE", "FORM_TYPE", "LINEAGE_NODE_TYPE"]
 UserAssignmentType = Literal["AUTOMATIC", "MANUAL"]
 UserDesignationType = Literal["PROJECT_CONTRIBUTOR", "PROJECT_OWNER"]
 UserProfileStatusType = Literal["ACTIVATED", "ASSIGNED", "DEACTIVATED", "NOT_ASSIGNED"]

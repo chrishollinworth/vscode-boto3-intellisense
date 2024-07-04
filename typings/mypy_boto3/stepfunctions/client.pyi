@@ -112,7 +112,7 @@ class Exceptions:
 
 class SFNClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html)
     """
 
@@ -128,7 +128,7 @@ class SFNClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#can_paginate)
         """
 
@@ -136,7 +136,7 @@ class SFNClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#close)
         """
 
@@ -146,7 +146,7 @@ class SFNClient(BaseClient):
         """
         Creates an activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.create_activity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.create_activity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#create_activity)
         """
 
@@ -166,7 +166,7 @@ class SFNClient(BaseClient):
         """
         Creates a state machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.create_state_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.create_state_machine)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#create_state_machine)
         """
 
@@ -184,7 +184,7 @@ class SFNClient(BaseClient):
         functions/latest/dg/concepts-state-machine-version.html>`__ of the same state
         machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.create_state_machine_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.create_state_machine_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#create_state_machine_alias)
         """
 
@@ -192,7 +192,7 @@ class SFNClient(BaseClient):
         """
         Deletes an activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.delete_activity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.delete_activity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#delete_activity)
         """
 
@@ -200,7 +200,7 @@ class SFNClient(BaseClient):
         """
         Deletes a state machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.delete_state_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.delete_state_machine)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#delete_state_machine)
         """
 
@@ -209,7 +209,7 @@ class SFNClient(BaseClient):
         Deletes a state machine `alias <https://docs.aws.amazon.com/step-
         functions/latest/dg/concepts-state-machine-alias.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.delete_state_machine_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.delete_state_machine_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#delete_state_machine_alias)
         """
 
@@ -218,7 +218,7 @@ class SFNClient(BaseClient):
         Deletes a state machine `version <https://docs.aws.amazon.com/step-
         functions/latest/dg/concepts-state-machine-version.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.delete_state_machine_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.delete_state_machine_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#delete_state_machine_version)
         """
 
@@ -226,7 +226,7 @@ class SFNClient(BaseClient):
         """
         Describes an activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_activity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_activity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_activity)
         """
 
@@ -236,7 +236,7 @@ class SFNClient(BaseClient):
         associated with the execution, the execution input and output, and relevant
         execution metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_execution)
         """
 
@@ -244,7 +244,7 @@ class SFNClient(BaseClient):
         """
         Provides information about a Map Run's configuration, progress, and results.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_map_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_map_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_map_run)
         """
 
@@ -253,7 +253,7 @@ class SFNClient(BaseClient):
         Provides information about a state machine's definition, its IAM role Amazon
         Resource Name (ARN), and configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_state_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_state_machine)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_state_machine)
         """
 
@@ -264,7 +264,7 @@ class SFNClient(BaseClient):
         Returns details about a state machine `alias <https://docs.aws.amazon.com/step-
         functions/latest/dg/concepts-state-machine-alias.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_state_machine_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_state_machine_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_state_machine_alias)
         """
 
@@ -275,7 +275,7 @@ class SFNClient(BaseClient):
         Provides information about a state machine's definition, its execution role ARN,
         and configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.describe_state_machine_for_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.describe_state_machine_for_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#describe_state_machine_for_execution)
         """
 
@@ -289,7 +289,7 @@ class SFNClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#generate_presigned_url)
         """
 
@@ -300,7 +300,7 @@ class SFNClient(BaseClient):
         Used by workers to retrieve a task (with the specified activity ARN) which has
         been scheduled for execution by a running state machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.get_activity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.get_activity_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#get_activity_task)
         """
 
@@ -316,7 +316,7 @@ class SFNClient(BaseClient):
         """
         Returns the history of the specified execution as a list of events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.get_execution_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.get_execution_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#get_execution_history)
         """
 
@@ -326,7 +326,7 @@ class SFNClient(BaseClient):
         """
         Lists the existing activities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_activities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_activities)
         """
 
@@ -343,7 +343,7 @@ class SFNClient(BaseClient):
         """
         Lists all executions of a state machine or a Map Run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_executions)
         """
 
@@ -353,7 +353,7 @@ class SFNClient(BaseClient):
         """
         Lists all Map Runs that were started by a given state machine execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_map_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_map_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_map_runs)
         """
 
@@ -364,7 +364,7 @@ class SFNClient(BaseClient):
         Lists `aliases <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-
         state-machine-alias.html>`__ for a specified state machine ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_state_machine_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_state_machine_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_state_machine_aliases)
         """
 
@@ -376,7 +376,7 @@ class SFNClient(BaseClient):
         state-machine-version.html>`__ for the specified state machine Amazon Resource
         Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_state_machine_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_state_machine_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_state_machine_versions)
         """
 
@@ -386,7 +386,7 @@ class SFNClient(BaseClient):
         """
         Lists the existing state machines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_state_machines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_state_machines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_state_machines)
         """
 
@@ -394,7 +394,7 @@ class SFNClient(BaseClient):
         """
         List tags for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#list_tags_for_resource)
         """
 
@@ -406,7 +406,7 @@ class SFNClient(BaseClient):
         functions/latest/dg/concepts-state-machine-version.html>`__ from the current
         revision of a state machine.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.publish_state_machine_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.publish_state_machine_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#publish_state_machine_version)
         """
 
@@ -417,7 +417,7 @@ class SFNClient(BaseClient):
         Restarts unsuccessful executions of Standard workflows that didn't complete
         successfully in the last 14 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.redrive_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.redrive_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#redrive_execution)
         """
 
@@ -431,7 +431,7 @@ class SFNClient(BaseClient):
         the `job run <https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-
         resource.html#con...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.send_task_failure)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.send_task_failure)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#send_task_failure)
         """
 
@@ -443,7 +443,7 @@ class SFNClient(BaseClient):
         the `job run <https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-
         resource.html#...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.send_task_heartbeat)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.send_task_heartbeat)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#send_task_heartbeat)
         """
 
@@ -455,7 +455,7 @@ class SFNClient(BaseClient):
         the `job run <https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-
         resource.html#con...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.send_task_success)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.send_task_success)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#send_task_success)
         """
 
@@ -465,7 +465,7 @@ class SFNClient(BaseClient):
         """
         Starts a state machine execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.start_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.start_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#start_execution)
         """
 
@@ -475,7 +475,7 @@ class SFNClient(BaseClient):
         """
         Starts a Synchronous Express state machine execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.start_sync_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.start_sync_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#start_sync_execution)
         """
 
@@ -485,7 +485,7 @@ class SFNClient(BaseClient):
         """
         Stops an execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.stop_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.stop_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#stop_execution)
         """
 
@@ -493,7 +493,7 @@ class SFNClient(BaseClient):
         """
         Add a tag to a Step Functions resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#tag_resource)
         """
 
@@ -509,7 +509,7 @@ class SFNClient(BaseClient):
         """
         Accepts the definition of a single state and executes it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.test_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.test_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#test_state)
         """
 
@@ -520,7 +520,7 @@ class SFNClient(BaseClient):
         **Request Syntax** response = client.untag_resource( resourceArn='string',
         tagKeys=[ 'string', ] ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#untag_resource)
         """
 
@@ -536,7 +536,7 @@ class SFNClient(BaseClient):
         Updates an in-progress Map Run's configuration to include changes to the
         settings that control maximum concurrency and Map Run failure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.update_map_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.update_map_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#update_map_run)
         """
 
@@ -555,7 +555,7 @@ class SFNClient(BaseClient):
         Updates an existing state machine by modifying its `definition`, `roleArn`, or
         `loggingConfiguration`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.update_state_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.update_state_machine)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#update_state_machine)
         """
 
@@ -571,7 +571,7 @@ class SFNClient(BaseClient):
         <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-
         alias.html>`__ by modifying its `description` or `routingConfiguration`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.update_state_machine_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.update_state_machine_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#update_state_machine_alias)
         """
 
@@ -581,7 +581,7 @@ class SFNClient(BaseClient):
         """
         Validates the syntax of a state machine definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Client.validate_state_machine_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Client.validate_state_machine_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/client.html#validate_state_machine_definition)
         """
 
@@ -590,28 +590,28 @@ class SFNClient(BaseClient):
         self, operation_name: Literal["get_execution_history"]
     ) -> GetExecutionHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/paginators.html#getexecutionhistorypaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_activities"]) -> ListActivitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Paginator.ListActivities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Paginator.ListActivities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/paginators.html#listactivitiespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_executions"]) -> ListExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/paginators.html#listexecutionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_map_runs"]) -> ListMapRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Paginator.ListMapRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Paginator.ListMapRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/paginators.html#listmaprunspaginator)
         """
 
@@ -620,6 +620,6 @@ class SFNClient(BaseClient):
         self, operation_name: Literal["list_state_machines"]
     ) -> ListStateMachinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/paginators.html#liststatemachinespaginator)
         """

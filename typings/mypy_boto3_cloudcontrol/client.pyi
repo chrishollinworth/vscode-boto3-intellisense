@@ -72,7 +72,7 @@ class Exceptions:
 
 class CloudControlApiClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html)
     """
 
@@ -88,7 +88,7 @@ class CloudControlApiClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#can_paginate)
         """
 
@@ -96,7 +96,7 @@ class CloudControlApiClient(BaseClient):
         """
         Cancels the specified resource operation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.cancel_resource_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.cancel_resource_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#cancel_resource_request)
         """
 
@@ -104,7 +104,7 @@ class CloudControlApiClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#close)
         """
 
@@ -120,7 +120,7 @@ class CloudControlApiClient(BaseClient):
         """
         Creates the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.create_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.create_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#create_resource)
         """
 
@@ -136,7 +136,7 @@ class CloudControlApiClient(BaseClient):
         """
         Deletes the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.delete_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.delete_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#delete_resource)
         """
 
@@ -150,7 +150,7 @@ class CloudControlApiClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#generate_presigned_url)
         """
 
@@ -160,7 +160,7 @@ class CloudControlApiClient(BaseClient):
         """
         Returns information about the current state of the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.get_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.get_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#get_resource)
         """
 
@@ -170,7 +170,7 @@ class CloudControlApiClient(BaseClient):
         """
         Returns the current status of a resource operation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.get_resource_request_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.get_resource_request_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#get_resource_request_status)
         """
 
@@ -184,7 +184,7 @@ class CloudControlApiClient(BaseClient):
         """
         Returns existing resource operation requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.list_resource_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.list_resource_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#list_resource_requests)
         """
 
@@ -201,7 +201,7 @@ class CloudControlApiClient(BaseClient):
         """
         Returns information about the specified resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.list_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.list_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#list_resources)
         """
 
@@ -218,7 +218,7 @@ class CloudControlApiClient(BaseClient):
         """
         Updates the specified property values in the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Client.update_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Client.update_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/client.html#update_resource)
         """
 
@@ -227,14 +227,14 @@ class CloudControlApiClient(BaseClient):
         self, operation_name: Literal["list_resource_requests"]
     ) -> ListResourceRequestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcerequestspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_resources"]) -> ListResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcespaginator)
         """
 
@@ -242,6 +242,6 @@ class CloudControlApiClient(BaseClient):
         self, waiter_name: Literal["resource_request_success"]
     ) -> ResourceRequestSuccessWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html#resourcerequestsuccesswaiter)
         """

@@ -158,7 +158,7 @@ class Exceptions:
 
 class EKSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html)
     """
 
@@ -181,7 +181,7 @@ class EKSClient(BaseClient):
         """
         Associates an access policy and its scope to an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.associate_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_access_policy)
         """
 
@@ -195,7 +195,7 @@ class EKSClient(BaseClient):
         """
         Associates an encryption configuration to an existing cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.associate_encryption_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_encryption_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_encryption_config)
         """
 
@@ -210,7 +210,7 @@ class EKSClient(BaseClient):
         """
         Associates an identity provider configuration to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.associate_identity_provider_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_identity_provider_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_identity_provider_config)
         """
 
@@ -218,7 +218,7 @@ class EKSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#can_paginate)
         """
 
@@ -226,7 +226,7 @@ class EKSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#close)
         """
 
@@ -244,7 +244,7 @@ class EKSClient(BaseClient):
         """
         Creates an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_access_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_access_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_access_entry)
         """
 
@@ -264,7 +264,7 @@ class EKSClient(BaseClient):
         """
         Creates an Amazon EKS add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_addon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_addon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_addon)
         """
 
@@ -281,12 +281,13 @@ class EKSClient(BaseClient):
         tags: Dict[str, str] = None,
         encryptionConfig: List["EncryptionConfigTypeDef"] = None,
         outpostConfig: "OutpostConfigRequestTypeDef" = None,
-        accessConfig: "CreateAccessConfigRequestTypeDef" = None
+        accessConfig: "CreateAccessConfigRequestTypeDef" = None,
+        bootstrapSelfManagedAddons: bool = None
     ) -> CreateClusterResponseTypeDef:
         """
         Creates an Amazon EKS control plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_cluster)
         """
 
@@ -304,7 +305,7 @@ class EKSClient(BaseClient):
         """
         Creates an EKS Anywhere subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_eks_anywhere_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_eks_anywhere_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_eks_anywhere_subscription)
         """
 
@@ -322,7 +323,7 @@ class EKSClient(BaseClient):
         """
         Creates an Fargate profile for your Amazon EKS cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_fargate_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_fargate_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_fargate_profile)
         """
 
@@ -351,7 +352,7 @@ class EKSClient(BaseClient):
         """
         Creates a managed node group for an Amazon EKS cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_nodegroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_nodegroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_nodegroup)
         """
 
@@ -369,7 +370,7 @@ class EKSClient(BaseClient):
         Creates an EKS Pod Identity association between a service account in an Amazon
         EKS cluster and an IAM role with *EKS Pod Identity*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.create_pod_identity_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_pod_identity_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_pod_identity_association)
         """
 
@@ -377,7 +378,7 @@ class EKSClient(BaseClient):
         """
         Deletes an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_access_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_access_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_access_entry)
         """
 
@@ -387,7 +388,7 @@ class EKSClient(BaseClient):
         """
         Deletes an Amazon EKS add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_addon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_addon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_addon)
         """
 
@@ -395,7 +396,7 @@ class EKSClient(BaseClient):
         """
         Deletes an Amazon EKS cluster control plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_cluster)
         """
 
@@ -405,7 +406,7 @@ class EKSClient(BaseClient):
         """
         Deletes an expired or inactive subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_eks_anywhere_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_eks_anywhere_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_eks_anywhere_subscription)
         """
 
@@ -415,7 +416,7 @@ class EKSClient(BaseClient):
         """
         Deletes an Fargate profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_fargate_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_fargate_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_fargate_profile)
         """
 
@@ -425,7 +426,7 @@ class EKSClient(BaseClient):
         """
         Deletes a managed node group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_nodegroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_nodegroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_nodegroup)
         """
 
@@ -435,7 +436,7 @@ class EKSClient(BaseClient):
         """
         Deletes a EKS Pod Identity association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.delete_pod_identity_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_pod_identity_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_pod_identity_association)
         """
 
@@ -443,7 +444,7 @@ class EKSClient(BaseClient):
         """
         Deregisters a connected cluster to remove it from the Amazon EKS control plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.deregister_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.deregister_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#deregister_cluster)
         """
 
@@ -453,7 +454,7 @@ class EKSClient(BaseClient):
         """
         Describes an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_access_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_access_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_access_entry)
         """
 
@@ -461,7 +462,7 @@ class EKSClient(BaseClient):
         """
         Describes an Amazon EKS add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_addon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon)
         """
 
@@ -471,7 +472,7 @@ class EKSClient(BaseClient):
         """
         Returns configuration options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_addon_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon_configuration)
         """
 
@@ -489,7 +490,7 @@ class EKSClient(BaseClient):
         """
         Describes the versions for an add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_addon_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon_versions)
         """
 
@@ -497,7 +498,7 @@ class EKSClient(BaseClient):
         """
         Describes an Amazon EKS cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_cluster)
         """
 
@@ -507,7 +508,7 @@ class EKSClient(BaseClient):
         """
         Returns descriptive information about a subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_eks_anywhere_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_eks_anywhere_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_eks_anywhere_subscription)
         """
 
@@ -517,7 +518,7 @@ class EKSClient(BaseClient):
         """
         Describes an Fargate profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_fargate_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_fargate_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_fargate_profile)
         """
 
@@ -527,7 +528,7 @@ class EKSClient(BaseClient):
         """
         Describes an identity provider configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_identity_provider_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_identity_provider_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_identity_provider_config)
         """
 
@@ -535,7 +536,7 @@ class EKSClient(BaseClient):
         """
         Returns details about an insight that you specify using its ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_insight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_insight)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_insight)
         """
 
@@ -545,7 +546,7 @@ class EKSClient(BaseClient):
         """
         Describes a managed node group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_nodegroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_nodegroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_nodegroup)
         """
 
@@ -555,7 +556,7 @@ class EKSClient(BaseClient):
         """
         Returns descriptive information about an EKS Pod Identity association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_pod_identity_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_pod_identity_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_pod_identity_association)
         """
 
@@ -565,7 +566,7 @@ class EKSClient(BaseClient):
         """
         Describes an update to an Amazon EKS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.describe_update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_update)
         """
 
@@ -575,7 +576,7 @@ class EKSClient(BaseClient):
         """
         Disassociates an access policy from an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.disassociate_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.disassociate_access_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#disassociate_access_policy)
         """
 
@@ -589,7 +590,7 @@ class EKSClient(BaseClient):
         """
         Disassociates an identity provider configuration from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.disassociate_identity_provider_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.disassociate_identity_provider_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#disassociate_identity_provider_config)
         """
 
@@ -603,7 +604,7 @@ class EKSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#generate_presigned_url)
         """
 
@@ -618,7 +619,7 @@ class EKSClient(BaseClient):
         """
         Lists the access entries for your cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_access_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_access_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_access_entries)
         """
 
@@ -628,7 +629,7 @@ class EKSClient(BaseClient):
         """
         Lists the available access policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_access_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_access_policies)
         """
 
@@ -638,7 +639,7 @@ class EKSClient(BaseClient):
         """
         Lists the installed add-ons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_addons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_addons)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_addons)
         """
 
@@ -648,7 +649,7 @@ class EKSClient(BaseClient):
         """
         Lists the access policies associated with an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_associated_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_associated_access_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_associated_access_policies)
         """
 
@@ -659,7 +660,7 @@ class EKSClient(BaseClient):
         Lists the Amazon EKS clusters in your Amazon Web Services account in the
         specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_clusters)
         """
 
@@ -673,7 +674,7 @@ class EKSClient(BaseClient):
         """
         Displays the full description of the subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_eks_anywhere_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_eks_anywhere_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_eks_anywhere_subscriptions)
         """
 
@@ -684,7 +685,7 @@ class EKSClient(BaseClient):
         Lists the Fargate profiles associated with the specified cluster in your Amazon
         Web Services account in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_fargate_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_fargate_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_fargate_profiles)
         """
 
@@ -694,7 +695,7 @@ class EKSClient(BaseClient):
         """
         Lists the identity provider configurations for your cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_identity_provider_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_identity_provider_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_identity_provider_configs)
         """
 
@@ -709,7 +710,7 @@ class EKSClient(BaseClient):
         """
         Returns a list of all insights checked for against the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_insights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_insights)
         """
 
@@ -720,7 +721,7 @@ class EKSClient(BaseClient):
         Lists the managed node groups associated with the specified cluster in your
         Amazon Web Services account in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_nodegroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_nodegroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_nodegroups)
         """
 
@@ -736,7 +737,7 @@ class EKSClient(BaseClient):
         """
         List the EKS Pod Identity associations in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_pod_identity_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_pod_identity_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_pod_identity_associations)
         """
 
@@ -744,7 +745,7 @@ class EKSClient(BaseClient):
         """
         List the tags for an Amazon EKS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_tags_for_resource)
         """
 
@@ -761,7 +762,7 @@ class EKSClient(BaseClient):
         Lists the updates associated with an Amazon EKS resource in your Amazon Web
         Services account, in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.list_updates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_updates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_updates)
         """
 
@@ -776,7 +777,7 @@ class EKSClient(BaseClient):
         """
         Connects a Kubernetes cluster to the Amazon EKS control plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.register_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.register_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#register_cluster)
         """
 
@@ -785,7 +786,7 @@ class EKSClient(BaseClient):
         Associates the specified tags to an Amazon EKS resource with the specified
         `resourceArn`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#tag_resource)
         """
 
@@ -793,7 +794,7 @@ class EKSClient(BaseClient):
         """
         Deletes specified tags from an Amazon EKS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#untag_resource)
         """
 
@@ -809,7 +810,7 @@ class EKSClient(BaseClient):
         """
         Updates an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_access_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_access_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_access_entry)
         """
 
@@ -828,7 +829,7 @@ class EKSClient(BaseClient):
         """
         Updates an Amazon EKS add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_addon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_addon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_addon)
         """
 
@@ -844,7 +845,7 @@ class EKSClient(BaseClient):
         """
         Updates an Amazon EKS cluster configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_cluster_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_cluster_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_cluster_config)
         """
 
@@ -854,7 +855,7 @@ class EKSClient(BaseClient):
         """
         Updates an Amazon EKS cluster to the specified Kubernetes version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_cluster_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_cluster_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_cluster_version)
         """
 
@@ -864,7 +865,7 @@ class EKSClient(BaseClient):
         """
         Update an EKS Anywhere Subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_eks_anywhere_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_eks_anywhere_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_eks_anywhere_subscription)
         """
 
@@ -882,7 +883,7 @@ class EKSClient(BaseClient):
         """
         Updates an Amazon EKS managed node group configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_nodegroup_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_nodegroup_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_nodegroup_config)
         """
 
@@ -901,7 +902,7 @@ class EKSClient(BaseClient):
         Updates the Kubernetes version or AMI version of an Amazon EKS managed node
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_nodegroup_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_nodegroup_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_nodegroup_version)
         """
 
@@ -916,7 +917,7 @@ class EKSClient(BaseClient):
         """
         Updates a EKS Pod Identity association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Client.update_pod_identity_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_pod_identity_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_pod_identity_association)
         """
 
@@ -925,7 +926,7 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["describe_addon_versions"]
     ) -> DescribeAddonVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#describeaddonversionspaginator)
         """
 
@@ -934,7 +935,7 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_access_entries"]
     ) -> ListAccessEntriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListAccessEntries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAccessEntries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaccessentriespaginator)
         """
 
@@ -943,14 +944,14 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_access_policies"]
     ) -> ListAccessPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListAccessPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAccessPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaccesspoliciespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_addons"]) -> ListAddonsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListAddons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAddons)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaddonspaginator)
         """
 
@@ -959,14 +960,14 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_associated_access_policies"]
     ) -> ListAssociatedAccessPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListAssociatedAccessPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAssociatedAccessPolicies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listassociatedaccesspoliciespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listclusterspaginator)
         """
 
@@ -975,7 +976,7 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_eks_anywhere_subscriptions"]
     ) -> ListEksAnywhereSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListEksAnywhereSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListEksAnywhereSubscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listeksanywheresubscriptionspaginator)
         """
 
@@ -984,7 +985,7 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_fargate_profiles"]
     ) -> ListFargateProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listfargateprofilespaginator)
         """
 
@@ -993,21 +994,21 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_identity_provider_configs"]
     ) -> ListIdentityProviderConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listidentityproviderconfigspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_insights"]) -> ListInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListInsights)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listinsightspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_nodegroups"]) -> ListNodegroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListNodegroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListNodegroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listnodegroupspaginator)
         """
 
@@ -1016,42 +1017,42 @@ class EKSClient(BaseClient):
         self, operation_name: Literal["list_pod_identity_associations"]
     ) -> ListPodIdentityAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListPodIdentityAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListPodIdentityAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listpodidentityassociationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_updates"]) -> ListUpdatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Paginator.ListUpdates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListUpdates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listupdatespaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["addon_active"]) -> AddonActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.AddonActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.AddonActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#addonactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["addon_deleted"]) -> AddonDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.AddonDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.AddonDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#addondeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_active"]) -> ClusterActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.ClusterActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.ClusterActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#clusteractivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#clusterdeletedwaiter)
         """
 
@@ -1060,7 +1061,7 @@ class EKSClient(BaseClient):
         self, waiter_name: Literal["fargate_profile_active"]
     ) -> FargateProfileActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.FargateProfileActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.FargateProfileActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#fargateprofileactivewaiter)
         """
 
@@ -1069,20 +1070,20 @@ class EKSClient(BaseClient):
         self, waiter_name: Literal["fargate_profile_deleted"]
     ) -> FargateProfileDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.FargateProfileDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.FargateProfileDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#fargateprofiledeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["nodegroup_active"]) -> NodegroupActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.NodegroupActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.NodegroupActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#nodegroupactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["nodegroup_deleted"]) -> NodegroupDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#nodegroupdeletedwaiter)
         """

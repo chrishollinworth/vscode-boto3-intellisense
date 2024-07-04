@@ -63,7 +63,7 @@ class Exceptions:
 
 class WorkLinkClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html)
     """
 
@@ -81,7 +81,7 @@ class WorkLinkClient(BaseClient):
         """
         Specifies a domain to be associated to Amazon WorkLink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.associate_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.associate_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#associate_domain)
         """
 
@@ -91,7 +91,7 @@ class WorkLinkClient(BaseClient):
         """
         Associates a website authorization provider with a specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.associate_website_authorization_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.associate_website_authorization_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#associate_website_authorization_provider)
         """
 
@@ -102,7 +102,7 @@ class WorkLinkClient(BaseClient):
         Imports the root certificate of a certificate authority (CA) used to obtain TLS
         certificates used by associated websites within the company network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.associate_website_certificate_authority)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.associate_website_certificate_authority)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#associate_website_certificate_authority)
         """
 
@@ -110,7 +110,7 @@ class WorkLinkClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#can_paginate)
         """
 
@@ -118,7 +118,7 @@ class WorkLinkClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#close)
         """
 
@@ -133,7 +133,7 @@ class WorkLinkClient(BaseClient):
         """
         Creates a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#create_fleet)
         """
 
@@ -141,7 +141,7 @@ class WorkLinkClient(BaseClient):
         """
         Deletes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#delete_fleet)
         """
 
@@ -152,7 +152,7 @@ class WorkLinkClient(BaseClient):
         Describes the configuration for delivering audit streams to the customer
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_audit_stream_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_audit_stream_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_audit_stream_configuration)
         """
 
@@ -163,7 +163,7 @@ class WorkLinkClient(BaseClient):
         Describes the networking configuration to access the internal websites
         associated with the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_company_network_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_company_network_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_company_network_configuration)
         """
 
@@ -171,7 +171,7 @@ class WorkLinkClient(BaseClient):
         """
         Provides information about a user's device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_device)
         """
 
@@ -181,7 +181,7 @@ class WorkLinkClient(BaseClient):
         """
         Describes the device policy configuration for the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_device_policy_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_device_policy_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_device_policy_configuration)
         """
 
@@ -189,7 +189,7 @@ class WorkLinkClient(BaseClient):
         """
         Provides information about the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_domain)
         """
 
@@ -198,7 +198,7 @@ class WorkLinkClient(BaseClient):
         Provides basic information for the specified fleet, excluding identity provider,
         networking, and device configuration details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_fleet_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_fleet_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_fleet_metadata)
         """
 
@@ -208,7 +208,7 @@ class WorkLinkClient(BaseClient):
         """
         Describes the identity provider configuration of the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_identity_provider_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_identity_provider_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_identity_provider_configuration)
         """
 
@@ -218,7 +218,7 @@ class WorkLinkClient(BaseClient):
         """
         Provides information about the certificate authority.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.describe_website_certificate_authority)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.describe_website_certificate_authority)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#describe_website_certificate_authority)
         """
 
@@ -226,7 +226,7 @@ class WorkLinkClient(BaseClient):
         """
         Disassociates a domain from Amazon WorkLink.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.disassociate_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.disassociate_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#disassociate_domain)
         """
 
@@ -236,7 +236,7 @@ class WorkLinkClient(BaseClient):
         """
         Disassociates a website authorization provider from a specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.disassociate_website_authorization_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.disassociate_website_authorization_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#disassociate_website_authorization_provider)
         """
 
@@ -246,7 +246,7 @@ class WorkLinkClient(BaseClient):
         """
         Removes a certificate authority (CA).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.disassociate_website_certificate_authority)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.disassociate_website_certificate_authority)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#disassociate_website_certificate_authority)
         """
 
@@ -260,7 +260,7 @@ class WorkLinkClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#generate_presigned_url)
         """
 
@@ -270,7 +270,7 @@ class WorkLinkClient(BaseClient):
         """
         Retrieves a list of devices registered with the specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_devices)
         """
 
@@ -280,7 +280,7 @@ class WorkLinkClient(BaseClient):
         """
         Retrieves a list of domains associated to a specified fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_domains)
         """
 
@@ -290,7 +290,7 @@ class WorkLinkClient(BaseClient):
         """
         Retrieves a list of fleets for the current account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_fleets)
         """
 
@@ -298,7 +298,7 @@ class WorkLinkClient(BaseClient):
         """
         Retrieves a list of tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_tags_for_resource)
         """
 
@@ -309,7 +309,7 @@ class WorkLinkClient(BaseClient):
         Retrieves a list of website authorization providers associated with a specified
         fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_website_authorization_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_website_authorization_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_website_authorization_providers)
         """
 
@@ -320,7 +320,7 @@ class WorkLinkClient(BaseClient):
         Retrieves a list of certificate authorities added for the current account and
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.list_website_certificate_authorities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.list_website_certificate_authorities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#list_website_certificate_authorities)
         """
 
@@ -328,7 +328,7 @@ class WorkLinkClient(BaseClient):
         """
         Moves a domain to ACTIVE status if it was in the INACTIVE status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.restore_domain_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.restore_domain_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#restore_domain_access)
         """
 
@@ -336,7 +336,7 @@ class WorkLinkClient(BaseClient):
         """
         Moves a domain to INACTIVE status if it was in the ACTIVE status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.revoke_domain_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.revoke_domain_access)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#revoke_domain_access)
         """
 
@@ -344,7 +344,7 @@ class WorkLinkClient(BaseClient):
         """
         Signs the user out from all of their devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.sign_out_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.sign_out_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#sign_out_user)
         """
 
@@ -352,7 +352,7 @@ class WorkLinkClient(BaseClient):
         """
         Adds or overwrites one or more tags for the specified resource, such as a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#tag_resource)
         """
 
@@ -360,7 +360,7 @@ class WorkLinkClient(BaseClient):
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#untag_resource)
         """
 
@@ -370,7 +370,7 @@ class WorkLinkClient(BaseClient):
         """
         Updates the audit stream configuration for the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_audit_stream_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_audit_stream_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_audit_stream_configuration)
         """
 
@@ -380,7 +380,7 @@ class WorkLinkClient(BaseClient):
         """
         Updates the company network configuration for the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_company_network_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_company_network_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_company_network_configuration)
         """
 
@@ -390,7 +390,7 @@ class WorkLinkClient(BaseClient):
         """
         Updates the device policy configuration for the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_device_policy_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_device_policy_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_device_policy_configuration)
         """
 
@@ -400,7 +400,7 @@ class WorkLinkClient(BaseClient):
         """
         Updates domain metadata, such as DisplayName.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_domain_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_domain_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_domain_metadata)
         """
 
@@ -410,7 +410,7 @@ class WorkLinkClient(BaseClient):
         """
         Updates fleet metadata, such as DisplayName.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_fleet_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_fleet_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_fleet_metadata)
         """
 
@@ -424,6 +424,6 @@ class WorkLinkClient(BaseClient):
         """
         Updates the identity provider configuration for the fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/worklink.html#WorkLink.Client.update_identity_provider_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/worklink.html#WorkLink.Client.update_identity_provider_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_worklink/client.html#update_identity_provider_configuration)
         """

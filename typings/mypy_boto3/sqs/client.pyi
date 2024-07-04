@@ -89,7 +89,7 @@ class Exceptions:
 
 class SQSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html)
     """
 
@@ -108,7 +108,7 @@ class SQSClient(BaseClient):
         Adds a permission to a queue for a specific `principal
         <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.add_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.add_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#add_permission)
         """
 
@@ -116,7 +116,7 @@ class SQSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#can_paginate)
         """
 
@@ -124,7 +124,7 @@ class SQSClient(BaseClient):
         """
         Cancels a specified message movement task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.cancel_message_move_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.cancel_message_move_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#cancel_message_move_task)
         """
 
@@ -134,7 +134,7 @@ class SQSClient(BaseClient):
         """
         Changes the visibility timeout of a specified message in a queue to a new value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.change_message_visibility)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.change_message_visibility)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#change_message_visibility)
         """
 
@@ -144,7 +144,7 @@ class SQSClient(BaseClient):
         """
         Changes the visibility timeout of multiple messages.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.change_message_visibility_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.change_message_visibility_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#change_message_visibility_batch)
         """
 
@@ -152,7 +152,7 @@ class SQSClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#close)
         """
 
@@ -166,7 +166,7 @@ class SQSClient(BaseClient):
         """
         Creates a new standard or FIFO queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.create_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.create_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#create_queue)
         """
 
@@ -174,7 +174,7 @@ class SQSClient(BaseClient):
         """
         Deletes the specified message from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.delete_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.delete_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#delete_message)
         """
 
@@ -184,7 +184,7 @@ class SQSClient(BaseClient):
         """
         Deletes up to ten messages from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.delete_message_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.delete_message_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#delete_message_batch)
         """
 
@@ -193,7 +193,7 @@ class SQSClient(BaseClient):
         Deletes the queue specified by the `QueueUrl`, regardless of the queue's
         contents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.delete_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.delete_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#delete_queue)
         """
 
@@ -207,7 +207,7 @@ class SQSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#generate_presigned_url)
         """
 
@@ -217,7 +217,7 @@ class SQSClient(BaseClient):
         """
         Gets attributes for the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.get_queue_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.get_queue_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#get_queue_attributes)
         """
 
@@ -227,7 +227,7 @@ class SQSClient(BaseClient):
         """
         Returns the URL of an existing Amazon SQS queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.get_queue_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.get_queue_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#get_queue_url)
         """
 
@@ -238,7 +238,7 @@ class SQSClient(BaseClient):
         Returns a list of your queues that have the `RedrivePolicy` queue attribute
         configured with a dead-letter queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.list_dead_letter_source_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.list_dead_letter_source_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#list_dead_letter_source_queues)
         """
 
@@ -249,7 +249,7 @@ class SQSClient(BaseClient):
         Gets the most recent message movement tasks (up to 10) under a specific source
         queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.list_message_move_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.list_message_move_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#list_message_move_tasks)
         """
 
@@ -257,7 +257,7 @@ class SQSClient(BaseClient):
         """
         List all cost allocation tags added to the specified Amazon SQS queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.list_queue_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.list_queue_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#list_queue_tags)
         """
 
@@ -267,7 +267,7 @@ class SQSClient(BaseClient):
         """
         Returns a list of your queues in the current region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.list_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.list_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#list_queues)
         """
 
@@ -276,7 +276,7 @@ class SQSClient(BaseClient):
         Deletes available messages in a queue (including in-flight messages) specified
         by the `QueueURL` parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.purge_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.purge_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#purge_queue)
         """
 
@@ -295,7 +295,7 @@ class SQSClient(BaseClient):
         """
         Retrieves one or more messages (up to 10), from the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.receive_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.receive_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#receive_message)
         """
 
@@ -304,7 +304,7 @@ class SQSClient(BaseClient):
         Revokes any permissions in the queue policy that matches the specified `Label`
         parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.remove_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.remove_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#remove_permission)
         """
 
@@ -324,7 +324,7 @@ class SQSClient(BaseClient):
         """
         Delivers a message to the specified queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.send_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.send_message)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#send_message)
         """
 
@@ -336,7 +336,7 @@ class SQSClient(BaseClient):
         by assigning either identical or different values to each message (or by not
         assigning values at all).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.send_message_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.send_message_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#send_message_batch)
         """
 
@@ -346,7 +346,7 @@ class SQSClient(BaseClient):
         """
         Sets the value of one or more queue attributes, like a policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.set_queue_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.set_queue_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#set_queue_attributes)
         """
 
@@ -361,7 +361,7 @@ class SQSClient(BaseClient):
         Starts an asynchronous task to move messages from a specified source queue to a
         specified destination queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.start_message_move_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.start_message_move_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#start_message_move_task)
         """
 
@@ -369,7 +369,7 @@ class SQSClient(BaseClient):
         """
         Add cost allocation tags to the specified Amazon SQS queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.tag_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.tag_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#tag_queue)
         """
 
@@ -377,7 +377,7 @@ class SQSClient(BaseClient):
         """
         Remove cost allocation tags from the specified Amazon SQS queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Client.untag_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Client.untag_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/client.html#untag_queue)
         """
 
@@ -386,13 +386,13 @@ class SQSClient(BaseClient):
         self, operation_name: Literal["list_dead_letter_source_queues"]
     ) -> ListDeadLetterSourceQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/paginators.html#listdeadlettersourcequeuespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/sqs.html#SQS.Paginator.ListQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sqs.html#SQS.Paginator.ListQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/paginators.html#listqueuespaginator)
         """

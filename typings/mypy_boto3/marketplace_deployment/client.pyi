@@ -45,7 +45,7 @@ class Exceptions:
 
 class MarketplaceDeploymentServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html)
     """
 
@@ -61,7 +61,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#can_paginate)
         """
 
@@ -69,7 +69,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#close)
         """
 
@@ -83,7 +83,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#generate_presigned_url)
         """
 
@@ -91,7 +91,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Lists all tags that have been added to a deployment parameter resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#list_tags_for_resource)
         """
 
@@ -110,7 +110,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         Creates or updates a deployment parameter and is targeted by `catalog` and
         `agreementId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.put_deployment_parameter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.put_deployment_parameter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#put_deployment_parameter)
         """
 
@@ -118,7 +118,7 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Tags a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#tag_resource)
         """
 
@@ -126,6 +126,6 @@ class MarketplaceDeploymentServiceClient(BaseClient):
         """
         Removes a tag or list of tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-deployment.html#MarketplaceDeploymentService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/client.html#untag_resource)
         """

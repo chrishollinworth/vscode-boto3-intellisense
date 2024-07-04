@@ -113,6 +113,7 @@ __all__ = (
     "FrameworkType",
     "HubContentSortByType",
     "HubContentStatusType",
+    "HubContentSupportStatusType",
     "HubContentTypeType",
     "HubSortByType",
     "HubStatusType",
@@ -143,6 +144,7 @@ __all__ = (
     "InferenceExperimentTypeType",
     "InputModeType",
     "InstanceTypeType",
+    "IsTrackingServerActiveType",
     "JobTypeType",
     "JoinSourceType",
     "LabelingJobStatusType",
@@ -190,6 +192,7 @@ __all__ = (
     "ListLabelingJobsForWorkteamSortByOptionsType",
     "ListLabelingJobsPaginatorName",
     "ListLineageGroupsPaginatorName",
+    "ListMlflowTrackingServersPaginatorName",
     "ListModelBiasJobDefinitionsPaginatorName",
     "ListModelCardExportJobsPaginatorName",
     "ListModelCardVersionsPaginatorName",
@@ -229,6 +232,7 @@ __all__ = (
     "ListWorkteamsSortByOptionsType",
     "ManagedInstanceScalingStatusType",
     "MetricSetSourceType",
+    "MlToolsType",
     "ModelApprovalStatusType",
     "ModelCacheSettingType",
     "ModelCardExportJobSortByType",
@@ -286,6 +290,7 @@ __all__ = (
     "ProcessingS3UploadModeType",
     "ProcessorType",
     "ProductionVariantAcceleratorTypeType",
+    "ProductionVariantInferenceAmiVersionType",
     "ProductionVariantInstanceTypeType",
     "ProfilingStatusType",
     "ProjectSortByType",
@@ -330,6 +335,7 @@ __all__ = (
     "SortOrderType",
     "SortPipelineExecutionsByType",
     "SortPipelinesByType",
+    "SortTrackingServerByType",
     "SortTrialComponentsByType",
     "SortTrialsByType",
     "SpaceSortKeyType",
@@ -348,6 +354,8 @@ __all__ = (
     "TargetPlatformArchType",
     "TargetPlatformOsType",
     "ThroughputModeType",
+    "TrackingServerSizeType",
+    "TrackingServerStatusType",
     "TrafficRoutingConfigTypeType",
     "TrafficTypeType",
     "TrainingInputModeType",
@@ -856,7 +864,8 @@ FrameworkType = Literal[
 ]
 HubContentSortByType = Literal["CreationTime", "HubContentName", "HubContentStatus"]
 HubContentStatusType = Literal["Available", "DeleteFailed", "Deleting", "ImportFailed", "Importing"]
-HubContentTypeType = Literal["Model", "Notebook"]
+HubContentSupportStatusType = Literal["Deprecated", "Supported"]
+HubContentTypeType = Literal["Model", "ModelReference", "Notebook"]
 HubSortByType = Literal["AccountIdOwner", "CreationTime", "HubName", "HubStatus"]
 HubStatusType = Literal[
     "CreateFailed", "Creating", "DeleteFailed", "Deleting", "InService", "UpdateFailed", "Updating"
@@ -1062,6 +1071,7 @@ InstanceTypeType = Literal[
     "ml.t3.medium",
     "ml.t3.xlarge",
 ]
+IsTrackingServerActiveType = Literal["Active", "Inactive"]
 JobTypeType = Literal["INFERENCE", "NOTEBOOK_KERNEL", "TRAINING"]
 JoinSourceType = Literal["Input", "None"]
 LabelingJobStatusType = Literal[
@@ -1117,6 +1127,7 @@ ListLabelingJobsForWorkteamPaginatorName = Literal["list_labeling_jobs_for_workt
 ListLabelingJobsForWorkteamSortByOptionsType = Literal["CreationTime"]
 ListLabelingJobsPaginatorName = Literal["list_labeling_jobs"]
 ListLineageGroupsPaginatorName = Literal["list_lineage_groups"]
+ListMlflowTrackingServersPaginatorName = Literal["list_mlflow_tracking_servers"]
 ListModelBiasJobDefinitionsPaginatorName = Literal["list_model_bias_job_definitions"]
 ListModelCardExportJobsPaginatorName = Literal["list_model_card_export_jobs"]
 ListModelCardVersionsPaginatorName = Literal["list_model_card_versions"]
@@ -1162,6 +1173,21 @@ ListWorkteamsPaginatorName = Literal["list_workteams"]
 ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
 ManagedInstanceScalingStatusType = Literal["DISABLED", "ENABLED"]
 MetricSetSourceType = Literal["Test", "Train", "Validation"]
+MlToolsType = Literal[
+    "AutoMl",
+    "DataWrangler",
+    "EmrClusters",
+    "Endpoints",
+    "Experiments",
+    "FeatureStore",
+    "InferenceRecommender",
+    "JumpStart",
+    "ModelEvaluation",
+    "Models",
+    "Pipelines",
+    "Projects",
+    "Training",
+]
 ModelApprovalStatusType = Literal["Approved", "PendingManualApproval", "Rejected"]
 ModelCacheSettingType = Literal["Disabled", "Enabled"]
 ModelCardExportJobSortByType = Literal["CreationTime", "Name", "Status"]
@@ -1302,6 +1328,7 @@ ProductionVariantAcceleratorTypeType = Literal[
     "ml.eia2.medium",
     "ml.eia2.xlarge",
 ]
+ProductionVariantInferenceAmiVersionType = Literal["al2-ami-sagemaker-inference-gpu-2"]
 ProductionVariantInstanceTypeType = Literal[
     "ml.c4.2xlarge",
     "ml.c4.4xlarge",
@@ -1585,6 +1612,7 @@ SortLineageGroupsByType = Literal["CreationTime", "Name"]
 SortOrderType = Literal["Ascending", "Descending"]
 SortPipelineExecutionsByType = Literal["CreationTime", "PipelineExecutionArn"]
 SortPipelinesByType = Literal["CreationTime", "Name"]
+SortTrackingServerByType = Literal["CreationTime", "Name", "Status"]
 SortTrialComponentsByType = Literal["CreationTime", "Name"]
 SortTrialsByType = Literal["CreationTime", "Name"]
 SpaceSortKeyType = Literal["CreationTime", "LastModifiedTime"]
@@ -1654,6 +1682,26 @@ TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NNA", "NVIDIA
 TargetPlatformArchType = Literal["ARM64", "ARM_EABI", "ARM_EABIHF", "X86", "X86_64"]
 TargetPlatformOsType = Literal["ANDROID", "LINUX"]
 ThroughputModeType = Literal["OnDemand", "Provisioned"]
+TrackingServerSizeType = Literal["Large", "Medium", "Small"]
+TrackingServerStatusType = Literal[
+    "CreateFailed",
+    "Created",
+    "Creating",
+    "DeleteFailed",
+    "Deleting",
+    "MaintenanceComplete",
+    "MaintenanceFailed",
+    "MaintenanceInProgress",
+    "StartFailed",
+    "Started",
+    "Starting",
+    "StopFailed",
+    "Stopped",
+    "Stopping",
+    "UpdateFailed",
+    "Updated",
+    "Updating",
+]
 TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY", "LINEAR"]
 TrafficTypeType = Literal["PHASES", "STAIRS"]
 TrainingInputModeType = Literal["FastFile", "File", "Pipe"]

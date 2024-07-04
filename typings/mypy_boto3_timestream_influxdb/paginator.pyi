@@ -35,7 +35,7 @@ __all__ = ("ListDbInstancesPaginator", "ListDbParameterGroupsPaginator")
 
 class ListDbInstancesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbinstancespaginator)
     """
 
@@ -43,13 +43,13 @@ class ListDbInstancesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDbInstancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbinstancespaginator)
         """
 
 class ListDbParameterGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbparametergroupspaginator)
     """
 
@@ -57,6 +57,6 @@ class ListDbParameterGroupsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDbParameterGroupsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbparametergroupspaginator)
         """

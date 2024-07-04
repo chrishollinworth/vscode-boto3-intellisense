@@ -19,12 +19,23 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ConversationRoleType,
+    DocumentFormatType,
+    GuardrailContentFilterConfidenceType,
+    GuardrailContentFilterTypeType,
+    GuardrailPiiEntityTypeType,
+    GuardrailSensitiveInformationPolicyActionType,
+    GuardrailStreamProcessingModeType,
+    GuardrailTraceType,
     ImageFormatType,
     StopReasonType,
     ToolResultStatusType,
     TraceType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +57,26 @@ __all__ = (
     "ConverseStreamOutputTypeDef",
     "ConverseStreamRequestRequestTypeDef",
     "ConverseStreamResponseTypeDef",
+    "ConverseStreamTraceTypeDef",
+    "ConverseTraceTypeDef",
+    "DocumentBlockTypeDef",
+    "DocumentSourceTypeDef",
+    "GuardrailAssessmentTypeDef",
+    "GuardrailConfigurationTypeDef",
+    "GuardrailContentFilterTypeDef",
+    "GuardrailContentPolicyAssessmentTypeDef",
+    "GuardrailConverseContentBlockTypeDef",
+    "GuardrailConverseTextBlockTypeDef",
+    "GuardrailCustomWordTypeDef",
+    "GuardrailManagedWordTypeDef",
+    "GuardrailPiiEntityFilterTypeDef",
+    "GuardrailRegexFilterTypeDef",
+    "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
+    "GuardrailStreamConfigurationTypeDef",
+    "GuardrailTopicPolicyAssessmentTypeDef",
+    "GuardrailTopicTypeDef",
+    "GuardrailTraceAssessmentTypeDef",
+    "GuardrailWordPolicyAssessmentTypeDef",
     "ImageBlockTypeDef",
     "ImageSourceTypeDef",
     "InferenceConfigurationTypeDef",
@@ -124,8 +155,10 @@ ContentBlockTypeDef = TypedDict(
     {
         "text": str,
         "image": "ImageBlockTypeDef",
+        "document": "DocumentBlockTypeDef",
         "toolUse": "ToolUseBlockTypeDef",
         "toolResult": "ToolResultBlockTypeDef",
+        "guardContent": "GuardrailConverseContentBlockTypeDef",
     },
     total=False,
 )
@@ -158,6 +191,7 @@ _OptionalConverseRequestRequestTypeDef = TypedDict(
         "system": List["SystemContentBlockTypeDef"],
         "inferenceConfig": "InferenceConfigurationTypeDef",
         "toolConfig": "ToolConfigurationTypeDef",
+        "guardrailConfig": "GuardrailConfigurationTypeDef",
         "additionalModelRequestFields": Dict[str, Any],
         "additionalModelResponseFieldPaths": List[str],
     },
@@ -177,17 +211,30 @@ ConverseResponseTypeDef = TypedDict(
         "usage": "TokenUsageTypeDef",
         "metrics": "ConverseMetricsTypeDef",
         "additionalModelResponseFields": Dict[str, Any],
+        "trace": "ConverseTraceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-ConverseStreamMetadataEventTypeDef = TypedDict(
-    "ConverseStreamMetadataEventTypeDef",
+_RequiredConverseStreamMetadataEventTypeDef = TypedDict(
+    "_RequiredConverseStreamMetadataEventTypeDef",
     {
         "usage": "TokenUsageTypeDef",
         "metrics": "ConverseStreamMetricsTypeDef",
     },
 )
+_OptionalConverseStreamMetadataEventTypeDef = TypedDict(
+    "_OptionalConverseStreamMetadataEventTypeDef",
+    {
+        "trace": "ConverseStreamTraceTypeDef",
+    },
+    total=False,
+)
+
+class ConverseStreamMetadataEventTypeDef(
+    _RequiredConverseStreamMetadataEventTypeDef, _OptionalConverseStreamMetadataEventTypeDef
+):
+    pass
 
 ConverseStreamMetricsTypeDef = TypedDict(
     "ConverseStreamMetricsTypeDef",
@@ -226,6 +273,7 @@ _OptionalConverseStreamRequestRequestTypeDef = TypedDict(
         "system": List["SystemContentBlockTypeDef"],
         "inferenceConfig": "InferenceConfigurationTypeDef",
         "toolConfig": "ToolConfigurationTypeDef",
+        "guardrailConfig": "GuardrailStreamConfigurationTypeDef",
         "additionalModelRequestFields": Dict[str, Any],
         "additionalModelResponseFieldPaths": List[str],
     },
@@ -242,6 +290,211 @@ ConverseStreamResponseTypeDef = TypedDict(
     {
         "stream": "ConverseStreamOutputTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ConverseStreamTraceTypeDef = TypedDict(
+    "ConverseStreamTraceTypeDef",
+    {
+        "guardrail": "GuardrailTraceAssessmentTypeDef",
+    },
+    total=False,
+)
+
+ConverseTraceTypeDef = TypedDict(
+    "ConverseTraceTypeDef",
+    {
+        "guardrail": "GuardrailTraceAssessmentTypeDef",
+    },
+    total=False,
+)
+
+DocumentBlockTypeDef = TypedDict(
+    "DocumentBlockTypeDef",
+    {
+        "format": DocumentFormatType,
+        "name": str,
+        "source": "DocumentSourceTypeDef",
+    },
+)
+
+DocumentSourceTypeDef = TypedDict(
+    "DocumentSourceTypeDef",
+    {
+        "bytes": Union[bytes, IO[bytes], StreamingBody],
+    },
+    total=False,
+)
+
+GuardrailAssessmentTypeDef = TypedDict(
+    "GuardrailAssessmentTypeDef",
+    {
+        "topicPolicy": "GuardrailTopicPolicyAssessmentTypeDef",
+        "contentPolicy": "GuardrailContentPolicyAssessmentTypeDef",
+        "wordPolicy": "GuardrailWordPolicyAssessmentTypeDef",
+        "sensitiveInformationPolicy": "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
+    },
+    total=False,
+)
+
+_RequiredGuardrailConfigurationTypeDef = TypedDict(
+    "_RequiredGuardrailConfigurationTypeDef",
+    {
+        "guardrailIdentifier": str,
+        "guardrailVersion": str,
+    },
+)
+_OptionalGuardrailConfigurationTypeDef = TypedDict(
+    "_OptionalGuardrailConfigurationTypeDef",
+    {
+        "trace": GuardrailTraceType,
+    },
+    total=False,
+)
+
+class GuardrailConfigurationTypeDef(
+    _RequiredGuardrailConfigurationTypeDef, _OptionalGuardrailConfigurationTypeDef
+):
+    pass
+
+GuardrailContentFilterTypeDef = TypedDict(
+    "GuardrailContentFilterTypeDef",
+    {
+        "type": GuardrailContentFilterTypeType,
+        "confidence": GuardrailContentFilterConfidenceType,
+        "action": Literal["BLOCKED"],
+    },
+)
+
+GuardrailContentPolicyAssessmentTypeDef = TypedDict(
+    "GuardrailContentPolicyAssessmentTypeDef",
+    {
+        "filters": List["GuardrailContentFilterTypeDef"],
+    },
+)
+
+GuardrailConverseContentBlockTypeDef = TypedDict(
+    "GuardrailConverseContentBlockTypeDef",
+    {
+        "text": "GuardrailConverseTextBlockTypeDef",
+    },
+    total=False,
+)
+
+GuardrailConverseTextBlockTypeDef = TypedDict(
+    "GuardrailConverseTextBlockTypeDef",
+    {
+        "text": str,
+    },
+)
+
+GuardrailCustomWordTypeDef = TypedDict(
+    "GuardrailCustomWordTypeDef",
+    {
+        "match": str,
+        "action": Literal["BLOCKED"],
+    },
+)
+
+GuardrailManagedWordTypeDef = TypedDict(
+    "GuardrailManagedWordTypeDef",
+    {
+        "match": str,
+        "type": Literal["PROFANITY"],
+        "action": Literal["BLOCKED"],
+    },
+)
+
+GuardrailPiiEntityFilterTypeDef = TypedDict(
+    "GuardrailPiiEntityFilterTypeDef",
+    {
+        "match": str,
+        "type": GuardrailPiiEntityTypeType,
+        "action": GuardrailSensitiveInformationPolicyActionType,
+    },
+)
+
+_RequiredGuardrailRegexFilterTypeDef = TypedDict(
+    "_RequiredGuardrailRegexFilterTypeDef",
+    {
+        "action": GuardrailSensitiveInformationPolicyActionType,
+    },
+)
+_OptionalGuardrailRegexFilterTypeDef = TypedDict(
+    "_OptionalGuardrailRegexFilterTypeDef",
+    {
+        "name": str,
+        "match": str,
+        "regex": str,
+    },
+    total=False,
+)
+
+class GuardrailRegexFilterTypeDef(
+    _RequiredGuardrailRegexFilterTypeDef, _OptionalGuardrailRegexFilterTypeDef
+):
+    pass
+
+GuardrailSensitiveInformationPolicyAssessmentTypeDef = TypedDict(
+    "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
+    {
+        "piiEntities": List["GuardrailPiiEntityFilterTypeDef"],
+        "regexes": List["GuardrailRegexFilterTypeDef"],
+    },
+)
+
+_RequiredGuardrailStreamConfigurationTypeDef = TypedDict(
+    "_RequiredGuardrailStreamConfigurationTypeDef",
+    {
+        "guardrailIdentifier": str,
+        "guardrailVersion": str,
+    },
+)
+_OptionalGuardrailStreamConfigurationTypeDef = TypedDict(
+    "_OptionalGuardrailStreamConfigurationTypeDef",
+    {
+        "trace": GuardrailTraceType,
+        "streamProcessingMode": GuardrailStreamProcessingModeType,
+    },
+    total=False,
+)
+
+class GuardrailStreamConfigurationTypeDef(
+    _RequiredGuardrailStreamConfigurationTypeDef, _OptionalGuardrailStreamConfigurationTypeDef
+):
+    pass
+
+GuardrailTopicPolicyAssessmentTypeDef = TypedDict(
+    "GuardrailTopicPolicyAssessmentTypeDef",
+    {
+        "topics": List["GuardrailTopicTypeDef"],
+    },
+)
+
+GuardrailTopicTypeDef = TypedDict(
+    "GuardrailTopicTypeDef",
+    {
+        "name": str,
+        "type": Literal["DENY"],
+        "action": Literal["BLOCKED"],
+    },
+)
+
+GuardrailTraceAssessmentTypeDef = TypedDict(
+    "GuardrailTraceAssessmentTypeDef",
+    {
+        "modelOutput": List[str],
+        "inputAssessment": Dict[str, "GuardrailAssessmentTypeDef"],
+        "outputAssessments": Dict[str, List["GuardrailAssessmentTypeDef"]],
+    },
+    total=False,
+)
+
+GuardrailWordPolicyAssessmentTypeDef = TypedDict(
+    "GuardrailWordPolicyAssessmentTypeDef",
+    {
+        "customWords": List["GuardrailCustomWordTypeDef"],
+        "managedWordLists": List["GuardrailManagedWordTypeDef"],
     },
 )
 
@@ -440,6 +693,7 @@ SystemContentBlockTypeDef = TypedDict(
     "SystemContentBlockTypeDef",
     {
         "text": str,
+        "guardContent": "GuardrailConverseContentBlockTypeDef",
     },
     total=False,
 )
@@ -522,6 +776,7 @@ ToolResultContentBlockTypeDef = TypedDict(
         "json": Dict[str, Any],
         "text": str,
         "image": "ImageBlockTypeDef",
+        "document": "DocumentBlockTypeDef",
     },
     total=False,
 )

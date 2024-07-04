@@ -73,7 +73,7 @@ __all__ = (
 
 class ListAccessTokensPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listaccesstokenspaginator)
     """
 
@@ -81,13 +81,13 @@ class ListAccessTokensPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccessTokensResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListAccessTokens.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listaccesstokenspaginator)
         """
 
 class ListDevEnvironmentSessionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentsessionspaginator)
     """
 
@@ -100,13 +100,13 @@ class ListDevEnvironmentSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevEnvironmentSessionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironmentSessions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentsessionspaginator)
         """
 
 class ListDevEnvironmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentspaginator)
     """
 
@@ -119,13 +119,13 @@ class ListDevEnvironmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevEnvironmentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListDevEnvironments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listdevenvironmentspaginator)
         """
 
 class ListEventLogsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listeventlogspaginator)
     """
 
@@ -139,13 +139,13 @@ class ListEventLogsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventLogsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListEventLogs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listeventlogspaginator)
         """
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listprojectspaginator)
     """
 
@@ -157,13 +157,13 @@ class ListProjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listprojectspaginator)
         """
 
 class ListSourceRepositoriesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositoriespaginator)
     """
 
@@ -171,13 +171,13 @@ class ListSourceRepositoriesPaginator(Boto3Paginator):
         self, *, spaceName: str, projectName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSourceRepositoriesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositories.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositoriespaginator)
         """
 
 class ListSourceRepositoryBranchesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositorybranchespaginator)
     """
 
@@ -190,13 +190,13 @@ class ListSourceRepositoryBranchesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSourceRepositoryBranchesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSourceRepositoryBranches.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listsourcerepositorybranchespaginator)
         """
 
 class ListSpacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listspacespaginator)
     """
 
@@ -204,13 +204,13 @@ class ListSpacesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSpacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListSpaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listspacespaginator)
         """
 
 class ListWorkflowRunsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflowRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflowRuns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowrunspaginator)
     """
 
@@ -224,13 +224,13 @@ class ListWorkflowRunsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkflowRunsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflowRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflowRuns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowrunspaginator)
         """
 
 class ListWorkflowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowspaginator)
     """
 
@@ -243,6 +243,6 @@ class ListWorkflowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkflowsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codecatalyst.html#CodeCatalyst.Paginator.ListWorkflows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/paginators.html#listworkflowspaginator)
         """

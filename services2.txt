@@ -2,7 +2,6 @@ accessanalyzer
 account
 acm
 acm_pca
-alexaforbusiness
 amp
 amplify
 amplifybackend
@@ -17,11 +16,13 @@ appflow
 appintegrations
 application_autoscaling
 application_insights
+application_signals
 applicationcostprofiler
 appmesh
 apprunner
 appstream
 appsync
+apptest
 arc_zonal_shift
 artifact
 athena
@@ -31,7 +32,6 @@ autoscaling_plans
 b2bi
 backup
 backup_gateway
-backupstorage
 batch
 bcm_data_exports
 bedrock
@@ -157,7 +157,6 @@ groundstation
 guardduty
 health
 healthlake
-honeycode
 iam
 identitystore
 imagebuilder
@@ -268,6 +267,7 @@ panorama
 payment_cryptography
 payment_cryptography_data
 pca_connector_ad
+pca_connector_scep
 personalize
 personalize_events
 personalize_runtime

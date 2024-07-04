@@ -58,6 +58,7 @@ from .paginator import (
     GetMetricDataPaginator,
     ListAgentStatusesPaginator,
     ListApprovedOriginsPaginator,
+    ListAuthenticationProfilesPaginator,
     ListBotsPaginator,
     ListContactEvaluationsPaginator,
     ListContactFlowModulesPaginator,
@@ -164,6 +165,7 @@ from .type_defs import (
     DeactivateEvaluationFormResponseTypeDef,
     DeleteVocabularyResponseTypeDef,
     DescribeAgentStatusResponseTypeDef,
+    DescribeAuthenticationProfileResponseTypeDef,
     DescribeContactEvaluationResponseTypeDef,
     DescribeContactFlowModuleResponseTypeDef,
     DescribeContactFlowResponseTypeDef,
@@ -218,6 +220,7 @@ from .type_defs import (
     ListAgentStatusResponseTypeDef,
     ListAnalyticsDataAssociationsResponseTypeDef,
     ListApprovedOriginsResponseTypeDef,
+    ListAuthenticationProfilesResponseTypeDef,
     ListBotsResponseTypeDef,
     ListContactEvaluationsResponseTypeDef,
     ListContactFlowModulesResponseTypeDef,
@@ -382,7 +385,7 @@ class Exceptions:
 
 class ConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html)
     """
 
@@ -400,7 +403,7 @@ class ConnectClient(BaseClient):
         """
         Activates an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.activate_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.activate_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#activate_evaluation_form)
         """
 
@@ -410,7 +413,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_analytics_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_analytics_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_analytics_data_set)
         """
 
@@ -418,7 +421,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_approved_origin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_approved_origin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_approved_origin)
         """
 
@@ -428,7 +431,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_bot)
         """
 
@@ -438,7 +441,7 @@ class ConnectClient(BaseClient):
         """
         Associates an existing vocabulary as the default.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_default_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_default_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_default_vocabulary)
         """
 
@@ -453,7 +456,7 @@ class ConnectClient(BaseClient):
         """
         Associates a connect resource to a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_flow)
         """
 
@@ -467,7 +470,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_instance_storage_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_instance_storage_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_instance_storage_config)
         """
 
@@ -475,7 +478,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_lambda_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_lambda_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_lambda_function)
         """
 
@@ -483,7 +486,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_lex_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_lex_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_lex_bot)
         """
 
@@ -493,7 +496,7 @@ class ConnectClient(BaseClient):
         """
         Associates a flow with a phone number claimed to your Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_phone_number_contact_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_phone_number_contact_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_phone_number_contact_flow)
         """
 
@@ -503,7 +506,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_queue_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_queue_quick_connects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_queue_quick_connects)
         """
 
@@ -517,7 +520,7 @@ class ConnectClient(BaseClient):
         """
         Associates a set of queues with a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_routing_profile_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_routing_profile_queues)
         """
 
@@ -527,7 +530,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_security_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_security_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_security_key)
         """
 
@@ -537,7 +540,7 @@ class ConnectClient(BaseClient):
         """
         Associates an agent with a traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_traffic_distribution_group_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_traffic_distribution_group_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_traffic_distribution_group_user)
         """
 
@@ -547,7 +550,7 @@ class ConnectClient(BaseClient):
         """
         >Associates a set of proficiencies with a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.associate_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.associate_user_proficiencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#associate_user_proficiencies)
         """
 
@@ -557,7 +560,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.batch_associate_analytics_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_associate_analytics_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_associate_analytics_data_set)
         """
 
@@ -567,7 +570,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.batch_disassociate_analytics_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_disassociate_analytics_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_disassociate_analytics_data_set)
         """
 
@@ -578,7 +581,7 @@ class ConnectClient(BaseClient):
         Allows you to retrieve metadata about multiple attached files on an associated
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.batch_get_attached_file_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_get_attached_file_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_get_attached_file_metadata)
         """
 
@@ -592,7 +595,7 @@ class ConnectClient(BaseClient):
         """
         Retrieve the flow associations for the given resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.batch_get_flow_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_get_flow_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_get_flow_association)
         """
 
@@ -606,7 +609,7 @@ class ConnectClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.batch_put_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.batch_put_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#batch_put_contact)
         """
 
@@ -614,7 +617,7 @@ class ConnectClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#can_paginate)
         """
 
@@ -632,7 +635,7 @@ class ConnectClient(BaseClient):
         Claims an available phone number to your Amazon Connect instance or traffic
         distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.claim_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.claim_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#claim_phone_number)
         """
 
@@ -640,7 +643,7 @@ class ConnectClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#close)
         """
 
@@ -651,7 +654,7 @@ class ConnectClient(BaseClient):
         Allows you to confirm that the attached file has been uploaded using the pre-
         signed URL provided in the StartAttachedFileUpload API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.complete_attached_file_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.complete_attached_file_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#complete_attached_file_upload)
         """
 
@@ -668,7 +671,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_agent_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_agent_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_agent_status)
         """
 
@@ -686,7 +689,7 @@ class ConnectClient(BaseClient):
         """
         Creates a flow for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_contact_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_contact_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_contact_flow)
         """
 
@@ -703,7 +706,7 @@ class ConnectClient(BaseClient):
         """
         Creates a flow module for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_contact_flow_module)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_contact_flow_module)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_contact_flow_module)
         """
 
@@ -720,7 +723,7 @@ class ConnectClient(BaseClient):
         """
         Creates an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_evaluation_form)
         """
 
@@ -737,7 +740,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_hours_of_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_hours_of_operation)
         """
 
@@ -755,7 +758,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_instance)
         """
 
@@ -774,7 +777,7 @@ class ConnectClient(BaseClient):
         Creates an Amazon Web Services resource association with an Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_integration_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_integration_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_integration_association)
         """
 
@@ -789,7 +792,7 @@ class ConnectClient(BaseClient):
         """
         Adds a new participant into an on-going chat contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_participant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_participant)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_participant)
         """
 
@@ -805,7 +808,7 @@ class ConnectClient(BaseClient):
         """
         Enables rehydration of chats for the lifespan of a contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_persistent_contact_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_persistent_contact_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_persistent_contact_association)
         """
 
@@ -815,7 +818,7 @@ class ConnectClient(BaseClient):
         """
         Creates a new predefined attribute for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_predefined_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_predefined_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_predefined_attribute)
         """
 
@@ -831,7 +834,7 @@ class ConnectClient(BaseClient):
         """
         Creates a prompt.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_prompt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_prompt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_prompt)
         """
 
@@ -850,7 +853,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_queue)
         """
 
@@ -866,7 +869,7 @@ class ConnectClient(BaseClient):
         """
         Creates a quick connect for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_quick_connect)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_quick_connect)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_quick_connect)
         """
 
@@ -885,7 +888,7 @@ class ConnectClient(BaseClient):
         """
         Creates a new routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_routing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_routing_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_routing_profile)
         """
 
@@ -903,7 +906,7 @@ class ConnectClient(BaseClient):
         """
         Creates a rule for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_rule)
         """
 
@@ -924,7 +927,7 @@ class ConnectClient(BaseClient):
         """
         Creates a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_security_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_security_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_security_profile)
         """
 
@@ -944,7 +947,7 @@ class ConnectClient(BaseClient):
         """
         Creates a new task template in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_task_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_task_template)
         """
 
@@ -961,7 +964,7 @@ class ConnectClient(BaseClient):
         Creates a traffic distribution group given an Amazon Connect instance that has
         been replicated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_traffic_distribution_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_traffic_distribution_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_traffic_distribution_group)
         """
 
@@ -976,7 +979,7 @@ class ConnectClient(BaseClient):
         """
         Creates a use case for an integration association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_use_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_use_case)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_use_case)
         """
 
@@ -997,7 +1000,7 @@ class ConnectClient(BaseClient):
         """
         Creates a user account for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_user)
         """
 
@@ -1007,7 +1010,7 @@ class ConnectClient(BaseClient):
         """
         Creates a new user hierarchy group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_user_hierarchy_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_user_hierarchy_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_user_hierarchy_group)
         """
 
@@ -1025,7 +1028,7 @@ class ConnectClient(BaseClient):
         """
         Creates a new view with the possible status of `SAVED` or `PUBLISHED`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_view)
         """
 
@@ -1040,7 +1043,7 @@ class ConnectClient(BaseClient):
         """
         Publishes a new version of the view identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_view_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_view_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_view_version)
         """
 
@@ -1057,7 +1060,7 @@ class ConnectClient(BaseClient):
         """
         Creates a custom vocabulary associated with your Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.create_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.create_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#create_vocabulary)
         """
 
@@ -1067,7 +1070,7 @@ class ConnectClient(BaseClient):
         """
         Deactivates an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.deactivate_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.deactivate_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#deactivate_evaluation_form)
         """
 
@@ -1077,7 +1080,7 @@ class ConnectClient(BaseClient):
         """
         Deletes an attached file along with the underlying S3 Object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_attached_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_attached_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_attached_file)
         """
 
@@ -1085,7 +1088,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a contact evaluation in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_evaluation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_evaluation)
         """
 
@@ -1093,7 +1096,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a flow for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_contact_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_flow)
         """
 
@@ -1103,7 +1106,7 @@ class ConnectClient(BaseClient):
         """
         Deletes the specified flow module.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_contact_flow_module)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_contact_flow_module)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_contact_flow_module)
         """
 
@@ -1113,7 +1116,7 @@ class ConnectClient(BaseClient):
         """
         Deletes an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_evaluation_form)
         """
 
@@ -1121,7 +1124,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_hours_of_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_hours_of_operation)
         """
 
@@ -1129,7 +1132,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_instance)
         """
 
@@ -1140,7 +1143,7 @@ class ConnectClient(BaseClient):
         Deletes an Amazon Web Services resource association from an Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_integration_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_integration_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_integration_association)
         """
 
@@ -1148,7 +1151,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a predefined attribute from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_predefined_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_predefined_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_predefined_attribute)
         """
 
@@ -1156,7 +1159,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a prompt.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_prompt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_prompt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_prompt)
         """
 
@@ -1164,7 +1167,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_queue)
         """
 
@@ -1172,7 +1175,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_quick_connect)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_quick_connect)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_quick_connect)
         """
 
@@ -1180,7 +1183,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_routing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_routing_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_routing_profile)
         """
 
@@ -1188,7 +1191,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a rule for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_rule)
         """
 
@@ -1196,7 +1199,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_security_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_security_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_security_profile)
         """
 
@@ -1204,7 +1207,7 @@ class ConnectClient(BaseClient):
         """
         Deletes the task template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_task_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_task_template)
         """
 
@@ -1214,7 +1217,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_traffic_distribution_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_traffic_distribution_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_traffic_distribution_group)
         """
 
@@ -1224,7 +1227,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a use case from an integration association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_use_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_use_case)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_use_case)
         """
 
@@ -1232,7 +1235,7 @@ class ConnectClient(BaseClient):
         """
         Deletes a user account from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_user)
         """
 
@@ -1240,7 +1243,7 @@ class ConnectClient(BaseClient):
         """
         Deletes an existing user hierarchy group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_user_hierarchy_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_user_hierarchy_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_user_hierarchy_group)
         """
 
@@ -1248,7 +1251,7 @@ class ConnectClient(BaseClient):
         """
         Deletes the view entirely.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_view)
         """
 
@@ -1258,7 +1261,7 @@ class ConnectClient(BaseClient):
         """
         Deletes the particular version specified in `ViewVersion` identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_view_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_view_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_view_version)
         """
 
@@ -1268,7 +1271,7 @@ class ConnectClient(BaseClient):
         """
         Deletes the vocabulary that has the given identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.delete_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.delete_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#delete_vocabulary)
         """
 
@@ -1278,8 +1281,18 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_agent_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_agent_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_agent_status)
+        """
+
+    def describe_authentication_profile(
+        self, *, AuthenticationProfileId: str, InstanceId: str
+    ) -> DescribeAuthenticationProfileResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_authentication_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_authentication_profile)
         """
 
     def describe_contact(
@@ -1288,7 +1301,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact)
         """
 
@@ -1298,7 +1311,7 @@ class ConnectClient(BaseClient):
         """
         Describes a contact evaluation in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_evaluation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_evaluation)
         """
 
@@ -1308,7 +1321,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_contact_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_flow)
         """
 
@@ -1318,7 +1331,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified flow module.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_contact_flow_module)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_contact_flow_module)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_contact_flow_module)
         """
 
@@ -1328,7 +1341,7 @@ class ConnectClient(BaseClient):
         """
         Describes an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_evaluation_form)
         """
 
@@ -1338,7 +1351,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_hours_of_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_hours_of_operation)
         """
 
@@ -1346,7 +1359,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance)
         """
 
@@ -1356,7 +1369,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_instance_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance_attribute)
         """
 
@@ -1366,7 +1379,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_instance_storage_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_instance_storage_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_instance_storage_config)
         """
 
@@ -1375,7 +1388,7 @@ class ConnectClient(BaseClient):
         Gets details and status of a phone number that’s claimed to your Amazon Connect
         instance or traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_phone_number)
         """
 
@@ -1385,7 +1398,7 @@ class ConnectClient(BaseClient):
         """
         Describes a predefined attribute for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_predefined_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_predefined_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_predefined_attribute)
         """
 
@@ -1393,7 +1406,7 @@ class ConnectClient(BaseClient):
         """
         Describes the prompt.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_prompt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_prompt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_prompt)
         """
 
@@ -1401,7 +1414,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_queue)
         """
 
@@ -1411,7 +1424,7 @@ class ConnectClient(BaseClient):
         """
         Describes the quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_quick_connect)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_quick_connect)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_quick_connect)
         """
 
@@ -1421,7 +1434,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_routing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_routing_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_routing_profile)
         """
 
@@ -1429,7 +1442,7 @@ class ConnectClient(BaseClient):
         """
         Describes a rule for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_rule)
         """
 
@@ -1439,7 +1452,7 @@ class ConnectClient(BaseClient):
         """
         Gets basic information about the security profle.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_security_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_security_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_security_profile)
         """
 
@@ -1449,7 +1462,7 @@ class ConnectClient(BaseClient):
         """
         Gets details and status of a traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_traffic_distribution_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_traffic_distribution_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_traffic_distribution_group)
         """
 
@@ -1457,7 +1470,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user)
         """
 
@@ -1467,7 +1480,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified hierarchy group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_user_hierarchy_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user_hierarchy_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user_hierarchy_group)
         """
 
@@ -1477,7 +1490,7 @@ class ConnectClient(BaseClient):
         """
         Describes the hierarchy structure of the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_user_hierarchy_structure)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_user_hierarchy_structure)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_user_hierarchy_structure)
         """
 
@@ -1486,7 +1499,7 @@ class ConnectClient(BaseClient):
         Retrieves the view for the specified Amazon Connect instance and view
         identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_view)
         """
 
@@ -1496,7 +1509,7 @@ class ConnectClient(BaseClient):
         """
         Describes the specified vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.describe_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.describe_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#describe_vocabulary)
         """
 
@@ -1506,7 +1519,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_analytics_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_analytics_data_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_analytics_data_set)
         """
 
@@ -1514,7 +1527,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_approved_origin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_approved_origin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_approved_origin)
         """
 
@@ -1524,7 +1537,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_bot)
         """
 
@@ -1534,7 +1547,7 @@ class ConnectClient(BaseClient):
         """
         Disassociates a connect resource from a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_flow)
         """
 
@@ -1544,7 +1557,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_instance_storage_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_instance_storage_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_instance_storage_config)
         """
 
@@ -1552,7 +1565,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_lambda_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_lambda_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_lambda_function)
         """
 
@@ -1560,7 +1573,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_lex_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_lex_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_lex_bot)
         """
 
@@ -1571,7 +1584,7 @@ class ConnectClient(BaseClient):
         Removes the flow association from a phone number claimed to your Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_phone_number_contact_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_phone_number_contact_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_phone_number_contact_flow)
         """
 
@@ -1581,7 +1594,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_queue_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_queue_quick_connects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_queue_quick_connects)
         """
 
@@ -1595,7 +1608,7 @@ class ConnectClient(BaseClient):
         """
         Disassociates a set of queues from a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_routing_profile_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_routing_profile_queues)
         """
 
@@ -1603,7 +1616,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_security_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_security_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_security_key)
         """
 
@@ -1613,7 +1626,7 @@ class ConnectClient(BaseClient):
         """
         Disassociates an agent from a traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_traffic_distribution_group_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_traffic_distribution_group_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_traffic_distribution_group_user)
         """
 
@@ -1627,7 +1640,7 @@ class ConnectClient(BaseClient):
         """
         Disassociates a set of proficiencies from a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.disassociate_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.disassociate_user_proficiencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#disassociate_user_proficiencies)
         """
 
@@ -1638,7 +1651,7 @@ class ConnectClient(BaseClient):
         Dismisses contacts from an agent’s CCP and returns the agent to an available
         state, which allows the agent to receive a new routed contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.dismiss_user_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.dismiss_user_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#dismiss_user_contact)
         """
 
@@ -1652,7 +1665,7 @@ class ConnectClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#generate_presigned_url)
         """
 
@@ -1667,7 +1680,7 @@ class ConnectClient(BaseClient):
         """
         Provides a pre-signed URL for download of an approved attached file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_attached_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_attached_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_attached_file)
         """
 
@@ -1677,7 +1690,7 @@ class ConnectClient(BaseClient):
         """
         Retrieves the contact attributes for the specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_contact_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_contact_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_contact_attributes)
         """
 
@@ -1695,7 +1708,7 @@ class ConnectClient(BaseClient):
         """
         Gets the real-time metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_current_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_current_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_current_metric_data)
         """
 
@@ -1710,7 +1723,7 @@ class ConnectClient(BaseClient):
         """
         Gets the real-time active user data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_current_user_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_current_user_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_current_user_data)
         """
 
@@ -1718,7 +1731,7 @@ class ConnectClient(BaseClient):
         """
         Supports SAML sign-in for Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_federation_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_federation_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_federation_token)
         """
 
@@ -1728,7 +1741,7 @@ class ConnectClient(BaseClient):
         """
         Retrieves the flow associated for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_flow_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_flow_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_flow_association)
         """
 
@@ -1747,7 +1760,7 @@ class ConnectClient(BaseClient):
         """
         Gets historical metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_metric_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_metric_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_metric_data)
         """
 
@@ -1767,7 +1780,7 @@ class ConnectClient(BaseClient):
         """
         Gets metric data from the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_metric_data_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_metric_data_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_metric_data_v2)
         """
 
@@ -1775,7 +1788,7 @@ class ConnectClient(BaseClient):
         """
         Gets the prompt file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_prompt_file)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_prompt_file)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_prompt_file)
         """
 
@@ -1786,7 +1799,7 @@ class ConnectClient(BaseClient):
         Gets details about a specific task template in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_task_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_task_template)
         """
 
@@ -1795,7 +1808,7 @@ class ConnectClient(BaseClient):
         Retrieves the current traffic distribution for a given traffic distribution
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.get_traffic_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.get_traffic_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#get_traffic_distribution)
         """
 
@@ -1812,7 +1825,7 @@ class ConnectClient(BaseClient):
         Imports a claimed phone number from an external service, such as Amazon
         Pinpoint, into an Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.import_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.import_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#import_phone_number)
         """
 
@@ -1827,7 +1840,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_agent_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_agent_statuses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_agent_statuses)
         """
 
@@ -1842,7 +1855,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_analytics_data_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_analytics_data_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_analytics_data_associations)
         """
 
@@ -1852,8 +1865,18 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_approved_origins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_approved_origins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_approved_origins)
+        """
+
+    def list_authentication_profiles(
+        self, *, InstanceId: str, MaxResults: int = None, NextToken: str = None
+    ) -> ListAuthenticationProfilesResponseTypeDef:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_authentication_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_authentication_profiles)
         """
 
     def list_bots(
@@ -1867,7 +1890,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_bots)
         """
 
@@ -1877,7 +1900,7 @@ class ConnectClient(BaseClient):
         """
         Lists contact evaluations in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_contact_evaluations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_evaluations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_evaluations)
         """
 
@@ -1893,7 +1916,7 @@ class ConnectClient(BaseClient):
         Provides information about the flow modules for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_contact_flow_modules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_flow_modules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_flow_modules)
         """
 
@@ -1908,7 +1931,7 @@ class ConnectClient(BaseClient):
         """
         Provides information about the flows for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_contact_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_flows)
         """
 
@@ -1923,7 +1946,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_contact_references)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_contact_references)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_contact_references)
         """
 
@@ -1938,7 +1961,7 @@ class ConnectClient(BaseClient):
         """
         Lists the default vocabularies for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_default_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_default_vocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_default_vocabularies)
         """
 
@@ -1953,7 +1976,7 @@ class ConnectClient(BaseClient):
         """
         Lists versions of an evaluation form in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_evaluation_form_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_evaluation_form_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_evaluation_form_versions)
         """
 
@@ -1963,7 +1986,7 @@ class ConnectClient(BaseClient):
         """
         Lists evaluation forms in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_evaluation_forms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_evaluation_forms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_evaluation_forms)
         """
 
@@ -1978,7 +2001,7 @@ class ConnectClient(BaseClient):
         """
         List the flow association based on the filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_flow_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_flow_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_flow_associations)
         """
 
@@ -1989,7 +2012,7 @@ class ConnectClient(BaseClient):
         Provides information about the hours of operation for the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_hours_of_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_hours_of_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_hours_of_operations)
         """
 
@@ -1999,7 +2022,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_instance_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instance_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instance_attributes)
         """
 
@@ -2014,7 +2037,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_instance_storage_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instance_storage_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instance_storage_configs)
         """
 
@@ -2024,7 +2047,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_instances)
         """
 
@@ -2041,7 +2064,7 @@ class ConnectClient(BaseClient):
         Provides summary information about the Amazon Web Services resource associations
         for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_integration_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_integration_associations)
         """
 
@@ -2051,7 +2074,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_lambda_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_lambda_functions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_lambda_functions)
         """
 
@@ -2061,7 +2084,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_lex_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_lex_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_lex_bots)
         """
 
@@ -2078,7 +2101,7 @@ class ConnectClient(BaseClient):
         Provides information about the phone numbers for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_phone_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_phone_numbers)
         """
 
@@ -2097,7 +2120,7 @@ class ConnectClient(BaseClient):
         Lists phone numbers claimed to your Amazon Connect instance or traffic
         distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_phone_numbers_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_phone_numbers_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_phone_numbers_v2)
         """
 
@@ -2107,7 +2130,7 @@ class ConnectClient(BaseClient):
         """
         Lists predefined attributes for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_predefined_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_predefined_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_predefined_attributes)
         """
 
@@ -2118,7 +2141,7 @@ class ConnectClient(BaseClient):
         Provides information about the prompts for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_prompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_prompts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_prompts)
         """
 
@@ -2128,7 +2151,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_queue_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_queue_quick_connects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_queue_quick_connects)
         """
 
@@ -2143,7 +2166,7 @@ class ConnectClient(BaseClient):
         """
         Provides information about the queues for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_queues)
         """
 
@@ -2159,7 +2182,7 @@ class ConnectClient(BaseClient):
         Provides information about the quick connects for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_quick_connects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_quick_connects)
         """
 
@@ -2176,7 +2199,7 @@ class ConnectClient(BaseClient):
         """
         Provides a list of analysis segments for a real-time analysis session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_realtime_contact_analysis_segments_v2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_realtime_contact_analysis_segments_v2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_realtime_contact_analysis_segments_v2)
         """
 
@@ -2191,7 +2214,7 @@ class ConnectClient(BaseClient):
         """
         Lists the queues associated with a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_routing_profile_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_routing_profile_queues)
         """
 
@@ -2202,7 +2225,7 @@ class ConnectClient(BaseClient):
         Provides summary information about the routing profiles for the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_routing_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_routing_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_routing_profiles)
         """
 
@@ -2218,7 +2241,7 @@ class ConnectClient(BaseClient):
         """
         List all rules for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_rules)
         """
 
@@ -2228,7 +2251,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_security_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_keys)
         """
 
@@ -2243,7 +2266,7 @@ class ConnectClient(BaseClient):
         """
         Returns a list of third-party applications in a specific security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_security_profile_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profile_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profile_applications)
         """
 
@@ -2258,7 +2281,7 @@ class ConnectClient(BaseClient):
         """
         Lists the permissions granted to a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_security_profile_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profile_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profile_permissions)
         """
 
@@ -2269,7 +2292,7 @@ class ConnectClient(BaseClient):
         Provides summary information about the security profiles for the specified
         Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_security_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_security_profiles)
         """
 
@@ -2277,7 +2300,7 @@ class ConnectClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_tags_for_resource)
         """
 
@@ -2293,7 +2316,7 @@ class ConnectClient(BaseClient):
         """
         Lists task templates for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_task_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_task_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_task_templates)
         """
 
@@ -2303,7 +2326,7 @@ class ConnectClient(BaseClient):
         """
         Lists traffic distribution group users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_traffic_distribution_group_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_traffic_distribution_group_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_traffic_distribution_group_users)
         """
 
@@ -2313,7 +2336,7 @@ class ConnectClient(BaseClient):
         """
         Lists traffic distribution groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_traffic_distribution_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_traffic_distribution_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_traffic_distribution_groups)
         """
 
@@ -2328,7 +2351,7 @@ class ConnectClient(BaseClient):
         """
         Lists the use cases for the integration association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_use_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_use_cases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_use_cases)
         """
 
@@ -2339,7 +2362,7 @@ class ConnectClient(BaseClient):
         Provides summary information about the hierarchy groups for the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_user_hierarchy_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_user_hierarchy_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_user_hierarchy_groups)
         """
 
@@ -2349,7 +2372,7 @@ class ConnectClient(BaseClient):
         """
         Lists proficiencies associated with a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_user_proficiencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_user_proficiencies)
         """
 
@@ -2360,7 +2383,7 @@ class ConnectClient(BaseClient):
         Provides summary information about the users for the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_users)
         """
 
@@ -2371,7 +2394,7 @@ class ConnectClient(BaseClient):
         Returns all the available versions for the specified Amazon Connect instance and
         view identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_view_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_view_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_view_versions)
         """
 
@@ -2386,7 +2409,7 @@ class ConnectClient(BaseClient):
         """
         Returns views in the given instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.list_views)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.list_views)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#list_views)
         """
 
@@ -2402,7 +2425,7 @@ class ConnectClient(BaseClient):
         """
         Initiates silent monitoring of a contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.monitor_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.monitor_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#monitor_contact)
         """
 
@@ -2412,7 +2435,7 @@ class ConnectClient(BaseClient):
         """
         Allows pausing an ongoing task contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.pause_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.pause_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#pause_contact)
         """
 
@@ -2422,7 +2445,7 @@ class ConnectClient(BaseClient):
         """
         Changes the current status of a user or agent in Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.put_user_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.put_user_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#put_user_status)
         """
 
@@ -2431,7 +2454,7 @@ class ConnectClient(BaseClient):
         Releases a phone number previously claimed to an Amazon Connect instance or
         traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.release_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.release_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#release_phone_number)
         """
 
@@ -2443,7 +2466,7 @@ class ConnectClient(BaseClient):
         Region and copies configuration information for Amazon Connect resources across
         Amazon Web Services Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.replicate_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.replicate_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#replicate_instance)
         """
 
@@ -2453,7 +2476,7 @@ class ConnectClient(BaseClient):
         """
         Allows resuming a task contact in a paused state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.resume_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.resume_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#resume_contact)
         """
 
@@ -2465,7 +2488,7 @@ class ConnectClient(BaseClient):
         SuspendContactRecording, this API resumes recording whatever recording is
         selected in the flow configuration: call, screen, or both.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.resume_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.resume_contact_recording)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#resume_contact_recording)
         """
 
@@ -2484,7 +2507,7 @@ class ConnectClient(BaseClient):
         Searches for available phone numbers that you can claim to your Amazon Connect
         instance or traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_available_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_available_phone_numbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_available_phone_numbers)
         """
 
@@ -2501,7 +2524,7 @@ class ConnectClient(BaseClient):
         Searches the flow modules in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_contact_flow_modules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contact_flow_modules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contact_flow_modules)
         """
 
@@ -2518,7 +2541,7 @@ class ConnectClient(BaseClient):
         Searches the contact flows in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_contact_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contact_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contact_flows)
         """
 
@@ -2535,7 +2558,7 @@ class ConnectClient(BaseClient):
         """
         Searches contacts in an Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_contacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_contacts)
         """
 
@@ -2552,7 +2575,7 @@ class ConnectClient(BaseClient):
         Searches the hours of operation in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_hours_of_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_hours_of_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_hours_of_operations)
         """
 
@@ -2567,7 +2590,7 @@ class ConnectClient(BaseClient):
         """
         Predefined attributes that meet certain criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_predefined_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_predefined_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_predefined_attributes)
         """
 
@@ -2583,7 +2606,7 @@ class ConnectClient(BaseClient):
         """
         Searches prompts in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_prompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_prompts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_prompts)
         """
 
@@ -2599,7 +2622,7 @@ class ConnectClient(BaseClient):
         """
         Searches queues in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_queues)
         """
 
@@ -2615,7 +2638,7 @@ class ConnectClient(BaseClient):
         """
         Searches quick connects in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_quick_connects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_quick_connects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_quick_connects)
         """
 
@@ -2631,7 +2654,7 @@ class ConnectClient(BaseClient):
         """
         Searches tags used in an Amazon Connect instance using optional search criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_resource_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_resource_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_resource_tags)
         """
 
@@ -2648,7 +2671,7 @@ class ConnectClient(BaseClient):
         Searches routing profiles in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_routing_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_routing_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_routing_profiles)
         """
 
@@ -2665,7 +2688,7 @@ class ConnectClient(BaseClient):
         Searches security profiles in an Amazon Connect instance, with optional
         filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_security_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_security_profiles)
         """
 
@@ -2681,7 +2704,7 @@ class ConnectClient(BaseClient):
         """
         Searches users in an Amazon Connect instance, with optional filtering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_users)
         """
 
@@ -2699,7 +2722,7 @@ class ConnectClient(BaseClient):
         Searches for vocabularies within a specific Amazon Connect instance using
         `State`, `NameStartsWith`, and `LanguageCode`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.search_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.search_vocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#search_vocabularies)
         """
 
@@ -2716,7 +2739,7 @@ class ConnectClient(BaseClient):
         Processes chat integration events from Amazon Web Services or external
         integrations to Amazon Connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.send_chat_integration_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.send_chat_integration_event)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#send_chat_integration_event)
         """
 
@@ -2736,7 +2759,7 @@ class ConnectClient(BaseClient):
         """
         Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_attached_file_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_attached_file_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_attached_file_upload)
         """
 
@@ -2758,7 +2781,7 @@ class ConnectClient(BaseClient):
         """
         Initiates a flow to start a new chat for the customer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_chat_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_chat_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_chat_contact)
         """
 
@@ -2769,7 +2792,7 @@ class ConnectClient(BaseClient):
         Starts an empty evaluation in the specified Amazon Connect instance, using the
         given evaluation form for the particular contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_evaluation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_evaluation)
         """
 
@@ -2785,7 +2808,7 @@ class ConnectClient(BaseClient):
         Starts recording the contact * If the API is called *before* the agent joins the
         call, recording starts when the agent joins the call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_recording)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_recording)
         """
 
@@ -2800,7 +2823,7 @@ class ConnectClient(BaseClient):
         """
         Initiates real-time message streaming for a new chat contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_contact_streaming)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_contact_streaming)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_contact_streaming)
         """
 
@@ -2825,7 +2848,7 @@ class ConnectClient(BaseClient):
         """
         Places an outbound call to a contact, and then initiates the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_outbound_voice_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_outbound_voice_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_outbound_voice_contact)
         """
 
@@ -2848,7 +2871,7 @@ class ConnectClient(BaseClient):
         """
         Initiates a flow to start a new task contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_task_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_task_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_task_contact)
         """
 
@@ -2869,7 +2892,7 @@ class ConnectClient(BaseClient):
         Places an inbound in-app, web, or video call to a contact, and then initiates
         the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.start_web_rtc_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.start_web_rtc_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#start_web_rtc_contact)
         """
 
@@ -2879,7 +2902,7 @@ class ConnectClient(BaseClient):
         """
         Ends the specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.stop_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact)
         """
 
@@ -2889,7 +2912,7 @@ class ConnectClient(BaseClient):
         """
         Stops recording a call when a contact is being recorded.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.stop_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact_recording)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact_recording)
         """
 
@@ -2899,7 +2922,7 @@ class ConnectClient(BaseClient):
         """
         Ends message streaming on a specified contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.stop_contact_streaming)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.stop_contact_streaming)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#stop_contact_streaming)
         """
 
@@ -2914,7 +2937,7 @@ class ConnectClient(BaseClient):
         """
         Submits a contact evaluation in the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.submit_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.submit_contact_evaluation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#submit_contact_evaluation)
         """
 
@@ -2925,7 +2948,7 @@ class ConnectClient(BaseClient):
         When a contact is being recorded, this API suspends recording whatever is
         selected in the flow configuration: call, screen, or both.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.suspend_contact_recording)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.suspend_contact_recording)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#suspend_contact_recording)
         """
 
@@ -2935,7 +2958,7 @@ class ConnectClient(BaseClient):
         """
         Adds the specified tags to the contact resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.tag_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.tag_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#tag_contact)
         """
 
@@ -2943,7 +2966,7 @@ class ConnectClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#tag_resource)
         """
 
@@ -2961,7 +2984,7 @@ class ConnectClient(BaseClient):
         Transfers contacts from one agent or queue to another agent or queue at any
         point after a contact is created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.transfer_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.transfer_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#transfer_contact)
         """
 
@@ -2971,7 +2994,7 @@ class ConnectClient(BaseClient):
         """
         Removes the specified tags from the contact resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.untag_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.untag_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#untag_contact)
         """
 
@@ -2979,7 +3002,7 @@ class ConnectClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#untag_resource)
         """
 
@@ -2997,8 +3020,26 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_agent_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_agent_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_agent_status)
+        """
+
+    def update_authentication_profile(
+        self,
+        *,
+        AuthenticationProfileId: str,
+        InstanceId: str,
+        Name: str = None,
+        Description: str = None,
+        AllowedIps: List[str] = None,
+        BlockedIps: List[str] = None,
+        PeriodicSessionDuration: int = None
+    ) -> None:
+        """
+        This API is in preview release for Amazon Connect and is subject to change.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_authentication_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_authentication_profile)
         """
 
     def update_contact(
@@ -3013,7 +3054,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact)
         """
 
@@ -3024,7 +3065,7 @@ class ConnectClient(BaseClient):
         Creates or updates user-defined contact attributes associated with the specified
         contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_attributes)
         """
 
@@ -3040,7 +3081,7 @@ class ConnectClient(BaseClient):
         Updates details about a contact evaluation in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_evaluation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_evaluation)
         """
 
@@ -3050,7 +3091,7 @@ class ConnectClient(BaseClient):
         """
         Updates the specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_flow_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_content)
         """
 
@@ -3066,7 +3107,7 @@ class ConnectClient(BaseClient):
         """
         Updates metadata about specified flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_flow_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_metadata)
         """
 
@@ -3076,7 +3117,7 @@ class ConnectClient(BaseClient):
         """
         Updates specified flow module for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_flow_module_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_module_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_module_content)
         """
 
@@ -3092,7 +3133,7 @@ class ConnectClient(BaseClient):
         """
         Updates metadata about specified flow module.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_flow_module_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_module_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_module_metadata)
         """
 
@@ -3102,7 +3143,7 @@ class ConnectClient(BaseClient):
         """
         The name of the flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_flow_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_flow_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_flow_name)
         """
 
@@ -3118,7 +3159,7 @@ class ConnectClient(BaseClient):
         Updates routing priority and age on the contact (**QueuePriority** and
         **QueueTimeAdjustmentInSeconds**).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_routing_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_routing_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_routing_data)
         """
 
@@ -3128,7 +3169,7 @@ class ConnectClient(BaseClient):
         """
         Updates the scheduled time of a task contact that is already scheduled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_contact_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_contact_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_contact_schedule)
         """
 
@@ -3149,7 +3190,7 @@ class ConnectClient(BaseClient):
         Updates details about a specific evaluation form version in the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_evaluation_form)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_evaluation_form)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_evaluation_form)
         """
 
@@ -3166,7 +3207,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_hours_of_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_hours_of_operation)
         """
 
@@ -3176,7 +3217,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_instance_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_instance_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_instance_attribute)
         """
 
@@ -3191,7 +3232,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_instance_storage_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_instance_storage_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_instance_storage_config)
         """
 
@@ -3206,7 +3247,7 @@ class ConnectClient(BaseClient):
         Updates timeouts for when human chat participants are to be considered idle, and
         when agents are automatically disconnected from a chat due to idleness.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_participant_role_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_participant_role_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_participant_role_config)
         """
 
@@ -3223,7 +3264,7 @@ class ConnectClient(BaseClient):
         traffic distribution group to another Amazon Connect instance or traffic
         distribution group in the same Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_phone_number)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_phone_number)
         """
 
@@ -3233,7 +3274,7 @@ class ConnectClient(BaseClient):
         """
         Updates a phone number’s metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_phone_number_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_phone_number_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_phone_number_metadata)
         """
 
@@ -3243,7 +3284,7 @@ class ConnectClient(BaseClient):
         """
         Updates a predefined attribute for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_predefined_attribute)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_predefined_attribute)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_predefined_attribute)
         """
 
@@ -3259,7 +3300,7 @@ class ConnectClient(BaseClient):
         """
         Updates a prompt.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_prompt)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_prompt)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_prompt)
         """
 
@@ -3269,7 +3310,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_queue_hours_of_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_hours_of_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_hours_of_operation)
         """
 
@@ -3279,7 +3320,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_queue_max_contacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_max_contacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_max_contacts)
         """
 
@@ -3289,7 +3330,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_queue_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_name)
         """
 
@@ -3299,7 +3340,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_queue_outbound_caller_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_outbound_caller_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_outbound_caller_config)
         """
 
@@ -3309,7 +3350,7 @@ class ConnectClient(BaseClient):
         """
         This API is in preview release for Amazon Connect and is subject to change.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_queue_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_queue_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_queue_status)
         """
 
@@ -3323,7 +3364,7 @@ class ConnectClient(BaseClient):
         """
         Updates the configuration settings for the specified quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_quick_connect_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_quick_connect_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_quick_connect_config)
         """
 
@@ -3333,7 +3374,7 @@ class ConnectClient(BaseClient):
         """
         Updates the name and description of a quick connect.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_quick_connect_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_quick_connect_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_quick_connect_name)
         """
 
@@ -3349,7 +3390,7 @@ class ConnectClient(BaseClient):
         calculated based on *time since their last inbound contact* or *longest idle
         time*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_routing_profile_agent_availability_timer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_agent_availability_timer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_agent_availability_timer)
         """
 
@@ -3364,7 +3405,7 @@ class ConnectClient(BaseClient):
         Updates the channels that agents can handle in the Contact Control Panel (CCP)
         for a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_routing_profile_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_concurrency)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_concurrency)
         """
 
@@ -3374,7 +3415,7 @@ class ConnectClient(BaseClient):
         """
         Updates the default outbound queue of a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_routing_profile_default_outbound_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_default_outbound_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_default_outbound_queue)
         """
 
@@ -3384,7 +3425,7 @@ class ConnectClient(BaseClient):
         """
         Updates the name and description of a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_routing_profile_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_name)
         """
 
@@ -3398,7 +3439,7 @@ class ConnectClient(BaseClient):
         """
         Updates the properties associated with a set of queues for a routing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_routing_profile_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_routing_profile_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_routing_profile_queues)
         """
 
@@ -3415,7 +3456,7 @@ class ConnectClient(BaseClient):
         """
         Updates a rule for the specified Amazon Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_rule)
         """
 
@@ -3435,7 +3476,7 @@ class ConnectClient(BaseClient):
         """
         Updates a security profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_security_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_security_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_security_profile)
         """
 
@@ -3456,7 +3497,7 @@ class ConnectClient(BaseClient):
         Updates details about a specific task template in the specified Amazon Connect
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_task_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_task_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_task_template)
         """
 
@@ -3471,7 +3512,7 @@ class ConnectClient(BaseClient):
         """
         Updates the traffic distribution for a given traffic distribution group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_traffic_distribution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_traffic_distribution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_traffic_distribution)
         """
 
@@ -3481,7 +3522,7 @@ class ConnectClient(BaseClient):
         """
         Assigns the specified hierarchy group to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_hierarchy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy)
         """
 
@@ -3491,7 +3532,7 @@ class ConnectClient(BaseClient):
         """
         Updates the name of the user hierarchy group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_hierarchy_group_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy_group_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy_group_name)
         """
 
@@ -3502,7 +3543,7 @@ class ConnectClient(BaseClient):
         Updates the user hierarchy structure: add, remove, and rename user hierarchy
         levels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_hierarchy_structure)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_hierarchy_structure)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_hierarchy_structure)
         """
 
@@ -3512,7 +3553,7 @@ class ConnectClient(BaseClient):
         """
         Updates the identity information for the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_identity_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_identity_info)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_identity_info)
         """
 
@@ -3522,7 +3563,7 @@ class ConnectClient(BaseClient):
         """
         Updates the phone configuration settings for the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_phone_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_phone_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_phone_config)
         """
 
@@ -3532,7 +3573,7 @@ class ConnectClient(BaseClient):
         """
         Updates the properties associated with the proficiencies of a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_proficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_proficiencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_proficiencies)
         """
 
@@ -3542,7 +3583,7 @@ class ConnectClient(BaseClient):
         """
         Assigns the specified routing profile to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_routing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_routing_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_routing_profile)
         """
 
@@ -3552,7 +3593,7 @@ class ConnectClient(BaseClient):
         """
         Assigns the specified security profiles to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_user_security_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_user_security_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_user_security_profiles)
         """
 
@@ -3568,7 +3609,7 @@ class ConnectClient(BaseClient):
         Updates the view content of the given view identifier in the specified Amazon
         Connect instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_view_content)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_view_content)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_view_content)
         """
 
@@ -3578,14 +3619,14 @@ class ConnectClient(BaseClient):
         """
         Updates the view metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Client.update_view_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Client.update_view_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/client.html#update_view_metadata)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.GetMetricData)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.GetMetricData)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#getmetricdatapaginator)
         """
 
@@ -3594,7 +3635,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_agent_statuses"]
     ) -> ListAgentStatusesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListAgentStatuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListAgentStatuses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listagentstatusespaginator)
         """
 
@@ -3603,14 +3644,23 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_approved_origins"]
     ) -> ListApprovedOriginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listapprovedoriginspaginator)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_authentication_profiles"]
+    ) -> ListAuthenticationProfilesPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListAuthenticationProfiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listauthenticationprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_bots"]) -> ListBotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListBots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListBots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listbotspaginator)
         """
 
@@ -3619,7 +3669,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_contact_evaluations"]
     ) -> ListContactEvaluationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListContactEvaluations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactEvaluations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactevaluationspaginator)
         """
 
@@ -3628,7 +3678,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_contact_flow_modules"]
     ) -> ListContactFlowModulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListContactFlowModules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactFlowModules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowmodulespaginator)
         """
 
@@ -3637,7 +3687,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_contact_flows"]
     ) -> ListContactFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListContactFlows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactFlows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowspaginator)
         """
 
@@ -3646,7 +3696,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_contact_references"]
     ) -> ListContactReferencesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListContactReferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListContactReferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactreferencespaginator)
         """
 
@@ -3655,7 +3705,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_default_vocabularies"]
     ) -> ListDefaultVocabulariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListDefaultVocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListDefaultVocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listdefaultvocabulariespaginator)
         """
 
@@ -3664,7 +3714,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_evaluation_form_versions"]
     ) -> ListEvaluationFormVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListEvaluationFormVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListEvaluationFormVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listevaluationformversionspaginator)
         """
 
@@ -3673,7 +3723,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_evaluation_forms"]
     ) -> ListEvaluationFormsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListEvaluationForms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListEvaluationForms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listevaluationformspaginator)
         """
 
@@ -3682,7 +3732,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_flow_associations"]
     ) -> ListFlowAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListFlowAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListFlowAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listflowassociationspaginator)
         """
 
@@ -3691,7 +3741,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_hours_of_operations"]
     ) -> ListHoursOfOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listhoursofoperationspaginator)
         """
 
@@ -3700,7 +3750,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_instance_attributes"]
     ) -> ListInstanceAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstanceattributespaginator)
         """
 
@@ -3709,14 +3759,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_instance_storage_configs"]
     ) -> ListInstanceStorageConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancestorageconfigspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancespaginator)
         """
 
@@ -3725,7 +3775,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_integration_associations"]
     ) -> ListIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listintegrationassociationspaginator)
         """
 
@@ -3734,14 +3784,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_lambda_functions"]
     ) -> ListLambdaFunctionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlambdafunctionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_lex_bots"]) -> ListLexBotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListLexBots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListLexBots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlexbotspaginator)
         """
 
@@ -3750,7 +3800,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_phone_numbers"]
     ) -> ListPhoneNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumberspaginator)
         """
 
@@ -3759,7 +3809,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_phone_numbers_v2"]
     ) -> ListPhoneNumbersV2Paginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListPhoneNumbersV2)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPhoneNumbersV2)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumbersv2paginator)
         """
 
@@ -3768,14 +3818,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_predefined_attributes"]
     ) -> ListPredefinedAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListPredefinedAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPredefinedAttributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpredefinedattributespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_prompts"]) -> ListPromptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListPrompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListPrompts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpromptspaginator)
         """
 
@@ -3784,14 +3834,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_queue_quick_connects"]
     ) -> ListQueueQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuequickconnectspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuespaginator)
         """
 
@@ -3800,7 +3850,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_quick_connects"]
     ) -> ListQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listquickconnectspaginator)
         """
 
@@ -3809,7 +3859,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_routing_profile_queues"]
     ) -> ListRoutingProfileQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilequeuespaginator)
         """
 
@@ -3818,14 +3868,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_routing_profiles"]
     ) -> ListRoutingProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listrulespaginator)
         """
 
@@ -3834,7 +3884,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_security_keys"]
     ) -> ListSecurityKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecuritykeyspaginator)
         """
 
@@ -3843,7 +3893,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_security_profile_applications"]
     ) -> ListSecurityProfileApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListSecurityProfileApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfileApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofileapplicationspaginator)
         """
 
@@ -3852,7 +3902,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_security_profile_permissions"]
     ) -> ListSecurityProfilePermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilepermissionspaginator)
         """
 
@@ -3861,7 +3911,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_security_profiles"]
     ) -> ListSecurityProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilespaginator)
         """
 
@@ -3870,7 +3920,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_task_templates"]
     ) -> ListTaskTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListTaskTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTaskTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtasktemplatespaginator)
         """
 
@@ -3879,7 +3929,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_traffic_distribution_group_users"]
     ) -> ListTrafficDistributionGroupUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroupUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroupUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtrafficdistributiongroupuserspaginator)
         """
 
@@ -3888,14 +3938,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_traffic_distribution_groups"]
     ) -> ListTrafficDistributionGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListTrafficDistributionGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtrafficdistributiongroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_use_cases"]) -> ListUseCasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListUseCases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUseCases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listusecasespaginator)
         """
 
@@ -3904,7 +3954,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_user_hierarchy_groups"]
     ) -> ListUserHierarchyGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserhierarchygroupspaginator)
         """
 
@@ -3913,14 +3963,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_user_proficiencies"]
     ) -> ListUserProficienciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListUserProficiencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUserProficiencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserproficienciespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserspaginator)
         """
 
@@ -3929,14 +3979,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["list_view_versions"]
     ) -> ListViewVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListViewVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListViewVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listviewversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_views"]) -> ListViewsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.ListViews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.ListViews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listviewspaginator)
         """
 
@@ -3945,7 +3995,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_available_phone_numbers"]
     ) -> SearchAvailablePhoneNumbersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchAvailablePhoneNumbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchAvailablePhoneNumbers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchavailablephonenumberspaginator)
         """
 
@@ -3954,7 +4004,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_contact_flow_modules"]
     ) -> SearchContactFlowModulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchContactFlowModules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContactFlowModules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactflowmodulespaginator)
         """
 
@@ -3963,14 +4013,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_contact_flows"]
     ) -> SearchContactFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchContactFlows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContactFlows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactflowspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_contacts"]) -> SearchContactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchContacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchContacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchcontactspaginator)
         """
 
@@ -3979,7 +4029,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_hours_of_operations"]
     ) -> SearchHoursOfOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchHoursOfOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchHoursOfOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchhoursofoperationspaginator)
         """
 
@@ -3988,21 +4038,21 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_predefined_attributes"]
     ) -> SearchPredefinedAttributesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchPredefinedAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchPredefinedAttributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchpredefinedattributespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_prompts"]) -> SearchPromptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchPrompts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchPrompts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchpromptspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_queues"]) -> SearchQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchqueuespaginator)
         """
 
@@ -4011,7 +4061,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_quick_connects"]
     ) -> SearchQuickConnectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchQuickConnects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchQuickConnects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchquickconnectspaginator)
         """
 
@@ -4020,7 +4070,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_resource_tags"]
     ) -> SearchResourceTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchResourceTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchResourceTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchresourcetagspaginator)
         """
 
@@ -4029,7 +4079,7 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_routing_profiles"]
     ) -> SearchRoutingProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchRoutingProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchRoutingProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchroutingprofilespaginator)
         """
 
@@ -4038,14 +4088,14 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_security_profiles"]
     ) -> SearchSecurityProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchSecurityProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchSecurityProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchsecurityprofilespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_users"]) -> SearchUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchUsers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchuserspaginator)
         """
 
@@ -4054,6 +4104,6 @@ class ConnectClient(BaseClient):
         self, operation_name: Literal["search_vocabularies"]
     ) -> SearchVocabulariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/connect.html#Connect.Paginator.SearchVocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connect.html#Connect.Paginator.SearchVocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchvocabulariespaginator)
         """

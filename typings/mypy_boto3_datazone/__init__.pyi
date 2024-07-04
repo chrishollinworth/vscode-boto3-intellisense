@@ -13,10 +13,12 @@ Usage::
         ListDataSourceRunsPaginator,
         ListDataSourcesPaginator,
         ListDomainsPaginator,
+        ListEnvironmentActionsPaginator,
         ListEnvironmentBlueprintConfigurationsPaginator,
         ListEnvironmentBlueprintsPaginator,
         ListEnvironmentProfilesPaginator,
         ListEnvironmentsPaginator,
+        ListLineageNodeHistoryPaginator,
         ListMetadataGenerationRunsPaginator,
         ListNotificationsPaginator,
         ListProjectMembershipsPaginator,
@@ -43,10 +45,12 @@ Usage::
     list_data_source_runs_paginator: ListDataSourceRunsPaginator = client.get_paginator("list_data_source_runs")
     list_data_sources_paginator: ListDataSourcesPaginator = client.get_paginator("list_data_sources")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
+    list_environment_actions_paginator: ListEnvironmentActionsPaginator = client.get_paginator("list_environment_actions")
     list_environment_blueprint_configurations_paginator: ListEnvironmentBlueprintConfigurationsPaginator = client.get_paginator("list_environment_blueprint_configurations")
     list_environment_blueprints_paginator: ListEnvironmentBlueprintsPaginator = client.get_paginator("list_environment_blueprints")
     list_environment_profiles_paginator: ListEnvironmentProfilesPaginator = client.get_paginator("list_environment_profiles")
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
+    list_lineage_node_history_paginator: ListLineageNodeHistoryPaginator = client.get_paginator("list_lineage_node_history")
     list_metadata_generation_runs_paginator: ListMetadataGenerationRunsPaginator = client.get_paginator("list_metadata_generation_runs")
     list_notifications_paginator: ListNotificationsPaginator = client.get_paginator("list_notifications")
     list_project_memberships_paginator: ListProjectMembershipsPaginator = client.get_paginator("list_project_memberships")
@@ -71,10 +75,12 @@ from .paginator import (
     ListDataSourceRunsPaginator,
     ListDataSourcesPaginator,
     ListDomainsPaginator,
+    ListEnvironmentActionsPaginator,
     ListEnvironmentBlueprintConfigurationsPaginator,
     ListEnvironmentBlueprintsPaginator,
     ListEnvironmentProfilesPaginator,
     ListEnvironmentsPaginator,
+    ListLineageNodeHistoryPaginator,
     ListMetadataGenerationRunsPaginator,
     ListNotificationsPaginator,
     ListProjectMembershipsPaginator,
@@ -101,10 +107,12 @@ __all__ = (
     "ListDataSourceRunsPaginator",
     "ListDataSourcesPaginator",
     "ListDomainsPaginator",
+    "ListEnvironmentActionsPaginator",
     "ListEnvironmentBlueprintConfigurationsPaginator",
     "ListEnvironmentBlueprintsPaginator",
     "ListEnvironmentProfilesPaginator",
     "ListEnvironmentsPaginator",
+    "ListLineageNodeHistoryPaginator",
     "ListMetadataGenerationRunsPaginator",
     "ListNotificationsPaginator",
     "ListProjectMembershipsPaginator",

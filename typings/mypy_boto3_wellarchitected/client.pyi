@@ -122,7 +122,7 @@ class Exceptions:
 
 class WellArchitectedClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html)
     """
 
@@ -138,7 +138,7 @@ class WellArchitectedClient(BaseClient):
         """
         Associate a lens to a workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.associate_lenses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.associate_lenses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#associate_lenses)
         """
 
@@ -146,7 +146,7 @@ class WellArchitectedClient(BaseClient):
         """
         Associate a profile with a workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.associate_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.associate_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#associate_profiles)
         """
 
@@ -154,7 +154,7 @@ class WellArchitectedClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#can_paginate)
         """
 
@@ -162,7 +162,7 @@ class WellArchitectedClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#close)
         """
 
@@ -172,7 +172,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a lens share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_lens_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_lens_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_lens_share)
         """
 
@@ -187,7 +187,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a new lens version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_lens_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_lens_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_lens_version)
         """
 
@@ -197,7 +197,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a milestone for an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_milestone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_milestone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_milestone)
         """
 
@@ -213,7 +213,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_profile)
         """
 
@@ -223,7 +223,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a profile share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_profile_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_profile_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_profile_share)
         """
 
@@ -240,7 +240,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_review_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_review_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_review_template)
         """
 
@@ -250,7 +250,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a review template share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_template_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_template_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_template_share)
         """
 
@@ -281,7 +281,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a new workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_workload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_workload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_workload)
         """
 
@@ -296,7 +296,7 @@ class WellArchitectedClient(BaseClient):
         """
         Create a workload share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.create_workload_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.create_workload_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_workload_share)
         """
 
@@ -306,7 +306,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete an existing lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_lens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_lens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_lens)
         """
 
@@ -314,7 +314,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a lens share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_lens_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_lens_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_lens_share)
         """
 
@@ -322,7 +322,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_profile)
         """
 
@@ -332,7 +332,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a profile share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_profile_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_profile_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_profile_share)
         """
 
@@ -340,7 +340,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_review_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_review_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_review_template)
         """
 
@@ -350,7 +350,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a review template share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_template_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_template_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_template_share)
         """
 
@@ -358,7 +358,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_workload)
         """
 
@@ -368,7 +368,7 @@ class WellArchitectedClient(BaseClient):
         """
         Delete a workload share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_workload_share)
         """
 
@@ -376,7 +376,7 @@ class WellArchitectedClient(BaseClient):
         """
         Disassociate a lens from a workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_lenses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_lenses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#disassociate_lenses)
         """
 
@@ -384,7 +384,7 @@ class WellArchitectedClient(BaseClient):
         """
         Disassociate a profile from a workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#disassociate_profiles)
         """
 
@@ -392,7 +392,7 @@ class WellArchitectedClient(BaseClient):
         """
         Export an existing lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.export_lens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.export_lens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#export_lens)
         """
 
@@ -406,7 +406,7 @@ class WellArchitectedClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#generate_presigned_url)
         """
 
@@ -416,7 +416,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get the answer to a specific question in a workload review.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_answer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_answer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_answer)
         """
 
@@ -431,7 +431,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get a consolidated report of your workloads.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_consolidated_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_consolidated_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_consolidated_report)
         """
 
@@ -439,7 +439,7 @@ class WellArchitectedClient(BaseClient):
         """
         Global settings for all workloads.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_global_settings)
         """
 
@@ -447,7 +447,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get an existing lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_lens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_lens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens)
         """
 
@@ -457,7 +457,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get lens review.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_review)
         """
 
@@ -467,7 +467,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get lens review report.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review_report)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review_report)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_review_report)
         """
 
@@ -477,7 +477,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get lens version differences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_version_difference)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_version_difference)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_version_difference)
         """
 
@@ -485,7 +485,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get a milestone for an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_milestone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_milestone)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_milestone)
         """
 
@@ -495,7 +495,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get profile information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_profile)
         """
 
@@ -503,7 +503,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get profile template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_profile_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_profile_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_profile_template)
         """
 
@@ -511,7 +511,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_review_template)
         """
 
@@ -521,7 +521,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get review template answer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template_answer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template_answer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_review_template_answer)
         """
 
@@ -531,7 +531,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get a lens review associated with a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_review_template_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_review_template_lens_review)
         """
 
@@ -539,7 +539,7 @@ class WellArchitectedClient(BaseClient):
         """
         Get an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.get_workload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.get_workload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_workload)
         """
 
@@ -554,7 +554,7 @@ class WellArchitectedClient(BaseClient):
         """
         Import a new custom lens or update an existing custom lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.import_lens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.import_lens)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#import_lens)
         """
 
@@ -572,7 +572,7 @@ class WellArchitectedClient(BaseClient):
         """
         List of answers for a particular workload and lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_answers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_answers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_answers)
         """
 
@@ -590,7 +590,7 @@ class WellArchitectedClient(BaseClient):
         """
         List of Trusted Advisor check details by account related to the workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_check_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_check_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_check_details)
         """
 
@@ -609,7 +609,7 @@ class WellArchitectedClient(BaseClient):
         List of Trusted Advisor checks summarized for all accounts related to the
         workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_check_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_check_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_check_summaries)
         """
 
@@ -627,7 +627,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the improvements of a particular lens review.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_review_improvements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_review_improvements)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lens_review_improvements)
         """
 
@@ -642,7 +642,7 @@ class WellArchitectedClient(BaseClient):
         """
         List lens reviews for a particular workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_reviews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_reviews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lens_reviews)
         """
 
@@ -658,7 +658,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the lens shares associated with the lens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lens_shares)
         """
 
@@ -674,7 +674,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the available lenses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_lenses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_lenses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lenses)
         """
 
@@ -684,7 +684,7 @@ class WellArchitectedClient(BaseClient):
         """
         List all milestones for an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_milestones)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_milestones)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_milestones)
         """
 
@@ -699,7 +699,7 @@ class WellArchitectedClient(BaseClient):
         """
         List lens notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_notifications)
         """
 
@@ -709,7 +709,7 @@ class WellArchitectedClient(BaseClient):
         """
         List profile notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_profile_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_profile_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_profile_notifications)
         """
 
@@ -725,7 +725,7 @@ class WellArchitectedClient(BaseClient):
         """
         List profile shares.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_profile_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_profile_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_profile_shares)
         """
 
@@ -740,7 +740,7 @@ class WellArchitectedClient(BaseClient):
         """
         List profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_profiles)
         """
 
@@ -756,7 +756,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the answers of a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_review_template_answers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_review_template_answers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_review_template_answers)
         """
 
@@ -766,7 +766,7 @@ class WellArchitectedClient(BaseClient):
         """
         List review templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_review_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_review_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_review_templates)
         """
 
@@ -784,7 +784,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the share invitations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_share_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_share_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_share_invitations)
         """
 
@@ -792,7 +792,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_tags_for_resource)
         """
 
@@ -808,7 +808,7 @@ class WellArchitectedClient(BaseClient):
         """
         List review template shares.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_template_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_template_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_template_shares)
         """
 
@@ -824,7 +824,7 @@ class WellArchitectedClient(BaseClient):
         """
         List the workload shares associated with the workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_workload_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_workload_shares)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_workload_shares)
         """
 
@@ -834,7 +834,7 @@ class WellArchitectedClient(BaseClient):
         """
         Paginated list of workloads.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.list_workloads)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.list_workloads)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_workloads)
         """
 
@@ -842,7 +842,7 @@ class WellArchitectedClient(BaseClient):
         """
         Adds one or more tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#tag_resource)
         """
 
@@ -850,7 +850,7 @@ class WellArchitectedClient(BaseClient):
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#untag_resource)
         """
 
@@ -869,7 +869,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update the answer to a specific question in a workload review.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_answer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_answer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_answer)
         """
 
@@ -884,7 +884,7 @@ class WellArchitectedClient(BaseClient):
         Update whether the Amazon Web Services account is opted into organization
         sharing and discovery integration features.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_global_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_global_settings)
         """
 
@@ -894,7 +894,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update integration features.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_integration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_integration)
         """
 
@@ -910,7 +910,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update lens review for a particular workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_lens_review)
         """
 
@@ -924,7 +924,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_profile)
         """
 
@@ -941,7 +941,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_review_template)
         """
 
@@ -960,7 +960,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a review template answer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template_answer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template_answer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_review_template_answer)
         """
 
@@ -975,7 +975,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a lens review associated with a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_review_template_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_review_template_lens_review)
         """
 
@@ -985,7 +985,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a workload or custom lens share invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_share_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_share_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_share_invitation)
         """
 
@@ -1014,7 +1014,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update an existing workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_workload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_workload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_workload)
         """
 
@@ -1024,7 +1024,7 @@ class WellArchitectedClient(BaseClient):
         """
         Update a workload share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.update_workload_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.update_workload_share)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_workload_share)
         """
 
@@ -1034,7 +1034,7 @@ class WellArchitectedClient(BaseClient):
         """
         Upgrade lens review for a particular workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#upgrade_lens_review)
         """
 
@@ -1049,7 +1049,7 @@ class WellArchitectedClient(BaseClient):
         """
         Upgrade a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_profile_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_profile_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#upgrade_profile_version)
         """
 
@@ -1059,6 +1059,6 @@ class WellArchitectedClient(BaseClient):
         """
         Upgrade the lens review of a review template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_review_template_lens_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_review_template_lens_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#upgrade_review_template_lens_review)
         """

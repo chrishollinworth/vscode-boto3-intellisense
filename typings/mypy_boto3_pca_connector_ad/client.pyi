@@ -71,7 +71,7 @@ class Exceptions:
 
 class PcaConnectorAdClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html)
     """
 
@@ -87,7 +87,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#can_paginate)
         """
 
@@ -95,7 +95,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#close)
         """
 
@@ -112,7 +112,7 @@ class PcaConnectorAdClient(BaseClient):
         Creates a connector between Amazon Web Services Private CA and an Active
         Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#create_connector)
         """
 
@@ -125,7 +125,7 @@ class PcaConnectorAdClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/pca-connector-
         ad-2018-05-10/CreateDirectoryRegistration>`_ **Request Syntax** response...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_directory_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_directory_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#create_directory_registration)
         """
 
@@ -136,7 +136,7 @@ class PcaConnectorAdClient(BaseClient):
         Creates a service principal name (SPN) for the service account in Active
         Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_service_principal_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_service_principal_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#create_service_principal_name)
         """
 
@@ -152,7 +152,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Creates an Active Directory compatible certificate template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#create_template)
         """
 
@@ -168,7 +168,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Create a group access control entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_template_group_access_control_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.create_template_group_access_control_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#create_template_group_access_control_entry)
         """
 
@@ -176,7 +176,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Deletes a connector for Active Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#delete_connector)
         """
 
@@ -184,7 +184,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Deletes a directory registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_directory_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_directory_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#delete_directory_registration)
         """
 
@@ -195,7 +195,7 @@ class PcaConnectorAdClient(BaseClient):
         Deletes the service principal name (SPN) used by a connector to authenticate
         with your Active Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_service_principal_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_service_principal_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#delete_service_principal_name)
         """
 
@@ -203,7 +203,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Deletes a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#delete_template)
         """
 
@@ -213,7 +213,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Deletes a group access control entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_template_group_access_control_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.delete_template_group_access_control_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#delete_template_group_access_control_entry)
         """
 
@@ -227,7 +227,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#generate_presigned_url)
         """
 
@@ -235,7 +235,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Lists information about your connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#get_connector)
         """
 
@@ -245,7 +245,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         A structure that contains information about your directory registration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_directory_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_directory_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#get_directory_registration)
         """
 
@@ -256,7 +256,7 @@ class PcaConnectorAdClient(BaseClient):
         Lists the service principal name that the connector uses to authenticate with
         Active Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_service_principal_name)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_service_principal_name)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#get_service_principal_name)
         """
 
@@ -265,7 +265,7 @@ class PcaConnectorAdClient(BaseClient):
         Retrieves a certificate template that the connector uses to issue certificates
         from a private CA.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#get_template)
         """
 
@@ -275,7 +275,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Retrieves the group access control entries for a template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_template_group_access_control_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.get_template_group_access_control_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#get_template_group_access_control_entry)
         """
 
@@ -288,7 +288,7 @@ class PcaConnectorAdClient(BaseClient):
         ad/latest/APIReference/API_CreateConnector <https://docs.aws.amazon.com/pca-
         connector-ad/latest/APIReference/API_CreateConnector>`__ action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_connectors)
         """
 
@@ -302,7 +302,7 @@ class PcaConnectorAdClient(BaseClient):
         <https://docs.aws.amazon.com/pca-connector-
         ad/latest/APIReference/API_CreateDirectoryRegistration>`__ action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_directory_registrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_directory_registrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_directory_registrations)
         """
 
@@ -313,7 +313,7 @@ class PcaConnectorAdClient(BaseClient):
         Lists the service principal names that the connector uses to authenticate with
         Active Directory.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_service_principal_names)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_service_principal_names)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_service_principal_names)
         """
 
@@ -321,7 +321,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Lists the tags, if any, that are associated with your resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_tags_for_resource)
         """
 
@@ -331,7 +331,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Lists group access control entries you created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_template_group_access_control_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_template_group_access_control_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_template_group_access_control_entries)
         """
 
@@ -341,7 +341,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Lists the templates, if any, that are associated with a connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.list_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#list_templates)
         """
 
@@ -349,7 +349,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Adds one or more tags to your resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#tag_resource)
         """
 
@@ -357,7 +357,7 @@ class PcaConnectorAdClient(BaseClient):
         """
         Removes one or more tags from your resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#untag_resource)
         """
 
@@ -372,7 +372,7 @@ class PcaConnectorAdClient(BaseClient):
         Update template configuration to define the information included in
         certificates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.update_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.update_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#update_template)
         """
 
@@ -390,14 +390,14 @@ class PcaConnectorAdClient(BaseClient):
         connector-
         ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html>`__.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.update_template_group_access_control_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Client.update_template_group_access_control_entry)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/client.html#update_template_group_access_control_entry)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_connectors"]) -> ListConnectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListConnectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListConnectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listconnectorspaginator)
         """
 
@@ -406,7 +406,7 @@ class PcaConnectorAdClient(BaseClient):
         self, operation_name: Literal["list_directory_registrations"]
     ) -> ListDirectoryRegistrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listdirectoryregistrationspaginator)
         """
 
@@ -415,7 +415,7 @@ class PcaConnectorAdClient(BaseClient):
         self, operation_name: Literal["list_service_principal_names"]
     ) -> ListServicePrincipalNamesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListServicePrincipalNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListServicePrincipalNames)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listserviceprincipalnamespaginator)
         """
 
@@ -424,13 +424,13 @@ class PcaConnectorAdClient(BaseClient):
         self, operation_name: Literal["list_template_group_access_control_entries"]
     ) -> ListTemplateGroupAccessControlEntriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplategroupaccesscontrolentriespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_templates"]) -> ListTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplatespaginator)
         """

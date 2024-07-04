@@ -80,7 +80,7 @@ __all__ = (
 
 class GetChatControlsConfigurationPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#getchatcontrolsconfigurationpaginator)
     """
 
@@ -88,13 +88,13 @@ class GetChatControlsConfigurationPaginator(Boto3Paginator):
         self, *, applicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetChatControlsConfigurationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.GetChatControlsConfiguration.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#getchatcontrolsconfigurationpaginator)
         """
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listapplicationspaginator)
     """
 
@@ -102,13 +102,13 @@ class ListApplicationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListApplications.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listapplicationspaginator)
         """
 
 class ListConversationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listconversationspaginator)
     """
 
@@ -120,13 +120,13 @@ class ListConversationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConversationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListConversations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listconversationspaginator)
         """
 
 class ListDataSourceSyncJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcesyncjobspaginator)
     """
 
@@ -142,13 +142,13 @@ class ListDataSourceSyncJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourceSyncJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSourceSyncJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcesyncjobspaginator)
         """
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcespaginator)
     """
 
@@ -156,13 +156,13 @@ class ListDataSourcesPaginator(Boto3Paginator):
         self, *, applicationId: str, indexId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDataSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdatasourcespaginator)
         """
 
 class ListDocumentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdocumentspaginator)
     """
 
@@ -175,13 +175,13 @@ class ListDocumentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDocumentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListDocuments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listdocumentspaginator)
         """
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listgroupspaginator)
     """
 
@@ -195,13 +195,13 @@ class ListGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listgroupspaginator)
         """
 
 class ListIndicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listindicespaginator)
     """
 
@@ -209,13 +209,13 @@ class ListIndicesPaginator(Boto3Paginator):
         self, *, applicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIndicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListIndices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listindicespaginator)
         """
 
 class ListMessagesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listmessagespaginator)
     """
 
@@ -228,13 +228,13 @@ class ListMessagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMessagesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListMessages.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listmessagespaginator)
         """
 
 class ListPluginsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listpluginspaginator)
     """
 
@@ -242,13 +242,13 @@ class ListPluginsPaginator(Boto3Paginator):
         self, *, applicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPluginsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListPlugins.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listpluginspaginator)
         """
 
 class ListRetrieversPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listretrieverspaginator)
     """
 
@@ -256,13 +256,13 @@ class ListRetrieversPaginator(Boto3Paginator):
         self, *, applicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRetrieversResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListRetrievers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listretrieverspaginator)
         """
 
 class ListWebExperiencesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listwebexperiencespaginator)
     """
 
@@ -270,6 +270,6 @@ class ListWebExperiencesPaginator(Boto3Paginator):
         self, *, applicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWebExperiencesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/qbusiness.html#QBusiness.Paginator.ListWebExperiences.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qbusiness/paginators.html#listwebexperiencespaginator)
         """

@@ -77,7 +77,7 @@ class Exceptions:
 
 class KafkaConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html)
     """
 
@@ -93,7 +93,7 @@ class KafkaConnectClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#can_paginate)
         """
 
@@ -101,7 +101,7 @@ class KafkaConnectClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#close)
         """
 
@@ -125,7 +125,7 @@ class KafkaConnectClient(BaseClient):
         """
         Creates a connector using the specified properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.create_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_connector)
         """
 
@@ -141,7 +141,7 @@ class KafkaConnectClient(BaseClient):
         """
         Creates a custom plugin using the specified properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.create_custom_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_custom_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_custom_plugin)
         """
 
@@ -156,7 +156,7 @@ class KafkaConnectClient(BaseClient):
         """
         Creates a worker configuration using the specified properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.create_worker_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_worker_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_worker_configuration)
         """
 
@@ -166,7 +166,7 @@ class KafkaConnectClient(BaseClient):
         """
         Deletes the specified connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_connector)
         """
 
@@ -174,7 +174,7 @@ class KafkaConnectClient(BaseClient):
         """
         Deletes a custom plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_custom_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_custom_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_custom_plugin)
         """
 
@@ -184,7 +184,7 @@ class KafkaConnectClient(BaseClient):
         """
         Deletes the specified worker configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_worker_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_worker_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_worker_configuration)
         """
 
@@ -192,7 +192,7 @@ class KafkaConnectClient(BaseClient):
         """
         Returns summary information about the connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_connector)
         """
 
@@ -202,7 +202,7 @@ class KafkaConnectClient(BaseClient):
         """
         A summary description of the custom plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_custom_plugin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_custom_plugin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_custom_plugin)
         """
 
@@ -212,7 +212,7 @@ class KafkaConnectClient(BaseClient):
         """
         Returns information about a worker configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_worker_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_worker_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_worker_configuration)
         """
 
@@ -226,7 +226,7 @@ class KafkaConnectClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#generate_presigned_url)
         """
 
@@ -236,7 +236,7 @@ class KafkaConnectClient(BaseClient):
         """
         Returns a list of all the connectors in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.list_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_connectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_connectors)
         """
 
@@ -246,7 +246,7 @@ class KafkaConnectClient(BaseClient):
         """
         Returns a list of all of the custom plugins in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.list_custom_plugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_custom_plugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_custom_plugins)
         """
 
@@ -254,7 +254,7 @@ class KafkaConnectClient(BaseClient):
         """
         Lists all the tags attached to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_tags_for_resource)
         """
 
@@ -264,7 +264,7 @@ class KafkaConnectClient(BaseClient):
         """
         Returns a list of all of the worker configurations in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.list_worker_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_worker_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_worker_configurations)
         """
 
@@ -272,7 +272,7 @@ class KafkaConnectClient(BaseClient):
         """
         Attaches tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#tag_resource)
         """
 
@@ -280,7 +280,7 @@ class KafkaConnectClient(BaseClient):
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#untag_resource)
         """
 
@@ -290,14 +290,14 @@ class KafkaConnectClient(BaseClient):
         """
         Updates the specified connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Client.update_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.update_connector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#update_connector)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_connectors"]) -> ListConnectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listconnectorspaginator)
         """
 
@@ -306,7 +306,7 @@ class KafkaConnectClient(BaseClient):
         self, operation_name: Literal["list_custom_plugins"]
     ) -> ListCustomPluginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listcustompluginspaginator)
         """
 
@@ -315,6 +315,6 @@ class KafkaConnectClient(BaseClient):
         self, operation_name: Literal["list_worker_configurations"]
     ) -> ListWorkerConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listworkerconfigurationspaginator)
         """

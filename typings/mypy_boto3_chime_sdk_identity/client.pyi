@@ -72,7 +72,7 @@ class Exceptions:
 
 class ChimeSDKIdentityClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html)
     """
 
@@ -88,7 +88,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#can_paginate)
         """
 
@@ -96,7 +96,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#close)
         """
 
@@ -111,7 +111,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#create_app_instance)
         """
 
@@ -121,7 +121,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Promotes an `AppInstanceUser` or `AppInstanceBot` to an `AppInstanceAdmin`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#create_app_instance_admin)
         """
 
@@ -138,7 +138,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Creates a bot under an Amazon Chime `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#create_app_instance_bot)
         """
 
@@ -156,7 +156,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Creates a user under an Amazon Chime `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.create_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#create_app_instance_user)
         """
 
@@ -164,7 +164,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Deletes an `AppInstance` and all associated data asynchronously.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#delete_app_instance)
         """
 
@@ -172,7 +172,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Demotes an `AppInstanceAdmin` to an `AppInstanceUser` or `AppInstanceBot`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#delete_app_instance_admin)
         """
 
@@ -180,7 +180,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Deletes an `AppInstanceBot`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#delete_app_instance_bot)
         """
 
@@ -188,7 +188,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Deletes an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.delete_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#delete_app_instance_user)
         """
 
@@ -198,7 +198,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Deregisters an `AppInstanceUserEndpoint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.deregister_app_instance_user_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.deregister_app_instance_user_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#deregister_app_instance_user_endpoint)
         """
 
@@ -206,7 +206,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Returns the full details of an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#describe_app_instance)
         """
 
@@ -216,7 +216,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Returns the full details of an `AppInstanceAdmin`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_admin)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_admin)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#describe_app_instance_admin)
         """
 
@@ -226,7 +226,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         The `AppInstanceBot's` information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#describe_app_instance_bot)
         """
 
@@ -236,7 +236,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Returns the full details of an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#describe_app_instance_user)
         """
 
@@ -246,7 +246,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Returns the full details of an `AppInstanceUserEndpoint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_user_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.describe_app_instance_user_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#describe_app_instance_user_endpoint)
         """
 
@@ -260,7 +260,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#generate_presigned_url)
         """
 
@@ -270,7 +270,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Gets the retention settings for an `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.get_app_instance_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.get_app_instance_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#get_app_instance_retention_settings)
         """
 
@@ -280,7 +280,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Returns a list of the administrators in the `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_admins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_admins)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_app_instance_admins)
         """
 
@@ -290,7 +290,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Lists all `AppInstanceBots` created under a single `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_app_instance_bots)
         """
 
@@ -301,7 +301,7 @@ class ChimeSDKIdentityClient(BaseClient):
         Lists all the `AppInstanceUserEndpoints` created under a single
         `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_user_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_user_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_app_instance_user_endpoints)
         """
 
@@ -311,7 +311,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         List all `AppInstanceUsers` created under a single `AppInstance`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instance_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_app_instance_users)
         """
 
@@ -321,7 +321,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Lists all Amazon Chime `AppInstance`s created under a single AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_app_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_app_instances)
         """
 
@@ -329,7 +329,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Lists the tags applied to an Amazon Chime SDK identity resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#list_tags_for_resource)
         """
 
@@ -342,7 +342,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Sets the amount of time in days that a given `AppInstance` retains data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.put_app_instance_retention_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.put_app_instance_retention_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#put_app_instance_retention_settings)
         """
 
@@ -352,7 +352,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Sets the number of days before the `AppInstanceUser` is automatically deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.put_app_instance_user_expiration_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.put_app_instance_user_expiration_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#put_app_instance_user_expiration_settings)
         """
 
@@ -370,7 +370,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Registers an endpoint under an Amazon Chime `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.register_app_instance_user_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.register_app_instance_user_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#register_app_instance_user_endpoint)
         """
 
@@ -378,7 +378,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Applies the specified tags to the specified Amazon Chime SDK identity resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#tag_resource)
         """
 
@@ -387,7 +387,7 @@ class ChimeSDKIdentityClient(BaseClient):
         Removes the specified tags from the specified Amazon Chime SDK identity
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#untag_resource)
         """
 
@@ -397,7 +397,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Updates `AppInstance` metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#update_app_instance)
         """
 
@@ -412,7 +412,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Updates the name and metadata of an `AppInstanceBot`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#update_app_instance_bot)
         """
 
@@ -422,7 +422,7 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Updates the details of an `AppInstanceUser`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#update_app_instance_user)
         """
 
@@ -437,6 +437,6 @@ class ChimeSDKIdentityClient(BaseClient):
         """
         Updates the details of an `AppInstanceUserEndpoint`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_user_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-identity.html#ChimeSDKIdentity.Client.update_app_instance_user_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_identity/client.html#update_app_instance_user_endpoint)
         """

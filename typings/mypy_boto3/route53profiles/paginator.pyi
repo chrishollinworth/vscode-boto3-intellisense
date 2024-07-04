@@ -42,7 +42,7 @@ __all__ = (
 
 class ListProfileAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileassociationspaginator)
     """
 
@@ -54,13 +54,13 @@ class ListProfileAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfileAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileassociationspaginator)
         """
 
 class ListProfileResourceAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileresourceassociationspaginator)
     """
 
@@ -72,13 +72,13 @@ class ListProfileResourceAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfileResourceAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileresourceassociationspaginator)
         """
 
 class ListProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofilespaginator)
     """
 
@@ -86,6 +86,6 @@ class ListProfilesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofilespaginator)
         """

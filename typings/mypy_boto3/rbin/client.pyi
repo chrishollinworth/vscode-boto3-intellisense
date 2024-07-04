@@ -58,7 +58,7 @@ class Exceptions:
 
 class RecycleBinClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html)
     """
 
@@ -74,7 +74,7 @@ class RecycleBinClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#can_paginate)
         """
 
@@ -82,7 +82,7 @@ class RecycleBinClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#close)
         """
 
@@ -99,7 +99,7 @@ class RecycleBinClient(BaseClient):
         """
         Creates a Recycle Bin retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.create_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.create_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#create_rule)
         """
 
@@ -107,7 +107,7 @@ class RecycleBinClient(BaseClient):
         """
         Deletes a Recycle Bin retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.delete_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.delete_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#delete_rule)
         """
 
@@ -121,7 +121,7 @@ class RecycleBinClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#generate_presigned_url)
         """
 
@@ -129,7 +129,7 @@ class RecycleBinClient(BaseClient):
         """
         Gets information about a Recycle Bin retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.get_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.get_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#get_rule)
         """
 
@@ -145,7 +145,7 @@ class RecycleBinClient(BaseClient):
         """
         Lists the Recycle Bin retention rules in the Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.list_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.list_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#list_rules)
         """
 
@@ -153,7 +153,7 @@ class RecycleBinClient(BaseClient):
         """
         Lists the tags assigned to a retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#list_tags_for_resource)
         """
 
@@ -163,7 +163,7 @@ class RecycleBinClient(BaseClient):
         """
         Locks a retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.lock_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.lock_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#lock_rule)
         """
 
@@ -171,7 +171,7 @@ class RecycleBinClient(BaseClient):
         """
         Assigns tags to the specified retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#tag_resource)
         """
 
@@ -179,7 +179,7 @@ class RecycleBinClient(BaseClient):
         """
         Unlocks a retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.unlock_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.unlock_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#unlock_rule)
         """
 
@@ -187,7 +187,7 @@ class RecycleBinClient(BaseClient):
         """
         Unassigns a tag from a retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#untag_resource)
         """
 
@@ -203,12 +203,12 @@ class RecycleBinClient(BaseClient):
         """
         Updates an existing Recycle Bin retention rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Client.update_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Client.update_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/client.html#update_rule)
         """
 
     def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/rbin.html#RecycleBin.Paginator.ListRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/rbin.html#RecycleBin.Paginator.ListRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/paginators.html#listrulespaginator)
         """

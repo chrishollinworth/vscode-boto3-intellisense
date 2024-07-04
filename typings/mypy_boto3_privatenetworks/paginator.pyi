@@ -61,7 +61,7 @@ __all__ = (
 
 class ListDeviceIdentifiersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listdeviceidentifierspaginator)
     """
 
@@ -73,13 +73,13 @@ class ListDeviceIdentifiersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceIdentifiersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListDeviceIdentifiers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listdeviceidentifierspaginator)
         """
 
 class ListNetworkResourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkresourcespaginator)
     """
 
@@ -91,13 +91,13 @@ class ListNetworkResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNetworkResourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkResources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkresourcespaginator)
         """
 
 class ListNetworkSitesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworksitespaginator)
     """
 
@@ -109,13 +109,13 @@ class ListNetworkSitesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNetworkSitesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworkSites.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworksitespaginator)
         """
 
 class ListNetworksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkspaginator)
     """
 
@@ -126,13 +126,13 @@ class ListNetworksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNetworksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListNetworks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listnetworkspaginator)
         """
 
 class ListOrdersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listorderspaginator)
     """
 
@@ -144,6 +144,6 @@ class ListOrdersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrdersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/privatenetworks.html#Private5G.Paginator.ListOrders.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/paginators.html#listorderspaginator)
         """

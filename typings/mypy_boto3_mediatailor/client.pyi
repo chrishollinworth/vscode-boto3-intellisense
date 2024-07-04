@@ -103,7 +103,7 @@ class Exceptions:
 
 class MediaTailorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html)
     """
 
@@ -119,7 +119,7 @@ class MediaTailorClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#can_paginate)
         """
 
@@ -127,7 +127,7 @@ class MediaTailorClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#close)
         """
 
@@ -137,7 +137,7 @@ class MediaTailorClient(BaseClient):
         """
         Configures Amazon CloudWatch log settings for a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#configure_logs_for_channel)
         """
 
@@ -147,7 +147,7 @@ class MediaTailorClient(BaseClient):
         """
         Amazon CloudWatch log settings for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_playback_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#configure_logs_for_playback_configuration)
         """
 
@@ -166,7 +166,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_channel)
         """
 
@@ -181,7 +181,7 @@ class MediaTailorClient(BaseClient):
         """
         The live source configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_live_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_live_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_live_source)
         """
 
@@ -197,7 +197,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates a prefetch schedule for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_prefetch_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_prefetch_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_prefetch_schedule)
         """
 
@@ -216,7 +216,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates a program within a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_program)
         """
 
@@ -233,7 +233,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_source_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_source_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_source_location)
         """
 
@@ -248,7 +248,7 @@ class MediaTailorClient(BaseClient):
         """
         The VOD source configuration parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.create_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_vod_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_vod_source)
         """
 
@@ -256,7 +256,7 @@ class MediaTailorClient(BaseClient):
         """
         Deletes a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_channel)
         """
 
@@ -264,7 +264,7 @@ class MediaTailorClient(BaseClient):
         """
         The channel policy to delete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_channel_policy)
         """
 
@@ -272,7 +272,7 @@ class MediaTailorClient(BaseClient):
         """
         The live source to delete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_live_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_live_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_live_source)
         """
 
@@ -280,7 +280,7 @@ class MediaTailorClient(BaseClient):
         """
         Deletes a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_playback_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_playback_configuration)
         """
 
@@ -290,7 +290,7 @@ class MediaTailorClient(BaseClient):
         """
         Deletes a prefetch schedule for a specific playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_prefetch_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_prefetch_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_prefetch_schedule)
         """
 
@@ -298,7 +298,7 @@ class MediaTailorClient(BaseClient):
         """
         Deletes a program within a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_program)
         """
 
@@ -306,7 +306,7 @@ class MediaTailorClient(BaseClient):
         """
         Deletes a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_source_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_source_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_source_location)
         """
 
@@ -314,7 +314,7 @@ class MediaTailorClient(BaseClient):
         """
         The video on demand (VOD) source to delete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.delete_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_vod_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_vod_source)
         """
 
@@ -322,7 +322,7 @@ class MediaTailorClient(BaseClient):
         """
         Describes a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.describe_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_channel)
         """
 
@@ -332,7 +332,7 @@ class MediaTailorClient(BaseClient):
         """
         The live source to describe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.describe_live_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_live_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_live_source)
         """
 
@@ -342,7 +342,7 @@ class MediaTailorClient(BaseClient):
         """
         Describes a program within a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.describe_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_program)
         """
 
@@ -352,7 +352,7 @@ class MediaTailorClient(BaseClient):
         """
         Describes a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.describe_source_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_source_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_source_location)
         """
 
@@ -363,7 +363,7 @@ class MediaTailorClient(BaseClient):
         Provides details about a specific video on demand (VOD) source in a specific
         source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.describe_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_vod_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_vod_source)
         """
 
@@ -377,7 +377,7 @@ class MediaTailorClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#generate_presigned_url)
         """
 
@@ -385,7 +385,7 @@ class MediaTailorClient(BaseClient):
         """
         Returns the channel's IAM policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.get_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_channel_policy)
         """
 
@@ -401,7 +401,7 @@ class MediaTailorClient(BaseClient):
         """
         Retrieves information about your channel's schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.get_channel_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_channel_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_channel_schedule)
         """
 
@@ -409,7 +409,7 @@ class MediaTailorClient(BaseClient):
         """
         Retrieves a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.get_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_playback_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_playback_configuration)
         """
 
@@ -419,7 +419,7 @@ class MediaTailorClient(BaseClient):
         """
         Retrieves a prefetch schedule for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.get_prefetch_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_prefetch_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_prefetch_schedule)
         """
 
@@ -430,7 +430,7 @@ class MediaTailorClient(BaseClient):
         Lists the alerts that are associated with a MediaTailor channel assembly
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_alerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_alerts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_alerts)
         """
 
@@ -441,7 +441,7 @@ class MediaTailorClient(BaseClient):
         Retrieves information about the channels that are associated with the current
         AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_channels)
         """
 
@@ -451,7 +451,7 @@ class MediaTailorClient(BaseClient):
         """
         Lists the live sources contained in a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_live_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_live_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_live_sources)
         """
 
@@ -461,7 +461,7 @@ class MediaTailorClient(BaseClient):
         """
         Retrieves existing playback configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_playback_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_playback_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_playback_configurations)
         """
 
@@ -476,7 +476,7 @@ class MediaTailorClient(BaseClient):
         """
         Lists the prefetch schedules for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_prefetch_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_prefetch_schedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_prefetch_schedules)
         """
 
@@ -486,7 +486,7 @@ class MediaTailorClient(BaseClient):
         """
         Lists the source locations for a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_source_locations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_source_locations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_source_locations)
         """
 
@@ -494,7 +494,7 @@ class MediaTailorClient(BaseClient):
         """
         A list of tags that are associated with this resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_tags_for_resource)
         """
 
@@ -504,7 +504,7 @@ class MediaTailorClient(BaseClient):
         """
         Lists the VOD sources contained in a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.list_vod_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_vod_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_vod_sources)
         """
 
@@ -512,7 +512,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates an IAM policy for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.put_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.put_channel_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#put_channel_policy)
         """
 
@@ -538,7 +538,7 @@ class MediaTailorClient(BaseClient):
         """
         Creates a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.put_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.put_playback_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#put_playback_configuration)
         """
 
@@ -546,7 +546,7 @@ class MediaTailorClient(BaseClient):
         """
         Starts a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.start_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.start_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#start_channel)
         """
 
@@ -554,7 +554,7 @@ class MediaTailorClient(BaseClient):
         """
         Stops a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.stop_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.stop_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#stop_channel)
         """
 
@@ -562,7 +562,7 @@ class MediaTailorClient(BaseClient):
         """
         The resource to tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#tag_resource)
         """
 
@@ -570,7 +570,7 @@ class MediaTailorClient(BaseClient):
         """
         The resource to untag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#untag_resource)
         """
 
@@ -586,7 +586,7 @@ class MediaTailorClient(BaseClient):
         """
         Updates a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_channel)
         """
 
@@ -600,7 +600,7 @@ class MediaTailorClient(BaseClient):
         """
         Updates a live source's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.update_live_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_live_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_live_source)
         """
 
@@ -616,7 +616,7 @@ class MediaTailorClient(BaseClient):
         """
         Updates a program within a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.update_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_program)
         """
 
@@ -632,7 +632,7 @@ class MediaTailorClient(BaseClient):
         """
         Updates a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.update_source_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_source_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_source_location)
         """
 
@@ -646,7 +646,7 @@ class MediaTailorClient(BaseClient):
         """
         Updates a VOD source's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Client.update_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_vod_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_vod_source)
         """
 
@@ -655,21 +655,21 @@ class MediaTailorClient(BaseClient):
         self, operation_name: Literal["get_channel_schedule"]
     ) -> GetChannelSchedulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#getchannelschedulepaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_alerts"]) -> ListAlertsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listalertspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listchannelspaginator)
         """
 
@@ -678,7 +678,7 @@ class MediaTailorClient(BaseClient):
         self, operation_name: Literal["list_live_sources"]
     ) -> ListLiveSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListLiveSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListLiveSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listlivesourcespaginator)
         """
 
@@ -687,7 +687,7 @@ class MediaTailorClient(BaseClient):
         self, operation_name: Literal["list_playback_configurations"]
     ) -> ListPlaybackConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listplaybackconfigurationspaginator)
         """
 
@@ -696,7 +696,7 @@ class MediaTailorClient(BaseClient):
         self, operation_name: Literal["list_prefetch_schedules"]
     ) -> ListPrefetchSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListPrefetchSchedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListPrefetchSchedules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listprefetchschedulespaginator)
         """
 
@@ -705,13 +705,13 @@ class MediaTailorClient(BaseClient):
         self, operation_name: Literal["list_source_locations"]
     ) -> ListSourceLocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listsourcelocationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_vod_sources"]) -> ListVodSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listvodsourcespaginator)
         """

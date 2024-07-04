@@ -48,7 +48,7 @@ __all__ = (
 
 class ListIdentitySourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listidentitysourcespaginator)
     """
 
@@ -60,13 +60,13 @@ class ListIdentitySourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdentitySourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listidentitysourcespaginator)
         """
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpoliciespaginator)
     """
 
@@ -78,13 +78,13 @@ class ListPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPoliciesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpoliciespaginator)
         """
 
 class ListPolicyStoresPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicystorespaginator)
     """
 
@@ -92,13 +92,13 @@ class ListPolicyStoresPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPolicyStoresOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicystorespaginator)
         """
 
 class ListPolicyTemplatesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicytemplatespaginator)
     """
 
@@ -106,6 +106,6 @@ class ListPolicyTemplatesPaginator(Boto3Paginator):
         self, *, policyStoreId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPolicyTemplatesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicytemplatespaginator)
         """

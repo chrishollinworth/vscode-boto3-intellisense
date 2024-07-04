@@ -23,6 +23,8 @@ __all__ = (
     "BatchItemErrorCodeType",
     "DimensionUnitType",
     "DistanceUnitType",
+    "ForecastGeofenceEventsPaginatorName",
+    "ForecastedGeofenceEventTypeType",
     "GetDevicePositionHistoryPaginatorName",
     "IntendedUseType",
     "ListDevicePositionsPaginatorName",
@@ -38,6 +40,7 @@ __all__ = (
     "PositionFilteringType",
     "PricingPlanType",
     "RouteMatrixErrorCodeType",
+    "SpeedUnitType",
     "StatusType",
     "TravelModeType",
     "VehicleWeightUnitType",
@@ -53,6 +56,8 @@ BatchItemErrorCodeType = Literal[
 ]
 DimensionUnitType = Literal["Feet", "Meters"]
 DistanceUnitType = Literal["Kilometers", "Miles"]
+ForecastGeofenceEventsPaginatorName = Literal["forecast_geofence_events"]
+ForecastedGeofenceEventTypeType = Literal["ENTER", "EXIT", "IDLE"]
 GetDevicePositionHistoryPaginatorName = Literal["get_device_position_history"]
 IntendedUseType = Literal["SingleUse", "Storage"]
 ListDevicePositionsPaginatorName = Literal["list_device_positions"]
@@ -75,6 +80,7 @@ RouteMatrixErrorCodeType = Literal[
     "RouteNotFound",
     "RouteTooLong",
 ]
+SpeedUnitType = Literal["KilometersPerHour", "MilesPerHour"]
 StatusType = Literal["Active", "Expired"]
 TravelModeType = Literal["Bicycle", "Car", "Motorcycle", "Truck", "Walking"]
 VehicleWeightUnitType = Literal["Kilograms", "Pounds"]

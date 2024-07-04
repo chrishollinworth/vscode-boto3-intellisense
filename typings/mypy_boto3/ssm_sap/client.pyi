@@ -74,7 +74,7 @@ class Exceptions:
 
 class SsmSapClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html)
     """
 
@@ -90,7 +90,7 @@ class SsmSapClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#can_paginate)
         """
 
@@ -98,7 +98,7 @@ class SsmSapClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#close)
         """
 
@@ -112,7 +112,7 @@ class SsmSapClient(BaseClient):
         """
         Removes permissions associated with the target database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.delete_resource_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.delete_resource_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#delete_resource_permission)
         """
 
@@ -120,7 +120,7 @@ class SsmSapClient(BaseClient):
         """
         Deregister an SAP application with AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.deregister_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.deregister_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#deregister_application)
         """
 
@@ -134,7 +134,7 @@ class SsmSapClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#generate_presigned_url)
         """
 
@@ -144,7 +144,7 @@ class SsmSapClient(BaseClient):
         """
         Gets an application registered with AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#get_application)
         """
 
@@ -153,7 +153,7 @@ class SsmSapClient(BaseClient):
         Gets the component of an application registered with AWS Systems Manager for
         SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.get_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.get_component)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#get_component)
         """
 
@@ -169,7 +169,7 @@ class SsmSapClient(BaseClient):
         Gets the SAP HANA database of an application registered with AWS Systems Manager
         for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.get_database)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.get_database)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#get_database)
         """
 
@@ -177,7 +177,7 @@ class SsmSapClient(BaseClient):
         """
         Gets the details of an operation by specifying the operation ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.get_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.get_operation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#get_operation)
         """
 
@@ -187,7 +187,7 @@ class SsmSapClient(BaseClient):
         """
         Gets permissions associated with the target database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.get_resource_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.get_resource_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#get_resource_permission)
         """
 
@@ -201,7 +201,7 @@ class SsmSapClient(BaseClient):
         """
         Lists all the applications registered with AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_applications)
         """
 
@@ -211,7 +211,7 @@ class SsmSapClient(BaseClient):
         """
         Lists all the components registered with AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_components)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_components)
         """
 
@@ -227,7 +227,7 @@ class SsmSapClient(BaseClient):
         Lists the SAP HANA databases of an application registered with AWS Systems
         Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_databases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_databases)
         """
 
@@ -242,7 +242,7 @@ class SsmSapClient(BaseClient):
         """
         Returns a list of operations events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_operation_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_operation_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_operation_events)
         """
 
@@ -257,7 +257,7 @@ class SsmSapClient(BaseClient):
         """
         Lists the operations performed by AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_operations)
         """
 
@@ -266,7 +266,7 @@ class SsmSapClient(BaseClient):
         Lists all tags on an SAP HANA application and/or database registered with AWS
         Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#list_tags_for_resource)
         """
 
@@ -276,7 +276,7 @@ class SsmSapClient(BaseClient):
         """
         Adds permissions to the target database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.put_resource_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.put_resource_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#put_resource_permission)
         """
 
@@ -295,7 +295,7 @@ class SsmSapClient(BaseClient):
         """
         Register an SAP application with AWS Systems Manager for SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.register_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.register_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#register_application)
         """
 
@@ -303,7 +303,7 @@ class SsmSapClient(BaseClient):
         """
         Request is an operation which starts an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.start_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.start_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#start_application)
         """
 
@@ -313,7 +313,7 @@ class SsmSapClient(BaseClient):
         """
         Refreshes a registered application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.start_application_refresh)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.start_application_refresh)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#start_application_refresh)
         """
 
@@ -327,7 +327,7 @@ class SsmSapClient(BaseClient):
         """
         Request is an operation to stop an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.stop_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.stop_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#stop_application)
         """
 
@@ -335,7 +335,7 @@ class SsmSapClient(BaseClient):
         """
         Creates tag for a resource by specifying the ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#tag_resource)
         """
 
@@ -343,7 +343,7 @@ class SsmSapClient(BaseClient):
         """
         Delete the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#untag_resource)
         """
 
@@ -360,7 +360,7 @@ class SsmSapClient(BaseClient):
         Updates the settings of an application registered with AWS Systems Manager for
         SAP.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Client.update_application_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Client.update_application_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/client.html#update_application_settings)
         """
 
@@ -369,21 +369,21 @@ class SsmSapClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listapplicationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_components"]) -> ListComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Paginator.ListComponents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listcomponentspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_databases"]) -> ListDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Paginator.ListDatabases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listdatabasespaginator)
         """
 
@@ -392,13 +392,13 @@ class SsmSapClient(BaseClient):
         self, operation_name: Literal["list_operation_events"]
     ) -> ListOperationEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperationEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperationEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationeventspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_operations"]) -> ListOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-sap.html#SsmSap.Paginator.ListOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/paginators.html#listoperationspaginator)
         """

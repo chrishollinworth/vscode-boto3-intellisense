@@ -38,7 +38,7 @@ __all__ = ("ListExecutionsPaginator", "ListExportsPaginator", "ListTablesPaginat
 
 class ListExecutionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexecutionspaginator)
     """
 
@@ -46,13 +46,13 @@ class ListExecutionsPaginator(Boto3Paginator):
         self, *, ExportArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExecutionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexecutionspaginator)
         """
 
 class ListExportsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexportspaginator)
     """
 
@@ -60,13 +60,13 @@ class ListExportsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexportspaginator)
         """
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listtablespaginator)
     """
 
@@ -74,6 +74,6 @@ class ListTablesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listtablespaginator)
         """

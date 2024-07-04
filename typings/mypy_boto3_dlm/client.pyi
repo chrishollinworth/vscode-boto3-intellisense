@@ -52,7 +52,7 @@ class Exceptions:
 
 class DLMClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html)
     """
 
@@ -68,7 +68,7 @@ class DLMClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#can_paginate)
         """
 
@@ -76,7 +76,7 @@ class DLMClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#close)
         """
 
@@ -99,7 +99,7 @@ class DLMClient(BaseClient):
         """
         Creates an Amazon Data Lifecycle Manager lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.create_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.create_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#create_lifecycle_policy)
         """
 
@@ -108,7 +108,7 @@ class DLMClient(BaseClient):
         Deletes the specified lifecycle policy and halts the automated operations that
         the policy specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.delete_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.delete_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#delete_lifecycle_policy)
         """
 
@@ -122,7 +122,7 @@ class DLMClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#generate_presigned_url)
         """
 
@@ -139,7 +139,7 @@ class DLMClient(BaseClient):
         """
         Gets summary information about all or the specified data lifecycle policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.get_lifecycle_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.get_lifecycle_policies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#get_lifecycle_policies)
         """
 
@@ -147,7 +147,7 @@ class DLMClient(BaseClient):
         """
         Gets detailed information about the specified lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.get_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.get_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#get_lifecycle_policy)
         """
 
@@ -155,7 +155,7 @@ class DLMClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#list_tags_for_resource)
         """
 
@@ -163,7 +163,7 @@ class DLMClient(BaseClient):
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#tag_resource)
         """
 
@@ -171,7 +171,7 @@ class DLMClient(BaseClient):
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#untag_resource)
         """
 
@@ -193,6 +193,6 @@ class DLMClient(BaseClient):
         """
         Updates the specified lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dlm.html#DLM.Client.update_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.update_lifecycle_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#update_lifecycle_policy)
         """

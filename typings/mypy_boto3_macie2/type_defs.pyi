@@ -20,6 +20,10 @@ from .literals import (
     AdminStatusType,
     AllowListStatusCodeType,
     AllowsUnencryptedObjectUploadsType,
+    AutoEnableModeType,
+    AutomatedDiscoveryAccountStatusType,
+    AutomatedDiscoveryAccountUpdateErrorCodeType,
+    AutomatedDiscoveryMonitoringStatusType,
     AutomatedDiscoveryStatusType,
     AvailabilityCodeType,
     ClassificationScopeUpdateOperationType,
@@ -90,11 +94,16 @@ __all__ = (
     "AllowListSummaryTypeDef",
     "ApiCallDetailsTypeDef",
     "AssumedRoleTypeDef",
+    "AutomatedDiscoveryAccountTypeDef",
+    "AutomatedDiscoveryAccountUpdateErrorTypeDef",
+    "AutomatedDiscoveryAccountUpdateTypeDef",
     "AwsAccountTypeDef",
     "AwsServiceTypeDef",
     "BatchGetCustomDataIdentifierSummaryTypeDef",
     "BatchGetCustomDataIdentifiersRequestRequestTypeDef",
     "BatchGetCustomDataIdentifiersResponseTypeDef",
+    "BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    "BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef",
     "BlockPublicAccessTypeDef",
     "BucketCountByEffectivePermissionTypeDef",
     "BucketCountByEncryptionTypeTypeDef",
@@ -215,6 +224,8 @@ __all__ = (
     "LastRunErrorStatusTypeDef",
     "ListAllowListsRequestRequestTypeDef",
     "ListAllowListsResponseTypeDef",
+    "ListAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    "ListAutomatedDiscoveryAccountsResponseTypeDef",
     "ListClassificationJobsRequestRequestTypeDef",
     "ListClassificationJobsResponseTypeDef",
     "ListClassificationScopesRequestRequestTypeDef",
@@ -460,6 +471,33 @@ AssumedRoleTypeDef = TypedDict(
     total=False,
 )
 
+AutomatedDiscoveryAccountTypeDef = TypedDict(
+    "AutomatedDiscoveryAccountTypeDef",
+    {
+        "accountId": str,
+        "status": AutomatedDiscoveryAccountStatusType,
+    },
+    total=False,
+)
+
+AutomatedDiscoveryAccountUpdateErrorTypeDef = TypedDict(
+    "AutomatedDiscoveryAccountUpdateErrorTypeDef",
+    {
+        "accountId": str,
+        "errorCode": AutomatedDiscoveryAccountUpdateErrorCodeType,
+    },
+    total=False,
+)
+
+AutomatedDiscoveryAccountUpdateTypeDef = TypedDict(
+    "AutomatedDiscoveryAccountUpdateTypeDef",
+    {
+        "accountId": str,
+        "status": AutomatedDiscoveryAccountStatusType,
+    },
+    total=False,
+)
+
 AwsAccountTypeDef = TypedDict(
     "AwsAccountTypeDef",
     {
@@ -503,6 +541,22 @@ BatchGetCustomDataIdentifiersResponseTypeDef = TypedDict(
     {
         "customDataIdentifiers": List["BatchGetCustomDataIdentifierSummaryTypeDef"],
         "notFoundIdentifierIds": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef = TypedDict(
+    "BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    {
+        "accounts": List["AutomatedDiscoveryAccountUpdateTypeDef"],
+    },
+    total=False,
+)
+
+BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef = TypedDict(
+    "BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef",
+    {
+        "errors": List["AutomatedDiscoveryAccountUpdateErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -590,6 +644,7 @@ BucketMetadataTypeDef = TypedDict(
     {
         "accountId": str,
         "allowsUnencryptedObjectUploads": AllowsUnencryptedObjectUploadsType,
+        "automatedDiscoveryMonitoringStatus": AutomatedDiscoveryMonitoringStatusType,
         "bucketArn": str,
         "bucketCreatedAt": datetime,
         "bucketName": str,
@@ -1337,6 +1392,7 @@ GetAllowListResponseTypeDef = TypedDict(
 GetAutomatedDiscoveryConfigurationResponseTypeDef = TypedDict(
     "GetAutomatedDiscoveryConfigurationResponseTypeDef",
     {
+        "autoEnableOrganizationMembers": AutoEnableModeType,
         "classificationScopeId": str,
         "disabledAt": datetime,
         "firstEnabledAt": datetime,
@@ -1852,6 +1908,25 @@ ListAllowListsResponseTypeDef = TypedDict(
     },
 )
 
+ListAutomatedDiscoveryAccountsRequestRequestTypeDef = TypedDict(
+    "ListAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    {
+        "accountIds": List[str],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListAutomatedDiscoveryAccountsResponseTypeDef = TypedDict(
+    "ListAutomatedDiscoveryAccountsResponseTypeDef",
+    {
+        "items": List["AutomatedDiscoveryAccountTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListClassificationJobsRequestRequestTypeDef = TypedDict(
     "ListClassificationJobsRequestRequestTypeDef",
     {
@@ -2151,6 +2226,7 @@ MatchingBucketTypeDef = TypedDict(
     "MatchingBucketTypeDef",
     {
         "accountId": str,
+        "automatedDiscoveryMonitoringStatus": AutomatedDiscoveryMonitoringStatusType,
         "bucketName": str,
         "classifiableObjectCount": int,
         "classifiableSizeInBytes": int,
@@ -2923,12 +2999,25 @@ UpdateAllowListResponseTypeDef = TypedDict(
     },
 )
 
-UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
+_RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
     {
         "status": AutomatedDiscoveryStatusType,
     },
 )
+_OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
+    {
+        "autoEnableOrganizationMembers": AutoEnableModeType,
+    },
+    total=False,
+)
+
+class UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef(
+    _RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef,
+    _OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef,
+):
+    pass
 
 UpdateClassificationJobRequestRequestTypeDef = TypedDict(
     "UpdateClassificationJobRequestRequestTypeDef",

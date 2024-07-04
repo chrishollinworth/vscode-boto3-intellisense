@@ -62,7 +62,7 @@ class Exceptions:
 
 class KinesisAnalyticsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html)
     """
 
@@ -84,7 +84,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_cloud_watch_logging_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_cloud_watch_logging_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_cloud_watch_logging_option)
         """
 
@@ -94,7 +94,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_input)
         """
 
@@ -109,7 +109,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input_processing_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input_processing_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_input_processing_configuration)
         """
 
@@ -119,7 +119,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_output)
         """
 
@@ -133,7 +133,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_reference_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_reference_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_reference_data_source)
         """
 
@@ -141,7 +141,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#can_paginate)
         """
 
@@ -149,7 +149,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#close)
         """
 
@@ -167,7 +167,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#create_application)
         """
 
@@ -177,7 +177,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application)
         """
 
@@ -191,7 +191,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_cloud_watch_logging_option)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_cloud_watch_logging_option)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_cloud_watch_logging_option)
         """
 
@@ -201,7 +201,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_input_processing_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_input_processing_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_input_processing_configuration)
         """
 
@@ -211,7 +211,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_output)
         """
 
@@ -221,7 +221,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_reference_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_reference_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_reference_data_source)
         """
 
@@ -229,7 +229,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.describe_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.describe_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#describe_application)
         """
 
@@ -245,7 +245,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.discover_input_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.discover_input_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#discover_input_schema)
         """
 
@@ -259,7 +259,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#generate_presigned_url)
         """
 
@@ -269,7 +269,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#list_applications)
         """
 
@@ -277,7 +277,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Retrieves the list of key-value tags assigned to the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#list_tags_for_resource)
         """
 
@@ -287,7 +287,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.start_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.start_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#start_application)
         """
 
@@ -295,7 +295,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.stop_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.stop_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#stop_application)
         """
 
@@ -303,7 +303,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Adds one or more key-value tags to a Kinesis Analytics application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#tag_resource)
         """
 
@@ -311,7 +311,7 @@ class KinesisAnalyticsClient(BaseClient):
         """
         Removes one or more tags from a Kinesis Analytics application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#untag_resource)
         """
 
@@ -325,6 +325,6 @@ class KinesisAnalyticsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#update_application)
         """

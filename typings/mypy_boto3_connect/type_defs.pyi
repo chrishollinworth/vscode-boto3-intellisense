@@ -122,6 +122,7 @@ __all__ = (
     "AgentStatusReferenceTypeDef",
     "AgentStatusSummaryTypeDef",
     "AgentStatusTypeDef",
+    "AgentsCriteriaTypeDef",
     "AllowedCapabilitiesTypeDef",
     "AnalyticsDataAssociationResultTypeDef",
     "AnswerMachineDetectionConfigTypeDef",
@@ -152,6 +153,8 @@ __all__ = (
     "AttributeTypeDef",
     "AudioFeaturesTypeDef",
     "AudioQualityMetricsInfoTypeDef",
+    "AuthenticationProfileSummaryTypeDef",
+    "AuthenticationProfileTypeDef",
     "AvailableNumberSummaryTypeDef",
     "BatchAssociateAnalyticsDataSetRequestRequestTypeDef",
     "BatchAssociateAnalyticsDataSetResponseTypeDef",
@@ -278,6 +281,8 @@ __all__ = (
     "DeleteVocabularyResponseTypeDef",
     "DescribeAgentStatusRequestRequestTypeDef",
     "DescribeAgentStatusResponseTypeDef",
+    "DescribeAuthenticationProfileRequestRequestTypeDef",
+    "DescribeAuthenticationProfileResponseTypeDef",
     "DescribeContactEvaluationRequestRequestTypeDef",
     "DescribeContactEvaluationResponseTypeDef",
     "DescribeContactFlowModuleRequestRequestTypeDef",
@@ -444,6 +449,8 @@ __all__ = (
     "ListAnalyticsDataAssociationsResponseTypeDef",
     "ListApprovedOriginsRequestRequestTypeDef",
     "ListApprovedOriginsResponseTypeDef",
+    "ListAuthenticationProfilesRequestRequestTypeDef",
+    "ListAuthenticationProfilesResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
     "ListBotsResponseTypeDef",
     "ListContactEvaluationsRequestRequestTypeDef",
@@ -527,6 +534,7 @@ __all__ = (
     "ListViewVersionsResponseTypeDef",
     "ListViewsRequestRequestTypeDef",
     "ListViewsResponseTypeDef",
+    "MatchCriteriaTypeDef",
     "MediaConcurrencyTypeDef",
     "MediaPlacementTypeDef",
     "MeetingFeaturesConfigurationTypeDef",
@@ -714,6 +722,7 @@ __all__ = (
     "UntagContactRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAgentStatusRequestRequestTypeDef",
+    "UpdateAuthenticationProfileRequestRequestTypeDef",
     "UpdateCaseActionDefinitionTypeDef",
     "UpdateContactAttributesRequestRequestTypeDef",
     "UpdateContactEvaluationRequestRequestTypeDef",
@@ -919,6 +928,14 @@ AgentStatusTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "LastModifiedTime": datetime,
         "LastModifiedRegion": str,
+    },
+    total=False,
+)
+
+AgentsCriteriaTypeDef = TypedDict(
+    "AgentsCriteriaTypeDef",
+    {
+        "AgentIds": List[str],
     },
     total=False,
 )
@@ -1215,6 +1232,7 @@ AttributeConditionTypeDef = TypedDict(
         "Name": str,
         "Value": str,
         "ProficiencyLevel": float,
+        "MatchCriteria": "MatchCriteriaTypeDef",
         "ComparisonOperator": str,
     },
     total=False,
@@ -1242,6 +1260,38 @@ AudioQualityMetricsInfoTypeDef = TypedDict(
     {
         "QualityScore": float,
         "PotentialQualityIssues": List[str],
+    },
+    total=False,
+)
+
+AuthenticationProfileSummaryTypeDef = TypedDict(
+    "AuthenticationProfileSummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "IsDefault": bool,
+        "LastModifiedTime": datetime,
+        "LastModifiedRegion": str,
+    },
+    total=False,
+)
+
+AuthenticationProfileTypeDef = TypedDict(
+    "AuthenticationProfileTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "Description": str,
+        "AllowedIps": List[str],
+        "BlockedIps": List[str],
+        "IsDefault": bool,
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+        "LastModifiedRegion": str,
+        "PeriodicSessionDuration": int,
+        "MaxSessionDuration": int,
     },
     total=False,
 )
@@ -2844,6 +2894,22 @@ DescribeAgentStatusResponseTypeDef = TypedDict(
     "DescribeAgentStatusResponseTypeDef",
     {
         "AgentStatus": "AgentStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAuthenticationProfileRequestRequestTypeDef = TypedDict(
+    "DescribeAuthenticationProfileRequestRequestTypeDef",
+    {
+        "AuthenticationProfileId": str,
+        "InstanceId": str,
+    },
+)
+
+DescribeAuthenticationProfileResponseTypeDef = TypedDict(
+    "DescribeAuthenticationProfileResponseTypeDef",
+    {
+        "AuthenticationProfile": "AuthenticationProfileTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4745,6 +4811,36 @@ ListApprovedOriginsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAuthenticationProfilesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAuthenticationProfilesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListAuthenticationProfilesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAuthenticationProfilesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAuthenticationProfilesRequestRequestTypeDef(
+    _RequiredListAuthenticationProfilesRequestRequestTypeDef,
+    _OptionalListAuthenticationProfilesRequestRequestTypeDef,
+):
+    pass
+
+ListAuthenticationProfilesResponseTypeDef = TypedDict(
+    "ListAuthenticationProfilesResponseTypeDef",
+    {
+        "AuthenticationProfileSummaryList": List["AuthenticationProfileSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListBotsRequestRequestTypeDef = TypedDict(
     "_RequiredListBotsRequestRequestTypeDef",
     {
@@ -5973,6 +6069,14 @@ ListViewsResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+MatchCriteriaTypeDef = TypedDict(
+    "MatchCriteriaTypeDef",
+    {
+        "AgentsCriteria": "AgentsCriteriaTypeDef",
+    },
+    total=False,
 )
 
 _RequiredMediaConcurrencyTypeDef = TypedDict(
@@ -8403,6 +8507,31 @@ _OptionalUpdateAgentStatusRequestRequestTypeDef = TypedDict(
 
 class UpdateAgentStatusRequestRequestTypeDef(
     _RequiredUpdateAgentStatusRequestRequestTypeDef, _OptionalUpdateAgentStatusRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateAuthenticationProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAuthenticationProfileRequestRequestTypeDef",
+    {
+        "AuthenticationProfileId": str,
+        "InstanceId": str,
+    },
+)
+_OptionalUpdateAuthenticationProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAuthenticationProfileRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "AllowedIps": List[str],
+        "BlockedIps": List[str],
+        "PeriodicSessionDuration": int,
+    },
+    total=False,
+)
+
+class UpdateAuthenticationProfileRequestRequestTypeDef(
+    _RequiredUpdateAuthenticationProfileRequestRequestTypeDef,
+    _OptionalUpdateAuthenticationProfileRequestRequestTypeDef,
 ):
     pass
 

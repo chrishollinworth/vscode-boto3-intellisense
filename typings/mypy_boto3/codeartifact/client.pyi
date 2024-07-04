@@ -119,7 +119,7 @@ class Exceptions:
 
 class CodeArtifactClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html)
     """
 
@@ -137,7 +137,7 @@ class CodeArtifactClient(BaseClient):
         """
         Adds an existing external connection to a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.associate_external_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.associate_external_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#associate_external_connection)
         """
 
@@ -145,7 +145,7 @@ class CodeArtifactClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#can_paginate)
         """
 
@@ -153,7 +153,7 @@ class CodeArtifactClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#close)
         """
 
@@ -176,7 +176,7 @@ class CodeArtifactClient(BaseClient):
         Copies package versions from one repository to another repository in the same
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.copy_package_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.copy_package_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#copy_package_versions)
         """
 
@@ -186,7 +186,7 @@ class CodeArtifactClient(BaseClient):
         """
         Creates a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.create_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.create_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#create_domain)
         """
 
@@ -203,7 +203,7 @@ class CodeArtifactClient(BaseClient):
         """
         Creates a package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.create_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.create_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#create_package_group)
         """
 
@@ -220,7 +220,7 @@ class CodeArtifactClient(BaseClient):
         """
         Creates a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.create_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.create_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#create_repository)
         """
 
@@ -228,7 +228,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_domain)
         """
 
@@ -238,7 +238,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes the resource policy set on a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_domain_permissions_policy)
         """
 
@@ -255,7 +255,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes a package and all associated package versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_package)
         """
 
@@ -265,7 +265,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes a package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_package_group)
         """
 
@@ -284,7 +284,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes one or more versions of a package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_package_versions)
         """
 
@@ -294,7 +294,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_repository)
         """
 
@@ -304,7 +304,7 @@ class CodeArtifactClient(BaseClient):
         """
         Deletes the resource policy that is set on a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#delete_repository_permissions_policy)
         """
 
@@ -316,7 +316,7 @@ class CodeArtifactClient(BaseClient):
         IReference/API_DomainDescription.html>`__ object that contains information about
         the requested domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.describe_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.describe_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#describe_domain)
         """
 
@@ -335,7 +335,7 @@ class CodeArtifactClient(BaseClient):
         PIReference/API_PackageDescription.html>`__ object that contains information
         about the requested package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.describe_package)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.describe_package)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#describe_package)
         """
 
@@ -347,7 +347,7 @@ class CodeArtifactClient(BaseClient):
         est/APIReference/API_PackageGroupDescription.html>`__ object that contains
         information about the requested package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#describe_package_group)
         """
 
@@ -367,7 +367,7 @@ class CodeArtifactClient(BaseClient):
         atest/APIReference/API_PackageVersionDescription.html>`__ object that contains
         information about the requested package version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#describe_package_version)
         """
 
@@ -378,7 +378,7 @@ class CodeArtifactClient(BaseClient):
         Returns a `RepositoryDescription` object that contains detailed information
         about the requested repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.describe_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.describe_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#describe_repository)
         """
 
@@ -388,7 +388,7 @@ class CodeArtifactClient(BaseClient):
         """
         Removes an existing external connection from a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.disassociate_external_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.disassociate_external_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#disassociate_external_connection)
         """
 
@@ -409,7 +409,7 @@ class CodeArtifactClient(BaseClient):
         Deletes the assets in package versions and sets the package versions' status to
         `Disposed`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.dispose_package_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.dispose_package_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#dispose_package_versions)
         """
 
@@ -423,7 +423,7 @@ class CodeArtifactClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#generate_presigned_url)
         """
 
@@ -439,7 +439,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns the most closely associated package group to the specified package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_associated_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_associated_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_associated_package_group)
         """
 
@@ -450,7 +450,7 @@ class CodeArtifactClient(BaseClient):
         Generates a temporary authorization token for accessing repositories in the
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_authorization_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_authorization_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_authorization_token)
         """
 
@@ -460,7 +460,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns the resource policy attached to the specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_domain_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_domain_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_domain_permissions_policy)
         """
 
@@ -480,7 +480,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns an asset (or file) that is in a package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_asset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_package_version_asset)
         """
 
@@ -498,7 +498,7 @@ class CodeArtifactClient(BaseClient):
         """
         Gets the readme file or descriptive text for a package version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_readme)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_readme)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_package_version_readme)
         """
 
@@ -508,7 +508,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns the endpoint of a repository for a specific package format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_repository_endpoint)
         """
 
@@ -518,7 +518,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns the resource policy that is set on a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#get_repository_permissions_policy)
         """
 
@@ -536,7 +536,7 @@ class CodeArtifactClient(BaseClient):
         Lists the repositories in the added repositories list of the specified
         restriction type for a package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_allowed_repositories_for_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_allowed_repositories_for_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_allowed_repositories_for_group)
         """
 
@@ -553,7 +553,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns a list of packages associated with the requested package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_associated_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_associated_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_associated_packages)
         """
 
@@ -565,7 +565,7 @@ class CodeArtifactClient(BaseClient):
         t/APIReference/API_PackageVersionDescription.html>`__ objects for all domains
         owned by the Amazon Web Services account that makes this call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_domains)
         """
 
@@ -581,7 +581,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns a list of package groups in the requested domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_package_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_package_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_package_groups)
         """
 
@@ -602,7 +602,7 @@ class CodeArtifactClient(BaseClient):
         Returns a list of `AssetSummary <https://docs.aws.amazon.com/codeartifact/latest
         /APIReference/API_AssetSummary.html>`__ objects for assets in a package version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_assets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_package_version_assets)
         """
 
@@ -621,7 +621,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns the direct dependencies for a package version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_dependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_dependencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_package_version_dependencies)
         """
 
@@ -645,7 +645,7 @@ class CodeArtifactClient(BaseClient):
         ct/latest/APIReference/API_PackageVersionSummary.html>`__ objects for package
         versions in a repository that match the request parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_package_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_package_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_package_versions)
         """
 
@@ -668,7 +668,7 @@ class CodeArtifactClient(BaseClient):
         st/APIReference/API_PackageSummary.html>`__ objects for packages in a repository
         that match the request parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_packages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_packages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_packages)
         """
 
@@ -679,7 +679,7 @@ class CodeArtifactClient(BaseClient):
         Returns a list of `RepositorySummary <https://docs.aws.amazon.com/codeartifact/l
         atest/APIReference/API_RepositorySummary.html>`__ objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_repositories)
         """
 
@@ -697,7 +697,7 @@ class CodeArtifactClient(BaseClient):
         Returns a list of `RepositorySummary <https://docs.aws.amazon.com/codeartifact/l
         atest/APIReference/API_RepositorySummary.html>`__ objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories_in_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories_in_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_repositories_in_domain)
         """
 
@@ -713,7 +713,7 @@ class CodeArtifactClient(BaseClient):
         """
         Returns a list of direct children of the specified package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_sub_package_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_sub_package_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_sub_package_groups)
         """
 
@@ -722,7 +722,7 @@ class CodeArtifactClient(BaseClient):
         Gets information about Amazon Web Services tags for a specified Amazon Resource
         Name (ARN) in CodeArtifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#list_tags_for_resource)
         """
 
@@ -744,7 +744,7 @@ class CodeArtifactClient(BaseClient):
         """
         Creates a new package version containing one or more assets (or files).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.publish_package_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.publish_package_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#publish_package_version)
         """
 
@@ -759,7 +759,7 @@ class CodeArtifactClient(BaseClient):
         """
         Sets a resource policy on a domain that specifies permissions to access it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.put_domain_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.put_domain_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#put_domain_permissions_policy)
         """
 
@@ -777,7 +777,7 @@ class CodeArtifactClient(BaseClient):
         """
         Sets the package origin configuration for a package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.put_package_origin_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.put_package_origin_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#put_package_origin_configuration)
         """
 
@@ -794,7 +794,7 @@ class CodeArtifactClient(BaseClient):
         Sets the resource policy on a repository that specifies permissions to access
         it.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.put_repository_permissions_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.put_repository_permissions_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#put_repository_permissions_policy)
         """
 
@@ -802,7 +802,7 @@ class CodeArtifactClient(BaseClient):
         """
         Adds or updates tags for a resource in CodeArtifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#tag_resource)
         """
 
@@ -810,7 +810,7 @@ class CodeArtifactClient(BaseClient):
         """
         Removes tags from a resource in CodeArtifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#untag_resource)
         """
 
@@ -826,7 +826,7 @@ class CodeArtifactClient(BaseClient):
         """
         Updates a package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.update_package_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.update_package_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#update_package_group)
         """
 
@@ -845,7 +845,7 @@ class CodeArtifactClient(BaseClient):
         """
         Updates the package origin configuration for a package group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.update_package_group_origin_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.update_package_group_origin_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#update_package_group_origin_configuration)
         """
 
@@ -866,7 +866,7 @@ class CodeArtifactClient(BaseClient):
         """
         Updates the status of one or more versions of a package.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.update_package_versions_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.update_package_versions_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#update_package_versions_status)
         """
 
@@ -882,7 +882,7 @@ class CodeArtifactClient(BaseClient):
         """
         Update the properties of a repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Client.update_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Client.update_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/client.html#update_repository)
         """
 
@@ -891,7 +891,7 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_allowed_repositories_for_group"]
     ) -> ListAllowedRepositoriesForGroupPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListAllowedRepositoriesForGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListAllowedRepositoriesForGroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listallowedrepositoriesforgrouppaginator)
         """
 
@@ -900,14 +900,14 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_associated_packages"]
     ) -> ListAssociatedPackagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListAssociatedPackages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListAssociatedPackages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listassociatedpackagespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listdomainspaginator)
         """
 
@@ -916,7 +916,7 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_package_groups"]
     ) -> ListPackageGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackagegroupspaginator)
         """
 
@@ -925,7 +925,7 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_package_version_assets"]
     ) -> ListPackageVersionAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionassetspaginator)
         """
 
@@ -934,14 +934,14 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_package_versions"]
     ) -> ListPackageVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackageversionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_packages"]) -> ListPackagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listpackagespaginator)
         """
 
@@ -950,7 +950,7 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_repositories"]
     ) -> ListRepositoriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriespaginator)
         """
 
@@ -959,7 +959,7 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_repositories_in_domain"]
     ) -> ListRepositoriesInDomainPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listrepositoriesindomainpaginator)
         """
 
@@ -968,6 +968,6 @@ class CodeArtifactClient(BaseClient):
         self, operation_name: Literal["list_sub_package_groups"]
     ) -> ListSubPackageGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/codeartifact.html#CodeArtifact.Paginator.ListSubPackageGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeartifact.html#CodeArtifact.Paginator.ListSubPackageGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/paginators.html#listsubpackagegroupspaginator)
         """

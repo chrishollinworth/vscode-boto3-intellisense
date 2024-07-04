@@ -191,7 +191,7 @@ class Exceptions:
 
 class MediaLiveClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html)
     """
 
@@ -207,7 +207,7 @@ class MediaLiveClient(BaseClient):
         """
         Accept an incoming input device transfer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.accept_input_device_transfer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.accept_input_device_transfer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#accept_input_device_transfer)
         """
 
@@ -222,7 +222,7 @@ class MediaLiveClient(BaseClient):
         """
         Starts delete of resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.batch_delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_delete)
         """
 
@@ -235,7 +235,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.batch_start( ChannelIds=[ 'string', ],
         MultiplexIds=[ 'string', ] ) ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.batch_start)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_start)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_start)
         """
 
@@ -248,7 +248,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.batch_stop( ChannelIds=[ 'string', ],
         MultiplexIds=[ 'string', ] ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.batch_stop)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_stop)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_stop)
         """
 
@@ -265,7 +265,7 @@ class MediaLiveClient(BaseClient):
         Syntax** response = client.batch_update_schedule( ChannelId='string', Creates={
         'ScheduleActions': [ ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.batch_update_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_update_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_update_schedule)
         """
 
@@ -273,7 +273,7 @@ class MediaLiveClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#can_paginate)
         """
 
@@ -281,7 +281,7 @@ class MediaLiveClient(BaseClient):
         """
         Cancel an input device transfer that you have requested.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.cancel_input_device_transfer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.cancel_input_device_transfer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#cancel_input_device_transfer)
         """
 
@@ -290,7 +290,7 @@ class MediaLiveClient(BaseClient):
         Send a request to claim an AWS Elemental device that you have purchased from a
         third-party vendor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.claim_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.claim_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#claim_device)
         """
 
@@ -298,7 +298,7 @@ class MediaLiveClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#close)
         """
 
@@ -326,7 +326,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.create_channel( CdiInputSpecification={
         'Resolution': 'SD'|'HD'|'FHD'|'UHD' }, ChannelCla...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_channel)
         """
 
@@ -351,7 +351,7 @@ class MediaLiveClient(BaseClient):
         Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
         alarms on targeted resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_cloud_watch_alarm_template)
         """
 
@@ -362,7 +362,7 @@ class MediaLiveClient(BaseClient):
         Creates a cloudwatch alarm template group to group your cloudwatch alarm
         templates and to attach to signal maps for dynamically creating alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_cloud_watch_alarm_template_group)
         """
 
@@ -380,7 +380,7 @@ class MediaLiveClient(BaseClient):
         Creates an eventbridge rule template to monitor events and send notifications to
         your targeted resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_event_bridge_rule_template)
         """
 
@@ -392,7 +392,7 @@ class MediaLiveClient(BaseClient):
         templates and to attach to signal maps for dynamically creating notification
         rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_event_bridge_rule_template_group)
         """
 
@@ -417,7 +417,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.create_input( Destinations=[ {
         'StreamName': 'string' }, ], InputDevices=...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_input)
         """
 
@@ -433,7 +433,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.create_input_security_group( Tags={
         'string': 'string' }, WhitelistRu...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_input_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_input_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_input_security_group)
         """
 
@@ -449,7 +449,7 @@ class MediaLiveClient(BaseClient):
         """
         Create a new multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_multiplex)
         """
 
@@ -464,7 +464,7 @@ class MediaLiveClient(BaseClient):
         """
         Create a new program in the multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_multiplex_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_multiplex_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_multiplex_program)
         """
 
@@ -477,7 +477,7 @@ class MediaLiveClient(BaseClient):
         response = client.create_partner_input( InputId='string', RequestId='string',
         Tags={ 'string': 'strin...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_partner_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_partner_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_partner_input)
         """
 
@@ -494,7 +494,7 @@ class MediaLiveClient(BaseClient):
         """
         Initiates the creation of a new signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_signal_map)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_signal_map)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_signal_map)
         """
 
@@ -505,7 +505,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.create_tags( ResourceArn='string', Tags={
         'string': 'string' } ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_tags)
         """
 
@@ -513,7 +513,7 @@ class MediaLiveClient(BaseClient):
         """
         Starts deletion of channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_channel)
         """
 
@@ -521,7 +521,7 @@ class MediaLiveClient(BaseClient):
         """
         Deletes a cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_cloud_watch_alarm_template)
         """
 
@@ -529,7 +529,7 @@ class MediaLiveClient(BaseClient):
         """
         Deletes a cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_cloud_watch_alarm_template_group)
         """
 
@@ -537,7 +537,7 @@ class MediaLiveClient(BaseClient):
         """
         Deletes an eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_event_bridge_rule_template)
         """
 
@@ -545,7 +545,7 @@ class MediaLiveClient(BaseClient):
         """
         Deletes an eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_event_bridge_rule_template_group)
         """
 
@@ -555,7 +555,7 @@ class MediaLiveClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteInput>`_
         **Request Syntax** response = client.delete_input( InputId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_input)
         """
 
@@ -566,7 +566,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.delete_input_security_group(
         InputSecurityGroupId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_input_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_input_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_input_security_group)
         """
 
@@ -574,7 +574,7 @@ class MediaLiveClient(BaseClient):
         """
         Delete a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_multiplex)
         """
 
@@ -584,7 +584,7 @@ class MediaLiveClient(BaseClient):
         """
         Delete a program from a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_multiplex_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_multiplex_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_multiplex_program)
         """
 
@@ -592,7 +592,7 @@ class MediaLiveClient(BaseClient):
         """
         Delete an expired reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_reservation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_reservation)
         """
 
@@ -600,7 +600,7 @@ class MediaLiveClient(BaseClient):
         """
         Delete all schedule actions on a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_schedule)
         """
 
@@ -608,7 +608,7 @@ class MediaLiveClient(BaseClient):
         """
         Deletes the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_signal_map)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_signal_map)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_signal_map)
         """
 
@@ -619,7 +619,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.delete_tags( ResourceArn='string',
         TagKeys=[ 'string', ] ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_tags)
         """
 
@@ -629,7 +629,7 @@ class MediaLiveClient(BaseClient):
         s.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeAccountConfiguration>`_
         **Request Syntax** response = client.describe_account_configuration().
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_account_configuration)
         """
 
@@ -639,7 +639,7 @@ class MediaLiveClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeChannel>`_
         **Request Syntax** response = client.describe_channel( ChannelId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_channel)
         """
 
@@ -649,7 +649,7 @@ class MediaLiveClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeInput>`_
         **Request Syntax** response = client.describe_input( InputId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input)
         """
 
@@ -660,7 +660,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.describe_input_device(
         InputDeviceId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_device)
         """
 
@@ -670,7 +670,7 @@ class MediaLiveClient(BaseClient):
         """
         Get the latest thumbnail data for the input device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_input_device_thumbnail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_device_thumbnail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_device_thumbnail)
         """
 
@@ -683,7 +683,7 @@ class MediaLiveClient(BaseClient):
         14/DescribeInputSecurityGroup>`_ **Request Syntax** response =
         client.describe_input_security_group( InputSecurityGroupId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_input_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_security_group)
         """
 
@@ -691,7 +691,7 @@ class MediaLiveClient(BaseClient):
         """
         Gets details about a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_multiplex)
         """
 
@@ -701,7 +701,7 @@ class MediaLiveClient(BaseClient):
         """
         Get the details for a program in a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_multiplex_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_multiplex_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_multiplex_program)
         """
 
@@ -709,7 +709,7 @@ class MediaLiveClient(BaseClient):
         """
         Get details for an offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_offering)
         """
 
@@ -717,7 +717,7 @@ class MediaLiveClient(BaseClient):
         """
         Get details for a reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_reservation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_reservation)
         """
 
@@ -730,7 +730,7 @@ class MediaLiveClient(BaseClient):
         response = client.describe_schedule( ChannelId='string', MaxResults=123,
         NextToken='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_schedule)
         """
 
@@ -740,7 +740,7 @@ class MediaLiveClient(BaseClient):
         """
         Describe the latest thumbnails data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.describe_thumbnails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_thumbnails)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_thumbnails)
         """
 
@@ -754,7 +754,7 @@ class MediaLiveClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#generate_presigned_url)
         """
 
@@ -764,7 +764,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieves the specified cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_cloud_watch_alarm_template)
         """
 
@@ -774,7 +774,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieves the specified cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_cloud_watch_alarm_template_group)
         """
 
@@ -784,7 +784,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieves the specified eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_event_bridge_rule_template)
         """
 
@@ -794,7 +794,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieves the specified eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_event_bridge_rule_template_group)
         """
 
@@ -802,7 +802,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieves the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.get_signal_map)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_signal_map)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_signal_map)
         """
 
@@ -816,7 +816,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.list_channels( MaxResults=123,
         NextToken='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_channels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_channels)
         """
 
@@ -831,7 +831,7 @@ class MediaLiveClient(BaseClient):
         """
         Lists cloudwatch alarm template groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_template_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_template_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_cloud_watch_alarm_template_groups)
         """
 
@@ -847,7 +847,7 @@ class MediaLiveClient(BaseClient):
         """
         Lists cloudwatch alarm templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_cloud_watch_alarm_templates)
         """
 
@@ -857,7 +857,7 @@ class MediaLiveClient(BaseClient):
         """
         Lists eventbridge rule template groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_template_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_template_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_event_bridge_rule_template_groups)
         """
 
@@ -872,7 +872,7 @@ class MediaLiveClient(BaseClient):
         """
         Lists eventbridge rule templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_event_bridge_rule_templates)
         """
 
@@ -882,7 +882,7 @@ class MediaLiveClient(BaseClient):
         """
         List input devices that are currently being transferred.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_input_device_transfers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_device_transfers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_device_transfers)
         """
 
@@ -894,7 +894,7 @@ class MediaLiveClient(BaseClient):
         /goto/WebAPI/medialive-2017-10-14/ListInputDevices>`_ **Request Syntax**
         response = client.list_input_devices( MaxResults=123, NextToken='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_input_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_devices)
         """
 
@@ -907,7 +907,7 @@ class MediaLiveClient(BaseClient):
         14/ListInputSecurityGroups>`_ **Request Syntax** response =
         client.list_input_security_groups( MaxResults=123, NextToken='string...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_input_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_security_groups)
         """
 
@@ -920,7 +920,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.list_inputs( MaxResults=123,
         NextToken='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_inputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_inputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_inputs)
         """
 
@@ -930,7 +930,7 @@ class MediaLiveClient(BaseClient):
         """
         List the programs that currently exist for a specific multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_multiplex_programs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_multiplex_programs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_multiplex_programs)
         """
 
@@ -940,7 +940,7 @@ class MediaLiveClient(BaseClient):
         """
         Retrieve a list of the existing multiplexes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_multiplexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_multiplexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_multiplexes)
         """
 
@@ -963,7 +963,7 @@ class MediaLiveClient(BaseClient):
         """
         List offerings available for purchase.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_offerings)
         """
 
@@ -984,7 +984,7 @@ class MediaLiveClient(BaseClient):
         """
         List purchased reservations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_reservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_reservations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_reservations)
         """
 
@@ -999,7 +999,7 @@ class MediaLiveClient(BaseClient):
         """
         Lists signal maps.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_signal_maps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_signal_maps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_signal_maps)
         """
 
@@ -1010,7 +1010,7 @@ class MediaLiveClient(BaseClient):
         14/ListTagsForResource>`_ **Request Syntax** response =
         client.list_tags_for_resource( ResourceArn='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_tags_for_resource)
         """
 
@@ -1028,7 +1028,7 @@ class MediaLiveClient(BaseClient):
         """
         Purchase an offering and create a reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.purchase_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.purchase_offering)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#purchase_offering)
         """
 
@@ -1038,7 +1038,7 @@ class MediaLiveClient(BaseClient):
         """
         Send a reboot command to the specified input device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.reboot_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.reboot_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#reboot_input_device)
         """
 
@@ -1046,7 +1046,7 @@ class MediaLiveClient(BaseClient):
         """
         Reject the transfer of the specified input device to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.reject_input_device_transfer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.reject_input_device_transfer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#reject_input_device_transfer)
         """
 
@@ -1056,7 +1056,7 @@ class MediaLiveClient(BaseClient):
         """
         Restart pipelines in one channel that is currently running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.restart_channel_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.restart_channel_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#restart_channel_pipelines)
         """
 
@@ -1066,7 +1066,7 @@ class MediaLiveClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/StartChannel>`_
         **Request Syntax** response = client.start_channel( ChannelId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_channel)
         """
 
@@ -1076,7 +1076,7 @@ class MediaLiveClient(BaseClient):
         """
         Initiates a deployment to delete the monitor of the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_delete_monitor_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_delete_monitor_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_delete_monitor_deployment)
         """
 
@@ -1084,7 +1084,7 @@ class MediaLiveClient(BaseClient):
         """
         Start an input device that is attached to a MediaConnect flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_input_device)
         """
 
@@ -1092,7 +1092,7 @@ class MediaLiveClient(BaseClient):
         """
         Start a maintenance window for the specified input device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_input_device_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_input_device_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_input_device_maintenance_window)
         """
 
@@ -1102,7 +1102,7 @@ class MediaLiveClient(BaseClient):
         """
         Initiates a deployment to deploy the latest monitor of the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_monitor_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_monitor_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_monitor_deployment)
         """
 
@@ -1110,7 +1110,7 @@ class MediaLiveClient(BaseClient):
         """
         Start (run) the multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_multiplex)
         """
 
@@ -1128,7 +1128,7 @@ class MediaLiveClient(BaseClient):
         """
         Initiates an update for the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.start_update_signal_map)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_update_signal_map)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_update_signal_map)
         """
 
@@ -1138,7 +1138,7 @@ class MediaLiveClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/StopChannel>`_
         **Request Syntax** response = client.stop_channel( ChannelId='string' ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.stop_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_channel)
         """
 
@@ -1146,7 +1146,7 @@ class MediaLiveClient(BaseClient):
         """
         Stop an input device that is attached to a MediaConnect flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.stop_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_input_device)
         """
 
@@ -1154,7 +1154,7 @@ class MediaLiveClient(BaseClient):
         """
         Stops a running multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.stop_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_multiplex)
         """
 
@@ -1169,7 +1169,7 @@ class MediaLiveClient(BaseClient):
         """
         Start an input device transfer to another AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.transfer_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.transfer_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#transfer_input_device)
         """
 
@@ -1182,7 +1182,7 @@ class MediaLiveClient(BaseClient):
         **Request Syntax** response = client.update_account_configuration(
         AccountConfiguration={ 'KmsKeyId': 'string' }...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_account_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_account_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_account_configuration)
         """
 
@@ -1203,7 +1203,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_channel)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_channel)
         """
 
@@ -1217,7 +1217,7 @@ class MediaLiveClient(BaseClient):
         """
         Changes the class of the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_channel_class)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_channel_class)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_channel_class)
         """
 
@@ -1241,7 +1241,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates the specified cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_cloud_watch_alarm_template)
         """
 
@@ -1251,7 +1251,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates the specified cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_cloud_watch_alarm_template_group)
         """
 
@@ -1268,7 +1268,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates the specified eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_event_bridge_rule_template)
         """
 
@@ -1278,7 +1278,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates the specified eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_event_bridge_rule_template_group)
         """
 
@@ -1297,7 +1297,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates an input.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input)
         """
 
@@ -1313,7 +1313,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates the parameters for the input device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input_device)
         """
 
@@ -1327,7 +1327,7 @@ class MediaLiveClient(BaseClient):
         """
         Update an Input Security Group's Whilelists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_input_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input_security_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input_security_group)
         """
 
@@ -1341,7 +1341,7 @@ class MediaLiveClient(BaseClient):
         """
         Updates a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_multiplex)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_multiplex)
         """
 
@@ -1355,7 +1355,7 @@ class MediaLiveClient(BaseClient):
         """
         Update a program in a multiplex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_multiplex_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_multiplex_program)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_multiplex_program)
         """
 
@@ -1369,7 +1369,7 @@ class MediaLiveClient(BaseClient):
         """
         Update reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Client.update_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_reservation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_reservation)
         """
 
@@ -1378,14 +1378,14 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["describe_schedule"]
     ) -> DescribeSchedulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#describeschedulepaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listchannelspaginator)
         """
 
@@ -1394,7 +1394,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_cloud_watch_alarm_template_groups"]
     ) -> ListCloudWatchAlarmTemplateGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplateGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplateGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listcloudwatchalarmtemplategroupspaginator)
         """
 
@@ -1403,7 +1403,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_cloud_watch_alarm_templates"]
     ) -> ListCloudWatchAlarmTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listcloudwatchalarmtemplatespaginator)
         """
 
@@ -1412,7 +1412,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_event_bridge_rule_template_groups"]
     ) -> ListEventBridgeRuleTemplateGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplateGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplateGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listeventbridgeruletemplategroupspaginator)
         """
 
@@ -1421,7 +1421,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_event_bridge_rule_templates"]
     ) -> ListEventBridgeRuleTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listeventbridgeruletemplatespaginator)
         """
 
@@ -1430,7 +1430,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_input_device_transfers"]
     ) -> ListInputDeviceTransfersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicetransferspaginator)
         """
 
@@ -1439,7 +1439,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_input_devices"]
     ) -> ListInputDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicespaginator)
         """
 
@@ -1448,14 +1448,14 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_input_security_groups"]
     ) -> ListInputSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputsecuritygroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_inputs"]) -> ListInputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputspaginator)
         """
 
@@ -1464,7 +1464,7 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_multiplex_programs"]
     ) -> ListMultiplexProgramsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexprogramspaginator)
         """
 
@@ -1473,14 +1473,14 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_multiplexes"]
     ) -> ListMultiplexesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listofferingspaginator)
         """
 
@@ -1489,98 +1489,98 @@ class MediaLiveClient(BaseClient):
         self, operation_name: Literal["list_reservations"]
     ) -> ListReservationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listreservationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_signal_maps"]) -> ListSignalMapsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Paginator.ListSignalMaps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListSignalMaps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listsignalmapspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["channel_created"]) -> ChannelCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelcreatedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["channel_deleted"]) -> ChannelDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channeldeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["channel_running"]) -> ChannelRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelrunningwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["channel_stopped"]) -> ChannelStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelstoppedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["input_attached"]) -> InputAttachedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputattachedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["input_deleted"]) -> InputDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputdeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["input_detached"]) -> InputDetachedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputdetachedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["multiplex_created"]) -> MultiplexCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexcreatedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["multiplex_deleted"]) -> MultiplexDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexdeletedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["multiplex_running"]) -> MultiplexRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexrunningwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["multiplex_stopped"]) -> MultiplexStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexstoppedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["signal_map_created"]) -> SignalMapCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.SignalMapCreated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapCreated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapcreatedwaiter)
         """
 
@@ -1589,7 +1589,7 @@ class MediaLiveClient(BaseClient):
         self, waiter_name: Literal["signal_map_monitor_deleted"]
     ) -> SignalMapMonitorDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapmonitordeletedwaiter)
         """
 
@@ -1598,13 +1598,13 @@ class MediaLiveClient(BaseClient):
         self, waiter_name: Literal["signal_map_monitor_deployed"]
     ) -> SignalMapMonitorDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeployed)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapmonitordeployedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["signal_map_updated"]) -> SignalMapUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/medialive.html#MediaLive.Waiter.SignalMapUpdated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapUpdated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapupdatedwaiter)
         """

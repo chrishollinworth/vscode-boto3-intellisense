@@ -94,7 +94,7 @@ class Exceptions:
 
 class WorkSpacesWebClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html)
     """
 
@@ -112,7 +112,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates a browser settings resource with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_browser_settings)
         """
 
@@ -122,7 +122,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates an IP access settings resource with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_ip_access_settings)
         """
 
@@ -132,7 +132,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates a network settings resource with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_network_settings)
         """
 
@@ -142,7 +142,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates a trust store with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_trust_store)
         """
 
@@ -152,7 +152,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates a user access logging settings resource with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_user_access_logging_settings)
         """
 
@@ -162,7 +162,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Associates a user settings resource with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.associate_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#associate_user_settings)
         """
 
@@ -170,7 +170,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#can_paginate)
         """
 
@@ -178,7 +178,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#close)
         """
 
@@ -194,7 +194,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates a browser settings resource that can be associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_browser_settings)
         """
 
@@ -205,12 +205,13 @@ class WorkSpacesWebClient(BaseClient):
         identityProviderName: str,
         identityProviderType: IdentityProviderTypeType,
         portalArn: str,
-        clientToken: str = None
+        clientToken: str = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateIdentityProviderResponseTypeDef:
         """
         Creates an identity provider resource that is then associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_identity_provider)
         """
 
@@ -228,7 +229,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates an IP access settings resource that can be associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_ip_access_settings)
         """
 
@@ -244,7 +245,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates a network settings resource that can be associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_network_settings)
         """
 
@@ -263,7 +264,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_portal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_portal)
         """
 
@@ -277,7 +278,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates a trust store that can be associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_trust_store)
         """
 
@@ -288,7 +289,7 @@ class WorkSpacesWebClient(BaseClient):
         Creates a user access logging settings resource that can be associated with a
         web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_user_access_logging_settings)
         """
 
@@ -304,6 +305,7 @@ class WorkSpacesWebClient(BaseClient):
         clientToken: str = None,
         cookieSynchronizationConfiguration: "CookieSynchronizationConfigurationTypeDef" = None,
         customerManagedKey: str = None,
+        deepLinkAllowed: EnabledTypeType = None,
         disconnectTimeoutInMinutes: int = None,
         idleDisconnectTimeoutInMinutes: int = None,
         tags: List["TagTypeDef"] = None
@@ -311,7 +313,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Creates a user settings resource that can be associated with a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.create_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#create_user_settings)
         """
 
@@ -319,7 +321,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes browser settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_browser_settings)
         """
 
@@ -327,7 +329,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes the identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_identity_provider)
         """
 
@@ -335,7 +337,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes IP access settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_ip_access_settings)
         """
 
@@ -343,7 +345,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes network settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_network_settings)
         """
 
@@ -351,7 +353,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_portal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_portal)
         """
 
@@ -359,7 +361,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes the trust store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_trust_store)
         """
 
@@ -369,7 +371,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes user access logging settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_user_access_logging_settings)
         """
 
@@ -377,7 +379,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Deletes user settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.delete_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#delete_user_settings)
         """
 
@@ -385,7 +387,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates browser settings from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_browser_settings)
         """
 
@@ -393,7 +395,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates IP access settings from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_ip_access_settings)
         """
 
@@ -401,7 +403,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates network settings from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_network_settings)
         """
 
@@ -409,7 +411,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates a trust store from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_trust_store)
         """
 
@@ -417,7 +419,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates user access logging settings from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_user_access_logging_settings)
         """
 
@@ -425,7 +427,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Disassociates user settings from a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.disassociate_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#disassociate_user_settings)
         """
 
@@ -439,7 +441,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#generate_presigned_url)
         """
 
@@ -447,7 +449,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets browser settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_browser_settings)
         """
 
@@ -457,7 +459,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_identity_provider)
         """
 
@@ -467,7 +469,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the IP access settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_ip_access_settings)
         """
 
@@ -475,7 +477,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the network settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_network_settings)
         """
 
@@ -483,7 +485,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_portal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_portal)
         """
 
@@ -493,7 +495,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the service provider metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_portal_service_provider_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_portal_service_provider_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_portal_service_provider_metadata)
         """
 
@@ -501,7 +503,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the trust store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_trust_store)
         """
 
@@ -511,7 +513,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets the trust store certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_trust_store_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_trust_store_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_trust_store_certificate)
         """
 
@@ -521,7 +523,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets user access logging settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_user_access_logging_settings)
         """
 
@@ -529,7 +531,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Gets user settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.get_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#get_user_settings)
         """
 
@@ -539,7 +541,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of browser settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_browser_settings)
         """
 
@@ -549,7 +551,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of identity providers for a specific web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_identity_providers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_identity_providers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_identity_providers)
         """
 
@@ -559,7 +561,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of IP access settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_ip_access_settings)
         """
 
@@ -569,7 +571,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of network settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_network_settings)
         """
 
@@ -579,7 +581,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list or web portals.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_portals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_portals)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_portals)
         """
 
@@ -587,7 +589,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_tags_for_resource)
         """
 
@@ -597,7 +599,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of trust store certificates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_trust_store_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_trust_store_certificates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_trust_store_certificates)
         """
 
@@ -607,7 +609,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of trust stores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_trust_stores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_trust_stores)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_trust_stores)
         """
 
@@ -617,7 +619,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of user access logging settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_user_access_logging_settings)
         """
 
@@ -627,7 +629,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Retrieves a list of user settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.list_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#list_user_settings)
         """
 
@@ -637,7 +639,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Adds or overwrites one or more tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#tag_resource)
         """
 
@@ -645,7 +647,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#untag_resource)
         """
 
@@ -655,7 +657,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates browser settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_browser_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_browser_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_browser_settings)
         """
 
@@ -671,7 +673,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates the identity provider.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_identity_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_identity_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_identity_provider)
         """
 
@@ -687,7 +689,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates IP access settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_ip_access_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_ip_access_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_ip_access_settings)
         """
 
@@ -703,7 +705,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates network settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_network_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_network_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_network_settings)
         """
 
@@ -719,7 +721,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates a web portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_portal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_portal)
         """
 
@@ -734,7 +736,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates the trust store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_trust_store)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_trust_store)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_trust_store)
         """
 
@@ -748,7 +750,7 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates the user access logging settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_user_access_logging_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_user_access_logging_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_user_access_logging_settings)
         """
 
@@ -759,6 +761,7 @@ class WorkSpacesWebClient(BaseClient):
         clientToken: str = None,
         cookieSynchronizationConfiguration: "CookieSynchronizationConfigurationTypeDef" = None,
         copyAllowed: EnabledTypeType = None,
+        deepLinkAllowed: EnabledTypeType = None,
         disconnectTimeoutInMinutes: int = None,
         downloadAllowed: EnabledTypeType = None,
         idleDisconnectTimeoutInMinutes: int = None,
@@ -769,6 +772,6 @@ class WorkSpacesWebClient(BaseClient):
         """
         Updates the user settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_user_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-web.html#WorkSpacesWeb.Client.update_user_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/client.html#update_user_settings)
         """

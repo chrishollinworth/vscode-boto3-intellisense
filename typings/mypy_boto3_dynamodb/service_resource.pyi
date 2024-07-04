@@ -70,7 +70,7 @@ __all__ = ("DynamoDBServiceResource", "Table", "ServiceResourceTablesCollection"
 
 class ServiceResourceTablesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#serviceresourcetablescollection)
     """
 
@@ -108,7 +108,7 @@ class ServiceResourceTablesCollection(ResourceCollection):
 
 class Table(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#table)
     """
 
@@ -142,7 +142,7 @@ class Table(Boto3ServiceResource):
         """
         Create a batch writer object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablebatch_writer-method)
         """
 
@@ -150,7 +150,7 @@ class Table(Boto3ServiceResource):
         """
         The `DeleteTable` operation deletes a table and all of its items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tabledelete-method)
         """
 
@@ -207,7 +207,7 @@ class Table(Boto3ServiceResource):
         """
         Deletes a single item in a table by primary key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tabledelete_item-method)
         """
 
@@ -215,7 +215,7 @@ class Table(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableget_available_subresources-method)
         """
 
@@ -251,7 +251,7 @@ class Table(Boto3ServiceResource):
         The `GetItem` operation returns a set of attributes for the item with the given
         primary key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.get_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.get_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableget_item-method)
         """
 
@@ -260,7 +260,7 @@ class Table(Boto3ServiceResource):
         Calls :py:meth:`DynamoDB.Client.describe_table` to update the attributes of the
         Table resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableload-method)
         """
 
@@ -317,7 +317,7 @@ class Table(Boto3ServiceResource):
         """
         Creates a new item, or replaces an old item with a new item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.put_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.put_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableput_item-method)
         """
 
@@ -381,7 +381,7 @@ class Table(Boto3ServiceResource):
         You must provide the name of the partition key attribute and a single value for
         that attribute.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.query)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablequery-method)
         """
 
@@ -390,7 +390,7 @@ class Table(Boto3ServiceResource):
         Calls :py:meth:`DynamoDB.Client.describe_table` to update the attributes of the
         Table resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablereload-method)
         """
 
@@ -453,7 +453,7 @@ class Table(Boto3ServiceResource):
         The `Scan` operation returns one or more items and item attributes by accessing
         every item in a table or a secondary index.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.scan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.scan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablescan-method)
         """
 
@@ -475,7 +475,7 @@ class Table(Boto3ServiceResource):
         Modifies the provisioned throughput settings, global secondary indexes, or
         DynamoDB Streams settings for a given table.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableupdate-method)
         """
 
@@ -535,7 +535,7 @@ class Table(Boto3ServiceResource):
         Edits an existing item's attributes, or adds a new item to the table if it does
         not already exist.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.update_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.update_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableupdate_item-method)
         """
 
@@ -543,7 +543,7 @@ class Table(Boto3ServiceResource):
         """
         Waits until this Table is exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablewait_until_exists-method)
         """
 
@@ -551,7 +551,7 @@ class Table(Boto3ServiceResource):
         """
         Waits until this Table is not exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablewait_until_not_exists-method)
         """
 
@@ -562,7 +562,7 @@ class DynamoDBResourceMeta(ResourceMeta):
 
 class DynamoDBServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html)
     """
 
@@ -573,7 +573,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         """
         Creates a Table resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcetable-method)
         """
 
@@ -587,7 +587,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         The `BatchGetItem` operation returns the attributes of one or more items from
         one or more tables.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcebatch_get_item-method)
         """
 
@@ -602,7 +602,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         The `BatchWriteItem` operation puts or deletes multiple items in one or more
         tables.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcebatch_write_item-method)
         """
 
@@ -627,7 +627,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         """
         The `CreateTable` operation adds a new table to your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcecreate_table-method)
         """
 
@@ -635,6 +635,6 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourceget_available_subresources-method)
         """

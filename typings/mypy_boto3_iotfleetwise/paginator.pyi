@@ -83,7 +83,7 @@ __all__ = (
 
 class GetVehicleStatusPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#getvehiclestatuspaginator)
     """
 
@@ -91,13 +91,13 @@ class GetVehicleStatusPaginator(Boto3Paginator):
         self, *, vehicleName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetVehicleStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.GetVehicleStatus.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#getvehiclestatuspaginator)
         """
 
 class ListCampaignsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listcampaignspaginator)
     """
 
@@ -105,13 +105,13 @@ class ListCampaignsPaginator(Boto3Paginator):
         self, *, status: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCampaignsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListCampaigns.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listcampaignspaginator)
         """
 
 class ListDecoderManifestNetworkInterfacesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestnetworkinterfacespaginator)
     """
 
@@ -119,13 +119,13 @@ class ListDecoderManifestNetworkInterfacesPaginator(Boto3Paginator):
         self, *, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDecoderManifestNetworkInterfacesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestNetworkInterfaces.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestnetworkinterfacespaginator)
         """
 
 class ListDecoderManifestSignalsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestsignalspaginator)
     """
 
@@ -133,13 +133,13 @@ class ListDecoderManifestSignalsPaginator(Boto3Paginator):
         self, *, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDecoderManifestSignalsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifestSignals.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestsignalspaginator)
         """
 
 class ListDecoderManifestsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestspaginator)
     """
 
@@ -147,13 +147,13 @@ class ListDecoderManifestsPaginator(Boto3Paginator):
         self, *, modelManifestArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDecoderManifestsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListDecoderManifests.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listdecodermanifestspaginator)
         """
 
 class ListFleetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetspaginator)
     """
 
@@ -161,13 +161,13 @@ class ListFleetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetspaginator)
         """
 
 class ListFleetsForVehiclePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetsforvehiclepaginator)
     """
 
@@ -175,13 +175,13 @@ class ListFleetsForVehiclePaginator(Boto3Paginator):
         self, *, vehicleName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetsForVehicleResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListFleetsForVehicle.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listfleetsforvehiclepaginator)
         """
 
 class ListModelManifestNodesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestnodespaginator)
     """
 
@@ -189,13 +189,13 @@ class ListModelManifestNodesPaginator(Boto3Paginator):
         self, *, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelManifestNodesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifestNodes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestnodespaginator)
         """
 
 class ListModelManifestsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestspaginator)
     """
 
@@ -203,13 +203,13 @@ class ListModelManifestsPaginator(Boto3Paginator):
         self, *, signalCatalogArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelManifestsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListModelManifests.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listmodelmanifestspaginator)
         """
 
 class ListSignalCatalogNodesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalognodespaginator)
     """
 
@@ -221,13 +221,13 @@ class ListSignalCatalogNodesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSignalCatalogNodesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogNodes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalognodespaginator)
         """
 
 class ListSignalCatalogsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalogspaginator)
     """
 
@@ -235,13 +235,13 @@ class ListSignalCatalogsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSignalCatalogsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListSignalCatalogs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listsignalcatalogspaginator)
         """
 
 class ListVehiclesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclespaginator)
     """
 
@@ -254,13 +254,13 @@ class ListVehiclesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVehiclesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehicles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclespaginator)
         """
 
 class ListVehiclesInFleetPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclesinfleetpaginator)
     """
 
@@ -268,6 +268,6 @@ class ListVehiclesInFleetPaginator(Boto3Paginator):
         self, *, fleetId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVehiclesInFleetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotfleetwise.html#IoTFleetWise.Paginator.ListVehiclesInFleet.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleetwise/paginators.html#listvehiclesinfleetpaginator)
         """

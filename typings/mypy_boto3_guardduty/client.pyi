@@ -48,7 +48,9 @@ from .type_defs import (
     CreateDetectorResponseTypeDef,
     CreateFilterResponseTypeDef,
     CreateIPSetResponseTypeDef,
+    CreateMalwareProtectionPlanResponseTypeDef,
     CreateMembersResponseTypeDef,
+    CreateProtectedResourceTypeDef,
     CreatePublishingDestinationResponseTypeDef,
     CreateThreatIntelSetResponseTypeDef,
     DataSourceConfigurationsTypeDef,
@@ -71,6 +73,7 @@ from .type_defs import (
     GetFindingsStatisticsResponseTypeDef,
     GetInvitationsCountResponseTypeDef,
     GetIPSetResponseTypeDef,
+    GetMalwareProtectionPlanResponseTypeDef,
     GetMalwareScanSettingsResponseTypeDef,
     GetMasterAccountResponseTypeDef,
     GetMemberDetectorsResponseTypeDef,
@@ -86,11 +89,13 @@ from .type_defs import (
     ListFindingsResponseTypeDef,
     ListInvitationsResponseTypeDef,
     ListIPSetsResponseTypeDef,
+    ListMalwareProtectionPlansResponseTypeDef,
     ListMembersResponseTypeDef,
     ListOrganizationAdminAccountsResponseTypeDef,
     ListPublishingDestinationsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     ListThreatIntelSetsResponseTypeDef,
+    MalwareProtectionPlanActionsTypeDef,
     MemberFeaturesConfigurationTypeDef,
     OrganizationDataSourceConfigurationsTypeDef,
     OrganizationFeatureConfigurationTypeDef,
@@ -101,6 +106,7 @@ from .type_defs import (
     StopMonitoringMembersResponseTypeDef,
     UpdateFilterResponseTypeDef,
     UpdateMemberDetectorsResponseTypeDef,
+    UpdateProtectedResourceTypeDef,
     UsageCriteriaTypeDef,
 )
 
@@ -124,10 +130,11 @@ class Exceptions:
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerErrorException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
 
 class GuardDutyClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html)
     """
 
@@ -146,7 +153,7 @@ class GuardDutyClient(BaseClient):
         Accepts the invitation to be a member account and get monitored by a GuardDuty
         administrator account that sent the invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.accept_administrator_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.accept_administrator_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#accept_administrator_invitation)
         """
 
@@ -156,7 +163,7 @@ class GuardDutyClient(BaseClient):
         """
         Accepts the invitation to be monitored by a GuardDuty administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.accept_invitation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.accept_invitation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#accept_invitation)
         """
 
@@ -164,7 +171,7 @@ class GuardDutyClient(BaseClient):
         """
         Archives GuardDuty findings that are specified by the list of finding IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.archive_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.archive_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#archive_findings)
         """
 
@@ -172,7 +179,7 @@ class GuardDutyClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#can_paginate)
         """
 
@@ -180,7 +187,7 @@ class GuardDutyClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#close)
         """
 
@@ -197,7 +204,7 @@ class GuardDutyClient(BaseClient):
         """
         Creates a single GuardDuty detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_detector)
         """
 
@@ -216,7 +223,7 @@ class GuardDutyClient(BaseClient):
         """
         Creates a filter using the specified finding criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_filter)
         """
 
@@ -235,8 +242,24 @@ class GuardDutyClient(BaseClient):
         Creates a new IPSet, which is called a trusted IP list in the console user
         interface.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_ip_set)
+        """
+
+    def create_malware_protection_plan(
+        self,
+        *,
+        Role: str,
+        ProtectedResource: "CreateProtectedResourceTypeDef",
+        ClientToken: str = None,
+        Actions: "MalwareProtectionPlanActionsTypeDef" = None,
+        Tags: Dict[str, str] = None
+    ) -> CreateMalwareProtectionPlanResponseTypeDef:
+        """
+        Creates a new Malware Protection plan for the protected resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_malware_protection_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_malware_protection_plan)
         """
 
     def create_members(
@@ -246,7 +269,7 @@ class GuardDutyClient(BaseClient):
         Creates member accounts of the current Amazon Web Services account by specifying
         a list of Amazon Web Services account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_members)
         """
 
@@ -261,7 +284,7 @@ class GuardDutyClient(BaseClient):
         """
         Creates a publishing destination to export findings to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_publishing_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_publishing_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_publishing_destination)
         """
 
@@ -271,7 +294,7 @@ class GuardDutyClient(BaseClient):
         """
         Generates sample findings of types specified by the list of finding types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_sample_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_sample_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_sample_findings)
         """
 
@@ -289,7 +312,7 @@ class GuardDutyClient(BaseClient):
         """
         Creates a new ThreatIntelSet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.create_threat_intel_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.create_threat_intel_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#create_threat_intel_set)
         """
 
@@ -298,7 +321,7 @@ class GuardDutyClient(BaseClient):
         Declines invitations sent to the current member account by Amazon Web Services
         accounts specified by their account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.decline_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.decline_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#decline_invitations)
         """
 
@@ -306,7 +329,7 @@ class GuardDutyClient(BaseClient):
         """
         Deletes an Amazon GuardDuty detector that is specified by the detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_detector)
         """
 
@@ -314,7 +337,7 @@ class GuardDutyClient(BaseClient):
         """
         Deletes the filter specified by the filter name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_filter)
         """
 
@@ -323,7 +346,7 @@ class GuardDutyClient(BaseClient):
         Deletes invitations sent to the current member account by Amazon Web Services
         accounts specified by their account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_invitations)
         """
 
@@ -331,8 +354,17 @@ class GuardDutyClient(BaseClient):
         """
         Deletes the IPSet specified by the `ipSetId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_ip_set)
+        """
+
+    def delete_malware_protection_plan(self, *, MalwareProtectionPlanId: str) -> None:
+        """
+        Deletes the Malware Protection plan ID associated with the Malware Protection
+        plan resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_malware_protection_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_malware_protection_plan)
         """
 
     def delete_members(
@@ -342,7 +374,7 @@ class GuardDutyClient(BaseClient):
         Deletes GuardDuty member accounts (to the current GuardDuty administrator
         account) specified by the account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_members)
         """
 
@@ -352,7 +384,7 @@ class GuardDutyClient(BaseClient):
         """
         Deletes the publishing definition with the specified `destinationId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_publishing_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_publishing_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_publishing_destination)
         """
 
@@ -360,7 +392,7 @@ class GuardDutyClient(BaseClient):
         """
         Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.delete_threat_intel_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.delete_threat_intel_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#delete_threat_intel_set)
         """
 
@@ -376,7 +408,7 @@ class GuardDutyClient(BaseClient):
         """
         Returns a list of malware scans.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.describe_malware_scans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.describe_malware_scans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#describe_malware_scans)
         """
 
@@ -387,7 +419,7 @@ class GuardDutyClient(BaseClient):
         Returns information about the account selected as the delegated administrator
         for GuardDuty.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.describe_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.describe_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#describe_organization_configuration)
         """
 
@@ -398,7 +430,7 @@ class GuardDutyClient(BaseClient):
         Returns information about the publishing destination specified by the provided
         `destinationId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.describe_publishing_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.describe_publishing_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#describe_publishing_destination)
         """
 
@@ -406,7 +438,7 @@ class GuardDutyClient(BaseClient):
         """
         Removes the existing GuardDuty delegated administrator of the organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.disable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.disable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#disable_organization_admin_account)
         """
 
@@ -415,7 +447,7 @@ class GuardDutyClient(BaseClient):
         Disassociates the current GuardDuty member account from its administrator
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_administrator_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_administrator_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#disassociate_from_administrator_account)
         """
 
@@ -424,7 +456,7 @@ class GuardDutyClient(BaseClient):
         Disassociates the current GuardDuty member account from its administrator
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_master_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_master_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#disassociate_from_master_account)
         """
 
@@ -435,7 +467,7 @@ class GuardDutyClient(BaseClient):
         Disassociates GuardDuty member accounts (from the current administrator account)
         specified by the account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.disassociate_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.disassociate_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#disassociate_members)
         """
 
@@ -444,7 +476,7 @@ class GuardDutyClient(BaseClient):
         Designates an Amazon Web Services account within the organization as your
         GuardDuty delegated administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.enable_organization_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.enable_organization_admin_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#enable_organization_admin_account)
         """
 
@@ -458,7 +490,7 @@ class GuardDutyClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#generate_presigned_url)
         """
 
@@ -469,7 +501,7 @@ class GuardDutyClient(BaseClient):
         Provides the details of the GuardDuty administrator account associated with the
         current GuardDuty member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_administrator_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_administrator_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_administrator_account)
         """
 
@@ -483,7 +515,7 @@ class GuardDutyClient(BaseClient):
         """
         Retrieves aggregated statistics for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_coverage_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_coverage_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_coverage_statistics)
         """
 
@@ -491,7 +523,7 @@ class GuardDutyClient(BaseClient):
         """
         Retrieves an Amazon GuardDuty detector specified by the detectorId.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_detector)
         """
 
@@ -499,7 +531,7 @@ class GuardDutyClient(BaseClient):
         """
         Returns the details of the filter specified by the filter name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_filter)
         """
 
@@ -509,7 +541,7 @@ class GuardDutyClient(BaseClient):
         """
         Describes Amazon GuardDuty findings specified by finding IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_findings)
         """
 
@@ -523,7 +555,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists Amazon GuardDuty findings statistics for the specified detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_findings_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_findings_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_findings_statistics)
         """
 
@@ -532,7 +564,7 @@ class GuardDutyClient(BaseClient):
         Returns the count of all GuardDuty membership invitations that were sent to the
         current member account except the currently accepted invitation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_invitations_count)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_invitations_count)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_invitations_count)
         """
 
@@ -540,8 +572,19 @@ class GuardDutyClient(BaseClient):
         """
         Retrieves the IPSet specified by the `ipSetId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_ip_set)
+        """
+
+    def get_malware_protection_plan(
+        self, *, MalwareProtectionPlanId: str
+    ) -> GetMalwareProtectionPlanResponseTypeDef:
+        """
+        Retrieves the Malware Protection plan details associated with a Malware
+        Protection plan ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_malware_protection_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_malware_protection_plan)
         """
 
     def get_malware_scan_settings(
@@ -550,7 +593,7 @@ class GuardDutyClient(BaseClient):
         """
         Returns the details of the malware scan settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_malware_scan_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_malware_scan_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_malware_scan_settings)
         """
 
@@ -559,7 +602,7 @@ class GuardDutyClient(BaseClient):
         Provides the details for the GuardDuty administrator account associated with the
         current GuardDuty member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_master_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_master_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_master_account)
         """
 
@@ -569,7 +612,7 @@ class GuardDutyClient(BaseClient):
         """
         Describes which data sources are enabled for the member account's detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_member_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_member_detectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_member_detectors)
         """
 
@@ -578,7 +621,7 @@ class GuardDutyClient(BaseClient):
         Retrieves GuardDuty member accounts (of the current GuardDuty administrator
         account) specified by the account IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_members)
         """
 
@@ -587,7 +630,7 @@ class GuardDutyClient(BaseClient):
         Retrieves how many active member accounts have each feature enabled within
         GuardDuty.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_organization_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_organization_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_organization_statistics)
         """
 
@@ -598,7 +641,7 @@ class GuardDutyClient(BaseClient):
         Provides the number of days left for each data source used in the free trial
         period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_remaining_free_trial_days)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_remaining_free_trial_days)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_remaining_free_trial_days)
         """
 
@@ -608,7 +651,7 @@ class GuardDutyClient(BaseClient):
         """
         Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_threat_intel_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_threat_intel_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_threat_intel_set)
         """
 
@@ -626,7 +669,7 @@ class GuardDutyClient(BaseClient):
         Lists Amazon GuardDuty usage statistics over the last 30 days for the specified
         detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.get_usage_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.get_usage_statistics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#get_usage_statistics)
         """
 
@@ -642,7 +685,7 @@ class GuardDutyClient(BaseClient):
         Invites Amazon Web Services accounts to become members of an organization
         administered by the Amazon Web Services account that invokes this API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.invite_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.invite_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#invite_members)
         """
 
@@ -658,7 +701,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists coverage details for your GuardDuty account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_coverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_coverage)
         """
 
@@ -668,7 +711,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists detectorIds of all the existing Amazon GuardDuty detector resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_detectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_detectors)
         """
 
@@ -678,7 +721,7 @@ class GuardDutyClient(BaseClient):
         """
         Returns a paginated list of the current filters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_filters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_filters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_filters)
         """
 
@@ -694,7 +737,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists GuardDuty findings for the specified detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_findings)
         """
 
@@ -705,7 +748,7 @@ class GuardDutyClient(BaseClient):
         Lists all GuardDuty membership invitations that were sent to the current Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_invitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_invitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_invitations)
         """
 
@@ -715,8 +758,19 @@ class GuardDutyClient(BaseClient):
         """
         Lists the IPSets of the GuardDuty service specified by the detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_ip_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_ip_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_ip_sets)
+        """
+
+    def list_malware_protection_plans(
+        self, *, NextToken: str = None
+    ) -> ListMalwareProtectionPlansResponseTypeDef:
+        """
+        Lists the Malware Protection plan IDs associated with the protected resources in
+        your Amazon Web Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_malware_protection_plans)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_malware_protection_plans)
         """
 
     def list_members(
@@ -731,7 +785,7 @@ class GuardDutyClient(BaseClient):
         Lists details about all member accounts for the current GuardDuty administrator
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_members)
         """
 
@@ -741,7 +795,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists the accounts designated as GuardDuty delegated administrators.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_organization_admin_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_organization_admin_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_organization_admin_accounts)
         """
 
@@ -752,7 +806,7 @@ class GuardDutyClient(BaseClient):
         Returns a list of publishing destinations associated with the specified
         `detectorId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_publishing_destinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_publishing_destinations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_publishing_destinations)
         """
 
@@ -760,7 +814,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_tags_for_resource)
         """
 
@@ -770,7 +824,7 @@ class GuardDutyClient(BaseClient):
         """
         Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.list_threat_intel_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.list_threat_intel_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#list_threat_intel_sets)
         """
 
@@ -778,7 +832,7 @@ class GuardDutyClient(BaseClient):
         """
         Initiates the malware scan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.start_malware_scan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.start_malware_scan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#start_malware_scan)
         """
 
@@ -788,7 +842,7 @@ class GuardDutyClient(BaseClient):
         """
         Turns on GuardDuty monitoring of the specified member accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.start_monitoring_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.start_monitoring_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#start_monitoring_members)
         """
 
@@ -798,7 +852,7 @@ class GuardDutyClient(BaseClient):
         """
         Stops GuardDuty monitoring for the specified member accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.stop_monitoring_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.stop_monitoring_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#stop_monitoring_members)
         """
 
@@ -806,7 +860,7 @@ class GuardDutyClient(BaseClient):
         """
         Adds tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#tag_resource)
         """
 
@@ -814,7 +868,7 @@ class GuardDutyClient(BaseClient):
         """
         Unarchives GuardDuty findings specified by the `findingIds`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.unarchive_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.unarchive_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#unarchive_findings)
         """
 
@@ -822,7 +876,7 @@ class GuardDutyClient(BaseClient):
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#untag_resource)
         """
 
@@ -838,7 +892,7 @@ class GuardDutyClient(BaseClient):
         """
         Updates the GuardDuty detector specified by the detector ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_detector)
         """
 
@@ -855,7 +909,7 @@ class GuardDutyClient(BaseClient):
         """
         Updates the filter specified by the filter name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_filter)
         """
 
@@ -870,7 +924,7 @@ class GuardDutyClient(BaseClient):
         """
         Marks the specified GuardDuty findings as useful or not useful.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_findings_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_findings_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_findings_feedback)
         """
 
@@ -886,8 +940,23 @@ class GuardDutyClient(BaseClient):
         """
         Updates the IPSet specified by the IPSet ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_ip_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_ip_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_ip_set)
+        """
+
+    def update_malware_protection_plan(
+        self,
+        *,
+        MalwareProtectionPlanId: str,
+        Role: str = None,
+        Actions: "MalwareProtectionPlanActionsTypeDef" = None,
+        ProtectedResource: "UpdateProtectedResourceTypeDef" = None
+    ) -> None:
+        """
+        Updates an existing Malware Protection plan resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_malware_protection_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_malware_protection_plan)
         """
 
     def update_malware_scan_settings(
@@ -900,7 +969,7 @@ class GuardDutyClient(BaseClient):
         """
         Updates the malware scan settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_malware_scan_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_malware_scan_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_malware_scan_settings)
         """
 
@@ -915,7 +984,7 @@ class GuardDutyClient(BaseClient):
         """
         Contains information on member accounts to be updated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_member_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_member_detectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_member_detectors)
         """
 
@@ -931,7 +1000,7 @@ class GuardDutyClient(BaseClient):
         """
         Configures the delegated administrator account with the provided values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_organization_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_organization_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_organization_configuration)
         """
 
@@ -946,7 +1015,7 @@ class GuardDutyClient(BaseClient):
         Updates information about the publishing destination specified by the
         `destinationId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_publishing_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_publishing_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_publishing_destination)
         """
 
@@ -962,7 +1031,7 @@ class GuardDutyClient(BaseClient):
         """
         Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Client.update_threat_intel_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Client.update_threat_intel_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/client.html#update_threat_intel_set)
         """
 
@@ -971,42 +1040,42 @@ class GuardDutyClient(BaseClient):
         self, operation_name: Literal["describe_malware_scans"]
     ) -> DescribeMalwareScansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.DescribeMalwareScans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.DescribeMalwareScans)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#describemalwarescanspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_coverage"]) -> ListCoveragePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListCoverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListCoverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listcoveragepaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_detectors"]) -> ListDetectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listdetectorspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_filters"]) -> ListFiltersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfilterspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfindingspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_ip_sets"]) -> ListIPSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listipsetspaginator)
         """
 
@@ -1015,14 +1084,14 @@ class GuardDutyClient(BaseClient):
         self, operation_name: Literal["list_invitations"]
     ) -> ListInvitationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listinvitationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listmemberspaginator)
         """
 
@@ -1031,7 +1100,7 @@ class GuardDutyClient(BaseClient):
         self, operation_name: Literal["list_organization_admin_accounts"]
     ) -> ListOrganizationAdminAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listorganizationadminaccountspaginator)
         """
 
@@ -1040,6 +1109,6 @@ class GuardDutyClient(BaseClient):
         self, operation_name: Literal["list_threat_intel_sets"]
     ) -> ListThreatIntelSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listthreatintelsetspaginator)
         """

@@ -106,7 +106,7 @@ class Exceptions:
 
 class TranscribeServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html)
     """
 
@@ -122,7 +122,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#can_paginate)
         """
 
@@ -130,7 +130,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#close)
         """
 
@@ -140,7 +140,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Creates a new Call Analytics category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.create_call_analytics_category)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#create_call_analytics_category)
         """
 
@@ -156,7 +156,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Creates a new custom language model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.create_language_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.create_language_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#create_language_model)
         """
 
@@ -171,7 +171,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Creates a new custom medical vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.create_medical_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.create_medical_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#create_medical_vocabulary)
         """
 
@@ -188,7 +188,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Creates a new custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#create_vocabulary)
         """
 
@@ -205,7 +205,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Creates a new custom vocabulary filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.create_vocabulary_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#create_vocabulary_filter)
         """
 
@@ -213,7 +213,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a Call Analytics category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_call_analytics_category)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_call_analytics_category)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_call_analytics_category)
         """
 
@@ -221,7 +221,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a Call Analytics job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_call_analytics_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_call_analytics_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_call_analytics_job)
         """
 
@@ -229,7 +229,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a custom language model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_language_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_language_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_language_model)
         """
 
@@ -237,7 +237,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a Medical Scribe job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_medical_scribe_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_medical_scribe_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_medical_scribe_job)
         """
 
@@ -245,7 +245,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a medical transcription job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_medical_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_medical_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_medical_transcription_job)
         """
 
@@ -253,7 +253,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a custom medical vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_medical_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_medical_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_medical_vocabulary)
         """
 
@@ -261,7 +261,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a transcription job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_transcription_job)
         """
 
@@ -269,7 +269,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_vocabulary)
         """
 
@@ -277,7 +277,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Deletes a custom vocabulary filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.delete_vocabulary_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.delete_vocabulary_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#delete_vocabulary_filter)
         """
 
@@ -285,7 +285,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified custom language model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.describe_language_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.describe_language_model)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#describe_language_model)
         """
 
@@ -299,7 +299,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#generate_presigned_url)
         """
 
@@ -309,7 +309,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified Call Analytics category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_call_analytics_category)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_call_analytics_category)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_call_analytics_category)
         """
 
@@ -319,7 +319,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified Call Analytics job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_call_analytics_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_call_analytics_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_call_analytics_job)
         """
 
@@ -329,7 +329,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified Medical Scribe job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_medical_scribe_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_medical_scribe_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_medical_scribe_job)
         """
 
@@ -339,7 +339,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified medical transcription job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_medical_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_medical_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_medical_transcription_job)
         """
 
@@ -347,7 +347,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified custom medical vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_medical_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_medical_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_medical_vocabulary)
         """
 
@@ -357,7 +357,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified transcription job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_transcription_job)
         """
 
@@ -365,7 +365,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified custom vocabulary.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_vocabulary)
         """
 
@@ -375,7 +375,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides information about the specified custom vocabulary filter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.get_vocabulary_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.get_vocabulary_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#get_vocabulary_filter)
         """
 
@@ -386,7 +386,7 @@ class TranscribeServiceClient(BaseClient):
         Provides a list of Call Analytics categories, including all rules that make up
         each category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_call_analytics_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_call_analytics_categories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_call_analytics_categories)
         """
 
@@ -401,7 +401,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of Call Analytics jobs that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_call_analytics_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_call_analytics_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_call_analytics_jobs)
         """
 
@@ -416,7 +416,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of custom language models that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_language_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_language_models)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_language_models)
         """
 
@@ -431,7 +431,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of Medical Scribe jobs that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_medical_scribe_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_medical_scribe_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_medical_scribe_jobs)
         """
 
@@ -446,7 +446,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of medical transcription jobs that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_medical_transcription_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_medical_transcription_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_medical_transcription_jobs)
         """
 
@@ -462,7 +462,7 @@ class TranscribeServiceClient(BaseClient):
         Provides a list of custom medical vocabularies that match the specified
         criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_medical_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_medical_vocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_medical_vocabularies)
         """
 
@@ -471,7 +471,7 @@ class TranscribeServiceClient(BaseClient):
         Lists all tags associated with the specified transcription job, vocabulary,
         model, or resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_tags_for_resource)
         """
 
@@ -486,7 +486,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of transcription jobs that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_transcription_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_transcription_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_transcription_jobs)
         """
 
@@ -501,7 +501,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of custom vocabularies that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_vocabularies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_vocabularies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_vocabularies)
         """
 
@@ -511,7 +511,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Provides a list of custom vocabulary filters that match the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.list_vocabulary_filters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.list_vocabulary_filters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#list_vocabulary_filters)
         """
 
@@ -530,7 +530,7 @@ class TranscribeServiceClient(BaseClient):
         Transcribes the audio from a customer service call and applies any additional
         Request Parameters you choose to include in your request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.start_call_analytics_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.start_call_analytics_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#start_call_analytics_job)
         """
 
@@ -550,7 +550,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Transcribes patient-clinician conversations and generates clinical notes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.start_medical_scribe_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.start_medical_scribe_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#start_medical_scribe_job)
         """
 
@@ -576,7 +576,7 @@ class TranscribeServiceClient(BaseClient):
         Transcribes the audio from a medical dictation or conversation and applies any
         additional Request Parameters you choose to include in your request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.start_medical_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.start_medical_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#start_medical_transcription_job)
         """
 
@@ -608,7 +608,7 @@ class TranscribeServiceClient(BaseClient):
         Transcribes the audio from a media file and applies any additional Request
         Parameters you choose to include in your request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#start_transcription_job)
         """
 
@@ -617,7 +617,7 @@ class TranscribeServiceClient(BaseClient):
         Adds one or more custom tags, each in the form of a key:value pair, to the
         specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#tag_resource)
         """
 
@@ -625,7 +625,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Removes the specified tags from the specified Amazon Transcribe resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#untag_resource)
         """
 
@@ -635,7 +635,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Updates the specified Call Analytics category with new rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.update_call_analytics_category)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.update_call_analytics_category)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#update_call_analytics_category)
         """
 
@@ -645,7 +645,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Updates an existing custom medical vocabulary with new values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.update_medical_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.update_medical_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#update_medical_vocabulary)
         """
 
@@ -661,7 +661,7 @@ class TranscribeServiceClient(BaseClient):
         """
         Updates an existing custom vocabulary with new values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.update_vocabulary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.update_vocabulary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#update_vocabulary)
         """
 
@@ -676,6 +676,6 @@ class TranscribeServiceClient(BaseClient):
         """
         Updates an existing custom vocabulary filter with a new list of words.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/transcribe.html#TranscribeService.Client.update_vocabulary_filter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/transcribe.html#TranscribeService.Client.update_vocabulary_filter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transcribe/client.html#update_vocabulary_filter)
         """

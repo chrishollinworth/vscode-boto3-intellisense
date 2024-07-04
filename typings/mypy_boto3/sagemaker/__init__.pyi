@@ -50,6 +50,7 @@ Usage::
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
         ListLineageGroupsPaginator,
+        ListMlflowTrackingServersPaginator,
         ListModelBiasJobDefinitionsPaginator,
         ListModelCardExportJobsPaginator,
         ListModelCardVersionsPaginator,
@@ -150,6 +151,7 @@ Usage::
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
     list_lineage_groups_paginator: ListLineageGroupsPaginator = client.get_paginator("list_lineage_groups")
+    list_mlflow_tracking_servers_paginator: ListMlflowTrackingServersPaginator = client.get_paginator("list_mlflow_tracking_servers")
     list_model_bias_job_definitions_paginator: ListModelBiasJobDefinitionsPaginator = client.get_paginator("list_model_bias_job_definitions")
     list_model_card_export_jobs_paginator: ListModelCardExportJobsPaginator = client.get_paginator("list_model_card_export_jobs")
     list_model_card_versions_paginator: ListModelCardVersionsPaginator = client.get_paginator("list_model_card_versions")
@@ -227,6 +229,7 @@ from .paginator import (
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
     ListLineageGroupsPaginator,
+    ListMlflowTrackingServersPaginator,
     ListModelBiasJobDefinitionsPaginator,
     ListModelCardExportJobsPaginator,
     ListModelCardsPaginator,
@@ -327,6 +330,7 @@ __all__ = (
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
     "ListLineageGroupsPaginator",
+    "ListMlflowTrackingServersPaginator",
     "ListModelBiasJobDefinitionsPaginator",
     "ListModelCardExportJobsPaginator",
     "ListModelCardVersionsPaginator",

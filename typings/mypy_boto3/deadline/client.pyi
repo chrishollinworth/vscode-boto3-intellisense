@@ -190,7 +190,7 @@ class Exceptions:
 
 class DeadlineCloudClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html)
     """
 
@@ -214,7 +214,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Assigns a farm membership level to a member.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#associate_member_to_farm)
         """
 
@@ -231,7 +231,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Assigns a fleet membership level to a member.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#associate_member_to_fleet)
         """
 
@@ -252,7 +252,7 @@ class DeadlineCloudClient(BaseClient):
         **Request Syntax** response = client.associate_member_to_job( farmId='string',
         identityStoreId='string', jo...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#associate_member_to_job)
         """
 
@@ -272,7 +272,7 @@ class DeadlineCloudClient(BaseClient):
         12/AssociateMemberToQueue>`_ **Request Syntax** response =
         client.associate_member_to_queue( farmId='string', identityStoreId='string', ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.associate_member_to_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#associate_member_to_queue)
         """
 
@@ -282,7 +282,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get Amazon Web Services credentials from the fleet role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.assume_fleet_role_for_read)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.assume_fleet_role_for_read)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#assume_fleet_role_for_read)
         """
 
@@ -292,7 +292,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get credentials from the fleet role for a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.assume_fleet_role_for_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.assume_fleet_role_for_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#assume_fleet_role_for_worker)
         """
 
@@ -302,7 +302,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets Amazon Web Services credentials from the queue role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_read)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_read)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#assume_queue_role_for_read)
         """
 
@@ -312,7 +312,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Allows a user to assume a role for a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#assume_queue_role_for_user)
         """
 
@@ -322,7 +322,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Allows a worker to assume a queue role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.assume_queue_role_for_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#assume_queue_role_for_worker)
         """
 
@@ -337,7 +337,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get batched job details for a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.batch_get_job_entity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.batch_get_job_entity)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#batch_get_job_entity)
         """
 
@@ -345,7 +345,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#can_paginate)
         """
 
@@ -353,7 +353,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#close)
         """
 
@@ -363,7 +363,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Copies a job template to an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.copy_job_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.copy_job_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#copy_job_template)
         """
 
@@ -382,7 +382,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a budget to set spending thresholds for your rendering activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_budget)
         """
 
@@ -398,7 +398,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a farm to allow space for queues and fleets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_farm)
         """
 
@@ -418,7 +418,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_fleet)
         """
 
@@ -441,7 +441,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_job)
         """
 
@@ -458,7 +458,7 @@ class DeadlineCloudClient(BaseClient):
         Creates a license endpoint to integrate your various licensed software used for
         rendering on Deadline Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_license_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_license_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_license_endpoint)
         """
 
@@ -475,7 +475,7 @@ class DeadlineCloudClient(BaseClient):
         Creates an Amazon Web Services Deadline Cloud monitor that you can use to view
         your farms, queues, and fleets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_monitor)
         """
 
@@ -497,7 +497,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a queue to coordinate the order in which jobs run on a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_queue)
         """
 
@@ -514,7 +514,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates an environment for a queue that defines how jobs in the queue run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_queue_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_queue_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_queue_environment)
         """
 
@@ -524,7 +524,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates an association between a queue and a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_queue_fleet_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_queue_fleet_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_queue_fleet_association)
         """
 
@@ -541,7 +541,7 @@ class DeadlineCloudClient(BaseClient):
         Creates a storage profile that specifies the operating system, file type, and
         file location of resources used on a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_storage_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_storage_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_storage_profile)
         """
 
@@ -556,7 +556,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Creates a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.create_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.create_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#create_worker)
         """
 
@@ -564,7 +564,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_budget)
         """
 
@@ -572,7 +572,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_farm)
         """
 
@@ -580,7 +580,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_fleet)
         """
 
@@ -588,7 +588,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a license endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_license_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_license_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_license_endpoint)
         """
 
@@ -596,7 +596,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a metered product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_metered_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_metered_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_metered_product)
         """
 
@@ -604,7 +604,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Removes a Deadline Cloud monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_monitor)
         """
 
@@ -612,7 +612,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_queue)
         """
 
@@ -622,7 +622,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a queue environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_queue_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_queue_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_queue_environment)
         """
 
@@ -632,7 +632,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a queue-fleet association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_queue_fleet_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_queue_fleet_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_queue_fleet_association)
         """
 
@@ -640,7 +640,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a storage profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_storage_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_storage_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_storage_profile)
         """
 
@@ -648,7 +648,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Deletes a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.delete_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.delete_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#delete_worker)
         """
 
@@ -656,7 +656,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Disassociates a member from a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#disassociate_member_from_farm)
         """
 
@@ -666,7 +666,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Disassociates a member from a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#disassociate_member_from_fleet)
         """
 
@@ -676,7 +676,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Disassociates a member from a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#disassociate_member_from_job)
         """
 
@@ -686,7 +686,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Disassociates a member from a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.disassociate_member_from_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#disassociate_member_from_queue)
         """
 
@@ -700,7 +700,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#generate_presigned_url)
         """
 
@@ -708,7 +708,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get a budget.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_budget)
         """
 
@@ -716,7 +716,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_farm)
         """
 
@@ -724,7 +724,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Get a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_fleet)
         """
 
@@ -732,7 +732,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a Deadline Cloud job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_job)
         """
 
@@ -740,7 +740,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a licence endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_license_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_license_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_license_endpoint)
         """
 
@@ -748,7 +748,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets information about the specified monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_monitor)
         """
 
@@ -756,7 +756,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_queue)
         """
 
@@ -766,7 +766,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a queue environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_queue_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_queue_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_queue_environment)
         """
 
@@ -776,7 +776,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a queue-fleet association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_queue_fleet_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_queue_fleet_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_queue_fleet_association)
         """
 
@@ -786,7 +786,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_session)
         """
 
@@ -796,7 +796,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a session action for the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_session_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_session_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_session_action)
         """
 
@@ -806,7 +806,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a set of statistics for queues or farms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_sessions_statistics_aggregation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_sessions_statistics_aggregation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_sessions_statistics_aggregation)
         """
 
@@ -816,7 +816,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_step)
         """
 
@@ -826,7 +826,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a storage profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_storage_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_storage_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_storage_profile)
         """
 
@@ -836,7 +836,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a storage profile for a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_storage_profile_for_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_storage_profile_for_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_storage_profile_for_queue)
         """
 
@@ -846,7 +846,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_task)
         """
 
@@ -854,7 +854,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.get_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.get_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#get_worker)
         """
 
@@ -864,7 +864,7 @@ class DeadlineCloudClient(BaseClient):
         """
         A list of the available metered products.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_available_metered_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_available_metered_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_available_metered_products)
         """
 
@@ -879,7 +879,7 @@ class DeadlineCloudClient(BaseClient):
         """
         A list of budgets in a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_budgets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_budgets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_budgets)
         """
 
@@ -889,7 +889,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists the members of a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_farm_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_farm_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_farm_members)
         """
 
@@ -899,7 +899,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists farms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_farms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_farms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_farms)
         """
 
@@ -909,7 +909,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists fleet members.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_fleet_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_fleet_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_fleet_members)
         """
 
@@ -926,7 +926,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists fleets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_fleets)
         """
 
@@ -942,7 +942,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists members on a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_job_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_job_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_job_members)
         """
 
@@ -958,7 +958,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_jobs)
         """
 
@@ -968,7 +968,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists license endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_license_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_license_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_license_endpoints)
         """
 
@@ -978,7 +978,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists metered products.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_metered_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_metered_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_metered_products)
         """
 
@@ -988,7 +988,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Gets a list of your monitors in Deadline Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_monitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_monitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_monitors)
         """
 
@@ -998,7 +998,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists queue environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_queue_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_queue_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_queue_environments)
         """
 
@@ -1014,7 +1014,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists queue-fleet associations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_queue_fleet_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_queue_fleet_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_queue_fleet_associations)
         """
 
@@ -1024,7 +1024,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists the members in a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_queue_members)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_queue_members)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_queue_members)
         """
 
@@ -1040,7 +1040,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists queues.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_queues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_queues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_queues)
         """
 
@@ -1058,7 +1058,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists session actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_session_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_session_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_session_actions)
         """
 
@@ -1074,7 +1074,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists sessions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_sessions)
         """
 
@@ -1090,7 +1090,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists sessions for a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_sessions_for_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_sessions_for_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_sessions_for_worker)
         """
 
@@ -1107,7 +1107,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists step consumers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_step_consumers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_step_consumers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_step_consumers)
         """
 
@@ -1124,7 +1124,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists the dependencies for a step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_step_dependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_step_dependencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_step_dependencies)
         """
 
@@ -1140,7 +1140,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists steps for a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_steps)
         """
 
@@ -1150,7 +1150,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists storage profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_storage_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_storage_profiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_storage_profiles)
         """
 
@@ -1160,7 +1160,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists storage profiles for a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_storage_profiles_for_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_storage_profiles_for_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_storage_profiles_for_queue)
         """
 
@@ -1168,7 +1168,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_tags_for_resource)
         """
 
@@ -1185,7 +1185,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists tasks for a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_tasks)
         """
 
@@ -1195,7 +1195,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Lists workers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.list_workers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.list_workers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#list_workers)
         """
 
@@ -1203,7 +1203,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Adds a metered product.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.put_metered_product)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.put_metered_product)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#put_metered_product)
         """
 
@@ -1220,7 +1220,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Searches for jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.search_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.search_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#search_jobs)
         """
 
@@ -1238,7 +1238,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Searches for steps.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.search_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.search_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#search_steps)
         """
 
@@ -1256,7 +1256,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Searches for tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.search_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.search_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#search_tasks)
         """
 
@@ -1273,7 +1273,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Searches for workers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.search_workers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.search_workers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#search_workers)
         """
 
@@ -1293,7 +1293,7 @@ class DeadlineCloudClient(BaseClient):
         Starts an asynchronous request for getting aggregated statistics about queues
         and farms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.start_sessions_statistics_aggregation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.start_sessions_statistics_aggregation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#start_sessions_statistics_aggregation)
         """
 
@@ -1301,7 +1301,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Tags a resource using the resource's ARN and desired tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#tag_resource)
         """
 
@@ -1309,7 +1309,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Removes a tag from a resource using the resource's ARN and tag to remove.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#untag_resource)
         """
 
@@ -1330,7 +1330,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a budget that sets spending thresholds for rendering activity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_budget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_budget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_budget)
         """
 
@@ -1340,7 +1340,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a farm.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_farm)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_farm)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_farm)
         """
 
@@ -1360,7 +1360,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_fleet)
         """
 
@@ -1380,7 +1380,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_job)
         """
 
@@ -1390,7 +1390,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Modifies the settings for a Deadline Cloud monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_monitor)
         """
 
@@ -1414,7 +1414,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_queue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_queue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_queue)
         """
 
@@ -1432,7 +1432,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates the queue environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_queue_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_queue_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_queue_environment)
         """
 
@@ -1447,7 +1447,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a queue-fleet association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_queue_fleet_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_queue_fleet_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_queue_fleet_association)
         """
 
@@ -1464,7 +1464,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_session)
         """
 
@@ -1481,7 +1481,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_step)
         """
 
@@ -1499,7 +1499,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a storage profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_storage_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_storage_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_storage_profile)
         """
 
@@ -1517,7 +1517,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_task)
         """
 
@@ -1534,7 +1534,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_worker)
         """
 
@@ -1549,7 +1549,7 @@ class DeadlineCloudClient(BaseClient):
         """
         Updates the schedule for a worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Client.update_worker_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Client.update_worker_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/client.html#update_worker_schedule)
         """
 
@@ -1558,7 +1558,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["get_sessions_statistics_aggregation"]
     ) -> GetSessionsStatisticsAggregationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.GetSessionsStatisticsAggregation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#getsessionsstatisticsaggregationpaginator)
         """
 
@@ -1567,14 +1567,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_available_metered_products"]
     ) -> ListAvailableMeteredProductsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListAvailableMeteredProducts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listavailablemeteredproductspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_budgets"]) -> ListBudgetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListBudgets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listbudgetspaginator)
         """
 
@@ -1583,14 +1583,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_farm_members"]
     ) -> ListFarmMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarmMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmmemberspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_farms"]) -> ListFarmsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFarms)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfarmspaginator)
         """
 
@@ -1599,28 +1599,28 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_fleet_members"]
     ) -> ListFleetMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleetMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetmemberspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_fleets"]) -> ListFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listfleetspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_job_members"]) -> ListJobMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobmemberspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listjobspaginator)
         """
 
@@ -1629,7 +1629,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_license_endpoints"]
     ) -> ListLicenseEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListLicenseEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listlicenseendpointspaginator)
         """
 
@@ -1638,14 +1638,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_metered_products"]
     ) -> ListMeteredProductsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMeteredProducts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmeteredproductspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_monitors"]) -> ListMonitorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListMonitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listmonitorspaginator)
         """
 
@@ -1654,7 +1654,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_queue_environments"]
     ) -> ListQueueEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueueenvironmentspaginator)
         """
 
@@ -1663,7 +1663,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_queue_fleet_associations"]
     ) -> ListQueueFleetAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueFleetAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuefleetassociationspaginator)
         """
 
@@ -1672,14 +1672,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_queue_members"]
     ) -> ListQueueMembersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueueMembers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuememberspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListQueues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listqueuespaginator)
         """
 
@@ -1688,14 +1688,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_session_actions"]
     ) -> ListSessionActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionactionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_sessions"]) -> ListSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionspaginator)
         """
 
@@ -1704,7 +1704,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_sessions_for_worker"]
     ) -> ListSessionsForWorkerPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSessionsForWorker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listsessionsforworkerpaginator)
         """
 
@@ -1713,7 +1713,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_step_consumers"]
     ) -> ListStepConsumersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepConsumers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepconsumerspaginator)
         """
 
@@ -1722,14 +1722,14 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_step_dependencies"]
     ) -> ListStepDependenciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStepDependencies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepdependenciespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_steps"]) -> ListStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststepspaginator)
         """
 
@@ -1738,7 +1738,7 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_storage_profiles"]
     ) -> ListStorageProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfiles)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilespaginator)
         """
 
@@ -1747,35 +1747,35 @@ class DeadlineCloudClient(BaseClient):
         self, operation_name: Literal["list_storage_profiles_for_queue"]
     ) -> ListStorageProfilesForQueuePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListStorageProfilesForQueue)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#liststorageprofilesforqueuepaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listtaskspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workers"]) -> ListWorkersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Paginator.ListWorkers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/paginators.html#listworkerspaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["fleet_active"]) -> FleetActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.FleetActive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.FleetActive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#fleetactivewaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["job_create_complete"]) -> JobCreateCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.JobCreateComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.JobCreateComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#jobcreatecompletewaiter)
         """
 
@@ -1784,7 +1784,7 @@ class DeadlineCloudClient(BaseClient):
         self, waiter_name: Literal["license_endpoint_deleted"]
     ) -> LicenseEndpointDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointDeleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointDeleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointdeletedwaiter)
         """
 
@@ -1793,7 +1793,7 @@ class DeadlineCloudClient(BaseClient):
         self, waiter_name: Literal["license_endpoint_valid"]
     ) -> LicenseEndpointValidWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointValid)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointValid)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointvalidwaiter)
         """
 
@@ -1802,14 +1802,14 @@ class DeadlineCloudClient(BaseClient):
         self, waiter_name: Literal["queue_fleet_association_stopped"]
     ) -> QueueFleetAssociationStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queuefleetassociationstoppedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["queue_scheduling"]) -> QueueSchedulingWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.QueueScheduling)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueScheduling)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingwaiter)
         """
 
@@ -1818,6 +1818,6 @@ class DeadlineCloudClient(BaseClient):
         self, waiter_name: Literal["queue_scheduling_blocked"]
     ) -> QueueSchedulingBlockedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/deadline.html#DeadlineCloud.Waiter.QueueSchedulingBlocked)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueSchedulingBlocked)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingblockedwaiter)
         """

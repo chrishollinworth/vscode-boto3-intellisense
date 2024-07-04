@@ -31,7 +31,7 @@ __all__ = ("DBInstanceAvailableWaiter", "DBInstanceDeletedWaiter")
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstanceavailablewaiter)
     """
 
@@ -45,13 +45,13 @@ class DBInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstanceavailablewaiter)
         """
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstancedeletedwaiter)
     """
 
@@ -65,6 +65,6 @@ class DBInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstancedeletedwaiter)
         """

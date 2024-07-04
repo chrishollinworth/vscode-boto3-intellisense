@@ -81,7 +81,7 @@ class Exceptions:
 
 class EMRContainersClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html)
     """
 
@@ -97,7 +97,7 @@ class EMRContainersClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#can_paginate)
         """
 
@@ -105,7 +105,7 @@ class EMRContainersClient(BaseClient):
         """
         Cancels a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.cancel_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.cancel_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#cancel_job_run)
         """
 
@@ -113,7 +113,7 @@ class EMRContainersClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#close)
         """
 
@@ -129,7 +129,7 @@ class EMRContainersClient(BaseClient):
         """
         Creates a job template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.create_job_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_job_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_job_template)
         """
 
@@ -149,7 +149,7 @@ class EMRContainersClient(BaseClient):
         """
         Creates a managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.create_managed_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_managed_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_managed_endpoint)
         """
 
@@ -164,7 +164,7 @@ class EMRContainersClient(BaseClient):
         """
         Creates a security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.create_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_security_configuration)
         """
 
@@ -180,7 +180,7 @@ class EMRContainersClient(BaseClient):
         """
         Creates a virtual cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.create_virtual_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_virtual_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_virtual_cluster)
         """
 
@@ -188,7 +188,7 @@ class EMRContainersClient(BaseClient):
         """
         Deletes a job template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.delete_job_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_job_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_job_template)
         """
 
@@ -198,7 +198,7 @@ class EMRContainersClient(BaseClient):
         """
         Deletes a managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.delete_managed_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_managed_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_managed_endpoint)
         """
 
@@ -206,7 +206,7 @@ class EMRContainersClient(BaseClient):
         """
         Deletes a virtual cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.delete_virtual_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_virtual_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_virtual_cluster)
         """
 
@@ -214,7 +214,7 @@ class EMRContainersClient(BaseClient):
         """
         Displays detailed information about a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.describe_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_job_run)
         """
 
@@ -222,7 +222,7 @@ class EMRContainersClient(BaseClient):
         """
         Displays detailed information about a specified job template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.describe_job_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_job_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_job_template)
         """
 
@@ -232,7 +232,7 @@ class EMRContainersClient(BaseClient):
         """
         Displays detailed information about a managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.describe_managed_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_managed_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_managed_endpoint)
         """
 
@@ -242,7 +242,7 @@ class EMRContainersClient(BaseClient):
         """
         Displays detailed information about a specified security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.describe_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_security_configuration)
         """
 
@@ -250,7 +250,7 @@ class EMRContainersClient(BaseClient):
         """
         Displays detailed information about a specified virtual cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.describe_virtual_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_virtual_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_virtual_cluster)
         """
 
@@ -264,7 +264,7 @@ class EMRContainersClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#generate_presigned_url)
         """
 
@@ -282,7 +282,7 @@ class EMRContainersClient(BaseClient):
         """
         Generate a session token to connect to a managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.get_managed_endpoint_session_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.get_managed_endpoint_session_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#get_managed_endpoint_session_credentials)
         """
 
@@ -300,7 +300,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists job runs based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_job_runs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_job_runs)
         """
 
@@ -315,7 +315,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists job templates based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_job_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_job_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_job_templates)
         """
 
@@ -333,7 +333,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists managed endpoints based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_managed_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_managed_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_managed_endpoints)
         """
 
@@ -348,7 +348,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists security configurations based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_security_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_security_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_security_configurations)
         """
 
@@ -356,7 +356,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists the tags assigned to the resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_tags_for_resource)
         """
 
@@ -375,7 +375,7 @@ class EMRContainersClient(BaseClient):
         """
         Lists information about the specified virtual cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.list_virtual_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_virtual_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_virtual_clusters)
         """
 
@@ -397,7 +397,7 @@ class EMRContainersClient(BaseClient):
         """
         Starts a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.start_job_run)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#start_job_run)
         """
 
@@ -405,7 +405,7 @@ class EMRContainersClient(BaseClient):
         """
         Assigns tags to resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#tag_resource)
         """
 
@@ -413,14 +413,14 @@ class EMRContainersClient(BaseClient):
         """
         Removes tags from resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#untag_resource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
         """
 
@@ -429,7 +429,7 @@ class EMRContainersClient(BaseClient):
         self, operation_name: Literal["list_job_templates"]
     ) -> ListJobTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobtemplatespaginator)
         """
 
@@ -438,7 +438,7 @@ class EMRContainersClient(BaseClient):
         self, operation_name: Literal["list_managed_endpoints"]
     ) -> ListManagedEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
         """
 
@@ -447,7 +447,7 @@ class EMRContainersClient(BaseClient):
         self, operation_name: Literal["list_security_configurations"]
     ) -> ListSecurityConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Paginator.ListSecurityConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListSecurityConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listsecurityconfigurationspaginator)
         """
 
@@ -456,6 +456,6 @@ class EMRContainersClient(BaseClient):
         self, operation_name: Literal["list_virtual_clusters"]
     ) -> ListVirtualClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
         """

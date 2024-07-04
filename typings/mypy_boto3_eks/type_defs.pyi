@@ -28,6 +28,7 @@ from .literals import (
     ConnectorConfigProviderType,
     EksAnywhereSubscriptionStatusType,
     ErrorCodeType,
+    FargateProfileIssueCodeType,
     FargateProfileStatusType,
     InsightStatusValueType,
     IpFamilyType,
@@ -143,6 +144,8 @@ __all__ = (
     "EksAnywhereSubscriptionTypeDef",
     "EncryptionConfigTypeDef",
     "ErrorDetailTypeDef",
+    "FargateProfileHealthTypeDef",
+    "FargateProfileIssueTypeDef",
     "FargateProfileSelectorTypeDef",
     "FargateProfileTypeDef",
     "IdentityProviderConfigResponseTypeDef",
@@ -662,6 +665,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
         "encryptionConfig": List["EncryptionConfigTypeDef"],
         "outpostConfig": "OutpostConfigRequestTypeDef",
         "accessConfig": "CreateAccessConfigRequestTypeDef",
+        "bootstrapSelfManagedAddons": bool,
     },
     total=False,
 )
@@ -1259,6 +1263,24 @@ ErrorDetailTypeDef = TypedDict(
     total=False,
 )
 
+FargateProfileHealthTypeDef = TypedDict(
+    "FargateProfileHealthTypeDef",
+    {
+        "issues": List["FargateProfileIssueTypeDef"],
+    },
+    total=False,
+)
+
+FargateProfileIssueTypeDef = TypedDict(
+    "FargateProfileIssueTypeDef",
+    {
+        "code": FargateProfileIssueCodeType,
+        "message": str,
+        "resourceIds": List[str],
+    },
+    total=False,
+)
+
 FargateProfileSelectorTypeDef = TypedDict(
     "FargateProfileSelectorTypeDef",
     {
@@ -1280,6 +1302,7 @@ FargateProfileTypeDef = TypedDict(
         "selectors": List["FargateProfileSelectorTypeDef"],
         "status": FargateProfileStatusType,
         "tags": Dict[str, str],
+        "health": "FargateProfileHealthTypeDef",
     },
     total=False,
 )

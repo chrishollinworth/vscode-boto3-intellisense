@@ -88,7 +88,7 @@ class Exceptions:
 
 class MTurkClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html)
     """
 
@@ -107,7 +107,7 @@ class MTurkClient(BaseClient):
         The `AcceptQualificationRequest` operation approves a Worker's request for a
         Qualification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.accept_qualification_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.accept_qualification_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#accept_qualification_request)
         """
 
@@ -118,7 +118,7 @@ class MTurkClient(BaseClient):
         The `ApproveAssignment` operation approves the results of a completed
         assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.approve_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.approve_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#approve_assignment)
         """
 
@@ -133,7 +133,7 @@ class MTurkClient(BaseClient):
         """
         The `AssociateQualificationWithWorker` operation gives a Worker a Qualification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.associate_qualification_with_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.associate_qualification_with_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#associate_qualification_with_worker)
         """
 
@@ -141,7 +141,7 @@ class MTurkClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#can_paginate)
         """
 
@@ -149,7 +149,7 @@ class MTurkClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#close)
         """
 
@@ -160,7 +160,7 @@ class MTurkClient(BaseClient):
         The `CreateAdditionalAssignmentsForHIT` operation increases the maximum number
         of assignments of an existing HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_additional_assignments_for_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_additional_assignments_for_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_additional_assignments_for_hit)
         """
 
@@ -187,7 +187,7 @@ class MTurkClient(BaseClient):
         """
         The `CreateHIT` operation creates a new Human Intelligence Task (HIT).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_hit)
         """
 
@@ -205,7 +205,7 @@ class MTurkClient(BaseClient):
         """
         The `CreateHITType` operation creates a new HIT type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_hit_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_hit_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_hit_type)
         """
 
@@ -227,7 +227,7 @@ class MTurkClient(BaseClient):
         The `CreateHITWithHITType` operation creates a new Human Intelligence Task (HIT)
         using an existing HITTypeID generated by the `CreateHITType` operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_hit_with_hit_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_hit_with_hit_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_hit_with_hit_type)
         """
 
@@ -249,7 +249,7 @@ class MTurkClient(BaseClient):
         The `CreateQualificationType` operation creates a new Qualification type, which
         is represented by a `QualificationType` data structure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_qualification_type)
         """
 
@@ -258,7 +258,7 @@ class MTurkClient(BaseClient):
         The `CreateWorkerBlock` operation allows you to prevent a Worker from working on
         your HITs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.create_worker_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.create_worker_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#create_worker_block)
         """
 
@@ -266,7 +266,7 @@ class MTurkClient(BaseClient):
         """
         The `DeleteHIT` operation is used to delete HIT that is no longer needed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.delete_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.delete_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#delete_hit)
         """
 
@@ -275,7 +275,7 @@ class MTurkClient(BaseClient):
         The `DeleteQualificationType` deletes a Qualification type and deletes any HIT
         types that are associated with the Qualification type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.delete_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.delete_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#delete_qualification_type)
         """
 
@@ -284,7 +284,7 @@ class MTurkClient(BaseClient):
         The `DeleteWorkerBlock` operation allows you to reinstate a blocked Worker to
         work on your HITs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.delete_worker_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.delete_worker_block)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#delete_worker_block)
         """
 
@@ -295,7 +295,7 @@ class MTurkClient(BaseClient):
         The `DisassociateQualificationFromWorker` revokes a previously granted
         Qualification from a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.disassociate_qualification_from_worker)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.disassociate_qualification_from_worker)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#disassociate_qualification_from_worker)
         """
 
@@ -309,7 +309,7 @@ class MTurkClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#generate_presigned_url)
         """
 
@@ -318,7 +318,7 @@ class MTurkClient(BaseClient):
         The `GetAccountBalance` operation retrieves the Prepaid HITs balance in your
         Amazon Mechanical Turk account if you are a Prepaid Requester.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_account_balance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_account_balance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_account_balance)
         """
 
@@ -326,7 +326,7 @@ class MTurkClient(BaseClient):
         """
         The `GetAssignment` operation retrieves the details of the specified Assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_assignment)
         """
 
@@ -336,7 +336,7 @@ class MTurkClient(BaseClient):
         """
         The `GetFileUploadURL` operation generates and returns a temporary URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_file_upload_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_file_upload_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_file_upload_url)
         """
 
@@ -344,7 +344,7 @@ class MTurkClient(BaseClient):
         """
         The `GetHIT` operation retrieves the details of the specified HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_hit)
         """
 
@@ -355,7 +355,7 @@ class MTurkClient(BaseClient):
         The `GetQualificationScore` operation returns the value of a Worker's
         Qualification for a given Qualification type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_qualification_score)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_qualification_score)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_qualification_score)
         """
 
@@ -366,7 +366,7 @@ class MTurkClient(BaseClient):
         The `GetQualificationType`operation retrieves information about a Qualification
         type using its ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.get_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.get_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#get_qualification_type)
         """
 
@@ -381,7 +381,7 @@ class MTurkClient(BaseClient):
         """
         The `ListAssignmentsForHIT` operation retrieves completed assignments for a HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_assignments_for_hit)
         """
 
@@ -397,7 +397,7 @@ class MTurkClient(BaseClient):
         The `ListBonusPayments` operation retrieves the amounts of bonuses you have paid
         to Workers for a given HIT or assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_bonus_payments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_bonus_payments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_bonus_payments)
         """
 
@@ -407,7 +407,7 @@ class MTurkClient(BaseClient):
         """
         The `ListHITs` operation returns all of a Requester's HITs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_hits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_hits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_hits)
         """
 
@@ -418,7 +418,7 @@ class MTurkClient(BaseClient):
         The `ListHITsForQualificationType` operation returns the HITs that use the given
         Qualification type for a Qualification requirement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_hits_for_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_hits_for_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_hits_for_qualification_type)
         """
 
@@ -429,7 +429,7 @@ class MTurkClient(BaseClient):
         The `ListQualificationRequests` operation retrieves requests for Qualifications
         of a particular Qualification type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_qualification_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_qualification_requests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_qualification_requests)
         """
 
@@ -446,7 +446,7 @@ class MTurkClient(BaseClient):
         The `ListQualificationTypes` operation returns a list of Qualification types,
         filtered by an optional search term.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_qualification_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_qualification_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_qualification_types)
         """
 
@@ -465,7 +465,7 @@ class MTurkClient(BaseClient):
         the actions taken in the course of executing your Review Policies for a given
         HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_review_policy_results_for_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_review_policy_results_for_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_review_policy_results_for_hit)
         """
 
@@ -482,7 +482,7 @@ class MTurkClient(BaseClient):
         Reviewable or Status equal to Reviewing that belong to the Requester calling the
         operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_reviewable_hits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_reviewable_hits)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_reviewable_hits)
         """
 
@@ -493,7 +493,7 @@ class MTurkClient(BaseClient):
         The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked
         from working on your HITs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_worker_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_worker_blocks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_worker_blocks)
         """
 
@@ -509,7 +509,7 @@ class MTurkClient(BaseClient):
         The `ListWorkersWithQualificationType` operation returns all of the Workers that
         have been associated with a given Qualification type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.list_workers_with_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.list_workers_with_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#list_workers_with_qualification_type)
         """
 
@@ -520,7 +520,7 @@ class MTurkClient(BaseClient):
         The `NotifyWorkers` operation sends an email to one or more Workers that you
         specify with the Worker ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.notify_workers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.notify_workers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#notify_workers)
         """
 
@@ -528,7 +528,7 @@ class MTurkClient(BaseClient):
         """
         The `RejectAssignment` operation rejects the results of a completed assignment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.reject_assignment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.reject_assignment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#reject_assignment)
         """
 
@@ -539,7 +539,7 @@ class MTurkClient(BaseClient):
         The `RejectQualificationRequest` operation rejects a user's request for a
         Qualification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.reject_qualification_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.reject_qualification_request)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#reject_qualification_request)
         """
 
@@ -556,7 +556,7 @@ class MTurkClient(BaseClient):
         The `SendBonus` operation issues a payment of money from your account to a
         Worker.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.send_bonus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.send_bonus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#send_bonus)
         """
 
@@ -568,7 +568,7 @@ class MTurkClient(BaseClient):
         a notification message as if a HIT event occurred, according to the provided
         notification specification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.send_test_event_notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.send_test_event_notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#send_test_event_notification)
         """
 
@@ -579,7 +579,7 @@ class MTurkClient(BaseClient):
         The `UpdateExpirationForHIT` operation allows you update the expiration time of
         a HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.update_expiration_for_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.update_expiration_for_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#update_expiration_for_hit)
         """
 
@@ -587,7 +587,7 @@ class MTurkClient(BaseClient):
         """
         The `UpdateHITReviewStatus` operation updates the status of a HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.update_hit_review_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.update_hit_review_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#update_hit_review_status)
         """
 
@@ -596,7 +596,7 @@ class MTurkClient(BaseClient):
         The `UpdateHITTypeOfHIT` operation allows you to change the HITType properties
         of a HIT.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.update_hit_type_of_hit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.update_hit_type_of_hit)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#update_hit_type_of_hit)
         """
 
@@ -611,7 +611,7 @@ class MTurkClient(BaseClient):
         The `UpdateNotificationSettings` operation creates, updates, disables or re-
         enables notifications for a HIT type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.update_notification_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.update_notification_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#update_notification_settings)
         """
 
@@ -632,7 +632,7 @@ class MTurkClient(BaseClient):
         The `UpdateQualificationType` operation modifies the attributes of an existing
         Qualification type, which is represented by a QualificationType data structure.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Client.update_qualification_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Client.update_qualification_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/client.html#update_qualification_type)
         """
 
@@ -641,7 +641,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_assignments_for_hit"]
     ) -> ListAssignmentsForHITPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listassignmentsforhitpaginator)
         """
 
@@ -650,14 +650,14 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_bonus_payments"]
     ) -> ListBonusPaymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listbonuspaymentspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_hits"]) -> ListHITsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListHITs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListHITs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listhitspaginator)
         """
 
@@ -666,7 +666,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_hits_for_qualification_type"]
     ) -> ListHITsForQualificationTypePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listhitsforqualificationtypepaginator)
         """
 
@@ -675,7 +675,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_qualification_requests"]
     ) -> ListQualificationRequestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listqualificationrequestspaginator)
         """
 
@@ -684,7 +684,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_qualification_types"]
     ) -> ListQualificationTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listqualificationtypespaginator)
         """
 
@@ -693,7 +693,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_reviewable_hits"]
     ) -> ListReviewableHITsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listreviewablehitspaginator)
         """
 
@@ -702,7 +702,7 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_worker_blocks"]
     ) -> ListWorkerBlocksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listworkerblockspaginator)
         """
 
@@ -711,6 +711,6 @@ class MTurkClient(BaseClient):
         self, operation_name: Literal["list_workers_with_qualification_type"]
     ) -> ListWorkersWithQualificationTypePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/paginators.html#listworkerswithqualificationtypepaginator)
         """

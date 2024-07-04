@@ -40,7 +40,7 @@ class Exceptions:
 
 class AppConfigDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html)
     """
 
@@ -56,7 +56,7 @@ class AppConfigDataClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#can_paginate)
         """
 
@@ -64,7 +64,7 @@ class AppConfigDataClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#close)
         """
 
@@ -78,7 +78,7 @@ class AppConfigDataClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#generate_presigned_url)
         """
 
@@ -88,7 +88,7 @@ class AppConfigDataClient(BaseClient):
         """
         Retrieves the latest deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client.get_latest_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.get_latest_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#get_latest_configuration)
         """
 
@@ -103,6 +103,6 @@ class AppConfigDataClient(BaseClient):
         """
         Starts a configuration session used to retrieve a deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/appconfigdata.html#AppConfigData.Client.start_configuration_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.start_configuration_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#start_configuration_session)
         """

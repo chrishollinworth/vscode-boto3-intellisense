@@ -72,7 +72,7 @@ class Exceptions:
 
 class FirehoseClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html)
     """
 
@@ -88,7 +88,7 @@ class FirehoseClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#can_paginate)
         """
 
@@ -96,7 +96,7 @@ class FirehoseClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#close)
         """
 
@@ -122,7 +122,7 @@ class FirehoseClient(BaseClient):
         """
         Creates a Firehose delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.create_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.create_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#create_delivery_stream)
         """
 
@@ -132,7 +132,7 @@ class FirehoseClient(BaseClient):
         """
         Deletes a delivery stream and its data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.delete_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.delete_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#delete_delivery_stream)
         """
 
@@ -142,7 +142,7 @@ class FirehoseClient(BaseClient):
         """
         Describes the specified delivery stream and its status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.describe_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.describe_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#describe_delivery_stream)
         """
 
@@ -156,7 +156,7 @@ class FirehoseClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#generate_presigned_url)
         """
 
@@ -170,7 +170,7 @@ class FirehoseClient(BaseClient):
         """
         Lists your delivery streams in alphabetical order of their names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.list_delivery_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.list_delivery_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#list_delivery_streams)
         """
 
@@ -180,7 +180,7 @@ class FirehoseClient(BaseClient):
         """
         Lists the tags for the specified delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.list_tags_for_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.list_tags_for_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#list_tags_for_delivery_stream)
         """
 
@@ -190,7 +190,7 @@ class FirehoseClient(BaseClient):
         """
         Writes a single data record into an Amazon Firehose delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.put_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.put_record)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#put_record)
         """
 
@@ -201,7 +201,7 @@ class FirehoseClient(BaseClient):
         Writes multiple data records into a delivery stream in a single call, which can
         achieve higher throughput per producer than when writing single records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.put_record_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.put_record_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#put_record_batch)
         """
 
@@ -214,7 +214,7 @@ class FirehoseClient(BaseClient):
         """
         Enables server-side encryption (SSE) for the delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.start_delivery_stream_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.start_delivery_stream_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#start_delivery_stream_encryption)
         """
 
@@ -222,7 +222,7 @@ class FirehoseClient(BaseClient):
         """
         Disables server-side encryption (SSE) for the delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.stop_delivery_stream_encryption)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.stop_delivery_stream_encryption)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#stop_delivery_stream_encryption)
         """
 
@@ -232,7 +232,7 @@ class FirehoseClient(BaseClient):
         """
         Adds or updates tags for the specified delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.tag_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.tag_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#tag_delivery_stream)
         """
 
@@ -242,7 +242,7 @@ class FirehoseClient(BaseClient):
         """
         Removes tags from the specified delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.untag_delivery_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.untag_delivery_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#untag_delivery_stream)
         """
 
@@ -265,6 +265,6 @@ class FirehoseClient(BaseClient):
         """
         Updates the specified destination of the specified delivery stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/firehose.html#Firehose.Client.update_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/firehose.html#Firehose.Client.update_destination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/client.html#update_destination)
         """

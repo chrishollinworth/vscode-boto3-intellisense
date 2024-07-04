@@ -104,7 +104,7 @@ class Exceptions:
 
 class OutpostsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html)
     """
 
@@ -120,7 +120,7 @@ class OutpostsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#can_paginate)
         """
 
@@ -130,7 +130,7 @@ class OutpostsClient(BaseClient):
         """
         Cancels the capacity task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.cancel_capacity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.cancel_capacity_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#cancel_capacity_task)
         """
 
@@ -138,7 +138,7 @@ class OutpostsClient(BaseClient):
         """
         Cancels the specified order for an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.cancel_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.cancel_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#cancel_order)
         """
 
@@ -146,7 +146,7 @@ class OutpostsClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#close)
         """
 
@@ -161,7 +161,7 @@ class OutpostsClient(BaseClient):
         """
         Creates an order for an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.create_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_order)
         """
 
@@ -179,7 +179,7 @@ class OutpostsClient(BaseClient):
         """
         Creates an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.create_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_outpost)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_outpost)
         """
 
@@ -197,7 +197,7 @@ class OutpostsClient(BaseClient):
         """
         Creates a site for an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.create_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_site)
         """
 
@@ -205,7 +205,7 @@ class OutpostsClient(BaseClient):
         """
         Deletes the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.delete_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.delete_outpost)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#delete_outpost)
         """
 
@@ -213,7 +213,7 @@ class OutpostsClient(BaseClient):
         """
         Deletes the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.delete_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.delete_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#delete_site)
         """
 
@@ -227,7 +227,7 @@ class OutpostsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#generate_presigned_url)
         """
 
@@ -237,7 +237,7 @@ class OutpostsClient(BaseClient):
         """
         Gets details of the specified capacity task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_capacity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_capacity_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_capacity_task)
         """
 
@@ -245,7 +245,7 @@ class OutpostsClient(BaseClient):
         """
         Gets information about the specified catalog item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_catalog_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_catalog_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_catalog_item)
         """
 
@@ -253,7 +253,7 @@ class OutpostsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_connection)
         """
 
@@ -261,7 +261,7 @@ class OutpostsClient(BaseClient):
         """
         Gets information about the specified order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_order)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_order)
         """
 
@@ -269,7 +269,7 @@ class OutpostsClient(BaseClient):
         """
         Gets information about the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost)
         """
 
@@ -279,7 +279,7 @@ class OutpostsClient(BaseClient):
         """
         Gets the instance types for the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_outpost_instance_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost_instance_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost_instance_types)
         """
 
@@ -289,7 +289,7 @@ class OutpostsClient(BaseClient):
         """
         Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_outpost_supported_instance_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost_supported_instance_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost_supported_instance_types)
         """
 
@@ -297,7 +297,7 @@ class OutpostsClient(BaseClient):
         """
         Gets information about the specified Outpost site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_site)
         """
 
@@ -307,7 +307,7 @@ class OutpostsClient(BaseClient):
         """
         Gets the site address of the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.get_site_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_site_address)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_site_address)
         """
 
@@ -323,7 +323,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the hardware assets for the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_assets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_assets)
         """
 
@@ -338,7 +338,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the capacity tasks for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_capacity_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_capacity_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_capacity_tasks)
         """
 
@@ -354,7 +354,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the items in the catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_catalog_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_catalog_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_catalog_items)
         """
 
@@ -364,7 +364,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the Outpost orders for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_orders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_orders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_orders)
         """
 
@@ -380,7 +380,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the Outposts for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_outposts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_outposts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_outposts)
         """
 
@@ -396,7 +396,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the Outpost sites for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_sites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_sites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_sites)
         """
 
@@ -404,7 +404,7 @@ class OutpostsClient(BaseClient):
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_tags_for_resource)
         """
 
@@ -419,7 +419,7 @@ class OutpostsClient(BaseClient):
         """
         Starts the specified capacity task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.start_capacity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.start_capacity_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#start_capacity_task)
         """
 
@@ -434,7 +434,7 @@ class OutpostsClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.start_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.start_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#start_connection)
         """
 
@@ -442,7 +442,7 @@ class OutpostsClient(BaseClient):
         """
         Adds tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#tag_resource)
         """
 
@@ -450,7 +450,7 @@ class OutpostsClient(BaseClient):
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#untag_resource)
         """
 
@@ -465,7 +465,7 @@ class OutpostsClient(BaseClient):
         """
         Updates an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.update_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_outpost)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_outpost)
         """
 
@@ -475,7 +475,7 @@ class OutpostsClient(BaseClient):
         """
         Updates the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.update_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site)
         """
 
@@ -485,7 +485,7 @@ class OutpostsClient(BaseClient):
         """
         Updates the address of the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.update_site_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site_address)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site_address)
         """
 
@@ -506,7 +506,7 @@ class OutpostsClient(BaseClient):
         """
         Update the physical and logistical details for a rack at a site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Client.update_site_rack_physical_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site_rack_physical_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site_rack_physical_properties)
         """
 
@@ -515,7 +515,7 @@ class OutpostsClient(BaseClient):
         self, operation_name: Literal["get_outpost_instance_types"]
     ) -> GetOutpostInstanceTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
         """
 
@@ -524,14 +524,14 @@ class OutpostsClient(BaseClient):
         self, operation_name: Literal["get_outpost_supported_instance_types"]
     ) -> GetOutpostSupportedInstanceTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostsupportedinstancetypespaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_assets"]) -> ListAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListAssets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListAssets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
         """
 
@@ -540,7 +540,7 @@ class OutpostsClient(BaseClient):
         self, operation_name: Literal["list_capacity_tasks"]
     ) -> ListCapacityTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListCapacityTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCapacityTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcapacitytaskspaginator)
         """
 
@@ -549,27 +549,27 @@ class OutpostsClient(BaseClient):
         self, operation_name: Literal["list_catalog_items"]
     ) -> ListCatalogItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_orders"]) -> ListOrdersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListOrders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOrders)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_outposts"]) -> ListOutpostsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_sites"]) -> ListSitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/outposts.html#Outposts.Paginator.ListSites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListSites)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
         """

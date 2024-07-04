@@ -127,7 +127,7 @@ class Exceptions:
 
 class EMRClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html)
     """
 
@@ -145,7 +145,7 @@ class EMRClient(BaseClient):
         """
         Adds an instance fleet to a running cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.add_instance_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.add_instance_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#add_instance_fleet)
         """
 
@@ -155,7 +155,7 @@ class EMRClient(BaseClient):
         """
         Adds one or more instance groups to a running cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.add_instance_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.add_instance_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#add_instance_groups)
         """
 
@@ -165,7 +165,7 @@ class EMRClient(BaseClient):
         """
         AddJobFlowSteps adds new steps to a running cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.add_job_flow_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.add_job_flow_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#add_job_flow_steps)
         """
 
@@ -173,7 +173,7 @@ class EMRClient(BaseClient):
         """
         Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#add_tags)
         """
 
@@ -181,7 +181,7 @@ class EMRClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#can_paginate)
         """
 
@@ -195,7 +195,7 @@ class EMRClient(BaseClient):
         """
         Cancels a pending step or steps in a running cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.cancel_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.cancel_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#cancel_steps)
         """
 
@@ -203,7 +203,7 @@ class EMRClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#close)
         """
 
@@ -214,7 +214,7 @@ class EMRClient(BaseClient):
         Creates a security configuration, which is stored in the service and can be
         specified when a cluster is created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.create_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.create_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#create_security_configuration)
         """
 
@@ -242,7 +242,7 @@ class EMRClient(BaseClient):
         """
         Creates a new Amazon EMR Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.create_studio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.create_studio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#create_studio)
         """
 
@@ -259,7 +259,7 @@ class EMRClient(BaseClient):
         Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
         applies a session policy to refine Studio permissions for that user or group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.create_studio_session_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.create_studio_session_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#create_studio_session_mapping)
         """
 
@@ -267,7 +267,7 @@ class EMRClient(BaseClient):
         """
         Deletes a security configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.delete_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.delete_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#delete_security_configuration)
         """
 
@@ -275,7 +275,7 @@ class EMRClient(BaseClient):
         """
         Removes an Amazon EMR Studio from the Studio metadata store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.delete_studio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.delete_studio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#delete_studio)
         """
 
@@ -290,7 +290,7 @@ class EMRClient(BaseClient):
         """
         Removes a user or group from an Amazon EMR Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.delete_studio_session_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.delete_studio_session_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#delete_studio_session_mapping)
         """
 
@@ -299,7 +299,7 @@ class EMRClient(BaseClient):
         Provides cluster-level details including status, hardware and software
         configuration, VPC settings, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_cluster)
         """
 
@@ -314,7 +314,7 @@ class EMRClient(BaseClient):
         """
         This API is no longer supported and will eventually be removed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_job_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_job_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_job_flows)
         """
 
@@ -324,7 +324,7 @@ class EMRClient(BaseClient):
         """
         Provides details of a notebook execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_notebook_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_notebook_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_notebook_execution)
         """
 
@@ -336,7 +336,7 @@ class EMRClient(BaseClient):
         Region where the API request is run, and the available applications for a
         specific Amazon EMR release label.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_release_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_release_label)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_release_label)
         """
 
@@ -347,7 +347,7 @@ class EMRClient(BaseClient):
         Provides the details of a security configuration by returning the configuration
         JSON.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_security_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_security_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_security_configuration)
         """
 
@@ -355,7 +355,7 @@ class EMRClient(BaseClient):
         """
         Provides more detail about the cluster step.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_step)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_step)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_step)
         """
 
@@ -364,7 +364,7 @@ class EMRClient(BaseClient):
         Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
         Studio access URL, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.describe_studio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.describe_studio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#describe_studio)
         """
 
@@ -378,7 +378,7 @@ class EMRClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#generate_presigned_url)
         """
 
@@ -388,7 +388,7 @@ class EMRClient(BaseClient):
         """
         Returns the auto-termination policy for an Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.get_auto_termination_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.get_auto_termination_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#get_auto_termination_policy)
         """
 
@@ -399,7 +399,7 @@ class EMRClient(BaseClient):
         Returns the Amazon EMR block public access configuration for your Amazon Web
         Services account in the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.get_block_public_access_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.get_block_public_access_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#get_block_public_access_configuration)
         """
 
@@ -411,7 +411,7 @@ class EMRClient(BaseClient):
         runtime IAM role and used by a cluster with fine-grained access control
         activated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.get_cluster_session_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.get_cluster_session_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#get_cluster_session_credentials)
         """
 
@@ -419,7 +419,7 @@ class EMRClient(BaseClient):
         """
         Fetches the attached managed scaling policy for an Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.get_managed_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.get_managed_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#get_managed_scaling_policy)
         """
 
@@ -435,7 +435,7 @@ class EMRClient(BaseClient):
         Fetches mapping details for the specified Amazon EMR Studio and identity (user
         or group).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.get_studio_session_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.get_studio_session_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#get_studio_session_mapping)
         """
 
@@ -445,7 +445,7 @@ class EMRClient(BaseClient):
         """
         Provides information about the bootstrap actions associated with a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_bootstrap_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_bootstrap_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_bootstrap_actions)
         """
 
@@ -460,7 +460,7 @@ class EMRClient(BaseClient):
         """
         Provides the status of all clusters visible to this Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_clusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_clusters)
         """
 
@@ -470,7 +470,7 @@ class EMRClient(BaseClient):
         """
         Lists all available details about the instance fleets in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_instance_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_instance_fleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_instance_fleets)
         """
 
@@ -480,7 +480,7 @@ class EMRClient(BaseClient):
         """
         Provides all available details about the instance groups in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_instance_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_instance_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_instance_groups)
         """
 
@@ -499,7 +499,7 @@ class EMRClient(BaseClient):
         Provides information for all active Amazon EC2 instances and Amazon EC2
         instances terminated in the last 30 days, up to a maximum of 2,000.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_instances)
         """
 
@@ -516,7 +516,7 @@ class EMRClient(BaseClient):
         """
         Provides summaries of all notebook executions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_notebook_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_notebook_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_notebook_executions)
         """
 
@@ -531,7 +531,7 @@ class EMRClient(BaseClient):
         Retrieves release labels of Amazon EMR services in the Region where the API is
         called.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_release_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_release_labels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_release_labels)
         """
 
@@ -542,7 +542,7 @@ class EMRClient(BaseClient):
         Lists all the security configurations visible to this account, providing their
         creation dates and times, and their names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_security_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_security_configurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_security_configurations)
         """
 
@@ -558,7 +558,7 @@ class EMRClient(BaseClient):
         Provides a list of steps for the cluster in reverse order unless you specify
         `stepIds` with the request or filter by `StepStates`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_steps)
         """
 
@@ -569,7 +569,7 @@ class EMRClient(BaseClient):
         Returns a list of all user or group session mappings for the Amazon EMR Studio
         specified by `StudioId`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_studio_session_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_studio_session_mappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_studio_session_mappings)
         """
 
@@ -578,7 +578,7 @@ class EMRClient(BaseClient):
         Returns a list of all Amazon EMR Studios associated with the Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_studios)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_studios)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_studios)
         """
 
@@ -588,7 +588,7 @@ class EMRClient(BaseClient):
         """
         A list of the instance types that Amazon EMR supports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.list_supported_instance_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.list_supported_instance_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#list_supported_instance_types)
         """
 
@@ -599,7 +599,7 @@ class EMRClient(BaseClient):
         Modifies the number of steps that can be executed concurrently for the cluster
         specified using ClusterID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.modify_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.modify_cluster)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#modify_cluster)
         """
 
@@ -610,7 +610,7 @@ class EMRClient(BaseClient):
         Modifies the target On-Demand and target Spot capacities for the instance fleet
         with the specified InstanceFleetID within the cluster specified using ClusterID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.modify_instance_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.modify_instance_fleet)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#modify_instance_fleet)
         """
 
@@ -624,7 +624,7 @@ class EMRClient(BaseClient):
         ModifyInstanceGroups modifies the number of nodes and configuration settings of
         an instance group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.modify_instance_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.modify_instance_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#modify_instance_groups)
         """
 
@@ -635,7 +635,7 @@ class EMRClient(BaseClient):
         Creates or updates an automatic scaling policy for a core instance group or task
         instance group in an Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.put_auto_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.put_auto_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#put_auto_scaling_policy)
         """
 
@@ -645,7 +645,7 @@ class EMRClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.put_auto_termination_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.put_auto_termination_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#put_auto_termination_policy)
         """
 
@@ -656,7 +656,7 @@ class EMRClient(BaseClient):
         Creates or updates an Amazon EMR block public access configuration for your
         Amazon Web Services account in the current Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.put_block_public_access_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.put_block_public_access_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#put_block_public_access_configuration)
         """
 
@@ -666,7 +666,7 @@ class EMRClient(BaseClient):
         """
         Creates or updates a managed scaling policy for an Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.put_managed_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.put_managed_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#put_managed_scaling_policy)
         """
 
@@ -675,7 +675,7 @@ class EMRClient(BaseClient):
         Removes an automatic scaling policy from a specified instance group within an
         Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.remove_auto_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.remove_auto_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#remove_auto_scaling_policy)
         """
 
@@ -683,7 +683,7 @@ class EMRClient(BaseClient):
         """
         Removes an auto-termination policy from an Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.remove_auto_termination_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.remove_auto_termination_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#remove_auto_termination_policy)
         """
 
@@ -691,7 +691,7 @@ class EMRClient(BaseClient):
         """
         Removes a managed scaling policy from a specified Amazon EMR cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.remove_managed_scaling_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.remove_managed_scaling_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#remove_managed_scaling_policy)
         """
 
@@ -700,7 +700,7 @@ class EMRClient(BaseClient):
         Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR
         Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.remove_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.remove_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#remove_tags)
         """
 
@@ -742,7 +742,7 @@ class EMRClient(BaseClient):
         """
         RunJobFlow creates and starts running a new cluster (job flow).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.run_job_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.run_job_flow)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#run_job_flow)
         """
 
@@ -753,7 +753,7 @@ class EMRClient(BaseClient):
         You can use the `SetKeepJobFlowAliveWhenNoSteps` to configure a cluster (job
         flow) to terminate after the step execution, i.e., all your steps are executed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.set_keep_job_flow_alive_when_no_steps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.set_keep_job_flow_alive_when_no_steps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#set_keep_job_flow_alive_when_no_steps)
         """
 
@@ -765,7 +765,7 @@ class EMRClient(BaseClient):
         in the cluster cannot be terminated by user intervention, an API call, or in the
         event of a job-flow error.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.set_termination_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.set_termination_protection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#set_termination_protection)
         """
 
@@ -776,7 +776,7 @@ class EMRClient(BaseClient):
         Specify whether to enable unhealthy node replacement, which lets Amazon EMR
         gracefully replace core nodes on a cluster if any nodes become unhealthy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.set_unhealthy_node_replacement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.set_unhealthy_node_replacement)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#set_unhealthy_node_replacement)
         """
 
@@ -784,7 +784,7 @@ class EMRClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.set_visible_to_all_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.set_visible_to_all_users)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#set_visible_to_all_users)
         """
 
@@ -807,7 +807,7 @@ class EMRClient(BaseClient):
         """
         Starts a notebook execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.start_notebook_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.start_notebook_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#start_notebook_execution)
         """
 
@@ -815,7 +815,7 @@ class EMRClient(BaseClient):
         """
         Stops a notebook execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.stop_notebook_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.stop_notebook_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#stop_notebook_execution)
         """
 
@@ -823,7 +823,7 @@ class EMRClient(BaseClient):
         """
         TerminateJobFlows shuts a list of clusters (job flows) down.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.terminate_job_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.terminate_job_flows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#terminate_job_flows)
         """
 
@@ -841,7 +841,7 @@ class EMRClient(BaseClient):
         Updates an Amazon EMR Studio configuration, including attributes such as name,
         description, and subnets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.update_studio)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.update_studio)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#update_studio)
         """
 
@@ -858,7 +858,7 @@ class EMRClient(BaseClient):
         Updates the session policy attached to the user or group for the specified
         Amazon EMR Studio.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Client.update_studio_session_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Client.update_studio_session_mapping)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/client.html#update_studio_session_mapping)
         """
 
@@ -867,14 +867,14 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_bootstrap_actions"]
     ) -> ListBootstrapActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listbootstrapactionspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListClusters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listclusterspaginator)
         """
 
@@ -883,7 +883,7 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_instance_fleets"]
     ) -> ListInstanceFleetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancefleetspaginator)
         """
 
@@ -892,14 +892,14 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_instance_groups"]
     ) -> ListInstanceGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancegroupspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancespaginator)
         """
 
@@ -908,7 +908,7 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_notebook_executions"]
     ) -> ListNotebookExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listnotebookexecutionspaginator)
         """
 
@@ -917,14 +917,14 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_security_configurations"]
     ) -> ListSecurityConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listsecurityconfigurationspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_steps"]) -> ListStepsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListSteps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListSteps)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststepspaginator)
         """
 
@@ -933,34 +933,34 @@ class EMRClient(BaseClient):
         self, operation_name: Literal["list_studio_session_mappings"]
     ) -> ListStudioSessionMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiosessionmappingspaginator)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_studios"]) -> ListStudiosPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Paginator.ListStudios)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Paginator.ListStudios)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiospaginator)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_running"]) -> ClusterRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterRunning)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Waiter.ClusterRunning)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterrunningwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_terminated"]) -> ClusterTerminatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#clusterterminatedwaiter)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["step_complete"]) -> StepCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/emr.html#EMR.Waiter.StepComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr.html#EMR.Waiter.StepComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/waiters.html#stepcompletewaiter)
         """

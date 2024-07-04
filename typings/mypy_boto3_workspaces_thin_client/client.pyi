@@ -65,7 +65,7 @@ class Exceptions:
 
 class WorkSpacesThinClientClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html)
     """
 
@@ -81,7 +81,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#can_paginate)
         """
 
@@ -89,7 +89,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#close)
         """
 
@@ -105,12 +105,13 @@ class WorkSpacesThinClientClient(BaseClient):
         desiredSoftwareSetId: str = None,
         kmsKeyArn: str = None,
         clientToken: str = None,
-        tags: Dict[str, str] = None
+        tags: Dict[str, str] = None,
+        deviceCreationTags: Dict[str, str] = None
     ) -> CreateEnvironmentResponseTypeDef:
         """
         Creates an environment for your thin client devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#create_environment)
         """
 
@@ -118,7 +119,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Deletes a thin client device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.delete_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.delete_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#delete_device)
         """
 
@@ -126,7 +127,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Deletes an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#delete_environment)
         """
 
@@ -136,7 +137,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Deregisters a thin client device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.deregister_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.deregister_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#deregister_device)
         """
 
@@ -150,7 +151,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#generate_presigned_url)
         """
 
@@ -158,7 +159,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns information for a thin client device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#get_device)
         """
 
@@ -166,7 +167,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns information for an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#get_environment)
         """
 
@@ -174,7 +175,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns information for a software set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_software_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.get_software_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#get_software_set)
         """
 
@@ -184,7 +185,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns a list of thin client devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_devices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#list_devices)
         """
 
@@ -194,7 +195,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns a list of environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#list_environments)
         """
 
@@ -204,7 +205,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns a list of software sets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_software_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_software_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#list_software_sets)
         """
 
@@ -212,7 +213,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Returns a list of tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#list_tags_for_resource)
         """
 
@@ -220,7 +221,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Assigns one or more tags (key-value pairs) to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#tag_resource)
         """
 
@@ -228,7 +229,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Removes a tag or tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#untag_resource)
         """
 
@@ -243,7 +244,7 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Updates a thin client device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#update_device)
         """
 
@@ -257,12 +258,13 @@ class WorkSpacesThinClientClient(BaseClient):
         softwareSetUpdateSchedule: SoftwareSetUpdateScheduleType = None,
         maintenanceWindow: "MaintenanceWindowTypeDef" = None,
         softwareSetUpdateMode: SoftwareSetUpdateModeType = None,
-        desiredSoftwareSetId: str = None
+        desiredSoftwareSetId: str = None,
+        deviceCreationTags: Dict[str, str] = None
     ) -> UpdateEnvironmentResponseTypeDef:
         """
         Updates an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#update_environment)
         """
 
@@ -272,14 +274,14 @@ class WorkSpacesThinClientClient(BaseClient):
         """
         Updates a software set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_software_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Client.update_software_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/client.html#update_software_set)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_devices"]) -> ListDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListDevices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listdevicespaginator)
         """
 
@@ -288,7 +290,7 @@ class WorkSpacesThinClientClient(BaseClient):
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listenvironmentspaginator)
         """
 
@@ -297,6 +299,6 @@ class WorkSpacesThinClientClient(BaseClient):
         self, operation_name: Literal["list_software_sets"]
     ) -> ListSoftwareSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workspaces-thin-client.html#WorkSpacesThinClient.Paginator.ListSoftwareSets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/paginators.html#listsoftwaresetspaginator)
         """

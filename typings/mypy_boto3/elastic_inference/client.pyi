@@ -50,7 +50,7 @@ class Exceptions:
 
 class ElasticInferenceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html)
     """
 
@@ -66,7 +66,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#can_paginate)
         """
 
@@ -74,7 +74,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Closes underlying endpoint connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.close)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#close)
         """
 
@@ -85,7 +85,7 @@ class ElasticInferenceClient(BaseClient):
         Describes the locations in which a given accelerator type or set of types is
         present in a given region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerator_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerator_offerings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#describe_accelerator_offerings)
         """
 
@@ -94,7 +94,7 @@ class ElasticInferenceClient(BaseClient):
         Describes the accelerator types available in a given region, as well as their
         characteristics, such as memory and throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerator_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerator_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#describe_accelerator_types)
         """
 
@@ -110,7 +110,7 @@ class ElasticInferenceClient(BaseClient):
         Describes information over a provided set of accelerators belonging to an
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.describe_accelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#describe_accelerators)
         """
 
@@ -124,7 +124,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#generate_presigned_url)
         """
 
@@ -132,7 +132,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Returns all tags of an Elastic Inference Accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#list_tags_for_resource)
         """
 
@@ -140,7 +140,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Adds the specified tags to an Elastic Inference Accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#tag_resource)
         """
 
@@ -148,7 +148,7 @@ class ElasticInferenceClient(BaseClient):
         """
         Removes the specified tags from an Elastic Inference Accelerator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/client.html#untag_resource)
         """
 
@@ -156,6 +156,6 @@ class ElasticInferenceClient(BaseClient):
         self, operation_name: Literal["describe_accelerators"]
     ) -> DescribeAcceleratorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastic_inference/paginators.html#describeacceleratorspaginator)
         """

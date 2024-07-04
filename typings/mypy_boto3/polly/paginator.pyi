@@ -39,7 +39,7 @@ __all__ = ("DescribeVoicesPaginator", "ListLexiconsPaginator", "ListSpeechSynthe
 
 class DescribeVoicesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.DescribeVoices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
     """
 
@@ -52,13 +52,13 @@ class DescribeVoicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVoicesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
         """
 
 class ListLexiconsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.ListLexicons)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.ListLexicons)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
     """
 
@@ -66,13 +66,13 @@ class ListLexiconsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLexiconsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
         """
 
 class ListSpeechSynthesisTasksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
     """
 
@@ -80,6 +80,6 @@ class ListSpeechSynthesisTasksPaginator(Boto3Paginator):
         self, *, Status: TaskStatusType = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSpeechSynthesisTasksOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.119/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
         """

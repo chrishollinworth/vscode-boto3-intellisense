@@ -105,6 +105,7 @@ from .literals import (
     FrameworkType,
     HubContentSortByType,
     HubContentStatusType,
+    HubContentSupportStatusType,
     HubContentTypeType,
     HubSortByType,
     HubStatusType,
@@ -128,6 +129,7 @@ from .literals import (
     InferenceExperimentStopDesiredStateType,
     InputModeType,
     InstanceTypeType,
+    IsTrackingServerActiveType,
     JobTypeType,
     JoinSourceType,
     LabelingJobStatusType,
@@ -142,6 +144,7 @@ from .literals import (
     ListWorkteamsSortByOptionsType,
     ManagedInstanceScalingStatusType,
     MetricSetSourceType,
+    MlToolsType,
     ModelApprovalStatusType,
     ModelCacheSettingType,
     ModelCardExportJobSortByType,
@@ -233,6 +236,7 @@ from .literals import (
     SortOrderType,
     SortPipelineExecutionsByType,
     SortPipelinesByType,
+    SortTrackingServerByType,
     SortTrialComponentsByType,
     SortTrialsByType,
     SpaceSortKeyType,
@@ -251,6 +255,8 @@ from .literals import (
     TargetPlatformArchType,
     TargetPlatformOsType,
     ThroughputModeType,
+    TrackingServerSizeType,
+    TrackingServerStatusType,
     TrafficRoutingConfigTypeType,
     TrafficTypeType,
     TrainingInputModeType,
@@ -368,10 +374,12 @@ __all__ = (
     "ClarifyShapBaselineConfigTypeDef",
     "ClarifyShapConfigTypeDef",
     "ClarifyTextConfigTypeDef",
+    "ClusterEbsVolumeConfigTypeDef",
     "ClusterInstanceGroupDetailsTypeDef",
     "ClusterInstanceGroupSpecificationTypeDef",
     "ClusterInstancePlacementTypeDef",
     "ClusterInstanceStatusDetailsTypeDef",
+    "ClusterInstanceStorageConfigTypeDef",
     "ClusterLifeCycleConfigTypeDef",
     "ClusterNodeDetailsTypeDef",
     "ClusterNodeSummaryTypeDef",
@@ -434,6 +442,8 @@ __all__ = (
     "CreateFeatureGroupResponseTypeDef",
     "CreateFlowDefinitionRequestRequestTypeDef",
     "CreateFlowDefinitionResponseTypeDef",
+    "CreateHubContentReferenceRequestRequestTypeDef",
+    "CreateHubContentReferenceResponseTypeDef",
     "CreateHubRequestRequestTypeDef",
     "CreateHubResponseTypeDef",
     "CreateHumanTaskUiRequestRequestTypeDef",
@@ -452,6 +462,8 @@ __all__ = (
     "CreateInferenceRecommendationsJobResponseTypeDef",
     "CreateLabelingJobRequestRequestTypeDef",
     "CreateLabelingJobResponseTypeDef",
+    "CreateMlflowTrackingServerRequestRequestTypeDef",
+    "CreateMlflowTrackingServerResponseTypeDef",
     "CreateModelBiasJobDefinitionRequestRequestTypeDef",
     "CreateModelBiasJobDefinitionResponseTypeDef",
     "CreateModelCardExportJobRequestRequestTypeDef",
@@ -478,6 +490,8 @@ __all__ = (
     "CreatePipelineResponseTypeDef",
     "CreatePresignedDomainUrlRequestRequestTypeDef",
     "CreatePresignedDomainUrlResponseTypeDef",
+    "CreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef",
+    "CreatePresignedMlflowTrackingServerUrlResponseTypeDef",
     "CreatePresignedNotebookInstanceUrlInputRequestTypeDef",
     "CreatePresignedNotebookInstanceUrlOutputTypeDef",
     "CreateProcessingJobRequestRequestTypeDef",
@@ -548,6 +562,7 @@ __all__ = (
     "DeleteExperimentResponseTypeDef",
     "DeleteFeatureGroupRequestRequestTypeDef",
     "DeleteFlowDefinitionRequestRequestTypeDef",
+    "DeleteHubContentReferenceRequestRequestTypeDef",
     "DeleteHubContentRequestRequestTypeDef",
     "DeleteHubRequestRequestTypeDef",
     "DeleteHumanTaskUiRequestRequestTypeDef",
@@ -557,6 +572,8 @@ __all__ = (
     "DeleteInferenceComponentInputRequestTypeDef",
     "DeleteInferenceExperimentRequestRequestTypeDef",
     "DeleteInferenceExperimentResponseTypeDef",
+    "DeleteMlflowTrackingServerRequestRequestTypeDef",
+    "DeleteMlflowTrackingServerResponseTypeDef",
     "DeleteModelBiasJobDefinitionRequestRequestTypeDef",
     "DeleteModelCardRequestRequestTypeDef",
     "DeleteModelExplainabilityJobDefinitionRequestRequestTypeDef",
@@ -659,6 +676,8 @@ __all__ = (
     "DescribeLabelingJobResponseTypeDef",
     "DescribeLineageGroupRequestRequestTypeDef",
     "DescribeLineageGroupResponseTypeDef",
+    "DescribeMlflowTrackingServerRequestRequestTypeDef",
+    "DescribeMlflowTrackingServerResponseTypeDef",
     "DescribeModelBiasJobDefinitionRequestRequestTypeDef",
     "DescribeModelBiasJobDefinitionResponseTypeDef",
     "DescribeModelCardExportJobRequestRequestTypeDef",
@@ -839,6 +858,7 @@ __all__ = (
     "InferenceExperimentDataStorageConfigTypeDef",
     "InferenceExperimentScheduleTypeDef",
     "InferenceExperimentSummaryTypeDef",
+    "InferenceHubAccessConfigTypeDef",
     "InferenceMetricsTypeDef",
     "InferenceRecommendationTypeDef",
     "InferenceRecommendationsJobStepTypeDef",
@@ -952,6 +972,8 @@ __all__ = (
     "ListLabelingJobsResponseTypeDef",
     "ListLineageGroupsRequestRequestTypeDef",
     "ListLineageGroupsResponseTypeDef",
+    "ListMlflowTrackingServersRequestRequestTypeDef",
+    "ListMlflowTrackingServersResponseTypeDef",
     "ListModelBiasJobDefinitionsRequestRequestTypeDef",
     "ListModelBiasJobDefinitionsResponseTypeDef",
     "ListModelCardExportJobsRequestRequestTypeDef",
@@ -1269,6 +1291,8 @@ __all__ = (
     "StartEdgeDeploymentStageRequestRequestTypeDef",
     "StartInferenceExperimentRequestRequestTypeDef",
     "StartInferenceExperimentResponseTypeDef",
+    "StartMlflowTrackingServerRequestRequestTypeDef",
+    "StartMlflowTrackingServerResponseTypeDef",
     "StartMonitoringScheduleRequestRequestTypeDef",
     "StartNotebookInstanceInputRequestTypeDef",
     "StartPipelineExecutionRequestRequestTypeDef",
@@ -1282,6 +1306,8 @@ __all__ = (
     "StopInferenceExperimentResponseTypeDef",
     "StopInferenceRecommendationsJobRequestRequestTypeDef",
     "StopLabelingJobRequestRequestTypeDef",
+    "StopMlflowTrackingServerRequestRequestTypeDef",
+    "StopMlflowTrackingServerResponseTypeDef",
     "StopMonitoringScheduleRequestRequestTypeDef",
     "StopNotebookInstanceInputRequestTypeDef",
     "StopPipelineExecutionRequestRequestTypeDef",
@@ -1291,6 +1317,7 @@ __all__ = (
     "StopTransformJobRequestRequestTypeDef",
     "StoppingConditionTypeDef",
     "StudioLifecycleConfigDetailsTypeDef",
+    "StudioWebPortalSettingsTypeDef",
     "SubscribedWorkteamTypeDef",
     "SuggestionQueryTypeDef",
     "TabularJobConfigTypeDef",
@@ -1310,6 +1337,7 @@ __all__ = (
     "TimeSeriesForecastingJobConfigTypeDef",
     "TimeSeriesForecastingSettingsTypeDef",
     "TimeSeriesTransformationsTypeDef",
+    "TrackingServerSummaryTypeDef",
     "TrafficPatternTypeDef",
     "TrafficRoutingConfigTypeDef",
     "TrainingImageConfigTypeDef",
@@ -1387,6 +1415,8 @@ __all__ = (
     "UpdateInferenceComponentRuntimeConfigOutputTypeDef",
     "UpdateInferenceExperimentRequestRequestTypeDef",
     "UpdateInferenceExperimentResponseTypeDef",
+    "UpdateMlflowTrackingServerRequestRequestTypeDef",
+    "UpdateMlflowTrackingServerResponseTypeDef",
     "UpdateModelCardRequestRequestTypeDef",
     "UpdateModelCardResponseTypeDef",
     "UpdateModelPackageInputRequestTypeDef",
@@ -2571,6 +2601,13 @@ ClarifyTextConfigTypeDef = TypedDict(
     },
 )
 
+ClusterEbsVolumeConfigTypeDef = TypedDict(
+    "ClusterEbsVolumeConfigTypeDef",
+    {
+        "VolumeSizeInGB": int,
+    },
+)
+
 ClusterInstanceGroupDetailsTypeDef = TypedDict(
     "ClusterInstanceGroupDetailsTypeDef",
     {
@@ -2581,6 +2618,7 @@ ClusterInstanceGroupDetailsTypeDef = TypedDict(
         "LifeCycleConfig": "ClusterLifeCycleConfigTypeDef",
         "ExecutionRole": str,
         "ThreadsPerCore": int,
+        "InstanceStorageConfigs": List["ClusterInstanceStorageConfigTypeDef"],
     },
     total=False,
 )
@@ -2599,6 +2637,7 @@ _OptionalClusterInstanceGroupSpecificationTypeDef = TypedDict(
     "_OptionalClusterInstanceGroupSpecificationTypeDef",
     {
         "ThreadsPerCore": int,
+        "InstanceStorageConfigs": List["ClusterInstanceStorageConfigTypeDef"],
     },
     total=False,
 )
@@ -2637,6 +2676,14 @@ class ClusterInstanceStatusDetailsTypeDef(
 ):
     pass
 
+ClusterInstanceStorageConfigTypeDef = TypedDict(
+    "ClusterInstanceStorageConfigTypeDef",
+    {
+        "EbsVolumeConfig": "ClusterEbsVolumeConfigTypeDef",
+    },
+    total=False,
+)
+
 ClusterLifeCycleConfigTypeDef = TypedDict(
     "ClusterLifeCycleConfigTypeDef",
     {
@@ -2655,6 +2702,7 @@ ClusterNodeDetailsTypeDef = TypedDict(
         "LaunchTime": datetime,
         "LifeCycleConfig": "ClusterLifeCycleConfigTypeDef",
         "ThreadsPerCore": int,
+        "InstanceStorageConfigs": List["ClusterInstanceStorageConfigTypeDef"],
         "PrivatePrimaryIp": str,
         "PrivateDnsHostname": str,
         "Placement": "ClusterInstancePlacementTypeDef",
@@ -3574,6 +3622,38 @@ CreateFlowDefinitionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateHubContentReferenceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateHubContentReferenceRequestRequestTypeDef",
+    {
+        "HubName": str,
+        "SageMakerPublicHubContentArn": str,
+    },
+)
+_OptionalCreateHubContentReferenceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateHubContentReferenceRequestRequestTypeDef",
+    {
+        "HubContentName": str,
+        "MinVersion": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateHubContentReferenceRequestRequestTypeDef(
+    _RequiredCreateHubContentReferenceRequestRequestTypeDef,
+    _OptionalCreateHubContentReferenceRequestRequestTypeDef,
+):
+    pass
+
+CreateHubContentReferenceResponseTypeDef = TypedDict(
+    "CreateHubContentReferenceResponseTypeDef",
+    {
+        "HubArn": str,
+        "HubContentArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateHubRequestRequestTypeDef = TypedDict(
     "_RequiredCreateHubRequestRequestTypeDef",
     {
@@ -3867,6 +3947,40 @@ CreateLabelingJobResponseTypeDef = TypedDict(
     "CreateLabelingJobResponseTypeDef",
     {
         "LabelingJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+        "ArtifactStoreUri": str,
+        "RoleArn": str,
+    },
+)
+_OptionalCreateMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerSize": TrackingServerSizeType,
+        "MlflowVersion": str,
+        "AutomaticModelRegistration": bool,
+        "WeeklyMaintenanceWindowStart": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMlflowTrackingServerRequestRequestTypeDef(
+    _RequiredCreateMlflowTrackingServerRequestRequestTypeDef,
+    _OptionalCreateMlflowTrackingServerRequestRequestTypeDef,
+):
+    pass
+
+CreateMlflowTrackingServerResponseTypeDef = TypedDict(
+    "CreateMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4300,6 +4414,35 @@ class CreatePresignedDomainUrlRequestRequestTypeDef(
 
 CreatePresignedDomainUrlResponseTypeDef = TypedDict(
     "CreatePresignedDomainUrlResponseTypeDef",
+    {
+        "AuthorizedUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+_OptionalCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef",
+    {
+        "ExpiresInSeconds": int,
+        "SessionExpirationDurationInSeconds": int,
+    },
+    total=False,
+)
+
+class CreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef(
+    _RequiredCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef,
+    _OptionalCreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef,
+):
+    pass
+
+CreatePresignedMlflowTrackingServerUrlResponseTypeDef = TypedDict(
+    "CreatePresignedMlflowTrackingServerUrlResponseTypeDef",
     {
         "AuthorizedUrl": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -5187,6 +5330,15 @@ DeleteFlowDefinitionRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteHubContentReferenceRequestRequestTypeDef = TypedDict(
+    "DeleteHubContentReferenceRequestRequestTypeDef",
+    {
+        "HubName": str,
+        "HubContentType": HubContentTypeType,
+        "HubContentName": str,
+    },
+)
+
 DeleteHubContentRequestRequestTypeDef = TypedDict(
     "DeleteHubContentRequestRequestTypeDef",
     {
@@ -5264,6 +5416,21 @@ DeleteInferenceExperimentResponseTypeDef = TypedDict(
     "DeleteInferenceExperimentResponseTypeDef",
     {
         "InferenceExperimentArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "DeleteMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+
+DeleteMlflowTrackingServerResponseTypeDef = TypedDict(
+    "DeleteMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6251,6 +6418,9 @@ DescribeHubContentResponseTypeDef = TypedDict(
         "HubContentDescription": str,
         "HubContentMarkdown": str,
         "HubContentDocument": str,
+        "SageMakerPublicHubContentArn": str,
+        "ReferenceMinVersion": str,
+        "SupportStatus": HubContentSupportStatusType,
         "HubContentSearchKeywords": List[str],
         "HubContentDependencies": List["HubContentDependencyTypeDef"],
         "HubContentStatus": HubContentStatusType,
@@ -6531,6 +6701,35 @@ DescribeLineageGroupResponseTypeDef = TypedDict(
         "LineageGroupArn": str,
         "DisplayName": str,
         "Description": str,
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "DescribeMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+
+DescribeMlflowTrackingServerResponseTypeDef = TypedDict(
+    "DescribeMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
+        "TrackingServerName": str,
+        "ArtifactStoreUri": str,
+        "TrackingServerSize": TrackingServerSizeType,
+        "MlflowVersion": str,
+        "RoleArn": str,
+        "TrackingServerStatus": TrackingServerStatusType,
+        "IsActive": IsTrackingServerActiveType,
+        "TrackingServerUrl": str,
+        "WeeklyMaintenanceWindowStart": str,
+        "AutomaticModelRegistration": bool,
         "CreationTime": datetime,
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedTime": datetime,
@@ -8394,9 +8593,12 @@ _RequiredHubContentInfoTypeDef = TypedDict(
 _OptionalHubContentInfoTypeDef = TypedDict(
     "_OptionalHubContentInfoTypeDef",
     {
+        "SageMakerPublicHubContentArn": str,
         "HubContentDisplayName": str,
         "HubContentDescription": str,
+        "SupportStatus": HubContentSupportStatusType,
         "HubContentSearchKeywords": List[str],
+        "OriginalCreationTime": datetime,
     },
     total=False,
 )
@@ -9101,6 +9303,13 @@ class InferenceExperimentSummaryTypeDef(
 ):
     pass
 
+InferenceHubAccessConfigTypeDef = TypedDict(
+    "InferenceHubAccessConfigTypeDef",
+    {
+        "HubContentArn": str,
+    },
+)
+
 InferenceMetricsTypeDef = TypedDict(
     "InferenceMetricsTypeDef",
     {
@@ -9112,7 +9321,6 @@ InferenceMetricsTypeDef = TypedDict(
 _RequiredInferenceRecommendationTypeDef = TypedDict(
     "_RequiredInferenceRecommendationTypeDef",
     {
-        "Metrics": "RecommendationMetricsTypeDef",
         "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
         "ModelConfiguration": "ModelConfigurationTypeDef",
     },
@@ -9121,6 +9329,7 @@ _OptionalInferenceRecommendationTypeDef = TypedDict(
     "_OptionalInferenceRecommendationTypeDef",
     {
         "RecommendationId": str,
+        "Metrics": "RecommendationMetricsTypeDef",
         "InvocationEndTime": datetime,
         "InvocationStartTime": datetime,
     },
@@ -10631,6 +10840,30 @@ ListLineageGroupsResponseTypeDef = TypedDict(
     },
 )
 
+ListMlflowTrackingServersRequestRequestTypeDef = TypedDict(
+    "ListMlflowTrackingServersRequestRequestTypeDef",
+    {
+        "CreatedAfter": Union[datetime, str],
+        "CreatedBefore": Union[datetime, str],
+        "TrackingServerStatus": TrackingServerStatusType,
+        "MlflowVersion": str,
+        "SortBy": SortTrackingServerByType,
+        "SortOrder": SortOrderType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListMlflowTrackingServersResponseTypeDef = TypedDict(
+    "ListMlflowTrackingServersResponseTypeDef",
+    {
+        "TrackingServerSummaries": List["TrackingServerSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListModelBiasJobDefinitionsRequestRequestTypeDef = TypedDict(
     "ListModelBiasJobDefinitionsRequestRequestTypeDef",
     {
@@ -10804,6 +11037,7 @@ ListModelPackageGroupsInputRequestTypeDef = TypedDict(
         "NextToken": str,
         "SortBy": ModelPackageGroupSortByType,
         "SortOrder": SortOrderType,
+        "CrossAccountFilterOption": CrossAccountFilterOptionType,
     },
     total=False,
 )
@@ -12847,12 +13081,14 @@ OidcConfigForResponseTypeDef = TypedDict(
         "UserInfoEndpoint": str,
         "LogoutEndpoint": str,
         "JwksUri": str,
+        "Scope": str,
+        "AuthenticationRequestExtraParams": Dict[str, str],
     },
     total=False,
 )
 
-OidcConfigTypeDef = TypedDict(
-    "OidcConfigTypeDef",
+_RequiredOidcConfigTypeDef = TypedDict(
+    "_RequiredOidcConfigTypeDef",
     {
         "ClientId": str,
         "ClientSecret": str,
@@ -12864,6 +13100,17 @@ OidcConfigTypeDef = TypedDict(
         "JwksUri": str,
     },
 )
+_OptionalOidcConfigTypeDef = TypedDict(
+    "_OptionalOidcConfigTypeDef",
+    {
+        "Scope": str,
+        "AuthenticationRequestExtraParams": Dict[str, str],
+    },
+    total=False,
+)
+
+class OidcConfigTypeDef(_RequiredOidcConfigTypeDef, _OptionalOidcConfigTypeDef):
+    pass
 
 OidcMemberDefinitionTypeDef = TypedDict(
     "OidcMemberDefinitionTypeDef",
@@ -13559,6 +13806,7 @@ _OptionalProductionVariantTypeDef = TypedDict(
         "EnableSSMAccess": bool,
         "ManagedInstanceScaling": "ProductionVariantManagedInstanceScalingTypeDef",
         "RoutingConfig": "ProductionVariantRoutingConfigTypeDef",
+        "InferenceAmiVersion": Literal["al2-ami-sagemaker-inference-gpu-2"],
     },
     total=False,
 )
@@ -13970,29 +14218,19 @@ RecommendationJobVpcConfigTypeDef = TypedDict(
     },
 )
 
-_RequiredRecommendationMetricsTypeDef = TypedDict(
-    "_RequiredRecommendationMetricsTypeDef",
+RecommendationMetricsTypeDef = TypedDict(
+    "RecommendationMetricsTypeDef",
     {
         "CostPerHour": float,
         "CostPerInference": float,
         "MaxInvocations": int,
         "ModelLatency": int,
-    },
-)
-_OptionalRecommendationMetricsTypeDef = TypedDict(
-    "_OptionalRecommendationMetricsTypeDef",
-    {
         "CpuUtilization": float,
         "MemoryUtilization": float,
         "ModelSetupTime": int,
     },
     total=False,
 )
-
-class RecommendationMetricsTypeDef(
-    _RequiredRecommendationMetricsTypeDef, _OptionalRecommendationMetricsTypeDef
-):
-    pass
 
 _RequiredRedshiftDatasetDefinitionTypeDef = TypedDict(
     "_RequiredRedshiftDatasetDefinitionTypeDef",
@@ -14302,6 +14540,7 @@ _OptionalS3ModelDataSourceTypeDef = TypedDict(
     "_OptionalS3ModelDataSourceTypeDef",
     {
         "ModelAccessConfig": "ModelAccessConfigTypeDef",
+        "HubAccessConfig": "InferenceHubAccessConfigTypeDef",
     },
     total=False,
 )
@@ -14786,6 +15025,21 @@ StartInferenceExperimentResponseTypeDef = TypedDict(
     },
 )
 
+StartMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "StartMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+
+StartMlflowTrackingServerResponseTypeDef = TypedDict(
+    "StartMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartMonitoringScheduleRequestRequestTypeDef = TypedDict(
     "StartMonitoringScheduleRequestRequestTypeDef",
     {
@@ -14914,6 +15168,21 @@ StopLabelingJobRequestRequestTypeDef = TypedDict(
     },
 )
 
+StopMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "StopMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+
+StopMlflowTrackingServerResponseTypeDef = TypedDict(
+    "StopMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StopMonitoringScheduleRequestRequestTypeDef = TypedDict(
     "StopMonitoringScheduleRequestRequestTypeDef",
     {
@@ -14983,6 +15252,15 @@ StudioLifecycleConfigDetailsTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "StudioLifecycleConfigAppType": StudioLifecycleConfigAppTypeType,
+    },
+    total=False,
+)
+
+StudioWebPortalSettingsTypeDef = TypedDict(
+    "StudioWebPortalSettingsTypeDef",
+    {
+        "HiddenMlTools": List[MlToolsType],
+        "HiddenAppTypes": List[AppTypeType],
     },
     total=False,
 )
@@ -15256,6 +15534,20 @@ TimeSeriesTransformationsTypeDef = TypedDict(
     {
         "Filling": Dict[str, Dict[FillingTypeType, str]],
         "Aggregation": Dict[str, AggregationTransformationValueType],
+    },
+    total=False,
+)
+
+TrackingServerSummaryTypeDef = TypedDict(
+    "TrackingServerSummaryTypeDef",
+    {
+        "TrackingServerArn": str,
+        "TrackingServerName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "TrackingServerStatus": TrackingServerStatusType,
+        "IsActive": IsTrackingServerActiveType,
+        "MlflowVersion": str,
     },
     total=False,
 )
@@ -16406,6 +16698,37 @@ UpdateInferenceExperimentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "TrackingServerName": str,
+    },
+)
+_OptionalUpdateMlflowTrackingServerRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMlflowTrackingServerRequestRequestTypeDef",
+    {
+        "ArtifactStoreUri": str,
+        "TrackingServerSize": TrackingServerSizeType,
+        "AutomaticModelRegistration": bool,
+        "WeeklyMaintenanceWindowStart": str,
+    },
+    total=False,
+)
+
+class UpdateMlflowTrackingServerRequestRequestTypeDef(
+    _RequiredUpdateMlflowTrackingServerRequestRequestTypeDef,
+    _OptionalUpdateMlflowTrackingServerRequestRequestTypeDef,
+):
+    pass
+
+UpdateMlflowTrackingServerResponseTypeDef = TypedDict(
+    "UpdateMlflowTrackingServerResponseTypeDef",
+    {
+        "TrackingServerArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateModelCardRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateModelCardRequestRequestTypeDef",
     {
@@ -16901,6 +17224,7 @@ UserSettingsTypeDef = TypedDict(
         "StudioWebPortal": StudioWebPortalType,
         "CustomPosixUserConfig": "CustomPosixUserConfigTypeDef",
         "CustomFileSystemConfigs": List["CustomFileSystemConfigTypeDef"],
+        "StudioWebPortalSettings": "StudioWebPortalSettingsTypeDef",
     },
     total=False,
 )
