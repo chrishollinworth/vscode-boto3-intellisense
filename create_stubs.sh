@@ -2,7 +2,7 @@ mkdir -p typings/boto3
 mkdir -p typings/botocore
 
 cp /opt/venv/lib/python3.*/site-packages/boto3-stubs/__init__.pyi typings/boto3/__init__.pyi
-cp buildstubs_env/lib/python3.*/site-packages/boto3-stubs/compat.pyi typings/boto3/compat.pyi
+cp /opt/venv/lib/python3.*/site-packages/boto3-stubs/compat.pyi typings/boto3/compat.pyi
 cp /opt/venv/lib/python3.*/site-packages/boto3-stubs/exceptions.pyi typings/boto3/exceptions.pyi
 cp /opt/venv/lib/python3.*/site-packages/boto3-stubs/session.pyi typings/boto3/session.pyi
 cp /opt/venv/lib/python3.*/site-packages/boto3-stubs/utils.pyi typings/boto3/utils.pyi

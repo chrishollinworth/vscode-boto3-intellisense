@@ -127,6 +127,7 @@ from .literals import (
     FleetReplacementStrategyType,
     FleetStateCodeType,
     FleetTypeType,
+    FlexibleEnaQueuesSupportType,
     FlowLogsResourceTypeType,
     FpgaImageAttributeNameType,
     FpgaImageStateCodeType,
@@ -6387,6 +6388,8 @@ class RemovePrefixListEntryTypeDef(TypedDict):
     Cidr: str
 
 class NetworkInterfaceAttachmentChangesTypeDef(TypedDict):
+    DefaultEnaQueueCount: NotRequired[bool]
+    EnaQueueCount: NotRequired[int]
     AttachmentId: NotRequired[str]
     DeleteOnTermination: NotRequired[bool]
 
@@ -6662,6 +6665,9 @@ class NetworkCardInfoTypeDef(TypedDict):
     MaximumNetworkInterfaces: NotRequired[int]
     BaselineBandwidthInGbps: NotRequired[float]
     PeakBandwidthInGbps: NotRequired[float]
+    DefaultEnaQueueCountPerInterface: NotRequired[int]
+    MaximumEnaQueueCount: NotRequired[int]
+    MaximumEnaQueueCountPerInterface: NotRequired[int]
 
 class NetworkInterfaceAssociationTypeDef(TypedDict):
     AllocationId: NotRequired[str]
@@ -13095,6 +13101,7 @@ class NetworkInfoTypeDef(TypedDict):
     EncryptionInTransitSupported: NotRequired[bool]
     EnaSrdSupported: NotRequired[bool]
     BandwidthWeightings: NotRequired[List[BandwidthWeightingTypeType]]
+    FlexibleEnaQueuesSupport: NotRequired[FlexibleEnaQueuesSupportType]
 
 class NetworkInterfacePrivateIpAddressTypeDef(TypedDict):
     Association: NotRequired[NetworkInterfaceAssociationTypeDef]
@@ -14370,6 +14377,7 @@ class NetworkInterfaceAttachmentTypeDef(TypedDict):
     InstanceOwnerId: NotRequired[str]
     Status: NotRequired[AttachmentStatusType]
     EnaSrdSpecification: NotRequired[AttachmentEnaSrdSpecificationTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class GetDeclarativePoliciesReportSummaryResultTypeDef(TypedDict):
     ReportId: str
@@ -14858,6 +14866,7 @@ class InstanceNetworkInterfaceSpecificationOutputTypeDef(TypedDict):
     PrimaryIpv6: NotRequired[bool]
     EnaSrdSpecification: NotRequired[EnaSrdSpecificationRequestTypeDef]
     ConnectionTrackingSpecification: NotRequired[ConnectionTrackingSpecificationRequestTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class InstanceNetworkInterfaceSpecificationTypeDef(TypedDict):
     AssociatePublicIpAddress: NotRequired[bool]
@@ -14882,6 +14891,7 @@ class InstanceNetworkInterfaceSpecificationTypeDef(TypedDict):
     PrimaryIpv6: NotRequired[bool]
     EnaSrdSpecification: NotRequired[EnaSrdSpecificationRequestTypeDef]
     ConnectionTrackingSpecification: NotRequired[ConnectionTrackingSpecificationRequestTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef(TypedDict):
     AssociateCarrierIpAddress: NotRequired[bool]
@@ -14906,12 +14916,14 @@ class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef(TypedDic
     PrimaryIpv6: NotRequired[bool]
     EnaSrdSpecification: NotRequired[EnaSrdSpecificationRequestTypeDef]
     ConnectionTrackingSpecification: NotRequired[ConnectionTrackingSpecificationRequestTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class AttachNetworkInterfaceRequestNetworkInterfaceAttachTypeDef(TypedDict):
     InstanceId: str
     DeviceIndex: int
     NetworkCardIndex: NotRequired[int]
     EnaSrdSpecification: NotRequired[EnaSrdSpecificationTypeDef]
+    EnaQueueCount: NotRequired[int]
     DryRun: NotRequired[bool]
 
 class AttachNetworkInterfaceRequestTypeDef(TypedDict):
@@ -14920,6 +14932,7 @@ class AttachNetworkInterfaceRequestTypeDef(TypedDict):
     DeviceIndex: int
     NetworkCardIndex: NotRequired[int]
     EnaSrdSpecification: NotRequired[EnaSrdSpecificationTypeDef]
+    EnaQueueCount: NotRequired[int]
     DryRun: NotRequired[bool]
 
 class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceModifyAttributeTypeDef(TypedDict):
@@ -15119,6 +15132,7 @@ class InstanceNetworkInterfaceAttachmentTypeDef(TypedDict):
     Status: NotRequired[AttachmentStatusType]
     NetworkCardIndex: NotRequired[int]
     EnaSrdSpecification: NotRequired[InstanceAttachmentEnaSrdSpecificationTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class DescribeInstanceImageMetadataResultTypeDef(TypedDict):
     InstanceImageMetadata: List[InstanceImageMetadataTypeDef]
@@ -15321,6 +15335,7 @@ class LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef(TypedDict):
     PrimaryIpv6: NotRequired[bool]
     EnaSrdSpecification: NotRequired[LaunchTemplateEnaSrdSpecificationTypeDef]
     ConnectionTrackingSpecification: NotRequired[ConnectionTrackingSpecificationTypeDef]
+    EnaQueueCount: NotRequired[int]
 
 class ModifyFpgaImageAttributeRequestTypeDef(TypedDict):
     FpgaImageId: str
